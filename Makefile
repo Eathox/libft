@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/01/24 11:43:07 by pholster      ########   odam.nl          #
+#    Updated: 2019/01/24 11:43:47 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS += count_if foreach puterror toupperstr tolowerstr putline chrin \
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)
 
-NORM = norminette $(SRCS) $(NAME:.a=.h) | grep -e "Error" -e "Warning" -B 1
+NORM = norminette $(SRCS) ./includes/*.h | grep -e "Error" -e "Warning" -B 1
 
 TESTS = ./test/main.c $(SRCS:%=./test/test_%)
 
