@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/01/24 11:42:14 by pholster      ########   odam.nl          #
+#    Updated: 2019/01/24 11:43:07 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ re: fclean $(NAME)
 
 push:
 ifdef MSG
-	git add $(SRCS) ./includes/$(NAME:.a=.h) Makefile author
+	git add $(SRCS) ./includes/*.h Makefile author
 	git commit -m "$(MSG)"
 	git push
 	@make norm
