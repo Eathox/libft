@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/23 14:18:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/25 22:51:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,14 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putchar(char c);
 void			ft_putendl_fd(const char *s, int fd);
 void			ft_putendl(const char *s);
-void			ft_putintarr(const int *tab, int len);
-void			ft_putintarr(const int *tab, int len);
+void			ft_putintarr(int *tab, int len);
 void			ft_putintlst(t_list *lst);
 void			ft_putline(char *s);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putnbr(int n);
 void			ft_putstr_fd(const char *s, int fd);
 void			ft_putstr(const char *s);
-void			ft_putstrarr(const char **tab);
+void			ft_putstrarr(char **tab);
 void			ft_putstrlst(t_list *lst);
 void			ft_strclr(char *s);
 void			ft_strdel(char **as);

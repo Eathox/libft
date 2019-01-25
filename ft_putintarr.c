@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:18:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 13:51:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/25 22:52:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putintarr(const int *tab, int len)
+void	ft_putintarr(int *tab, int len)
 {
 	int	i;
 
