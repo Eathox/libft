@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 14:51:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/26 14:51:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/26 15:01:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_clearterminal(void)
 {
-	write(0, "\e[1;1H\e[2J", 12);
+	write(0, "\e[1;1H\e[2J\n", 12);
 }
