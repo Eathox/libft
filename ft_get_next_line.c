@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/24 11:23:06 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 11:27:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@ static t_list	*gnl_get_lst(const int fd, t_list *alst)
 {
 	t_list	*lst;
 
-	lst = alst;
-	while (lst != NULL)
+	while (alst != NULL)
 	{
-		if ((int)lst->FD == fd)
-			return (lst);
-		lst = lst->next;
+		if ((int)alst->FD == fd)
+			return (alst);
+		if (alst->next == NULL)
+			break ;
+		alst = alst->next;
 	}
 	lst = ft_lstnew(NULL, 0);
 	lst->FD = fd;
 	if (alst != NULL)
-		ft_lstaddbck(&alst, lst);
+		alst->next = lst;
 	return (lst);
 }
 
