@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:22:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 18:47:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:16:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static char	**create_strarr(char const *s, char *cs)
 
 char		**ft_strsplit(char const *s, char c)
 {
-	char			*cs;
 	char			**tab;
 	unsigned int	i;
 	unsigned int	k;
@@ -38,18 +37,18 @@ char		**ft_strsplit(char const *s, char c)
 	i = 0;
 	k = 0;
 	j = 0;
-	cs = ft_chrtostr(c);
-	tab = create_strarr(s, cs);
+	tab = create_strarr(s, ft_chrtostr(c));
 	if (tab == NULL)
 		return (NULL);
-	while (s[i] != '\0')
+	while (s[ft_abs(i)] != '\0')
 	{
 		if (s[i] == c)
 			j = 0;
 		else if (j == 0)
 		{
-			tab[k++] = ft_strndup(&s[i], ft_strdlen(&s[i], cs));
+			tab[k] = ft_strndup(&s[i], ft_strdlen(&s[i], ft_chrtostr(c)));
 			j = 1;
+			k++;
 		}
 		i++;
 	}

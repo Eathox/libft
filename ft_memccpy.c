@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 17:24:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 18:45:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:49:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	while (i < n)
 	{
 		s1[i] = s2[i];
-		if (s2[i++] == (unsigned char)c)
-			return (&s1[i]);
+		if (s2[i] == (unsigned char)c)
+			return (&s1[i + 1]);
+		i++;
 	}
 	return (NULL);
 }

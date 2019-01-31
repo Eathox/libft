@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 16:08:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/17 16:00:59 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:04:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ void	*ft_memset(void *b, int c, size_t len)
 	a = c;
 	s = b;
 	while (i < len)
-		s[i++] = a;
+	{
+		s[i] = a;
+		i++;
+	}
 	return (b);
 }

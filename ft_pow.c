@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 17:13:48 by pholster      #+#    #+#                 */
-/*   Updated: 2019/01/11 21:00:06 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/10 17:13:48 by pholster       #+#    #+#                */
+/*   Updated: 2019/01/31 17:50:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ int		ft_pow(int n, int pow)
 		n = -n;
 	if (r < 0)
 		r = -r;
-	while (pow-- > 1)
+	while (pow > 1)
+	{
+		pow--;
 		r = r * n;
+	}
 	if (r > 2147483647)
 		return (1);
 	return (r);

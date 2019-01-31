@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 13:42:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/20 17:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:48:06 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,17 @@ char	*ft_itoa(int n)
 	unsigned int	len;
 
 	i = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	len = ft_intlen(n);
 	s = ft_strnew(len);
 	if (s == NULL)
 		return (NULL);
 	if (n < 0)
-		s[i++] = '-';
-	if (n == -2147483648)
-		s[i++] = '2';
-	if (n == -2147483648)
-		n = -147483648;
+	{
+		s[i] = '-';
+		i++;
+	}
 	if (n < 0)
 		n = -n;
 	while (i != len)

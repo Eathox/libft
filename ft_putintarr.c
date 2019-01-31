@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:18:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/25 22:52:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:50:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_putintarr(int *tab, int len)
 		return ;
 	while (i < len)
 	{
-		ft_putnbr(tab[i++]);
+		ft_putnbr(tab[i]);
 		write(1, "\n", 1);
+		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/14 20:22:06 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:40:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ void	ft_foreach(int *tab, int length, void (*f)(int))
 	if (f == NULL || tab == NULL)
 		return ;
 	while (i < length)
-		f(tab[i++]);
+	{
+		f(tab[i]);
+		i++;
+	}
 }

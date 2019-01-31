@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 17:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 13:51:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:46:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int		ft_intin(const int *tab, int n, int len)
 	if (tab == NULL)
 		return (FALSE);
 	while (i < len)
-		if (tab[i++] == n)
+	{
+		if (tab[i] == n)
 			return (TRUE);
+		i++;
+	}
 	return (FALSE);
 }

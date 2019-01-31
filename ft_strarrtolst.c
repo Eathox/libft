@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:48:15 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 13:28:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:51:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ t_list	*ft_strarrtolst(char **stra)
 	if (returnlst == NULL)
 		return (NULL);
 	prvlst = returnlst;
-	while (stra[++i] != 0)
+	while (stra[i + 1] != 0)
 	{
+		i++;
 		lst = ft_lstnew(stra[i], ft_strlen(stra[i]) + 1);
 		if (lst == NULL)
 			return (NULL);

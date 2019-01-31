@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:07:07 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 10:35:43 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:53:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int		ft_strin(char **tab, const char *s)
 	if (tab == NULL || s == NULL)
 		return (FALSE);
 	while (tab[i] != NULL)
-		if (ft_strequ(s, tab[i++]))
+	{
+		if (ft_strequ(s, tab[i]))
 			return (TRUE);
+		i++;
+	}
 	return (FALSE);
 }

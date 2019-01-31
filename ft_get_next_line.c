@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 11:27:00 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:27:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,24 @@ static int		gnl_read(char **line, char *newl, char *buff, t_list *lst)
 {
 	int red;
 
-	while (newl == NULL && (red = read((lst->FD), buff, BUFF_SIZE)))
+	while (newl == NULL)
 	{
+		ft_strclr(buff);
+		red = read((lst->FD), buff, BUFF_SIZE);
+		if (red == 0)
+			break ;
 		if (red == -1)
 			return (-1);
 		if (gnl_str_merge((char **)&(lst->STR), buff) == -1)
 			return (-1);
-		if ((newl = ft_strchr(lst->STR, '\n')) == NULL)
-			ft_strclr(buff);
+		newl = ft_strchr(lst->STR, '\n');
 	}
 	*line = lst->STR;
 	if (newl == NULL)
 		return (gnl_last_line(line, lst));
 	newl[0] = '\0';
-	if ((*line = ft_strdup(lst->STR)) == NULL)
+	*line = ft_strdup(lst->STR);
+	if (*line == NULL)
 		return (-1);
 	ft_strreplace((char **)&(lst->STR), ft_strdup(&newl[1]));
 	if (lst->STR == NULL)
@@ -100,11 +104,13 @@ int				get_next_line(const int fd, char **line)
 
 	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
-	if ((lst = gnl_get_lst(fd, alst)) == NULL)
+	lst = gnl_get_lst(fd, alst);
+	if (lst == NULL)
 		return (-1);
 	if (alst == NULL)
 		alst = lst;
-	if ((buff = ft_strnew(BUFF_SIZE)) == NULL)
+	buff = ft_strnew(BUFF_SIZE);
+	if (buff == NULL)
 		return (-1);
 	newl = ((lst->STR) == NULL) ? NULL : ft_strchr((lst->STR), '\n');
 	ret = gnl_read(line, newl, buff, lst);

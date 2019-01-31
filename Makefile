@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/01/26 14:54:55 by pholster      ########   odam.nl          #
+#    Updated: 2019/01/31 18:37:07 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS += count_if foreach puterror toupperstr tolowerstr putline chrin \
 	chrtostr lstaddbck lstdelstr lsttostrarr strarrtolst lstlen strmatch \
 	strrev lstdup lstdupone putstrlst putbool intarrtolst putintlst \
 	lsttointarr min max constrain abs select strreplace get_next_line \
-	clearterminal
+	clearterminal strarrnew strarrdel
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)

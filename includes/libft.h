@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/26 14:53:04 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 18:41:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-# include <get_next_line.h>
+# include "get_next_line.h"
 
 # define FALSE	0
 # define TRUE	1
@@ -28,6 +28,7 @@ typedef struct	s_list
 }				t_list;
 
 char			**ft_lsttostrarr(t_list *lst);
+char			**ft_strarrnew(int x, int y, char c);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_chrtostr(char c);
 char			*ft_itoa(int n);
@@ -117,6 +118,7 @@ void			ft_putstr_fd(const char *s, int fd);
 void			ft_putstr(const char *s);
 void			ft_putstrarr(char **tab);
 void			ft_putstrlst(t_list *lst);
+void			ft_strarrdel(char ***arr);
 void			ft_strclr(char *s);
 void			ft_strdel(char **as);
 void			ft_striter(char *s, void (*f)(char *));

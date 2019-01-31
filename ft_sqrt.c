@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/23 14:01:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:51:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ int		ft_sqrt(int nb)
 	int	n;
 
 	n = 0;
-	while (n++ < nb)
+	while (n < nb)
 	{
+		n++;
 		if (n * n == nb)
 			return (n);
 		else if (n * n > nb)

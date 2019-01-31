@@ -1,40 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin.c                                       :+:    :+:            */
+/*   ft_strarrnew.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 13:16:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:54:12 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
+/*   Updated: 2019/01/31 18:43:59 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static char		**delarr(char **arr, int y)
 {
-	int				i;
-	int				s1len;
-	int				s2len;
-	char			*str;
+	int	i;
 
 	i = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	str = ft_strnew(s1len + s2len);
-	if (str == NULL)
-		return (NULL);
-	while (i < (s1len + s2len))
+	while (i < y)
 	{
-		if (i < s1len)
-			str[i] = s1[i];
-		else
-			str[i] = s2[i - s1len];
+		ft_strdel(&arr[i]);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	free(arr);
+	return (NULL);
+}
+
+char			**ft_strarrnew(int x, int y, char c)
+{
+	char	**arr;
+	int		i;
+
+	if (x <= 0 || y <= 0)
+		return (NULL);
+	arr = (char **)malloc(sizeof(char *) * (y + 1));
+	if (arr == NULL)
+		return (NULL);
+	arr[y] = 0;
+	i = 0;
+	while (i < y)
+	{
+		arr[i] = ft_strnew(x);
+		if (arr[i] == NULL)
+			return (delarr(arr, i));
+		ft_memset(arr[i], c, x);
+		i++;
+	}
+	return (arr);
 }

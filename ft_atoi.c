@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/23 14:15:54 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:39:05 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int			ft_atoi(const char *s)
 	if (ft_chrin("+-", s[i]))
 		i++;
 	while (ft_isdigit(s[i]))
-		result = (result * 10) + s[i++] - '0';
+	{
+		result = (result * 10) + s[i] - '0';
+		i++;
+	}
 	return (result * isneg);
 }

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:49 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/17 10:15:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:49:12 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int		*ft_lsttointarr(t_list *lst)
 	while (lst != NULL)
 	{
 		n = (int *)lst->content;
-		arr[i++] = *n;
+		arr[i] = *n;
 		lst = lst->next;
+		i++;
 	}
 	arr[i] = 0;
 	return (arr);

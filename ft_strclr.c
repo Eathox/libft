@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 13:58:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/14 20:15:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:53:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ void	ft_strclr(char *s)
 	if (s == NULL)
 		return ;
 	while (s[i] != '\0')
-		s[i++] = '\0';
+	{
+		s[i] = '\0';
+		i++;
+	}
 }

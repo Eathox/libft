@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin.c                                       :+:    :+:            */
+/*   ft_strarrdel.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 13:16:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:54:12 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/31 18:37:15 by pholster       #+#    #+#                */
+/*   Updated: 2019/01/31 18:43:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_strarrdel(char ***arr)
 {
-	int				i;
-	int				s1len;
-	int				s2len;
-	char			*str;
+	int	i;
 
 	i = 0;
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	str = ft_strnew(s1len + s2len);
-	if (str == NULL)
-		return (NULL);
-	while (i < (s1len + s2len))
+	if (arr == NULL)
+		return ;
+	while ((*arr)[i] != 0)
 	{
-		if (i < s1len)
-			str[i] = s1[i];
-		else
-			str[i] = s2[i - s1len];
+		ft_strdel(&(*arr)[i]);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	free(**arr);
+	*arr = NULL;
 }

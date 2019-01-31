@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:55:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 12:39:56 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:49:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ char	**ft_lsttostrarr(t_list *lst)
 		str = ft_strdup((char *)lst->content);
 		if (str == NULL)
 			return (NULL);
-		stra[i++] = str;
+		stra[i] = str;
 		lst = lst->next;
+		i++;
 	}
 	stra[i] = 0;
 	return (stra);

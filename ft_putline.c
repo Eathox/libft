@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 15:26:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/14 20:24:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 17:50:54 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	ft_putline(char *s)
 		if (i < h || j == len)
 			ft_putchar('-');
 		else
-			ft_putchar(s[j++]);
+		{
+			ft_putchar(s[j]);
+			j++;
+		}
 		i++;
 	}
 	ft_putchar('\n');
