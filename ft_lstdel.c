@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 18:35:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/14 20:19:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 19:53:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (alst == NULL || del == NULL)
+	if (alst == NULL || *alst == NULL || del == NULL)
 		return ;
 	if (alst[0]->next != NULL)
 		ft_lstdel(&alst[0]->next, del);

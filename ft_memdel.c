@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 17:08:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/17 15:00:52 by pholster      ########   odam.nl         */
+/*   Updated: 2019/01/31 19:53:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (ap == NULL)
+	if (ap == NULL || *ap == NULL)
 		return ;
 	free(*ap);
 	*ap = NULL;
