@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 18:27:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:06:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int		gnl_read(char **line, char *newl, char *buff, t_list *lst)
 	while (newl == NULL)
 	{
 		ft_strclr(buff);
-		red = read((lst->FD), buff, BUFF_SIZE);
+		red = (int)read((int)(lst->FD), buff, BUFF_SIZE);
 		if (red == 0)
 			break ;
 		if (red == -1)

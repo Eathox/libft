@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 17:13:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:50:22 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:07:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_pow(int n, int pow)
 {
 	long long	r;
 
-	r = n;
+	r = (long long)n;
 	if (pow == 0 || n == -2147483648)
 		return (1);
 	if (pow == 1 && n < 0)
@@ -34,5 +34,5 @@ int		ft_pow(int n, int pow)
 	}
 	if (r > 2147483647)
 		return (1);
-	return (r);
+	return ((int)r);
 }

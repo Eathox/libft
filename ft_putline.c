@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 15:26:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:50:54 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:03:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putline(char *s)
 	int		j;
 	float	h;
 
-	len = ft_strlen(s);
+	len = (int)ft_strlen(s);
 	i = 0;
 	j = 0;
 	if (len > 80)

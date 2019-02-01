@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/21 09:45:57 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:01:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strndup(const char *s, size_t n)
 	char	*dup;
 
 	len = 0;
-	while (s[len] != '\0' && len < n)
+	while (len < n && s[len] != '\0')
 		len++;
 	dup = ft_strnew(len);
 	if (dup == NULL)

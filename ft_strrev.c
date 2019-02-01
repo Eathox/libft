@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 10:18:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:56:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:07:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_strrev(char *s)
 	i = 0;
 	if (s == NULL)
 		return ;
-	len = ft_strlen(s);
+	len = (int)ft_strlen(s);
 	while (i < (len / 2))
 	{
 		a = s[i];

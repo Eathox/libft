@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 13:16:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:54:12 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:02:20 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
+	s1len = (int)ft_strlen(s1);
+	s2len = (int)ft_strlen(s2);
 	str = ft_strnew(s1len + s2len);
 	if (str == NULL)
 		return (NULL);

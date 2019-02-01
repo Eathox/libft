@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 14:53:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/20 17:27:58 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:02:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strtrim(char const *s)
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	len = ft_strlen(s);
+	len = (int)ft_strlen(s);
 	while (ft_chrin(" \n\t", s[i]) && s[i] != '\0')
 		i++;
 	if (i == len)

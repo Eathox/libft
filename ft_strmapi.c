@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:28:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:54:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:07:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (f == NULL || s == NULL)
 		return (NULL);
-	len = ft_strlen(s);
+	len = (int)ft_strlen(s);
 	str = ft_strnew(len);
 	if (str == NULL)
 		return (NULL);

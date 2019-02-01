@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 10:48:45 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 17:24:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:01:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 
 	i = 0;
 	len = ft_strlen(s1);
-	while (s2[i] != '\0' && i < n)
+	while (i < n && s2[i] != '\0')
 	{
 		s1[(len + i)] = s2[i];
 		i++;

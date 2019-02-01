@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 10:37:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:55:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:01:33 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	size_t	i;
 
 	i = 0;
-	while (src[i] != '\0' && i < len)
+	while (i < len && src[i] != '\0')
 	{
 		dst[i] = src[i];
 		i++;

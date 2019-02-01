@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 10:48:45 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:52:54 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/01 12:02:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	int	len;
 
 	i = 0;
-	len = ft_strlen(s1);
+	len = (int)ft_strlen(s1);
 	while (s2[i] != '\0')
 	{
 		s1[(len + i)] = s2[i];
