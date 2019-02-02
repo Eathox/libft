@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 18:41:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/02 13:58:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int				*ft_lsttointarr(t_list *lst);
 int				ft_abs(int n);
 int				ft_atoi(const char *s);
 int				ft_chrin(const char *tab, int c);
-int				ft_constrain(int n, int min, int max);
+int				ft_constrain(int n, int num1, int num2);
 int				ft_count_if(char **tab, int (*f)(char*));
 int				ft_intin(const int *tab, int n, int len);
 int				ft_intlen(int n);
