@@ -17,7 +17,7 @@ int		ft_intlen_base(int value, int base)
 	unsigned int	num;
 	int				len;
 
-	num = ft_abs(value);
+	num = (value < 0) ? -value : value;
 	len = 0;
 	if (value < 0 && base == 10)
 		len++;
