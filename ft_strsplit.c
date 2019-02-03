@@ -12,66 +12,36 @@
 
 #include "libft.h"
 
-static char	**freeret(char **ret, char *cs)
+static char	**freeret(char ***tab)
 {
-	ft_strdel(&cs);
-	return (ret);
+	ft_strarrdel(tab);
+	return (NULL);
 }
 
-static void	addword(char **tab, char *str)
+char		**ft_strsplit(char const *s, char const *delims)
 {
-	int	i;
-
-	i = 0;
-	while (tab[i] != 0)
-		i++;
-	tab[i] = str;
-}
-
-static char	**create_strarr(char const *s, char *cs)
-{
-	int		i;
-	char	**tab;
-	int		wrdcount;
-
-	i = 0;
-	if (s == NULL)
-		return (NULL);
-	wrdcount = ft_wrddcount(s, cs);
-	tab = (char **)malloc(sizeof(char *) * wrdcount + 1);
-	if (tab == NULL)
-		return (NULL);
-	while (i <= wrdcount)
-	{
-		tab[i] = 0;
-		i++;
-	}
-	return (tab);
-}
-
-char		**ft_strsplit(char const *s, char c)
-{
-	char			*cs;
 	char			**tab;
+	int				word;
+	size_t			len;
 	unsigned int	i;
-	int				j;
 
 	i = 0;
-	j = 0;
-	cs = ft_chrtostr(c);
-	tab = create_strarr(s, cs);
+	word = 0;
+	tab = ft_strarrnew((size_t)ft_wrddcount(s, delims));
 	if (tab == NULL)
-		return (freeret(NULL, cs));
+		return (NULL);
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
-			j = 0;
-		else if (j == 0)
+		if (ft_chrin(delims, s[i]) == FALSE)
 		{
-			addword(tab, ft_strndup(&s[i], ft_strdlen(&s[i], cs)));
-			j = 1;
+			len = ft_strdlen(&s[i], delims);
+			tab[word] = ft_strndup(&s[i], len);
+			if (tab[word] == NULL)
+				return (freeret(tab));
+			word++;
+			i += (len - 1);
 		}
 		i++;
 	}
-	return (freeret(tab, cs));
+	return (tab);
 }

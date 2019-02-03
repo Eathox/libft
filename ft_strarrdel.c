@@ -19,11 +19,11 @@ void	ft_strarrdel(char ***arr)
 	i = 0;
 	if (arr == NULL || *arr == NULL)
 		return ;
-	while ((*arr)[i] != 0)
+	while ((*arr)[i] != NULL)
 	{
 		ft_strdel(&(*arr)[i]);
 		i++;
 	}
-	free(**arr);
+	free(*arr);
 	*arr = NULL;
 }

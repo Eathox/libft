@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcmp.c                                        :+:    :+:            */
+/*   ft_strfieldnew.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 17:53:02 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/19 15:50:20 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
+/*   Updated: 2019/01/31 18:43:59 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char		**ft_strfieldnew(int x, int y, char c)
 {
-	unsigned const char	*str1;
-	unsigned const char	*str2;
-	size_t				i;
-	unsigned char		a;
-	unsigned char		b;
+	char	**arr;
+	int		i;
 
 	i = 0;
-	str1 = s1;
-	str2 = s2;
-	while (i < n)
+	if (x <= 0 || y <= 0)
+		return (NULL);
+	arr = ft_strarrnew((size_t)y);
+	if (arr == NULL)
+		return (NULL);
+	while (i < y)
 	{
-		a = str1[i];
-		b = str2[i];
-		if (a != b)
-			return (a - b);
+		arr[i] = ft_strnew((size_t)x);
+		if (arr[i] == NULL)
+		{
+			ft_strarrdel(arr);
+			return (NULL);
+		}
+		ft_memset(arr[i], c, x);
 		i++;
 	}
-	return (0);
+	return (arr);
 }

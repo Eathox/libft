@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_wrddcount(char const *s, char *set)
+int		ft_wrddcount(char const *s, char *delims)
 {
 	unsigned int	count;
 	unsigned int	i;
@@ -20,12 +20,12 @@ int		ft_wrddcount(char const *s, char *set)
 
 	i = 0;
 	j = 0;
+	count = 0;
 	if (s == NULL || s == NULL)
 		return (0);
-	count = 0;
 	while (s[i] != '\0')
 	{
-		if (ft_chrin(set, s[i]))
+		if (ft_chrin(delims, s[i]))
 			j = 0;
 		else if (j == 0)
 		{

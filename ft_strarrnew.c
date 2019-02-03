@@ -12,38 +12,18 @@
 
 #include "libft.h"
 
-static char		**delarr(char **arr, int y)
+char			**ft_strarrnew(size_t size)
 {
-	int	i;
+	size_t	i;
+	char	**arr;
 
 	i = 0;
-	while (i < y)
-	{
-		ft_strdel(&arr[i]);
-		i++;
-	}
-	free(arr);
-	return (NULL);
-}
-
-char			**ft_strarrnew(int x, int y, char c)
-{
-	char	**arr;
-	int		i;
-
-	if (x <= 0 || y <= 0)
-		return (NULL);
-	arr = (char **)malloc(sizeof(char *) * (y + 1));
+	arr = (char **)malloc(sizeof(char *) * (size + 1));
 	if (arr == NULL)
 		return (NULL);
-	arr[y] = 0;
-	i = 0;
-	while (i < y)
+	while (i <= size)
 	{
-		arr[i] = ft_strnew(x);
-		if (arr[i] == NULL)
-			return (delarr(arr, i));
-		ft_memset(arr[i], c, x);
+		arr[i] = NULL;
 		i++;
 	}
 	return (arr);
