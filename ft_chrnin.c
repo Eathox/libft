@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrin.c                                         :+:    :+:            */
+/*   ft_chnrin.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-int		ft_chrin(const char *tab, int c)
+int		ft_chrnin(const char *tab, int c, size_t len)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (tab == NULL)
 		return (FALSE);
-	while (tab[i] != '\0')
+	while (i < len)
 	{
 		if (tab[i] == n)
 			return (TRUE);

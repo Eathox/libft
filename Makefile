@@ -17,14 +17,13 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	strmapi isspace itoa pow atoi strncmp strcpy strcat strequ strnequ \
 	strncat strlcat strchr strrchr strstr strnstr strsub strjoin strtrim \
 	strsplit memset bzero memcpy memdel memalloc memccpy memmove memcmp \
-	strncpy lstnew lstdelone lstdel lstadd lstiter lstmap memchr isdigit
-
-SRCS += count_if foreach puterror toupperstr tolowerstr putline chrin \
-	intin strin putstrarr putintarr intlen strndup strdlen wrddcount \
+	strncpy lstnew lstdelone lstdel lstadd lstiter lstmap memchr isdigit \
+	count_if foreach puterror toupperstr tolowerstr putline chrin chrnin \
+	intin strin strnin putstrarr putintarr intlen strndup strdlen wrddcount \
 	chrtostr lstaddbck lstdelstr lsttostrarr strarrtolst lstlen strmatch \
 	strrev lstdup lstdupone putstrlst putbool intarrtolst putintlst \
 	lsttointarr min max constrain abs select strreplace get_next_line \
-	clearterminal strarrnew strarrdel
+	clearterminal strarrnew strarrdel intlen_base itoa_base
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)

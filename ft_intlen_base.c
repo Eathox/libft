@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrin.c                                         :+:    :+:            */
+/*   ft_intlen_base.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 17:42:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:39:35 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/03 14:52:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_chrin(const char *tab, int c)
+int		ft_intlen_base(int value, int base)
 {
-	unsigned int	i;
+	unsigned int	num;
+	int				len;
 
-	i = 0;
-	if (tab == NULL)
-		return (FALSE);
-	while (tab[i] != '\0')
+	num = value;
+	len = 0;
+	if (value < 0 && base == 10)
+		len++;
+	if (value < 0)
+		num = -value;
+	while (value != -1)
 	{
-		if (tab[i] == n)
-			return (TRUE);
-		i++;
+		len++;
+		num = num / base;
+		if (num == 0)
+			break ;
 	}
-	return (FALSE);
+	return (len);
 }

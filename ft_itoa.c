@@ -12,6 +12,12 @@
 
 #include "libft.h"
 
+char	*ft_itoa(int value)
+{
+	return (ft_itoa_base(value, 10));
+}
+
+/*
 char	*ft_itoa(int n)
 {
 	char			*s;
@@ -40,3 +46,4 @@ char	*ft_itoa(int n)
 	}
 	return (s);
 }
+*/

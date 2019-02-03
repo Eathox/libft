@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_intlen.c                                        :+:    :+:            */
+/*   ft_itoa_base.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 14:42:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/16 13:51:29 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/03 14:52:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_intlen(int value)
+char	*ft_itoa_base(int value, int base)
 {
-	return (ft_intlen_base(value, 10));
-}
+	unsigned int	num;
+	unsigned int	len;
+	char			*bstr;
+	char			*str;
 
-/*
-int		ft_intlen(int value)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (value == -2147483648)
-		i++;
-	if (value == -2147483648)
-		value = value / 10;
+	num = value;
+	len = ft_intlen_base(value, base);
+	str = ft_strnew(len);
+	bstr = "0123456789ABCDEF";
+	if (str == NULL || base < 0 || base > 16)
+		return (NULL);
 	if (value < 0)
-		i++;
-	if (value < 0)
-		value = -value;
-	while (value >= 0)
+		num = -value;
+	while (len != 0)
 	{
-		i++;
-		value = value / 10;
-		if (value == 0)
-			break ;
+		str[(len - 1)] = bstr[(num % base)];
+		num = num / base;
+		len--;
 	}
-	return (i);
+	if (value < 0 && base == 10)
+		str[0] = '-';
+	return (str);
 }
-*/

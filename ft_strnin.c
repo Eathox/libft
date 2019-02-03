@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrin.c                                         :+:    :+:            */
+/*   ft_strnin.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 17:42:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:39:35 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 18:07:07 by pholster       #+#    #+#                */
+/*   Updated: 2019/01/31 17:53:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_chrin(const char *tab, int c)
+int		ft_strnin(char **tab, const char *s, size_t len)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
-	if (tab == NULL)
+	if (tab == NULL || s == NULL)
 		return (FALSE);
-	while (tab[i] != '\0')
+	while (i < len)
 	{
-		if (tab[i] == n)
+		if (ft_strequ(s, tab[i]))
 			return (TRUE);
 		i++;
 	}
