@@ -55,6 +55,7 @@ int				ft_abs(int n);
 int				ft_atoi_base(const char *s, int base);
 int				ft_atoi(const char *s);
 int				ft_chrin(const char *tab, int c);
+int				ft_chrindex(const char *tab, int c);
 int				ft_chrnin(const char *tab, int c, size_t n);
 int				ft_constrain(int n, int num1, int num2);
 int				ft_count_if(char **tab, int (*f)(char*));
