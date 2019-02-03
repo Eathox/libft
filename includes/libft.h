@@ -122,6 +122,7 @@ void			ft_putintlst(t_list *lst);
 void			ft_putline(char *s);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putnbr(int n);
+void			ft_putpointer(void *pointer);
 void			ft_putstr_fd(const char *s, int fd);
 void			ft_putstr(const char *s);
 void			ft_putstrarr(char **tab);

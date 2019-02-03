@@ -24,7 +24,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	strrev lstdup lstdupone putstrlst putbool intarrtolst putintlst \
 	lsttointarr min max constrain abs select strreplace get_next_line \
 	clearterminal strarrnew strarrdel intlen_base itoa_base atoi_base \
-	isdigitstr strfieldnew chrindex
+	isdigitstr strfieldnew chrindex putpointer
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)
