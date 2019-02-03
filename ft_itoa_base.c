@@ -23,7 +23,7 @@ char	*ft_itoa_base(int value, int base)
 	len = ft_intlen_base(value, base);
 	str = ft_strnew(len);
 	bstr = "0123456789ABCDEF";
-	if (str == NULL || base < 0 || base > 16)
+	if (str == NULL || base < 2 || base > 16)
 		return (NULL);
 	while ((len - (value < 0 && base == 10)) != 0)
 	{

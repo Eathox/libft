@@ -14,15 +14,17 @@
 
 int			ft_atoi_base(const char *s, int base)
 {
-	char			*bstr;
-	unsigned long	result;
-	int				isneg;
-	int				i;
+	char				*bstr;
+	unsigned long long	result;
+	int					isneg;
+	int					i;
 
 	i = 0;
 	isneg = 1;
 	result = 0;
 	bstr = "0123456789ABCDEF";
+	if (base < 2 || base > 16)
+		return (0);
 	while (ft_isspace(s[i]))
 		i++;
 	if (s[i] == '-' && base == 10)
@@ -34,5 +36,7 @@ int			ft_atoi_base(const char *s, int base)
 		result = (result * base) + ft_chrindex(bstr, s[i]);
 		i++;
 	}
+	if (result > (9223372036854775807 + (isneg == -1)))
+		return (0 - (isneg == 1));
 	return ((int)(result * isneg));
 }
