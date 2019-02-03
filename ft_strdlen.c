@@ -14,12 +14,12 @@
 
 size_t		ft_strdlen(const char *s, char *delims)
 {
-	size_t	i;
+	size_t	len;
 
-	i = 0;
+	len = 0;
 	if (s == NULL || delims == NULL)
 		return (0);
-	while (s[i] != '\0' && ft_chrin(delims, s[i]) == FALSE)
-		i++;
-	return (i);
+	while (s[len] != '\0' && ft_chrin(delims, s[len]) == FALSE)
+		len++;
+	return (len);
 }

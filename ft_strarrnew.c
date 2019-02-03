@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char			**ft_strarrnew(size_t size)
+char	**ft_strarrnew(size_t size)
 {
 	size_t	i;
 	char	**arr;
