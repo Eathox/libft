@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrin.c                                         :+:    :+:            */
+/*   ft_isdigitstr.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 17:42:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:39:35 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/03 16:07:33 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/03 16:07:33 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_chrin(const char *tab, int c)
+int		ft_isdigitstr(const char *s)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (tab == NULL)
+	if (s == NULL)
 		return (FALSE);
-	while (tab[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (tab[i] == c)
-			return (TRUE);
+		if (s[i] < '0' && s[i] > '9')
+			return (FALSE);
 		i++;
 	}
-	return (FALSE);
+	return (TRUE);
 }

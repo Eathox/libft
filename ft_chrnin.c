@@ -21,7 +21,7 @@ int		ft_chrnin(const char *tab, int c, size_t len)
 		return (FALSE);
 	while (i < len)
 	{
-		if (tab[i] == n)
+		if (tab[i] == c)
 			return (TRUE);
 		i++;
 	}
