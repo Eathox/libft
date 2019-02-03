@@ -16,28 +16,3 @@ int		ft_intlen(int value)
 {
 	return (ft_intlen_base(value, 10));
 }
-
-/*
-int		ft_intlen(int value)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (value == -2147483648)
-		i++;
-	if (value == -2147483648)
-		value = value / 10;
-	if (value < 0)
-		i++;
-	if (value < 0)
-		value = -value;
-	while (value >= 0)
-	{
-		i++;
-		value = value / 10;
-		if (value == 0)
-			break ;
-	}
-	return (i);
-}
-*/
