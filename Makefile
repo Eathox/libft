@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/01/31 18:37:07 by pholster      ########   odam.nl          #
+#    Updated: 2019/02/04 10:36:35 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	strrev lstdup lstdupone putstrlst putbool intarrtolst putintlst \
 	lsttointarr min max constrain abs select strreplace get_next_line \
 	clearterminal strarrnew strarrdel intlen_base itoa_base atoi_base \
-	isdigitstr strfieldnew chrindex putpointer
+	isdigitstr strfieldnew chrindex putpointer strdsplit putnbr_base
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)

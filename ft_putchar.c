@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/07 16:17:24 by pholster      #+#    #+#                 */
-/*   Updated: 2019/01/11 21:00:08 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/07 16:17:24 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/04 11:08:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	ft_putchar_fd(c, 1);
 }

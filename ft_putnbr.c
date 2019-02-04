@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/13 11:45:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 11:07:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,5 @@
 
 void	ft_putnbr(int n)
 {
-	if (n == -2147483648)
-	{
-		ft_putnbr(n / 10);
-		n = -(n % 10);
-	}
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		n = -n;
-	}
-	if (n > 9)
-		ft_putnbr(n / 10);
-	n = n % 10;
-	n = (n + '0');
-	write(1, &n, 1);
+	ft_putnbr_fd_base(n, 1, 10);
 }

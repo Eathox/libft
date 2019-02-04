@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 09:29:22 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 11:05:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ typedef struct	s_list
 
 char			**ft_lsttostrarr(t_list *lst);
 char			**ft_strarrnew(size_t size);
+char			**ft_strdsplit(char const *s, char *delims);
 char			**ft_strfieldnew(int x, int y, char c);
-char			**ft_strsplit(char const *s, char *delims);
+char			**ft_strsplit(char const *s, char cc);
 char			*ft_chrtostr(char c);
 char			*ft_itoa_base(int value, int base);
 char			*ft_itoa(int value);
@@ -120,6 +121,8 @@ void			ft_putendl(const char *s);
 void			ft_putintarr(int *tab, int len);
 void			ft_putintlst(t_list *lst);
 void			ft_putline(char *s);
+void			ft_putnbr_base(int n, int base);
+void			ft_putnbr_fd_base(int value, int fd, int base);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putnbr(int n);
 void			ft_putpointer(void *pointer);

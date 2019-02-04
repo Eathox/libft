@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/03 14:52:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 10:39:45 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int		ft_intlen_base(int value, int base)
 	unsigned int	num;
 	int				len;
 
-	num = (value < 0) ? -value : value;
 	len = 0;
+	num = (value < 0) ? -value : value;
 	if (value < 0 && base == 10)
 		len++;
 	while (value != -1)

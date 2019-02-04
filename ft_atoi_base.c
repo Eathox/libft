@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/01 12:02:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 10:50:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			ft_atoi_base(const char *s, int base)
 	i = 0;
 	isneg = 1;
 	result = 0;
-	bstr = "0123456789ABCDEF";
+	bstr = "0123456789abcdef";
 	if (base < 2 || base > 16)
 		return (0);
 	while (ft_isspace(s[i]))
