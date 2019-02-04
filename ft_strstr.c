@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 12:35:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/20 14:57:10 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 20:31:33 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		return ((char *)haystack);
 	while (haystack[i] != '\0' && needle[j] != '\0')
 	{
-		if (haystack[i - j] != needle[0] && j > 0)
+		if (j > 0 && haystack[i - j] != needle[0])
 			j--;
-		if (haystack[i] != needle[j] && j > 0)
+		if (j > 0 && haystack[i] != needle[j])
 			j--;
 		if (haystack[i] == needle[j])
 			j++;
