@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 17:42:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 20:41:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ char	*ft_itoa_base(int value, int base)
 
 	num = (value < 0) ? -value : value;
 	len = ft_intlen_base(value, base);
+	if (base < 2 || base > 16)
+		return (NULL);
 	str = ft_strnew(len);
 	bstr = "0123456789ABCDEF";
-	if (str == NULL || base < 2 || base > 16)
+	if (str == NULL)
 		return (NULL);
 	while ((len - (value < 0 && base == 10)) != 0)
 	{
