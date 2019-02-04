@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/02 13:58:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 09:29:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct	s_list
 char			**ft_lsttostrarr(t_list *lst);
 char			**ft_strarrnew(size_t size);
 char			**ft_strfieldnew(int x, int y, char c);
-char			**ft_strsplit(char const *s, char const *delims);
+char			**ft_strsplit(char const *s, char *delims);
 char			*ft_chrtostr(char c);
 char			*ft_itoa_base(int value, int base);
 char			*ft_itoa(int value);

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 18:43:59 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 09:29:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char		**ft_strfieldnew(int x, int y, char c)
 		arr[i] = ft_strnew((size_t)x);
 		if (arr[i] == NULL)
 		{
-			ft_strarrdel(arr);
+			ft_strarrdel(&arr);
 			return (NULL);
 		}
 		ft_memset(arr[i], c, x);
