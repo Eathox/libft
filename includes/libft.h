@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 11:05:49 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 11:14:41 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char			*ft_itoa(int value);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strcpy(char *dst, const char *src);
+char			*ft_strdtrim(char const *s, char *delims);
 char			*ft_strdup(const char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strmap(const char *s, char (*f)(char));
