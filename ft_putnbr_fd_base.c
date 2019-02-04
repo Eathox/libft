@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 11:19:55 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/04 17:42:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_fd_base(int value, int fd, int base)
 	char			*bstr;
 	unsigned int	num;
 
-	bstr = "0123456789abcdef";
+	bstr = "0123456789ABCDEF";
 	num = (value < 0) ? -value : value;
 	if (base < 2 || base > 16)
 		return ;
