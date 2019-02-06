@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/06 03:32:51 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/06 16:59:11 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,10 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isdigitstr(const char *s);
+int				ft_islower(char c);
 int				ft_isprint(int c);
 int				ft_isspace(char c);
+int				ft_isupper(char c);
 int				ft_lstlen(t_list *lst);
 int				ft_max(int n1, int n2);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -111,8 +113,8 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstaddbck(t_list **alst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstmemdel(void *s, size_t size);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void			ft_lstmemdel(void *s, size_t size);
 void			ft_memdel(void **ap);
 void			ft_putbool(int c);
 void			ft_putchar_fd(char c, int fd);

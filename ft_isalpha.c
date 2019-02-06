@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 11:25:43 by pholster      #+#    #+#                 */
-/*   Updated: 2019/01/11 20:59:58 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 11:25:43 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/06 17:19:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 int		ft_isalpha(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (TRUE);
-	else if (c >= 'A' && c <= 'Z')
-		return (TRUE);
-	return (FALSE);
+	return (ft_islower(c) || ft_isupper(c));
 }
