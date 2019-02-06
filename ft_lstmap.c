@@ -6,11 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:35:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/23 14:07:15 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/06 03:34:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static t_list	*freeret(t_list **lst)
+{
+	ft_lstdel(lst, &ft_lstmemdel);
+	return (NULL);
+}
 
 static t_list	*list_set(t_list *elem)
 {
@@ -39,7 +45,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	{
 		newlst = list_set(f(lst));
 		if (newlst == NULL)
-			return (NULL);
+			return (freeret(&returnlst));
 		ft_lstaddbck(&prvlst, newlst);
 		prvlst = newlst;
 		lst = lst->next;

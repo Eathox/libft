@@ -6,13 +6,19 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:55:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:49:24 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/06 03:34:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_lsttostrarr(t_list *lst)
+static char	**freeret(char **stra)
+{
+	free(stra);
+	return (NULL);
+}
+
+char		**ft_lsttostrarr(t_list *lst)
 {
 	int		i;
 	char	*str;
@@ -23,14 +29,14 @@ char	**ft_lsttostrarr(t_list *lst)
 	len = ft_lstlen(lst);
 	if (len == 0)
 		return (NULL);
-	stra = (char **)malloc(sizeof(char *) * (len + 1));
+	stra = ft_strarrnew(len);
 	if (stra == NULL)
 		return (NULL);
 	while (lst != NULL)
 	{
 		str = ft_strdup((char *)lst->content);
 		if (str == NULL)
-			return (NULL);
+			return (freeret(stra));
 		stra[i] = str;
 		lst = lst->next;
 		i++;

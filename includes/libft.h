@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 11:21:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/06 03:32:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstaddbck(t_list **alst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstdelstr(void *s, size_t size);
+void			ft_lstmemdel(void *s, size_t size);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void			ft_memdel(void **ap);
 void			ft_putbool(int c);

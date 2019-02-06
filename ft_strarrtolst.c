@@ -6,13 +6,19 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:48:15 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 18:49:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/06 03:34:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_strarrtolst(char **stra)
+static t_list	*freeret(t_list **lst)
+{
+	ft_lstdel(lst, &ft_lstmemdel);
+	return (NULL);
+}
+
+t_list			*ft_strarrtolst(char **stra)
 {
 	t_list	*lst;
 	t_list	*prvlst;
@@ -31,7 +37,7 @@ t_list	*ft_strarrtolst(char **stra)
 	{
 		lst = ft_lstnew(stra[i], ft_strlen(stra[i]) + 1);
 		if (lst == NULL)
-			return (NULL);
+			return (freeret(&returnlst));
 		ft_lstaddbck(&prvlst, lst);
 		prvlst = lst;
 		i++;
