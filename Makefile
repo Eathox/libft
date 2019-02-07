@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/02/07 16:39:57 by pholster      ########   odam.nl          #
+#    Updated: 2019/02/07 16:40:22 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ re: fclean $(NAME)
 
 push:
 ifdef MSG
-	git add $(SRCS)  $(INCLUDES)libft.h $(INCLUDES)get_next_line.h Makefile \
+	git add $(SRCS) $(INCLUDES)libft.h $(INCLUDES)get_next_line.h Makefile \
 		author
 	git commit -m "$(MSG)"
 	git push
