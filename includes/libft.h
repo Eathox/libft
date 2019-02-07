@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/06 16:59:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/07 15:50:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int				ft_strnin(char **tab, const char *s, size_t n);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 int				ft_wrddcount(char const *s, char *delims);
+int				t_chrdin(const char *tab, char *c);
 size_t			ft_strdlen(const char *s, char *delims);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *s);
