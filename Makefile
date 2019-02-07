@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/02/07 15:50:58 by pholster      ########   odam.nl          #
+#    Updated: 2019/02/07 16:39:57 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,12 +30,13 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)
 
-NORM = norminette $(SRCS) ./includes/*.h | grep -e "Error" -e "Warning" -B 1
+NORM = norminette $(SRCS) $(INCLUDES)libft.h $(INCLUDES)get_next_line.h \
+	| grep -e "Error" -e "Warning" -B 1
 
 TESTS = ./test/main.c $(SRCS:%=./test/test_%)
 
 VPATH = ./srcs
-INCLUDES = ./includes
+INCLUDES = ./includes/
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
@@ -61,7 +62,8 @@ re: fclean $(NAME)
 
 push:
 ifdef MSG
-	git add $(SRCS) ./includes/*.h Makefile author
+	git add $(SRCS)  $(INCLUDES)libft.h $(INCLUDES)get_next_line.h Makefile \
+		author
 	git commit -m "$(MSG)"
 	git push
 	@make norm
