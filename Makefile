@@ -6,11 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/02/07 16:40:22 by pholster      ########   odam.nl          #
+#    Updated: 2019/02/08 15:59:22 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+OBJ_NAME = objects
 SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	isalnum isascii isprint toupper tolower putendl putchar_fd putstr_fd \
 	putendl_fd putnbr_fd strnew strclr strdel striter striteri strmap \
@@ -41,18 +42,21 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME):
-	@echo "compiling"
-	@echo $(SRCS)
-	@gcc $(CCFLAGS) -c $(SRCS)
+$(NAME): $(OBJ_NAME)
 	@echo "creating libary"
 	@ar rc $(NAME) $(OBJS)
 	@echo "indexing libary"
 	@ranlib $(NAME)
 
+$(OBJ_NAME):
+	@echo "compiling"
+	@echo $(SRCS)
+	@touch $(OBJ_NAME)
+	@gcc $(CCFLAGS) -c $(SRCS)
+
 clean:
 	@echo "clean";
-	@rm -f $(OBJS) $(SRCS:.c=.c~)
+	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
 
 fclean: clean
 	@echo "fclean";
