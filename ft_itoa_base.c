@@ -19,7 +19,7 @@ char	*ft_itoa_base(int value, int base)
 	char			*bstr;
 	char			*str;
 
-	num = (value < 0) ? -value : value;
+	num = (value < 0 && base == 10) ? -value : value;
 	len = ft_intlen_base(value, base);
 	if (base < 2 || base > 16)
 		return (NULL);

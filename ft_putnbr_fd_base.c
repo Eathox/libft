@@ -18,7 +18,7 @@ void	ft_putnbr_fd_base(int value, int fd, int base)
 	unsigned int	num;
 
 	bstr = "0123456789ABCDEF";
-	num = (value < 0) ? -value : value;
+	num = (value < 0 && base == 10) ? -value : value;
 	if (base < 2 || base > 16)
 		return ;
 	if (value < 0 && base == 10)

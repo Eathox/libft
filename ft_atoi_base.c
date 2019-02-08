@@ -31,9 +31,9 @@ int			ft_atoi_base(const char *s, int base)
 		isneg = -1;
 	if (ft_chrin("+-", s[i]))
 		i++;
-	while (ft_chrnin(bstr, s[i], base))
+	while (ft_chrnin(bstr, ft_toupper(s[i]), base))
 	{
-		result = (result * base) + ft_chrindex(bstr, s[i]);
+		result = (result * base) + ft_chrindex(bstr, ft_toupper(s[i]));
 		i++;
 	}
 	if (result > (9223372036854775807 + (isneg == -1)))
