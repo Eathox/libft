@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 17:42:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/07 15:50:38 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/08 13:21:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int		ft_chrdin(const char *tab, char *c)
 	unsigned int	i;
 
 	i = 0;
-	if (tab == NULL)
+	if (tab == NULL || c == NULL)
 		return (FALSE);
-	while (tab[i] != '\0')
+	while (c[i] != '\0')
 	{
-		if (ft_chrin(c, tab[i]))
+		if (ft_chrin(tab, c[i]))
 			return (TRUE);
 		i++;
 	}
