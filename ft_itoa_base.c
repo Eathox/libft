@@ -6,16 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 20:41:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/09 12:34:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_base(int value, int base)
+char	*ft_itoa_base(long value, int base)
 {
-	unsigned int	num;
-	unsigned int	len;
+	unsigned long	num;
+	int				len;
 	char			*bstr;
 	char			*str;
 

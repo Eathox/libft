@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
+/*   ft_numlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 13:42:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/09 12:34:19 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/09 12:31:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(long value)
+int		ft_numlen(long value)
 {
-	return (ft_itoa_base(value, 10));
+	return (ft_numlen_base(value, 10));
 }

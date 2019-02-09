@@ -12,7 +12,8 @@ LIBFT_SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	lsttointarr min max constrain abs select strreplace get_next_line \
 	clearterminal strarrnew strarrdel intlen_base itoa_base atoi_base \
 	isdigitstr strfieldnew chrindex putpointer strdsplit putnbr_base \
-	strdtrim putnbr_fd_base putline_fd isupper islower chrdin
+	strdtrim putnbr_fd_base putline_fd isupper islower chrdin numlen_base \
+	numlen
 
 LIBFT_SRCS := $(LIBFT_SRCS:%=ft_%.c)
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)

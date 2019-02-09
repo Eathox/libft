@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 12:40:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/19 12:41:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/09 12:36:59 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_min(int n1, int n2)
+long	ft_min(long n1, long n2)
 {
 	if (n1 < n2)
 		return (n1);

@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 12:40:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/19 12:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/09 12:37:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_max(int n1, int n2)
+long	ft_max(long n1, long n2)
 {
 	if (n1 > n2)
 		return (n1);

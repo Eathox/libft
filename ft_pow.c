@@ -6,24 +6,24 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 17:13:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/01 12:07:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/09 12:41:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_pow(int n, int pow)
+long	ft_pow(long n, long pow)
 {
-	long long	r;
+	long	r;
 
-	r = (long long)n;
-	if (pow == 0 || n == -2147483648)
+	r = n;
+	if (pow == 0)
 		return (1);
 	if (pow == 1 && n < 0)
 		return (n);
 	if (pow < 0)
 		return (0);
-	if (r < 0)
+	if (n < 0)
 		n = -n;
 	if (r < 0)
 		r = -r;
