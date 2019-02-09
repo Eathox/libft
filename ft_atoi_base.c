@@ -14,10 +14,10 @@
 
 int			ft_atoi_base(const char *s, int base)
 {
-	char				*bstr;
-	unsigned long long	result;
-	int					isneg;
-	int					i;
+	char			*bstr;
+	unsigned long 	result;
+	int				isneg;
+	int				i;
 
 	i = 0;
 	isneg = 1;
