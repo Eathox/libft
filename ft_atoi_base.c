@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/10 11:33:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/10 14:16:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		ft_atoi_base(const char *s, int base)
 {
-	char			*bstr;
-	unsigned long	result;
-	int				isneg;
-	int				i;
+	char				*bstr;
+	unsigned long long	result;
+	int					isneg;
+	int					i;
 
 	i = 0;
 	isneg = 1;

@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 17:13:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/10 08:36:06 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/10 11:44:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_pow(long n, long pow)
+long long	ft_pow(long long n, long long pow)
 {
-	long	ret;
+	long long	ret;
 
 	ret = n;
 	if (pow == 0)

@@ -6,16 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/09 12:31:09 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/10 11:45:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_numlen_base(long value, int base)
+int		ft_numlen_base(long long value, int base)
 {
-	unsigned long	num;
-	int				len;
+	unsigned long long	num;
+	int					len;
 
 	len = 0;
 	num = (value < 0 && base == 10) ? -value : value;

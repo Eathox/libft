@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/09 12:40:56 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/10 11:47:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ char			**ft_strdsplit(char const *s, char *delims);
 char			**ft_strfieldnew(int x, int y, char c);
 char			**ft_strsplit(char const *s, char cc);
 char			*ft_chrtostr(char c);
-char			*ft_itoa_base(long value, int base);
-char			*ft_itoa(long value);
+char			*ft_itoa_base(long long value, int base);
+char			*ft_itoa(long long value);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strcpy(char *dst, const char *src);
@@ -53,7 +53,6 @@ char			*ft_strstr(const char*haystack, const char *needle);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strtrim(char const *s);
 int				*ft_lsttointarr(t_list *lst);
-long			ft_abs(long n);
 int				ft_atoi_base(const char *s, int base);
 int				ft_atoi(const char *s);
 int				ft_chrdin(const char *tab, char *c);
@@ -75,8 +74,8 @@ int				ft_isspace(char c);
 int				ft_isupper(char c);
 int				ft_lstlen(t_list *lst);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
-int				ft_numlen_base(long value, int base);
-int				ft_numlen(long value);
+int				ft_numlen_base(long long value, int base);
+int				ft_numlen(long long value);
 int				ft_puterror(const char *s);
 int				ft_sqrt(int nb);
 int				ft_strcmp(const char *s1, const char *s2);
@@ -89,10 +88,11 @@ int				ft_strnin(char **tab, const char *s, size_t n);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 int				ft_wrddcount(char const *s, char *delims);
-long			ft_constrain(long n, long num1, long num2);
-long			ft_max(long n1, long n2);
-long			ft_min(long n1, long n2);
-long			ft_pow(long n, long pow);
+long long		ft_abs(long long n);
+long long		ft_constrain(long long n, long long num1, long long num2);
+long long		ft_max(long long n1, long long n2);
+long long		ft_min(long long n1, long long n2);
+long long		ft_pow(long long n, long long pow);
 size_t			ft_strdlen(const char *s, char *delims);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *s);
@@ -128,10 +128,10 @@ void			ft_putintarr(int *tab, int len);
 void			ft_putintlst(t_list *lst);
 void			ft_putline_fd(char *s, int fd);
 void			ft_putline(char *s);
-void			ft_putnbr_base(long n, int base);
-void			ft_putnbr_fd_base(long value, int fd, int base);
-void			ft_putnbr_fd(long n, int fd);
-void			ft_putnbr(long n);
+void			ft_putnbr_base(long long n, int base);
+void			ft_putnbr_fd_base(long long value, int fd, int base);
+void			ft_putnbr_fd(long long n, int fd);
+void			ft_putnbr(long long n);
 void			ft_putpointer(void *pointer);
 void			ft_putstr_fd(const char *s, int fd);
 void			ft_putstr(const char *s);
