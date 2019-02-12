@@ -28,7 +28,8 @@ int		ft_atoi_base(const char *s, int base)
 		i++;
 	isneg = (s[i] == '-' && base == 10) ? -1 : 0;
 	i += ft_chrin("+-", s[i]);
-	while (ft_chrnin(bstr, s[i], base))
+	while (ft_chrnin(bstr, s[i], base) &&
+			result <= (unsigned long long)(9223372036854775807 + (isneg == -1)))
 	{
 		result = (result * base) + ft_chrindex(bstr, s[i]);
 		i++;
