@@ -19,6 +19,8 @@ int		ft_intlen_base(int value, int base)
 
 	len = 0;
 	num = (value < 0 && base == 10) ? -value : value;
+	if (base < 2 || base > 36)
+		return (0);
 	if (value < 0 && base == 10)
 		len++;
 	while (value != -1)

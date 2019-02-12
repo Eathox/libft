@@ -21,10 +21,10 @@ char	*ft_itoa_base(long long value, int base)
 
 	num = (value < 0 && base == 10) ? -value : value;
 	len = ft_numlen_base(value, base);
-	if (base < 2 || base > 16)
+	if (base < 2 || base > 36)
 		return (NULL);
 	str = ft_strnew(len);
-	bstr = "0123456789ABCDEF";
+	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (str == NULL)
 		return (NULL);
 	while ((len - (value < 0 && base == 10)) != 0)

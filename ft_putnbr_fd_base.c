@@ -17,9 +17,9 @@ void	ft_putnbr_fd_base(long long value, int fd, int base)
 	char				*bstr;
 	unsigned long long	num;
 
-	bstr = "0123456789ABCDEF";
+	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	num = (value < 0 && base == 10) ? -value : value;
-	if (base < 2 || base > 16)
+	if (base < 2 || base > 36)
 		return ;
 	if (value < 0 && base == 10)
 		write(fd, "-", 1);

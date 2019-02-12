@@ -20,10 +20,9 @@ int		ft_atoi_base(const char *s, int base)
 	int					i;
 
 	i = 0;
-	isneg = 1;
 	result = 0;
-	bstr = "0123456789ABCDEF";
-	if (base < 2 || base > 16)
+	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	if (base < 2 || base > 36)
 		return (0);
 	while (ft_isspace(s[i]))
 		i++;
@@ -34,9 +33,9 @@ int		ft_atoi_base(const char *s, int base)
 	while (ft_chrnin(bstr, ft_toupper(s[i]), base))
 	{
 		result = (result * base) + ft_chrindex(bstr, ft_toupper(s[i]));
+		if (result > (9223372036854775807 + (isneg == -1)))
+			return (0 - (isneg == 1));
 		i++;
 	}
-	if (result > (9223372036854775807 + (isneg == -1)))
-		return (0 - (isneg == 1));
 	return ((int)(result * isneg));
 }
