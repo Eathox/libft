@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/10 11:47:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/12 09:20:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ int				ft_chrindex(const char *tab, int c);
 int				ft_chrnin(const char *tab, int c, size_t n);
 int				ft_count_if(char **tab, int (*f)(char*));
 int				ft_intin(const int *tab, int n, int len);
-int				ft_intlen_base(int value, int base);
-int				ft_intlen(int value);
 int				ft_isalnum(int c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
