@@ -23,7 +23,7 @@ void	ft_putnbr_fd_base(long long value, int fd, int base)
 		return ;
 	if (value < 0 && base == 10)
 		write(fd, "-", 1);
-	if (num > (unsigned int)(base - 1))
+	if (num > (unsigned long long)(base - 1))
 		ft_putnbr_fd_base((num / base), fd, base);
 	num = bstr[(num % base)];
 	write(fd, &num, 1);
