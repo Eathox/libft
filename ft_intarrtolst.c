@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:45 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/06 03:34:09 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/12 09:20:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list			*ft_intarrtolst(int *arr, int len)
 	if (arr == NULL)
 		return (NULL);
 	n = arr[i];
-	returnlst = ft_lstnew(&n, (sizeof(int) * ft_intlen(n)));
+	returnlst = ft_lstnew(&n, (sizeof(int) * ft_numlen(n)));
 	if (returnlst == NULL)
 		return (NULL);
 	prvlst = returnlst;
@@ -38,7 +38,7 @@ t_list			*ft_intarrtolst(int *arr, int len)
 	{
 		i++;
 		n = arr[i];
-		lst = ft_lstnew(&n, (sizeof(int) * ft_intlen(n)));
+		lst = ft_lstnew(&n, (sizeof(int) * ft_numlen(n)));
 		if (lst == NULL)
 			return (freeret(&returnlst));
 		ft_lstaddbck(&prvlst, lst);
