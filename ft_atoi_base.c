@@ -20,6 +20,7 @@ int		ft_atoi_base(const char *s, int base)
 	int					i;
 
 	i = 0;
+	result = 0;
 	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (base < 2 || base > 36)
 		return (0);
