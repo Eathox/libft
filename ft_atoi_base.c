@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/10 14:16:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/12 09:33:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_atoi_base(const char *s, int base)
 
 	i = 0;
 	result = 0;
+	isneg = 1;
 	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (base < 2 || base > 36)
 		return (0);
