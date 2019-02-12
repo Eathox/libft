@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/12 09:20:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/12 15:02:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
 int				ft_isdigitstr(const char *s);
-int				ft_islower(char c);
+int				ft_islower(int c);
 int				ft_isprint(int c);
 int				ft_isspace(char c);
-int				ft_isupper(char c);
+int				ft_isupper(int c);
 int				ft_lstlen(t_list *lst);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 int				ft_numlen_base(long long value, int base);
