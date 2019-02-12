@@ -20,22 +20,19 @@ int		ft_atoi_base(const char *s, int base)
 	int					i;
 
 	i = 0;
-	result = 0;
 	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (base < 2 || base > 36)
 		return (0);
 	while (ft_isspace(s[i]))
 		i++;
-	if (s[i] == '-' && base == 10)
-		isneg = -1;
-	if (ft_chrin("+-", s[i]))
-		i++;
-	while (ft_chrnin(bstr, ft_toupper(s[i]), base))
+	isneg = (s[i] == '-' && base == 10) ? -1 : 0;
+	i += ft_chrin("+-", s[i]);
+	while (ft_chrnin(bstr, s[i], base))
 	{
-		result = (result * base) + ft_chrindex(bstr, ft_toupper(s[i]));
-		if (result > (9223372036854775807 + (isneg == -1)))
-			return (0 - (isneg == 1));
+		result = (result * base) + ft_chrindex(bstr, s[i]);
 		i++;
 	}
+	if (result > (unsigned long long)(9223372036854775807 + (isneg == -1)))
+		return (0 - (isneg == 1));
 	return ((int)(result * isneg));
 }

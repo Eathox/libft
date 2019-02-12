@@ -21,8 +21,7 @@ int		ft_numlen_base(long long value, int base)
 	num = (value < 0 && base == 10) ? -value : value;
 	if (base < 2 || base > 36)
 		return (0);
-	if (value < 0 && base == 10)
-		len++;
+	len += (value < 0 && base == 10);
 	while (value != -1)
 	{
 		len++;
