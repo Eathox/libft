@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_numlen_base.c                                   :+:    :+:            */
+/*   ft_intlen.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/14 15:49:12 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/14 15:42:06 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_numlen_base(long long value, int base)
+int		ft_intlen(int value)
 {
-	unsigned long long	num;
-
-	num = (value < 0 && base == 10) ? -value : value;
-	return (ft_unumlen_base(num, base));
+	return (ft_intlen_base(value, 10));
 }

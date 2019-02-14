@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/12 15:02:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/14 15:48:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+int				ft_unumlen_base(unsigned long long value, int base);
+int				ft_unumlen(unsigned long long value);
+int				ft_uintlen_base(unsigned int value, int base);
+int				ft_uintlen(unsigned int value);
+int				ft_intlen_base(int value, int base);
+int				ft_intlen(int value);
 char			**ft_lsttostrarr(t_list *lst);
 char			**ft_strarrnew(size_t size);
 char			**ft_strdsplit(char const *s, char *delims);
