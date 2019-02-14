@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:49 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:49:12 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/14 19:20:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		*ft_lsttointarr(t_list *lst)
 	if (len == 0)
 		return (NULL);
 	alst = &lst;
-	arr = (int *)malloc(sizeof(int) * (len + 1));
+	arr = (int *)ft_memalloc(sizeof(int) * (len + 1));
 	if (arr == NULL)
 		return (NULL);
 	while (lst != NULL)

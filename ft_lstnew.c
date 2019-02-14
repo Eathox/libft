@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 18:07:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/06 03:17:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/14 19:20:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list			*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*lst;
 
-	lst = (t_list *)malloc(sizeof(t_list));
+	lst = (t_list *)ft_memalloc(sizeof(t_list));
 	if (lst == NULL)
 		return (NULL);
 	if (content == NULL)

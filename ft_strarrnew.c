@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 18:43:59 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/14 19:20:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**ft_strarrnew(size_t size)
 	char	**arr;
 
 	i = 0;
-	arr = (char **)malloc(sizeof(char *) * (size + 1));
+	arr = (char **)ft_memalloc(sizeof(char *) * (size + 1));
 	if (arr == NULL)
 		return (NULL);
 	while (i <= size)
