@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/14 19:33:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/14 19:38:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,15 @@ char	*ft_itoa_base(long long value, int base)
 
 	num = (value < 0 && base == 10) ? -value : value;
 	len = ft_numlen_base(value, base);
-	len -= (value < 0 && base == 10);
 	if (base < 2 || base > 36)
 		return (NULL);
 	str = ft_strnew(len);
 	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (str == NULL)
 		return (NULL);
-	while (len != 0)
+	while ((len - (value < 0 && base == 10)) != 0)
 	{
-		str[len] = bstr[(num % base)];
+		str[len - 1] = bstr[(num % base)];
 		num = num / base;
 		len--;
 	}
