@@ -29,7 +29,7 @@ int				ft_atoi_base(const char *s, int base)
 	while (ft_isspace(s[i]))
 		i++;
 	isneg = (s[i] == '-' && base == 10) ? -1 : 1;
-	i += s[i] == '-' || s[i] == '+';
+	i += (s[i] == '-' || s[i] == '+');
 	while (ft_chrnin(bstr, s[i], base) && lst_val <= result)
 	{
 		lst_val = result;
