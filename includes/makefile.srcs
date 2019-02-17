@@ -13,7 +13,7 @@ LIBFT_SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	clearterminal strarrnew strarrdel itoa_base atoi_base isdigitstr \
 	strfieldnew chrindex putpointer strdsplit putnbr_base strdtrim \
 	putnbr_fd_base putline_fd isupper islower chrdin numlen_base numlen \
-	intlen intlen_base uintlen uintlen_base unumlen unumlen_base
+	intlen intlen_base uintlen uintlen_base unumlen unumlen_base strappend \
 
 LIBFT_SRCS := $(LIBFT_SRCS:%=ft_%.c)
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
