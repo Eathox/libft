@@ -32,10 +32,9 @@ t_list			*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		lst->content = ft_memalloc(content_size);
+		lst->content = ft_memdup(content, content_size);
 		if (lst->content == NULL)
 			return (freeret(lst));
-		ft_memcpy(lst->content, content, content_size);
 		lst->content_size = content_size;
 	}
 	lst->next = NULL;
