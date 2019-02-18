@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/01 12:06:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/18 09:47:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,8 @@ static int		gnl_last_line(char **line, t_list *lst)
 
 static int		gnl_str_merge(char **s1, char *s2)
 {
-	char *temp;
-
 	if (*s1 != NULL)
-	{
-		temp = ft_strjoin(*s1, s2);
-		ft_strdel(s1);
-		*s1 = temp;
-	}
+		ft_strappend(s1, s2);
 	else
 		*s1 = ft_strdup(s2);
 	if (*s1 == NULL)
