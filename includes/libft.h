@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/19 16:54:47 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/19 17:04:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <stdarg.h>
 # include "get_next_line.h"
 
 # define FALSE	0
@@ -40,6 +41,7 @@ char			*ft_strchr(const char *s, int c);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdtrim(char const *s, char *delims);
 char			*ft_strdup(const char *s);
+char			*ft_strjoin_var(int count, ...);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strmap(const char *s, char (*f)(char));
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
