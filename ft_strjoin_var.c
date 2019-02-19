@@ -66,6 +66,6 @@ char			*ft_strjoin_var(int count, ...)
 		i++;
 	}
 	va_end(args);
-	ft_strarrdel(arr);
+	ft_memdel(&arr);
 	return (str);
 }
