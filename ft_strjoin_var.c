@@ -69,5 +69,5 @@ char			*ft_strjoin_var(int count, ...)
 		ft_strcat(str, (char *)arr[i]);
 		i++;
 	}
-	return (freeret(str, arr, args););
+	return (freeret(str, arr, args));
 }
