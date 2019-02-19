@@ -62,7 +62,7 @@ char			*ft_strjoin_var(int count, ...)
 	va_start(args, count);
 	arr = make_strarr(count, args);
 	if (arr == NULL)
-		freeret(NULL, NULL, args);
+		return (freeret(NULL, NULL, args));
 	str = ft_strnew(totallen(arr));
 	while (arr[i] != NULL)
 	{
