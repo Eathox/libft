@@ -33,7 +33,7 @@ static char		**strarr(int count, va_list args)
 	char	**arr;
 
 	i = 0;
-	arr = ft_newstrarr(count);
+	arr = ft_strarrnew(count);
 	if (arr == NULL)
 		return (NULL);
 	while (i < count)
