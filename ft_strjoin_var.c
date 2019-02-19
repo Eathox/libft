@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+static char		*freeret(char *ret, char **arr, va_list args)
+{
+	ft_memdel(&arr);
+	va_end(args);
+	return (ret);
+}
+
 static size_t	totallen(char **arr)
 {
 	size_t	len;
@@ -27,7 +34,7 @@ static size_t	totallen(char **arr)
 	return (len);
 }
 
-static char		**strarr(int count, va_list args)
+static char		**make_strarr(int count, va_list args)
 {
 	int		i;
 	char	**arr;
@@ -53,19 +60,14 @@ char			*ft_strjoin_var(int count, ...)
 
 	i = 0;
 	va_start(args, count);
-	arr = strarr(count, args);
+	arr = make_strarr(count, args);
 	if (arr == NULL)
-	{
-		va_end(args);
-		return (NULL);
-	}
+		freeret(NULL, NULL, args);
 	str = ft_strnew(totallen(arr));
 	while (arr[i] != NULL)
 	{
 		ft_strcat(str, (char *)arr[i]);
 		i++;
 	}
-	va_end(args);
-	ft_memdel(&arr);
-	return (str);
+	return (freeret(str, arr, args););
 }
