@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/02/18 17:48:29 by pholster      ########   odam.nl          #
+#    Updated: 2019/02/19 16:54:32 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	strfieldnew chrindex putpointer strdsplit putnbr_base strdtrim \
 	putnbr_fd_base putline_fd isupper islower chrdin numlen_base numlen \
 	intlen intlen_base uintlen uintlen_base unumlen unumlen_base strappend \
-	memdup lstunlink getchar
+	memdup lstunlink getchar putnstr strnlen putnstr_fd
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)

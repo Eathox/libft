@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/19 15:27:40 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/19 16:54:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ long long		ft_pow(long long n, long long pow);
 size_t			ft_strdlen(const char *s, char *delims);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *s);
+size_t			ft_strnlen(const char *s, size_t n);
 t_list			*ft_intarrtolst(int *arr, int len);
 t_list			*ft_lstdup(t_list **alst);
 t_list			*ft_lstdupone(t_list *lst);
@@ -139,6 +140,8 @@ void			ft_putnbr_base(long long n, int base);
 void			ft_putnbr_fd_base(long long value, int fd, int base);
 void			ft_putnbr_fd(long long n, int fd);
 void			ft_putnbr(long long n);
+void			ft_putnstr_fd(const char *s, int fd, size_t n);
+void			ft_putnstr(const char *s, size_t n);
 void			ft_putpointer(void *pointer);
 void			ft_putstr_fd(const char *s, int fd);
 void			ft_putstr(const char *s);
