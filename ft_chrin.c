@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_chrin(const char *s, int c)
+int		ft_chrin(const char *str, int c)
 {
-	return (ft_chrindex(s, c) != -1);
+	return (ft_chrindex(str, c) != -1);
 }

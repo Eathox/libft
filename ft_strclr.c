@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void	ft_strclr(char *str)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (s == NULL)
+	if (str == NULL)
 		return ;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		s[i] = '\0';
+		str[i] = '\0';
 		i++;
 	}
 }

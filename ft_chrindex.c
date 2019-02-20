@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int		ft_chrindex(const char *s, int c)
+int		ft_chrindex(const char *str, int c)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (s == NULL)
+	if (str == NULL)
 		return (-1);
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s[i] == c)
+		if (str[i] == c)
 			return (i);
 		i++;
 	}

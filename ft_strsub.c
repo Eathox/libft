@@ -12,22 +12,22 @@
 
 #include "libft.h"
 
-char	*ft_strsub(const char *s, unsigned int start, size_t len)
+char	*ft_strsub(const char *str, unsigned int start, size_t len)
 {
 	size_t	i;
-	char	*str;
+	char	*ret;
 
 	i = 0;
-	if (s == NULL)
-		return (NULL);
-	str = ft_strnew(len);
 	if (str == NULL)
+		return (NULL);
+	ret = ft_strnew(len);
+	if (ret == NULL)
 		return (NULL);
 	while (i < len)
 	{
-		str[i] = s[start + i];
+		ret[i] = str[start + i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	ret[i] = '\0';
+	return (ret);
 }

@@ -12,26 +12,26 @@
 
 #include "libft.h"
 
-void	ft_putline_fd(const char *s, int fd)
+void	ft_putline_fd(const char *str, int fd)
 {
 	int		len;
 	int		i;
 	int		j;
-	float	h;
+	float	half;
 
-	len = (int)ft_strlen(s);
+	len = (int)ft_strlen(str);
 	i = 0;
 	j = 0;
 	if (len > 80)
 		return ;
-	h = (80 - len) / 2;
+	half = (80 - len) / 2;
 	while (i != 80)
 	{
-		if (i < h || j == len)
+		if (i < half || j == len)
 			ft_putchar_fd('-', fd);
 		else
 		{
-			ft_putchar_fd(s[j], fd);
+			ft_putchar_fd(str[j], fd);
 			j++;
 		}
 		i++;

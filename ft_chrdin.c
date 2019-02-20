@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int		ft_chrdin(const char *s, char *c)
+int		ft_chrdin(const char *str, char *c)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (s == NULL || c == NULL)
+	if (str == NULL || c == NULL)
 		return (FALSE);
 	while (c[i] != '\0')
 	{
-		if (ft_chrin(s, c[i]))
+		if (ft_chrin(str, c[i]))
 			return (TRUE);
 		i++;
 	}

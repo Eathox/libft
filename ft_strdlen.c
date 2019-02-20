@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-size_t		ft_strdlen(const char *s, const char *delims)
+size_t		ft_strdlen(const char *str, const char *delims)
 {
 	size_t	len;
 
 	len = 0;
-	if (s == NULL || delims == NULL)
+	if (str == NULL || delims == NULL)
 		return (0);
-	while (s[len] != '\0' && ft_chrin(delims, s[len]) == FALSE)
+	while (str[len] != '\0' && ft_chrin(delims, str[len]) == FALSE)
 		len++;
 	return (len);
 }

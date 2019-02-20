@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-int		ft_puterror(const char *s)
+int		ft_puterror(const char *str)
 {
-	if (s == NULL)
+	if (str == NULL)
 		write(2, "(null)", 6);
 	else
-		write(2, s, ft_strlen(s));
+		write(2, str, ft_strlen(str));
 	return (0);
 }

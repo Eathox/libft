@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int		ft_isdigitstr(const char *s)
+int		ft_isdigitstr(const char *str)
 {
 	int	i;
 
 	i = 0;
-	if (s == NULL)
+	if (str == NULL)
 		return (FALSE);
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s[i] < '0' && s[i] > '9')
+		if (str[i] < '0' && str[i] > '9')
 			return (FALSE);
 		i++;
 	}

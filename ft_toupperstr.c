@@ -12,17 +12,17 @@
 
 #include "libft.h"
 
-void	ft_toupperstr(char *s)
+void	ft_toupperstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (s == NULL)
+	if (str == NULL)
 		return ;
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
-			s[i] -= 32;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] -= 32;
 		i++;
 	}
 }

@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(const char *str)
 {
 	char	*dup;
 
-	dup = ft_strnew(ft_strlen(s));
+	dup = ft_strnew(ft_strlen(str));
 	if (dup == NULL)
 		return (NULL);
-	ft_strcpy(dup, s);
+	ft_strcpy(dup, str);
 	return (dup);
 }

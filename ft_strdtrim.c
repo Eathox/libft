@@ -12,22 +12,22 @@
 
 #include "libft.h"
 
-char	*ft_strdtrim(const char *s, const char *delims)
+char	*ft_strdtrim(const char *str, const char *delims)
 {
 	char	*str;
 	int		len;
 	int		i;
 
 	i = 0;
-	if (s == NULL)
+	if (str == NULL)
 		return (NULL);
-	len = (int)ft_strlen(s);
-	while (ft_chrin(delims, s[i]) && s[i] != '\0')
+	len = (int)ft_strlen(str);
+	while (ft_chrin(delims, str[i]) && str[i] != '\0')
 		i++;
 	if (i == len)
 		return (ft_strnew(0));
-	while (ft_chrin(delims, s[(len - 1)]) && (len - 1) > i)
+	while (ft_chrin(delims, str[(len - 1)]) && (len - 1) > i)
 		len--;
-	str = ft_strndup(&s[i], (size_t)(len - i));
+	str = ft_strndup(&str[i], (size_t)(len - i));
 	return (str);
 }

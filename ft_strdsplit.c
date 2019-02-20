@@ -18,7 +18,7 @@ static char	**freeret(char ***tab)
 	return (NULL);
 }
 
-char		**ft_strdsplit(const char *s, const char *delims)
+char		**ft_strdsplit(const char *str, const char *delims)
 {
 	char			**tab;
 	int				word;
@@ -27,15 +27,15 @@ char		**ft_strdsplit(const char *s, const char *delims)
 
 	i = 0;
 	word = 0;
-	tab = ft_strarrnew((size_t)ft_wrddcount(s, delims));
+	tab = ft_strarrnew((size_t)ft_wrddcount(str, delims));
 	if (tab == NULL)
 		return (NULL);
-	while (s != NULL && s[i] != '\0')
+	while (str != NULL && str[i] != '\0')
 	{
-		if (ft_chrin(delims, s[i]) == FALSE)
+		if (ft_chrin(delims, str[i]) == FALSE)
 		{
-			len = ft_strdlen(&s[i], delims);
-			tab[word] = ft_strndup(&s[i], len);
+			len = ft_strdlen(&str[i], delims);
+			tab[word] = ft_strndup(&str[i], len);
 			if (tab[word] == NULL)
 				return (freeret(&tab));
 			word++;

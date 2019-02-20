@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-void	ft_lstmemdel(void *s, size_t size)
+void	ft_lstmemdel(void *str, size_t size)
 {
-	if (s == NULL)
+	if (str == NULL)
 		return ;
 	(void)size;
-	ft_memdel(&s);
+	ft_memdel(&str);
 }

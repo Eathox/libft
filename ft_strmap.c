@@ -12,24 +12,24 @@
 
 #include "libft.h"
 
-char	*ft_strmap(const char *s, char (*f)(char))
+char	*ft_strmap(const char *str, char (*f)(char))
 {
 	int		i;
 	int		len;
-	char	*str;
+	char	*ret;
 
 	i = 0;
-	if (f == NULL || s == NULL)
+	if (f == NULL || str == NULL)
 		return (NULL);
-	len = (int)ft_strlen(s);
-	str = ft_strnew(len);
-	if (str == NULL)
+	len = (int)ft_strlen(str);
+	ret = ft_strnew(len);
+	if (ret == NULL)
 		return (NULL);
 	while (i < len)
 	{
-		str[i] = f(s[i]);
+		ret[i] = f(str[i]);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	ret[i] = '\0';
+	return (ret);
 }

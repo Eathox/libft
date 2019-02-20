@@ -14,10 +14,10 @@
 
 void	ft_putnbr_fd_base(long long value, int fd, int base)
 {
-	char				*bstr;
+	char				*base_str;
 	unsigned long long	num;
 
-	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	num = (value < 0 && base == 10) ? -value : value;
 	if (base < 2 || base > 36)
 		return ;
@@ -25,6 +25,6 @@ void	ft_putnbr_fd_base(long long value, int fd, int base)
 		ft_putchar_fd('-', fd);
 	if (num > (unsigned long long)(base - 1))
 		ft_putnbr_fd_base((num / base), fd, base);
-	num = bstr[(num % base)];
+	num = base_str[(num % base)];
 	ft_putchar_fd(num, fd);
 }

@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int				ft_atoi_base(const char *s, int base)
+int				ft_atoi_base(const char *str, int base)
 {
-	char				*bstr;
+	char				*base_str;
 	unsigned long long	result;
 	unsigned long long	lst_val;
 	int					isneg;
@@ -23,17 +23,17 @@ int				ft_atoi_base(const char *s, int base)
 	i = 0;
 	result = 0;
 	lst_val = result;
-	bstr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (base < 2 || base > 36)
 		return (0);
-	while (ft_isspace(s[i]))
+	while (ft_isspace(str[i]))
 		i++;
-	isneg = (s[i] == '-' && base == 10) ? -1 : 1;
-	i += (s[i] == '-' || s[i] == '+');
-	while (ft_chrnin(bstr, s[i], base) && lst_val <= result)
+	isneg = (str[i] == '-' && base == 10) ? -1 : 1;
+	i += (str[i] == '-' || str[i] == '+');
+	while (ft_chrnin(base_str, str[i], base) && lst_val <= result)
 	{
 		lst_val = result;
-		result = (result * base) + ft_chrindex(bstr, s[i]);
+		result = (result * base) + ft_chrindex(base_str, str[i]);
 		i++;
 	}
 	if (result > (9223372036854775807 + (isneg == -1)) || lst_val > result)
