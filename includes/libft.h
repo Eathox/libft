@@ -49,9 +49,10 @@ char			*ft_strncat(char *s1, const char *s2, size_t n);
 char			*ft_strncpy(char *dst, const char *src, size_t n);
 char			*ft_strndup(const char *s, size_t n);
 char			*ft_strnew(size_t size);
+char			*ft_strnstr(const char *s, const char *needle, size_t len);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strreplace(char **s1, const char *s2);
-char			*ft_strstr(const char *str, const char *needle);
+char			*ft_strstr(const char *s, const char *needle);
 char			*ft_strsub(const char *s, unsigned int start, size_t len);
 char			*ft_strtrim(const char *s);
 int				*ft_lsttointarr(const t_list *lst);
@@ -159,6 +160,5 @@ void			ft_strrev(char *s);
 void			ft_swap(int *a, int *b);
 void			ft_tolowerstr(char *s);
 void			ft_toupperstr(char *s);
-char			*ft_strnstr(const char *str, const char *needle, size_t len);
 
 #endif
