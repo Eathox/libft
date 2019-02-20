@@ -118,7 +118,6 @@ void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memdup(const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memset(void *b, int c, size_t len);
-void			*ft_select(int con, void *var1, void *var2);
 void			ft_bzero(void *s, size_t n);
 void			ft_clearterminal(void);
 void			ft_foreach(int *tab, int length, void (*f)(int));

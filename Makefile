@@ -25,12 +25,12 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	intin strin strnin putstrarr putintarr strndup strdlen wrddcount \
 	chrtostr lstaddbck lstmemdel lsttostrarr strarrtolst lstlen strmatch \
 	strrev lstdup lstdupone putstrlst putbool intarrtolst putintlst \
-	lsttointarr min max constrain abs select strreplace get_next_line \
-	clearterminal strarrnew strarrdel itoa_base atoi_base isdigitstr \
-	strfieldnew chrindex putpointer strdsplit putnbr_base strdtrim \
-	putnbr_fd_base putline_fd isupper islower chrdin numlen_base numlen \
-	intlen intlen_base uintlen uintlen_base unumlen unumlen_base strappend \
-	memdup lstunlink getchar putnstr putnstr_fd strnlen strjoin_var
+	lsttointarr min max constrain abs strreplace get_next_line clearterminal \
+	strarrnew strarrdel itoa_base atoi_base isdigitstr strfieldnew chrindex \
+	putpointer strdsplit putnbr_base strdtrim putnbr_fd_base putline_fd \
+	isupper islower chrdin numlen_base numlen intlen intlen_base uintlen \
+	uintlen_base unumlen unumlen_base strappend memdup lstunlink getchar \
+	putnstr putnstr_fd strnlen strjoin_var
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)
