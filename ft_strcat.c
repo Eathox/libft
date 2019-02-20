@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *str1, const char *str2)
 {
 	int	i;
 	int	len;
 
 	i = 0;
-	len = (int)ft_strlen(s1);
-	while (s2[i] != '\0')
+	len = (int)ft_strlen(str1);
+	while (str2[i] != '\0')
 	{
-		s1[(len + i)] = s2[i];
+		str1[(len + i)] = str2[i];
 		i++;
 	}
-	s1[(len + i)] = '\0';
-	return (&s1[0]);
+	str1[(len + i)] = '\0';
+	return (&str1[0]);
 }

@@ -48,13 +48,13 @@ static int		gnl_last_line(char **line, t_list *lst)
 	return (0);
 }
 
-static int		gnl_str_merge(char **s1, char *s2)
+static int		gnl_str_merge(char **str1, char *str2)
 {
-	if (*s1 != NULL)
-		ft_strappend(s1, s2);
+	if (*str1 != NULL)
+		ft_strappend(str1, str2);
 	else
-		*s1 = ft_strdup(s2);
-	if (*s1 == NULL)
+		*str1 = ft_strdup(str2);
+	if (*str1 == NULL)
 		return (-1);
 	return (0);
 }

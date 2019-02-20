@@ -12,36 +12,36 @@
 
 #include "libft.h"
 
-static char	**freeret(char ***tab)
+static char	**freeret(char ***arr)
 {
-	ft_strarrdel(tab);
+	ft_strarrdel(arr);
 	return (NULL);
 }
 
 char		**ft_strdsplit(const char *str, const char *delims)
 {
-	char			**tab;
+	char			**arr;
 	int				word;
 	size_t			len;
 	unsigned int	i;
 
 	i = 0;
 	word = 0;
-	tab = ft_strarrnew((size_t)ft_wrddcount(str, delims));
-	if (tab == NULL)
+	arr = ft_strarrnew((size_t)ft_wrddcount(str, delims));
+	if (arr == NULL)
 		return (NULL);
 	while (str != NULL && str[i] != '\0')
 	{
 		if (ft_chrin(delims, str[i]) == FALSE)
 		{
 			len = ft_strdlen(&str[i], delims);
-			tab[word] = ft_strndup(&str[i], len);
-			if (tab[word] == NULL)
-				return (freeret(&tab));
+			arr[word] = ft_strndup(&str[i], len);
+			if (arr[word] == NULL)
+				return (freeret(&arr));
 			word++;
 			i += (len - 1);
 		}
 		i++;
 	}
-	return (tab);
+	return (arr);
 }

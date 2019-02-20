@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-void	ft_putintarr(const int *tab, int len)
+void	ft_putintarr(const int *arr, int len)
 {
 	int	i;
 
 	i = 0;
-	if (tab == NULL)
+	if (arr == NULL)
 		return ;
 	while (i < len)
 	{
-		ft_putnbr(tab[i]);
+		ft_putnbr(arr[i]);
 		write(1, "\n", 1);
 		i++;
 	}

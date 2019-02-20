@@ -12,27 +12,27 @@
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(const char *str1, const char *str2)
 {
 	int				i;
-	int				s1len;
-	int				s2len;
+	int				str1len;
+	int				str2len;
 	char			*str;
 
 	i = 0;
-	if (s1 == NULL || s2 == NULL)
+	if (str1 == NULL || str2 == NULL)
 		return (NULL);
-	s1len = (int)ft_strlen(s1);
-	s2len = (int)ft_strlen(s2);
-	str = ft_strnew(s1len + s2len);
+	str1len = (int)ft_strlen(str1);
+	str2len = (int)ft_strlen(str2);
+	str = ft_strnew(str1len + str2len);
 	if (str == NULL)
 		return (NULL);
-	while (i < (s1len + s2len))
+	while (i < (str1len + str2len))
 	{
-		if (i < s1len)
-			str[i] = s1[i];
+		if (i < str1len)
+			str[i] = str1[i];
 		else
-			str[i] = s2[i - s1len];
+			str[i] = str2[i - str1len];
 		i++;
 	}
 	str[i] = '\0';
