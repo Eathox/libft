@@ -20,7 +20,7 @@ static t_list	*freeret(t_list **lst)
 
 t_list			*ft_strarrtolst(const char **arr)
 {
-	t_list	*lst;
+	t_list	*newlst;
 	t_list	*prvlst;
 	t_list	*returnlst;
 	int		i;
@@ -35,11 +35,11 @@ t_list			*ft_strarrtolst(const char **arr)
 	i++;
 	while (arr[i] != 0)
 	{
-		lst = ft_lstnew(arr[i], ft_strlen(arr[i]) + 1);
-		if (lst == NULL)
+		newlst = ft_lstnew(arr[i], ft_strlen(arr[i]) + 1);
+		if (newlst == NULL)
 			return (freeret(&returnlst));
-		ft_lstaddbck(&prvlst, lst);
-		prvlst = lst;
+		prvlst->next = newlst;
+		prvlst = newlst;
 		i++;
 	}
 	return (returnlst);

@@ -12,19 +12,19 @@
 
 #include "libft.h"
 
-int		ft_strmatch(const char *haystack, const char *needle)
+int		ft_strmatch(const char *str, const char *needle)
 {
-	if (haystack == NULL || needle == NULL)
+	if (str == NULL || needle == NULL)
 		return (FALSE);
-	if (needle[0] == '\0' && haystack[0] == '\0')
+	if (needle[0] == '\0' && str[0] == '\0')
 		return (TRUE);
-	if (needle[0] != haystack[0] && needle[0] != '*')
+	if (needle[0] != str[0] && needle[0] != '*')
 		return (FALSE);
-	if (needle[0] == '*' && haystack[0] != '\0')
+	if (needle[0] == '*' && str[0] != '\0')
 	{
-		return (ft_strmatch(&haystack[1], &needle[1]) ||
-				ft_strmatch(&haystack[1], &needle[0]) ||
-				ft_strmatch(&haystack[0], &needle[1]));
+		return (ft_strmatch(&str[1], &needle[1]) ||
+				ft_strmatch(&str[1], &needle[0]) ||
+				ft_strmatch(&str[0], &needle[1]));
 	}
-	return (ft_strmatch(&haystack[1], &needle[1]));
+	return (ft_strmatch(&str[1], &needle[1]));
 }

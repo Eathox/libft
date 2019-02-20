@@ -22,7 +22,7 @@ t_list			*ft_intarrtolst(const int *arr, int len)
 {
 	t_list	*returnlst;
 	t_list	*prvlst;
-	t_list	*lst;
+	t_list	*newlst;
 	int		i;
 	int		n;
 
@@ -38,10 +38,10 @@ t_list			*ft_intarrtolst(const int *arr, int len)
 	{
 		i++;
 		n = arr[i];
-		lst = ft_lstnew(&n, (sizeof(int) * ft_intlen(n)));
-		if (lst == NULL)
+		newlst = ft_lstnew(&n, (sizeof(int) * ft_intlen(n)));
+		if (newlst == NULL)
 			return (freeret(&returnlst));
-		ft_lstaddbck(&prvlst, lst);
+		prvlst->next = newlst;
 		prvlst = returnlst;
 	}
 	return (returnlst);

@@ -37,7 +37,7 @@ t_list			*ft_lstdup(const t_list *lst)
 		duplst = ft_lstnew(current->content, current->content_size);
 		if (duplst == NULL)
 			return (freeret(&retlst));
-		ft_lstaddbck(&prvlst, duplst);
+		prvlst->next = duplst;
 		prvlst = duplst;
 		current = current->next;
 	}

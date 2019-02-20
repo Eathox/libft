@@ -33,7 +33,7 @@ t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*current;
 	t_list	*retlst;
 	t_list	*prvlst;
-	t_list	*newlst;
+	t_list	*duplst;
 
 	if (lst == NULL || f == NULL)
 		return (NULL);
@@ -44,11 +44,11 @@ t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(t_list *elem))
 	prvlst = retlst;
 	while (current != NULL)
 	{
-		newlst = list_set(f(current));
-		if (newlst == NULL)
+		duplst = list_set(f(current));
+		if (duplst == NULL)
 			return (freeret(&retlst));
-		ft_lstaddbck(&prvlst, newlst);
-		prvlst = newlst;
+		prvlst->next = duplst;
+		prvlst = duplst;
 		current = current->next;
 	}
 	return (retlst);

@@ -51,7 +51,7 @@ char			*ft_strndup(const char *s, size_t n);
 char			*ft_strnew(size_t size);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strreplace(char **s1, const char *s2);
-char			*ft_strstr(const char *haystack, const char *needle);
+char			*ft_strstr(const char *str, const char *needle);
 char			*ft_strsub(const char *s, unsigned int start, size_t len);
 char			*ft_strtrim(const char *s);
 int				*ft_lsttointarr(const t_list *lst);
@@ -83,7 +83,7 @@ int				ft_sqrt(int nb);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strequ(const char *s1, const char *s2);
 int				ft_strin(const char **arr, const char *s);
-int				ft_strmatch(const char *haystack, const char *needle);
+int				ft_strmatch(const char *str, const char *needle);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_strnequ(const char *s1, const char *s2, size_t n);
 int				ft_strnin(const char **arr, const char *s, size_t n);
@@ -159,7 +159,6 @@ void			ft_strrev(char *s);
 void			ft_swap(int *a, int *b);
 void			ft_tolowerstr(char *s);
 void			ft_toupperstr(char *s);
-char			*ft_strnstr(const char *haystack, const char *needle,
-																	size_t len);
+char			*ft_strnstr(const char *str, const char *needle, size_t len);
 
 #endif
