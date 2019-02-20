@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int		ft_chrnin(const char *tab, int c, size_t n)
+int		ft_chrnin(const char *s, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	if (tab == NULL)
+	if (s == NULL)
 		return (FALSE);
 	while (i < n)
 	{
-		if (tab[i] == c)
+		if (s[i] == c)
 			return (TRUE);
 		i++;
 	}

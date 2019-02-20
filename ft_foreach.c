@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-void	ft_foreach(int *tab, int length, void (*f)(int))
+void	ft_foreach(const int *arr, int length, void (*f)(int))
 {
 	int	i;
 
 	i = 0;
-	if (f == NULL || tab == NULL)
+	if (f == NULL || arr == NULL)
 		return ;
 	while (i < length)
 	{
-		f(tab[i]);
+		f(arr[i]);
 		i++;
 	}
 }

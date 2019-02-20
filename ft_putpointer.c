@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putpointer(void *pointer)
+void	ft_putpointer(const void *pointer)
 {
 	if (pointer == NULL)
 		ft_putstr("0x");

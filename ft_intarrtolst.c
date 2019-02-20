@@ -18,7 +18,7 @@ static t_list	*freeret(t_list **lst)
 	return (NULL);
 }
 
-t_list			*ft_intarrtolst(int *arr, int len)
+t_list			*ft_intarrtolst(const int *arr, int len)
 {
 	t_list	*returnlst;
 	t_list	*prvlst;

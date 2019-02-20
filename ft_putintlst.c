@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putintlst(t_list *lst)
+void	ft_putintlst(const t_list *lst)
 {
 	int	*n;
 

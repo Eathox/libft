@@ -22,9 +22,9 @@ int		ft_sqrt(int nb)
 		n++;
 		if (n * n == nb)
 			return (n);
-		else if (n * n > nb)
+		if (n * n > nb)
 			return (0);
-		else if (n * n == 46340)
+		if (n * n == 46340)
 			return (0);
 	}
 	return (0);

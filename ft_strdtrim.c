@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strdtrim(char const *s, char *delims)
+char	*ft_strdtrim(const char *s, const char *delims)
 {
 	char	*str;
 	int		len;

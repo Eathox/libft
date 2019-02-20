@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putline(char *s)
+void	ft_putline(const char *s)
 {
 	ft_putline_fd(s, 1);
 }

@@ -14,60 +14,68 @@
 
 static char		*freeret(char *ret, char **arr, va_list args)
 {
-	ft_memdel(&arr);
 	va_end(args);
+	ft_memdel(&arr);
 	return (ret);
 }
 
-static size_t	totallen(char **arr)
+static size_t	getstrs(char **arr, int count, va_list args)
 {
 	size_t	len;
 	int		i;
 
 	i = 0;
 	len = 0;
-	while (arr[i] != NULL)
+	while (i < count)
 	{
+		arr[i] = va_arg(args, const char *);
 		len += ft_strlen(arr[i]);
 		i++;
 	}
 	return (len);
 }
 
-static char		**make_strarr(int count, va_list args)
+static char		*joinstrs(char *str, char *arr, int count)
 {
 	int		i;
-	char	**arr;
+	int		j;
+	int		k;
 
 	i = 0;
-	arr = ft_strarrnew(count);
-	if (arr == NULL)
-		return (NULL);
-	while (i < count)
+	j = 0;
+	while (j < count)
 	{
-		arr[i] = va_arg(args, char *);
+		if (arr[j][k] == '\0')
+		{
+			k = 0;
+			j++;
+			continue;
+		}
+		str[i] = arr[j][k];
 		i++;
+		k++;
 	}
-	return (arr);
+	return (str);
 }
 
 char			*ft_strjoin_var(int count, ...)
 {
 	int		i;
+	size_t	len;
 	char	**arr;
 	char	*str;
 	va_list	args;
 
 	i = 0;
+	len = 0;
 	va_start(args, count);
-	arr = make_strarr(count, args);
+	arr = ft_strarrnew(count);
 	if (arr == NULL)
 		return (freeret(NULL, NULL, args));
-	str = ft_strnew(totallen(arr));
-	while (arr[i] != NULL)
-	{
-		ft_strcat(str, (char *)arr[i]);
-		i++;
-	}
+	len = getstrs(arr, count, args);
+	str = ft_strnew(getstrs(arr, count, args));
+	if (str == NULL)
+		return (freeret(NULL, arr, args));
+	str = joinstrs(str, arr, count);
 	return (freeret(str, arr, args));
 }

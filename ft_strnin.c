@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int		ft_strnin(char **tab, const char *s, size_t n)
+int		ft_strnin(const char **arr, const char *s, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	if (tab == NULL || s == NULL)
+	if (arr == NULL || s == NULL)
 		return (FALSE);
 	while (i < n)
 	{
-		if (ft_strequ(s, tab[i]))
+		if (ft_strequ(s, arr[i]))
 			return (TRUE);
 		i++;
 	}

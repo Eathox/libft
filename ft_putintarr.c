@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putintarr(int *tab, int len)
+void	ft_putintarr(const int *tab, int len)
 {
 	int	i;
 

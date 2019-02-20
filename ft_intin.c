@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int		ft_intin(const int *tab, int n, int len)
+int		ft_intin(const int *arr, int n, int len)
 {
 	int	i;
 
 	i = 0;
-	if (tab == NULL)
+	if (arr == NULL)
 		return (FALSE);
 	while (i < len)
 	{
-		if (tab[i] == n)
+		if (arr[i] == n)
 			return (TRUE);
 		i++;
 	}

@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-void	ft_putstrarr(char **tab)
+void	ft_putstrarr(const char **arr)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (tab == NULL)
+	if (arr == NULL)
 		return ;
-	while (tab[i] != 0)
+	while (arr[i] != 0)
 	{
-		ft_putendl(tab[i]);
+		ft_putendl(arr[i]);
 		i++;
 	}
 }

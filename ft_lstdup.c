@@ -18,27 +18,28 @@ static t_list	*freeret(t_list **lst)
 	return (NULL);
 }
 
-t_list			*ft_lstdup(t_list **alst)
+t_list			*ft_lstdup(const t_list *lst)
 {
-	t_list	*lst;
+	t_list	*current;
+	t_list	*duplst;
 	t_list	*prvlst;
-	t_list	*returnlst;
+	t_list	*retlst;
 
-	if (alst == NULL)
+	if (lst == NULL)
 		return (NULL);
-	returnlst = ft_lstnew(alst[0]->content, alst[0]->content_size);
-	if (returnlst == NULL)
+	retlst = ft_lstnew(lsr->content, lst->content_size);
+	if (retlst == NULL)
 		return (NULL);
-	prvlst = returnlst;
-	alst = &(alst[0]->next);
-	while (alst[0] != NULL)
+	prvlst = retlst;
+	current = lst->next;
+	while (current != NULL)
 	{
-		lst = ft_lstnew(alst[0]->content, alst[0]->content_size);
-		if (lst == NULL)
-			return (freeret(&returnlst));
-		ft_lstaddbck(&prvlst, lst);
-		prvlst = lst;
-		alst = &(alst[0]->next);
+		duplst = ft_lstnew(current->content, current->content_size);
+		if (duplst == NULL)
+			return (freeret(&retlst));
+		ft_lstaddbck(&prvlst, duplst);
+		prvlst = duplst;
+		current = current->next;
 	}
-	return (returnlst);
+	return (retlst);
 }

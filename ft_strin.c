@@ -12,16 +12,16 @@
 
 #include "libft.h"
 
-int		ft_strin(char **tab, const char *s)
+int		ft_strin(const char **arr, const char *s)
 {
 	unsigned int	i;
 
 	i = 0;
-	if (tab == NULL || s == NULL)
+	if (arr == NULL || s == NULL)
 		return (FALSE);
-	while (tab[i] != NULL)
+	while (arr[i] != NULL)
 	{
-		if (ft_strequ(s, tab[i]))
+		if (ft_strequ(s, arr[i]))
 			return (TRUE);
 		i++;
 	}

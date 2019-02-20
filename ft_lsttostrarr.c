@@ -18,7 +18,7 @@ static char	**freeret(char **stra)
 	return (NULL);
 }
 
-char		**ft_lsttostrarr(t_list *lst)
+char		**ft_lsttostrarr(const t_list *lst)
 {
 	int		i;
 	char	*str;

@@ -28,27 +28,28 @@ static t_list	*list_set(t_list *elem)
 	return (new);
 }
 
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list	*returnlst;
+	t_list	*current;
+	t_list	*retlst;
 	t_list	*prvlst;
 	t_list	*newlst;
 
 	if (lst == NULL || f == NULL)
 		return (NULL);
-	returnlst = list_set(f(lst));
-	if (returnlst == NULL)
+	retlst = list_set(f(lst));
+	if (retlst == NULL)
 		return (NULL);
-	lst = lst->next;
-	prvlst = returnlst;
-	while (lst != NULL)
+	current = current->next;
+	prvlst = retlst;
+	while (current != NULL)
 	{
-		newlst = list_set(f(lst));
+		newlst = list_set(f(current));
 		if (newlst == NULL)
-			return (freeret(&returnlst));
+			return (freeret(&retlst));
 		ft_lstaddbck(&prvlst, newlst);
 		prvlst = newlst;
-		lst = lst->next;
+		current = current->next;
 	}
-	return (returnlst);
+	return (retlst);
 }

@@ -25,7 +25,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		b = s2[i];
 		if (a != b)
 			return (a - b);
-		else if (a == '\0')
+		if (a == '\0')
 			return (0);
 		i++;
 	}

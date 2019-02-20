@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_list	*ft_lstdupone(t_list *lst)
+t_list	*ft_lstdupone(const t_list *lst)
 {
 	t_list	*duplst;
 

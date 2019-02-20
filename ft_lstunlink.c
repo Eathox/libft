@@ -12,12 +12,16 @@
 
 #include "libft.h"
 
-t_list	*ft_lstunlink(t_list *head, t_list *lst)
+t_list	*ft_lstunlink(const t_list *head, const t_list *lst)
 {
-	while (head != NULL && head->next != lst)
-		head = head->next;
-	if (head == NULL || lst == NULL || head == lst)
+	t_list	*current;
+
+
+	current = head;
+	while (current != NULL && current->next != lst)
+		current = current->next;
+	if (current == NULL || lst == NULL || current == lst)
 		return (NULL);
-	head->next = lst->next;
+	current->next = lst->next;
 	return (lst);
 }

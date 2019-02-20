@@ -18,7 +18,7 @@ static char	**freeret(char ***tab)
 	return (NULL);
 }
 
-char		**ft_strdsplit(char const *s, char *delims)
+char		**ft_strdsplit(const char *s, const char *delims)
 {
 	char			**tab;
 	int				word;

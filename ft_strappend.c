@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_strappend(char **dst, char *src)
+void	ft_strappend(char **dst, const char *src)
 {
 	ft_strreplace(dst, ft_strjoin(*dst, src));
 }

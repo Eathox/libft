@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_strreplace(char **s1, char *s2)
+char	*ft_strreplace(char **s1, const char *s2)
 {
 	ft_strdel(s1);
 	*s1 = s2;

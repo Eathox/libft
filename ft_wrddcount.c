@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_wrddcount(char const *s, char *delims)
+int		ft_wrddcount(const char *s, const char *delims)
 {
 	unsigned int	count;
 	unsigned int	i;

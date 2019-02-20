@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		*ft_lsttointarr(t_list *lst)
+int		*ft_lsttointarr(const t_list *lst)
 {
 	int		*n;
 	int		i;

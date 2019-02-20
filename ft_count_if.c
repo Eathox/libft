@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-int		ft_count_if(char **tab, int (*f)(char*))
+int		ft_count_if(const char **s, int (*f)(char *))
 {
 	int				i;
 	unsigned int	count;
 
 	i = 0;
 	count = 0;
-	if (f == NULL || tab == NULL)
+	if (f == NULL || s == NULL)
 		return (0);
-	while (tab[i] != NULL)
+	while (s[i] != NULL)
 	{
-		if (f(tab[i]) == 1)
+		if (f(s[i]) == 1)
 			count++;
 		i++;
 	}

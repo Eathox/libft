@@ -18,7 +18,7 @@ static t_list	*freeret(t_list **lst)
 	return (NULL);
 }
 
-t_list			*ft_strarrtolst(char **stra)
+t_list			*ft_strarrtolst(const char **arr)
 {
 	t_list	*lst;
 	t_list	*prvlst;
@@ -28,14 +28,14 @@ t_list			*ft_strarrtolst(char **stra)
 	i = 0;
 	if (stra == NULL)
 		return (NULL);
-	returnlst = ft_lstnew(stra[i], ft_strlen(stra[i]) + 1);
+	returnlst = ft_lstnew(arr[i], ft_strlen(arr[i]) + 1);
 	if (returnlst == NULL)
 		return (NULL);
 	prvlst = returnlst;
 	i++;
-	while (stra[i] != 0)
+	while (arr[i] != 0)
 	{
-		lst = ft_lstnew(stra[i], ft_strlen(stra[i]) + 1);
+		lst = ft_lstnew(arr[i], ft_strlen(arr[i]) + 1);
 		if (lst == NULL)
 			return (freeret(&returnlst));
 		ft_lstaddbck(&prvlst, lst);

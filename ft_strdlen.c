@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t		ft_strdlen(const char *s, char *delims)
+size_t		ft_strdlen(const char *s, const char *delims)
 {
 	size_t	len;
 

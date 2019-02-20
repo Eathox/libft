@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putstrlst(t_list *lst)
+void	ft_putstrlst(const t_list *lst)
 {
 	if (lst == NULL)
 		return ;
