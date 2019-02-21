@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:46:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ int				ft_uintlen(unsigned int value);
 int				ft_unumlen_base(unsigned long long value, int base);
 int				ft_unumlen(unsigned long long value);
 int				ft_wrddcount(const char *str, const char *delims);
-int				get_next_dline(const int fd, char **line, const char *delims);
 long long		ft_abs(long long n);
 long long		ft_constrain(long long n, long long num1, long long num2);
 long long		ft_max(long long n1, long long n2);

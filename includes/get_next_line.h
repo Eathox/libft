@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/22 14:26:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:46:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 # define STR content
 
 int				get_next_line(const int fd, char **line);
+int				get_next_dline(const int fd, char **line, const char *delims);
 
 #endif
