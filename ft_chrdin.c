@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_chrdin(const char *str, char *delims)
+int		ft_chrdin(const char *str, const char *delims)
 {
 	return (ft_chrdindex(str, delims) != -1);
 }

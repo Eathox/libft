@@ -58,7 +58,7 @@ char			*ft_strtrim(const char *str);
 int				*ft_lsttointarr(t_list *lst);
 int				ft_atoi_base(const char *str, int base);
 int				ft_atoi(const char *str);
-int				ft_chrdin(const char *str, char *delims);
+int				ft_chrdin(const char *str, const char *delims);
 int				ft_chrdindex(const char *str, const char *delims);
 int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
