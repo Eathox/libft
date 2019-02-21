@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_get_next_line.c                                 :+:    :+:            */
+/*   ft_chrindex.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/18 09:47:46 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/03 22:38:37 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/03 22:38:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-int				get_next_line(const int fd, char **line)
+int		ft_chrdindex(const char *str, const char *delims)
 {
-	return (get_next_line(fd, line, "\n"));
+	unsigned int	i;
+	int				dex;
+
+	i = 0;
+	if (str == NULL || c == NULL)
+		return (-1);
+	while (delims[i] != '\0')
+	{
+		dex = ft_chrindex(str, delims[i]);
+		if (dex != -1)
+			return (dex);
+		i++;
+	}
+	return (-1);
 }

@@ -18,15 +18,15 @@
 # include <stdarg.h>
 # include "get_next_line.h"
 
-# define FALSE	0
-# define TRUE	1
-
 typedef struct	s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+
+# define FALSE	0
+# define TRUE	1
 
 char			**ft_lsttostrarr(const t_list *lst);
 char			**ft_strarrnew(size_t size);
@@ -58,7 +58,8 @@ char			*ft_strtrim(const char *str);
 int				*ft_lsttointarr(const t_list *lst);
 int				ft_atoi_base(const char *str, int base);
 int				ft_atoi(const char *str);
-int				ft_chrdin(const char *str, char *c);
+int				ft_chrdin(const char *str, char *delims);
+int				ft_chrdindex(const char *str, const char *delims);
 int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
@@ -95,6 +96,7 @@ int				ft_uintlen(unsigned int value);
 int				ft_unumlen_base(unsigned long long value, int base);
 int				ft_unumlen(unsigned long long value);
 int				ft_wrddcount(const char *str, const char *delims);
+int				get_next_dline(const int fd, char **line, const char *delims);
 long long		ft_abs(long long n);
 long long		ft_constrain(long long n, long long num1, long long num2);
 long long		ft_max(long long n1, long long n2);
