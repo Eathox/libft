@@ -12,23 +12,23 @@
 
 #include "get_next_line.h"
 
-static t_list	*gnl_get_lst(const int fd, t_list *alst)
+static t_list	*gnl_get_lst(const int fd, t_list *lst)
 {
-	t_list	*lst;
+	t_list	*newlst;
 
-	while (alst != NULL)
+	while (lst != NULL)
 	{
-		if ((int)alst->FD == fd)
-			return (alst);
-		if (alst->next == NULL)
+		if ((int)lst->FD == fd)
+			return (lst);
+		if (lst->next == NULL)
 			break ;
-		alst = alst->next;
+		lst = lst->next;
 	}
-	lst = ft_lstnew(NULL, 0);
-	lst->FD = fd;
-	if (alst != NULL)
-		alst->next = lst;
-	return (lst);
+	newlst = ft_lstnew(NULL, 0);
+	newlst->FD = fd;
+	if (lst != NULL)
+		lst->next = newlst;
+	return (newlst);
 }
 
 static int		gnl_last_line(char **line, t_list *lst)
