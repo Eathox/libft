@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memset.c                                        :+:    :+:            */
+/*   ft_memrcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 16:08:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 18:04:40 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/11 16:56:29 by pholster       #+#    #+#                */
+/*   Updated: 2019/01/17 15:57:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t len)
+void	*ft_memrcpy(void *dst, const void *src, size_t n)
 {
-	size_t			i;
-	char			*temp_str;
+	unsigned char		*temp_dst;
+	unsigned const char	*temp_src;
 
-	i = 0;
-	temp_str = str;
-	while (i < len)
+	temp_dst = dst;
+	temp_src = src;
+	while (n > 0)
 	{
-		temp_str[i] = (unsigned char)c;
-		i++;
+		n--;
+		temp_dst[n] = temp_src[n];
 	}
-	return (str);
+	return (dst);
 }

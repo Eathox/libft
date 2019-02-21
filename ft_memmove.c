@@ -20,14 +20,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if ((unsigned int)dst - (unsigned int)src >= len)
 		ft_memcpy(dst, src, len);
 	else
-	{
-		temp_dst = dst;
-		temp_src = src;
-		while (len > 0)
-		{
-			len--;
-			temp_dst[len] = temp_src[len];
-		}
-	}
+		ft_memrcpy(dst, src, len);
 	return (dst);
 }

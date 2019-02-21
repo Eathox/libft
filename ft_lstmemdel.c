@@ -14,8 +14,6 @@
 
 void	ft_lstmemdel(void *str, size_t size)
 {
-	if (str == NULL)
-		return ;
 	(void)size;
 	ft_memdel(&str);
 }
