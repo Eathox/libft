@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:35:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/06 03:34:15 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:28:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_list	*list_set(t_list *elem)
 	return (new);
 }
 
-t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(t_list *elem))
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*current;
 	t_list	*retlst;
@@ -40,7 +40,7 @@ t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(t_list *elem))
 	retlst = list_set(f(lst));
 	if (retlst == NULL)
 		return (NULL);
-	current = current->next;
+	current = lst->next;
 	prvlst = retlst;
 	while (current != NULL)
 	{

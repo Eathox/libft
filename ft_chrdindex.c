@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrindex.c                                      :+:    :+:            */
+/*   ft_chrdindex.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 22:38:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/03 22:38:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:36:33 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_chrdindex(const char *str, const char *delims)
 	int				dex;
 
 	i = 0;
-	if (str == NULL || c == NULL)
+	if (str == NULL || delims == NULL)
 		return (-1);
 	while (delims[i] != '\0')
 	{

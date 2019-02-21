@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/19 17:04:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_list
 # define FALSE	0
 # define TRUE	1
 
-char			**ft_lsttostrarr(const t_list *lst);
+char			**ft_lsttostrarr(t_list *lst);
 char			**ft_strarrnew(size_t size);
 char			**ft_strdsplit(const char *str, const char *delims);
 char			**ft_strfieldnew(int x, int y, char c);
@@ -55,7 +55,7 @@ char			*ft_strreplace(char **str1, const char *str2);
 char			*ft_strstr(const char *str, const char *needle);
 char			*ft_strsub(const char *str, unsigned int start, size_t len);
 char			*ft_strtrim(const char *str);
-int				*ft_lsttointarr(const t_list *lst);
+int				*ft_lsttointarr(t_list *lst);
 int				ft_atoi_base(const char *str, int base);
 int				ft_atoi(const char *str);
 int				ft_chrdin(const char *str, char *delims);
@@ -102,18 +102,18 @@ long long		ft_constrain(long long n, long long num1, long long num2);
 long long		ft_max(long long n1, long long n2);
 long long		ft_min(long long n1, long long n2);
 long long		ft_pow(long long n, long long pow);
-size_t			ft_lstlen(const t_list *lst);
+size_t			ft_lstlen(t_list *lst);
 size_t			ft_strarrlen(const char **arr);
 size_t			ft_strdlen(const char *str, const char *delims);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_strnlen(const char *str, size_t n);
 t_list			*ft_intarrtolst(const int *arr, int len);
-t_list			*ft_lstdup(const t_list *lst);
-t_list			*ft_lstdupone(const t_list *lst);
-t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(t_list *elem));
+t_list			*ft_lstdup(t_list *lst);
+t_list			*ft_lstdupone(t_list *lst);
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_lstnew(const void *content, size_t content_size);
-t_list			*ft_lstunlink(const t_list *head, const t_list *lst);
+t_list			*ft_lstunlink(t_list *head, t_list *lst);
 t_list			*ft_strarrtolst(const char **arr);
 void			*ft_memalloc(size_t size);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -125,11 +125,11 @@ void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *str, size_t n);
 void			ft_clearterminal(void);
 void			ft_foreach(const int *arr, int length, void (*f)(int));
-void			ft_lstadd(t_list **alst, const t_list *new);
-void			ft_lstaddbck(const t_list *lst, const t_list *new);
+void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_lstaddbck(t_list *lst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstiter(const t_list *lst, void (*f)(t_list *elem));
+void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void			ft_lstmemdel(void *str, size_t size);
 void			ft_memdel(void **ap);
 void			ft_putbool(int c);
@@ -138,7 +138,7 @@ void			ft_putchar(char c);
 void			ft_putendl_fd(const char *str, int fd);
 void			ft_putendl(const char *str);
 void			ft_putintarr(const int *arr, int len);
-void			ft_putintlst(const t_list *lst);
+void			ft_putintlst(t_list *lst);
 void			ft_putline_fd(const char *str, int fd);
 void			ft_putline(const char *str);
 void			ft_putnbr_base(long long n, int base);
@@ -151,7 +151,7 @@ void			ft_putpointer(const void *pointer);
 void			ft_putstr_fd(const char *str, int fd);
 void			ft_putstr(const char *str);
 void			ft_putstrarr(const char **arr);
-void			ft_putstrlst(const t_list *lst);
+void			ft_putstrlst(t_list *lst);
 void			ft_strappend(char **dst, const char *src);
 void			ft_strarrdel(char ***arr);
 void			ft_strclr(char *str);

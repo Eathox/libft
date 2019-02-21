@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_get_next_line.c                                 :+:    :+:            */
+/*   ft_get_next_dline.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/18 09:47:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:36:05 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static int		gnl_str_merge(char **str1, char *str2)
 
 static int		gnl_read(char **line, int newl, t_list *lst, const char *delims)
 {
-	int 	red;
-	char	*buff[BUFF_SIZE + 1];
+	int		red;
+	char	buff[BUFF_SIZE + 1];
 
 	while (newl == -1)
 	{
@@ -77,7 +77,7 @@ static int		gnl_read(char **line, int newl, t_list *lst, const char *delims)
 	*line = lst->STR;
 	if (newl == -1)
 		return (gnl_last_line(line, lst));
-	lst->STR[newl] = '\0';
+	((char *)lst->STR)[newl] = '\0';
 	*line = ft_strdup(lst->STR);
 	if (*line == NULL)
 		return (-1);

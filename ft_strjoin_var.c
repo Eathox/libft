@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/19 17:27:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:34:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static char		*freeret(char *ret, char **arr, va_list args)
 {
 	va_end(args);
-	ft_memdel(&arr);
+	if (arr != NULL)
+		free(arr);
 	return (ret);
 }
 
@@ -28,14 +29,14 @@ static size_t	getstrs(char **arr, int count, va_list args)
 	len = 0;
 	while (i < count)
 	{
-		arr[i] = va_arg(args, const char *);
+		arr[i] = va_arg(args, char *);
 		len += ft_strlen(arr[i]);
 		i++;
 	}
 	return (len);
 }
 
-static char		*joinstrs(char *str, char *arr, int count)
+static char		*joinstrs(char *str, char **arr, int count)
 {
 	int		i;
 	int		j;
@@ -43,6 +44,7 @@ static char		*joinstrs(char *str, char *arr, int count)
 
 	i = 0;
 	j = 0;
+	k = 0;
 	while (j < count)
 	{
 		if (arr[j][k] == '\0')

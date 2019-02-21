@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:03:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:53:51 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:26:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striter(const char *str, void (*f)(char *))
 		return ;
 	while (str[i] != '\0')
 	{
-		f(&str[i]);
+		f((char *)&str[i]);
 		i++;
 	}
 }

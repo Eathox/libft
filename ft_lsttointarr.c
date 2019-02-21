@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:49 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/14 19:20:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		*ft_lsttointarr(const t_list *lst)
+int		*ft_lsttointarr(t_list *lst)
 {
 	int		*n;
 	int		i;

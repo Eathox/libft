@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 15:28:18 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/14 20:19:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstaddbck(const t_list *lst, const t_list *new)
+void	ft_lstaddbck(t_list *lst, t_list *new)
 {
 	if (lst == NULL || new == NULL)
 		return ;

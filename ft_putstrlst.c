@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 11:40:55 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/14 11:46:45 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrlst(const t_list *lst)
+void	ft_putstrlst(t_list *lst)
 {
 	if (lst == NULL)
 		return ;

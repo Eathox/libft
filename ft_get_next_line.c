@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/18 09:47:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:30:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int				get_next_line(const int fd, char **line)
 {
-	return (get_next_line(fd, line, "\n"));
+	return (get_next_dline(fd, line, "\n"));
 }

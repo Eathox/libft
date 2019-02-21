@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:40:23 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 13:29:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_count_if(const char **str, int (*f)(char *))
 		return (0);
 	while (str[i] != NULL)
 	{
-		if (f(str[i]) == 1)
+		if (f((char *)str[i]) == 1)
 			count++;
 		i++;
 	}
