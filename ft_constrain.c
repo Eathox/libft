@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-long long	ft_constrain(long long strain, long long num1, long long num2)
+long long	ft_constrain(long long value, long long num1, long long num2)
 {
 	long long	min;
 	long long	max;
@@ -27,9 +27,9 @@ long long	ft_constrain(long long strain, long long num1, long long num2)
 		min = num2;
 		max = num1;
 	}
-	if (strain < min)
+	if (value < min)
 		return (min);
-	if (strain > max)
+	if (value > max)
 		return (max);
-	return (strain);
+	return (value);
 }

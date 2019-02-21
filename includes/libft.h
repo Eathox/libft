@@ -97,7 +97,7 @@ int				ft_unumlen_base(unsigned long long value, int base);
 int				ft_unumlen(unsigned long long value);
 int				ft_wrddcount(const char *str, const char *delims);
 long long		ft_abs(long long num);
-long long		ft_constrain(long long strain, long long num1, long long num2);
+long long		ft_constrain(long long value, long long num1, long long num2);
 long long		ft_max(long long num1, long long num2);
 long long		ft_min(long long num1, long long num2);
 long long		ft_pow(long long num, long long pow);
