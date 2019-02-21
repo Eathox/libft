@@ -132,7 +132,7 @@ void			ft_lstaddbck(t_list *lst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-void			ft_lstmemdel(void *str, size_t size);
+void			ft_lstmemdel(void *content, size_t size);
 void			ft_memdel(void **ap);
 void			ft_putbool(int c);
 void			ft_putchar_fd(char c, int fd);

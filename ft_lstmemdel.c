@@ -12,8 +12,8 @@
 
 #include "libft.h"
 
-void	ft_lstmemdel(void *str, size_t size)
+void	ft_lstmemdel(void *content, size_t size)
 {
 	(void)size;
-	ft_memdel(&str);
+	ft_memdel(&content);
 }
