@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-long long	ft_max(long long n1, long long n2)
+long long	ft_max(long long num1, long long num2)
 {
-	if (n1 > n2)
-		return (n1);
-	return (n2);
+	if (num1 > num2)
+		return (num1);
+	return (num2);
 }

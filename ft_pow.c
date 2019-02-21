@@ -12,25 +12,25 @@
 
 #include "libft.h"
 
-long long	ft_pow(long long n, long long pow)
+long long	ft_pow(long long num, long long pow)
 {
 	long long	ret;
 
-	ret = n;
+	ret = num;
 	if (pow == 0)
 		return (1);
-	if (pow == 1 && n < 0)
-		return (n);
+	if (pow == 1 && num < 0)
+		return (num);
 	if (pow < 0)
 		return (0);
-	if (n < 0)
-		n = -n;
+	if (num < 0)
+		num = -num;
 	if (ret < 0)
 		ret = -ret;
 	while (pow > 1)
 	{
 		pow--;
-		ret *= n;
+		ret *= num;
 	}
 	return (ret);
 }
