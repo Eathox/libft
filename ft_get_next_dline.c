@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:36:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 14:22:20 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,13 @@ static int		gnl_str_merge(char **str1, char *str2)
 	return (0);
 }
 
-static int		gnl_read(char **line, int newl, t_list *lst, const char *delims)
+static int		gnl_read(char **line, char *buff, t_list *lst,
+															const char *delims)
 {
 	int		red;
-	char	buff[BUFF_SIZE + 1];
+	int		newl;
 
+	newl = ft_chrdindex((lst->STR), delims);
 	while (newl == -1)
 	{
 		ft_strclr(buff);
@@ -91,7 +93,7 @@ int				get_next_dline(const int fd, char **line, const char *delims)
 {
 	static t_list	*alst;
 	t_list			*lst;
-	int				newl;
+	char			*buff;
 	int				ret;
 
 	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
@@ -101,7 +103,10 @@ int				get_next_dline(const int fd, char **line, const char *delims)
 		return (-1);
 	if (alst == NULL)
 		alst = lst;
-	newl = ft_chrdindex((lst->STR), delims);
-	ret = gnl_read(line, newl, lst, delims);
+	buff = ft_strnew(BUFF_SIZE);
+	if (buff == NULL)
+		return (-1);
+	ret = gnl_read(line, buff, lst, delims);
+	ft_strdel(&buff);
 	return (ret);
 }
