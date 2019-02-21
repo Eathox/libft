@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:34:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 16:55:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char			*ft_strjoin_var(int count, ...)
 	if (arr == NULL)
 		return (freeret(NULL, NULL, args));
 	len = getstrs(arr, count, args);
-	str = ft_strnew(getstrs(arr, count, args));
+	str = ft_strnew(len);
 	if (str == NULL)
 		return (freeret(NULL, arr, args));
 	str = joinstrs(str, arr, count);

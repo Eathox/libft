@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 16:22:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/21 16:51:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,9 @@ void			ft_putintlst(t_list *lst);
 void			ft_putline_fd(const char *str, int fd);
 void			ft_putline(const char *str);
 void			ft_putnbr_base(long long value, int base);
+void			ft_putnbr_cbase(long long value, int base, int up);
 void			ft_putnbr_fd_base(long long value, int fd, int base);
+void			ft_putnbr_fd_cbase(long long value, int fd, int base, int up);
 void			ft_putnbr_fd(long long value, int fd);
 void			ft_putnbr(long long value);
 void			ft_putnstr_fd(const char *str, int fd, size_t n);
@@ -157,7 +159,6 @@ void			ft_strclr(char *str);
 void			ft_strdel(char **as);
 void			ft_striter(const char *str, void (*f)(char *));
 void			ft_striteri(const char *str, void (*f)(unsigned int, char *));
-void			ft_putnbr_fd_cbase(long long value, int fd, int base, int up);
 void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
 void			ft_tolowerstr(char *str);
