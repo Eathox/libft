@@ -65,7 +65,7 @@ int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
 int				ft_count_if(const char **str, int (*f)(char *));
 int				ft_getchar(void);
-int				ft_intin(const int *arr, int n, int len);
+int				ft_intin(const int *arr, int num, size_t n);
 int				ft_intlen_base(int value, int base);
 int				ft_intlen(int value);
 int				ft_isalnum(int c);
