@@ -16,7 +16,7 @@ t_list	*ft_lstfind_content(t_list *lst, void *content)
 {
 	if (lst == NULL || content == NULL)
 		return (NULL);
-	while (ft_memcmp(lst->content, content) != 0 && lst != NULL)
+	while (lst != NULL && ft_memcmp(lst->content, content) != 0)
 		lst = lst->next;
 	return (lst);
 }
