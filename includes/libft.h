@@ -170,5 +170,7 @@ void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
 void			ft_tolowerstr(char *str);
 void			ft_toupperstr(char *str);
+int				ft_strfieldvalid(const char **arr, int x, int y,
+	const char *delims);
 
 #endif
