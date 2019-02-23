@@ -25,6 +25,8 @@ t_list	*ft_lstfindadd_size(t_list *lst, size_t size)
 		lst = lst->next;
 	}
 	newlst = ft_lstnew(NULL, 0);
+	if (newlst == NULL)
+		return (NULL);
 	newlst->content_size = size;
 	if (lst != NULL)
 		lst->next = newlst;

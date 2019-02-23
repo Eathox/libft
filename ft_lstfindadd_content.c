@@ -25,6 +25,8 @@ t_list	*ft_lstfindadd_content(t_list *lst, void *content)
 		lst = lst->next;
 	}
 	newlst = ft_lstnew(NULL, 0);
+	if (newlst == NULL)
+		return (NULL);
 	newlst->content = content;
 	if (lst != NULL)
 		lst->next = newlst;
