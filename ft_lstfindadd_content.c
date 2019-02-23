@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstfind_size.c                                  :+:    :+:            */
+/*   ft_lstfindadd_content.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,11 +12,21 @@
 
 #include "libft.h"
 
-t_list	*ft_lstfind_size(t_list *lst, size_t size)
+t_list	*ft_lstfindadd_content(t_list *lst, void *content)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst != NULL && lst->content_size != size)
+	t_list	*newlst;
+
+	while (lst != NULL)
+	{
+		if (ft_memcmp(lst->content, content) == 0)
+			return (lst);
+		if (lst->next == NULL)
+			break ;
 		lst = lst->next;
-	return (lst);
+	}
+	newlst = ft_lstnew(NULL, 0);
+	newlst->content = content;
+	if (lst != NULL)
+		lst->next = newlst;
+	return (newlst);
 }

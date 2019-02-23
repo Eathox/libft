@@ -113,6 +113,8 @@ t_list			*ft_lstdup(t_list *lst);
 t_list			*ft_lstdupone(t_list *lst);
 t_list			*ft_lstfind_content(t_list *lst, void *content);
 t_list			*ft_lstfind_size(t_list *lst, size_t size);
+t_list			*ft_lstfindadd_content(t_list *lst, void *content);
+t_list			*ft_lstfindadd_size(t_list *lst, size_t size);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_lstnew(const void *content, size_t content_size);
