@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lsttointarr.c                                   :+:    :+:            */
+/*   ft_memequ.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/14 10:14:49 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 15:39:20 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/11 17:53:02 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/23 15:57:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		*ft_lsttointarr(t_list *lst)
+int		ft_memequ(const void *str1, const void *str2, size_t n)
 {
-	int		*n;
-	int		i;
-	int		*arr;
-	int		len;
-
-	i = 0;
-	len = ft_lstlen(lst);
-	if (len == 0)
-		return (NULL);
-	arr = (int *)ft_memalloc(sizeof(int) * (len + 1));
-	if (arr == NULL)
-		return (NULL);
-	while (lst != NULL)
-	{
-		n = (int *)lst->content;
-		arr[i] = *n;
-		lst = lst->next;
-		i++;
-	}
-	arr[i] = 0;
-	return (arr);
+	return (ft_memcmp(str1, str2, n) == 0);
 }

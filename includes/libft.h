@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 16:51:56 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 15:57:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int				ft_isprint(int c);
 int				ft_isspace(char c);
 int				ft_isupper(int c);
 int				ft_memcmp(const void *str1, const void *str2, size_t n);
+int				ft_memequ(const void *str1, const void *str2, size_t n);
 int				ft_numlen_base(long long value, int base);
 int				ft_numlen(long long value);
 int				ft_puterror(const char *str);

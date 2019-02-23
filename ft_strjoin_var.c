@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin_arr.c                                   :+:    :+:            */
+/*   ft_strjoin_var.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 16:55:44 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 16:00:41 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char			*ft_strjoin_var(int count, ...)
 	va_list		args;
 
 	i = 0;
-	arr = ft_strarrnew(count);
+	arr = (const char **)ft_strarrnew(count);
 	if (arr == NULL)
 		return (NULL);
 	va_start(args, count);

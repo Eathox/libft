@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin_var.c                                   :+:    :+:            */
+/*   ft_strjoin_arr.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 16:55:44 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 15:59:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,8 @@ static char		*joinstrs(char *str, const char **arr)
 
 char			*ft_strjoin_arr(const char **arr)
 {
-	int		i;
 	char	*str;
 
-	i = 0;
 	if (arr == NULL)
 		return (NULL);
 	str = ft_strnew(totallen(arr));

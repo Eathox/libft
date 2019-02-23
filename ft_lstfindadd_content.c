@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/21 20:16:41 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 20:16:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 15:58:55 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstfindadd_content(t_list *lst, void *content)
 
 	while (lst != NULL)
 	{
-		if (ft_memcmp(lst->content, content) == 0)
+		if (ft_memequ(lst->content, content, lst->content_size))
 			return (lst);
 		if (lst->next == NULL)
 			break ;

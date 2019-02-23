@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 14:22:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 16:01:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,10 @@ static t_list	*gnl_get_lst(const int fd, t_list *lst)
 
 static int		gnl_last_line(char **line, t_list *lst)
 {
-	char *str;
-
-	str = (char *)lst->STR;
-	if (str != NULL && str[0] != '\0')
+	if (lst->STR != NULL && ((char *)lst->STR)[0] != '\0')
 	{
 		*line = ft_strdup(lst->STR);
-		ft_strdel((char **)&(lst->STR));
+		ft_strdel((char **)&lst->STR);
 		if (*line == NULL)
 			return (-1);
 		return (1);
@@ -65,14 +62,14 @@ static int		gnl_read(char **line, char *buff, t_list *lst,
 	int		red;
 	int		newl;
 
-	newl = ft_chrdindex((lst->STR), delims);
+	newl = ft_chrdindex(lst->STR, delims);
 	while (newl == -1)
 	{
 		ft_strclr(buff);
-		red = (int)read((int)(lst->FD), buff, BUFF_SIZE);
+		red = (int)read((int)lst->FD, buff, BUFF_SIZE);
 		if (red == 0)
 			break ;
-		if (red == -1 || gnl_str_merge((char **)&(lst->STR), buff) == -1)
+		if (red == -1 || gnl_str_merge((char **)&lst->STR, buff) == -1)
 			return (-1);
 		newl = ft_chrdindex(lst->STR, delims);
 	}
@@ -83,7 +80,7 @@ static int		gnl_read(char **line, char *buff, t_list *lst,
 	*line = ft_strdup(lst->STR);
 	if (*line == NULL)
 		return (-1);
-	ft_strreplace((char **)&(lst->STR), ft_strdup(&lst->STR[newl + 1]));
+	ft_strreplace((char **)&lst->STR, ft_strdup(&((char *)lst->STR)[newl + 1]));
 	if (lst->STR == NULL)
 		return (-1);
 	return (1);

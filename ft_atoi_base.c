@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/12 15:09:51 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 15:42:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int				ft_atoi_base(const char *str, int base)
 		result = (result * base) + ft_chrindex(base_str, str[i]);
 		i++;
 	}
-	if (result > (9223372036854775807 + (isneg == -1)) || lst_val > result)
+	if (lst_val > result ||
+		result > (unsigned long long)(9223372036854775807 + (isneg == -1)))
 		return (0 - (isneg == 1));
 	return ((int)(result * isneg));
 }
