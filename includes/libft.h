@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 15:57:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 17:06:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,9 @@ size_t			ft_strnlen(const char *str, size_t n);
 t_list			*ft_intarrtolst(const int *arr, int len);
 t_list			*ft_lstdup(t_list *lst);
 t_list			*ft_lstdupone(t_list *lst);
-t_list			*ft_lstfind_content(t_list *lst, void *content);
+t_list			*ft_lstfind_content(t_list *lst, void *content, size_t size);
 t_list			*ft_lstfind_size(t_list *lst, size_t size);
-t_list			*ft_lstfindadd_content(t_list *lst, void *content);
+t_list			*ft_lstfindadd_content(t_list *lst, void *content, size_t size);
 t_list			*ft_lstfindadd_size(t_list *lst, size_t size);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));

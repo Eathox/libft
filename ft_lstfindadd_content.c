@@ -6,28 +6,27 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/21 20:16:41 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 15:58:55 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 17:06:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstfindadd_content(t_list *lst, void *content)
+t_list	*ft_lstfindadd_content(t_list *lst, void *content, size_t size)
 {
 	t_list	*newlst;
 
 	while (lst != NULL)
 	{
-		if (ft_memequ(lst->content, content, lst->content_size))
+		if (ft_memequ(lst->content, content, size))
 			return (lst);
 		if (lst->next == NULL)
 			break ;
 		lst = lst->next;
 	}
-	newlst = ft_lstnew(NULL, 0);
+	newlst = ft_lstnew(content, size);
 	if (newlst == NULL)
 		return (NULL);
-	newlst->content = content;
 	if (lst != NULL)
 		lst->next = newlst;
 	return (newlst);
