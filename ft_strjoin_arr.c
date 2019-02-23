@@ -12,25 +12,56 @@
 
 #include "libft.h"
 
-char			*ft_strjoin_var(int count, ...)
+static size_t	totallen(const char **arr)
 {
-	int			i;
-	char		*str;
-	const char	**arr;
-	va_list		args;
+	size_t	len;
+	int		i;
 
 	i = 0;
-	arr = ft_strarrnew(count);
-	if (arr == NULL)
-		return (NULL);
-	va_start(args, count);
-	while (i < count)
+	len = 0;
+	while (arr[i] != NULL)
 	{
-		arr[i] = va_arg(args, const char *);
+		len += ft_strlen(arr[i]);
 		i++;
 	}
-	va_end(args);
-	str = ft_strjoin_arr(arr);
-	ft_memdel((void **)arr);
+	return (len);
+}
+
+static char		*joinstrs(char *str, const char **arr)
+{
+	int		i;
+	int		j;
+	int		k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while (arr[j] != NULL)
+	{
+		if (arr[j][k] == '\0')
+		{
+			k = 0;
+			j++;
+			continue;
+		}
+		str[i] = arr[j][k];
+		i++;
+		k++;
+	}
+	return (str);
+}
+
+char			*ft_strjoin_arr(const char **arr)
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	if (arr == NULL)
+		return (NULL);
+	str = ft_strnew(totallen(arr));
+	if (str == NULL)
+		return (NULL);
+	str = joinstrs(str, arr);
 	return (str);
 }

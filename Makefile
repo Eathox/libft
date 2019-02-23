@@ -31,7 +31,8 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha \
 	isupper islower chrdin numlen_base numlen intlen intlen_base uintlen \
 	uintlen_base unumlen unumlen_base strappend memdup lstunlink getchar \
 	putnstr putnstr_fd strnlen strjoin_var strarrlen get_next_dline chrdindex \
-	putnbr_fd_cbase putnbr_cbase lstfind_content lstfind_size ft_memrcpy
+	putnbr_fd_cbase putnbr_cbase lstfind_content lstfind_size memrcpy lstlast \
+	strjoin_arr
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)

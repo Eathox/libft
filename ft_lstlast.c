@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin_var.c                                   :+:    :+:            */
+/*   ft_lstlast.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 16:55:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/23 01:15:44 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/23 01:15:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_strjoin_var(int count, ...)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int			i;
-	char		*str;
-	const char	**arr;
-	va_list		args;
-
-	i = 0;
-	arr = ft_strarrnew(count);
-	if (arr == NULL)
+	if (lst == NULL)
 		return (NULL);
-	va_start(args, count);
-	while (i < count)
-	{
-		arr[i] = va_arg(args, const char *);
-		i++;
-	}
-	va_end(args);
-	str = ft_strjoin_arr(arr);
-	ft_memdel((void **)arr);
-	return (str);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
