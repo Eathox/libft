@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 17:06:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 00:00:45 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct	s_list
 
 char			**ft_lsttostrarr(t_list *lst);
 char			**ft_strarrnew(size_t size);
-char			**ft_strdsplit(const char *str, const char *delims);
-char			**ft_strfieldnew(int x, int y, char c);
+char			**ft_strdsplit(const char *str, const char *dlm);
+char			**ft_strfldnew(int x, int y, char c);
 char			**ft_strsplit(const char *str, char c);
 char			*ft_chrtostr(char c);
 char			*ft_itoa_base(long long value, int base);
@@ -39,7 +39,7 @@ char			*ft_itoa(long long value);
 char			*ft_strcat(char *str1, const char *str2);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strcpy(char *dst, const char *src);
-char			*ft_strdtrim(const char *str, const char *delims);
+char			*ft_strdtrim(const char *str, const char *dlm);
 char			*ft_strdup(const char *str);
 char			*ft_strjoin_arr(const char **arr);
 char			*ft_strjoin_var(int count, ...);
@@ -59,8 +59,8 @@ char			*ft_strtrim(const char *str);
 int				*ft_lsttointarr(t_list *lst);
 int				ft_atoi_base(const char *str, int base);
 int				ft_atoi(const char *str);
-int				ft_chrdin(const char *str, const char *delims);
-int				ft_chrdindex(const char *str, const char *delims);
+int				ft_chrdin(const char *str, const char *dlm);
+int				ft_chrdindex(const char *str, const char *dlm);
 int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
@@ -86,6 +86,7 @@ int				ft_puterror(const char *str);
 int				ft_sqrt(int nb);
 int				ft_strcmp(const char *str1, const char *str2);
 int				ft_strequ(const char *str1, const char *str2);
+int				ft_strfldvalid(const char **arr, int x, int y, const char *dlm);
 int				ft_strin(const char **arr, const char *str);
 int				ft_strmatch(const char *str, const char *needle);
 int				ft_strncmp(const char *str1, const char *str2, size_t n);
@@ -97,7 +98,7 @@ int				ft_uintlen_base(unsigned int value, int base);
 int				ft_uintlen(unsigned int value);
 int				ft_unumlen_base(unsigned long long value, int base);
 int				ft_unumlen(unsigned long long value);
-int				ft_wrddcount(const char *str, const char *delims);
+int				ft_wrddcount(const char *str, const char *dlm);
 long long		ft_abs(long long num);
 long long		ft_constrain(long long value, long long num1, long long num2);
 long long		ft_max(long long num1, long long num2);
@@ -105,7 +106,7 @@ long long		ft_min(long long num1, long long num2);
 long long		ft_pow(long long num, long long pow);
 size_t			ft_lstlen(t_list *lst);
 size_t			ft_strarrlen(const char **arr);
-size_t			ft_strdlen(const char *str, const char *delims);
+size_t			ft_strdlen(const char *str, const char *dlm);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_strnlen(const char *str, size_t n);
@@ -171,7 +172,5 @@ void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
 void			ft_tolowerstr(char *str);
 void			ft_toupperstr(char *str);
-int				ft_strfieldvalid(const char **arr, int x, int y,
-	const char *delims);
 
 #endif

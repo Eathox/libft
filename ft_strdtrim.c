@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 14:53:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:31:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 00:00:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdtrim(const char *str, const char *delims)
+char	*ft_strdtrim(const char *str, const char *dlm)
 {
 	char	*ret;
 	int		len;
@@ -22,11 +22,11 @@ char	*ft_strdtrim(const char *str, const char *delims)
 	if (str == NULL)
 		return (NULL);
 	len = (int)ft_strlen(str);
-	while (ft_chrin(delims, str[i]) && str[i] != '\0')
+	while (ft_chrin(dlm, str[i]) && str[i] != '\0')
 		i++;
 	if (i == len)
 		return (ft_strnew(0));
-	while (ft_chrin(delims, str[(len - 1)]) && (len - 1) > i)
+	while (ft_chrin(dlm, str[(len - 1)]) && (len - 1) > i)
 		len--;
 	ret = ft_strndup(&str[i], (size_t)(len - i));
 	return (ret);

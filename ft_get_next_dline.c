@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 16:01:25 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 00:00:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ static int		gnl_str_merge(char **str1, char *str2)
 }
 
 static int		gnl_read(char **line, char *buff, t_list *lst,
-															const char *delims)
+															const char *dlm)
 {
 	int		red;
 	int		newl;
 
-	newl = ft_chrdindex(lst->STR, delims);
+	newl = ft_chrdindex(lst->STR, dlm);
 	while (newl == -1)
 	{
 		ft_strclr(buff);
@@ -71,7 +71,7 @@ static int		gnl_read(char **line, char *buff, t_list *lst,
 			break ;
 		if (red == -1 || gnl_str_merge((char **)&lst->STR, buff) == -1)
 			return (-1);
-		newl = ft_chrdindex(lst->STR, delims);
+		newl = ft_chrdindex(lst->STR, dlm);
 	}
 	*line = lst->STR;
 	if (newl == -1)
@@ -86,7 +86,7 @@ static int		gnl_read(char **line, char *buff, t_list *lst,
 	return (1);
 }
 
-int				get_next_dline(const int fd, char **line, const char *delims)
+int				get_next_dline(const int fd, char **line, const char *dlm)
 {
 	static t_list	*alst;
 	t_list			*lst;
@@ -103,7 +103,7 @@ int				get_next_dline(const int fd, char **line, const char *delims)
 	buff = ft_strnew(BUFF_SIZE);
 	if (buff == NULL)
 		return (-1);
-	ret = gnl_read(line, buff, lst, delims);
+	ret = gnl_read(line, buff, lst, dlm);
 	ft_strdel(&buff);
 	return (ret);
 }

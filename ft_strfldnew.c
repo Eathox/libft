@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strfieldvalid.c                                 :+:    :+:            */
+/*   ft_strfldnew.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 15:53:19 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/23 23:56:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strfieldvalid(const char **arr, int x, int y, const char *delims)
+char		**ft_strfldnew(int x, int y, char c)
 {
+	char	**arr;
 	int		i;
-	int		j;
 
 	i = 0;
-	if (ft_strarrlen(arr) != (size_t)y)
-		return (FALSE);
+	if (x <= 0 || y <= 0)
+		return (NULL);
+	arr = ft_strarrnew((size_t)y);
+	if (arr == NULL)
+		return (NULL);
 	while (i < y)
 	{
-		j = 0;
-		if (ft_strlen(arr[i]) != (size_t)x)
-			return (FALSE);
-		while (j < x)
+		arr[i] = ft_strnew((size_t)x);
+		if (arr[i] == NULL)
 		{
-			if (ft_chrin(delims, arr[i][j]) == FALSE)
-				return (FALSE);
-			j++;
+			ft_strarrdel(&arr);
+			return (NULL);
 		}
+		ft_memset(arr[i], c, x);
 		i++;
 	}
-	return (TRUE);
+	return (arr);
 }

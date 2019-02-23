@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:22:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 10:29:29 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 00:00:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	**freeret(char ***arr)
 	return (NULL);
 }
 
-char		**ft_strdsplit(const char *str, const char *delims)
+char		**ft_strdsplit(const char *str, const char *dlm)
 {
 	char			**arr;
 	int				word;
@@ -27,14 +27,14 @@ char		**ft_strdsplit(const char *str, const char *delims)
 
 	i = 0;
 	word = 0;
-	arr = ft_strarrnew((size_t)ft_wrddcount(str, delims));
+	arr = ft_strarrnew((size_t)ft_wrddcount(str, dlm));
 	if (arr == NULL)
 		return (NULL);
 	while (str != NULL && str[i] != '\0')
 	{
-		if (ft_chrin(delims, str[i]) == FALSE)
+		if (ft_chrin(dlm, str[i]) == FALSE)
 		{
-			len = ft_strdlen(&str[i], delims);
+			len = ft_strdlen(&str[i], dlm);
 			arr[word] = ft_strndup(&str[i], len);
 			if (arr[word] == NULL)
 				return (freeret(&arr));
