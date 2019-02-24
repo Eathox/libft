@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 14:31:31 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 19:49:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,9 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstaddbck(t_list *lst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstflip(t_list **alst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void			ft_lstmemdel(void *content, size_t size);
+void			ft_lstrev(t_list **alst);
 void			ft_memdel(void **ap);
 void			ft_putbool(int c);
 void			ft_putchar_fd(char c, int fd);
@@ -169,6 +169,7 @@ void			ft_putstrarr(const char **arr);
 void			ft_putstrlst(t_list *lst);
 void			ft_strappend(char **dst, const char *src);
 void			ft_strarrdel(char ***arr);
+void			ft_strarrrev(char **arr);
 void			ft_strclr(char *str);
 void			ft_strdel(char **as);
 void			ft_striter(const char *str, void (*f)(char *));

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 16:20:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 20:00:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putnbr_fd_cbase(long long value, int fd, int base, int up)
 	if (value < 0 && base == 10)
 		ft_putchar_fd('-', fd);
 	if (num > (unsigned long long)(base - 1))
-		ft_putnbr_fd_base((num / base), fd, base);
+		ft_putnbr_fd_cbase((num / base), fd, base, up);
 	num = base_str[(num % base)];
 	ft_putchar_fd(num, fd);
 }
