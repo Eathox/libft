@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 13:16:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/01 12:02:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 13:38:54 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strjoin(const char *str1, const char *str2)
 {
-	int				i;
-	int				str1len;
-	int				str2len;
+	size_t			i;
+	size_t			str1len;
+	size_t			str2len;
 	char			*str;
 
 	i = 0;
 	if (str1 == NULL || str2 == NULL)
 		return (NULL);
-	str1len = (int)ft_strlen(str1);
-	str2len = (int)ft_strlen(str2);
+	str1len = ft_strlen(str1);
+	str2len = ft_strlen(str2);
 	str = ft_strnew(str1len + str2len);
 	if (str == NULL)
 		return (NULL);

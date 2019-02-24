@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 15:42:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 13:51:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ int				ft_atoi_base(const char *str, int base)
 	int					isneg;
 	int					i;
 
-	i = 0;
 	result = 0;
 	lst_val = result;
 	base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (base < 2 || base > 36)
 		return (0);
-	while (ft_isspace(str[i]))
-		i++;
+	i = ft_strislen(str, &ft_isspace);
 	isneg = (str[i] == '-' && base == 10) ? -1 : 1;
 	i += (str[i] == '-' || str[i] == '+');
 	while (ft_chrnin(base_str, str[i], base) && lst_val <= result)

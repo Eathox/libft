@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strrev.c                                        :+:    :+:            */
+/*   ft_putlstsize.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 10:18:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 14:48:11 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/14 11:40:55 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/24 14:34:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strrev(char *str)
+void	ft_putlstsize(t_list *lst)
 {
-	size_t	i;
-	size_t	len;
-	size_t	half;
-	int 	temp;
-
-	i = 0;
-	if (str == NULL)
+	if (lst == NULL)
 		return ;
-	len = ft_strlen(str);
-	half = (len / 2);
-	while (i < half)
-	{
-		temp = str[i];
-		str[i] = str[(len - 1) - i];
-		str[(len - 1) - i] = temp;
-		i++;
-	}
+	ft_putnbr(lst->content_size);
+	write(1, "\n", 1);
+	if (lst->next != NULL)
+		ft_putlstsize(lst->next);
 }

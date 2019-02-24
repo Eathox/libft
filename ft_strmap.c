@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:22:31 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/01 12:07:07 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 13:39:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strmap(const char *str, char (*f)(char))
 {
-	int		i;
-	int		len;
+	size_t	i;
+	size_t	len;
 	char	*ret;
 
 	i = 0;
 	if (f == NULL || str == NULL)
 		return (NULL);
-	len = (int)ft_strlen(str);
+	len = ft_strlen(str);
 	ret = ft_strnew(len);
 	if (ret == NULL)
 		return (NULL);

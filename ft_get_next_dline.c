@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 00:00:34 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 03:41:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ static int		gnl_str_merge(char **str1, char *str2)
 	return (0);
 }
 
-static int		gnl_read(char **line, char *buff, t_list *lst,
-															const char *dlm)
+static int		gnl_read(char **line, char *buff, t_list *lst, const char *dlm)
 {
 	int		red;
 	int		newl;

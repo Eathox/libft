@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 15:26:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/04 11:21:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 14:50:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_putline_fd(const char *str, int fd)
 {
-	int		len;
-	int		i;
-	int		j;
-	float	half;
+	size_t	i;
+	size_t	j;
+	size_t	len;
+	size_t	half;
 
-	len = (int)ft_strlen(str);
 	i = 0;
 	j = 0;
+	len = ft_strnlen(str, 81);
 	if (len > 80)
 		return ;
 	half = (80 - len) / 2;

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:45 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/14 15:49:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 13:23:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ t_list			*ft_intarrtolst(const int *arr, int len)
 	t_list	*returnlst;
 	t_list	*prvlst;
 	t_list	*newlst;
+	int		num;
 	int		i;
-	int		n;
 
 	i = 0;
 	if (arr == NULL)
 		return (NULL);
-	n = arr[i];
-	returnlst = ft_lstnew(&n, (sizeof(int) * ft_intlen(n)));
+	num = arr[i];
+	returnlst = ft_lstnew(&num, (sizeof(int) * ft_intlen(num)));
 	if (returnlst == NULL)
 		return (NULL);
 	prvlst = returnlst;
 	while (i < len)
 	{
 		i++;
-		n = arr[i];
-		newlst = ft_lstnew(&n, (sizeof(int) * ft_intlen(n)));
+		num = arr[i];
+		newlst = ft_lstnew(&num, (sizeof(int) * ft_intlen(num)));
 		if (newlst == NULL)
 			return (freeret(&returnlst));
 		prvlst->next = newlst;

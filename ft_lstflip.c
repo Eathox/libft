@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strrev.c                                        :+:    :+:            */
+/*   ft_lstflip.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 10:18:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 14:48:11 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/24 13:15:33 by pholster       #+#    #+#                */
+/*   Updated: 2019/02/24 15:17:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strrev(char *str)
+void	ft_lstflip(t_list **alst)
 {
-	size_t	i;
-	size_t	len;
-	size_t	half;
-	int 	temp;
+	t_list	*lst;
+	t_list	*prvlst;
+	t_list	*nxtlst;
 
-	i = 0;
-	if (str == NULL)
+	if (alst == NULL || *alst == NULL)
 		return ;
-	len = ft_strlen(str);
-	half = (len / 2);
-	while (i < half)
+	lst = *alst;
+	prvlst = NULL;
+	while (lst != NULL)
 	{
-		temp = str[i];
-		str[i] = str[(len - 1) - i];
-		str[(len - 1) - i] = temp;
-		i++;
+		nxtlst = lst->next;
+		lst->next = prvlst;
+		prvlst = lst;
+		lst = nxtlst;
 	}
+	*alst = prvlst;
 }

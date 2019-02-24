@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 00:00:45 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/24 14:31:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int				ft_isdigit(int c);
 int				ft_isdigitstr(const char *str);
 int				ft_islower(int c);
 int				ft_isprint(int c);
-int				ft_isspace(char c);
+int				ft_isspace(int c);
 int				ft_isupper(int c);
 int				ft_memcmp(const void *str1, const void *str2, size_t n);
 int				ft_memequ(const void *str1, const void *str2, size_t n);
@@ -105,8 +105,11 @@ long long		ft_max(long long num1, long long num2);
 long long		ft_min(long long num1, long long num2);
 long long		ft_pow(long long num, long long pow);
 size_t			ft_lstlen(t_list *lst);
+size_t			ft_lstnlen(t_list *lst, size_t n);
 size_t			ft_strarrlen(const char **arr);
+size_t			ft_strarrnlen(const char **arr, size_t n);
 size_t			ft_strdlen(const char *str, const char *dlm);
+size_t			ft_strislen(const char *str, int (*f)(int));
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_strnlen(const char *str, size_t n);
@@ -137,6 +140,7 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstaddbck(t_list *lst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstflip(t_list **alst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void			ft_lstmemdel(void *content, size_t size);
 void			ft_memdel(void **ap);
@@ -149,6 +153,7 @@ void			ft_putintarr(const int *arr, int len);
 void			ft_putintlst(t_list *lst);
 void			ft_putline_fd(const char *str, int fd);
 void			ft_putline(const char *str);
+void			ft_putlstsize(t_list *lst);
 void			ft_putnbr_base(long long value, int base);
 void			ft_putnbr_cbase(long long value, int base, int up);
 void			ft_putnbr_fd_base(long long value, int fd, int base);
