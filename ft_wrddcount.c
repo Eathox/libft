@@ -6,17 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:26:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 00:00:34 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 12:59:33 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_wrddcount(const char *str, const char *dlm)
+size_t		ft_wrddcount(const char *str, const char *dlm)
 {
-	unsigned int	count;
-	unsigned int	i;
-	int				j;
+	size_t	count;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;

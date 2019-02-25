@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:12:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:51:24 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:10:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstrarr(const char **arr)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (arr == NULL)

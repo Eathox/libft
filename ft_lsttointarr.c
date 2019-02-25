@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:49 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 15:39:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:09:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int		*ft_lsttointarr(t_list *lst)
 {
-	int		*n;
-	int		i;
 	int		*arr;
-	int		len;
+	int		*n;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	len = ft_lstlen(lst);

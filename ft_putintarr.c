@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:18:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:50:40 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:23:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putintarr(const int *arr, int len)
+void	ft_putintarr(const int *arr, size_t len)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (arr == NULL)

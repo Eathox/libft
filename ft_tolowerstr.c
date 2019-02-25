@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:20:29 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:56:45 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:12:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_tolowerstr(char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (str == NULL)

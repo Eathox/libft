@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 15:59:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:12:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	totallen(const char **arr)
 {
 	size_t	len;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	len = 0;
@@ -29,9 +29,9 @@ static size_t	totallen(const char **arr)
 
 static char		*joinstrs(char *str, const char **arr)
 {
-	int		i;
-	int		j;
-	int		k;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	i = 0;
 	j = 0;

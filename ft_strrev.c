@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 10:18:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 14:48:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 12:57:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_strrev(char *str)
 	size_t	i;
 	size_t	len;
 	size_t	half;
-	int 	temp;
+	int		temp;
 
 	i = 0;
 	if (str == NULL)

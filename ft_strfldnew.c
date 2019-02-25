@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 23:56:43 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:25:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char		**ft_strfldnew(int x, int y, char c)
 {
 	char	**arr;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (x <= 0 || y <= 0)
@@ -23,7 +23,7 @@ char		**ft_strfldnew(int x, int y, char c)
 	arr = ft_strarrnew((size_t)y);
 	if (arr == NULL)
 		return (NULL);
-	while (i < y)
+	while (i < (size_t)y)
 	{
 		arr[i] = ft_strnew((size_t)x);
 		if (arr[i] == NULL)

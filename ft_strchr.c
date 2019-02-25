@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 12:26:00 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 18:05:51 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:11:04 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')

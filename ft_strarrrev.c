@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/24 19:48:17 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 19:53:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:00:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_strarrrev(char **arr)
 	size_t	i;
 	size_t	len;
 	size_t	half;
-	char 	*temp;
+	char	*temp;
 
 	i = 0;
 	if (arr == NULL)

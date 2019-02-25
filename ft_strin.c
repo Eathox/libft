@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:07:07 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 17:53:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:11:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_strin(const char **arr, const char *str)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (arr == NULL || str == NULL)

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 19:49:44 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:24:52 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				ft_chrdindex(const char *str, const char *dlm);
 int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
-int				ft_count_if(const char **str, int (*f)(char *));
+size_t			ft_count_if(const char **str, int (*f)(char *));
 int				ft_getchar(void);
 int				ft_intin(const int *arr, int num, size_t n);
 int				ft_intlen_base(int value, int base);
@@ -98,7 +98,6 @@ int				ft_uintlen_base(unsigned int value, int base);
 int				ft_uintlen(unsigned int value);
 int				ft_unumlen_base(unsigned long long value, int base);
 int				ft_unumlen(unsigned long long value);
-int				ft_wrddcount(const char *str, const char *dlm);
 long long		ft_abs(long long num);
 long long		ft_constrain(long long value, long long num1, long long num2);
 long long		ft_max(long long num1, long long num2);
@@ -113,7 +112,8 @@ size_t			ft_strislen(const char *str, int (*f)(int));
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_strnlen(const char *str, size_t n);
-t_list			*ft_intarrtolst(const int *arr, int len);
+size_t			ft_wrddcount(const char *str, const char *dlm);
+t_list			*ft_intarrtolst(const int *arr, size_t len);
 t_list			*ft_lstdup(t_list *lst);
 t_list			*ft_lstdupone(t_list *lst);
 t_list			*ft_lstfind_content(t_list *lst, void *content, size_t size);
@@ -149,7 +149,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putchar(char c);
 void			ft_putendl_fd(const char *str, int fd);
 void			ft_putendl(const char *str);
-void			ft_putintarr(const int *arr, int len);
+void			ft_putintarr(const int *arr, size_t len);
 void			ft_putintlst(t_list *lst);
 void			ft_putline_fd(const char *str, int fd);
 void			ft_putline(const char *str);

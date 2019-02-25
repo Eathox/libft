@@ -6,16 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:29:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:07:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_if(const char **str, int (*f)(char *))
+size_t	ft_count_if(const char **str, int (*f)(char *))
 {
-	int				i;
-	unsigned int	count;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;

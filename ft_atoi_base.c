@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 13:51:40 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:05:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int				ft_atoi_base(const char *str, int base)
 	char				*base_str;
 	unsigned long long	result;
 	unsigned long long	lst_val;
+	size_t				i;
 	int					isneg;
-	int					i;
 
 	result = 0;
 	lst_val = result;

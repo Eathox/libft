@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/23 16:00:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:26:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char			*ft_strjoin_var(int count, ...)
 {
-	int			i;
+	size_t		i;
 	char		*str;
 	const char	**arr;
 	va_list		args;
@@ -24,7 +24,7 @@ char			*ft_strjoin_var(int count, ...)
 	if (arr == NULL)
 		return (NULL);
 	va_start(args, count);
-	while (i < count)
+	while (i < (size_t)count)
 	{
 		arr[i] = va_arg(args, const char *);
 		i++;

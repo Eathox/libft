@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:45 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 13:23:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:24:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static t_list	*freeret(t_list **lst)
 	return (NULL);
 }
 
-t_list			*ft_intarrtolst(const int *arr, int len)
+t_list			*ft_intarrtolst(const int *arr, size_t len)
 {
 	t_list	*returnlst;
 	t_list	*prvlst;
 	t_list	*newlst;
 	int		num;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	if (arr == NULL)

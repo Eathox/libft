@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:55:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:09:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static char	**freeret(char **stra)
 
 char		**ft_lsttostrarr(t_list *lst)
 {
-	int		i;
-	char	*str;
 	char	**stra;
-	int		len;
+	char	*str;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	len = ft_lstlen(lst);

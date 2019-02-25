@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 22:38:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 00:00:34 by pholster      ########   odam.nl         */
+/*   Updated: 2019/02/25 13:06:41 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_chrdindex(const char *str, const char *dlm)
 {
-	unsigned int	i;
-	int				dex;
+	size_t	i;
+	int		dex;
 
 	i = 0;
 	if (str == NULL || dlm == NULL)
