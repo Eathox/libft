@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/15 15:08:56 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/15 17:48:45 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ void			ft_bzero(void *str, size_t n);
 void			ft_clearterminal(void);
 void			ft_foreach(const int *arr, int length, void (*f)(int));
 void			ft_intarrsort(int *arr, size_t n);
+void			ft_intarrsortrev(int *arr, size_t n);
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstaddbck(t_list *lst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -179,5 +180,11 @@ void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
 void			ft_tolowerstr(char *str);
 void			ft_toupperstr(char *str);
+int				ft_lststrsort(const void *str1, size_t n1,
+												const void *str2, size_t n2);
+void			ft_lstsort(t_list **alst,
+						int (*f)(const void *, size_t, const void *, size_t));
+void			ft_lstsortrev(t_list **alst,
+						int (*f)(const void *, size_t, const void *, size_t));
 
 #endif
