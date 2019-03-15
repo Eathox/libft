@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/15 17:48:55 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/15 20:04:51 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	lstfindadd_size strfldvalid memequ lstnlen strarrnlen strislen putlstsize \
 	strarrrev intarrsort intarrsortrev lstsort lstsortrev lststrsort
 
-SRCS := $(SRCS:%=ft_%.c)
+SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)
 
 NORM = norminette $(SRCS) $(INCLUDES)libft.h $(INCLUDES)get_next_line.h \
