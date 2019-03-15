@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/25 13:24:52 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/15 15:08:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int				ft_chrdindex(const char *str, const char *dlm);
 int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
-size_t			ft_count_if(const char **str, int (*f)(char *));
 int				ft_getchar(void);
 int				ft_intin(const int *arr, int num, size_t n);
 int				ft_intlen_base(int value, int base);
@@ -103,6 +102,7 @@ long long		ft_constrain(long long value, long long num1, long long num2);
 long long		ft_max(long long num1, long long num2);
 long long		ft_min(long long num1, long long num2);
 long long		ft_pow(long long num, long long pow);
+size_t			ft_count_if(const char **str, int (*f)(char *));
 size_t			ft_lstlen(t_list *lst);
 size_t			ft_lstnlen(t_list *lst, size_t n);
 size_t			ft_strarrlen(const char **arr);
@@ -136,6 +136,7 @@ void			*ft_memset(void *str, int c, size_t len);
 void			ft_bzero(void *str, size_t n);
 void			ft_clearterminal(void);
 void			ft_foreach(const int *arr, int length, void (*f)(int));
+void			ft_intarrsort(int *arr, size_t n);
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstaddbck(t_list *lst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));

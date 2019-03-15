@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/02/24 19:48:41 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/15 15:14:58 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	get_next_dline chrdindex putnbr_fd_cbase putnbr_cbase lstfind_content \
 	lstfind_size memrcpy lstlast strjoin_arr lstfindadd_content lstrev \
 	lstfindadd_size strfldvalid memequ lstnlen strarrnlen strislen putlstsize \
-	strarrrev
+	strarrrev intarrsort
 
 SRCS := $(SRCS:%=ft_%.c)
 OBJS = $(SRCS:.c=.o)
