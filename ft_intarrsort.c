@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 15:07:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/15 15:15:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/15 15:24:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 void	ft_intarrsort(int *arr, size_t n)
 {
 	size_t	i;
-	int		j;
+	size_t	j;
 	int		current;
 
 	i = 1;
 	while (i < n)
 	{
-		j = i - 1;
+		j = i;
 		current = arr[i];
-		while (j >= 0 && arr[j] > current)
+		while (j > 0 && arr[j - 1] > current)
 		{
-			arr[j + 1] = arr[j];
+			arr[j] = arr[j - 1];
 			j--;
 		}
-		arr[j + 1] = current;
+		arr[j] = current;
 		i++;
 	}
 }
