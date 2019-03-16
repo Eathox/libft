@@ -6,18 +6,18 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 18:26:53 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/31 19:53:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/16 22:53:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstdelone(t_list **head, void (*del)(void *, size_t))
 {
-	if (alst == NULL || *alst == NULL)
+	if (head == NULL || *head == NULL)
 		return ;
 	if (del != NULL)
-		del((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+		del((*head)->content, (*head)->content_size);
+	free(*head);
+	*head = NULL;
 }

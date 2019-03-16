@@ -6,13 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:28:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/15 17:37:10 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/16 22:47:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lststrsort(const void *str1, size_t n1, const void *str2, size_t n2)
+int		ft_lststrsort(t_list *sortlst, t_list *lst)
 {
-	return (ft_memcmp(str1, str2, ft_max(n1, n2) > 0));
+	size_t		n;
+
+	n = ft_max(sortlst->content_size, lst->content_size);
+	return (ft_memcmp(sortlst->content, lst->content, n ) > 0);
 }

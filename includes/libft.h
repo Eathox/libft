@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/15 17:48:45 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/16 23:11:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
 int				ft_getchar(void);
-int				ft_intin(const int *arr, int num, size_t n);
+int				ft_intin(const int *arr, int num, size_t len);
 int				ft_intlen_base(int value, int base);
 int				ft_intlen(int value);
 int				ft_isalnum(int c);
@@ -77,8 +77,9 @@ int				ft_islower(int c);
 int				ft_isprint(int c);
 int				ft_isspace(int c);
 int				ft_isupper(int c);
-int				ft_memcmp(const void *str1, const void *str2, size_t n);
-int				ft_memequ(const void *str1, const void *str2, size_t n);
+int				ft_lststrsort(t_list *sortlst, t_list *lst);
+int				ft_memcmp(const void *str1, const void *str2, size_t len);
+int				ft_memequ(const void *str1, const void *str2, size_t len);
 int				ft_numlen_base(long long value, int base);
 int				ft_numlen(long long value);
 int				ft_puterror(const char *str);
@@ -120,31 +121,35 @@ t_list			*ft_lstfind_content(t_list *lst, void *content, size_t size);
 t_list			*ft_lstfind_size(t_list *lst, size_t size);
 t_list			*ft_lstfindadd_content(t_list *lst, void *content, size_t size);
 t_list			*ft_lstfindadd_size(t_list *lst, size_t size);
+t_list			*ft_lstindex(t_list *lst, size_t index);
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_lstnew(const void *content, size_t content_size);
 t_list			*ft_lstunlink(t_list *head, t_list *lst);
 t_list			*ft_strarrtolst(const char **arr);
 void			*ft_memalloc(size_t size);
-void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void			*ft_memchr(const void *str, int c, size_t n);
-void			*ft_memcpy(void *dst, const void *src, size_t n);
-void			*ft_memdup(const void *src, size_t n);
+void			*ft_memccpy(void *dst, const void *src, int c, size_t len);
+void			*ft_memchr(const void *str, int c, size_t len);
+void			*ft_memcpy(void *dst, const void *src, size_t len);
+void			*ft_memdup(const void *src, size_t len);
 void			*ft_memmove(void *dst, const void *src, size_t len);
-void			*ft_memrcpy(void *dst, const void *src, size_t n);
+void			*ft_memrcpy(void *dst, const void *src, size_t len);
 void			*ft_memset(void *str, int c, size_t len);
-void			ft_bzero(void *str, size_t n);
+void			ft_bzero(void *str, size_t len);
 void			ft_clearterminal(void);
 void			ft_foreach(const int *arr, int length, void (*f)(int));
-void			ft_intarrsort(int *arr, size_t n);
-void			ft_intarrsortrev(int *arr, size_t n);
-void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_intarrsort(int *arr, size_t len);
+void			ft_intarrsortrev(int *arr, size_t len);
+void			ft_lstadd(t_list **head, t_list *new);
 void			ft_lstaddbck(t_list *lst, t_list *new);
-void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void			ft_lstdel(t_list **head, void (*del)(void *, size_t));
+void			ft_lstdelone(t_list **head, void (*del)(void *, size_t));
+void			ft_lstinsert(t_list *head, t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void			ft_lstmemdel(void *content, size_t size);
-void			ft_lstrev(t_list **alst);
+void			ft_lstrev(t_list **head);
+void			ft_lstsort(t_list **head, int (*f)(t_list *, t_list *));
+void			ft_lstsortrev(t_list **head, int (*f)(t_list *, t_list *));
 void			ft_memdel(void **ap);
 void			ft_putbool(int c);
 void			ft_putchar_fd(char c, int fd);
@@ -180,11 +185,5 @@ void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
 void			ft_tolowerstr(char *str);
 void			ft_toupperstr(char *str);
-int				ft_lststrsort(const void *str1, size_t n1,
-												const void *str2, size_t n2);
-void			ft_lstsort(t_list **alst,
-						int (*f)(const void *, size_t, const void *, size_t));
-void			ft_lstsortrev(t_list **alst,
-						int (*f)(const void *, size_t, const void *, size_t));
 
 #endif

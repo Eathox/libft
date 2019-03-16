@@ -6,16 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 13:56:40 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:41:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/16 22:53:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstadd(t_list **head, t_list *new)
 {
-	if (alst == NULL || *alst == NULL || new == NULL)
+	if (head == NULL || *head == NULL || new == NULL)
 		return ;
-	new->next = *alst;
-	*alst = new;
+	new->next = *head;
+	*head = new;
 }

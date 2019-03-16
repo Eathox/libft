@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 16:56:29 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/17 15:57:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/16 23:06:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
 	size_t				i;
 	unsigned char		*temp_dst;
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	temp_dst = dst;
 	temp_src = src;
-	while (i < n)
+	while (i < len)
 	{
 		temp_dst[i] = temp_src[i];
 		i++;
