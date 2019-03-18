@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strnequ.c                                       :+:    :+:            */
+/*   ft_strcmp_nocase.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/11 10:54:47 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 15:37:47 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/18 15:42:05 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strnequ(const char *str1, const char *str2, size_t n)
+int		ft_strcmp_nocase(const char *str1, const char *str2)
 {
-	if (str1 == NULL || str2 == NULL)
-		return (FALSE);
-	return (ft_strncmp(str1, str2, n) == 0);
+	size_t			i;
+	unsigned char	temp_a;
+	unsigned char	temp_b;
+
+	i = 0;
+	while (TRUE)
+	{
+		temp_a = ft_tolower(str1[i]);
+		temp_b = ft_tolower(str2[i]);
+		if (temp_a != temp_b)
+			return (temp_a - temp_b);
+		if (temp_a == '\0')
+			return (0);
+		i++;
+	}
+	return (0);
 }

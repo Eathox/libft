@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 15:10:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/18 15:39:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,16 @@ int				ft_numlen_base(long long value, int base);
 int				ft_numlen(long long value);
 int				ft_puterror(const char *str);
 int				ft_sqrt(int nb);
+int				ft_strcmp_nocase(const char *str1, const char *str2);
 int				ft_strcmp(const char *str1, const char *str2);
+int				ft_strequ_nocase(const char *str1, const char *str2);
 int				ft_strequ(const char *str1, const char *str2);
 int				ft_strfldvalid(const char **arr, int x, int y, const char *dlm);
 int				ft_strin(const char **arr, const char *str);
 int				ft_strmatch(const char *str, const char *needle);
+int				ft_strncmp_nocase(const char *str1, const char *str2, size_t n);
 int				ft_strncmp(const char *str1, const char *str2, size_t n);
+int				ft_strnequ_nocase(const char *str1, const char *str2, size_t n);
 int				ft_strnequ(const char *str1, const char *str2, size_t n);
 int				ft_strnin(const char **arr, const char *str, size_t n);
 int				ft_tolower(int c);
@@ -184,11 +188,11 @@ void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
 void			ft_termclr(void);
 void			ft_termresetcolor(void);
+void			ft_termresetcolorall(void);
 void			ft_termresetcolorbg(void);
 void			ft_termsetcolor(int color);
 void			ft_termsetcolorbg(int color);
 void			ft_tolowerstr(char *str);
 void			ft_toupperstr(char *str);
-void			ft_termresetcolorall(void);
 
 #endif
