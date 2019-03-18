@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 16:30:31 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/18 17:29:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char			**ft_strdsplit(const char *str, const char *dlm);
 char			**ft_strfldnew(int x, int y, char c);
 char			**ft_strsplit(const char *str, char c);
 char			*ft_chrtostr(char c);
+char			*ft_colorstr(int color);
 char			*ft_itoa_base(long long value, int base);
 char			*ft_itoa(long long value);
 char			*ft_strcat(char *str1, const char *str2);
@@ -65,6 +66,8 @@ int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
 int				ft_colorcode(const char *str);
+int				ft_colorlcode(const char *str);
+int				ft_colorncode(const char *str, size_t n);
 int				ft_getchar(void);
 int				ft_intin(const int *arr, int num, size_t len);
 int				ft_intlen_base(int value, int base);
@@ -117,6 +120,8 @@ size_t			ft_strdlen(const char *str, const char *dlm);
 size_t			ft_strislen(const char *str, int (*f)(int));
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
+size_t			ft_strmatchlen_nocase(const char *str1, const char *str2);
+size_t			ft_strmatchlen(const char *str1, const char *str2);
 size_t			ft_strnlen(const char *str, size_t n);
 size_t			ft_wrddcount(const char *str, const char *dlm);
 t_list			*ft_intarrtolst(const int *arr, size_t len);
