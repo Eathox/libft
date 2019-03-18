@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 15:39:43 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/18 16:30:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int				ft_chrdindex(const char *str, const char *dlm);
 int				ft_chrin(const char *str, int c);
 int				ft_chrindex(const char *str, int c);
 int				ft_chrnin(const char *str, int c, size_t n);
+int				ft_colorcode(const char *str);
 int				ft_getchar(void);
 int				ft_intin(const int *arr, int num, size_t len);
 int				ft_intlen_base(int value, int base);
@@ -180,6 +181,7 @@ void			ft_putstrlst(t_list *lst);
 void			ft_strappend(char **dst, const char *src);
 void			ft_strarrdel(char ***arr);
 void			ft_strarrrev(char **arr);
+void			ft_strarrset(char **arr, int count, ...);
 void			ft_strclr(char *str);
 void			ft_strdel(char **as);
 void			ft_striter(const char *str, void (*f)(char *));
