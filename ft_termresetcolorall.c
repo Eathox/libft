@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_termresetcolorbg.c                              :+:    :+:            */
+/*   ft_termresetcolorall.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 15:09:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/18 15:09:52 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_termresetcolorbg(void)
+void	ft_termresetcolorall(void)
 {
-	ft_putstr("\e[49m\e[K");
+	ft_termresetcolor();
+	ft_termresetcolorbg();
 }
