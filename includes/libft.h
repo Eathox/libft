@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/16 23:11:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/18 14:58:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memrcpy(void *dst, const void *src, size_t len);
 void			*ft_memset(void *str, int c, size_t len);
 void			ft_bzero(void *str, size_t len);
-void			ft_clearterminal(void);
 void			ft_foreach(const int *arr, int length, void (*f)(int));
 void			ft_intarrsort(int *arr, size_t len);
 void			ft_intarrsortrev(int *arr, size_t len);
@@ -183,6 +182,11 @@ void			ft_striter(const char *str, void (*f)(char *));
 void			ft_striteri(const char *str, void (*f)(unsigned int, char *));
 void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
+void			ft_termclr(void);
+void			ft_termresetcolor(void);
+void			ft_termresetcolorbg(void);
+void			ft_termsetcolor(int color);
+void			ft_termsetcolorbg(int color);
 void			ft_tolowerstr(char *str);
 void			ft_toupperstr(char *str);
 

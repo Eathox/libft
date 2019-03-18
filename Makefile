@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/16 23:12:59 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/18 14:58:49 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	strndup strdlen wrddcount chrtostr lstaddbck lstmemdel lsttostrarr \
 	strarrtolst lstlen strmatch strrev lstdup lstdupone putstrlst putbool \
 	intarrtolst putintlst lsttointarr min max constrain abs strreplace \
-	get_next_line clearterminal strarrnew strarrdel itoa_base atoi_base \
+	get_next_line termclr strarrnew strarrdel itoa_base atoi_base \
 	isdigitstr strfldnew chrindex putpointer strdsplit putnbr_base strdtrim \
 	putnbr_fd_base putline_fd isupper islower chrdin numlen_base numlen intlen \
 	intlen_base uintlen uintlen_base unumlen unumlen_base strappend memdup \
@@ -34,7 +34,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	lstfind_size memrcpy lstlast strjoin_arr lstfindadd_content lstrev \
 	lstfindadd_size strfldvalid memequ lstnlen strarrnlen strislen putlstsize \
 	strarrrev intarrsort intarrsortrev lstsort lstsortrev lststrsort lstinsert \
-	lstindex
+	lstindex termsetcolor termsetcolorbg termresetcolor termresetcolorbg
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_clearterminal.c                                 :+:    :+:            */
+/*   ft_termresetcolor.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/26 14:51:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/01/26 15:01:57 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/18 14:58:04 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_clearterminal(void)
+void	ft_termresetcolor(void)
 {
-	write(0, "\e[1;1H\e[2J\n", 12);
+	ft_termsetcolor(-1);
 }
