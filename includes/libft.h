@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 17:29:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/19 12:23:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,7 @@ void			ft_striteri(const char *str, void (*f)(unsigned int, char *));
 void			ft_strrev(char *str);
 void			ft_swap(int *a, int *b);
 void			ft_termclr(void);
+void			ft_termcommand(int command);
 void			ft_termresetcolor(void);
 void			ft_termresetcolorall(void);
 void			ft_termresetcolorbg(void);
