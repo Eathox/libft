@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/19 17:55:55 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/19 20:17:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_termsetrgbcolor(int r, int g, int b)
 {
-	if (r < 0 || g < 0 || b < 0)
+	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 	{
 		ft_termresetcolor();
 		return ;
