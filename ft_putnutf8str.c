@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 17:50:59 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/20 17:52:29 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putnutf8str(t_wchar *str, size_t n)
 	len = 0;
 	if (str == NULL)
 	{
-		ft_putstr("(null)");
+		ft_putnstr("(null)", n);
 		return ;
 	}
 	while (str[i] != '\0')
