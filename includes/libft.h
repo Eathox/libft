@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 15:32:25 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/20 16:30:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ size_t		ft_strlen(const char *str);
 size_t		ft_strmatchlen_nocase(const char *str1, const char *str2);
 size_t		ft_strmatchlen(const char *str1, const char *str2);
 size_t		ft_strnlen(const char *str, size_t n);
-size_t		ft_utf8size(t_wchar c);
+size_t		ft_utf8len(t_wchar c);
 size_t		ft_utf8strlen(t_wchar *str);
 size_t		ft_utf8strnlen(t_wchar *str, size_t n);
 size_t		ft_wrddcount(const char *str, const char *dlm);
