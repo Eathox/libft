@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 16:24:09 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/20 16:30:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_pututf8(t_wchar c)
 	size_t	len;
 
 	i = 1;
-	len = ft_utf8size(c);
+	len = ft_utf8len(c);
 	if (len == 1)
 		bit = (0x80 | c) & 0x7f;
 	else if (len == 2)

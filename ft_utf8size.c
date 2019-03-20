@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_utf8size.c                                      :+:    :+:            */
+/*   ft_utf8len.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_utf8size(t_wchar c)
+size_t	ft_utf8len(t_wchar c)
 {
 	if (c > 0x0000 && c < 0x007F)
 		return (1);
