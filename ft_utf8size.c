@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.h                                    :+:    :+:            */
+/*   ft_utf8size.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/16 16:25:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 15:32:38 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/20 13:16:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GET_NEXT_LINE_H
-# define FT_GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
-# ifndef BUFF_SIZE
-#  define BUFF_SIZE 32
-# endif
-# define FD content_size
-# define STR content
-
-int		get_next_line(const int fd, char **line);
-int		get_next_dline(const int fd, char **line, const char *dlm);
-
-#endif
+size_t	ft_utf8size(t_wchar c)
+{
+	if (c > 0x0000 && c < 0x007F)
+		return (1);
+	if (c > 0x0080 && c < 0x07FF)
+		return (2);
+	if (c > 0x0800 && c < 0xFFFF)
+		return (3);
+	if (c > 0x10000 && c < 0x10FFFF)
+		return (4);
+	return (0);
+}

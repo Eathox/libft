@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   get_next_line.h                                    :+:    :+:            */
+/*   typedefs.h                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/16 16:25:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 15:32:38 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/20 15:30:25 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/20 15:32:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GET_NEXT_LINE_H
-# define FT_GET_NEXT_LINE_H
+#ifndef FT_TYPEDEFS_H
+# define FT_TYPEDEFS_H
 
-# include "libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
-# ifndef BUFF_SIZE
-#  define BUFF_SIZE 32
-# endif
-# define FD content_size
-# define STR content
+typedef	unsigned int	t_wchar;
+typedef struct	s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}				t_list;
 
-int		get_next_line(const int fd, char **line);
-int		get_next_dline(const int fd, char **line, const char *dlm);
+# define FALSE	0
+# define TRUE	1
 
 #endif

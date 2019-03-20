@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/19 19:47:21 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/20 13:15:56 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	lstindex termsetcolor termsetcolorbg termresetcolor termresetcolorbg \
 	strnequ_nocase strequ_nocase strncmp_nocase strmatchlen strcmp_nocase \
 	colorcode strarrset colorncode colorlcode strmatchlen_nocase colorstr \
-	termcommand termsetrgbcolorbg termsetrgbcolor
+	termcommand termsetrgbcolorbg termsetrgbcolor pututf8 utf8size utf8strlen \
+	utf8strnlen putnutf8str pututf8str
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)
