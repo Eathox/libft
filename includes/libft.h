@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/21 12:31:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/21 21:45:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,12 +178,21 @@ void		ft_putstr_fd(const char *str, int fd);
 void		ft_putstr(const char *str);
 void		ft_putstrarr(const char **arr);
 void		ft_putstrlst(t_list *lst);
+void		ft_putunbr_base(unsigned long long value, int base);
+void		ft_putunbr_cbase(unsigned long long value, int base, int up);
+void		ft_putunbr_fd_base(unsigned long long value, int fd, int base);
+void		ft_putunbr_fd(unsigned long long value, int fd);
+void		ft_putunbr(unsigned long long value);
 void		ft_pututf8(t_wchar c);
 void		ft_pututf8str(t_wchar *str);
 void		ft_strappend(char **dst, const char *src);
 void		ft_strarrdel(char ***arr);
+void		ft_strarrnsort(char **arr, size_t n);
+void		ft_strarrnsortrev(char **arr, size_t n);
 void		ft_strarrrev(char **arr);
 void		ft_strarrset(char **arr, int count, ...);
+void		ft_strarrsort(char **arr);
+void		ft_strarrsortrev(char **arr);
 void		ft_strclr(char *str);
 void		ft_strdel(char **as);
 void		ft_striter(const char *str, void (*f)(char *));
@@ -200,11 +209,6 @@ void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
 void		ft_tolowerstr(char *str);
 void		ft_toupperstr(char *str);
-void		ft_putunbr_fd_base(unsigned long long value, int fd, int base);
-void		ft_putunbr_base(unsigned long long value, int base);
-void		ft_putunbr_cbase(unsigned long long value, int base, int up);
-void		ft_putunbr_fd(unsigned long long value, int fd);
-void		ft_putunbr(unsigned long long value);
 void		ft_putunbr_fd_cbase(unsigned long long value, int fd, int base,
 																		int up);
 

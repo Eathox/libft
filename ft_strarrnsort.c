@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_intarrsort.c                                    :+:    :+:            */
+/*   ft_strarrnsort.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 15:07:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/21 21:49:54 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/21 21:50:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_intarrsort(int *arr, size_t len)
+void	ft_strarrnsort(char **arr, size_t n)
 {
 	size_t	i;
 	size_t	j;
-	int		current;
+	char	*current;
 
 	i = 1;
 	if (arr == NULL)
 		return ;
-	while (i < len)
+	while (i < n && arr[i] != 0)
 	{
 		j = i;
 		current = arr[i];
-		while (j > 0 && arr[j - 1] > current)
+		while (j > 0 && ft_strcmp(arr[j - 1], current) > 0)
 		{
 			arr[j] = arr[j - 1];
 			j--;
