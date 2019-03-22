@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/22 23:53:09 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/23 00:24:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include "get_next_line.h"
 
 char		**ft_lsttostrarr(t_list *lst);
+char		**ft_strarrcpy_var(char **dst, int count, ...);
+char		**ft_strarrcpy(char **dst, const char **src);
+char		**ft_strarrdup(const char **arr);
 char		**ft_strarrnew(size_t size);
 char		**ft_strdsplit(const char *str, const char *dlm);
 char		**ft_strfldnew(int x, int y, char c);
@@ -48,6 +51,8 @@ char		*ft_strreplace(char **str1, const char *str2);
 char		*ft_strstr(const char *str, const char *needle);
 char		*ft_strsub(const char *str, unsigned int start, size_t len);
 char		*ft_strtrim(const char *str);
+char		*ft_tolowerstr(char *str);
+char		*ft_toupperstr(char *str);
 int			*ft_lsttointarr(t_list *lst);
 int			ft_atoi_base(const char *str, int base);
 int			ft_atoi(const char *str);
@@ -192,7 +197,6 @@ void		ft_strarrdel(char ***arr);
 void		ft_strarrnsort(char **arr, int (*f)(char *, char *), size_t n);
 void		ft_strarrnsortrev(char **arr, int (*f)(char *, char *), size_t n);
 void		ft_strarrrev(char **arr);
-void		ft_strarrset(char **arr, int count, ...);
 void		ft_strarrsort(char **arr, int (*f)(char *, char *));
 void		ft_strarrsortrev(char **arr, int (*f)(char *, char *));
 void		ft_strclr(char *str);
@@ -209,8 +213,6 @@ void		ft_termsetcolor(int color);
 void		ft_termsetcolorbg(int color);
 void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
-void		ft_tolowerstr(char *str);
-void		ft_toupperstr(char *str);
 void		ft_putunbr_fd_cbase(unsigned long long value, int fd, int base,
 																		int up);
 

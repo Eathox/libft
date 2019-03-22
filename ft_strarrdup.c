@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tolowerstr.c                                    :+:    :+:            */
+/*   ft_strarrdup.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 12:20:29 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/23 00:25:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/18 16:18:39 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/23 00:27:52 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_tolowerstr(char *str)
+char	**ft_strarrdup(const char **arr)
 {
-	size_t	i;
+	char	**dup;
 
-	i = 0;
-	if (str == NULL)
+	dup = ft_strarrnew(ft_strarrlen(arr));
+	if (dup == NULL)
 		return (NULL);
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
-	}
-	return (str);
+	ft_strarrcpy(dup, arr);
+	return (dup);
 }

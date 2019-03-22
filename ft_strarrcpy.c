@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_colorncode.c                                    :+:    :+:            */
+/*   ft_strarrcpy.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/18 16:13:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/23 00:10:08 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/18 16:18:39 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/23 00:33:52 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_colorncode(const char *str, size_t n)
+char	**ft_strarrcpy(char **dst, const char **src)
 {
-	char	*colors[16];
-	size_t	i;
+	size_t		i;
 
 	i = 0;
-	if (n > 15)
-		n = 15;
-	ft_strarrcpy_var(colors, 16, "black", "red", "green", "yellow", "blue", \
-		"magenta", "cyan", "white", "bright black", "bright red", \
-		"bright green", "bright yellow", "bright blue", "bright magenta", \
-		"bright cyan", "bright white");
-	while (i < n)
+	while (src[i] != '\0')
 	{
-		if (ft_strequ_nocase(str, colors[i]))
-			return ((int)i);
+		dst[i] = ft_strdup(src[i]);
+		if (dst[i] == NULL)
+			return (NULL);
 		i++;
 	}
-	return (-1);
+	dst[i] = NULL;
+	return (dst);
 }
