@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 17:52:29 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/22 01:33:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnutf8str(t_wchar *str, size_t n)
+void	ft_putnutf8str(const t_wchar *str, size_t n)
 {
 	size_t	i;
 	size_t	bytes;

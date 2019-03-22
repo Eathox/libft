@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/21 21:45:34 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/22 01:18:40 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,10 @@ $(OBJ_NAME):
 	@echo $(SRCS)
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)
+
+main:
+	@make re && make clean
+	@gcc $(CCFLAGS) main.c libft.a
 
 clean:
 	@echo "clean";

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/21 21:45:07 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/22 01:33:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ size_t		ft_strmatchlen_nocase(const char *str1, const char *str2);
 size_t		ft_strmatchlen(const char *str1, const char *str2);
 size_t		ft_strnlen(const char *str, size_t n);
 size_t		ft_utf8len(t_wchar c);
-size_t		ft_utf8strlen(t_wchar *str);
-size_t		ft_utf8strnlen(t_wchar *str, size_t n);
+size_t		ft_utf8strlen(const t_wchar *str);
+size_t		ft_utf8strnlen(const t_wchar *str, size_t n);
 size_t		ft_wrddcount(const char *str, const char *dlm);
 t_list		*ft_intarrtolst(const int *arr, size_t len);
 t_list		*ft_lstdup(t_list *lst);
@@ -172,7 +172,7 @@ void		ft_putnbr_fd(long long value, int fd);
 void		ft_putnbr(long long value);
 void		ft_putnstr_fd(const char *str, int fd, size_t n);
 void		ft_putnstr(const char *str, size_t n);
-void		ft_putnutf8str(t_wchar *str, size_t n);
+void		ft_putnutf8str (const t_wchar *str, size_t n);
 void		ft_putpointer(const void *pointer);
 void		ft_putstr_fd(const char *str, int fd);
 void		ft_putstr(const char *str);
@@ -184,7 +184,7 @@ void		ft_putunbr_fd_base(unsigned long long value, int fd, int base);
 void		ft_putunbr_fd(unsigned long long value, int fd);
 void		ft_putunbr(unsigned long long value);
 void		ft_pututf8(t_wchar c);
-void		ft_pututf8str(t_wchar *str);
+void		ft_pututf8strconst (t_wchar *str);
 void		ft_strappend(char **dst, const char *src);
 void		ft_strarrdel(char ***arr);
 void		ft_strarrnsort(char **arr, size_t n);
