@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:08:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/16 22:55:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/23 00:03:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ void		ft_lstsort(t_list **head, int (*f)(t_list *, t_list *))
 		lst = lst->next;
 	}
 	spawhead(head, sortlst, prvsort);
-	if ((*head)->next != NULL)
+	if ((*head)->next != NULL && (*head)->next->next != NULL)
 		ft_lstsort(&(*head)->next, f);
 }

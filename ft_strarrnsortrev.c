@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 15:07:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/21 21:50:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/22 23:43:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strarrnsortrev(char **arr, size_t n)
+void	ft_strarrnsortrev(char **arr, int (*f)(char *, char *), size_t n)
 {
 	size_t	i;
 	size_t	j;
@@ -25,7 +25,7 @@ void	ft_strarrnsortrev(char **arr, size_t n)
 	{
 		j = i;
 		current = arr[i];
-		while (j > 0 && ft_strcmp(arr[j - 1], current) < 0)
+		while (j > 0 && f(current, arr[j - 1]) == FALSE)
 		{
 			arr[j] = arr[j - 1];
 			j--;

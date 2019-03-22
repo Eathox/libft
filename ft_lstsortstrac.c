@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strmatchlen.c                                   :+:    :+:            */
+/*   ft_lstsortstrac.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/18 17:23:15 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/22 23:41:49 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/15 17:28:11 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/23 00:00:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strmatchlen(const char *str1, const char *str2)
+int		ft_lstsortstrac(t_list *sortlst, t_list *lst)
 {
-	size_t			i;
-	unsigned char	temp_a;
-	unsigned char	temp_b;
+	int		result;
+	size_t	n;
 
-	i = 0;
-	while (TRUE)
-	{
-		temp_a = str1[i];
-		temp_b = str2[i];
-		if (temp_a != temp_b || temp_a == '\0')
-			return (i);
-		i++;
-	}
-	return (i);
+	n = ft_max(sortlst->content_size, lst->content_size);
+	result = ft_memcmp(sortlst->content, lst->content, n);
+	return (result > 0 && result != 0);
 }

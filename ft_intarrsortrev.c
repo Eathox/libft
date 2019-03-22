@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 15:07:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/21 21:49:51 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/22 23:46:12 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_intarrsortrev(int *arr, size_t len)
+void	ft_intarrsortrev(int *arr, int (*f)(int, int), size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -25,7 +25,7 @@ void	ft_intarrsortrev(int *arr, size_t len)
 	{
 		j = i;
 		current = arr[i];
-		while (j > 0 && arr[j - 1] < current)
+		while (j > 0 && f(current, arr[j - 1]) == FALSE)
 		{
 			arr[j] = arr[j - 1];
 			j--;

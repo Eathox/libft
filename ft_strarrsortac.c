@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lststrsort.c                                    :+:    :+:            */
+/*   ft_strarrsortac.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/15 17:28:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 08:59:26 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/22 23:50:25 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/22 23:50:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lststrsort(t_list *sortlst, t_list *lst)
+int		ft_strarrsortac(char *current, char *str)
 {
-	size_t		n;
+	int		result;
 
-	n = ft_max(sortlst->content_size, lst->content_size);
-	return (ft_memcmp(sortlst->content, lst->content, n) > 0);
+	result = ft_strcmp(current, str);
+	return (result < 0 && result != 0);
 }

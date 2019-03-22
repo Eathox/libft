@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/22 01:18:40 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/22 23:53:01 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	memdel memalloc memccpy memmove memcmp strncpy lstnew lstdelone lstdel \
 	lstadd lstiter lstmap memchr isdigit count_if foreach puterror toupperstr \
 	tolowerstr putline chrin chrnin intin strin strnin putstrarr putintarr \
-	strndup strdlen wrddcount chrtostr lstaddbck lstmemdel lsttostrarr \
+	strndup strdlen wrddcount chrtostr lstaddbck lstdelmem lsttostrarr \
 	strarrtolst lstlen strmatch strrev lstdup lstdupone putstrlst putbool \
 	intarrtolst putintlst lsttointarr min max constrain abs strreplace \
 	get_next_line termclr strarrnew strarrdel itoa_base atoi_base \
@@ -33,14 +33,14 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	get_next_dline chrdindex putnbr_fd_cbase putnbr_cbase lstfind_content \
 	lstfind_size memrcpy lstlast strjoin_arr lstfindadd_content lstrev \
 	lstfindadd_size strfldvalid memequ lstnlen strarrnlen strislen putlstsize \
-	strarrrev intarrsort intarrsortrev lstsort lstsortrev lststrsort lstinsert \
+	strarrrev intarrsort intarrsortrev lstsort lstsortrev strarrsort lstinsert \
 	lstindex termsetcolor termsetcolorbg termresetcolor termresetcolorbg \
 	strnequ_nocase strequ_nocase strncmp_nocase strmatchlen strcmp_nocase \
 	colorcode strarrset colorncode colorlcode strmatchlen_nocase colorstr \
 	termcommand termsetrgbcolorbg termsetrgbcolor pututf8 utf8len utf8strlen \
 	utf8strnlen putnutf8str pututf8str putunbr_base putunbr_cbase putunbr_fd \
 	putunbr_fd_base putunbr_fd_cbase putunbr strarrnsortrev strarrnsort \
-	strarrsortrev strarrsort
+	strarrsortrev intarrsortac strarrsortac lstsortstrac
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/22 01:33:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/22 23:53:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int			ft_colorcode(const char *str);
 int			ft_colorlcode(const char *str);
 int			ft_colorncode(const char *str, size_t n);
 int			ft_getchar(void);
+int			ft_intarrsortac(int current, int num);
 int			ft_intin(const int *arr, int num, size_t len);
 int			ft_intlen_base(int value, int base);
 int			ft_intlen(int value);
@@ -72,13 +73,14 @@ int			ft_islower(int c);
 int			ft_isprint(int c);
 int			ft_isspace(int c);
 int			ft_isupper(int c);
-int			ft_lststrsort(t_list *sortlst, t_list *lst);
+int			ft_lstsortstrac(t_list *sortlst, t_list *lst);
 int			ft_memcmp(const void *str1, const void *str2, size_t len);
 int			ft_memequ(const void *str1, const void *str2, size_t len);
 int			ft_numlen_base(long long value, int base);
 int			ft_numlen(long long value);
 int			ft_puterror(const char *str);
 int			ft_sqrt(int nb);
+int			ft_strarrsortac(char *current, char *str);
 int			ft_strcmp_nocase(const char *str1, const char *str2);
 int			ft_strcmp(const char *str1, const char *str2);
 int			ft_strequ_nocase(const char *str1, const char *str2);
@@ -141,15 +143,15 @@ void		*ft_memrcpy(void *dst, const void *src, size_t len);
 void		*ft_memset(void *str, int c, size_t len);
 void		ft_bzero(void *str, size_t len);
 void		ft_foreach(const int *arr, int length, void (*f)(int));
-void		ft_intarrsort(int *arr, size_t len);
-void		ft_intarrsortrev(int *arr, size_t len);
+void		ft_intarrsort(int *arr, int (*f)(int, int), size_t len);
+void		ft_intarrsortrev(int *arr, int (*f)(int, int), size_t len);
 void		ft_lstadd(t_list **head, t_list *new);
 void		ft_lstaddbck(t_list *lst, t_list *new);
 void		ft_lstdel(t_list **head, void (*del)(void *, size_t));
+void		ft_lstdelmem(void *content, size_t size);
 void		ft_lstdelone(t_list **head, void (*del)(void *, size_t));
 void		ft_lstinsert(t_list *head, t_list *lst);
 void		ft_lstiter(t_list *lst, void (*f)(t_list *elem));
-void		ft_lstmemdel(void *content, size_t size);
 void		ft_lstrev(t_list **head);
 void		ft_lstsort(t_list **head, int (*f)(t_list *, t_list *));
 void		ft_lstsortrev(t_list **head, int (*f)(t_list *, t_list *));
@@ -187,12 +189,12 @@ void		ft_pututf8(t_wchar c);
 void		ft_pututf8strconst (t_wchar *str);
 void		ft_strappend(char **dst, const char *src);
 void		ft_strarrdel(char ***arr);
-void		ft_strarrnsort(char **arr, size_t n);
-void		ft_strarrnsortrev(char **arr, size_t n);
+void		ft_strarrnsort(char **arr, int (*f)(char *, char *), size_t n);
+void		ft_strarrnsortrev(char **arr, int (*f)(char *, char *), size_t n);
 void		ft_strarrrev(char **arr);
 void		ft_strarrset(char **arr, int count, ...);
-void		ft_strarrsort(char **arr);
-void		ft_strarrsortrev(char **arr);
+void		ft_strarrsort(char **arr, int (*f)(char *, char *));
+void		ft_strarrsortrev(char **arr, int (*f)(char *, char *));
 void		ft_strclr(char *str);
 void		ft_strdel(char **as);
 void		ft_striter(const char *str, void (*f)(char *));
