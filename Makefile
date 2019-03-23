@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/23 00:18:10 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/23 12:29:33 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ $(OBJ_NAME):
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)
 
-main:
+test:
 	@make re && make clean
 	@gcc $(CCFLAGS) main.c libft.a
 
