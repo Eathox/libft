@@ -6,14 +6,14 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 15:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 15:32:49 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/25 13:56:12 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_TYPEDEFS_H
 # define FT_TYPEDEFS_H
 
-typedef	unsigned int	t_wchar;
+typedef	int		t_wchar;
 typedef struct	s_list
 {
 	void			*content;
