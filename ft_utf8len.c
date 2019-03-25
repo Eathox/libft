@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/20 16:32:06 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/25 14:04:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 size_t	ft_utf8len(t_wchar c)
 {
-	if (c > 0x0000 && c < 0x007F)
+	if (c >= 0x0000 && c <= 0x007F)
 		return (1);
-	if (c > 0x0080 && c < 0x07FF)
+	if (c >= 0x0080 && c <= 0x07FF)
 		return (2);
-	if (c > 0x0800 && c < 0xFFFF)
+	if (c >= 0x0800 && c <= 0xFFFF)
 		return (3);
-	if (c > 0x10000 && c < 0x10FFFF)
+	if (c >= 0x10000 && c <= 0x10FFFF)
 		return (4);
 	return (0);
 }
