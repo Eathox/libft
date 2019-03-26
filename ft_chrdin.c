@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 17:42:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/26 18:19:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/26 18:40:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			ft_chrdin(const char *str, const char *dlm)
 	ft_memset(chars, 0, sizeof(chars));
 	while (dlm[i] != '\0')
 	{
-		chars[0] |= (1 << dlm[i]);
+		chars[0] |= ((long long)1 << dlm[i]);
 		i++;
 	}
 	ft_putendl("");

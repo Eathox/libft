@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/26 16:13:31 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/26 18:38:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/26 18:40:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		ft_putbytes(void *bytes, size_t n)
 		i = 8;
 		while (i > 0)
 		{
-			if (byts[n - 1] & (1 << (i - 1)))
+			if (byts[n - 1] & ((long long)1 << (i - 1)))
 				ft_putchar('1');
 			else
 				ft_putchar('0');
