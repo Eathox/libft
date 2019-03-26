@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/23 00:24:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/26 11:39:04 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char		**ft_strsplit(const char *str, char c);
 char		*ft_chrtostr(char c);
 char		*ft_colorstr(int color);
 char		*ft_itoa_base(long long value, int base);
+char		*ft_itoa_cbase(long long value, int base, int up);
 char		*ft_itoa(long long value);
 char		*ft_strcat(char *str1, const char *str2);
 char		*ft_strchr(const char *str, int c);
@@ -213,7 +214,7 @@ void		ft_termsetcolor(int color);
 void		ft_termsetcolorbg(int color);
 void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
-void		ft_putunbr_fd_cbase(unsigned long long value, int fd, int base,
-																		int up);
+void		ft_putunbr_fd_cbase(
+				unsigned long long value, int fd, int base, int up);
 
 #endif
