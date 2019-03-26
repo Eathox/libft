@@ -18,22 +18,23 @@ int			ft_chrdin(const char *str, const char *dlm)
 	long long	chars[2];
 
 	i = 0;
-	(void)str;
 	ft_memset(chars, 0, sizeof(chars));
 	while (dlm[i] != '\0')
 	{
-		chars[0] |= ((long long)1 << dlm[i]);
+		if (dlm[i] >= 64)
+			chars[1] |= ((long long)1 << (dlm[i] - 64));
+		else
+			chars[0] |= ((long long)1 << dlm[i]);
 		i++;
 	}
-	ft_putendl("");
-	ft_putbytes(&chars[1], sizeof(chars[1]));
-	ft_putendl("");
-	ft_putbytes(&chars[0], sizeof(chars[0]));
-	ft_putendl("");
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 64 && chars[1] & ((long long)1 << (str[i] - 64)))
+			return (TRUE);
+		if (chars[0] & ((long long)1 << str[i]))
+			return (TRUE);
+		i++;
+	}
 	return (FALSE);
 }
-
-// int			ft_chrdin(const char *str, const char *dlm)
-// {
-// 	return (ft_chrdindex(str, dlm) != -1);
-// }
