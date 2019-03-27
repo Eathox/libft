@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/26 16:15:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/27 19:50:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memrcpy(void *dst, const void *src, size_t len);
 void		*ft_memset(void *str, int c, size_t len);
 void		ft_bzero(void *str, size_t len);
+void		ft_chrsetbytes(long long *bytes, char *str);
 void		ft_foreach(const int *arr, int length, void (*f)(int));
 void		ft_intarrsort(int *arr, int (*f)(int, int), size_t len);
 void		ft_intarrsortrev(int *arr, int (*f)(int, int), size_t len);
@@ -167,6 +168,7 @@ void		ft_putbool(int c);
 void		ft_putbytes(void *bytes, size_t n);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putchar(char c);
+void		ft_putdouble(long double value, size_t n);
 void		ft_putendl_fd(const char *str, int fd);
 void		ft_putendl(const char *str);
 void		ft_putintarr(const int *arr, size_t len);
@@ -195,7 +197,6 @@ void		ft_putunbr_fd(unsigned long long value, int fd);
 void		ft_putunbr(unsigned long long value);
 void		ft_pututf8(t_wchar c);
 void		ft_pututf8strconst (t_wchar *str);
-void		ft_chrsetbytes(long long *bytes, char *str);
 void		ft_strappend(char **dst, const char *src);
 void		ft_strarrdel(char ***arr);
 void		ft_strarrnsort(char **arr, int (*f)(char *, char *), size_t n);

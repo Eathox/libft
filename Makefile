@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/26 16:14:45 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/27 17:16:03 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	utf8strnlen putnutf8str pututf8str putunbr_base putunbr_cbase putunbr_fd \
 	putunbr_fd_base putunbr_fd_cbase putunbr strarrnsortrev strarrnsort \
 	strarrsortrev intarrsortac strarrsortac lstsortstrac strarrcpy_var \
-	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes
+	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes putdouble
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)
