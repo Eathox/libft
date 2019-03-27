@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 22:38:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 01:55:15 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/27 02:57:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_chrdindex(const char *str, const char *dlm)
 	i = 0;
 	if (str == NULL || dlm == NULL)
 		return (-1);
-	ft_setchrbytes(bytes, (char *)dlm);
+	ft_chrsetbytes(bytes, (char *)dlm);
 	while (str[i] != '\0')
 	{
 		if (ft_chrinbytes(bytes, str[i]))

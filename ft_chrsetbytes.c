@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_setchrbytes.c                                   :+:    :+:            */
+/*   ft_chrsetbytes.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_setchrbytes(long long *bytes, char *str)
+void	ft_chrsetbytes(long long *bytes, char *str)
 {
 	size_t	i;
 

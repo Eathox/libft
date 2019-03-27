@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:26:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 02:18:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/27 02:57:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t		ft_wrddcount(const char *str, const char *dlm)
 	count = 0;
 	if (str == NULL || dlm == NULL)
 		return (0);
-	ft_setchrbytes(bytes, (char *)dlm);
+	ft_chrsetbytes(bytes, (char *)dlm);
 	while (str[i] != '\0')
 	{
 		if (ft_chrinbytes(bytes, str[i]))

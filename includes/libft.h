@@ -195,7 +195,7 @@ void		ft_putunbr_fd(unsigned long long value, int fd);
 void		ft_putunbr(unsigned long long value);
 void		ft_pututf8(t_wchar c);
 void		ft_pututf8strconst (t_wchar *str);
-void		ft_setchrbytes(long long *bytes, char *str);
+void		ft_chrsetbytes(long long *bytes, char *str);
 void		ft_strappend(char **dst, const char *src);
 void		ft_strarrdel(char ***arr);
 void		ft_strarrnsort(char **arr, int (*f)(char *, char *), size_t n);

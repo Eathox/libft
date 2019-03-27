@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 02:01:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/27 02:57:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_strfldvalid(const char **arr, int x, int y, const char *dlm)
 		return (FALSE);
 	if (ft_strarrnlen(arr, (size_t)y + 1) != (size_t)y)
 		return (FALSE);
-	ft_setchrbytes(bytes, (char *)dlm);
+	ft_chrsetbytes(bytes, (char *)dlm);
 	while (i < (size_t)y)
 	{
 		j = 0;
