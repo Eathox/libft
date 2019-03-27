@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/16 22:53:50 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/27 01:58:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int				get_next_dline(const int fd, char **line, const char *dlm)
 	char			*buff;
 	int				ret;
 
-	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
+	if (fd < 0 || line == NULL || BUFF_SIZE <= 0 || dlm == NULL)
 		return (-1);
 	lst = gnl_get_lst(fd, head);
 	if (lst == NULL)

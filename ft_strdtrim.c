@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 14:53:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/24 13:39:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/27 01:59:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 char	*ft_strdtrim(const char *str, const char *dlm)
 {
-	char	*ret;
-	size_t	len;
-	size_t	i;
+	char		*ret;
+	long long	bytes[2];
+	size_t		len;
+	size_t		i;
 
 	i = 0;
-	if (str == NULL)
+	if (str == NULL || dlm == NULL)
 		return (NULL);
 	len = ft_strlen(str);
-	while (ft_chrin(dlm, str[i]) && str[i] != '\0')
+	ft_setchrbytes(bytes, (char *)dlm);
+	while (ft_chrinbytes(bytes, str[i]) && str[i] != '\0')
 		i++;
 	if (i == len)
 		return (ft_strnew(0));
-	while (ft_chrin(dlm, str[(len - 1)]) && (len - 1) > i)
+	while (ft_chrinbytes(bytes, str[(len - 1)]) && (len - 1) > i)
 		len--;
 	ret = ft_strndup(&str[i], (size_t)(len - i));
 	return (ret);

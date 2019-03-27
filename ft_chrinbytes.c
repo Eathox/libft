@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_count_if.c                                      :+:    :+:            */
+/*   ft_chrinbytes.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 01:21:58 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/27 01:47:24 by pholster       #+#    #+#                */
+/*   Updated: 2019/03/27 01:47:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_count_if(const char **str, int (*f)(char *))
+int		ft_chrinbytes(long long *bytes, char c)
 {
-	size_t	i;
-	size_t	count;
-
-	i = 0;
-	count = 0;
-	if (f == NULL || str == NULL)
-		return (0);
-	while (str[i] != NULL)
-	{
-		count += (f((char *)str[i]) == 1);
-		i++;
-	}
-	return (count);
+	if (bytes == NULL)
+		return (FALSE);
+	if (c >= 64 && bytes[1] & ((long long)1 << (c - 64)))
+		return (TRUE);
+	if (c < 64 && c >= 0 && bytes[0] & ((long long)1 << c))
+		return (TRUE);
+	return (FALSE);
 }
