@@ -16,7 +16,7 @@ void	ft_putdouble(long double value, size_t n)
 {
 	size_t		i;
 	long long	num;
-	long double	next;
+	long long	next;
 
 	i = 0;
 	next = 0;
@@ -33,8 +33,8 @@ void	ft_putdouble(long double value, size_t n)
 		value *= 10;
 		num = (long long)value;
 		next = (value - num) * 10;
-		//num += (num < 9 && next >= 5);
-		ft_putnbr(num + (num < 9 && next >= 5));
+		num += (num < 9 && (next == 9 || (next >= 5 && i + 1 == n)));
+		ft_putnbr(num);
 		value -= num;
 		i++;
 	}
