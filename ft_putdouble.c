@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/28 18:04:23 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/28 19:31:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	ft_putdouble(long double value, size_t n)
 	{
 		value *= 10;
 		num = (long long)value;
-		if (i + 1 == n)
-			next = (value - num) * 10;
-		ft_putnbr(value + (next >= 5));
+		next = (value - num) * 10;
+		num += (num < 9 && next >= 5);
+		ft_putnbr(num);
 		value -= num;
 		i++;
 	}
