@@ -18,6 +18,7 @@ static void	putprecision(long double value, size_t n)
 	int			num;
 	long double	next;
 	long double	nextnext;
+	long double	nextnextnext;
 
 	i = 0;
 	while (i < n)
@@ -26,10 +27,14 @@ static void	putprecision(long double value, size_t n)
 		num = (int)value;
 		next = (value - num) * 10;
 		nextnext = (next - (int)next) * 10;
-		if (num < 9 && (int)next == 9 && (int)nextnext >= 8)
-			num++;
-		else if (num < 9 && (int)next >= 5 && (i + 1) == n)
-			num++;
+		nextnextnext = (nextnext - (int)nextnext) * 10;
+		if (num < 9)
+		{
+			if ((int)next == 9 && (int)nextnext >= 8 && (int)nextnextnext >= 7)
+				num++;
+			if (num < 9 && (int)next >= 5 && (i + 1) == n)
+				num++;
+		}
 		ft_putnbr(num);
 		value -= num;
 		i++;
