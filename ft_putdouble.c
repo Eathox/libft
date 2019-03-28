@@ -12,30 +12,44 @@
 
 #include "libft.h"
 
-void	ft_putdouble(long double value, size_t n)
+static void	putprecision(long double value, size_t n)
 {
 	size_t		i;
-	long long	num;
-	long long	next;
+	int			num;
+	long double	next;
+	long double	nextnext;
 
 	i = 0;
-	next = 0;
+	while (i < n)
+	{
+		value *= 10;
+		num = (int)value;
+		next = (value - num) * 10;
+		nextnext = (next - (int)next) * 10;
+		if (num < 9 && (int)next == 9 && (int)nextnext >= 8)
+			num++;
+		else if (num < 9 && (int)next >= 5 && (i + 1) == n)
+			num++;
+		ft_putnbr(num);
+		value -= num;
+		i++;
+	}
+}
+
+void		ft_putdouble(long double value, size_t n)
+{
+	long long	num;
+
+	if (value < 0)
+	{
+		ft_putchar('-');
+		value *= -1;
+	}
 	num = (long long)value;
 	ft_putnbr(num);
 	if (n == 0)
 		return ;
 	ft_putchar('.');
 	value -= num;
-	if (value < 0)
-		value *= -1;
-	while (i < n)
-	{
-		value *= 10;
-		num = (long long)value;
-		next = (value - num) * 10;
-		num += (num < 9 && (next == 9 || (next >= 5 && i + 1 == n)));
-		ft_putnbr(num);
-		value -= num;
-		i++;
-	}
+	putprecision(value, n);
 }
