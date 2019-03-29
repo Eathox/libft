@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/29 17:29:50 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/29 18:05:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@
 // 	}
 // }
 
-static long double	putprecision(long double value, size_t n)
+// max precision of char 24 and use this
+
+static int	putprecision(long double value, size_t n)
 {
 	int			num;
 	int			rnd;
@@ -60,7 +62,7 @@ static long double	putprecision(long double value, size_t n)
 	return (num == 9);
 }
 
-void				ft_putdouble(long double value, size_t n)
+void		ft_putdouble(long double value, size_t n)
 {
 	long long	num;
 
