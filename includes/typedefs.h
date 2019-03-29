@@ -21,6 +21,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+# define MAX_DOUBLE_PRECISION 24
 # define FALSE	0
 # define TRUE	1
 

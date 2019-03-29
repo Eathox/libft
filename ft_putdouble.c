@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	adddecimals(long double value, char *decimals, size_t n)
+static void	setdecimals(long double value, char *decimals, size_t n)
 {
 	size_t	i;
 	int		rnd;
@@ -42,9 +42,11 @@ static void	adddecimals(long double value, char *decimals, size_t n)
 
 void		ft_putdouble(long double value, size_t n)
 {
-	char		decimals[25];
+	char		decimals[MAX_DOUBLE_PRECISION + 1];
 	long long	num;
 
+	if (n > MAX_DOUBLE_PRECISION)
+		n = MAX_DOUBLE_PRECISION;
 	if (value < 0)
 	{
 		ft_putchar('-');
@@ -52,10 +54,11 @@ void		ft_putdouble(long double value, size_t n)
 	}
 	num = (long long)value;
 	value -= num;
-	adddecimals(value, decimals, n);
+	setdecimals(value, decimals, n);
 	ft_putnbr(num + (n == 0 && decimals[0] >= '5'));
-	if (n == 0)
-		return ;
-	ft_putchar('.');
-	ft_putnstr(decimals, n);
+	if (n != 0)
+	{
+		ft_putchar('.');
+		ft_putnstr(decimals, n);
+	}
 }
