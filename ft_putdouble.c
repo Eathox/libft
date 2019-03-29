@@ -32,7 +32,7 @@ static void	putprecision(long double value, size_t n)
 		{
 			if ((int)next == 9 && (int)nextnext >= 8 && (int)nextnextnext >= 7)
 				num++;
-			if ((int)next >= 5 && (i + 1) == n)
+			else if ((int)next >= 5 && (i + 1) == n)
 				num++;
 		}
 		ft_putnbr(num);
