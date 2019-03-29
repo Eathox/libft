@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 01:29:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 01:29:23 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/29 12:39:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	ft_chrsetbytes(long long *bytes, char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] >= 64)
-			bytes[1] |= ((long long)1 << (str[i] - 64));
+			bytes[1] |= (1LL << (str[i] - 64));
 		else
-			bytes[0] |= ((long long)1 << str[i]);
+			bytes[0] |= (1LL << str[i]);
 		i++;
 	}
 }
