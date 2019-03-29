@@ -41,7 +41,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	utf8strnlen putnutf8str pututf8str putunbr_base putunbr_cbase putunbr_fd \
 	putunbr_fd_base putunbr_fd_cbase putunbr strarrnsortrev strarrnsort \
 	strarrsortrev intarrsortac strarrsortac lstsortstrac strarrcpy_var \
-	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes putdouble
+	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes putdouble isblank
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)
