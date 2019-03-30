@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/27 17:16:03 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/30 15:58:34 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,13 +55,13 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME)
-	@echo "creating libary"
+	@echo "creating libft"
 	@ar rc $(NAME) $(OBJS)
-	@echo "indexing libary"
+	@echo "indexing libft"
 	@ranlib $(NAME)
 
 $(OBJ_NAME):
-	@echo "compiling"
+	@echo "compiling libft"
 	@echo $(SRCS)
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)
@@ -71,11 +71,11 @@ test:
 	@gcc $(CCFLAGS) main.c libft.a
 
 clean:
-	@echo "clean";
+	@echo "cleaning libft";
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
 
 fclean: clean
-	@echo "fclean";
+	@echo "fcleaning libft";
 	@rm -f $(NAME)
 
 re: fclean $(NAME)
