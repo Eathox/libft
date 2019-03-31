@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/26 11:41:07 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/31 17:01:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ char	*ft_itoa_cbase(long long value, int base, int up)
 	if (base < 2 || base > 36)
 		return (NULL);
 	str = ft_strnew(len);
+	if (str == NULL)
+		return (NULL);
 	if (up == TRUE)
 		base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	else
 		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
-	if (str == NULL)
-		return (NULL);
 	while ((len - (value < 0 && base == 10)) != 0)
 	{
 		str[len - 1] = base_str[(num % base)];
