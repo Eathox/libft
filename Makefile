@@ -6,9 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/30 15:58:34 by pholster      ########   odam.nl          #
+#    Updated: 2019/03/31 12:51:41 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
+
+PRINTFPATH = ./ft_printf/
+PRINTF = $(PRINTFPATH)libftprintf.a
 
 INCLUDES = ./includes/
 NAME = libft.a
@@ -54,17 +57,20 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(OBJ_NAME)
-	@echo "creating libft"
-	@ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJ_NAME) $(PRINTF)
 	@echo "indexing libft"
-	@ranlib $(NAME)
+	@ar rcs $(NAME) $(OBJS)
+
 
 $(OBJ_NAME):
 	@echo "compiling libft"
 	@echo $(SRCS)
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)
+
+$(PRINTF):
+	@make -C $(PRINTFPATH)
+	@cp $(PRINTF) $(NAME)
 
 test:
 	@make re && make clean
@@ -73,10 +79,12 @@ test:
 clean:
 	@echo "cleaning libft";
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
+	@make -C $(PRINTFPATH) clean
 
 fclean: clean
 	@echo "fcleaning libft";
 	@rm -f $(NAME)
+	@make -C $(PRINTFPATH) fclean
 
 re: fclean $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 19:50:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/03/31 12:52:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include "typedefs.h"
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);
