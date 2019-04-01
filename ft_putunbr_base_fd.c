@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_pututf8str.c                                    :+:    :+:            */
+/*   ft_putunbr_base_fd.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:10:16 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/01 12:54:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_pututf8str(const t_wchar *str)
+void	ft_putunbr_base_fd(unsigned long long value, int base, int fd)
 {
-	ft_pututf8str_fd(str, 1);
+	ft_putunbr_cbase_fd(value, base, TRUE, fd);
 }

@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/16 17:46:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/31 12:42:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 12:58:38 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	putnbr(long long value)
+static void	putnbr(long long value, int fd)
 {
 	char				*base_str;
 	unsigned long long	num;
@@ -20,9 +20,9 @@ static void	putnbr(long long value)
 	base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
 	num = (value < 0) ? -value : value;
 	if (num > (unsigned long long)(10 - 1))
-		putnbr((num / 10));
+		putnbr((num / 10), fd);
 	num = base_str[(num % 10)];
-	ft_putchar_fd(num, 1);
+	ft_putchar_fd(num, fd);
 }
 
 void		pf_putnum(t_info *info)
@@ -36,6 +36,6 @@ void		pf_putnum(t_info *info)
 		return ;
 	}
 	num = pf_overflowsigned(info);
-	putnbr(num);
+	putnbr(num, PF_FD);
 	PF_PRINTED += PF_VAR_LEN;
 }

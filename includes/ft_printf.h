@@ -60,13 +60,14 @@ typedef	struct	s_info
 	char		flag[7];
 	char		prelen;
 	char		type;
+	char		var_base;
+	int			fd;
 	int			length;
 	int			padprinted;
 	int			precision;
 	int			printed;
-	int			width;
 	int			var_len;
-	char		var_base;
+	int			width;
 	enum e_type	var_type;
 	void		*var;
 	double		var_double;
@@ -85,6 +86,7 @@ typedef unsigned long long	t_uintmax;
 # define PF_PADPRINTED	info->padprinted
 # define PF_TYPE		info->type
 # define PF_WIDTH		info->width
+# define PF_FD			info->fd
 # define PF_VAR			info->var
 # define PF_VAR_FLOAT	info->f_var
 # define PF_VAR_LEN		info->var_len
@@ -106,7 +108,7 @@ typedef unsigned long long	t_uintmax;
 # define PF_FLAG_APOST	PF_FLAG[5]
 
 int				ft_printf(const char *format, ...);
-int				pf_commands(const char *str);
+int				pf_commands(t_info *info, const char *str);
 int				pf_getflag(t_info *info, const char *str);
 int				pf_getinfo(va_list args, t_info *info, const char *str);
 int				pf_getlength(t_info *info, const char *str);
@@ -122,7 +124,7 @@ int				pf_isunsignint(t_info *info);
 int				pf_iszero(t_info *info);
 int				pf_iszeropad(t_info *info);
 int				pf_putstr(t_info *info, char *str);
-int				pf_setcolor(const char *start);
+int				pf_setcolor(t_info *info, const char *start);
 t_info			*pf_infonew(void);
 t_intmax		pf_overflowsigned(t_info *info);
 t_uintmax		pf_overflowunsigned(t_info *info);

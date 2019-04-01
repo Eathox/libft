@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 16:21:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 12:49:29 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putnbr_base(long long value, int base)
 {
-	ft_putnbr_fd_cbase(value, 1, base, TRUE);
+	ft_putnbr_cbase_fd(value, base, TRUE, 1);
 }

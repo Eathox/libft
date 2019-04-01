@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/31 12:52:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:21:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
+void		ft_termsetcolor_fd(int color, int fd);
+void		ft_termsetcolorbg_fd(int color, int fd);
+void		ft_termsetrgbcolor_fd(int r, int g, int b, int fd);
+void		ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd);
+void		ft_termresetcolor_fd(int fd);
+void		ft_termresetcolorbg_fd(int fd);
+void		ft_termclr_fd(int fd);
+void		ft_termcommand_fd(int command, int fd);
+void		ft_pututf8str_fd(const t_wchar *str, int fd);
+void		ft_pututf8_fd(t_wchar c, int fd);
+void		ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd);
+void		ft_putdouble_fd(long double value, size_t n, int fd);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
@@ -180,11 +192,11 @@ void		ft_putline(const char *str);
 void		ft_putlstsize(t_list *lst);
 void		ft_putnbr_base(long long value, int base);
 void		ft_putnbr_cbase(long long value, int base, int up);
-void		ft_putnbr_fd_base(long long value, int fd, int base);
-void		ft_putnbr_fd_cbase(long long value, int fd, int base, int up);
+void		ft_putnbr_base_fd(long long value, int base, int fd);
+void		ft_putnbr_cbase_fd(long long value, int base, int up, int fd);
 void		ft_putnbr_fd(long long value, int fd);
 void		ft_putnbr(long long value);
-void		ft_putnstr_fd(const char *str, int fd, size_t n);
+void		ft_putnstr_fd(const char *str, size_t n, int fd);
 void		ft_putnstr(const char *str, size_t n);
 void		ft_putnutf8str (const t_wchar *str, size_t n);
 void		ft_putpointer(const void *pointer);
@@ -194,7 +206,7 @@ void		ft_putstrarr(const char **arr);
 void		ft_putstrlst(t_list *lst);
 void		ft_putunbr_base(unsigned long long value, int base);
 void		ft_putunbr_cbase(unsigned long long value, int base, int up);
-void		ft_putunbr_fd_base(unsigned long long value, int fd, int base);
+void		ft_putunbr_base_fd(unsigned long long value, int base, int fd);
 void		ft_putunbr_fd(unsigned long long value, int fd);
 void		ft_putunbr(unsigned long long value);
 void		ft_pututf8(t_wchar c);
@@ -220,7 +232,7 @@ void		ft_termsetcolor(int color);
 void		ft_termsetcolorbg(int color);
 void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
-void		ft_putunbr_fd_cbase(
-				unsigned long long value, int fd, int base, int up);
+void		ft_putunbr_cbase_fd(
+				unsigned long long value, int base, int up, int fd);
 
 #endif

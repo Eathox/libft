@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 15:09:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:16:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_termresetcolorbg(void)
 {
-	ft_putstr("\e[49m\e[K");
+	ft_termresetcolorbg_fd(1);
 }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putunbr_fd_base.c                               :+:    :+:            */
+/*   ft_termsetrgbcolorbg_fd.c                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/21 12:25:31 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/01 13:18:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putunbr_fd_base(unsigned long long value, int fd, int base)
+void	ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd)
 {
-	ft_putunbr_fd_cbase(value, fd, base, TRUE);
+	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
+	{
+		ft_termresetcolorbg_fd(fd);
+		return ;
+	}
+	ft_putstr_fd("\e[48;2;", fd);
+	ft_putnbr_fd(r, fd);
+	ft_putchar_fd(';', fd);
+	ft_putnbr_fd(g, fd);
+	ft_putchar_fd(';', fd);
+	ft_putnbr_fd(b, fd);
+	ft_putchar_fd('m', fd);
 }

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 16:42:53 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/31 12:42:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:11:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	pf_putwchar(t_info *info, t_wchar c)
 {
-	ft_pututf8(c);
+	ft_pututf8_fd(c, PF_FD);
 	PF_PRINTED += PF_VAR_LEN;
 }

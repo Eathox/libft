@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putunbr_fd_cbase.c                              :+:    :+:            */
+/*   ft_termsetcolor_fd.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/21 12:25:38 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/01 13:21:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putunbr_fd_cbase(unsigned long long value, int fd, int base, int up)
+void	ft_termsetcolor_fd(int color, int fd)
 {
-	char				*base_str;
-
-	if (up == TRUE)
-		base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	else
-		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
-	if (base < 2 || base > 36)
+	if (color < 0 || color > 255)
+	{
+		ft_termresetcolor_fd(fd);
 		return ;
-	if (value > (unsigned long long)(base - 1))
-		ft_putunbr_fd_cbase((value / base), fd, base, up);
-	value = base_str[(value % base)];
-	ft_putchar_fd(value, fd);
+	}
+	ft_putstr_fd("\e[38;5;", fd);
+	ft_putnbr_fd(color, fd);
+	ft_putchar_fd('m', fd);
 }

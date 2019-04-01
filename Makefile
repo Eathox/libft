@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/31 12:51:41 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/01 13:21:34 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,10 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	intarrtolst putintlst lsttointarr min max constrain abs strreplace \
 	get_next_line termclr strarrnew strarrdel itoa_base atoi_base \
 	isdigitstr strfldnew chrindex putpointer strdsplit putnbr_base strdtrim \
-	putnbr_fd_base putline_fd isupper islower chrdin numlen_base numlen intlen \
+	putnbr_base_fd putline_fd isupper islower chrdin numlen_base numlen intlen \
 	intlen_base uintlen uintlen_base unumlen unumlen_base strappend memdup \
 	lstunlink getchar putnstr putnstr_fd strnlen strjoin_var strarrlen \
-	get_next_dline chrdindex putnbr_fd_cbase putnbr_cbase lstfind_content \
+	get_next_dline chrdindex putnbr_cbase_fd putnbr_cbase lstfind_content \
 	lstfind_size memrcpy lstlast strjoin_arr lstfindadd_content lstrev \
 	lstfindadd_size strfldvalid memequ lstnlen strarrnlen strislen putlstsize \
 	strarrrev intarrsort intarrsortrev lstsort lstsortrev strarrsort lstinsert \
@@ -42,9 +42,12 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	colorcode strarrcpy colorncode colorlcode strmatchlen_nocase colorstr \
 	termcommand termsetrgbcolorbg termsetrgbcolor pututf8 utf8len utf8strlen \
 	utf8strnlen putnutf8str pututf8str putunbr_base putunbr_cbase putunbr_fd \
-	putunbr_fd_base putunbr_fd_cbase putunbr strarrnsortrev strarrnsort \
+	putunbr_base_fd putunbr_cbase_fd putunbr strarrnsortrev strarrnsort \
 	strarrsortrev intarrsortac strarrsortac lstsortstrac strarrcpy_var \
-	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes putdouble isblank
+	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes putdouble isblank \
+	putdouble_fd putnutf8str_fd pututf8_fd pututf8str termcommand_fd \
+	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
+	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)

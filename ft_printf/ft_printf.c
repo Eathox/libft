@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/31 12:59:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:13:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static int		distribute(va_list args, t_info *info, const char *start)
 	int	i;
 
 	if (*start == '{')
-		i = pf_setcolor(&start[1]);
+		i = pf_setcolor(info, &start[1]);
 	else if (*start == '[')
-		i = pf_commands(&start[1]);
+		i = pf_commands(info, &start[1]);
 	else
 	{
 		pf_infosetdefualt(info);

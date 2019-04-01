@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 17:30:53 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/31 12:42:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 12:47:04 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	pf_putnstr(t_info *info, char *str, size_t n)
 {
-	ft_putnstr(str, n);
+	ft_putnstr_fd(str, n, PF_FD);
 	PF_PRINTED += n;
 }

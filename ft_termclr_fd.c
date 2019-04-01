@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_pututf8str.c                                    :+:    :+:            */
+/*   ft_termclr_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:10:16 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/26 14:51:28 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/01 13:14:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_pututf8str(const t_wchar *str)
+void	ft_termclr_fd(int fd)
 {
-	ft_pututf8str_fd(str, 1);
+	write(fd, "\e[1;1H\e[2J\n", 12);
 }

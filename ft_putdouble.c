@@ -6,59 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/29 18:05:50 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:06:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	setdecimals(long double value, char *decimals, size_t n)
-{
-	size_t	i;
-	int		rnd;
-	int		num;
-
-	i = 0;
-	while (i < (n + 1))
-	{
-		value *= 10;
-		num = (int)value;
-		decimals[i] = num + '0';
-		value -= num;
-		i++;
-	}
-	i--;
-	rnd = (num >= 5);
-	while (i > 0)
-	{
-		i--;
-		decimals[i] += rnd;
-		if (decimals[i] == ('9' + 1))
-			decimals[i] = '0';
-		else
-			rnd = 0;
-	}
-}
-
 void		ft_putdouble(long double value, size_t n)
 {
-	char		decimals[MAX_DOUBLE_PRECISION + 1];
-	long long	num;
-
-	if (n > MAX_DOUBLE_PRECISION)
-		n = MAX_DOUBLE_PRECISION;
-	if (value < 0)
-	{
-		ft_putchar('-');
-		value *= -1;
-	}
-	num = (long long)value;
-	value -= num;
-	setdecimals(value, decimals, n);
-	ft_putnbr(num + (n == 0 && decimals[0] >= '5'));
-	if (n != 0)
-	{
-		ft_putchar('.');
-		ft_putnstr(decimals, n);
-	}
+	ft_putdouble_fd(value, n, 1);
 }

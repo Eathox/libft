@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/16 17:46:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/31 12:42:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 12:59:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	pf_putunum(t_info *info)
 		return ;
 	}
 	num = pf_overflowunsigned(info);
-	ft_putunbr_cbase(num, PF_VAR_BASE, PF_TYPE == 'X');
+	ft_putunbr_cbase_fd(num, PF_VAR_BASE, PF_TYPE == 'X', PF_FD);
 	PF_PRINTED += PF_VAR_LEN;
 }

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 14:51:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/18 14:41:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:14:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_termclr(void)
 {
-	write(0, "\e[1;1H\e[2J\n", 12);
+	ft_termclr_fd(1);
 }

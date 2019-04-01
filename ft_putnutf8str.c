@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/22 01:33:31 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:07:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,5 @@
 
 void	ft_putnutf8str(const t_wchar *str, size_t n)
 {
-	size_t	i;
-	size_t	bytes;
-	size_t	len;
-
-	i = 0;
-	len = 0;
-	if (str == NULL)
-	{
-		ft_putnstr("(null)", n);
-		return ;
-	}
-	while (str[i] != '\0')
-	{
-		bytes = ft_utf8len(str[i]);
-		if ((len + bytes) > n)
-			return ;
-		len += bytes;
-		ft_pututf8(str[i]);
-		i++;
-	}
+	ft_putnutf8str_fd(str, n, 1);
 }
