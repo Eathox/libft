@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:28:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 12:42:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 t_info	*pf_infonew(void)
 {

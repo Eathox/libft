@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 14:24:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:25:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static int	getrgb(const char *str, int *rgb)
 {

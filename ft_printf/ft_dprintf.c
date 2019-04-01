@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf.c                                        :+:    :+:            */
+/*   ft_dprintf.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:34:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:34:41 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		freeret(t_info *info)
 	return (print_count);
 }
 
-int				ft_printf(const char *format, ...)
+int				ft_dprintf(int fd, const char *format, ...)
 {
 	int		i;
 	t_info	*info;
@@ -30,6 +30,7 @@ int				ft_printf(const char *format, ...)
 
 	i = 0;
 	info = pf_infonew();
+	PF_FD = fd;
 	if (info == NULL)
 		return (freeret(info));
 	va_start(args, format);

@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/03/31 12:48:26 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/01 13:34:23 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ SRCS = getinfo infosetdefualt printpad printbackpad putchar iszeropad \
 	overflowunsigned putnstr printchar setcolor commands putwchar \
 	printstr putnutf8str getprecision getwidth getflag getlength gettype \
 	iszero isnegativeint ispositiveint isstr printdouble getutf8strlen \
-	getdoublelen getunsignedlen getsignedlen getstrlen
+	getdoublelen getunsignedlen getsignedlen getstrlen distribute
 
-SRCS := $(sort ft_printf.c $(SRCS:%=pf_%.c))
+SRCS := $(sort ft_dprintf.c ft_printf.c $(SRCS:%=pf_%.c))
 OBJS = $(SRCS:.c=.o)
 
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)

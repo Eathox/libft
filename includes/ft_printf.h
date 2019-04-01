@@ -107,8 +107,10 @@ typedef unsigned long long	t_uintmax;
 # define PF_FLAG_SPACE	PF_FLAG[4]
 # define PF_FLAG_APOST	PF_FLAG[5]
 
+int				ft_dprintf(int fd, const char *format, ...);
 int				ft_printf(const char *format, ...);
 int				pf_commands(t_info *info, const char *str);
+int				pf_distribute(va_list args, t_info *info, const char *start);
 int				pf_getflag(t_info *info, const char *str);
 int				pf_getinfo(va_list args, t_info *info, const char *str);
 int				pf_getlength(t_info *info, const char *str);

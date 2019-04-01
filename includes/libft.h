@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:21:27 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/01 13:33:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,6 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-void		ft_termsetcolor_fd(int color, int fd);
-void		ft_termsetcolorbg_fd(int color, int fd);
-void		ft_termsetrgbcolor_fd(int r, int g, int b, int fd);
-void		ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd);
-void		ft_termresetcolor_fd(int fd);
-void		ft_termresetcolorbg_fd(int fd);
-void		ft_termclr_fd(int fd);
-void		ft_termcommand_fd(int command, int fd);
-void		ft_pututf8str_fd(const t_wchar *str, int fd);
-void		ft_pututf8_fd(t_wchar c, int fd);
-void		ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd);
-void		ft_putdouble_fd(long double value, size_t n, int fd);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
@@ -178,10 +166,12 @@ void		ft_lstrev(t_list **head);
 void		ft_lstsort(t_list **head, int (*f)(t_list *, t_list *));
 void		ft_lstsortrev(t_list **head, int (*f)(t_list *, t_list *));
 void		ft_memdel(void **ap);
+void		ft_putbool_fd(int c, int fd);
 void		ft_putbool(int c);
 void		ft_putbytes(void *bytes, size_t n);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putchar(char c);
+void		ft_putdouble_fd(long double value, size_t n, int fd);
 void		ft_putdouble(long double value, size_t n);
 void		ft_putendl_fd(const char *str, int fd);
 void		ft_putendl(const char *str);
@@ -190,26 +180,29 @@ void		ft_putintlst(t_list *lst);
 void		ft_putline_fd(const char *str, int fd);
 void		ft_putline(const char *str);
 void		ft_putlstsize(t_list *lst);
-void		ft_putnbr_base(long long value, int base);
-void		ft_putnbr_cbase(long long value, int base, int up);
 void		ft_putnbr_base_fd(long long value, int base, int fd);
+void		ft_putnbr_base(long long value, int base);
 void		ft_putnbr_cbase_fd(long long value, int base, int up, int fd);
+void		ft_putnbr_cbase(long long value, int base, int up);
 void		ft_putnbr_fd(long long value, int fd);
 void		ft_putnbr(long long value);
 void		ft_putnstr_fd(const char *str, size_t n, int fd);
 void		ft_putnstr(const char *str, size_t n);
 void		ft_putnutf8str (const t_wchar *str, size_t n);
+void		ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd);
 void		ft_putpointer(const void *pointer);
 void		ft_putstr_fd(const char *str, int fd);
 void		ft_putstr(const char *str);
 void		ft_putstrarr(const char **arr);
 void		ft_putstrlst(t_list *lst);
+void		ft_putunbr_base_fd(unsigned long long value, int base, int fd);
 void		ft_putunbr_base(unsigned long long value, int base);
 void		ft_putunbr_cbase(unsigned long long value, int base, int up);
-void		ft_putunbr_base_fd(unsigned long long value, int base, int fd);
 void		ft_putunbr_fd(unsigned long long value, int fd);
 void		ft_putunbr(unsigned long long value);
+void		ft_pututf8_fd(t_wchar c, int fd);
 void		ft_pututf8(t_wchar c);
+void		ft_pututf8str_fd(const t_wchar *str, int fd);
 void		ft_pututf8strconst (t_wchar *str);
 void		ft_strappend(char **dst, const char *src);
 void		ft_strarrdel(char ***arr);
@@ -224,13 +217,21 @@ void		ft_striter(const char *str, void (*f)(char *));
 void		ft_striteri(const char *str, void (*f)(unsigned int, char *));
 void		ft_strrev(char *str);
 void		ft_swap(int *a, int *b);
+void		ft_termclr_fd(int fd);
 void		ft_termclr(void);
+void		ft_termcommand_fd(int command, int fd);
 void		ft_termcommand(int command);
+void		ft_termresetcolor_fd(int fd);
 void		ft_termresetcolor(void);
+void		ft_termresetcolorbg_fd(int fd);
 void		ft_termresetcolorbg(void);
+void		ft_termsetcolor_fd(int color, int fd);
 void		ft_termsetcolor(int color);
+void		ft_termsetcolorbg_fd(int color, int fd);
 void		ft_termsetcolorbg(int color);
+void		ft_termsetrgbcolor_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolor(int r, int g, int b);
+void		ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
 void		ft_putunbr_cbase_fd(
 				unsigned long long value, int base, int up, int fd);

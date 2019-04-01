@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_ispositiveint.c                                 :+:    :+:            */
+/*   ft_putbool_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/21 19:21:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/14 16:10:37 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/01 13:32:52 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-int		pf_ispositiveint(t_info *info)
+void	ft_putbool_fd(int c, int fd)
 {
-	return (pf_issignint(info) && pf_isnegative(info) == FALSE);
+	if (c == FALSE)
+		ft_putstr_fd("FALSE", fd);
+	else
+		ft_putstr_fd("TRUE", fd);
 }
