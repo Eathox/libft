@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:33:19 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/03 18:44:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char		*ft_colorstr(int color);
 char		*ft_itoa_base(long long value, int base);
 char		*ft_itoa_cbase(long long value, int base, int up);
 char		*ft_itoa(long long value);
+char		*ft_readfile(int fd);
 char		*ft_strcat(char *str1, const char *str2);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strcpy(char *dst, const char *src);
