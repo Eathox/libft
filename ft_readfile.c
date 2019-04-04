@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/03 18:30:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/03 18:44:00 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/04 12:02:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_readfile(int fd)
 			str = ft_strdup(buff);
 		else
 			ft_strreplace(&str, ft_strjoin(str, buff));
+		if (str == NULL)
+			return (NULL);
 		if (ret == 0)
 			break ;
 		ft_strclr(buff);
