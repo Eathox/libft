@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:08:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/06 01:22:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/06 01:45:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,15 @@ static t_list	*lstjoin(t_list *head, t_list *half,
 
 void			ft_lstsortrev(t_list **head, int (*f)(t_list *, t_list *))
 {
-	t_list	*lst;
 	t_list	*half;
 	t_list	*temp;
 
 	if (f == NULL || head == NULL || *head == NULL || (*head)->next == NULL)
 		return ;
-	lst = *head;
-	temp = ft_lstindex(lst, (ft_lstlen(lst) - 1) / 2);
+	temp = ft_lstindex(*head, (ft_lstlen(*head) - 1) / 2);
 	half = temp->next;
 	temp->next = NULL;
-	ft_lstsortrev(&lst, f);
+	ft_lstsortrev(head, f);
 	ft_lstsortrev(&half, f);
-	*head = lstjoin(lst, half, f);
+	*head = lstjoin(*head, half, f);
 }
