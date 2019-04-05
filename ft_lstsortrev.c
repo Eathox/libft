@@ -6,14 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:08:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/06 01:45:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/06 01:47:48 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	*lstjoin(t_list *head, t_list *half,
-	int (*f)(t_list *, t_list *))
+static t_list	*join(t_list *head, t_list *half, int (*f)(t_list *, t_list *))
 {
 	if (head == NULL)
 		return (half);
