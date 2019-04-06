@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:08:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/06 01:47:44 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/06 21:50:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static t_list	*join(t_list *head, t_list *half, int (*f)(t_list *, t_list *))
 		return (head);
 	if (f(head, half))
 	{
-		half->next = lstjoin(head, half->next, f);
+		half->next = join(head, half->next, f);
 		return (half);
 	}
-	head->next = lstjoin(head->next, half, f);
+	head->next = join(head->next, half, f);
 	return (head);
 }
 
@@ -39,5 +39,5 @@ void			ft_lstsort(t_list **head, int (*f)(t_list *, t_list *))
 	temp->next = NULL;
 	ft_lstsort(head, f);
 	ft_lstsort(&half, f);
-	*head = lstjoin(*head, half, f);
+	*head = join(*head, half, f);
 }
