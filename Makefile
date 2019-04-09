@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/03 18:44:50 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/09 17:50:18 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes putdouble isblank \
 	putdouble_fd putnutf8str_fd pututf8_fd pututf8str termcommand_fd \
 	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
-	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile
+	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
+	print_memory putnchar putnchar_fd
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)

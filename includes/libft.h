@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/03 18:44:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/09 17:50:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
+void		ft_putnchar(char c, size_t n);
+void		ft_putnchar_fd(char c, size_t n, int fd);
+void		ft_print_memory(const void *addr, size_t size);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
