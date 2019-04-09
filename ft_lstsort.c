@@ -6,45 +6,38 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:08:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/23 00:03:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/06 21:50:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	spawhead(t_list **head, t_list *sortlst, t_list *prvsort)
+static t_list	*join(t_list *head, t_list *half, int (*f)(t_list *, t_list *))
 {
-	if (sortlst != *head)
+	if (head == NULL)
+		return (half);
+	if (half == NULL)
+		return (head);
+	if (f(head, half))
 	{
-		prvsort->next = sortlst->next;
-		sortlst->next = *head;
-		*head = sortlst;
+		half->next = join(head, half->next, f);
+		return (half);
 	}
+	head->next = join(head->next, half, f);
+	return (head);
 }
 
-void		ft_lstsort(t_list **head, int (*f)(t_list *, t_list *))
+void			ft_lstsort(t_list **head, int (*f)(t_list *, t_list *))
 {
-	t_list	*lst;
-	t_list	*prvlst;
-	t_list	*sortlst;
-	t_list	*prvsort;
+	t_list	*half;
+	t_list	*temp;
 
-	if (head == NULL || *head == NULL || f == NULL)
+	if (f == NULL || head == NULL || *head == NULL || (*head)->next == NULL)
 		return ;
-	lst = (*head)->next;
-	prvlst = *head;
-	sortlst = *head;
-	while (lst != NULL)
-	{
-		if (f(sortlst, lst))
-		{
-			prvsort = prvlst;
-			sortlst = lst;
-		}
-		prvlst = lst;
-		lst = lst->next;
-	}
-	spawhead(head, sortlst, prvsort);
-	if ((*head)->next != NULL && (*head)->next->next != NULL)
-		ft_lstsort(&(*head)->next, f);
+	temp = ft_lstindex(*head, (ft_lstlen(*head) - 1) / 2);
+	half = temp->next;
+	temp->next = NULL;
+	ft_lstsort(head, f);
+	ft_lstsort(&half, f);
+	*head = join(*head, half, f);
 }
