@@ -20,9 +20,6 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-void		ft_putnchar(char c, size_t n);
-void		ft_putnchar_fd(char c, size_t n, int fd);
-void		ft_print_memory(const void *addr, size_t size);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
@@ -114,6 +111,7 @@ int			ft_unumlen_base(unsigned long long value, int base);
 int			ft_unumlen(unsigned long long value);
 long long	ft_abs(long long num);
 long long	ft_constrain(long long value, long long num1, long long num2);
+long long	ft_inrange(long long value, long long num1, long long num2);
 long long	ft_max(long long num1, long long num2);
 long long	ft_min(long long num1, long long num2);
 long long	ft_pow(long long num, long long pow);
@@ -170,6 +168,7 @@ void		ft_lstrev(t_list **head);
 void		ft_lstsort(t_list **head, int (*f)(t_list *, t_list *));
 void		ft_lstsortrev(t_list **head, int (*f)(t_list *, t_list *));
 void		ft_memdel(void **ap);
+void		ft_print_memory(const void *addr, size_t size);
 void		ft_putbool_fd(int c, int fd);
 void		ft_putbool(int c);
 void		ft_putbytes(void *bytes, size_t n);
@@ -190,6 +189,8 @@ void		ft_putnbr_cbase_fd(long long value, int base, int up, int fd);
 void		ft_putnbr_cbase(long long value, int base, int up);
 void		ft_putnbr_fd(long long value, int fd);
 void		ft_putnbr(long long value);
+void		ft_putnchar_fd(char c, size_t n, int fd);
+void		ft_putnchar(char c, size_t n);
 void		ft_putnstr_fd(const char *str, size_t n, int fd);
 void		ft_putnstr(const char *str, size_t n);
 void		ft_putnutf8str (const t_wchar *str, size_t n);
