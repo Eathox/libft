@@ -27,7 +27,7 @@ long long	ft_inrange(long long value, long long num1, long long num2)
 		min = num2;
 		max = num1;
 	}
-	if (value <= min || value >= max)
+	if (value < min || value > max)
 		return (FALSE);
 	return (TRUE);
 }
