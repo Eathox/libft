@@ -6,18 +6,25 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 15:28:18 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/21 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/11 23:54:11 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
-void	ft_lstaddbck(t_list *lst, t_list *new)
+void	ft_lstaddbck(t_list **head, t_list *new)
 {
-	if (lst == NULL || new == NULL)
+	t_list	*lst;
+
+	if (head == NULL || new == NULL)
 		return ;
-	if (lst->next == NULL)
-		lst->next = new;
-	else
-		ft_lstaddbck(lst->next, new);
+	if (*head == NULL)
+	{
+		*head = new;
+		return ;
+	}
+	lst = *head;
+	while (lst->next != NULL)
+		lst = lst->next;
+	lst->next = new;
 }

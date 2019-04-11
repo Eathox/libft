@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 01:58:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/11 23:44:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "includes/get_next_line.h"
 
 static t_list	*gnl_get_lst(const int fd, t_list *lst)
 {

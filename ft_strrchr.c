@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 12:26:07 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/25 13:23:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 char	*ft_strrchr(const char *str, int c)
 {

@@ -1,65 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin_arr.c                                   :+:    :+:            */
+/*   ft_strjoin_lst.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 23:56:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 00:02:52 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static size_t	totallen(const char **arr)
+static size_t	totallen(const t_list *lst)
 {
 	size_t	len;
-	size_t	i;
 
-	i = 0;
 	len = 0;
-	while (arr[i] != NULL)
+	while (lst != NULL)
 	{
-		len += ft_strlen(arr[i]);
-		i++;
+		len += ft_strlen(lst->content);
+		lst = lst->next;
 	}
 	return (len + 1);
 }
 
-static char		*joinstrs(char *str, const char **arr)
+static char		*joinstrs(char *str, const t_list *lst)
 {
+	char	*content;
 	size_t	i;
-	size_t	j;
 	size_t	k;
 
 	i = 0;
-	j = 0;
 	k = 0;
-	while (arr[j] != NULL)
+	content = (char *)(lst->content);
+	while (lst != NULL)
 	{
-		if (arr[j][k] == '\0')
+		if (content[k] == '\0')
 		{
 			k = 0;
-			j++;
-			continue;
+			lst = lst->next;
+			if (lst == NULL)
+				break ;
+			content = (char *)(lst->content);
 		}
-		str[i] = arr[j][k];
+		str[i] = content[k];
 		i++;
 		k++;
 	}
 	return (str);
 }
 
-char			*ft_strjoin_arr(const char **arr)
+char			*ft_strjoin_lst(const t_list *lst)
 {
 	char	*str;
 
-	if (arr == NULL)
+	if (lst == NULL)
 		return (NULL);
-	str = ft_strnew(totallen(arr));
+	str = ft_strnew(totallen(lst));
 	if (str == NULL)
 		return (NULL);
-	str = joinstrs(str, arr);
+	str = joinstrs(str, lst);
 	return (str);
 }

@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 17:13:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/10 11:44:23 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 long long	ft_pow(long long num, long long pow)
 {

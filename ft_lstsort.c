@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 static t_list	*join(t_list *head, t_list *half, int (*f)(t_list *, t_list *))
 {
