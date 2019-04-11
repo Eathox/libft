@@ -20,6 +20,7 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
+char		*ft_strjoin_lst(const t_list *lst);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
@@ -158,7 +159,7 @@ void		ft_foreach(const int *arr, int length, void (*f)(int));
 void		ft_intarrsort(int *arr, int (*f)(int, int), size_t len);
 void		ft_intarrsortrev(int *arr, int (*f)(int, int), size_t len);
 void		ft_lstadd(t_list **head, t_list *new);
-void		ft_lstaddbck(t_list *lst, t_list *new);
+void		ft_lstaddbck(t_list **head, t_list *new);
 void		ft_lstdel(t_list **head, void (*del)(void *, size_t));
 void		ft_lstdelmem(void *content, size_t size);
 void		ft_lstdelone(t_list **head, void (*del)(void *, size_t));
