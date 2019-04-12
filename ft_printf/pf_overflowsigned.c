@@ -15,14 +15,14 @@
 t_intmax	pf_overflowsigned(t_info *info)
 {
 	if (PF_VAR_TYPE == LONG)
-		return (PF_GVAR(long));
+		return (va_arg(PF_ARGS, long));
 	if (PF_VAR_TYPE == LONG_LONG)
-		return (PF_GVAR(long long));
+		return (va_arg(PF_ARGS, long long));
 	if (PF_VAR_TYPE == INT_MAX)
-		return (PF_GVAR(t_intmax));
+		return (va_arg(PF_ARGS, t_intmax));
 	if (PF_VAR_TYPE == CHAR_I)
-		return (PF_GVAR(char));
+		return ((char)va_arg(PF_ARGS, int));
 	if (PF_VAR_TYPE == SHORT)
-		return (PF_GVAR(short));
-	return (PF_GVAR(int));
+		return ((short)va_arg(PF_ARGS, int));
+	return (va_arg(PF_ARGS, int));
 }

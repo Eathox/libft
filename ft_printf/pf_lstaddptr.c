@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_printdouble.c                                   :+:    :+:            */
+/*   pf_lstadd.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Created: 2019/04/12 01:30:30 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/12 01:30:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	pf_printdouble(t_info *info)
+void	pf_lstaddptr(t_info *info, char *str, size_t len)
 {
-	if (PF_VAR_TYPE == DOUBLE)
-		ft_putdouble_fd(PF_VAR_DOUBLE, PF_PRECISION, PF_FD);
-	else
-		ft_putdouble_fd(PF_VAR_LDOUBLE, PF_PRECISION, PF_FD);
-	PF_PRINTED += PF_VAR_LEN;
+	t_list		*lst;
+
+	if (str == NULL)
+		return ;
+	lst = ft_lstnew(NULL, 0);
+	if (lst == NULL)
+		return ;
+	lst->content = str;
+	lst->content_size = len + 1;
+	pf_lstadd(info, lst);
 }

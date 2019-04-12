@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_setvar_len.c                                    :+:    :+:            */
+/*   pf_formatchar.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/12 16:04:29 by pholster       #+#    #+#                */
+/*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
 /*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void		pf_setvar_len(t_info *info)
+void	pf_formatchar(t_info *info)
 {
-	if (pf_issignint(info))
-		pf_getsignedlen(info);
-	else if (pf_isunsignint(info))
-		pf_getunsignedlen(info);
-	else if (PF_VAR_TYPE == DOUBLE || PF_VAR_TYPE == LONG_DOUBLE)
-		pf_getdoublelen(info);
-	else if (PF_VAR_TYPE == T_WCHAR_STR)
-		pf_getutf8strlen(info);
-	else if (PF_VAR_TYPE == STR)
-		pf_getstrlen(info);
-	else if (PF_VAR_TYPE == T_WCHAR)
-		PF_VAR_LEN = ft_utf8len(PF_GVAR(t_wchar));
-	else if (PF_VAR_TYPE == CHAR)
-		PF_VAR_LEN = 1;
+	t_wchar	c;
+
+	if (PF_VAR_TYPE == T_WCHAR || PF_TYPE == 'c')
+		c = va_arg(PF_ARGS, t_wchar);
 	else
-		PF_VAR_LEN = 1;
-	if (pf_isnegative(info))
-		PF_VAR_LEN--;
+		c = '%';
+	PF_VAR_LEN = ft_utf8len(c);
+	pf_formatpad(info);
+	if (PF_VAR_TYPE == T_WCHAR)
+		pf_addwchar(info, c);
+	else if (PF_TYPE == '%')
+		pf_addstr(info, "%");
+	else if (PF_TYPE == 'c')
+		pf_addchar(info, (char)c);
 }

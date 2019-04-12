@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_getdoublelen.c                                  :+:    :+:            */
+/*   pf_lstadd.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/29 12:27:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Created: 2019/04/12 01:30:30 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/12 01:30:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	pf_getdoublelen(t_info *info)
+void	pf_lstadd(t_info *info, t_list *lst)
 {
-	if (PF_VAR_TYPE == DOUBLE)
-		PF_VAR_LEN = ft_numlen((long)PF_VAR_DOUBLE) + PF_PRECISION;
+	if (PF_HEAD == NULL)
+		PF_HEAD = lst;
 	else
-		PF_VAR_LEN = ft_numlen((long)PF_VAR_LDOUBLE) + PF_PRECISION;
-	if (PF_PRECISION > 0)
-		PF_VAR_LEN++;
+		PF_LST->next = lst;
+	if (lst != NULL)
+		PF_LST = lst;
 }

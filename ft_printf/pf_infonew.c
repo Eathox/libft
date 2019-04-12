@@ -20,7 +20,7 @@ t_info	*pf_infonew(void)
 	if (info == NULL)
 		return (NULL);
 	pf_infosetdefualt(info);
-	PF_PRINTED = 0;
-	PF_FD = 1;
+	PF_LST = NULL;
+	PF_HEAD = NULL;
 	return (info);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_printpad.c                                      :+:    :+:            */
+/*   pf_formatpad.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,9 +12,12 @@
 
 #include "../includes/ft_printf.h"
 
-static int	putn(t_info *info, char *str, size_t n)
+static int	addprefix(t_info *info, char *str, size_t n)
 {
-	pf_putnstr(info, str, n);
+	if (n == 0)
+		return (0);
+	pf_addnstr(info, str, n);
+	PF_PADADDED += n;
 	if (PF_VAR_TYPE == VOID && PF_WIDTH <= PF_PRECISION)
 		return (0);
 	if (PF_PRECISION > PF_WIDTH && ft_strequ(str, "0") == FALSE)
@@ -22,16 +25,23 @@ static int	putn(t_info *info, char *str, size_t n)
 	return ((int)n);
 }
 
-static void	putspace(t_info *info, int space)
+static void	addpad(t_info *info, int len, char c)
 {
-	while (space > 0 && PF_FLAG_MIN == FALSE)
+	int		i;
+	char	*str;
+
+	i = 0;
+	PF_PADADDED += len;
+	str = ft_strnew(len);
+	while (i < len)
 	{
-		pf_putchar(info, ' ');
-		space--;
+		str[i] = c;
+		i++;
 	}
+	pf_lstaddptr(info, str, i);
 }
 
-static void	putzero(t_info *info, int len, int space, char *prfx)
+static void	addzero(t_info *info, int len, int space, char *prfx)
 {
 	int		prelen;
 	char	c;
@@ -39,58 +49,52 @@ static void	putzero(t_info *info, int len, int space, char *prfx)
 	prelen = ft_strlen(prfx);
 	c = (pf_iszeropad(info)) ? '0' : ' ';
 	len = len - ft_max(0, space);
-	if (PF_VAR_TYPE == VOID || pf_iszero(info) == FALSE)
-		len -= putn(info, prfx, prelen);
+	if (PF_VAR_TYPE == VOID || PF_ISZERO == FALSE)
+		len -= addprefix(info, prfx, prelen);
 	else if (ft_tolower(prfx[1]) != 'x' && PF_TYPE != 'o')
-		len -= putn(info, prfx, prelen);
-	while (len > 0 && (PF_FLAG_MIN == FALSE || c != ' '))
-	{
-		pf_putchar(info, c);
-		len--;
-	}
+		len -= addprefix(info, prfx, prelen);
+	if (len > 0 && (PF_FLAG_MIN == FALSE || c != ' '))
+		addpad(info, len, c);
 }
 
-static char	*getprefix(t_info *info, char *prfx)
+static char	*getprefix(t_info *info)
 {
-	if (pf_isnegative(info))
-		prfx = "-";
-	else if (PF_FLAG_PLUS && pf_ispositiveint(info))
-		prfx = "+";
-	else if (PF_FLAG_SPACE && pf_ispositiveint(info))
-		prfx = " ";
-	else if ((PF_FLAG_HASH && ft_chrin("xX", PF_TYPE)) || PF_VAR_TYPE == VOID)
-		prfx = (PF_TYPE == 'X') ? "0X" : "0x";
-	else if (PF_FLAG_HASH && PF_TYPE == 'o' &&
-		pf_iszero(info) == FALSE && PF_PRECISION <= PF_VAR_LEN)
-		prfx = "0";
-	return (prfx);
+	if (PF_ISNEGATIVE)
+		return ("-");
+	if (PF_FLAG_PLUS && pf_ispositiveint(info))
+		return ("+");
+	if (PF_FLAG_SPACE && pf_ispositiveint(info))
+		return (" ");
+	if ((PF_FLAG_HASH && ft_chrin("xX", PF_TYPE)) || PF_VAR_TYPE == VOID)
+		return ((PF_TYPE == 'X') ? "0X" : "0x");
+	if (PF_FLAG_HASH && PF_TYPE == 'o' && PF_ISZERO == FALSE &&
+		PF_PRECISION <= PF_VAR_LEN)
+		return ("0");
+	return ("");
 }
 
-void		pf_printpad(t_info *info)
+void		pf_formatpad(t_info *info)
 {
 	char	*prfx;
 	int		prelen;
-	int		prtinted;
 	int		len;
 	int		space;
 
-	prfx = "";
-	prtinted = PF_PRINTED;
-	prfx = getprefix(info, prfx);
+	prfx = getprefix(info);
 	prelen = ft_strlen(prfx);
 	if (PF_PRECISION > PF_WIDTH && pf_isstr(info) == FALSE)
 		len = ft_max(0, PF_PRECISION) - PF_VAR_LEN;
 	else
 		len = ft_max(0, PF_WIDTH) - PF_VAR_LEN;
 	space = ft_max(0, PF_WIDTH) - ft_max(PF_VAR_LEN, PF_PRECISION);
-	if (PF_VAR_TYPE == VOID || pf_iszero(info) == FALSE)
+	if (PF_VAR_TYPE == VOID || PF_ISZERO == FALSE)
 		space -= prelen;
 	else if (ft_tolower(prfx[1]) != 'x' && PF_TYPE != 'o')
 		space -= prelen;
 	if (PF_FLAG_ZERO &&
 		(PF_PRECISION == -1 || (PF_PRECISION == 0 && PF_FLAG_HASH == FALSE)))
 		space = 0;
-	putspace(info, space);
-	putzero(info, len, space, prfx);
-	PF_PADPRINTED = PF_PRINTED - prtinted;
+	if (space > 0 && PF_FLAG_MIN == FALSE)
+		addpad(info, space, ' ');
+	addzero(info, len, space, prfx);
 }

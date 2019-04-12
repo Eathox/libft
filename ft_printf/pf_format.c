@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_printstr.c                                      :+:    :+:            */
+/*   pf_format.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,10 +12,17 @@
 
 #include "../includes/ft_printf.h"
 
-void	pf_printstr(t_info *info)
+void	pf_format(t_info *info)
 {
-	if (PF_VAR_TYPE == STR)
-		pf_putnstr(info, PF_GVAR(char *), PF_VAR_LEN);
-	else
-		pf_putnutf8str(info, PF_GVAR(t_wchar *), PF_VAR_LEN);
+	if (pf_issignint(info))
+		pf_formatnum(info);
+	else if (pf_isunsignint(info))
+		pf_formatunum(info);
+	else if (PF_VAR_TYPE == CHAR || PF_VAR_TYPE == T_WCHAR)
+		pf_formatchar(info);
+	else if (pf_isstr(info))
+		pf_formatstr(info);
+	else if (PF_VAR_TYPE == DOUBLE || PF_VAR_TYPE == LONG_DOUBLE)
+		pf_formatdouble(info);
+	pf_formatbackpad(info);
 }

@@ -18,17 +18,16 @@ void	pf_infosetdefualt(t_info *info)
 	PF_PRECISION = -1;
 	PF_TYPE = -1;
 	PF_WIDTH = -1;
-	PF_VAR = NULL;
-	PF_VAR_DOUBLE = 0;
-	PF_VAR_LDOUBLE = 0;
 	PF_VAR_LEN = -1;
 	PF_VAR_TYPE = -1;
 	PF_VAR_BASE = -1;
-	PF_PADPRINTED = 0;
+	PF_PADADDED = 0;
 	PF_FLAG_HASH = 0;
 	PF_FLAG_ZERO = 0;
 	PF_FLAG_MIN = 0;
 	PF_FLAG_PLUS = 0;
 	PF_FLAG_SPACE = 0;
 	PF_FLAG_APOST = 0;
+	PF_ISZERO = FALSE;
+	PF_ISNEGATIVE = FALSE;
 }

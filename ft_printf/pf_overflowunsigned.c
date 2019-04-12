@@ -15,16 +15,16 @@
 t_uintmax	pf_overflowunsigned(t_info *info)
 {
 	if (PF_VAR_TYPE == U_LONG || PF_VAR_TYPE == VOID)
-		return (PF_GVAR(unsigned long));
+		return (va_arg(PF_ARGS, unsigned long));
 	if (PF_VAR_TYPE == U_LONG_LONG)
-		return (PF_GVAR(unsigned long long));
+		return (va_arg(PF_ARGS, unsigned long long));
 	if (PF_VAR_TYPE == U_INT_MAX)
-		return (PF_GVAR(t_uintmax));
+		return (va_arg(PF_ARGS, t_uintmax));
 	if (PF_VAR_TYPE == U_CHAR_I)
-		return (PF_GVAR(unsigned char));
+		return ((unsigned char)va_arg(PF_ARGS, int));
 	if (PF_VAR_TYPE == U_SHORT)
-		return (PF_GVAR(unsigned short));
+		return ((unsigned short)va_arg(PF_ARGS, int));
 	if (PF_VAR_TYPE == SIZE_T)
-		return (PF_GVAR(size_t));
-	return (PF_GVAR(unsigned int));
+		return (va_arg(PF_ARGS, size_t));
+	return (va_arg(PF_ARGS, unsigned int));
 }

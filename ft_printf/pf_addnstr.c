@@ -12,8 +12,12 @@
 
 #include "../includes/ft_printf.h"
 
-void	pf_putnstr(t_info *info, char *str, size_t n)
+void	pf_addnstr(t_info *info, char *str, size_t n)
 {
-	ft_putnstr_fd(str, n, PF_FD);
-	PF_PRINTED += n;
+	char	*newstr;
+
+	if (n == 0)
+		return ;
+	newstr = ft_strndup(str, n);
+	pf_lstaddptr(info, newstr, n);
 }

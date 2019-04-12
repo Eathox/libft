@@ -12,9 +12,8 @@
 
 #include "../includes/ft_printf.h"
 
-static int		freeret(t_info *info, int fd)
+static char		*freeret(t_info *info)
 {
-	int		len;
 	char	*str;
 
 	str = ft_strjoin_lst(PF_HEAD);
@@ -23,15 +22,10 @@ static int		freeret(t_info *info, int fd)
 		ft_lstdel(&PF_HEAD, &ft_lstdelmem);
 		free(info);
 	}
-	if (str == NULL)
-		return (0);
-	len = ft_strlen(str);
-	write(fd, str, len);
-	ft_strdel(&str);
-	return (len);
+	return (str);
 }
 
-int				ft_dprintf(int fd, const char *format, ...)
+char			*ft_strformat(const char *format, ...)
 {
 	int		i;
 	t_info	*info;
@@ -39,7 +33,7 @@ int				ft_dprintf(int fd, const char *format, ...)
 	i = 0;
 	info = pf_infonew();
 	if (info == NULL)
-		return (freeret(info, fd));
+		return (freeret(info));
 	va_start(PF_ARGS, format);
 	while (format[i] != '\0')
 	{
@@ -50,5 +44,5 @@ int				ft_dprintf(int fd, const char *format, ...)
 		i++;
 	}
 	va_end(PF_ARGS);
-	return (freeret(info, fd));
+	return (freeret(info));
 }

@@ -14,15 +14,14 @@ INCLUDES = ../includes/
 NAME = libftprintf.a
 OBJ_NAME = objects
 
-SRCS = getinfo infosetdefualt printpad printbackpad putchar iszeropad \
-	putstr isunsignint issignint setvar_type setvar_base setvar_len \
-	putinfo infonew print isnegative putnum putunum overflowsigned \
-	overflowunsigned putnstr printchar setcolor commands putwchar \
-	printstr putnutf8str getprecision getwidth getflag getlength gettype \
-	iszero isnegativeint ispositiveint isstr printdouble getutf8strlen \
-	getdoublelen getunsignedlen getsignedlen getstrlen distribute
+SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
+	isunsignint issignint setvar_type setvar_base infonew format formatnum \
+	formatunum overflowsigned lstadd lstaddptr overflowunsigned addnstr \
+	formatchar setcolor commands addwchar formatstr addwcharstr getprecision \
+	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
+	distribute addnum
 
-SRCS := $(sort ft_dprintf.c ft_printf.c $(SRCS:%=pf_%.c))
+SRCS := $(sort ft_strformat.c ft_dprintf.c ft_printf.c $(SRCS:%=pf_%.c))
 OBJS = $(SRCS:.c=.o)
 
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)

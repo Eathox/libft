@@ -12,19 +12,47 @@
 
 #include "../includes/ft_printf.h"
 
-void	pf_putunum(t_info *info)
+static void	itoa(t_info *info, t_uintmax value)
 {
-	t_intmax	num;
+	int		len;
+	char	*base_str;
+	char	*str;
 
-	if (PF_PRECISION >= 0 && pf_iszero(info))
+	len = PF_VAR_LEN;
+	if (len == 0)
+		return ;
+	if (PF_TYPE == 'X')
+		base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	else
+		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
+	str = ft_strnew(len);
+	if (str == NULL)
+		return ;
+	while (len != 0)
+	{
+		len--;
+		str[len] = base_str[(value % PF_VAR_BASE)];
+		value /= 10;
+	}
+	pf_lstaddptr(info, str, PF_VAR_LEN);
+}
+
+
+void		pf_formatunum(t_info *info)
+{
+	t_uintmax	num;
+
+	num = pf_overflowunsigned(info);
+	PF_ISZERO = (num == 0);
+	PF_VAR_LEN = ft_unumlen_base(num, PF_VAR_BASE);
+	pf_formatpad(info);
+	if (PF_PRECISION >= 0 && PF_ISZERO)
 	{
 		if (PF_PRECISION > 0 || (PF_TYPE == 'o' && PF_FLAG_HASH))
-			pf_putchar(info, '0');
+			pf_addstr(info, "0");
 		else if (PF_WIDTH > 0)
-			pf_putchar(info, ' ');
+			pf_addstr(info, " ");
 		return ;
 	}
-	num = pf_overflowunsigned(info);
-	ft_putunbr_cbase_fd(num, PF_VAR_BASE, PF_TYPE == 'X', PF_FD);
-	PF_PRINTED += PF_VAR_LEN;
+	itoa(info, num);
 }

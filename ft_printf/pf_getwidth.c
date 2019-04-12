@@ -12,14 +12,14 @@
 
 #include "../includes/ft_printf.h"
 
-int		pf_getwidth(va_list args, t_info *info, const char *str)
+int		pf_getwidth(t_info *info, const char *str)
 {
 	int	i;
 
 	i = 1;
 	if (*str == '*')
 	{
-		PF_WIDTH = va_arg(args, int);
+		PF_WIDTH = va_arg(PF_ARGS, int);
 		if (PF_WIDTH < 0)
 		{
 			PF_FLAG_MIN = TRUE;

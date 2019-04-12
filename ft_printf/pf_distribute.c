@@ -12,19 +12,19 @@
 
 #include "../includes/ft_printf.h"
 
-int		pf_distribute(va_list args, t_info *info, const char *start)
+int		pf_distribute(t_info *info, const char *start)
 {
 	int	i;
 
-	if (*start == '{')
-		i = pf_setcolor(info, &start[1]);
-	else if (*start == '[')
-		i = pf_commands(info, &start[1]);
-	else
-	{
+	// if (*start == '{')
+	// 	i = pf_setcolor(info, &start[1]); //WIP
+	// else if (*start == '[')
+	// 	i = pf_commands(info, &start[1]); //WIP
+	// else
+	// {
 		pf_infosetdefualt(info);
-		i = pf_getinfo(args, info, start);
-		pf_print(info);
-	}
+		i = pf_getinfo(info, start);
+		pf_format(info);
+	// }
 	return (i);
 }

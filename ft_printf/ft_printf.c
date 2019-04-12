@@ -14,33 +14,41 @@
 
 static int		freeret(t_info *info)
 {
-	int	print_count;
+	int		len;
+	char	*str;
 
-	print_count = PF_PRINTED;
+	str = ft_strjoin_lst(PF_HEAD);
 	if (info != NULL)
+	{
+		ft_lstdel(&PF_HEAD, &ft_lstdelmem);
 		free(info);
-	return (print_count);
+	}
+	if (str == NULL)
+		return (0);
+	len = ft_strlen(str);
+	write(1, str, len);
+	ft_strdel(&str);
+	return (len);
 }
 
 int				ft_printf(const char *format, ...)
 {
 	int		i;
 	t_info	*info;
-	va_list	args;
 
 	i = 0;
 	info = pf_infonew();
 	if (info == NULL)
 		return (freeret(info));
-	va_start(args, format);
+	va_start(PF_ARGS, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			i += pf_distribute(args, info, &format[i + 1]);
+			i += pf_distribute(info, &format[i + 1]);
 		else
-			i += pf_putstr(info, (char *)&format[i]);
+			i += pf_addstr(info, (char *)&format[i]);
 		i++;
 	}
-	va_end(args);
+	va_end(PF_ARGS);
 	return (freeret(info));
 }

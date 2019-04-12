@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 00:02:52 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 02:26:05 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static size_t	totallen(const t_list *lst)
 	len = 0;
 	while (lst != NULL)
 	{
-		len += ft_strlen(lst->content);
+		if (lst->content != NULL)
+			len += ft_strlen(lst->content);
 		lst = lst->next;
 	}
 	return (len + 1);
@@ -36,7 +37,7 @@ static char		*joinstrs(char *str, const t_list *lst)
 	content = (char *)(lst->content);
 	while (lst != NULL)
 	{
-		if (content[k] == '\0')
+		if (content == NULL || content[k] == '\0')
 		{
 			k = 0;
 			lst = lst->next;

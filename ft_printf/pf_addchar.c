@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_getstrlen.c                                     :+:    :+:            */
+/*   pf_putchar.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/29 12:27:39 by pholster       #+#    #+#                */
+/*   Created: 2019/02/07 17:30:53 by pholster       #+#    #+#                */
 /*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	pf_getstrlen(t_info *info)
+void	pf_addchar(t_info *info, char c)
 {
-	char	*str;
-	int		n;
+	char 	*str;
 
-	str = PF_GVAR(char *);
-	n = PF_PRECISION;
-	if (str == NULL)
-		PF_VAR_LEN = ft_constrain(6, 0, (n == -1) ? 6 : n);
-	else if (n == -1)
-		PF_VAR_LEN = ft_strlen(str);
-	else
-		PF_VAR_LEN = ft_strnlen(str, n);
+	str = ft_chrtostr(c);
+	pf_lstadd(info, ft_lstnew(str, 2));
+	ft_strdel(&str);
 }

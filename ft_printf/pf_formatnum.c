@@ -12,30 +12,20 @@
 
 #include "../includes/ft_printf.h"
 
-static void	putnbr(long long value, int fd)
-{
-	char				*base_str;
-	unsigned long long	num;
-
-	base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
-	num = (value < 0) ? -value : value;
-	if (num > (unsigned long long)(10 - 1))
-		putnbr((num / 10), fd);
-	num = base_str[(num % 10)];
-	ft_putchar_fd(num, fd);
-}
-
-void		pf_putnum(t_info *info)
+void		pf_formatnum(t_info *info)
 {
 	t_intmax	num;
 
-	if (PF_PRECISION == 0 && pf_iszero(info) == TRUE)
+	num = pf_overflowsigned(info);
+	PF_ISZERO = (num == 0);
+	PF_ISNEGATIVE = (num < 0);
+	PF_VAR_LEN = ft_numlen(num) - PF_ISNEGATIVE;
+	pf_formatpad(info);
+	if (PF_PRECISION == 0 && num == 0)
 	{
 		if (PF_WIDTH != -1)
-			pf_putchar(info, ' ');
+			pf_addstr(info, " ");
 		return ;
 	}
-	num = pf_overflowsigned(info);
-	putnbr(num, PF_FD);
-	PF_PRINTED += PF_VAR_LEN;
+	pf_addnum(info, num, PF_VAR_LEN);
 }

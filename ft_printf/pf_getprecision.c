@@ -12,14 +12,14 @@
 
 #include "../includes/ft_printf.h"
 
-int		pf_getprecision(va_list args, t_info *info, const char *str)
+int		pf_getprecision(t_info *info, const char *str)
 {
 	int	i;
 
 	i = 1;
 	if (str[1] == '*')
 	{
-		PF_PRECISION = va_arg(args, int);
+		PF_PRECISION = va_arg(PF_ARGS, int);
 		if (PF_PRECISION < 0)
 			PF_PRECISION = -1;
 		return (2);

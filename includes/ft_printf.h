@@ -57,38 +57,36 @@ enum			e_type
 
 typedef	struct	s_info
 {
-	char		flag[7];
+	char		flag[7]; // MAYBE CHANGE OT BITS LATER
 	char		prelen;
 	char		type;
 	char		var_base;
-	int			fd;
+	char		iszero;
+	char		isnegative;
 	int			length;
-	int			padprinted;
+	int			padadded;
 	int			precision;
-	int			printed;
 	int			var_len;
 	int			width;
 	enum e_type	var_type;
-	void		*var;
-	double		var_double;
-	long double	var_ldouble;
+	va_list		args;
+	t_list		*head;
+	t_list		*lst;
 }				t_info;
 typedef long long			t_intmax;
 typedef unsigned long long	t_uintmax;
 
-# define PF_VAR_DOUBLE	info->var_double
-# define PF_VAR_LDOUBLE	info->var_ldouble
-# define PF_GVAR(type)	(type)PF_VAR
+# define PF_ARGS		info->args
+# define PF_HEAD		info->head
+# define PF_LST			info->lst
+# define PF_ISZERO		info->iszero
+# define PF_ISNEGATIVE	info->isnegative
 # define PF_FLAG		info->flag
 # define PF_LENGTH		info->length
 # define PF_PRECISION	info->precision
-# define PF_PRINTED		info->printed
-# define PF_PADPRINTED	info->padprinted
+# define PF_PADADDED	info->padadded
 # define PF_TYPE		info->type
 # define PF_WIDTH		info->width
-# define PF_FD			info->fd
-# define PF_VAR			info->var
-# define PF_VAR_FLOAT	info->f_var
 # define PF_VAR_LEN		info->var_len
 # define PF_VAR_TYPE	info->var_type
 # define PF_VAR_BASE	info->var_base
@@ -107,50 +105,44 @@ typedef unsigned long long	t_uintmax;
 # define PF_FLAG_SPACE	PF_FLAG[4]
 # define PF_FLAG_APOST	PF_FLAG[5]
 
+char			*ft_strformat(const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
 int				ft_printf(const char *format, ...);
+int				pf_addstr(t_info *info, char *str);
 int				pf_commands(t_info *info, const char *str);
-int				pf_distribute(va_list args, t_info *info, const char *start);
+int				pf_distribute(t_info *info, const char *start);
 int				pf_getflag(t_info *info, const char *str);
-int				pf_getinfo(va_list args, t_info *info, const char *str);
+int				pf_getinfo(t_info *info, const char *str);
 int				pf_getlength(t_info *info, const char *str);
-int				pf_getprecision(va_list args, t_info *info, const char *str);
+int				pf_getprecision(t_info *info, const char *str);
 int				pf_gettype(t_info *info, const char *str);
-int				pf_getwidth(va_list args, t_info *info, const char *str);
-int				pf_isnegative(t_info *info);
-int				pf_isnegativeint(t_info *info);
+int				pf_getwidth(t_info *info, const char *str);
 int				pf_ispositiveint(t_info *info);
 int				pf_issignint(t_info *info);
 int				pf_isstr(t_info *info);
 int				pf_isunsignint(t_info *info);
-int				pf_iszero(t_info *info);
 int				pf_iszeropad(t_info *info);
-int				pf_putstr(t_info *info, char *str);
 int				pf_setcolor(t_info *info, const char *start);
 t_info			*pf_infonew(void);
 t_intmax		pf_overflowsigned(t_info *info);
 t_uintmax		pf_overflowunsigned(t_info *info);
-void			pf_getdoublelen(t_info *info);
-void			pf_getsignedlen(t_info *info);
-void			pf_getstrlen(t_info *info);
-void			pf_getunsignedlen(t_info *info);
-void			pf_getutf8strlen(t_info *info);
+void			pf_addchar(t_info *info, char c);
+void			pf_addnstr(t_info *info, char *str, size_t n);
+void			pf_addnum(t_info *info, t_intmax value, int len);
+void			pf_addwchar(t_info *info, t_wchar c);
+void			pf_addwcharstr(t_info *info, t_wchar *str, size_t n);
+void			pf_format(t_info *info);
+void			pf_formatbackpad(t_info *info);
+void			pf_formatchar(t_info *info);
+void			pf_formatdouble(t_info *info);
+void			pf_formatnum(t_info *info);
+void			pf_formatpad(t_info *info);
+void			pf_formatstr(t_info *info);
+void			pf_formatunum(t_info *info);
 void			pf_infosetdefualt(t_info *info);
-void			pf_print(t_info *info);
-void			pf_printbackpad(t_info *info);
-void			pf_printchar(t_info *info);
-void			pf_printdouble(t_info *info);
-void			pf_printpad(t_info *info);
-void			pf_printstr(t_info *info);
-void			pf_putchar(t_info *info, char c);
-void			pf_putinfo(t_info *info);
-void			pf_putnstr(t_info *info, char *str, size_t n);
-void			pf_putnum(t_info *info);
-void			pf_putnutf8str(t_info *info, t_wchar *str, size_t n);
-void			pf_putunum(t_info *info);
-void			pf_putwchar(t_info *info, t_wchar c);
+void			pf_lstadd(t_info *info, t_list *lst);
+void			pf_lstaddptr(t_info *info, char *str, size_t len);
 void			pf_setvar_base(t_info *info);
-void			pf_setvar_len(t_info *info);
 void			pf_setvar_type(t_info *info);
 
 #endif

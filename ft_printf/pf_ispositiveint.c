@@ -14,5 +14,5 @@
 
 int		pf_ispositiveint(t_info *info)
 {
-	return (pf_issignint(info) && pf_isnegative(info) == FALSE);
+	return (pf_issignint(info) && PF_ISNEGATIVE == FALSE);
 }
