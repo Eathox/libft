@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf.h                                           :+:    :+:            */
+/*   ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/30 17:28:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 12:29:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ enum			e_type
 typedef	struct	s_info
 {
 	char		flag[7]; // MAYBE CHANGE OT BITS LATER
-	char		prelen;
 	char		type;
 	char		var_base;
 	char		iszero;
@@ -128,7 +127,7 @@ t_intmax		pf_overflowsigned(t_info *info);
 t_uintmax		pf_overflowunsigned(t_info *info);
 void			pf_addchar(t_info *info, char c);
 void			pf_addnstr(t_info *info, char *str, size_t n);
-void			pf_addnum(t_info *info, t_intmax value, int len);
+void			pf_addnum(t_info *info, t_intmax value);
 void			pf_addwchar(t_info *info, t_wchar c);
 void			pf_addwcharstr(t_info *info, t_wchar *str, size_t n);
 void			pf_format(t_info *info);

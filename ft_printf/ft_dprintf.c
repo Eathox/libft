@@ -6,18 +6,28 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:34:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 14:23:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+//USE BUFFER AND WHEN USING FORMAT MAKE BUFFER JOIN INSTEAD OF PRINT WIP
+
 static int		freeret(t_info *info, int fd)
 {
-	int		len;
+	t_list	*lst;
+	size_t	len;
 	char	*str;
 
+	len = 0;
 	str = ft_strjoin_lst(PF_HEAD);
+	lst = PF_HEAD;
+	while (lst != NULL)
+	{
+		len += lst->content_size;
+		lst = lst->next;
+	}
 	if (info != NULL)
 	{
 		ft_lstdel(&PF_HEAD, &ft_lstdelmem);
@@ -25,7 +35,6 @@ static int		freeret(t_info *info, int fd)
 	}
 	if (str == NULL)
 		return (0);
-	len = ft_strlen(str);
 	write(fd, str, len);
 	ft_strdel(&str);
 	return (len);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_putunum.c                                       :+:    :+:            */
+/*   pf_formatunum.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/16 17:46:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 12:12:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ static void	itoa(t_info *info, t_uintmax value)
 	{
 		len--;
 		str[len] = base_str[(value % PF_VAR_BASE)];
-		value /= 10;
+		value /= PF_VAR_BASE;
 	}
 	pf_lstaddptr(info, str, PF_VAR_LEN);
 }
-
 
 void		pf_formatunum(t_info *info)
 {
@@ -49,9 +48,9 @@ void		pf_formatunum(t_info *info)
 	if (PF_PRECISION >= 0 && PF_ISZERO)
 	{
 		if (PF_PRECISION > 0 || (PF_TYPE == 'o' && PF_FLAG_HASH))
-			pf_addstr(info, "0");
+			pf_addnstr(info, "0", 1);
 		else if (PF_WIDTH > 0)
-			pf_addstr(info, " ");
+			pf_addnstr(info, " ", 1);
 		return ;
 	}
 	itoa(info, num);

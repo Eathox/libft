@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_formatpad.c                                      :+:    :+:            */
+/*   pf_formatpad.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 14:15:04 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 12:13:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void		pf_formatpad(t_info *info)
 
 	prfx = getprefix(info);
 	prelen = ft_strlen(prfx);
+	PF_PADADDED = 0;
 	if (PF_PRECISION > PF_WIDTH && pf_isstr(info) == FALSE)
 		len = ft_max(0, PF_PRECISION) - PF_VAR_LEN;
 	else

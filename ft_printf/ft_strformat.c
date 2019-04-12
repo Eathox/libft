@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_dprintf.c                                       :+:    :+:            */
+/*   ft_strformat.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:34:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 14:23:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+//USE BUFFER AND WHEN USING FORMAT MAKE BUFFER JOIN INSTEAD OF PRINT WIP
 
 static char		*freeret(t_info *info)
 {

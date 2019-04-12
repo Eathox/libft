@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_lstadd.c                                        :+:    :+:            */
+/*   pf_lstaddptr.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/12 01:30:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 01:30:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 12:22:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	pf_lstaddptr(t_info *info, char *str, size_t len)
 	if (lst == NULL)
 		return ;
 	lst->content = str;
-	lst->content_size = len + 1;
+	lst->content_size = len;
 	pf_lstadd(info, lst);
 }

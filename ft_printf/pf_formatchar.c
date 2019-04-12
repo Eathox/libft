@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_formatchar.c                                     :+:    :+:            */
+/*   pf_formatchar.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 12:30:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	pf_formatchar(t_info *info)
 	if (PF_VAR_TYPE == T_WCHAR)
 		pf_addwchar(info, c);
 	else if (PF_TYPE == '%')
-		pf_addstr(info, "%");
+		pf_addnstr(info, "%", 1);
 	else if (PF_TYPE == 'c')
 		pf_addchar(info, (char)c);
 }

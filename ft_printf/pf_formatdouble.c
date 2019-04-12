@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_formatdouble.c                                   :+:    :+:            */
+/*   pf_formatdouble.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 12:29:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ void		adddouble(t_info *info, long double value, size_t n)
 	value -= num;
 	setdecimals(value, decimals, n);
 	num += (n == 0 && decimals[0] >= '5');
-	pf_addnum(info, num, ft_numlen(num));
+	pf_addnum(info, num);
 	if (n != 0)
 	{
-		pf_addstr(info, ".");
+		pf_addnstr(info, ".", 1);
 		pf_addnstr(info, decimals, n);
 	}
 	ft_strdel(&decimals);
 }
 
-void	formatdouble(t_info *info)
+void		formatdouble(t_info *info)
 {
 	double	value;
 
@@ -73,7 +73,7 @@ void	formatdouble(t_info *info)
 	adddouble(info, value, PF_PRECISION);
 }
 
-void	formatldouble(t_info *info)
+void		formatldouble(t_info *info)
 {
 	long double	value;
 
@@ -85,7 +85,7 @@ void	formatldouble(t_info *info)
 	adddouble(info, value, PF_PRECISION);
 }
 
-void	pf_formatdouble(t_info *info)
+void		pf_formatdouble(t_info *info)
 {
 	if (PF_VAR_TYPE == DOUBLE)
 		formatdouble(info);

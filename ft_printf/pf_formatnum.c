@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_putnum.c                                        :+:    :+:            */
+/*   pf_formatnum.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/16 17:46:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:35:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/12 12:29:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void		pf_formatnum(t_info *info)
 	if (PF_PRECISION == 0 && num == 0)
 	{
 		if (PF_WIDTH != -1)
-			pf_addstr(info, " ");
+			pf_addnstr(info, " ", 1);
 		return ;
 	}
-	pf_addnum(info, num, PF_VAR_LEN);
+	pf_addnum(info, num);
 }
