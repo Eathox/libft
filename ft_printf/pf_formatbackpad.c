@@ -16,8 +16,10 @@ void		pf_formatbackpad(t_info *info)
 {
 	char	*str;
 	int		len;
+	int		j;
 	int		i;
 
+	j = 0;
 	i = PF_PADADDED;
 	len = ft_max(0, PF_WIDTH) - PF_VAR_LEN;
 	if (PF_FLAG_MIN == FALSE)
@@ -27,8 +29,9 @@ void		pf_formatbackpad(t_info *info)
 		return ;
 	while (i < len)
 	{
-		str[i] = ' ';
+		str[j] = ' ';
+		j++;
 		i++;
 	}
-	pf_lstaddptr(info, str, i);
+	pf_addtobuff(info, str, j);
 }

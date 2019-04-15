@@ -12,32 +12,18 @@
 
 #include "../includes/ft_printf.h"
 
-//USE BUFFER AND WHEN USING FORMAT MAKE BUFFER JOIN INSTEAD OF PRINT WIP
+// USE BUFFER AND WHEN USING FORMAT MAKE BUFFER JOIN INSTEAD OF PRINT WIP
+// FIX ALL LEAKS WHEN CREATING STRINGS
 
 static int		freeret(t_info *info)
 {
-	t_list	*lst;
-	size_t	len;
-	char	*str;
-
-	len = 0;
-	str = ft_strjoin_lst(PF_HEAD);
-	lst = PF_HEAD;
-	while (lst != NULL)
-	{
-		len += lst->content_size;
-		lst = lst->next;
-	}
+	write(PF_FD, PF_BUFF, PF_BUFF_LEN);
 	if (info != NULL)
 	{
-		ft_lstdel(&PF_HEAD, &ft_lstdelmem);
+		free(PF_BUFF);
 		free(info);
 	}
-	if (str == NULL)
-		return (0);
-	write(1, str, len);
-	ft_strdel(&str);
-	return (len);
+	return (PF_ADDED);
 }
 
 int				ft_printf(const char *format, ...)
@@ -48,7 +34,7 @@ int				ft_printf(const char *format, ...)
 	i = 0;
 	info = pf_infonew();
 	if (info == NULL)
-		return (freeret(info));
+		return (-1);
 	va_start(PF_ARGS, format);
 	while (format[i] != '\0')
 	{

@@ -34,7 +34,7 @@ static void	itoa(t_info *info, t_uintmax value)
 		str[len] = base_str[(value % PF_VAR_BASE)];
 		value /= PF_VAR_BASE;
 	}
-	pf_lstaddptr(info, str, PF_VAR_LEN);
+	pf_addtobuff(info, str, PF_VAR_LEN);
 }
 
 void		pf_formatunum(t_info *info)

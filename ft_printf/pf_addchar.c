@@ -14,5 +14,5 @@
 
 void	pf_addchar(t_info *info, char c)
 {
-	pf_lstadd(info, ft_lstnew(&c, 1));
+	pf_addtobuff(info, &c, 1);
 }

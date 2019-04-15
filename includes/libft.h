@@ -20,7 +20,6 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-char		*ft_strjoin_lst(const t_list *lst);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);

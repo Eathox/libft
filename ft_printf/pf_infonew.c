@@ -12,6 +12,12 @@
 
 #include "../includes/ft_printf.h"
 
+t_info	*freeret(t_info	**info)
+{
+	ft_memdel((void **)info);
+	return (NULL);
+}
+
 t_info	*pf_infonew(void)
 {
 	t_info	*info;
@@ -19,8 +25,12 @@ t_info	*pf_infonew(void)
 	info = (t_info *)ft_memalloc(sizeof(t_info));
 	if (info == NULL)
 		return (NULL);
+	PF_BUFF = ft_strnew(PF_BUFF_SIZE);
+	if (PF_BUFF == NULL)
+		return (freeret(&info));
 	pf_infosetdefualt(info);
-	PF_LST = NULL;
-	PF_HEAD = NULL;
+	PF_ADDED = 0;
+	PF_FD = 1;
+	PF_BUFF_LEN = 0;
 	return (info);
 }

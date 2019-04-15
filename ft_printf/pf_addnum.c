@@ -34,5 +34,5 @@ void	pf_addnum(t_info *info, t_intmax value)
 		str[i] = base_str[(value % 10)];
 		value /= 10;
 	}
-	pf_lstaddptr(info, str, len);
+	pf_addtobuff(info, str, len);
 }

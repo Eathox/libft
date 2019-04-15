@@ -14,10 +14,7 @@
 
 void	pf_addnstr(t_info *info, char *str, size_t n)
 {
-	char	*newstr;
-
 	if (n == 0)
 		return ;
-	newstr = ft_strndup(str, n);
-	pf_lstaddptr(info, newstr, n);
+	pf_addtobuff(info, str, n);
 }

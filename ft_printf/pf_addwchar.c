@@ -38,5 +38,5 @@ void	pf_addwchar(t_info *info, t_wchar c)
 		bit = (0xc0 | (c >> (6 * (len - i)))) & 0xbf;
 		str[i] = bit;
 	}
-	pf_lstaddptr(info, str, len);
+	pf_addtobuff(info, str, len);
 }

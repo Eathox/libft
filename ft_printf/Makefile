@@ -16,7 +16,7 @@ OBJ_NAME = objects
 
 SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 	isunsignint issignint setvar_type setvar_base infonew format formatnum \
-	formatunum overflowsigned lstadd lstaddptr overflowunsigned addnstr \
+	formatunum overflowsigned overflowunsigned addnstr addtobuff \
 	formatchar setcolor commands addwchar formatstr addwcharstr getprecision \
 	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
 	distribute addnum

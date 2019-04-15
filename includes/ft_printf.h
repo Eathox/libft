@@ -31,6 +31,38 @@
 ** p = void *
 */
 
+# define PF_BUFF		info->buff
+# define PF_BUFF_LEN	info->buff_len
+# define PF_ARGS		info->args
+# define PF_ISZERO		info->iszero
+# define PF_ISNEGATIVE	info->isnegative
+# define PF_FD			info->fd
+# define PF_FLAG		info->flag
+# define PF_LENGTH		info->length
+# define PF_PRECISION	info->precision
+# define PF_ADDED		info->added
+# define PF_PADADDED	info->padadded
+# define PF_TYPE		info->type
+# define PF_WIDTH		info->width
+# define PF_VAR_LEN		info->var_len
+# define PF_VAR_TYPE	info->var_type
+# define PF_VAR_BASE	info->var_base
+# define PF_A_TYPE		"fdiuboxXcsp%"
+# define PF_A_TYPE_L	"FDOUCS"
+# define PF_A_FLAG		"#0-+ \'"
+# define PF_A_SPACER	",;:_"
+# define PF_A_LENGTH	"hlLjz"
+# define PF_A_LENGTH_D	"hl"
+# define PF_DOUBLE_H	208
+# define PF_DOUBLE_L	216
+# define PF_FLAG_HASH	PF_FLAG[0]
+# define PF_FLAG_ZERO	PF_FLAG[1]
+# define PF_FLAG_MIN	PF_FLAG[2]
+# define PF_FLAG_PLUS	PF_FLAG[3]
+# define PF_FLAG_SPACE	PF_FLAG[4]
+# define PF_FLAG_APOST	PF_FLAG[5]
+# define PF_BUFF_SIZE	64
+
 enum			e_type
 {
 	INT,
@@ -57,53 +89,27 @@ enum			e_type
 
 typedef	struct	s_info
 {
+	char		*buff;
 	char		flag[7]; // MAYBE CHANGE OT BITS LATER
 	char		type;
 	char		var_base;
 	char		iszero;
 	char		isnegative;
+	int			buff_len;
+	int			fd;
 	int			length;
+	int			added;
 	int			padadded;
 	int			precision;
 	int			var_len;
 	int			width;
 	enum e_type	var_type;
 	va_list		args;
-	t_list		*head;
-	t_list		*lst;
 }				t_info;
 typedef long long			t_intmax;
 typedef unsigned long long	t_uintmax;
 
-# define PF_ARGS		info->args
-# define PF_HEAD		info->head
-# define PF_LST			info->lst
-# define PF_ISZERO		info->iszero
-# define PF_ISNEGATIVE	info->isnegative
-# define PF_FLAG		info->flag
-# define PF_LENGTH		info->length
-# define PF_PRECISION	info->precision
-# define PF_PADADDED	info->padadded
-# define PF_TYPE		info->type
-# define PF_WIDTH		info->width
-# define PF_VAR_LEN		info->var_len
-# define PF_VAR_TYPE	info->var_type
-# define PF_VAR_BASE	info->var_base
-# define PF_A_TYPE		"fdiuboxXcsp%"
-# define PF_A_TYPE_L	"FDOUCS"
-# define PF_A_FLAG		"#0-+ \'"
-# define PF_A_SPACER	",;:_"
-# define PF_A_LENGTH	"hlLjz"
-# define PF_A_LENGTH_D	"hl"
-# define PF_DOUBLE_H	208
-# define PF_DOUBLE_L	216
-# define PF_FLAG_HASH	PF_FLAG[0]
-# define PF_FLAG_ZERO	PF_FLAG[1]
-# define PF_FLAG_MIN	PF_FLAG[2]
-# define PF_FLAG_PLUS	PF_FLAG[3]
-# define PF_FLAG_SPACE	PF_FLAG[4]
-# define PF_FLAG_APOST	PF_FLAG[5]
-
+void			pf_addtobuff(t_info *info, char *str, size_t len);
 char			*ft_strformat(const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
 int				ft_printf(const char *format, ...);
@@ -139,8 +145,6 @@ void			pf_formatpad(t_info *info);
 void			pf_formatstr(t_info *info);
 void			pf_formatunum(t_info *info);
 void			pf_infosetdefualt(t_info *info);
-void			pf_lstadd(t_info *info, t_list *lst);
-void			pf_lstaddptr(t_info *info, char *str, size_t len);
 void			pf_setvar_base(t_info *info);
 void			pf_setvar_type(t_info *info);
 

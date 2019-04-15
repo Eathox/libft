@@ -17,7 +17,6 @@ static int	addprefix(t_info *info, char *str, size_t n)
 	if (n == 0)
 		return (0);
 	pf_addnstr(info, str, n);
-	PF_PADADDED += n;
 	if (PF_VAR_TYPE == VOID && PF_WIDTH <= PF_PRECISION)
 		return (0);
 	if (PF_PRECISION > PF_WIDTH && ft_strequ(str, "0") == FALSE)
@@ -31,14 +30,13 @@ static void	addpad(t_info *info, int len, char c)
 	char	*str;
 
 	i = 0;
-	PF_PADADDED += len;
 	str = ft_strnew(len);
 	while (i < len)
 	{
 		str[i] = c;
 		i++;
 	}
-	pf_lstaddptr(info, str, i);
+	pf_addtobuff(info, str, i);
 }
 
 static void	addzero(t_info *info, int len, int space, char *prfx)
@@ -82,7 +80,7 @@ void		pf_formatpad(t_info *info)
 
 	prfx = getprefix(info);
 	prelen = ft_strlen(prfx);
-	PF_PADADDED = 0;
+	PF_PADADDED = PF_ADDED;
 	if (PF_PRECISION > PF_WIDTH && pf_isstr(info) == FALSE)
 		len = ft_max(0, PF_PRECISION) - PF_VAR_LEN;
 	else
@@ -98,4 +96,5 @@ void		pf_formatpad(t_info *info)
 	if (space > 0 && PF_FLAG_MIN == FALSE)
 		addpad(info, space, ' ');
 	addzero(info, len, space, prfx);
+	PF_PADADDED = PF_ADDED - PF_PADADDED;
 }
