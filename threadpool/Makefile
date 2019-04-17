@@ -22,7 +22,7 @@ OBJS = $(SRCS:.c=.o)
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 NORM = norminette $(SRCS) $(HEADER) $(INCLUDES)$(LIBFT:.a=.h) \
-	$(INCLUDES)thread_pool.h | grep -E '(Error:|Warning: [^N])' -B 1
+	$(INCLUDES)threadpool.h | grep -E '(Error:|Warning: [^N])' -B 1
 
 all: $(NAME)
 
