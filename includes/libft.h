@@ -19,6 +19,7 @@
 # include "typedefs.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
+# include "threadpool.h"
 
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, int count, ...);

@@ -11,39 +11,34 @@
 # **************************************************************************** #
 
 INCLUDES = ../includes/
-NAME = libftprintf.a
+NAME = threadpool.a
 OBJ_NAME = objects
 
-SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
-	isunsignint issignint setvar_type setvar_base infonew format formatnum \
-	formatunum overflowsigned overflowunsigned addnstr addtobuff \
-	formatchar setcolor commands addwchar formatstr addwcharstr getprecision \
-	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
-	distribute addnum
+SRCS = poolcompleted poolcreate pooldelete poolque threadmanager
 
-SRCS := $(sort ft_strformat.c ft_dprintf.c ft_printf.c $(SRCS:%=pf_%.c))
+SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)
 
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 NORM = norminette $(SRCS) $(HEADER) $(INCLUDES)$(LIBFT:.a=.h) \
-	$(INCLUDES)ft_printf.h | grep -E '(Error:|Warning: [^N])' -B 1
+	$(INCLUDES)thread_pool.h | grep -E '(Error:|Warning: [^N])' -B 1
 
 all: $(NAME)
 
 $(NAME):
-	@echo "compiling libftprintf"
+	@echo "compiling threadpool"
 	@echo $(SRCS)
 	@gcc $(CCFLAGS) -c $(SRCS)
-	@echo "creating and indexing libftprintf"
+	@echo "creating and indexing threadpool"
 	@ar rcs $(NAME) $(OBJS)
 
 clean:
-	@echo "cleaning libftprintf";
+	@echo "cleaning threadpool";
 	@rm -f $(OBJS) $(SRCS:.c=.c~)
 
 fclean: clean
-	@echo "fcleaning libftprintf";
+	@echo "fcleaning threadpool";
 	@rm -f $(NAME)
 
 re: fclean $(NAME)

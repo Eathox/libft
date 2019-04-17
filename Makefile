@@ -13,6 +13,9 @@
 PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
 
+THREADPOOLPATH = ./threadpool/
+THREADPOOL = $(THREADPOOLPATH)threadpool.a
+
 INCLUDES = ./includes/
 NAME = libft.a
 OBJ_NAME = objects
@@ -61,10 +64,9 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(OBJ_NAME) $(PRINTF)
+$(NAME): $(OBJ_NAME) $(PRINTF) $(THREADPOOL)
 	@echo "indexing libft"
 	@ar rcs $(NAME) $(OBJS)
-
 
 $(OBJ_NAME):
 	@echo "compiling libft"
@@ -76,6 +78,10 @@ $(PRINTF):
 	@make -C $(PRINTFPATH)
 	@cp $(PRINTF) $(NAME)
 
+$(THREADPOOL):
+	@make -C $(THREADPOOLPATH)
+	@cp $(THREADPOOL) $(NAME)
+
 test:
 	@make re && make clean
 	@gcc $(CCFLAGS) main.c libft.a
@@ -84,11 +90,13 @@ clean:
 	@echo "cleaning libft";
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
 	@make -C $(PRINTFPATH) clean
+	@make -C $(THREADPOOLPATH) clean
 
 fclean: clean
 	@echo "fcleaning libft";
 	@rm -f $(NAME)
 	@make -C $(PRINTFPATH) fclean
+	@make -C $(THREADPOOLPATH) fclean
 
 re: fclean $(NAME)
 
