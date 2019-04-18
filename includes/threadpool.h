@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 00:47:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 12:12:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int				ft_poolque(t_pool *pool, void *(*f)(void *), void *param);
 t_pool			*ft_poolcreate(void);
 void			ft_pooldelete(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);
-void 			*ft_threadmanager(void *param);
+void			*ft_threadmanager(void *param);
 
 #endif

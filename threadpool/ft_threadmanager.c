@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_poolcreate.c                                    :+:    :+:            */
+/*   ft_threadmanager.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/17 20:31:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 12:12:54 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_task	*gettask(t_pool *pool, t_thread *self, t_list **lst)
 	return (NULL);
 }
 
-void 			*ft_threadmanager(void *param)
+void			*ft_threadmanager(void *param)
 {
 	t_list		*lst;
 	t_task		*task;
