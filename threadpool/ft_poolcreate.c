@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 12:12:34 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 16:16:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ t_pool			*ft_poolcreate(void)
 	if (pool == NULL)
 		return (NULL);
 	pool->que = NULL;
-	pool->complete = NULL;
 	pool->active = TRUE;
 	i = 0;
 	while (i < POOL_SIZE)

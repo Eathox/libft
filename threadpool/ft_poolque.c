@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 12:12:45 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 16:16:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/threadpool.h"
 
-int		ft_poolque(t_pool *pool, void *(*f)(void *), void *param)
+int		ft_poolque(t_pool *pool, void (*f)(void *), void *param)
 {
 	t_task	*task;
 	t_list	*lst;
@@ -28,7 +28,6 @@ int		ft_poolque(t_pool *pool, void *(*f)(void *), void *param)
 	}
 	task->fnc = f;
 	task->param = param;
-	task->ret = NULL;
 	lst->content = task;
 	ft_lstadd(&(pool->que), lst);
 	return (TRUE);
