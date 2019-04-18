@@ -21,6 +21,8 @@ enum	e_state
 {
 	idle,
 	active,
+	locked,
+	searching,
 	suspended,
 	terminating
 };
@@ -51,5 +53,6 @@ t_pool			*ft_poolcreate(void);
 void			ft_pooldelete(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);
 void			*ft_threadmanager(void *param);
+int				ft_pooltoggleactive(t_pool *pool);
 
 #endif

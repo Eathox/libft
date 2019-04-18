@@ -14,8 +14,9 @@
 
 int		ft_poolque(t_pool *pool, void (*f)(void *), void *param)
 {
-	t_task	*task;
-	t_list	*lst;
+	// enum e_state	state;
+	t_task			*task;
+	t_list			*lst;
 
 	if (pool == NULL || pool->state == terminating || f == NULL)
 		return (FALSE);
@@ -28,13 +29,14 @@ int		ft_poolque(t_pool *pool, void (*f)(void *), void *param)
 		free(lst);
 		return (FALSE);
 	}
-	while (pool->state == suspended)
-		;
-	pool->state = suspended;
+	// while (pool->state == locked)
+	// 	;
+	// state = pool->state;
+	// pool->state = locked;
 	task->fnc = f;
 	task->param = param;
 	lst->content = task;
 	ft_lstaddbck(&(pool->que), lst);
-	pool->state = active;
+	// pool->state = state;
 	return (TRUE);
 }
