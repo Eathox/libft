@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 16:15:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 16:44:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,13 @@ void			*ft_threadmanager(void *param)
 	lst = NULL;
 	self = param;
 	pool = self->pool;
-	while (pool->active == TRUE)
+	while (pool != NULL && pool->active == TRUE)
 	{
 		task = gettask(pool, self, &lst);
 		if (task != NULL)
 		{
 			self->state = working;
 			task->fnc(task->param);
-			ft_lstdelone(&lst, &ft_lstdelmem);
 		}
 		self->state = idle;
 	}
