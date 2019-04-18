@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 16:35:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 18:09:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_poolque(t_pool *pool, void (*f)(void *), void *param)
 	t_task	*task;
 	t_list	*lst;
 
-	if (pool == NULL || f == NULL)
+	if (pool == NULL || pool->state == terminating || f == NULL)
 		return (FALSE);
 	lst = ft_lstnew(NULL, 0);
 	if (lst == NULL)
@@ -28,9 +28,13 @@ int		ft_poolque(t_pool *pool, void (*f)(void *), void *param)
 		free(lst);
 		return (FALSE);
 	}
+	while (pool->state == suspended)
+		;
+	pool->state = suspended;
 	task->fnc = f;
 	task->param = param;
 	lst->content = task;
 	ft_lstaddbck(&(pool->que), lst);
+	pool->state = active;
 	return (TRUE);
 }

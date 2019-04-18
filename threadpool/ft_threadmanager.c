@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 16:44:49 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 18:10:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ static t_task	*gettask(t_pool *pool, t_thread *self, t_list **lst)
 			return (NULL);
 		i++;
 	}
+	if (pool->state == suspended)
+		return (NULL);
 	*lst = pool->que;
 	if (*lst != NULL)
 	{
+		pool->state = suspended;
 		pool->que = (*lst)->next;
+		pool->state = active;
 		return ((t_task *)(*lst)->content);
 	}
 	return (NULL);
@@ -42,12 +46,12 @@ void			*ft_threadmanager(void *param)
 	lst = NULL;
 	self = param;
 	pool = self->pool;
-	while (pool != NULL && pool->active == TRUE)
+	while (pool != NULL && pool->state != terminating)
 	{
 		task = gettask(pool, self, &lst);
 		if (task != NULL)
 		{
-			self->state = working;
+			self->state = active;
 			task->fnc(task->param);
 		}
 		self->state = idle;

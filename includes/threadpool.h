@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 16:46:10 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/18 17:00:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@
 enum	e_state
 {
 	idle,
-	working
+	active,
+	suspended,
+	terminating
 };
 
 typedef struct	s_thread
@@ -34,7 +36,7 @@ typedef struct	s_pool
 {
 	t_thread		*threads[POOL_SIZE];
 	t_list			*que;
-	char			active;
+	enum e_state	state;
 }				t_pool;
 
 typedef struct	s_task
