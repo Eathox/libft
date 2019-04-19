@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/16 12:24:51 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/19 14:42:02 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,8 @@ all: $(NAME)
 $(NAME): $(OBJ_NAME) $(PRINTF) $(THREADPOOL)
 	@echo "indexing libft"
 	@ar rcs $(NAME) $(OBJS)
+	@echo "merging all libarys"
+	@ar -M <libary.merge
 
 $(OBJ_NAME):
 	@echo "compiling libft"
@@ -76,11 +78,9 @@ $(OBJ_NAME):
 
 $(PRINTF):
 	@make -C $(PRINTFPATH)
-	@cp $(PRINTF) $(NAME)
 
 $(THREADPOOL):
 	@make -C $(THREADPOOLPATH)
-	@cp $(THREADPOOL) $(NAME)
 
 test:
 	@make re && make clean
