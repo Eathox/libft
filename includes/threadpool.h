@@ -14,6 +14,7 @@
 # define FT_THREADPOOL_H
 # include "libft.h"
 # include <pthread.h>
+# include <stdatomic.h>
 
 # define POOL_SIZE	4
 
