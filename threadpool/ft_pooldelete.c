@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:53:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/20 22:42:04 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/20 23:40:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void	delque(t_pool *pool)
 {
-	_Atomic(t_task)	*que;
-	t_task			*temp;
+	t_task	*que;
+	t_task	*temp;
 
-	que = atomic_exchange(&(pool->que), NULL);
+	que = (t_task *)atomic_exchange(&(pool->que), NULL);
 	while (que != NULL)
 	{
-		temp = (t_task *)que;
-		que = que->next;
+		temp = que;
+		que = (t_task *)que->next;
 		free(temp);
 	}
 }

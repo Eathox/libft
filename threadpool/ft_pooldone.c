@@ -21,7 +21,7 @@ int		ft_pooldone(t_pool *pool)
 		return (TRUE);
 	while (i < POOL_SIZE)
 	{
-		if (atomic_load(&((pool->threads[i])->state)) == active)
+		if ((pool->threads[i])->state == active)
 			return (FALSE);
 		i++;
 	}
