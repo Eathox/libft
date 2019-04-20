@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 22:45:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/18 16:35:12 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/20 22:05:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_pooldone(t_pool *pool)
 		return (TRUE);
 	while (i < POOL_SIZE)
 	{
-		if ((pool->threads[i])->state != idle)
+		if (atomic_load(&((pool->threads[i])->state)) == active)
 			return (FALSE);
 		i++;
 	}

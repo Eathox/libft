@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/18 22:57:01 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/20 22:44:14 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ INCLUDES = ../includes/
 NAME = threadpool.a
 OBJ_NAME = objects
 
-SRCS = pooldone poolcreate pooldelete poolque threadmanager pooltoggleactive \
-	pooljoin
+SRCS = pooldone poolcreate pooldelete poolque threadmanager pooljoin
 
 SRCS := $(sort $(SRCS:%=ft_%.c))
 OBJS = $(SRCS:.c=.o)
