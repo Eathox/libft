@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/19 14:42:02 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/22 15:06:37 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
 
 THREADPOOLPATH = ./threadpool/
-THREADPOOL = $(THREADPOOLPATH)threadpool.a
+THREADPOOL = $(THREADPOOLPATH)libpool.a
 
 INCLUDES = ./includes/
+BASIC = libbasic.a
 NAME = libft.a
 OBJ_NAME = objects
 
@@ -64,14 +65,18 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(OBJ_NAME) $(PRINTF) $(THREADPOOL)
-	@echo "indexing libft"
-	@ar rcs $(NAME) $(OBJS)
+$(NAME): $(BASIC) $(PRINTF) $(THREADPOOL)
 	@echo "merging all libarys"
-	@ar -M <libary.merge
+	@ar rcs $(NAME) $(OBJS) \
+		$(shell sh getcontents.sh $(PRINTF)) \
+		$(shell sh getcontents.sh $(THREADPOOL))
+
+$(BASIC): $(OBJ_NAME)
+	@echo "indexing libbasic"
+	@ar rcs $(BASIC) $(OBJS)
 
 $(OBJ_NAME):
-	@echo "compiling libft"
+	@echo "compiling libbasic"
 	@echo $(SRCS)
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)

@@ -1,5 +1,0 @@
-OPEN libft.a
-ADDLIB ./ft_printf/libftprintf.a
-ADDLIB ./threadpool/threadpool.a
-SAVE
-END

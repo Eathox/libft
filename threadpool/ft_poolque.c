@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/21 00:07:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/22 11:45:06 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int			ft_poolque(t_pool *pool, void (*f)(void *), void *param)
 	task->param = param;
 	task->next = NULL;
 	if (pool->terminating)
-		return(freeret(pool, task, state));
+		return (freeret(pool, task, state));
 	if (pool->last == NULL)
 		pool->que = task;
 	else

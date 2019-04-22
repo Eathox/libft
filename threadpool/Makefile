@@ -6,12 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/20 22:44:14 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/22 15:02:50 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 INCLUDES = ../includes/
-NAME = threadpool.a
+NAME = libpool.a
 OBJ_NAME = objects
 
 SRCS = pooldone poolcreate pooldelete poolque threadmanager pooljoin
