@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/01 13:34:23 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/24 12:17:55 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,6 @@ OBJS = $(SRCS:.c=.o)
 
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
-NORM = norminette $(SRCS) $(HEADER) $(INCLUDES)$(LIBFT:.a=.h) \
-	$(INCLUDES)ft_printf.h | grep -E '(Error:|Warning: [^N])' -B 1
-
 all: $(NAME)
 
 $(NAME):
@@ -47,10 +44,3 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean $(NAME)
-
-norm:
-	@echo "-----------------------------------NormOutput\
------------------------------------"
-	@$(NORM) || true
-	@echo "-----------------------------------End-Output\
------------------------------------"

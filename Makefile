@@ -6,18 +6,14 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/22 15:06:37 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/24 12:42:57 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
 
-THREADPOOLPATH = ./threadpool/
-THREADPOOL = $(THREADPOOLPATH)libpool.a
-
 INCLUDES = ./includes/
-BASIC = libbasic.a
 NAME = libft.a
 OBJ_NAME = objects
 
@@ -53,39 +49,32 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
 	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
 	print_memory putnchar putnchar_fd
+SRCS := $(SRCS:%=ft_%.c)
 
-SRCS := $(sort $(SRCS:%=ft_%.c))
+THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin
+THREADPOOL := $(THREADPOOL:%=./threadpool/ft_%.c)
+
+SRCS := $(sort $(SRCS) $(THREADPOOL))
 OBJS = $(SRCS:.c=.o)
+OBJS := $(OBJS:./threadpool/%=%)
 
-NORM = norminette $(SRCS) $(INCLUDES)libft.h $(INCLUDES)get_next_line.h \
-	| grep -e "Error" -e "Warning" -B 1
-
-TESTS = ./test/main.c $(SRCS:%=./test/test_%)
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(BASIC) $(PRINTF) $(THREADPOOL)
-	@echo "merging all libarys"
-	@ar rcs $(NAME) $(OBJS) \
-		$(shell sh getcontents.sh $(PRINTF)) \
-		$(shell sh getcontents.sh $(THREADPOOL))
-
-$(BASIC): $(OBJ_NAME)
-	@echo "indexing libbasic"
-	@ar rcs $(BASIC) $(OBJS)
+$(NAME): $(OBJ_NAME) $(PRINTF)
+	@echo "creating and indexing libft"
+	@ar rcs $(NAME) $(OBJS)
 
 $(OBJ_NAME):
-	@echo "compiling libbasic"
+	@echo "compiling libft"
 	@echo $(SRCS)
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)
 
 $(PRINTF):
 	@make -C $(PRINTFPATH)
-
-$(THREADPOOL):
-	@make -C $(THREADPOOLPATH)
+	@cp $(PRINTF) $(NAME)
 
 test:
 	@make re && make clean
@@ -95,19 +84,10 @@ clean:
 	@echo "cleaning libft";
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
 	@make -C $(PRINTFPATH) clean
-	@make -C $(THREADPOOLPATH) clean
 
 fclean: clean
 	@echo "fcleaning libft";
 	@rm -f $(NAME)
 	@make -C $(PRINTFPATH) fclean
-	@make -C $(THREADPOOLPATH) fclean
 
 re: fclean $(NAME)
-
-norm:
-	@echo "-----------------------------------NormOutput\
------------------------------------"
-	@$(NORM) || true
-	@echo "-----------------------------------End-Output\
------------------------------------"
