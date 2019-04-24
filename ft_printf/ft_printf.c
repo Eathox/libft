@@ -6,14 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 14:23:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/24 13:06:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-// USE BUFFER AND WHEN USING FORMAT MAKE BUFFER JOIN INSTEAD OF PRINT WIP
-// FIX ALL LEAKS WHEN CREATING STRINGS
 
 static int		freeret(t_info *info)
 {

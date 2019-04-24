@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/15 22:58:40 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/15 22:58:40 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/24 14:29:55 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	join(t_info *info, char *str, size_t len)
 {
 	char	*temp;
 
-	if (len + (PF_BUFF_LEN % BUFF_SIZE) > BUFF_SIZE)
+	if (len + (PF_BUFF_LEN % PF_BUFF_SIZE) > PF_BUFF_SIZE)
 	{
-		temp = ft_strnew(PF_BUFF_LEN + BUFF_SIZE);
+		temp = ft_strnew(PF_BUFF_LEN + PF_BUFF_SIZE);
 		ft_memcpy(temp, PF_BUFF, PF_BUFF_LEN);
 		free(PF_BUFF);
 		PF_BUFF = temp;
@@ -39,12 +39,12 @@ void		pf_addtobuff(t_info *info, char *str, size_t len)
 		join(info, str, len);
 		return ;
 	}
-	if (len + PF_BUFF_LEN > BUFF_SIZE)
+	if (len + PF_BUFF_LEN > PF_BUFF_SIZE)
 	{
-		i = BUFF_SIZE - PF_BUFF_LEN;
+		i = PF_BUFF_SIZE - PF_BUFF_LEN;
 		ft_memcpy(&PF_BUFF[PF_BUFF_LEN], str, i);
-		write(PF_FD, PF_BUFF, BUFF_SIZE);
-		ft_bzero(PF_BUFF, BUFF_SIZE);
+		write(PF_FD, PF_BUFF, PF_BUFF_SIZE);
+		ft_bzero(PF_BUFF, PF_BUFF_SIZE);
 		ft_memcpy(PF_BUFF, &str[i], len - i);
 		PF_BUFF_LEN = len - i;
 	}

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 14:15:04 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 12:13:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/24 14:15:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,13 @@ static int	addprefix(t_info *info, char *str, size_t n)
 static void	addpad(t_info *info, int len, char c)
 {
 	int		i;
-	char	*str;
 
 	i = 0;
-	str = ft_strnew(len);
 	while (i < len)
 	{
-		str[i] = c;
+		pf_addtobuff(info, &c, 1);
 		i++;
 	}
-	pf_addtobuff(info, str, i);
 }
 
 static void	addzero(t_info *info, int len, int space, char *prfx)

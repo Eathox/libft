@@ -6,18 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 14:23:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/24 14:29:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-// USE BUFFER AND WHEN USING FORMAT MAKE BUFFER JOIN INSTEAD OF PRINT WIP
-// FIX ALL LEAKS WHEN CREATING STRINGS
-
 static int		freeret(t_info *info)
 {
-	write(PF_FD, PF_BUFF, BUFF_SIZE);
+	write(PF_FD, PF_BUFF, PF_BUFF_SIZE);
 	if (info != NULL)
 	{
 		free(PF_BUFF);

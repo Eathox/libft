@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/24 12:42:57 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/24 13:11:30 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
 
 INCLUDES = ./includes/
-NAME = libft.a
+NAME = libftprintf.a
 OBJ_NAME = objects
 
 SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
