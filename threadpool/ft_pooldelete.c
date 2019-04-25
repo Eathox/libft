@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:53:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/22 11:47:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/25 14:37:48 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	delque(t_pool *pool)
 	while (que != NULL)
 	{
 		temp = que;
-		que = (t_task *)que->next;
+		que = que->next;
 		free(temp);
 	}
 }

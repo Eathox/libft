@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/22 11:45:06 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/25 14:57:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ static int	freeret(t_pool *pool, t_task *task, enum e_state state)
 	return (FALSE);
 }
 
-int			ft_poolque(t_pool *pool, void (*f)(void *), void *param)
+int			ft_poolque(t_pool *pool, void (*f)(), int count, ...)
 {
+	va_list			params;
 	enum e_state	state;
 	t_task			*task;
 
-	if (pool == NULL || pool->terminating || f == NULL)
+	if (count > 5 || pool == NULL || pool->terminating || f == NULL)
 		return (FALSE);
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	if (task == NULL)
@@ -32,9 +33,9 @@ int			ft_poolque(t_pool *pool, void (*f)(void *), void *param)
 	state = atomic_exchange(&(pool->state), locked);
 	while (state == locked)
 		state = atomic_exchange(&(pool->state), locked);
-	task->fnc = f;
-	task->param = param;
-	task->next = NULL;
+	va_start(params, count);
+	ft_tasksetinfo(task, f, count, params);
+	va_end(params);
 	if (pool->terminating)
 		return (freeret(pool, task, state));
 	if (pool->last == NULL)

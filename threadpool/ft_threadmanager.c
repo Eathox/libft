@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/20 23:50:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/25 14:59:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ void		*ft_threadmanager(void *param)
 		ret = gettask(pool, self, &task);
 		if (ret != FALSE)
 		{
-			if (task->fnc != NULL)
-				task->fnc(task->param);
+			ft_taskrunfnc(task);
 			free(task);
 			self->state = idle;
 		}

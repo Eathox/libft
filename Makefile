@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/24 14:49:54 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/25 14:59:07 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	print_memory putnchar putnchar_fd
 SRCS := $(SRCS:%=ft_%.c)
 
-THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin
+THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin \
+	threadexecute tasksetinfo taskrunfnc
 THREADPOOL := $(THREADPOOL:%=./threadpool/ft_%.c)
 
 SRCS := $(sort $(SRCS) $(THREADPOOL))
