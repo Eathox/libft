@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_threadexecute.c                                 :+:    :+:            */
+/*   ft_threadcreate.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -22,12 +22,14 @@ static void	*runfnc(void *param)
 	return (NULL);
 }
 
-int			ft_threadexecute(pthread_t *thread, void (*f)(), int count, ...)
+int			ft_threadcreate(pthread_t *thread, void (*f)(), int count, ...)
 {
 	int		ret;
 	va_list	args;
 	t_task	*task;
 
+	if (count > 5 || thread == NULL || f == NULL)
+		return (1);
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	va_start(args, count);
 	ft_tasksetinfo(task, f, count, args);

@@ -50,16 +50,15 @@ typedef struct	s_pool
 	char					suspended;
 }				t_pool;
 
-int				ft_taskrunfnc(t_task *task);
 int				ft_pooldone(t_pool *pool);
 int				ft_poolque(t_pool *pool, void (*f)(), int count, ...);
+int				ft_taskrunfnc(t_task *task);
+int				ft_threadcreate(pthread_t *thread, void (*f)(), int count, ...);
 t_pool			*ft_poolcreate(void);
+void			*ft_threadmanager(void *param);
 void			ft_pooldelete(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);
-void			*ft_threadmanager(void *param);
 t_task			*ft_tasksetinfo(t_task *task, void (*f)(), int count,
 					va_list params);
-int				ft_threadexecute(pthread_t *thread, void (*f)(), int count,
-					...);
 
 #endif

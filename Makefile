@@ -52,7 +52,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 SRCS := $(SRCS:%=ft_%.c)
 
 THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin \
-	threadexecute tasksetinfo taskrunfnc
+	threadcreate tasksetinfo taskrunfnc
 THREADPOOL := $(THREADPOOL:%=./threadpool/ft_%.c)
 
 SRCS := $(sort $(SRCS) $(THREADPOOL))
