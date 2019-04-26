@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 12:29:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 17:48:20 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void		adddouble(t_info *info, long double value, size_t n)
 	long long	num;
 
 	decimals = ft_strnew(n + 1);
+	if (decimals == NULL)
+		return ;
 	if (value < 0)
 		value *= -1;
 	num = (long long)value;

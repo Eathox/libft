@@ -6,23 +6,49 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 17:00:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 18:19:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-// USE BUFFER AND WHEN USING FORMAT MAKE BUFFER JOIN INSTEAD OF PRINT WIP
-// FIX ALL LEAKS WHEN CREATING STRINGS
-// ADD VAR LEN POINTER
-
-static char		*freeret(t_info *info, size_t *len)
+static char		*joinlst(t_info *info)
 {
+	size_t	i;
+	char	*str;
+	t_list	*lst;
+
+	i = 0;
+	lst = PF_BUFF_LIST;
+	str = ft_strnew(PF_ADDED);
+	if (str == NULL)
+		return (NULL);
+	while (lst != NULL)
+	{
+		if (lst->content != NULL)
+			ft_memcpy(&str[i], lst->content, lst->content_size);
+		i += lst->content_size;
+		lst = lst->next;
+	}
+	return (str);
+}
+
+static char		*freeret(t_info *info)
+{
+	t_list	*lst;
 	char	*str;
 
-	str = PF_BUFF;
-	if (len != NULL)
-		*len = 0;
+	if (PF_BUFF_LEN != 0)
+	{
+		lst = ft_lstnew(NULL, 0);
+		if (lst == NULL)
+			return (NULL);
+		lst->content = PF_BUFF;
+		lst->content_size = PF_BUFF_LEN;
+		ft_lstaddbck(&PF_BUFF_LIST, lst);
+	}
+	str = joinlst(info);
+	ft_lstdel(&PF_BUFF_LIST, &ft_lstdelmem);
 	if (info != NULL)
 		free(info);
 	return (str);
@@ -48,5 +74,7 @@ char			*ft_strformat(size_t *len, const char *format, ...)
 		i++;
 	}
 	va_end(PF_ARGS);
-	return (freeret(info, len));
+	if (len != NULL)
+		*len = PF_ADDED;
+	return (freeret(info));
 }

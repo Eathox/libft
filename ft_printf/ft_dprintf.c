@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/24 14:29:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 17:50:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		freeret(t_info *info)
 {
-	write(PF_FD, PF_BUFF, PF_BUFF_SIZE);
+	write(PF_FD, PF_BUFF, PF_BUFF_LEN);
 	if (info != NULL)
 	{
 		free(PF_BUFF);

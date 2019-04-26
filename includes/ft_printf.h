@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 17:00:38 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 17:53:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 */
 
 # define PF_BUFF		info->buff
+# define PF_BUFF_LIST	info->buff_list
 # define PF_BUFF_LEN	info->buff_len
 # define PF_ARGS		info->args
 # define PF_ISZERO		info->iszero
@@ -61,7 +62,7 @@
 # define PF_FLAG_PLUS	PF_FLAG[3]
 # define PF_FLAG_SPACE	PF_FLAG[4]
 # define PF_FLAG_APOST	PF_FLAG[5]
-# define PF_BUFF_SIZE	64
+# define PF_BUFF_SIZE	128
 
 enum			e_type
 {
@@ -109,6 +110,7 @@ typedef	struct	s_info
 	int			width;
 	enum e_type	var_type;
 	va_list		args;
+	t_list		*buff_list;
 }				t_info;
 typedef long long			t_intmax;
 typedef unsigned long long	t_uintmax;
