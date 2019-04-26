@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/25 14:59:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 13:29:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ enum	e_state
 
 typedef struct	s_task
 {
-	void			(*fnc)();
-	char			count;
-	void			*params[5];
-	struct s_task	*next;
+	void					(*fnc)();
+	char					count;
+	void					*params[5];
+	struct s_task			*next;
 }				t_task;
 
 typedef struct	s_thread
 {
-	pthread_t		thread;
-	struct s_pool	*pool;
-	enum e_state	state;
+	pthread_t				thread;
+	struct s_pool			*pool;
+	enum e_state			state;
 }				t_thread;
 
 typedef struct	s_pool

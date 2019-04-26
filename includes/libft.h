@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/09 17:50:07 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 13:37:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,7 +239,7 @@ void		ft_termsetrgbcolor_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
-void		ft_putunbr_cbase_fd(
-				unsigned long long value, int base, int up, int fd);
+void		ft_putunbr_cbase_fd(unsigned long long value, int base, int up,
+				int fd);
 
 #endif
