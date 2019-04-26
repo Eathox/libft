@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/20 23:44:38 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 13:52:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_thread	*threadcreate(t_pool *pool)
 	thread = (t_thread *)ft_memalloc(sizeof(t_thread));
 	if (thread == NULL)
 		return (NULL);
-	thread->state = idle;
+	thread->state = STATE_IDLE;
 	thread->pool = pool;
 	ret = pthread_create(&(thread->thread), NULL, &ft_threadmanager, thread);
 	if (ret != 0)
@@ -44,7 +44,7 @@ t_pool			*ft_poolcreate(void)
 	pool->que = NULL;
 	pool->terminating = FALSE;
 	pool->suspended = TRUE;
-	pool->state = active;
+	pool->state = STATE_ACTIVE;
 	i = 0;
 	while (i < POOL_SIZE)
 	{

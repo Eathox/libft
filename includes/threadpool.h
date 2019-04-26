@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 13:29:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 13:50:48 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,34 @@
 # include <pthread.h>
 # include <stdatomic.h>
 
-# define POOL_SIZE	4
-
-enum	e_state
-{
-	idle,
-	active,
-	locked
-};
+# define POOL_SIZE		8
+# define STATE_IDLE		0
+# define STATE_ACTIVE	1
+# define STATE_LOCKED	2
 
 typedef struct	s_task
 {
-	void					(*fnc)();
-	char					count;
-	void					*params[5];
-	struct s_task			*next;
+	void			(*fnc)();
+	char			count;
+	void			*params[5];
+	struct s_task	*next;
 }				t_task;
 
 typedef struct	s_thread
 {
-	pthread_t				thread;
-	struct s_pool			*pool;
-	enum e_state			state;
+	pthread_t		thread;
+	struct s_pool	*pool;
+	char			state;
 }				t_thread;
 
 typedef struct	s_pool
 {
-	t_thread				*threads[POOL_SIZE];
-	t_task					*que;
-	t_task					*last;
-	_Atomic(enum e_state)	state;
-	char					terminating;
-	char					suspended;
+	t_thread		*threads[POOL_SIZE];
+	t_task			*que;
+	t_task			*last;
+	atomic_char		state;
+	char			terminating;
+	char			suspended;
 }				t_pool;
 
 int				ft_pooldone(t_pool *pool);

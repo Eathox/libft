@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/25 14:59:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 13:51:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static int	gettask(t_pool *pool, t_thread *self, t_task **task)
 {
-	enum e_state	state;
+	char	state;
 
 	if (pool->suspended)
 		return (FALSE);
-	state = atomic_exchange(&(pool->state), locked);
-	if (state == locked)
+	state = atomic_exchange(&(pool->state), STATE_LOCKED);
+	if (state == STATE_LOCKED)
 		return (FALSE);
 	*task = (t_task *)pool->que;
 	if (*task != NULL)
 	{
-		self->state = active;
+		self->state = STATE_ACTIVE;
 		pool->que = (*task)->next;
 		if (*task == pool->last)
 			pool->last = NULL;
@@ -50,7 +50,7 @@ void		*ft_threadmanager(void *param)
 		{
 			ft_taskrunfnc(task);
 			free(task);
-			self->state = idle;
+			self->state = STATE_IDLE;
 		}
 	}
 	return (NULL);
