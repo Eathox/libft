@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/16 12:19:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 17:00:38 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,14 @@ enum			e_type
 	U_CHAR_I
 };
 
+/*
+** MAYBE CHANGE FLAGS TO BITS LATER
+*/
+
 typedef	struct	s_info
 {
 	char		*buff;
-	char		flag[7]; // MAYBE CHANGE OT BITS LATER
+	char		flag[7];
 	char		type;
 	char		var_base;
 	char		iszero;
@@ -110,7 +114,7 @@ typedef long long			t_intmax;
 typedef unsigned long long	t_uintmax;
 
 void			pf_addtobuff(t_info *info, char *str, size_t len);
-char			*ft_strformat(const char *format, ...);
+char			*ft_strformat(size_t *len, const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
 int				ft_printf(const char *format, ...);
 int				pf_addstr(t_info *info, char *str);

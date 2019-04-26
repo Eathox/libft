@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 14:23:49 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/26 17:00:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,19 @@
 // FIX ALL LEAKS WHEN CREATING STRINGS
 // ADD VAR LEN POINTER
 
-static char		*freeret(t_info *info)
+static char		*freeret(t_info *info, size_t *len)
 {
 	char	*str;
 
 	str = PF_BUFF;
+	if (len != NULL)
+		*len = 0;
 	if (info != NULL)
-	 	free(info);
+		free(info);
 	return (str);
 }
 
-char			*ft_strformat(const char *format, ...)
+char			*ft_strformat(size_t *len, const char *format, ...)
 {
 	int		i;
 	t_info	*info;
@@ -46,5 +48,5 @@ char			*ft_strformat(const char *format, ...)
 		i++;
 	}
 	va_end(PF_ARGS);
-	return (freeret(info));
+	return (freeret(info, len));
 }
