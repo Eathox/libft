@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 15:47:54 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/28 02:05:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/28 02:10:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		pf_commands(t_info *info, const char *str)
 	if (len != 0 && str[len] == ']')
 	{
 		pf_addtobuff(info, "\e[", 3);
-		pf_addtobuff(info, str, len);
+		pf_addtobuff(info, (char *)str, len);
 		pf_addtobuff(info, "m", 1);
 		return (2 + len);
 	}
