@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_setcolor.c                                      :+:    :+:            */
+/*   pf_addunum.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/29 15:32:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/29 15:45:22 by pholster      ########   odam.nl         */
+/*   Created: 2019/04/12 02:16:09 by pholster       #+#    #+#                */
+/*   Updated: 2019/04/29 16:04:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	pf_setcolor(t_info *info, int color)
+void	pf_addunum(t_info *info, t_uintmax value, int len, int base)
 {
-	if (color < 0 || color > 255)
-	{
-		pf_addtobuff(info, "\e[39m\e[K", 9);
+	char	c;
+	char	*base_str;
+
+	if (len == 0)
 		return ;
-	}
-	pf_addtobuff(info, "\e[38;5;", 8);
-	pf_addnum(info, color);
-	pf_addtobuff(info, "m", 1);
+	if (PF_TYPE == 'X')
+		base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	else
+		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
+	if (len > 1)
+		pf_addunum(info, value / base, len - 1, base);
+	c = base_str[(value % base)];
+	pf_addtobuff(info, &c, 1);
 }

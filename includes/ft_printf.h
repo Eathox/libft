@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 17:53:44 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/29 16:04:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,13 +115,13 @@ typedef	struct	s_info
 typedef long long			t_intmax;
 typedef unsigned long long	t_uintmax;
 
-void			pf_addtobuff(t_info *info, char *str, size_t len);
 char			*ft_strformat(size_t *len, const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
 int				ft_printf(const char *format, ...);
 int				pf_addstr(t_info *info, char *str);
 int				pf_commands(t_info *info, const char *str);
 int				pf_distribute(t_info *info, const char *start);
+int				pf_formatcolor(t_info *info, const char *start);
 int				pf_getflag(t_info *info, const char *str);
 int				pf_getinfo(t_info *info, const char *str);
 int				pf_getlength(t_info *info, const char *str);
@@ -133,13 +133,14 @@ int				pf_issignint(t_info *info);
 int				pf_isstr(t_info *info);
 int				pf_isunsignint(t_info *info);
 int				pf_iszeropad(t_info *info);
-int				pf_setcolor(t_info *info, const char *start);
 t_info			*pf_infonew(void);
 t_intmax		pf_overflowsigned(t_info *info);
 t_uintmax		pf_overflowunsigned(t_info *info);
 void			pf_addchar(t_info *info, char c);
 void			pf_addnstr(t_info *info, char *str, size_t n);
 void			pf_addnum(t_info *info, t_intmax value);
+void			pf_addtobuff(t_info *info, char *str, size_t len);
+void			pf_addunum(t_info *info, t_uintmax value, int len, int base);
 void			pf_addwchar(t_info *info, t_wchar c);
 void			pf_addwcharstr(t_info *info, t_wchar *str, size_t n);
 void			pf_format(t_info *info);
@@ -151,6 +152,10 @@ void			pf_formatpad(t_info *info);
 void			pf_formatstr(t_info *info);
 void			pf_formatunum(t_info *info);
 void			pf_infosetdefualt(t_info *info);
+void			pf_setcolor(t_info *info, int color);
+void			pf_setcolorbg(t_info *info, int color);
+void			pf_setrgbcolor(t_info *info, int r, int g, int b);
+void			pf_setrgbcolorbg(t_info *info, int r, int g, int b);
 void			pf_setvar_base(t_info *info);
 void			pf_setvar_type(t_info *info);
 

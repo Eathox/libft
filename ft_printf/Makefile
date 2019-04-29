@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/24 12:17:55 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/29 16:02:21 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@ OBJ_NAME = objects
 
 SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 	isunsignint issignint setvar_type setvar_base infonew format formatnum \
-	formatunum overflowsigned overflowunsigned addnstr addtobuff \
-	formatchar setcolor commands addwchar formatstr addwcharstr getprecision \
+	formatunum overflowsigned overflowunsigned addnstr addtobuff addnum \
+	formatchar formatcolor addwchar formatstr addwcharstr getprecision \
 	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
-	distribute addnum
+	distribute setrgbcolorbg setrgbcolor commands setcolorbg setcolor addunum
 
 SRCS := $(sort ft_strformat.c ft_dprintf.c ft_printf.c $(SRCS:%=pf_%.c))
 OBJS = $(SRCS:.c=.o)
