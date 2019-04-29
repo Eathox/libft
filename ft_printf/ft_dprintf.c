@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 17:50:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/29 12:11:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int				ft_dprintf(int fd, const char *format, ...)
 	t_info	*info;
 
 	i = 0;
+	if (fd < 0)
+		return (-1);
 	info = pf_infonew();
 	if (info == NULL)
 		return (-1);
