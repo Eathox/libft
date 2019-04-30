@@ -36,7 +36,7 @@ void		ft_pooldelete(t_pool **pool)
 	if (pool == NULL || *pool == NULL)
 		return ;
 	(*pool)->terminating = TRUE;
-	while (i < POOL_SIZE && (*pool)->threads[i] != NULL)
+	while (i < (*pool)->size && (*pool)->threads[i] != NULL)
 	{
 		thread = (*pool)->threads[i];
 		pthread_join(thread->thread, NULL);

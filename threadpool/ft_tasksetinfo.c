@@ -18,7 +18,7 @@ t_task	*ft_tasksetinfo(t_task *task, void (*f)(), int count, va_list params)
 
 	i = 0;
 	task->fnc = f;
-	task->count = count;
+	task->param_count = count;
 	task->next = NULL;
 	ft_bzero(task->params, sizeof(task->params));
 	while (i < count)

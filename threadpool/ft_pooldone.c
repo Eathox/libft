@@ -19,7 +19,7 @@ int		ft_pooldone(t_pool *pool)
 	i = 0;
 	if (pool == NULL)
 		return (TRUE);
-	while (i < POOL_SIZE)
+	while (i < pool->size)
 	{
 		if ((pool->threads[i])->state == STATE_ACTIVE)
 			return (FALSE);

@@ -12,6 +12,12 @@
 
 #include "../includes/threadpool.h"
 
+static t_pool	*freeret(t_pool **pool)
+{
+	ft_pooldelete(pool);
+	return (NULL);
+}
+
 static t_thread	*threadcreate(t_pool *pool)
 {
 	int			ret;
@@ -44,16 +50,14 @@ t_pool			*ft_poolcreate(void)
 	pool->que = NULL;
 	pool->terminating = FALSE;
 	pool->suspended = TRUE;
+	pool->size = POOL_SIZE;
 	pool->state = STATE_ACTIVE;
 	i = 0;
-	while (i < POOL_SIZE)
+	while (i < pool->size)
 	{
 		pool->threads[i] = threadcreate(pool);
 		if (pool->threads[i] == NULL)
-		{
-			ft_pooldelete(&pool);
-			return (NULL);
-		}
+			freeret(&pool);
 		i++;
 	}
 	pool->suspended = FALSE;

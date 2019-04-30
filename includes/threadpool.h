@@ -16,7 +16,7 @@
 # include <pthread.h>
 # include <stdatomic.h>
 
-# define POOL_SIZE		8
+# define POOL_SIZE		4
 # define STATE_IDLE		0
 # define STATE_ACTIVE	1
 # define STATE_LOCKED	2
@@ -24,7 +24,7 @@
 typedef struct	s_task
 {
 	void			(*fnc)();
-	char			count;
+	char			param_count;
 	void			*params[5];
 	struct s_task	*next;
 }				t_task;
@@ -44,6 +44,7 @@ typedef struct	s_pool
 	atomic_char		state;
 	char			terminating;
 	char			suspended;
+	char			size;
 }				t_pool;
 
 int				ft_pooldone(t_pool *pool);
