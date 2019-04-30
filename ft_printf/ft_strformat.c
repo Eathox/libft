@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/30 17:15:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 17:20:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static char		*freeret(t_info *info)
 	t_list	*lst;
 	char	*str;
 
-	if (PF_BUFF_LEN != 0 && PF_ADDED == PF_BUFF_LEN)
+	if (PF_BUFF_LEN != 0 && PF_BUFF_LEN != PF_ADDED)
 	{
 		lst = ft_lstnew(NULL, 0);
 		if (lst == NULL)
@@ -47,7 +47,7 @@ static char		*freeret(t_info *info)
 		lst->content_size = PF_BUFF_LEN;
 		ft_lstaddbck(&PF_BUFF_LIST, lst);
 	}
-	if (PF_ADDED == PF_BUFF_LEN)
+	if (PF_BUFF_LEN == PF_ADDED)
 		str = ft_memdup(PF_BUFF, PF_ADDED);
 	else
 		str = joinlst(info);
