@@ -73,17 +73,17 @@ $(OBJ_NAME):
 	@gcc $(CCFLAGS) -c $(SRCS)
 
 $(PRINTF):
-	@$(MAKE) -C $(PRINTFPATH)
+	@$(MAKE) -s -C $(PRINTFPATH)
 	@cp $(PRINTF) $(NAME)
 
 clean:
 	@echo "[ - ] cleaning libft";
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
-	@$(MAKE) -C $(PRINTFPATH) clean
+	@$(MAKE) -s -C $(PRINTFPATH) clean
 
 fclean: clean
 	@echo "[ - ] fcleaning libft";
 	@rm -f $(NAME)
-	@$(MAKE) -C $(PRINTFPATH) fclean
+	@$(MAKE) -s -C $(PRINTFPATH) fclean
 
 re: fclean $(NAME)
