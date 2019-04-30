@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 17:53:02 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 18:37:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_memcmp(const void *str1, const void *str2, size_t len)
 {
+	size_t				i;
 	unsigned const char	*temp_str1;
 	unsigned const char	*temp_str2;
-	size_t				i;
 
 	i = 0;
 	temp_str1 = str1;

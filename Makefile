@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/30 17:15:27 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/30 18:31:45 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	putdouble_fd putnutf8str_fd pututf8_fd pututf8str termcommand_fd \
 	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
 	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
-	print_memory putnchar putnchar_fd
+	print_memory putnchar putnchar_fd pututf8str_fd
 SRCS := $(SRCS:%=ft_%.c)
 
 THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin \

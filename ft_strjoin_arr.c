@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 23:56:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 19:02:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,17 @@ static char		*joinstrs(char *str, const char **arr)
 {
 	size_t	i;
 	size_t	j;
-	size_t	k;
+	size_t	len;
 
 	i = 0;
 	j = 0;
-	k = 0;
+	len = 0;
 	while (arr[j] != NULL)
 	{
-		if (arr[j][k] == '\0')
-		{
-			k = 0;
-			j++;
-			continue;
-		}
-		str[i] = arr[j][k];
-		i++;
-		k++;
+		len = ft_strlen(arr[j]);
+		ft_memcpy(&str[i], arr[j], len);
+		i += len;
+		j++;
 	}
 	return (str);
 }

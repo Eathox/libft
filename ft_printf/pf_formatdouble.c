@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 17:48:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 18:32:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	setdecimals(long double value, char *decimals, size_t n)
 	}
 }
 
-void		adddouble(t_info *info, long double value, size_t n)
+static void	adddouble(t_info *info, long double value, size_t n)
 {
 	char		*decimals;
 	long long	num;
@@ -63,7 +63,7 @@ void		adddouble(t_info *info, long double value, size_t n)
 	ft_strdel(&decimals);
 }
 
-void		formatdouble(t_info *info)
+static void	formatdouble(t_info *info)
 {
 	double	value;
 
@@ -75,7 +75,7 @@ void		formatdouble(t_info *info)
 	adddouble(info, value, PF_PRECISION);
 }
 
-void		formatldouble(t_info *info)
+static void	formatldouble(t_info *info)
 {
 	long double	value;
 

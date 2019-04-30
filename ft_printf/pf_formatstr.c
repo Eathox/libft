@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 17:22:19 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 18:32:48 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	formatstr(t_info *info)
+static void	formatstr(t_info *info)
 {
 	char	*str;
 	int		n;
@@ -29,7 +29,7 @@ void	formatstr(t_info *info)
 	pf_addnstr(info, str, PF_VAR_LEN);
 }
 
-void	formatwchar(t_info *info)
+static void	formatwchar(t_info *info)
 {
 	t_wchar	*str;
 	int		n;

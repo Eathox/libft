@@ -6,19 +6,19 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:28:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 17:53:50 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 18:33:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_info	*freeret(t_info **info)
+static t_info	*freeret(t_info **info)
 {
 	ft_memdel((void **)info);
 	return (NULL);
 }
 
-t_info	*pf_infonew(void)
+t_info			*pf_infonew(void)
 {
 	t_info	*info;
 
