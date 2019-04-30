@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/30 16:50:55 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/30 17:15:27 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,17 +73,17 @@ $(OBJ_NAME):
 	@gcc $(CCFLAGS) -c $(SRCS)
 
 $(PRINTF):
-	@make -C $(PRINTFPATH)
+	@$(MAKE) -C $(PRINTFPATH)
 	@cp $(PRINTF) $(NAME)
 
 clean:
 	@echo "[ - ] cleaning libft";
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
-	@make -C $(PRINTFPATH) clean
+	@$(MAKE) -C $(PRINTFPATH) clean
 
 fclean: clean
 	@echo "[ - ] fcleaning libft";
 	@rm -f $(NAME)
-	@make -C $(PRINTFPATH) fclean
+	@$(MAKE) -C $(PRINTFPATH) fclean
 
 re: fclean $(NAME)
