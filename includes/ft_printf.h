@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/29 16:04:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 16:49:11 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,8 @@ typedef	struct	s_info
 typedef long long			t_intmax;
 typedef unsigned long long	t_uintmax;
 
-char			*ft_strformat(size_t *len, const char *format, ...);
+char			*ft_strformat(const char *format, ...);
+char			*ft_strformat_len(size_t *len, const char *format, ...);
 int				ft_dprintf(int fd, const char *format, ...);
 int				ft_printf(const char *format, ...);
 int				pf_addstr(t_info *info, char *str);

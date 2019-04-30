@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strformat.c                                     :+:    :+:            */
+/*   ft_strformat_len.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/30 16:48:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/04/30 16:48:12 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char		*freeret(t_info *info)
 	return (str);
 }
 
-char			*ft_strformat(const char *format, ...)
+char			*ft_strformat_len(size_t *len, const char *format, ...)
 {
 	int		i;
 	t_info	*info;
@@ -74,5 +74,7 @@ char			*ft_strformat(const char *format, ...)
 		i++;
 	}
 	va_end(PF_ARGS);
+	if (len != NULL)
+		*len = PF_ADDED;
 	return (freeret(info));
 }

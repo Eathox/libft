@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/04/29 17:19:41 by pholster      ########   odam.nl          #
+#    Updated: 2019/04/30 16:50:55 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,12 +64,11 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME) $(PRINTF)
-	@echo "creating and indexing libft"
+	@echo "[ + ] creating and indexing libft"
 	@ar rcs $(NAME) $(OBJS)
 
 $(OBJ_NAME):
-	@echo "compiling libft"
-	@echo $(SRCS)
+	@echo "[ + ] compiling libft"
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)
 
@@ -77,17 +76,13 @@ $(PRINTF):
 	@make -C $(PRINTFPATH)
 	@cp $(PRINTF) $(NAME)
 
-test:
-	@make re && make clean
-	@gcc $(CCFLAGS) main.c libft.a
-
 clean:
-	@echo "cleaning libft";
+	@echo "[ - ] cleaning libft";
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
 	@make -C $(PRINTFPATH) clean
 
 fclean: clean
-	@echo "fcleaning libft";
+	@echo "[ - ] fcleaning libft";
 	@rm -f $(NAME)
 	@make -C $(PRINTFPATH) fclean
 
