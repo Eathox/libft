@@ -10,6 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
+COLOR_DEFUALT = $(shell echo '\e[39m')
+COLOR_BLACK = $(shell echo '\e[38;5;0m')
+COLOR_RED = $(shell echo '\e[38;5;1m')
+COLOR_GREEN = $(shell echo '\e[38;5;2m')
+COLOR_YELLOW = $(shell echo '\e[38;5;3m')
+COLOR_BLUE = $(shell echo '\e[38;5;4m')
+COLOR_MAGENTA = $(shell echo '\e[38;5;5m')
+COLOR_CYAN = $(shell echo '\e[38;5;6m')
+COLOR_WHITE = $(shell echo '\e[38;5;7m')
+COLOR_BRIGHT_BLACK = $(shell echo '\e[38;5;8m')
+COLOR_BRIGHT_RED = $(shell echo '\e[38;5;9m')
+COLOR_BRIGHT_GREEN = $(shell echo '\e[38;5;10m')
+COLOR_BRIGHT_YELLOW = $(shell echo '\e[38;5;11m')
+COLOR_BRIGHT_BLUE = $(shell echo '\e[38;5;12m')
+COLOR_BRIGHT_MAGENTA = $(shell echo '\e[38;5;13m')
+COLOR_BRIGHT_CYAN = $(shell echo '\e[38;5;14m')
+COLOR_BRIGHT_WHITE = $(shell echo '\e[38;5;15m')
+PRINT_MIN = $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
+PRINT_PLUS = $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
+
 PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
 
@@ -48,7 +68,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	putdouble_fd putnutf8str_fd pututf8_fd pututf8str termcommand_fd \
 	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
 	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
-	print_memory putnchar putnchar_fd pututf8str_fd memrchr
+	print_memory putnchar putnchar_fd pututf8str_fd memrchr strarrdup
 SRCS := $(SRCS:%=ft_%.c)
 
 THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin \
@@ -64,11 +84,11 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 all: $(NAME)
 
 $(NAME): $(OBJ_NAME) $(PRINTF)
-	@echo "[ + ] creating and indexing libft"
+	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
 	@ar rcs $(NAME) $(OBJS)
 
 $(OBJ_NAME):
-	@echo "[ + ] compiling libft"
+	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
 	@touch $(OBJ_NAME)
 	@gcc $(CCFLAGS) -c $(SRCS)
 
@@ -77,12 +97,12 @@ $(PRINTF):
 	@cp $(PRINTF) $(NAME)
 
 clean:
-	@echo "[ - ] cleaning libft";
+	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
 	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 
 fclean: clean
-	@echo "[ - ] fcleaning libft";
+	@printf '$(PRINT_MIN) fcleaning $(NAME)\n'
 	@rm -f $(NAME)
 	@$(MAKE) -s -C $(PRINTFPATH) fclean
 

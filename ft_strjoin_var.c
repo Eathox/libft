@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 12:56:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char			*ft_strjoin_var(int count, ...)
+char			*ft_strjoin_var(size_t count, ...)
 {
 	size_t		i;
 	char		*str;
@@ -24,7 +24,7 @@ char			*ft_strjoin_var(int count, ...)
 	if (arr == NULL)
 		return (NULL);
 	va_start(args, count);
-	while (i < (size_t)count)
+	while (i < count)
 	{
 		arr[i] = va_arg(args, const char *);
 		i++;

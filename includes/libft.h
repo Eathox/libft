@@ -22,8 +22,9 @@
 # include "threadpool.h"
 
 char		**ft_lsttostrarr(t_list *lst);
-char		**ft_strarrcpy_var(char **dst, int count, ...);
+char		**ft_strarrcpy_var(char **dst, size_t count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
+char		**ft_strarrdup_var(size_t count, ...);
 char		**ft_strarrdup(const char **arr);
 char		**ft_strarrnew(size_t size);
 char		**ft_strdsplit(const char *str, const char *dlm);
@@ -41,7 +42,7 @@ char		*ft_strcpy(char *dst, const char *src);
 char		*ft_strdtrim(const char *str, const char *dlm);
 char		*ft_strdup(const char *str);
 char		*ft_strjoin_arr(const char **arr);
-char		*ft_strjoin_var(int count, ...);
+char		*ft_strjoin_var(size_t count, ...);
 char		*ft_strjoin(const char *str1, const char *str2);
 char		*ft_strmap(const char *str, char (*f)(char));
 char		*ft_strmapi(const char *str, char (*f)(unsigned int, char));
