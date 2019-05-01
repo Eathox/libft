@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 16:13:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/02 12:10:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 01:33:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_colorlcode(const char *str)
 {
 	char	**ret;
 	char	**colors;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	colors = ft_strarrnew(16);
@@ -31,7 +31,7 @@ int		ft_colorlcode(const char *str)
 		if (ft_strnequ_nocase(str, colors[i], ft_strlen(colors[i])))
 		{
 			ft_strarrdel(&colors);
-			return (i);
+			return ((int)i);
 		}
 		i++;
 	}

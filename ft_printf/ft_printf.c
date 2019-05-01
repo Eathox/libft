@@ -29,6 +29,8 @@ int				ft_printf(const char *format, ...)
 	t_info	*info;
 
 	i = 0;
+	if (format == NULL)
+		return (-1);
 	info = pf_infonew();
 	if (info == NULL)
 		return (-1);

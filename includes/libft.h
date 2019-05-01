@@ -151,6 +151,7 @@ void		*ft_memchr(const void *str, int c, size_t len);
 void		*ft_memcpy(void *dst, const void *src, size_t len);
 void		*ft_memdup(const void *src, size_t len);
 void		*ft_memmove(void *dst, const void *src, size_t len);
+void		*ft_memrchr(const void *str, int c, size_t len);
 void		*ft_memrcpy(void *dst, const void *src, size_t len);
 void		*ft_memset(void *str, int c, size_t len);
 void		ft_bzero(void *str, size_t len);

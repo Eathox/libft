@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:49 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 01:44:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		*ft_lsttointarr(t_list *lst)
 	len = ft_lstlen(lst);
 	if (len == 0)
 		return (NULL);
-	arr = (int *)ft_memalloc(sizeof(int) * (len + 1));
+	arr = (int *)ft_memalloc(sizeof(int) * len);
 	if (arr == NULL)
 		return (NULL);
 	while (lst != NULL)
@@ -33,6 +33,5 @@ int		*ft_lsttointarr(t_list *lst)
 		lst = lst->next;
 		i++;
 	}
-	arr[i] = 0;
 	return (arr);
 }

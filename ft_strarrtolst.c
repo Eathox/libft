@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:48:15 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 01:57:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static t_list	*freeret(t_list **lst)
 
 t_list			*ft_strarrtolst(const char **arr)
 {
+	size_t	i;
 	t_list	*newlst;
 	t_list	*prvlst;
 	t_list	*returnlst;
-	size_t	i;
 
 	i = 0;
 	if (arr == NULL)

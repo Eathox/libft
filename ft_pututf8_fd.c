@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:09:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 01:53:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_pututf8_fd(t_wchar c, int fd)
 {
 	t_wchar	bit;
-	size_t	shift;
 	size_t	i;
+	size_t	shift;
 	size_t	len;
 
 	i = 1;

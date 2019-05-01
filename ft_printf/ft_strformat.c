@@ -63,6 +63,8 @@ char			*ft_strformat(const char *format, ...)
 	t_info	*info;
 
 	i = 0;
+	if (format == NULL)
+		return (NULL);
 	info = pf_infonew();
 	if (info == NULL)
 		return (NULL);

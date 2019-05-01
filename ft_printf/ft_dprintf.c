@@ -29,7 +29,7 @@ int				ft_dprintf(int fd, const char *format, ...)
 	t_info	*info;
 
 	i = 0;
-	if (fd < 0)
+	if (format == NULL || fd < 0)
 		return (-1);
 	info = pf_infonew();
 	if (info == NULL)

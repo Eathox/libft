@@ -48,7 +48,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	putdouble_fd putnutf8str_fd pututf8_fd pututf8str termcommand_fd \
 	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
 	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
-	print_memory putnchar putnchar_fd pututf8str_fd
+	print_memory putnchar putnchar_fd pututf8str_fd memrchr
 SRCS := $(SRCS:%=ft_%.c)
 
 THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin \

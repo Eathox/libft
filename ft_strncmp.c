@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 02:30:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,8 @@
 
 int		ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	size_t			i;
-	unsigned char	temp_a;
-	unsigned char	temp_b;
+	size_t	len;
 
-	i = 0;
-	while (i < n)
-	{
-		temp_a = str1[i];
-		temp_b = str2[i];
-		if (temp_a != temp_b)
-			return (temp_a - temp_b);
-		if (temp_a == '\0')
-			return (0);
-		i++;
-	}
-	return (0);
+	len = ft_strnlen(str1, n);
+	return (ft_memcmp(str1, str2, len + (len != n)));
 }
