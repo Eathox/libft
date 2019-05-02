@@ -84,6 +84,7 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 all: $(NAME)
 
 $(NAME): $(PRINTF) $(SRCS)
+	@cp $(PRINTF) $(NAME)
 	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
 	@gcc $(CCFLAGS) -c $(SRCS)
 	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
@@ -91,7 +92,6 @@ $(NAME): $(PRINTF) $(SRCS)
 
 $(PRINTF): FORCE
 	@$(MAKE) -s -C $(PRINTFPATH)
-	@cp $(PRINTF) $(NAME)
 
 clean:
 	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
