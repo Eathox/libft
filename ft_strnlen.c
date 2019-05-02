@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/02 16:20:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 16:35:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static size_t	castmagic(long long *str, long long himagic, long long lomagic,
 	size_t	len;
 
 	len = 0;
-	while (n >= 8)
+	while (TRUE)
 	{
 		if (((str[len] - lomagic) & (~str[len] & himagic)) != 0)
 		{
@@ -41,7 +41,8 @@ static size_t	castmagic(long long *str, long long himagic, long long lomagic,
 				i++;
 			}
 		}
-		n -= 8;
+		if ((len * 8) >= n)
+			return (n);
 		len++;
 	}
 	return (len * 8);
@@ -60,7 +61,5 @@ size_t			ft_strnlen(const char *str, size_t n)
 		return (len);
 	preparemagic(&himagic, &lomagic);
 	len += castmagic((long long *)&str[len], himagic, lomagic, n - len);
-	while (len < n && str[len] != '\0')
-		len++;
 	return (len);
 }

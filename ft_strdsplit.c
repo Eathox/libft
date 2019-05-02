@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:22:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/27 14:11:49 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 16:48:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ static char	**freeret(char ***arr)
 {
 	ft_strarrdel(arr);
 	return (NULL);
+}
+
+static void	addword(char **arr, char *str, size_t *word)
+{
+	arr[*word] = str;
+	*word += 1;
 }
 
 char		**ft_strdsplit(const char *str, const char *dlm)
@@ -30,19 +36,19 @@ char		**ft_strdsplit(const char *str, const char *dlm)
 	word = 0;
 	arr = ft_strarrnew(ft_wrddcount(str, dlm));
 	if (arr == NULL || str == NULL || dlm == NULL)
-		return (arr);
+		return (freeret(&arr));
 	ft_chrsetbytes(bytes, (char *)dlm);
 	while (str[i] != '\0')
 	{
+		if (ft_chrinbytes(bytes, str[i]) == FALSE)
+		{
+			len = ft_strdlen(&str[i], dlm);
+			addword(arr, ft_strndup(&str[i], len), &word);
+			if (arr[word - 1] == NULL)
+				return (freeret(&arr));
+			i += (len - 1);
+		}
 		i++;
-		if (ft_chrinbytes(bytes, str[i - 1]))
-			continue ;
-		len = ft_strdlen(&str[i - 1], dlm);
-		arr[word] = ft_strndup(&str[i - 1], len);
-		if (arr[word] == NULL)
-			return (freeret(&arr));
-		i += (len - 1);
-		word++;
 	}
 	return (arr);
 }
