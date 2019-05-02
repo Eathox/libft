@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:53:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/25 14:37:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 12:31:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void		ft_pooldelete(t_pool **pool)
 		free(thread);
 		i++;
 	}
+	ft_memdel((void **)&((*pool)->threads));
 	delque(*pool);
 	ft_memdel((void **)pool);
 }

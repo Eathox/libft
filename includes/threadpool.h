@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 13:50:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 12:27:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <pthread.h>
 # include <stdatomic.h>
 
-# define POOL_SIZE		4
 # define STATE_IDLE		0
 # define STATE_ACTIVE	1
 # define STATE_LOCKED	2
@@ -38,7 +37,7 @@ typedef struct	s_thread
 
 typedef struct	s_pool
 {
-	t_thread		*threads[POOL_SIZE];
+	t_thread		**threads;
 	t_task			*que;
 	t_task			*last;
 	atomic_char		state;
@@ -51,7 +50,7 @@ int				ft_pooldone(t_pool *pool);
 int				ft_poolque(t_pool *pool, void (*f)(), int count, ...);
 int				ft_taskrunfnc(t_task *task);
 int				ft_threadcreate(pthread_t *thread, void (*f)(), int count, ...);
-t_pool			*ft_poolcreate(void);
+t_pool			*ft_poolcreate(int size);
 void			*ft_threadmanager(void *param);
 void			ft_pooldelete(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);

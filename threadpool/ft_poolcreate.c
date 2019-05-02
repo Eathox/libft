@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 13:52:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 12:31:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,30 @@ static t_thread	*threadcreate(t_pool *pool)
 	return (thread);
 }
 
-t_pool			*ft_poolcreate(void)
+static void		setdefualt(t_pool *pool, int size)
+{
+	pool->que = NULL;
+	pool->terminating = FALSE;
+	pool->size = size;
+	pool->state = STATE_ACTIVE;
+}
+
+t_pool			*ft_poolcreate(int size)
 {
 	int			i;
 	t_pool		*pool;
 
-	if (POOL_SIZE <= 0)
+	i = 0;
+	if (size <= 0)
 		return (NULL);
 	pool = (t_pool *)ft_memalloc(sizeof(t_pool));
 	if (pool == NULL)
 		return (NULL);
-	pool->que = NULL;
-	pool->terminating = FALSE;
+	pool->threads = (t_thread **)ft_memalloc(sizeof(t_thread *) * size);
+	if (pool->threads == NULL)
+		return (freeret(&pool));
+	setdefualt(pool, size);
 	pool->suspended = TRUE;
-	pool->size = POOL_SIZE;
-	pool->state = STATE_ACTIVE;
-	i = 0;
 	while (i < pool->size)
 	{
 		pool->threads[i] = threadcreate(pool);
