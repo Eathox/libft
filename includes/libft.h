@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 13:37:40 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 19:22:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char		**ft_strarrdup_var(size_t count, ...);
 char		**ft_strarrdup(const char **arr);
 char		**ft_strarrnew(size_t size);
 char		**ft_strdsplit(const char *str, const char *dlm);
-char		**ft_strfldnew(int x, int y, char c);
+char		**ft_strfldnew(size_t x, size_t y, char c);
 char		**ft_strsplit(const char *str, char c);
 char		*ft_chrtostr(char c);
 char		*ft_colorstr(int color);
@@ -97,7 +97,6 @@ int			ft_strcmp_nocase(const char *str1, const char *str2);
 int			ft_strcmp(const char *str1, const char *str2);
 int			ft_strequ_nocase(const char *str1, const char *str2);
 int			ft_strequ(const char *str1, const char *str2);
-int			ft_strfldvalid(const char **arr, int x, int y, const char *dlm);
 int			ft_strin(const char **arr, const char *str);
 int			ft_strmatch(const char *str, const char *needle);
 int			ft_strncmp_nocase(const char *str1, const char *str2, size_t n);
@@ -241,6 +240,8 @@ void		ft_termsetrgbcolor_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
+int			ft_strfldvalid(const char **arr, size_t x, size_t y,
+				const char *dlm);
 void		ft_putunbr_cbase_fd(unsigned long long value, int base, int up,
 				int fd);
 

@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 15:28:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_strfldvalid(const char **arr, int x, int y, const char *dlm)
+int		ft_strfldvalid(const char **arr, size_t x, size_t y, const char *dlm)
 {
 	long long	bytes[2];
 	size_t		i;
@@ -21,15 +21,15 @@ int		ft_strfldvalid(const char **arr, int x, int y, const char *dlm)
 	i = 0;
 	if (arr == NULL || dlm == NULL || x <= 0 || y <= 0)
 		return (FALSE);
-	if (ft_strarrnlen(arr, (size_t)y + 1) != (size_t)y)
+	if (ft_strarrnlen(arr, y + 1) != y)
 		return (FALSE);
 	ft_chrsetbytes(bytes, (char *)dlm);
-	while (i < (size_t)y)
+	while (i < y)
 	{
 		j = 0;
-		if (ft_strnlen(arr[i], (size_t)x + 1) != (size_t)x)
+		if (ft_strnlen(arr[i], x + 1) != x)
 			return (FALSE);
-		while (j < (size_t)x)
+		while (j < x)
 		{
 			if (ft_chrinbytes(bytes, arr[i][j]) == FALSE)
 				return (FALSE);

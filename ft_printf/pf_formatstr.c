@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/30 18:32:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/01 15:52:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	formatwchar(t_info *info)
 	pf_addwcharstr(info, str, PF_VAR_LEN);
 }
 
-void	pf_formatstr(t_info *info)
+void		pf_formatstr(t_info *info)
 {
 	if (PF_VAR_TYPE == STR)
 		formatstr(info);
