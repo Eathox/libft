@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/03 00:31:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/03 00:33:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include "ft_printf.h"
 # include "threadpool.h"
 
-void		ft_strarrtolower(char **arr);
-void		ft_strarrtoupper(char **arr);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
@@ -57,9 +55,9 @@ char		*ft_strrchr(const char *str, int c);
 char		*ft_strreplace(char **str1, const char *str2);
 char		*ft_strstr(const char *str, const char *needle);
 char		*ft_strsub(const char *str, unsigned int start, size_t len);
+char		*ft_strtolower(char *str);
+char		*ft_strtoupper(char *str);
 char		*ft_strtrim(const char *str);
-char		*ft_tolowerstr(char *str);
-char		*ft_toupperstr(char *str);
 int			*ft_lsttointarr(t_list *lst);
 int			ft_atoi_base(const char *str, int base);
 int			ft_atoi(const char *str);
@@ -220,6 +218,8 @@ void		ft_strarrnsortrev(char **arr, int (*f)(char *, char *), size_t n);
 void		ft_strarrrev(char **arr);
 void		ft_strarrsort(char **arr, int (*f)(char *, char *));
 void		ft_strarrsortrev(char **arr, int (*f)(char *, char *));
+void		ft_strarrtolower(char **arr);
+void		ft_strarrtoupper(char **arr);
 void		ft_strclr(char *str);
 void		ft_strdel(char **as);
 void		ft_striter(const char *str, void (*f)(char *));

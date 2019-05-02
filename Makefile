@@ -42,8 +42,8 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	itoa pow atoi strncmp strcpy strcat strequ strnequ strncat strlcat strchr \
 	strrchr strstr strnstr strsub strjoin strtrim strsplit memset bzero memcpy \
 	memdel memalloc memccpy memmove memcmp strncpy lstnew lstdelone lstdel \
-	lstadd lstiter lstmap memchr isdigit count_if foreach puterror toupperstr \
-	tolowerstr putline chrin chrnin intin strin strnin putstrarr putintarr \
+	lstadd lstiter lstmap memchr isdigit count_if foreach puterror strtoupper \
+	strtolower putline chrin chrnin intin strin strnin putstrarr putintarr \
 	strndup strdlen wrddcount chrtostr lstaddbck lstdelmem lsttostrarr \
 	strarrtolst lstlen strmatch strrev lstdup lstdupone putstrlst putbool \
 	intarrtolst putintlst lsttointarr min max constrain abs strreplace \
