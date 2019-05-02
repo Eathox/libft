@@ -89,7 +89,7 @@ $(NAME): $(PRINTF) $(SRCS)
 	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
 	@ar rcs $(NAME) $(OBJS)
 
-$(PRINTF):
+$(PRINTF): FORCE
 	@$(MAKE) -s -C $(PRINTFPATH)
 	@cp $(PRINTF) $(NAME)
 
@@ -104,3 +104,5 @@ fclean: clean
 	@$(MAKE) -s -C $(PRINTFPATH) fclean
 
 re: fclean $(NAME)
+
+FORCE: ;
