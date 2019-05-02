@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/03 00:33:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/03 01:44:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,14 @@ int			ft_strcmp(const char *str1, const char *str2);
 int			ft_strequ_nocase(const char *str1, const char *str2);
 int			ft_strequ(const char *str1, const char *str2);
 int			ft_strin(const char **arr, const char *str);
+int			ft_strindex(const char **arr, const char *str);
 int			ft_strmatch(const char *str, const char *needle);
 int			ft_strncmp_nocase(const char *str1, const char *str2, size_t n);
 int			ft_strncmp(const char *str1, const char *str2, size_t n);
 int			ft_strnequ_nocase(const char *str1, const char *str2, size_t n);
 int			ft_strnequ(const char *str1, const char *str2, size_t n);
 int			ft_strnin(const char **arr, const char *str, size_t n);
+int			ft_strnindex(const char **arr, const char *str, size_t n);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 int			ft_uintlen_base(unsigned int value, int base);
