@@ -19,7 +19,7 @@ void	ft_strarrtoupper(char **arr)
 	i = 0;
 	while (arr[i] != NULL)
 	{
-		ft_toupperstr(arr[i]);
+		ft_strtoupper(arr[i]);
 		i++;
 	}
 }

@@ -19,7 +19,7 @@ void	ft_strarrtolower(char **arr)
 	i = 0;
 	while (arr[i] != NULL)
 	{
-		ft_tolowerstr(arr[i]);
+		ft_strtolower(arr[i]);
 		i++;
 	}
 }
