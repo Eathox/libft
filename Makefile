@@ -35,7 +35,6 @@ PRINTF = $(PRINTFPATH)libftprintf.a
 
 INCLUDES = ./includes/
 NAME = libft.a
-OBJ_NAME = objects
 
 SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	isascii isprint toupper tolower putendl putchar_fd putstr_fd putendl_fd \
@@ -83,14 +82,11 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(OBJ_NAME) $(PRINTF)
+$(NAME): $(PRINTF)
+	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
+	@gcc $(CCFLAGS) -c $(SRCS)
 	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
 	@ar rcs $(NAME) $(OBJS)
-
-$(OBJ_NAME):
-	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
-	@touch $(OBJ_NAME)
-	@gcc $(CCFLAGS) -c $(SRCS)
 
 $(PRINTF):
 	@$(MAKE) -s -C $(PRINTFPATH)
@@ -98,7 +94,7 @@ $(PRINTF):
 
 clean:
 	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
-	@rm -f $(OBJ_NAME) $(OBJS) $(SRCS:.c=.c~)
+	@rm -f $(OBJS) $(SRCS:.c=.c~)
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 
 fclean: clean

@@ -32,7 +32,6 @@ PRINT_PLUS = $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 
 INCLUDES = ../includes/
 NAME = libftprintf.a
-OBJ_NAME = objects
 
 SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 	isunsignint issignint setvar_type setvar_base infonew format formatnum \
@@ -49,7 +48,7 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(OBJS)
 	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
 	@gcc $(CCFLAGS) -c $(SRCS)
 	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
