@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 23:44:22 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 19:23:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int		gnl_str_merge(char **str1, char *str2)
 static int		gnl_read(char **line, char *buff, t_list *lst, const char *dlm)
 {
 	int		red;
-	size_t	newl;
+	int		newl;
 
 	newl = ft_chrdindex(lst->STR, dlm);
 	while (newl == -1)
