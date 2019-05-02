@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/02 19:22:57 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/03 00:31:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "ft_printf.h"
 # include "threadpool.h"
 
+void		ft_strarrtolower(char **arr);
+void		ft_strarrtoupper(char **arr);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
