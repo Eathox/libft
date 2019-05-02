@@ -59,7 +59,7 @@ static int		gnl_str_merge(char **str1, char *str2)
 static int		gnl_read(char **line, char *buff, t_list *lst, const char *dlm)
 {
 	int		red;
-	int		newl;
+	size_t	newl;
 
 	newl = ft_chrdindex(lst->STR, dlm);
 	while (newl == -1)

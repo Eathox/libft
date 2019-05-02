@@ -21,7 +21,7 @@ void	ft_striteri(const char *str, void (*f)(unsigned int, char *))
 		return ;
 	while (str[i] != '\0')
 	{
-		f(i, (char *)&str[i]);
+		f((unsigned int)i, (char *)&str[i]);
 		i++;
 	}
 }

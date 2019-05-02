@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:06:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 19:12:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	setdecimals(long double value, char *decimals, size_t n)
 	int		num;
 
 	i = 0;
+    num = 0;
 	while (i < (n + 1))
 	{
 		value *= 10;

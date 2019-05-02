@@ -20,7 +20,7 @@ char	*ft_readfile(int fd)
 
 	str = NULL;
 	ft_bzero(buff, BUFF_SIZE + 1);
-	ret = read(fd, buff, BUFF_SIZE);
+	ret = (int)read(fd, buff, BUFF_SIZE);
 	while (ret >= 0)
 	{
 		if (str == NULL)
@@ -32,7 +32,7 @@ char	*ft_readfile(int fd)
 		if (ret == 0)
 			break ;
 		ft_strclr(buff);
-		ret = read(fd, buff, BUFF_SIZE);
+		ret = (int)read(fd, buff, BUFF_SIZE);
 	}
 	return (str);
 }

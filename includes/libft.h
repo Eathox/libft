@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 15:29:19 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 19:14:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,8 @@ int			*ft_lsttointarr(t_list *lst);
 int			ft_atoi_base(const char *str, int base);
 int			ft_atoi(const char *str);
 int			ft_chrdin(const char *str, const char *dlm);
-int			ft_chrdindex(const char *str, const char *dlm);
 int			ft_chrin(const char *str, int c);
 int			ft_chrinbytes(long long *bytes, char c);
-int			ft_chrindex(const char *str, int c);
 int			ft_chrnin(const char *str, int c, size_t n);
 int			ft_colorcode(const char *str);
 int			ft_colorlcode(const char *str);
@@ -116,6 +114,8 @@ long long	ft_inrange(long long value, long long num1, long long num2);
 long long	ft_max(long long num1, long long num2);
 long long	ft_min(long long num1, long long num2);
 long long	ft_pow(long long num, long long pow);
+size_t		ft_chrdindex(const char *str, const char *dlm);
+size_t		ft_chrindex(const char *str, int c);
 size_t		ft_count_if(const char **str, int (*f)(char *));
 size_t		ft_lstlen(t_list *lst);
 size_t		ft_lstnlen(t_list *lst, size_t n);
