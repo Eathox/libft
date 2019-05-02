@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/02 16:35:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 18:59:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ static size_t	castmagic(long long *str, long long himagic, long long lomagic,
 			longword = (char *)&str[len];
 			while (i < 8)
 			{
-				if (longword[i] == 0)
+				if (((len * 8) + i) >= n)
+					return (n);
+				if (longword[i] == '\0')
 					return ((len * 8) + i);
 				i++;
 			}
 		}
-		if ((len * 8) >= n)
-			return (n);
 		len++;
 	}
-	return (len * 8);
+	return (0);
 }
 
 size_t			ft_strnlen(const char *str, size_t n)
@@ -55,11 +55,12 @@ size_t			ft_strnlen(const char *str, size_t n)
 	size_t		len;
 
 	len = 0;
-	while (len < n && str[len] != '\0' && ((unsigned long)&str[len]) % 8 != 0)
+	while ((((unsigned long)&str[len]) & 7) != 0)
+	{
+		if (len == n || str[len] == '\0')
+			return (len);
 		len++;
-	if (len == n || str[len] == '\0')
-		return (len);
+	}
 	preparemagic(&himagic, &lomagic);
-	len += castmagic((long long *)&str[len], himagic, lomagic, n - len);
-	return (len);
+	return (len + castmagic((long long *)&str[len], himagic, lomagic, n - len));
 }

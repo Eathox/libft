@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 16:08:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 15:19:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/02 18:33:29 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	prepare(char **str, long long *temp_c, int c, size_t len)
 		*temp_c |= (((long long)(unsigned char)c) << (i * 8));
 		i++;
 	}
-	while (i < len && ((unsigned long)*str) % 8 != 0)
+	while (i < len && (((unsigned long)*str) & 7) != 0)
 	{
 		**str = (unsigned char)c;
 		*str += 1;
