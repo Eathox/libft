@@ -83,7 +83,7 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(SRCS) $(INCLUDES)$(NAME).h
+$(NAME): $(PRINTF) $(SRCS) $(INCLUDES)$(NAME:.a=.h)
 	@cp $(PRINTF) $(NAME)
 	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
 	@gcc $(CCFLAGS) -c $(SRCS)
