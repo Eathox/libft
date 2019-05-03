@@ -81,6 +81,11 @@ OBJS := $(OBJS:./threadpool/%=%)
 
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
+# This checks if your on linux and then compiles with pthread
+ifeq ($(shell uname -s), Linux)
+CCFLAGS += -pthread
+endif
+
 all: $(NAME)
 
 $(NAME): $(PRINTF) $(SRCS) $(shell find $(INCLUDES) -name "*.h")
