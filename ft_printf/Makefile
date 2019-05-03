@@ -48,7 +48,7 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(SRCS)
+$(NAME): $(SRCS) $(INCLUDES)ft_printf.h
 	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
 	@gcc $(CCFLAGS) -c $(SRCS)
 	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
