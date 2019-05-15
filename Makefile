@@ -99,13 +99,17 @@ $(PRINTF): FORCE
 	@$(MAKE) -s -C $(PRINTFPATH)
 
 clean:
+ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
 	@rm -f $(OBJS) $(SRCS:.c=.c~)
+endif
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 
 fclean: clean
+ifneq ($(wildcard $(NAME)),)
 	@printf '$(PRINT_MIN) fcleaning $(NAME)\n'
 	@rm -f $(NAME)
+endif
 	@$(MAKE) -s -C $(PRINTFPATH) fclean
 
 re: fclean $(NAME)
