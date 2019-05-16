@@ -55,11 +55,15 @@ $(NAME): $(SRCS) $(INCLUDES)ft_printf.h
 	@ar rcs $(NAME) $(OBJS)
 
 clean:
+ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
 	@rm -f $(OBJS) $(SRCS:.c=.c~)
+endif
 
 fclean: clean
+ifneq ($(wildcard $(NAME)),)
 	@printf '$(PRINT_MIN) fcleaning $(NAME)\n'
 	@rm -f $(NAME)
+endif
 
 re: fclean $(NAME)
