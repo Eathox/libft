@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/16 11:01:29 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/18 14:35:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void		ft_putdouble_fd(long double value, size_t n, int fd)
 	char		decimals[MAX_DOUBLE_PRECISION + 1];
 	long long	num;
 
+	ft_bzero(decimals, MAX_DOUBLE_PRECISION + 1);
 	if (n > MAX_DOUBLE_PRECISION)
 		n = MAX_DOUBLE_PRECISION;
 	if (value < 0)
