@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/30 17:20:43 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/18 14:47:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,11 @@ static char		*freeret(t_info *info)
 		str = joinlst(info);
 	ft_lstdel(&PF_BUFF_LIST, &ft_lstdelmem);
 	if (info != NULL)
+	{
+		if (PF_BUFF != NULL)
+			free(PF_BUFF);
 		free(info);
+	}
 	return (str);
 }
 
