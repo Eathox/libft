@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 18:19:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/05/18 14:42:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 static int		freeret(t_info *info)
 {
+	int		ret;
+
+	ret = PF_ADDED;
 	write(PF_FD, PF_BUFF, PF_BUFF_LEN);
 	if (info != NULL)
 	{
 		free(PF_BUFF);
 		free(info);
 	}
-	return (PF_ADDED);
+	return (ret);
 }
 
 int				ft_printf(const char *format, ...)
