@@ -244,6 +244,8 @@ void		ft_termsetrgbcolor_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
+double		ft_normalize(long long value, long long *range,
+				long long *outputrange);
 int			ft_strfldvalid(const char **arr, size_t x, size_t y,
 				const char *dlm);
 void		ft_putunbr_cbase_fd(unsigned long long value, int base, int up,
