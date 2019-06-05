@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/03 01:44:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/05 12:57:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char		*ft_strndup(const char *str, size_t n);
 char		*ft_strnew(size_t size);
 char		*ft_strnstr(const char *str, const char *needle, size_t len);
 char		*ft_strrchr(const char *str, int c);
-char		*ft_strreplace(char **str1, const char *str2);
+void		*ft_memreplace(void **str1, const void *str2);
 char		*ft_strstr(const char *str, const char *needle);
 char		*ft_strsub(const char *str, unsigned int start, size_t len);
 char		*ft_strtolower(char *str);
@@ -118,6 +118,7 @@ long long	ft_inrange(long long value, long long num1, long long num2);
 long long	ft_max(long long num1, long long num2);
 long long	ft_min(long long num1, long long num2);
 long long	ft_pow(long long num, long long pow);
+long long   ft_nearestnum(long long value, long long num1, long long num2);
 size_t		ft_count_if(const char **str, int (*f)(char *));
 size_t		ft_lstlen(t_list *lst);
 size_t		ft_lstnlen(t_list *lst, size_t n);

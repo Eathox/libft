@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strappend.c                                     :+:    :+:            */
+/*   ft_memreplace.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/17 19:47:57 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/05 12:46:43 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/20 12:11:16 by pholster       #+#    #+#                */
+/*   Updated: 2019/06/05 12:44:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_strappend(char **dst, const char *src)
+void	*ft_strreplace(void **str1, const void *str2)
 {
-	ft_memreplace((void **)dst, ft_strjoin(*dst, src));
+	ft_memdel(str1);
+	*str1 = (void *)str2;
+	return ((void *)str2);
 }

@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/05/01 15:09:53 by pholster      ########   odam.nl          #
+#    Updated: 2019/06/05 12:57:36 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	strtolower putline chrin chrnin intin strin strnin putstrarr putintarr \
 	strndup strdlen wrddcount chrtostr lstaddbck lstdelmem lsttostrarr \
 	strarrtolst lstlen strmatch strrev lstdup lstdupone putstrlst putbool \
-	intarrtolst putintlst lsttointarr min max constrain abs strreplace \
+	intarrtolst putintlst lsttointarr min max constrain abs memreplace \
 	get_next_line termclr strarrnew strarrdel itoa_base atoi_base \
 	isdigitstr strfldnew chrindex putpointer strdsplit putnbr_base strdtrim \
 	putnbr_base_fd putline_fd isupper islower chrdin numlen_base numlen intlen \
@@ -68,7 +68,8 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
 	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
 	print_memory putnchar putnchar_fd pututf8str_fd memrchr strarrdup_var \
-	strarrtolower strarrtoupper strindex strnindex normalize
+	strarrtolower strarrtoupper strindex strnindex normalize inrange \
+	nearestnum
 SRCS := $(SRCS:%=ft_%.c)
 
 THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin \

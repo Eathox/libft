@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/02 19:23:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/05 12:45:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static int		gnl_read(char **line, char *buff, t_list *lst, const char *dlm)
 	*line = ft_strdup(lst->STR);
 	if (*line == NULL)
 		return (-1);
-	ft_strreplace((char **)&lst->STR, ft_strdup(&((char *)lst->STR)[newl + 1]));
+	ft_memreplace(&lst->STR, ft_strdup(&((char *)lst->STR)[newl + 1]));
 	if (lst->STR == NULL)
 		return (-1);
 	return (1);
