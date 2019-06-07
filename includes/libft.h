@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/05 12:57:07 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/07 17:09:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ long long	ft_inrange(long long value, long long num1, long long num2);
 long long	ft_max(long long num1, long long num2);
 long long	ft_min(long long num1, long long num2);
 long long	ft_pow(long long num, long long pow);
-long long   ft_nearestnum(long long value, long long num1, long long num2);
+long long	ft_nearestnum(long long value, long long num1, long long num2);
 size_t		ft_count_if(const char **str, int (*f)(char *));
 size_t		ft_lstlen(t_list *lst);
 size_t		ft_lstnlen(t_list *lst, size_t n);
