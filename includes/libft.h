@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/07 17:09:31 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/07 17:10:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char		*ft_strndup(const char *str, size_t n);
 char		*ft_strnew(size_t size);
 char		*ft_strnstr(const char *str, const char *needle, size_t len);
 char		*ft_strrchr(const char *str, int c);
-void		*ft_memreplace(void **str1, const void *str2);
+char		*ft_strreplace(char *str, char *find, char *replace);
 char		*ft_strstr(const char *str, const char *needle);
 char		*ft_strsub(const char *str, unsigned int start, size_t len);
 char		*ft_strtolower(char *str);
@@ -156,6 +156,7 @@ void		*ft_memdup(const void *src, size_t len);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memrchr(const void *str, int c, size_t len);
 void		*ft_memrcpy(void *dst, const void *src, size_t len);
+void		*ft_memreplace(void **str1, const void *str2);
 void		*ft_memset(void *str, int c, size_t len);
 void		ft_bzero(void *str, size_t len);
 void		ft_chrsetbytes(long long *bytes, char *str);
