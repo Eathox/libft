@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 17:48:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/05 18:26:50 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/08 16:29:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,25 @@ static size_t	strtotallen(char *str, char *find, size_t len, size_t replen)
 static char		*strset(char *ret, char *str, char *find, char *replace)
 {
 	size_t	i;
-	size_t	j;
+	size_t	replacelen;
 	size_t	findlen;
 	size_t	len;
 	char	*ptr;
 
 	i = 0;
-	j = 0;
+	replacelen = ft_strlen(replace);
 	findlen = ft_strlen(find);
 	ptr = ft_strstr((const char *)str, (const char *)find);
 	while (ptr != NULL)
 	{
-		len = (size_t)ret[i] - (size_t)ptr;
-		ft_strncpy(&ret[i], &str[j], len);
-		i += len;
-		j += findlen;
-		ft_strcpy(&ret[i], replace);
-		i += ft_strlen(replace);
-		ptr = ft_strstr((const char *)ptr + 1, (const char *)find);
+		len = (size_t)ptr - (size_t)str;
+		ft_strncpy(&ret[i], str, len);
+		ft_strcpy(&ret[i + len], replace);
+		i += len + replacelen;
+		str += len + findlen;
+		ptr = ft_strstr((const char *)str, (const char *)find);
 	}
-	ft_strcpy(&ret[i], &str[j]);
+	ft_strcpy(&ret[i], str);
 	return (ret);
 }
 
@@ -67,8 +66,6 @@ char			*ft_strreplace(char *str, char *find, char *replace)
 	len = ft_strlen(str);
 	findlen = ft_strlen(find);
 	newlen = strtotallen(str, find, len, ft_strlen(replace));
-	if (newlen == len)
-		return (ft_strdup(str));
 	ret = ft_strnew(newlen);
 	if (ret == NULL)
 		return (NULL);
