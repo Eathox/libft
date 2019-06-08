@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 12:56:32 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/05 13:15:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/07 17:08:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ long long	ft_nearestnum(long long value, long long num1, long long num2)
 
 	num1distance = ft_abs(num1) - ft_abs(value);
 	num2distance = ft_abs(num2) - ft_abs(value);
-
 	if (num2distance < num1distance)
 		return (num2);
 	else
