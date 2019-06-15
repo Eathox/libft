@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 16:18:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/23 00:49:15 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/15 23:36:05 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**ft_strarrcpy(char **dst, const char **src)
 	size_t		i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (src[i] != NULL)
 	{
 		dst[i] = ft_strdup(src[i]);
 		if (dst[i] == NULL)

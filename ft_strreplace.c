@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 17:48:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/08 16:29:34 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/15 23:34:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,12 @@ static char		*strset(char *ret, char *str, char *find, char *replace)
 char			*ft_strreplace(char *str, char *find, char *replace)
 {
 	size_t	len;
-	size_t	findlen;
 	size_t	newlen;
 	char	*ret;
 
 	if (str == NULL || find == NULL || replace == NULL || ft_strequ(find, ""))
 		return (NULL);
 	len = ft_strlen(str);
-	findlen = ft_strlen(find);
 	newlen = strtotallen(str, find, len, ft_strlen(replace));
 	ret = ft_strnew(newlen);
 	if (ret == NULL)
