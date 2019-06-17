@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_termsetrgbcolor_fd.c                            :+:    :+:            */
+/*   ft_colorhextorgba.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/17 15:24:26 by pholster      ########   odam.nl         */
+/*   Created: 2019/06/17 14:59:08 by pholster       #+#    #+#                */
+/*   Updated: 2019/06/17 15:28:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_termsetrgbcolor_fd(int r, int g, int b, int fd)
+int		*ft_colorhextorgba(int color)
 {
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-	{
-		ft_termresetcolor_fd(fd);
-		return ;
-	}
-	ft_putstr_fd("\e[38;2;", fd);
-	ft_putnbr_fd(r, fd);
-	ft_putchar_fd(';', fd);
-	ft_putnbr_fd(g, fd);
-	ft_putchar_fd(';', fd);
-	ft_putnbr_fd(b, fd);
-	ft_putchar_fd('m', fd);
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+	unsigned char	a;
+	int				*rgba;
+
+	rgba = (int *)ft_memalloc(4);
+	r = color;
+	g = color >> 8;
+	b = color >> 16;
+	a = color >> 24;
+	rgba[0] = r;
+	rgba[1] = g;
+	rgba[2] = b;
+	rgba[3] = a;
+	return (rgba);
 }

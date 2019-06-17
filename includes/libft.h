@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/07 17:10:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/17 15:18:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "ft_printf.h"
 # include "threadpool.h"
 
+int			*ft_colorhextorgba(int color);
+int			ft_colorrgbatohex(char r, char g, char b, char a);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);

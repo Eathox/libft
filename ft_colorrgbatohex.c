@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_termsetrgbcolor_fd.c                            :+:    :+:            */
+/*   ft_colorrgbatohex.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/17 15:24:26 by pholster      ########   odam.nl         */
+/*   Created: 2019/06/17 14:59:08 by pholster       #+#    #+#                */
+/*   Updated: 2019/06/17 15:03:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_termsetrgbcolor_fd(int r, int g, int b, int fd)
+int		ft_colorrgbatohex(char r, char g, char b, char a)
 {
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-	{
-		ft_termresetcolor_fd(fd);
-		return ;
-	}
-	ft_putstr_fd("\e[38;2;", fd);
-	ft_putnbr_fd(r, fd);
-	ft_putchar_fd(';', fd);
-	ft_putnbr_fd(g, fd);
-	ft_putchar_fd(';', fd);
-	ft_putnbr_fd(b, fd);
-	ft_putchar_fd('m', fd);
+	int	color;
+
+	color = r;
+	color += g << 8;
+	color += b << 16;
+	color += a << 24;
+	return (color);
 }
