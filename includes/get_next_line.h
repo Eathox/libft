@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 13:36:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/26 20:43:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define FD		content_size
 # define STR	content
 
-int		get_next_line(const int fd, char **line);
-int		get_next_dline(const int fd, char **line, const char *dlm);
+int		ft_get_next_line(const int fd, char **line);
+int		ft_get_next_dline(const int fd, char **line, const char *dlm);
 
 #endif

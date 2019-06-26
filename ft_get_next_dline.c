@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/05 12:45:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/26 20:43:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static int		gnl_read(char **line, char *buff, t_list *lst, const char *dlm)
 	return (1);
 }
 
-int				get_next_dline(const int fd, char **line, const char *dlm)
+int				ft_get_next_dline(const int fd, char **line, const char *dlm)
 {
 	static t_list	*head;
 	t_list			*lst;
