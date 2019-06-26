@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/26 20:43:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/26 20:50:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int		gnl_last_line(char **line, t_list *lst)
 			return (-1);
 		return (1);
 	}
-	*line = ft_strnew(0);
+	*line = NULL;
 	return (0);
 }
 
