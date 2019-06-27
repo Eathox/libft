@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/17 15:18:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/27 17:02:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include "ft_printf.h"
 # include "threadpool.h"
 
-int			*ft_colorhextorgba(int color);
-int			ft_colorrgbatohex(char r, char g, char b, char a);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);
@@ -60,6 +58,7 @@ char		*ft_strsub(const char *str, unsigned int start, size_t len);
 char		*ft_strtolower(char *str);
 char		*ft_strtoupper(char *str);
 char		*ft_strtrim(const char *str);
+int			*ft_colorhextorgba(int color);
 int			*ft_lsttointarr(t_list *lst);
 int			ft_atoi_base(const char *str, int base);
 int			ft_atoi(const char *str);
@@ -72,7 +71,9 @@ int			ft_chrnin(const char *str, int c, size_t n);
 int			ft_colorcode(const char *str);
 int			ft_colorlcode(const char *str);
 int			ft_colorncode(const char *str, size_t n);
+int			ft_colorrgbatohex(char r, char g, char b, char a);
 int			ft_getchar(void);
+int			ft_inrange(long long value, long long num1, long long num2);
 int			ft_intarrsortac(int current, int num);
 int			ft_intin(const int *arr, int num, size_t len);
 int			ft_intlen_base(int value, int base);
@@ -116,11 +117,10 @@ int			ft_unumlen_base(unsigned long long value, int base);
 int			ft_unumlen(unsigned long long value);
 long long	ft_abs(long long num);
 long long	ft_constrain(long long value, long long num1, long long num2);
-long long	ft_inrange(long long value, long long num1, long long num2);
 long long	ft_max(long long num1, long long num2);
 long long	ft_min(long long num1, long long num2);
-long long	ft_pow(long long num, long long pow);
 long long	ft_nearestnum(long long value, long long num1, long long num2);
+long long	ft_pow(long long num, long long pow);
 size_t		ft_count_if(const char **str, int (*f)(char *));
 size_t		ft_lstlen(t_list *lst);
 size_t		ft_lstnlen(t_list *lst, size_t n);

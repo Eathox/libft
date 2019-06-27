@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 12:42:00 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/10 11:42:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/27 17:02:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-long long	ft_inrange(long long value, long long num1, long long num2)
+int		ft_inrange(long long value, long long num1, long long num2)
 {
 	long long	min;
 	long long	max;
