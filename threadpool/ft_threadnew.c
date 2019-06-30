@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_threadcreate.c                                  :+:    :+:            */
+/*   ft_threadnew.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/25 13:42:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/25 15:01:56 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/30 15:25:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	*runfnc(void *param)
 	return (NULL);
 }
 
-int			ft_threadcreate(pthread_t *thread, void (*f)(), int count, ...)
+int			ft_threadnew(pthread_t *thread, void (*f)(), int count, ...)
 {
 	int		ret;
 	va_list	args;

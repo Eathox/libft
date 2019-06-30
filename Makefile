@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/06/17 15:06:37 by pholster      ########   odam.nl          #
+#    Updated: 2019/06/30 15:25:47 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,8 +72,8 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	nearestnum strreplace colorrgbatohex colorhextorgba
 SRCS := $(SRCS:%=ft_%.c)
 
-THREADPOOL = pooldone poolcreate pooldelete poolque threadmanager pooljoin \
-	threadcreate tasksetinfo taskrunfnc
+THREADPOOL = pooldone poolnew pooldel poolque threadmanager pooljoin \
+	threadnew tasksetinfo taskrunfnc
 THREADPOOL := $(THREADPOOL:%=./threadpool/ft_%.c)
 
 SRCS := $(sort $(SRCS) $(THREADPOOL))

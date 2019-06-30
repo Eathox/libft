@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_poolcreate.c                                    :+:    :+:            */
+/*   ft_poolnew.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/02 12:31:27 by pholster      ########   odam.nl         */
+/*   Updated: 2019/06/30 15:26:05 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static t_pool	*freeret(t_pool **pool)
 {
-	ft_pooldelete(pool);
+	ft_pooldel(pool);
 	return (NULL);
 }
 
-static t_thread	*threadcreate(t_pool *pool)
+static t_thread	*threadnew(t_pool *pool)
 {
 	int			ret;
 	t_thread	*thread;
@@ -45,7 +45,7 @@ static void		setdefualt(t_pool *pool, int size)
 	pool->state = STATE_ACTIVE;
 }
 
-t_pool			*ft_poolcreate(int size)
+t_pool			*ft_poolnew(int size)
 {
 	int			i;
 	t_pool		*pool;
@@ -63,7 +63,7 @@ t_pool			*ft_poolcreate(int size)
 	pool->suspended = TRUE;
 	while (i < pool->size)
 	{
-		pool->threads[i] = threadcreate(pool);
+		pool->threads[i] = threadnew(pool);
 		if (pool->threads[i] == NULL)
 			freeret(&pool);
 		i++;
