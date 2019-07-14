@@ -6,12 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/02 18:44:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 09:23:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include <stdio.h>
 
 static void		preparemagic(long long *himagic, long long *lomagic)
 {
