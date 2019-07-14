@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/03 18:30:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/05 12:02:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 11:04:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static char	*lsttostr(t_list *lst, size_t tottallen)
 			ft_memcpy(&str[i], lst->content, lst->content_size);
 		i += lst->content_size;
 		next = lst->next;
-		free(lst);
+		ft_lstdelone(&lst, &ft_lstdelmem);
 		lst = next;
 	}
 	return (str);
@@ -57,31 +57,31 @@ static int	addtolst(t_list **lst, t_list **prv, char *str, size_t len)
 	return (TRUE);
 }
 
-char		*ft_readfile(int fd)
+char		*ft_readfile(int fd, size_t *len)
 {
 	t_list	*prv;
 	t_list	*lst;
 	ssize_t	ret;
-	size_t	totallen;
+	size_t	temp_len;
 	char	buff[BUFF_SIZE + 1];
 
 	lst = NULL;
 	prv = NULL;
-	totallen = 0;
 	ret = read(fd, buff, BUFF_SIZE);
-	if (ret == -1)
-		return (NULL);
+	if (len == NULL)
+		len = &temp_len;
+	*len = 0;
 	while (ret > 0)
 	{
-		totallen += ret;
+		*len += ret;
 		buff[ret] = '\0';
 		if (addtolst(&lst, &prv, buff, ret) == FALSE)
 			return (freeret(lst));
 		if (ret == 0)
 			break ;
 		ret = read(fd, buff, BUFF_SIZE);
-		if (ret == -1)
-			return (freeret(lst));
 	}
-	return (lsttostr(lst, totallen));
+	if (ret == -1)
+		return (freeret(lst));
+	return (lsttostr(lst, *len));
 }

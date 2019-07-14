@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/30 15:26:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 12:10:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ static t_thread	*threadnew(t_pool *pool)
 	return (thread);
 }
 
-static void		setdefualt(t_pool *pool, int size)
-{
-	pool->que = NULL;
-	pool->terminating = FALSE;
-	pool->size = size;
-	pool->state = STATE_ACTIVE;
-}
-
 t_pool			*ft_poolnew(int size)
 {
 	int			i;
@@ -59,7 +51,8 @@ t_pool			*ft_poolnew(int size)
 	pool->threads = (t_thread **)ft_memalloc(sizeof(t_thread *) * size);
 	if (pool->threads == NULL)
 		return (freeret(&pool));
-	setdefualt(pool, size);
+	pool->size = size;
+	pool->state = STATE_ACTIVE;
 	pool->suspended = TRUE;
 	while (i < pool->size)
 	{

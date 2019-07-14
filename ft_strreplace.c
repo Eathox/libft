@@ -6,20 +6,22 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 17:48:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/15 23:34:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 09:48:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static size_t	strtotallen(char *str, char *find, size_t len, size_t replen)
+static size_t	strtotallen(char *str, char *find, char *replace, size_t len)
 {
 	char	*ptr;
 	size_t	found;
 	size_t	findlen;
+	size_t	replen;
 
 	found = 0;
 	findlen = ft_strlen(find);
+	replen = ft_strlen(replace);
 	ptr = ft_strstr((const char *)str, (const char *)find);
 	while (ptr != NULL)
 	{
@@ -32,13 +34,13 @@ static size_t	strtotallen(char *str, char *find, size_t len, size_t replen)
 static char		*strset(char *ret, char *str, char *find, char *replace)
 {
 	size_t	i;
-	size_t	replacelen;
+	size_t	replen;
 	size_t	findlen;
 	size_t	len;
 	char	*ptr;
 
 	i = 0;
-	replacelen = ft_strlen(replace);
+	replen = ft_strlen(replace);
 	findlen = ft_strlen(find);
 	ptr = ft_strstr((const char *)str, (const char *)find);
 	while (ptr != NULL)
@@ -46,7 +48,7 @@ static char		*strset(char *ret, char *str, char *find, char *replace)
 		len = (size_t)ptr - (size_t)str;
 		ft_strncpy(&ret[i], str, len);
 		ft_strcpy(&ret[i + len], replace);
-		i += len + replacelen;
+		i += len + replen;
 		str += len + findlen;
 		ptr = ft_strstr((const char *)str, (const char *)find);
 	}
@@ -56,14 +58,12 @@ static char		*strset(char *ret, char *str, char *find, char *replace)
 
 char			*ft_strreplace(char *str, char *find, char *replace)
 {
-	size_t	len;
 	size_t	newlen;
 	char	*ret;
 
 	if (str == NULL || find == NULL || replace == NULL || ft_strequ(find, ""))
 		return (NULL);
-	len = ft_strlen(str);
-	newlen = strtotallen(str, find, len, ft_strlen(replace));
+	newlen = strtotallen(str, find, replace, ft_strlen(str));
 	ret = ft_strnew(newlen);
 	if (ret == NULL)
 		return (NULL);

@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/17 14:59:08 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/22 20:22:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 11:59:41 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_colorrgbatohex(char r, char g, char b, char a)
+t_color		ft_colorrgbatohex(char r, char g, char b, char a)
 {
-	int	color;
+	t_color	color;
 
 	color = r;
 	color |= ((long long)g << 8);

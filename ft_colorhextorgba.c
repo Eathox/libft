@@ -6,21 +6,21 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/17 14:59:08 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/17 15:28:58 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 12:02:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		*ft_colorhextorgba(int color)
+t_color		*ft_colorhextorgba(t_color color)
 {
 	unsigned char	r;
 	unsigned char	g;
 	unsigned char	b;
 	unsigned char	a;
-	int				*rgba;
+	t_color			*rgba;
 
-	rgba = (int *)ft_memalloc(4);
+	rgba = (t_color *)ft_memalloc(4);
 	r = color;
 	g = color >> 8;
 	b = color >> 16;

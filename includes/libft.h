@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/27 17:02:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 12:13:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <fcntl.h>
 # include "typedefs.h"
-# include "get_next_line.h"
 # include "ft_printf.h"
 # include "threadpool.h"
 
@@ -35,7 +37,7 @@ char		*ft_colorstr(int color);
 char		*ft_itoa_base(long long value, int base);
 char		*ft_itoa_cbase(long long value, int base, int up);
 char		*ft_itoa(long long value);
-char		*ft_readfile(int fd);
+char		*ft_readfile(int fd, size_t *len);
 char		*ft_strcat(char *str1, const char *str2);
 char		*ft_strchr(const char *str, int c);
 char		*ft_strcpy(char *dst, const char *src);
@@ -58,7 +60,7 @@ char		*ft_strsub(const char *str, unsigned int start, size_t len);
 char		*ft_strtolower(char *str);
 char		*ft_strtoupper(char *str);
 char		*ft_strtrim(const char *str);
-int			*ft_colorhextorgba(int color);
+t_color		*ft_colorhextorgba(t_color color);
 int			*ft_lsttointarr(t_list *lst);
 int			ft_atoi_base(const char *str, int base);
 int			ft_atoi(const char *str);
@@ -71,7 +73,7 @@ int			ft_chrnin(const char *str, int c, size_t n);
 int			ft_colorcode(const char *str);
 int			ft_colorlcode(const char *str);
 int			ft_colorncode(const char *str, size_t n);
-int			ft_colorrgbatohex(char r, char g, char b, char a);
+t_color		ft_colorrgbatohex(char r, char g, char b, char a);
 int			ft_getchar(void);
 int			ft_inrange(long long value, long long num1, long long num2);
 int			ft_intarrsortac(int current, int num);
@@ -248,6 +250,8 @@ void		ft_termsetrgbcolor_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolor(int r, int g, int b);
 void		ft_termsetrgbcolorbg_fd(int r, int g, int b, int fd);
 void		ft_termsetrgbcolorbg(int r, int g, int b);
+int			ft_get_next_line(const int fd, char **line);
+int			ft_get_next_dline(const int fd, char **line, const char *dlm);
 double		ft_normalize(long long value, long long *range,
 				long long *outputrange);
 int			ft_strfldvalid(const char **arr, size_t x, size_t y,
