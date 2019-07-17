@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/17 17:58:57 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/17 19:51:00 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c $(HEADERS)
 	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
-	@gcc $(CFLAGS) -o $@ -c $<
+	@gcc $(CCFLAGS) -o $@ -c $<
 
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)

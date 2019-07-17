@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/17 17:58:44 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/17 19:49:55 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ $(NAME): $(PRINTF) $(OBJS)
 
 %.o: %.c $(HEADERS)
 	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
-	@gcc $(CFLAGS) -o $@ -c $<
+	@gcc $(CCFLAGS) -o $@ -c $<
 
 $(PRINTF): FORCE
 	@$(MAKE) -s -C $(PRINTFPATH)

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 15:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/14 15:21:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/17 19:55:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct			s_gnl
 }						t_gnl;
 
 # define MAX_DOUBLE_PRECISION 24
-# define BUFF_SIZE	42
+# define BUFF_SIZE	1
 # define FALSE	0
 # define TRUE	1
 

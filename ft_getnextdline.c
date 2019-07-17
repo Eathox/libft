@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/17 18:18:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/17 20:05:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,6 @@ static t_gnl	*getlst(const int fd, t_gnl *lst)
 	return (newlst);
 }
 
-static char		*dupline(char *str, size_t len)
-{
-	char	*dup;
-
-	dup = ft_memalloc(len + 1);
-	if (dup == NULL)
-		return (NULL);
-	ft_memcpy(dup, str, len);
-	return (dup);
-}
-
 static int		lastline(char **line, t_gnl *lst)
 {
 	size_t	len;
@@ -51,9 +40,10 @@ static int		lastline(char **line, t_gnl *lst)
 	if (lst->str != NULL)
 	{
 		len = lst->len;
-		*line = dupline(lst->str, len);
+		*line = ft_memalloc(len + 1);
 		if (*line == NULL)
 			return (-1);
+		ft_memcpy(*line, lst->str, len);
 		ft_strdel(&lst->str);
 		lst->len = 0;
 		return (len);
@@ -101,15 +91,14 @@ static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm)
 			return (-1);
 		newl = ft_memindex(lst->str, dlm, lst->len);
 	}
-	*line = lst->str;
 	if (newl == -1)
 		return (lastline(line, lst));
-	*line = dupline(lst->str, newl);
+	*line = ft_memalloc(newl + 1);
 	if (*line == NULL)
 		return (-1);
+	ft_memcpy(*line, lst->str, newl);
 	lst->len -= (newl + 1);
-	ft_memreplace((void **)&lst->str, ft_memdup(&(lst->str)[newl + 1],
-		lst->len));
+	ft_memreplace((void **)&lst->str, ft_memdup(&lst->str[newl + 1], lst->len));
 	if (lst->str == NULL)
 		return (-1);
 	return (newl + 1);
