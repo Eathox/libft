@@ -6,27 +6,23 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/14 14:45:54 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/17 21:56:38 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static void		preparemagic(long long *himagic, long long *lomagic)
+static size_t	castmagic(long long *str)
 {
-	*himagic = 0x80808080L;
-	*lomagic = 0x01010101L;
-	*himagic |= (*himagic << 32);
-	*lomagic |= (*lomagic << 32);
-}
-
-static size_t	castmagic(long long *str, long long himagic, long long lomagic)
-{
-	char	*longword;
-	size_t	i;
-	size_t	len;
+	long long	himagic;
+	long long	lomagic;
+	char		*longword;
+	size_t		i;
+	size_t		len;
 
 	len = 0;
+	himagic = 0x80808080L | (0x80808080L << 32);
+	lomagic = 0x01010101L | (0x01010101L << 32);
 	while (TRUE)
 	{
 		if (((str[len] - lomagic) & (~str[len] & himagic)) != 0)
@@ -47,8 +43,6 @@ static size_t	castmagic(long long *str, long long himagic, long long lomagic)
 
 size_t			ft_strlen(const char *str)
 {
-	long long	himagic;
-	long long	lomagic;
 	size_t		len;
 
 	len = 0;
@@ -58,6 +52,5 @@ size_t			ft_strlen(const char *str)
 			return (len);
 		len++;
 	}
-	preparemagic(&himagic, &lomagic);
-	return (len + castmagic((long long *)&str[len], himagic, lomagic));
+	return (len + castmagic((long long *)&str[len]));
 }
