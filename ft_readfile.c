@@ -6,19 +6,20 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/03 18:30:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/14 11:04:27 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/17 16:46:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static char	*freeret(t_list *lst)
+static ssize_t	freeret(t_list *lst, char **str)
 {
+	*str = 0;
 	ft_lstdel(&lst, &ft_lstdelmem);
-	return (NULL);
+	return (-1);
 }
 
-static char	*lsttostr(t_list *lst, size_t tottallen)
+static char		*lsttostr(t_list *lst, size_t totallen)
 {
 	size_t	i;
 	t_list	*next;
@@ -27,7 +28,7 @@ static char	*lsttostr(t_list *lst, size_t tottallen)
 	i = 0;
 	if (lst == NULL)
 		return (ft_strnew(0));
-	str = ft_strnew(tottallen);
+	str = ft_strnew(totallen);
 	if (str == NULL)
 		return (NULL);
 	while (lst != NULL)
@@ -42,7 +43,7 @@ static char	*lsttostr(t_list *lst, size_t tottallen)
 	return (str);
 }
 
-static int	addtolst(t_list **lst, t_list **prv, char *str, size_t len)
+static int		addtolst(t_list **lst, t_list **prv, char *str, size_t len)
 {
 	t_list	*new;
 
@@ -57,31 +58,30 @@ static int	addtolst(t_list **lst, t_list **prv, char *str, size_t len)
 	return (TRUE);
 }
 
-char		*ft_readfile(int fd, size_t *len)
+ssize_t			ft_readfile(int fd, char **str)
 {
 	t_list	*prv;
 	t_list	*lst;
 	ssize_t	ret;
-	size_t	temp_len;
+	ssize_t	totallen;
 	char	buff[BUFF_SIZE + 1];
 
+	if (fd < 0 || str == NULL || BUFF_SIZE <= 0)
+		return (-1);
 	lst = NULL;
-	prv = NULL;
 	ret = read(fd, buff, BUFF_SIZE);
-	if (len == NULL)
-		len = &temp_len;
-	*len = 0;
+	totallen = 0;
 	while (ret > 0)
 	{
-		*len += ret;
-		buff[ret] = '\0';
+		totallen += ret;
 		if (addtolst(&lst, &prv, buff, ret) == FALSE)
-			return (freeret(lst));
-		if (ret == 0)
-			break ;
+			return (freeret(lst, str));
 		ret = read(fd, buff, BUFF_SIZE);
 	}
 	if (ret == -1)
-		return (freeret(lst));
-	return (lsttostr(lst, *len));
+		return (freeret(lst, str));
+	*str = lsttostr(lst, totallen);
+	if (*str == NULL)
+		return (freeret(lst, str));
+	return (totallen);
 }

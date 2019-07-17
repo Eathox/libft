@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/06/30 15:25:47 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/17 17:58:44 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,14 @@ COLOR_BRIGHT_CYAN = $(shell printf "\e[38;5;14m")
 COLOR_BRIGHT_WHITE = $(shell printf "\e[38;5;15m")
 PRINT_MIN = $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS = $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
+PRINT_EQUAL = $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 
 PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
 
-INCLUDES = ./includes/
 NAME = libft.a
+INCLUDES = ./includes/
+HEADERS = $(INCLUDES)libft.h $(INCLUDES)threadpool.h $(INCLUDES)typedefs.h
 
 SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	isascii isprint toupper tolower putendl putchar_fd putstr_fd putendl_fd \
@@ -47,12 +49,12 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	strndup strdlen wrddcount chrtostr lstaddbck lstdelmem lsttostrarr \
 	strarrtolst lstlen strmatch strrev lstdup lstdupone putstrlst putbool \
 	intarrtolst putintlst lsttointarr min max constrain abs memreplace \
-	get_next_line termclr strarrnew strarrdel itoa_base atoi_base \
+	getnextline termclr strarrnew strarrdel itoa_base atoi_base \
 	isdigitstr strfldnew chrindex putpointer strdsplit putnbr_base strdtrim \
 	putnbr_base_fd putline_fd isupper islower chrdin numlen_base numlen intlen \
 	intlen_base uintlen uintlen_base unumlen unumlen_base strappend memdup \
 	lstunlink getchar putnstr putnstr_fd strnlen strjoin_var strarrlen \
-	get_next_dline chrdindex putnbr_cbase_fd putnbr_cbase lstfind_content \
+	getnextdline chrdindex putnbr_cbase_fd putnbr_cbase lstfind_content \
 	lstfind_size memrcpy lstlast strjoin_arr lstfindadd_content lstrev \
 	lstfindadd_size strfldvalid memequ lstnlen strarrnlen strislen putlstsize \
 	strarrrev intarrsort intarrsortrev lstsort lstsortrev strarrsort lstinsert \
@@ -69,7 +71,7 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
 	print_memory putnchar putnchar_fd pututf8str_fd memrchr strarrdup_var \
 	strarrtolower strarrtoupper strindex strnindex normalize inrange \
-	nearestnum strreplace colorrgbatohex colorhextorgba
+	nearestnum strreplace colorrgbatohex colorhextorgba memindex
 SRCS := $(SRCS:%=ft_%.c)
 
 THREADPOOL = pooldone poolnew pooldel poolque threadmanager pooljoin \
@@ -78,7 +80,7 @@ THREADPOOL := $(THREADPOOL:%=./threadpool/ft_%.c)
 
 SRCS := $(sort $(SRCS) $(THREADPOOL))
 OBJS = $(SRCS:.c=.o)
-OBJS := $(OBJS:./threadpool/%=%)
+OBJS_PATH = basename $(OBJS)
 
 CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
@@ -89,20 +91,22 @@ endif
 
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(SRCS) $(shell find $(INCLUDES) -name "*.h")
+$(NAME): $(PRINTF) $(OBJS)
 	@cp $(PRINTF) $(NAME)
-	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
-	@gcc $(CCFLAGS) -c $(SRCS)
-	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
+	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
 	@ar rcs $(NAME) $(OBJS)
+
+%.o: %.c $(HEADERS)
+	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
+	@gcc $(CFLAGS) -o $@ -c $<
 
 $(PRINTF): FORCE
 	@$(MAKE) -s -C $(PRINTFPATH)
 
 clean:
-ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
+ifneq ($(wildcard $(OBJS_PATH) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
-	@rm -f $(OBJS) $(SRCS:.c=.c~)
+	@rm -f $(OBJS_PATH) $(SRCS:.c=.c~)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 
@@ -116,3 +120,5 @@ endif
 re: fclean $(NAME)
 
 FORCE: ;
+
+.PHONY: clean fclean re

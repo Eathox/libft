@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/14 09:23:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/14 14:45:54 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ size_t			ft_strlen(const char *str)
 	size_t		len;
 
 	len = 0;
-	while ((((unsigned long)&str[len]) & 7) != 0)
+	while ((((size_t)&str[len]) & 7) != 0)
 	{
 		if (str[len] == '\0')
 			return (len);

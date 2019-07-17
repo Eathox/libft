@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/05/01 15:01:35 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/17 17:58:57 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,11 @@ COLOR_BRIGHT_CYAN = $(shell printf "\e[38;5;14m")
 COLOR_BRIGHT_WHITE = $(shell printf "\e[38;5;15m")
 PRINT_MIN = $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS = $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
+PRINT_EQUAL = $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 
-INCLUDES = ../includes/
 NAME = libftprintf.a
+INCLUDES = ../includes/
+HEADERS = $(INCLUDES)ft_printf.h $(INCLUDES)typedefs.h
 
 SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 	isunsignint issignint setvar_type setvar_base infonew format formatnum \
@@ -48,11 +50,13 @@ CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(SRCS) $(INCLUDES)ft_printf.h
-	@printf '$(PRINT_PLUS) compiling $(NAME)\n'
-	@gcc $(CCFLAGS) -c $(SRCS)
-	@printf '$(PRINT_PLUS) creating and indexing $(NAME)\n'
+$(NAME): $(OBJS)
+	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
 	@ar rcs $(NAME) $(OBJS)
+
+%.o: %.c $(HEADERS)
+	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
+	@gcc $(CFLAGS) -o $@ -c $<
 
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
@@ -67,3 +71,5 @@ ifneq ($(wildcard $(NAME)),)
 endif
 
 re: fclean $(NAME)
+
+.PHONY: clean fclean re
