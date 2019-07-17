@@ -16,3 +16,4 @@ test
 *.a
 *.dSYM
 *.xcodeproj
+.vscode
