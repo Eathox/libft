@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/30 16:49:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/17 22:12:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@
 # define PF_FLAG_PLUS	PF_FLAG[3]
 # define PF_FLAG_SPACE	PF_FLAG[4]
 # define PF_FLAG_APOST	PF_FLAG[5]
-# define PF_BUFF_SIZE	128
+# define PF_BUFF_SIZE	256
 
 enum			e_type
 {
