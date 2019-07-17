@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/17 19:49:55 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/17 20:19:37 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,8 @@ SRCS := $(sort $(SRCS) $(THREADPOOL))
 OBJS = $(SRCS:.c=.o)
 OBJS_PATH = basename $(OBJS)
 
-CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
+CCSTRICT = -Wall -Werror -Wextra
+CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES)
 
 # This checks if your on linux and then compiles with pthread
 ifeq ($(shell uname -s), Linux)

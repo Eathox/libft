@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/17 19:51:00 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/17 20:19:27 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SRCS := $(sort ft_strformat.c ft_strformat_len.c ft_dprintf.c ft_printf.c \
 	$(SRCS:%=pf_%.c))
 OBJS = $(SRCS:.c=.o)
 
-CCFLAGS = -Wall -Werror -Wextra -I$(INCLUDES)
+CCSTRICT = -Wall -Werror -Wextra
+CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES)
 
 all: $(NAME)
 
