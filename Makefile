@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/18 19:52:53 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/18 22:59:50 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,19 @@ COLOR_BRIGHT_WHITE := $(shell printf "\e[38;5;15m")
 PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
+LIBARY_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:./%/=%\/)/g')
 
 PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
+PRINTF_OBJS = $(call LIBARY_OBJS,$(PRINTF),$(PRINTFPATH))
+
+THREADPOOLPATH = ./threadpool/
+THREADPOOL = $(THREADPOOLPATH)threadpool.a
+THREADPOOL_OBJS = $(call LIBARY_OBJS,$(THREADPOOL),$(THREADPOOLPATH))
 
 NAME = libft.a
 INCLUDES = ./includes/
-HEADERS = $(INCLUDES)libft.h $(INCLUDES)threadpool.h $(INCLUDES)typedefs.h
+HEADERS = $(INCLUDES)libft.h $(INCLUDES)typedefs.h
 
 SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	isascii isprint toupper tolower putendl putchar_fd putstr_fd putendl_fd \
@@ -74,28 +80,18 @@ SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	nearestnum strreplace colorrgbatohex colorhextorgba memindex
 SRCS := $(SRCS:%=ft_%.c)
 
-THREADPOOL = pooldone poolnew pooldel poolque threadmanager pooljoin \
-	threadnew tasksetinfo taskrunfnc
-THREADPOOL := $(THREADPOOL:%=./threadpool/ft_%.c)
-
-SRCS := $(sort $(SRCS) $(THREADPOOL))
+SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
 CCSILENT = FALSE
 CCSTRICT = -Wall -Werror -Wextra
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES)
 
-# This checks if your on linux and then compiles with pthread
-ifeq ($(shell uname -s), Linux)
-CCFLAGS += -pthread
-endif
-
 all: $(NAME)
 
-$(NAME): $(PRINTF) $(OBJS)
-	@cp $(PRINTF) $(NAME)
+$(NAME): $(PRINTF) $(THREADPOOL) $(OBJS)
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
-	@ar rcs $(NAME) $(OBJS)
+	@ar rcs $(NAME) $(OBJS) $(PRINTF_OBJS) $(THREADPOOL_OBJS)
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
@@ -106,12 +102,16 @@ endif
 $(PRINTF): FORCE
 	@$(MAKE) -s -C $(PRINTFPATH)
 
+$(THREADPOOL): FORCE
+	@$(MAKE) -s -C $(THREADPOOLPATH)
+
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) $(NAME:%.a=%): cleaning\n'
 	@rm -f $(OBJS) $(SRCS:.c=.c~)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) clean
+	@$(MAKE) -s -C $(THREADPOOLPATH) clean
 
 fclean: clean
 ifneq ($(wildcard $(NAME)),)
@@ -119,6 +119,7 @@ ifneq ($(wildcard $(NAME)),)
 	@rm -f $(NAME)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) fclean
+	@$(MAKE) -s -C $(THREADPOOLPATH) fclean
 
 re: fclean $(NAME)
 
