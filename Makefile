@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/18 19:28:39 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/18 19:33:45 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ SRCS := $(sort $(SRCS) $(THREADPOOL))
 OBJS = $(SRCS:.c=.o)
 OBJS_NOPATH = basename $(OBJS)
 
-CCSILEN = FALSE
+CCSILENT = FALSE
 CCSTRICT = -Wall -Werror -Wextra
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES)
 
@@ -99,7 +99,7 @@ $(NAME): $(PRINTF) $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
 
 %.o: %.c $(HEADERS)
-ifeq ($(CCSILEN), FALSE)
+ifeq ($(CCSILENT), FALSE)
 	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
 endif
 	@gcc $(CCFLAGS) -o $@ -c $<
