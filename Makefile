@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/18 19:33:45 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/18 19:37:46 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,6 @@ THREADPOOL := $(THREADPOOL:%=./threadpool/ft_%.c)
 
 SRCS := $(sort $(SRCS) $(THREADPOOL))
 OBJS = $(SRCS:.c=.o)
-OBJS_NOPATH = basename $(OBJS)
 
 CCSILENT = FALSE
 CCSTRICT = -Wall -Werror -Wextra
@@ -108,9 +107,9 @@ $(PRINTF): FORCE
 	@$(MAKE) -s -C $(PRINTFPATH)
 
 clean:
-ifneq ($(wildcard $(OBJS_NOPATH) $(SRCS:.c=.c~)),)
+ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
-	@rm -f $(OBJS_NOPATH) $(SRCS:.c=.c~)
+	@rm -f $(OBJS) $(SRCS:.c=.c~)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 

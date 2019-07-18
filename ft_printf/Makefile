@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/18 19:33:38 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/18 19:37:51 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 SRCS := $(sort ft_strformat.c ft_strformat_len.c ft_dprintf.c ft_printf.c \
 	$(SRCS:%=pf_%.c))
 OBJS = $(SRCS:.c=.o)
-OBJS_NOPATH = basename $(OBJS)
 
 CCSILENT = FALSE
 CCSTRICT = -Wall -Werror -Wextra
@@ -64,9 +63,9 @@ endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
 clean:
-ifneq ($(wildcard $(OBJS_NOPATH) $(SRCS:.c=.c~)),)
+ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) cleaning $(NAME)\n'
-	@rm -f $(OBJS_NOPATH) $(SRCS:.c=.c~)
+	@rm -f $(OBJS) $(SRCS:.c=.c~)
 endif
 
 fclean: clean
