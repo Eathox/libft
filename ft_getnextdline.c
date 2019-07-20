@@ -6,11 +6,14 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:24:12 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:26:41 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
 
 static t_gnl	*getlst(const int fd, t_gnl *lst)
 {

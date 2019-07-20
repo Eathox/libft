@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 17:06:59 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:13:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 static int	length(int c)
 {
@@ -27,9 +28,9 @@ static int	length(int c)
 
 int			pf_getlength(t_info *info, const char *str)
 {
-	if (ft_chrin(PF_A_LENGTH_D, PF_LENGTH) && *str == PF_LENGTH)
-		PF_LENGTH += *str;
-	else if (length(*str) > length(PF_LENGTH))
-		PF_LENGTH = *str;
+	if (ft_chrin(PF_A_LENGTH_D, info->length) && *str == info->length)
+		info->length += *str;
+	else if (length(*str) > length(info->length))
+		info->length = *str;
 	return (1);
 }

@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 17:30:53 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:40:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:11:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 size_t		pf_addstr(t_info *info, char *str)
 {

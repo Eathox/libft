@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:18:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:24:33 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:27:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <unistd.h>
 
 void	ft_putnumarr(const intmax_t *arr, size_t len)
 {

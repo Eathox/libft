@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/14 15:52:53 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:28:38 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:46:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_bool	pf_isunsignint(t_info *info)
 {
-	if (PF_VAR_TYPE == U_INT || PF_VAR_TYPE == U_SHORT)
+	if (info->var_type == U_INT || info->var_type == U_SHORT)
 		return (TRUE);
-	if (PF_VAR_TYPE == U_INT_MAX || PF_VAR_TYPE == SIZE_T)
+	if (info->var_type == U_INT_MAX || info->var_type == SIZE_T)
 		return (TRUE);
-	if (PF_VAR_TYPE == U_LONG || PF_VAR_TYPE == U_LONG_LONG)
+	if (info->var_type == U_LONG || info->var_type == U_LONG_LONG)
 		return (TRUE);
-	if (PF_VAR_TYPE == U_CHAR_I || PF_VAR_TYPE == VOID)
+	if (info->var_type == U_CHAR_I || info->var_type == VOID)
 		return (TRUE);
 	return (FALSE);
 }

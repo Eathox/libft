@@ -6,20 +6,21 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 14:15:04 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:13:33 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:12:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 static size_t	addprefix(t_info *info, char *str, size_t n)
 {
 	if (n == 0)
 		return (0);
 	pf_addnstr(info, str, n);
-	if (PF_VAR_TYPE == VOID && PF_WIDTH <= PF_PRECISION)
+	if (info->var_type == VOID && info->width <= info->precision)
 		return (0);
-	if (PF_PRECISION > PF_WIDTH && ft_strequ(str, "0") == FALSE)
+	if (info->precision > info->width && ft_strequ(str, "0") == FALSE)
 		return (0);
 	return (n);
 }
@@ -44,9 +45,9 @@ static void		addzero(t_info *info, intmax_t len, intmax_t space, char *prfx)
 	prelen = ft_strlen(prfx);
 	c = (pf_iszeropad(info)) ? '0' : ' ';
 	len = len - ft_max(0, space);
-	if (PF_VAR_TYPE == VOID || PF_ISZERO == FALSE)
+	if (info->var_type == VOID || info->iszero == FALSE)
 		len -= addprefix(info, prfx, prelen);
-	else if (ft_tolower(prfx[1]) != 'x' && PF_TYPE != 'o')
+	else if (ft_tolower(prfx[1]) != 'x' && info->type != 'o')
 		len -= addprefix(info, prfx, prelen);
 	if (len > 0 && (PF_FLAG_MIN == FALSE || c != ' '))
 		addpad(info, len, c);
@@ -54,16 +55,17 @@ static void		addzero(t_info *info, intmax_t len, intmax_t space, char *prfx)
 
 static char		*getprefix(t_info *info)
 {
-	if (PF_ISNEGATIVE)
+	if (info->isnegative)
 		return ("-");
 	if (PF_FLAG_PLUS && pf_ispositiveint(info))
 		return ("+");
 	if (PF_FLAG_SPACE && pf_ispositiveint(info))
 		return (" ");
-	if ((PF_FLAG_HASH && ft_chrin("xX", PF_TYPE)) || PF_VAR_TYPE == VOID)
-		return ((PF_TYPE == 'X') ? "0X" : "0x");
-	if (PF_FLAG_HASH && PF_TYPE == 'o' && PF_ISZERO == FALSE &&
-		PF_PRECISION <= PF_VAR_LEN)
+	if ((PF_FLAG_HASH && ft_chrin("xX", info->type))
+		|| info->var_type == VOID)
+		return ((info->type == 'X') ? "0X" : "0x");
+	if (PF_FLAG_HASH && info->type == 'o' && info->iszero == FALSE &&
+		info->precision <= info->var_len)
 		return ("0");
 	return ("");
 }
@@ -77,21 +79,21 @@ void			pf_formatpad(t_info *info)
 
 	prfx = getprefix(info);
 	prelen = ft_strlen(prfx);
-	PF_PADADDED = PF_ADDED;
-	if (PF_PRECISION > PF_WIDTH && pf_isstr(info) == FALSE)
-		len = ft_max(0, PF_PRECISION) - PF_VAR_LEN;
+	info->padadded = info->added;
+	if (info->precision > info->width && pf_isstr(info) == FALSE)
+		len = ft_max(0, info->precision) - info->var_len;
 	else
-		len = ft_max(0, PF_WIDTH) - PF_VAR_LEN;
-	space = ft_max(0, PF_WIDTH) - ft_max(PF_VAR_LEN, PF_PRECISION);
-	if (PF_VAR_TYPE == VOID || PF_ISZERO == FALSE)
+		len = ft_max(0, info->width) - info->var_len;
+	space = ft_max(0, info->width) - ft_max(info->var_len, info->precision);
+	if (info->var_type == VOID || info->iszero == FALSE)
 		space -= prelen;
-	else if (ft_tolower(prfx[1]) != 'x' && PF_TYPE != 'o')
+	else if (ft_tolower(prfx[1]) != 'x' && info->type != 'o')
 		space -= prelen;
-	if (PF_FLAG_ZERO &&
-		(PF_PRECISION == -1 || (PF_PRECISION == 0 && PF_FLAG_HASH == FALSE)))
+	if (PF_FLAG_ZERO && (info->precision == -1 ||
+		(info->precision == 0 && PF_FLAG_HASH == FALSE)))
 		space = 0;
 	if (space > 0 && PF_FLAG_MIN == FALSE)
 		addpad(info, space, ' ');
 	addzero(info, len, space, prfx);
-	PF_PADADDED = PF_ADDED - PF_PADADDED;
+	info->padadded = info->added - info->padadded;
 }

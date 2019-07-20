@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 11:40:55 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:24:45 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:25:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <unistd.h>
 
 void	ft_putnumlst(t_list *lst)
 {

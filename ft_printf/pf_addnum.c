@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/12 02:16:09 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:12:33 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:11:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 void	pf_addnum(t_info *info, intmax_t value)
 {

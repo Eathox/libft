@@ -6,21 +6,22 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:38:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:10:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <unistd.h>
 
 static ssize_t	freeret(t_info *info)
 {
 	ssize_t		ret;
 
-	ret = (ssize_t)PF_ADDED;
-	write(PF_FD, PF_BUFF, PF_BUFF_LEN);
+	ret = (ssize_t)info->added;
+	write(info->fd, info->buff, info->buff_len);
 	if (info != NULL)
 	{
-		free(PF_BUFF);
+		free(info->buff);
 		free(info);
 	}
 	return (ret);
@@ -37,8 +38,8 @@ ssize_t			ft_dprintf(int fd, const char *format, ...)
 	info = pf_infonew();
 	if (info == NULL)
 		return (-1);
-	PF_FD = fd;
-	va_start(PF_ARGS, format);
+	info->fd = fd;
+	va_start(info->args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -47,6 +48,6 @@ ssize_t			ft_dprintf(int fd, const char *format, ...)
 			i += pf_addstr(info, (char *)&format[i]);
 		i++;
 	}
-	va_end(PF_ARGS);
+	va_end(info->args);
 	return (freeret(info));
 }

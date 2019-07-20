@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 14:24:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 18:12:27 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:12:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 static size_t	getrgb(const char *str, t_color *rgb)
 {

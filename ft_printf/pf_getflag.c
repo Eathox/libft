@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:11:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:13:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 static void	handleconflicts(t_info *info)
 {

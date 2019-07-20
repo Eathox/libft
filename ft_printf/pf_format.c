@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/12 11:52:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:46:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	pf_format(t_info *info)
 		pf_formatnum(info);
 	else if (pf_isunsignint(info))
 		pf_formatunum(info);
-	else if (PF_VAR_TYPE == CHAR || PF_VAR_TYPE == T_WCHAR)
+	else if (info->var_type == CHAR || info->var_type == T_WCHAR)
 		pf_formatchar(info);
 	else if (pf_isstr(info))
 		pf_formatstr(info);
-	else if (PF_VAR_TYPE == DOUBLE || PF_VAR_TYPE == LONG_DOUBLE)
+	else if (info->var_type == DOUBLE || info->var_type == LONG_DOUBLE)
 		pf_formatdouble(info);
 	pf_formatbackpad(info);
 }

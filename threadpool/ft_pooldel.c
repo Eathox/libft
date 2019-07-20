@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:53:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 17:15:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:20:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/threadpool.h"
+#include "../includes/libft.h"
 
 static void	delque(t_pool *pool)
 {

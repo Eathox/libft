@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/26 14:51:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:14:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:26:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <unistd.h>
 
 void	ft_termclr_fd(int fd)
 {

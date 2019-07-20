@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/03 18:30:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:29:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:25:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <unistd.h>
 
 static ssize_t	freeret(t_list *lst, char **str)
 {

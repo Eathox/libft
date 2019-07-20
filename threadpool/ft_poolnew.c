@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 17:16:54 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:21:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/threadpool.h"
+#include "../includes/libft.h"
 
 static t_pool	*freeret(t_pool **pool)
 {

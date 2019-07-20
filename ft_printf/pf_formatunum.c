@@ -6,27 +6,29 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/16 17:46:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:12:50 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:13:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 void		pf_formatunum(t_info *info)
 {
 	uintmax_t	num;
 
 	num = pf_overflowunsigned(info);
-	PF_ISZERO = (num == 0);
-	PF_VAR_LEN = ft_unumlen_base(num, PF_VAR_BASE);
+	info->iszero = (num == 0);
+	info->var_len = ft_unumlen_base(num, info->var_base);
 	pf_formatpad(info);
-	if (PF_PRECISION >= 0 && PF_ISZERO)
+	if (info->precision >= 0 && info->iszero)
 	{
-		if (PF_PRECISION > 0 || (PF_TYPE == 'o' && PF_FLAG_HASH))
+		if (info->precision > 0 ||
+			(info->type == 'o' && PF_FLAG_HASH))
 			pf_addnstr(info, "0", 1);
-		else if (PF_WIDTH > 0)
+		else if (info->width > 0)
 			pf_addnstr(info, " ", 1);
 		return ;
 	}
-	pf_addunum(info, num, PF_VAR_LEN, PF_VAR_BASE);
+	pf_addunum(info, num, info->var_len, info->var_base);
 }

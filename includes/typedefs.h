@@ -6,14 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 15:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:29:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:09:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_TYPEDEFS_H
 # define FT_TYPEDEFS_H
 
-# include "libft.h"
+# include <stdlib.h>
+# include <string.h>
 
 typedef	int				t_wchar;
 typedef	unsigned int	t_color;

@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:13:12 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:12:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 static void	setdecimals(long double value, char *decimals, size_t n)
 {
@@ -67,29 +68,29 @@ static void	formatdouble(t_info *info)
 {
 	double	value;
 
-	value = va_arg(PF_ARGS, double);
-	PF_VAR_LEN = ft_numlen((long)value) + PF_PRECISION;
-	PF_ISNEGATIVE = (value < 0);
-	PF_ISZERO = (value == 0);
+	value = va_arg(info->args, double);
+	info->var_len = ft_numlen((long)value) + info->precision;
+	info->isnegative = (value < 0);
+	info->iszero = (value == 0);
 	pf_formatpad(info);
-	adddouble(info, value, PF_PRECISION);
+	adddouble(info, value, info->precision);
 }
 
 static void	formatldouble(t_info *info)
 {
 	long double	value;
 
-	value = va_arg(PF_ARGS, long double);
-	PF_VAR_LEN = ft_numlen((long)value) + PF_PRECISION;
-	PF_ISNEGATIVE = (value < 0);
-	PF_ISZERO = (value == 0);
+	value = va_arg(info->args, long double);
+	info->var_len = ft_numlen((long)value) + info->precision;
+	info->isnegative = (value < 0);
+	info->iszero = (value == 0);
 	pf_formatpad(info);
-	adddouble(info, value, PF_PRECISION);
+	adddouble(info, value, info->precision);
 }
 
 void		pf_formatdouble(t_info *info)
 {
-	if (PF_VAR_TYPE == DOUBLE)
+	if (info->var_type == DOUBLE)
 		formatdouble(info);
 	else
 		formatldouble(info);

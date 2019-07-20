@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:12:04 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:13:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 static int	checkinfo(t_info *info, const char *str)
 {
@@ -21,7 +22,7 @@ static int	checkinfo(t_info *info, const char *str)
 	else if (*str == '.')
 		return (pf_getprecision(info, str));
 	else if (ft_chrin(PF_A_LENGTH, *str) ||
-		(ft_chrin(PF_A_LENGTH_D, PF_LENGTH) && *str == PF_LENGTH))
+		(ft_chrin(PF_A_LENGTH_D, info->length) && *str == info->length))
 		return (pf_getlength(info, str));
 	else if (ft_chrin(PF_A_TYPE, *str) || ft_chrin(PF_A_TYPE_L, *str))
 		return (pf_gettype(info, str));
@@ -42,10 +43,10 @@ size_t		pf_getinfo(t_info *info, const char *str)
 		i += ret;
 	}
 	pf_setvar_type(info);
-	if (PF_TYPE == 'f' && PF_PRECISION == -1)
-		PF_PRECISION = 6;
-	else if (PF_VAR_TYPE == CHAR || PF_VAR_TYPE == T_WCHAR)
-		PF_PRECISION = -1;
+	if (info->type == 'f' && info->precision == -1)
+		info->precision = 6;
+	else if (info->var_type == CHAR || info->var_type == T_WCHAR)
+		info->precision = -1;
 	pf_setvar_base(info);
 	return (i + (ret == -1));
 }

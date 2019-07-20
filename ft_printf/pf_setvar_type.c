@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/12 16:04:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:19:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 /*
 ** TYPES: (% followed by:)
@@ -30,62 +31,62 @@
 
 static void	int_type(t_info *info)
 {
-	if (PF_LENGTH == PF_DOUBLE_H)
-		PF_VAR_TYPE = CHAR_I;
-	else if (PF_LENGTH == 'h')
-		PF_VAR_TYPE = SHORT;
-	else if (PF_LENGTH == PF_DOUBLE_L)
-		PF_VAR_TYPE = LONG_LONG;
-	else if (PF_LENGTH == 'l' || PF_LENGTH == 'z')
-		PF_VAR_TYPE = LONG;
-	else if (PF_LENGTH == 'j')
-		PF_VAR_TYPE = INT_MAX;
+	if (info->length == PF_DOUBLE_H)
+		info->var_type = CHAR_I;
+	else if (info->length == 'h')
+		info->var_type = SHORT;
+	else if (info->length == PF_DOUBLE_L)
+		info->var_type = LONG_LONG;
+	else if (info->length == 'l' || info->length == 'z')
+		info->var_type = LONG;
+	else if (info->length == 'j')
+		info->var_type = INT_MAX;
 	else
-		PF_VAR_TYPE = INT;
+		info->var_type = INT;
 }
 
 static void	uint_type(t_info *info)
 {
-	if (PF_LENGTH == PF_DOUBLE_H)
-		PF_VAR_TYPE = U_CHAR_I;
-	else if (PF_LENGTH == 'h')
-		PF_VAR_TYPE = U_SHORT;
-	else if (PF_LENGTH == PF_DOUBLE_L)
-		PF_VAR_TYPE = U_LONG_LONG;
-	else if (PF_LENGTH == 'l')
-		PF_VAR_TYPE = U_LONG;
-	else if (PF_LENGTH == 'j')
-		PF_VAR_TYPE = U_INT_MAX;
-	else if (PF_LENGTH == 'z')
-		PF_VAR_TYPE = SIZE_T;
+	if (info->length == PF_DOUBLE_H)
+		info->var_type = U_CHAR_I;
+	else if (info->length == 'h')
+		info->var_type = U_SHORT;
+	else if (info->length == PF_DOUBLE_L)
+		info->var_type = U_LONG_LONG;
+	else if (info->length == 'l')
+		info->var_type = U_LONG;
+	else if (info->length == 'j')
+		info->var_type = U_INT_MAX;
+	else if (info->length == 'z')
+		info->var_type = SIZE_T;
 	else
-		PF_VAR_TYPE = U_INT;
+		info->var_type = U_INT;
 }
 
 static void	double_type(t_info *info)
 {
-	if (PF_LENGTH == 'L')
-		PF_VAR_TYPE = LONG_DOUBLE;
+	if (info->length == 'L')
+		info->var_type = LONG_DOUBLE;
 	else
-		PF_VAR_TYPE = DOUBLE;
+		info->var_type = DOUBLE;
 }
 
 void		pf_setvar_type(t_info *info)
 {
-	if (ft_chrin("di", PF_TYPE))
+	if (ft_chrin("di", info->type))
 		int_type(info);
-	else if (ft_chrin("uboxX", PF_TYPE))
+	else if (ft_chrin("uboxX", info->type))
 		uint_type(info);
-	else if (PF_TYPE == 'f')
+	else if (info->type == 'f')
 		double_type(info);
-	else if (PF_TYPE == '%')
-		PF_VAR_TYPE = CHAR;
-	else if (PF_TYPE == 'c')
-		PF_VAR_TYPE = (PF_LENGTH == 'l') ? T_WCHAR : CHAR;
-	else if (PF_TYPE == 's')
-		PF_VAR_TYPE = (PF_LENGTH == 'l') ? T_WCHAR_STR : STR;
-	else if (PF_TYPE == 'p')
-		PF_VAR_TYPE = VOID;
+	else if (info->type == '%')
+		info->var_type = CHAR;
+	else if (info->type == 'c')
+		info->var_type = (info->length == 'l') ? T_WCHAR : CHAR;
+	else if (info->type == 's')
+		info->var_type = (info->length == 'l') ? T_WCHAR_STR : STR;
+	else if (info->type == 'p')
+		info->var_type = VOID;
 	else
-		PF_VAR_TYPE = CHAR;
+		info->var_type = CHAR;
 }

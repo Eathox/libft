@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 16:42:53 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/24 14:37:29 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:11:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 void	pf_addwchar(t_info *info, t_wchar c)
 {

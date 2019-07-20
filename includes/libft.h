@@ -6,23 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 20:23:00 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:26:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
 # define FT_LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+
 # include <stdarg.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
-# include <stdbool.h>
 # include "typedefs.h"
-# include "ft_printf.h"
-# include "threadpool.h"
 
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/16 18:15:52 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:13:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:46:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 uintmax_t	pf_overflowunsigned(t_info *info)
 {
-	if (PF_VAR_TYPE == U_LONG || PF_VAR_TYPE == VOID)
-		return (va_arg(PF_ARGS, unsigned long));
-	if (PF_VAR_TYPE == U_LONG_LONG)
-		return (va_arg(PF_ARGS, unsigned long long));
-	if (PF_VAR_TYPE == U_INT_MAX)
-		return (va_arg(PF_ARGS, uintmax_t));
-	if (PF_VAR_TYPE == U_CHAR_I)
-		return ((unsigned char)va_arg(PF_ARGS, int));
-	if (PF_VAR_TYPE == U_SHORT)
-		return ((unsigned short)va_arg(PF_ARGS, int));
-	if (PF_VAR_TYPE == SIZE_T)
-		return (va_arg(PF_ARGS, size_t));
-	return (va_arg(PF_ARGS, unsigned int));
+	if (info->var_type == U_LONG || info->var_type == VOID)
+		return (va_arg(info->args, unsigned long));
+	if (info->var_type == U_LONG_LONG)
+		return (va_arg(info->args, unsigned long long));
+	if (info->var_type == U_INT_MAX)
+		return (va_arg(info->args, uintmax_t));
+	if (info->var_type == U_CHAR_I)
+		return ((unsigned char)va_arg(info->args, int));
+	if (info->var_type == U_SHORT)
+		return ((unsigned short)va_arg(info->args, int));
+	if (info->var_type == SIZE_T)
+		return (va_arg(info->args, size_t));
+	return (va_arg(info->args, unsigned int));
 }

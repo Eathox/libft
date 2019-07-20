@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:58:38 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:13:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 size_t	pf_getwidth(t_info *info, const char *str)
 {
@@ -19,15 +20,15 @@ size_t	pf_getwidth(t_info *info, const char *str)
 	i = 1;
 	if (*str == '*')
 	{
-		PF_WIDTH = va_arg(PF_ARGS, int);
-		if (PF_WIDTH < 0)
+		info->width = va_arg(info->args, int);
+		if (info->width < 0)
 		{
 			PF_FLAG_MIN = TRUE;
-			PF_WIDTH = -PF_WIDTH;
+			info->width = -info->width;
 		}
 		return (1);
 	}
-	PF_WIDTH = ft_atoi(str);
+	info->width = ft_atoi(str);
 	while (ft_isdigit(str[i]))
 		i++;
 	return (i);

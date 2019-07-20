@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 01:53:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:25:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
+#include <unistd.h>
 
 void	ft_pututf8_fd(t_wchar c, int fd)
 {

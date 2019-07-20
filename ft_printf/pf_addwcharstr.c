@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 16:50:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/24 14:28:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:11:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 void	pf_addwcharstr(t_info *info, t_wchar *str, size_t n)
 {

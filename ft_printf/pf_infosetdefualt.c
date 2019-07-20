@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 12:16:41 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:18:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	pf_infosetdefualt(t_info *info)
 {
-	PF_LENGTH = -1;
-	PF_PRECISION = -1;
-	PF_TYPE = -1;
-	PF_WIDTH = -1;
-	PF_VAR_LEN = -1;
-	PF_VAR_TYPE = -1;
-	PF_VAR_BASE = -1;
-	PF_PADADDED = 0;
-	PF_FLAG_HASH = 0;
-	PF_FLAG_ZERO = 0;
-	PF_FLAG_MIN = 0;
-	PF_FLAG_PLUS = 0;
-	PF_FLAG_SPACE = 0;
-	PF_FLAG_APOST = 0;
-	PF_ISZERO = FALSE;
-	PF_ISNEGATIVE = FALSE;
+	info->length = -1;
+	info->precision = -1;
+	info->type = -1;
+	info->width = -1;
+	info->var_len = -1;
+	info->var_type = -1;
+	info->var_base = -1;
+	info->padadded = 0;
+	PF_FLAG_HASH = FALSE;
+	PF_FLAG_ZERO = FALSE;
+	PF_FLAG_MIN = FALSE;
+	PF_FLAG_PLUS = FALSE;
+	PF_FLAG_SPACE = FALSE;
+	PF_FLAG_APOST = FALSE;
+	info->iszero = FALSE;
+	info->isnegative = FALSE;
 }

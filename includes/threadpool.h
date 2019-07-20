@@ -6,15 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 17:17:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:20:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_THREADPOOL_H
 # define FT_THREADPOOL_H
-# include "libft.h"
+
+# include <stdarg.h>
 # include <pthread.h>
 # include <stdatomic.h>
+# include "typedefs.h"
 
 typedef	enum	e_state
 {

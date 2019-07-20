@@ -6,14 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 19:35:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 22:20:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "libft.h"
+# include <stdarg.h>
+# include "typedefs.h"
 
 /*
 ** TYPES: (% followed by:)
@@ -31,23 +32,6 @@
 ** p = void *
 */
 
-# define PF_BUFF		info->buff
-# define PF_BUFF_LIST	info->buff_list
-# define PF_BUFF_LEN	info->buff_len
-# define PF_ARGS		info->args
-# define PF_ISZERO		info->iszero
-# define PF_ISNEGATIVE	info->isnegative
-# define PF_FD			info->fd
-# define PF_FLAG		info->flag
-# define PF_LENGTH		info->length
-# define PF_PRECISION	info->precision
-# define PF_ADDED		info->added
-# define PF_PADADDED	info->padadded
-# define PF_TYPE		info->type
-# define PF_WIDTH		info->width
-# define PF_VAR_LEN		info->var_len
-# define PF_VAR_TYPE	info->var_type
-# define PF_VAR_BASE	info->var_base
 # define PF_A_TYPE		"fdiuboxXcsp%"
 # define PF_A_TYPE_L	"FDOUCS"
 # define PF_A_FLAG		"#0-+ \'"
@@ -56,12 +40,12 @@
 # define PF_A_LENGTH_D	"hl"
 # define PF_DOUBLE_H	208
 # define PF_DOUBLE_L	216
-# define PF_FLAG_HASH	PF_FLAG[0]
-# define PF_FLAG_ZERO	PF_FLAG[1]
-# define PF_FLAG_MIN	PF_FLAG[2]
-# define PF_FLAG_PLUS	PF_FLAG[3]
-# define PF_FLAG_SPACE	PF_FLAG[4]
-# define PF_FLAG_APOST	PF_FLAG[5]
+# define PF_FLAG_HASH	info->flag[0]
+# define PF_FLAG_ZERO	info->flag[1]
+# define PF_FLAG_MIN	info->flag[2]
+# define PF_FLAG_PLUS	info->flag[3]
+# define PF_FLAG_SPACE	info->flag[4]
+# define PF_FLAG_APOST	info->flag[5]
 # define PF_BUFF_SIZE	256
 
 typedef enum	e_type
@@ -87,10 +71,6 @@ typedef enum	e_type
 	U_LONG_LONG,
 	U_CHAR_I
 }				t_type;
-
-/*
-** MAYBE CHANGE FLAGS TO BITS LATER
-*/
 
 typedef	struct	s_info
 {

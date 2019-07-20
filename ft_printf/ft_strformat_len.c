@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 16:37:43 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 21:10:55 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../includes/libft.h"
 
 static char		*joinlst(t_info *info)
 {
@@ -19,8 +20,8 @@ static char		*joinlst(t_info *info)
 	t_list	*lst;
 
 	i = 0;
-	lst = PF_BUFF_LIST;
-	str = ft_strnew(PF_ADDED);
+	lst = info->buff_list;
+	str = ft_strnew(info->added);
 	if (str == NULL)
 		return (NULL);
 	while (lst != NULL)
@@ -38,20 +39,20 @@ static char		*freeret(t_info *info)
 	t_list	*lst;
 	char	*str;
 
-	if (PF_BUFF_LEN != 0 && PF_BUFF_LEN != PF_ADDED)
+	if (info->buff_len != 0 && info->buff_len != info->added)
 	{
 		lst = ft_lstnew(NULL, 0);
 		if (lst == NULL)
 			return (NULL);
-		lst->content = PF_BUFF;
-		lst->content_size = PF_BUFF_LEN;
-		ft_lstaddbck(&PF_BUFF_LIST, lst);
+		lst->content = info->buff;
+		lst->content_size = info->buff_len;
+		ft_lstaddbck(&info->buff_list, lst);
 	}
-	if (PF_BUFF_LEN == PF_ADDED)
-		str = ft_memdup(PF_BUFF, PF_ADDED);
+	if (info->buff_len == info->added)
+		str = ft_memdup(info->buff, info->added);
 	else
 		str = joinlst(info);
-	ft_lstdel(&PF_BUFF_LIST, &ft_lstdelmem);
+	ft_lstdel(&info->buff_list, &ft_lstdelmem);
 	if (info != NULL)
 		free(info);
 	return (str);
@@ -68,8 +69,8 @@ char			*ft_strformat_len(size_t *len, const char *format, ...)
 	info = pf_infonew();
 	if (info == NULL)
 		return (NULL);
-	PF_FD = -1;
-	va_start(PF_ARGS, format);
+	info->fd = -1;
+	va_start(info->args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
@@ -78,8 +79,8 @@ char			*ft_strformat_len(size_t *len, const char *format, ...)
 			i += pf_addstr(info, (char *)&format[i]);
 		i++;
 	}
-	va_end(PF_ARGS);
+	va_end(info->args);
 	if (len != NULL)
-		*len = PF_ADDED;
+		*len = info->added;
 	return (freeret(info));
 }
