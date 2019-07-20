@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/30 18:32:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:13:12 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ static void	setdecimals(long double value, char *decimals, size_t n)
 static void	adddouble(t_info *info, long double value, size_t n)
 {
 	char		*decimals;
-	long long	num;
+	intmax_t	num;
 
 	decimals = ft_strnew(n + 1);
 	if (decimals == NULL)
 		return ;
 	if (value < 0)
 		value *= -1;
-	num = (long long)value;
+	num = (intmax_t)value;
 	value -= num;
 	setdecimals(value, decimals, n);
 	num += (n == 0 && decimals[0] >= '5');

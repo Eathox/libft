@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_intlen.c                                        :+:    :+:            */
+/*   ft_putunbr_cbase.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
+/*   Updated: 2019/07/20 20:19:59 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_intlen(int value)
+void	ft_putunum_cbase(uintmax_t value, int base, t_bool up)
 {
-	return (ft_intlen_base(value, 10));
+	ft_putunum_cbase_fd(value, base, up, 1);
 }

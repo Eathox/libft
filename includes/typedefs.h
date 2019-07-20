@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 15:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/17 20:06:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 17:01:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 # include "libft.h"
 
 typedef	int				t_wchar;
-typedef	unsigned int	t_color;
+typedef	unsigned char	t_color;
+typedef enum			e_bool
+{
+	FALSE,
+	TRUE
+}						t_bool;
+
 typedef struct			s_list
 {
 	void			*content;
@@ -34,7 +40,5 @@ typedef struct			s_gnl
 
 # define MAX_DOUBLE_PRECISION 24
 # define BUFF_SIZE	42
-# define FALSE	0
-# define TRUE	1
 
 #endif

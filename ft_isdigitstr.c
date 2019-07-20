@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 16:07:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/20 23:20:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 17:28:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_isdigitstr(const char *str)
+t_bool		ft_isdigitstr(const char *str)
 {
 	size_t	len;
 

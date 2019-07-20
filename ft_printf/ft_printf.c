@@ -6,17 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/18 14:42:36 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:38:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int		freeret(t_info *info)
+static ssize_t	freeret(t_info *info)
 {
-	int		ret;
+	ssize_t		ret;
 
-	ret = PF_ADDED;
+	ret = (ssize_t)PF_ADDED;
 	write(PF_FD, PF_BUFF, PF_BUFF_LEN);
 	if (info != NULL)
 	{
@@ -26,9 +26,9 @@ static int		freeret(t_info *info)
 	return (ret);
 }
 
-int				ft_printf(const char *format, ...)
+ssize_t			ft_printf(const char *format, ...)
 {
-	int		i;
+	size_t	i;
 	t_info	*info;
 
 	i = 0;

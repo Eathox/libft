@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 10:54:42 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 02:01:57 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:30:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_strequ(const char *str1, const char *str2)
+t_bool	ft_strequ(const char *str1, const char *str2)
 {
 	if (str1 == NULL || str2 == NULL)
 		return (FALSE);

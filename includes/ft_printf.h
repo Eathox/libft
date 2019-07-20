@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/17 22:12:47 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 19:35:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@
 # define PF_FLAG_APOST	PF_FLAG[5]
 # define PF_BUFF_SIZE	256
 
-enum			e_type
+typedef enum	e_type
 {
 	INT,
 	INT_MAX,
@@ -86,7 +86,7 @@ enum			e_type
 	U_LONG,
 	U_LONG_LONG,
 	U_CHAR_I
-};
+}				t_type;
 
 /*
 ** MAYBE CHANGE FLAGS TO BITS LATER
@@ -94,54 +94,52 @@ enum			e_type
 
 typedef	struct	s_info
 {
-	char		*buff;
-	char		flag[7];
-	char		type;
-	char		var_base;
-	char		iszero;
-	char		isnegative;
-	int			buff_len;
-	int			fd;
-	int			length;
-	int			added;
-	int			padadded;
-	int			precision;
-	int			var_len;
-	int			width;
-	enum e_type	var_type;
-	va_list		args;
-	t_list		*buff_list;
+	t_bool	flag[7];
+	char	*buff;
+	char	type;
+	char	width;
+	int		length;
+	int		var_base;
+	int		fd;
+	t_bool	iszero;
+	t_bool	isnegative;
+	size_t	buff_len;
+	size_t	added;
+	size_t	padadded;
+	ssize_t	precision;
+	ssize_t	var_len;
+	t_type	var_type;
+	va_list	args;
+	t_list	*buff_list;
 }				t_info;
-typedef long long			t_intmax;
-typedef unsigned long long	t_uintmax;
 
-char			*ft_strformat(const char *format, ...);
 char			*ft_strformat_len(size_t *len, const char *format, ...);
-int				ft_dprintf(int fd, const char *format, ...);
-int				ft_printf(const char *format, ...);
-int				pf_addstr(t_info *info, char *str);
-int				pf_commands(t_info *info, const char *str);
-int				pf_distribute(t_info *info, const char *start);
-int				pf_formatcolor(t_info *info, const char *start);
-int				pf_getflag(t_info *info, const char *str);
-int				pf_getinfo(t_info *info, const char *str);
+char			*ft_strformat(const char *format, ...);
 int				pf_getlength(t_info *info, const char *str);
-int				pf_getprecision(t_info *info, const char *str);
 int				pf_gettype(t_info *info, const char *str);
-int				pf_getwidth(t_info *info, const char *str);
-int				pf_ispositiveint(t_info *info);
-int				pf_issignint(t_info *info);
-int				pf_isstr(t_info *info);
-int				pf_isunsignint(t_info *info);
-int				pf_iszeropad(t_info *info);
+intmax_t		pf_overflowsigned(t_info *info);
+size_t			pf_addstr(t_info *info, char *str);
+size_t			pf_commands(t_info *info, const char *str);
+size_t			pf_distribute(t_info *info, const char *start);
+size_t			pf_formatcolor(t_info *info, const char *start);
+size_t			pf_getflag(t_info *info, const char *str);
+size_t			pf_getinfo(t_info *info, const char *str);
+size_t			pf_getprecision(t_info *info, const char *str);
+size_t			pf_getwidth(t_info *info, const char *str);
+ssize_t			ft_dprintf(int fd, const char *format, ...);
+ssize_t			ft_printf(const char *format, ...);
+t_bool			pf_ispositiveint(t_info *info);
+t_bool			pf_issignint(t_info *info);
+t_bool			pf_isstr(t_info *info);
+t_bool			pf_isunsignint(t_info *info);
+t_bool			pf_iszeropad(t_info *info);
 t_info			*pf_infonew(void);
-t_intmax		pf_overflowsigned(t_info *info);
-t_uintmax		pf_overflowunsigned(t_info *info);
+uintmax_t		pf_overflowunsigned(t_info *info);
 void			pf_addchar(t_info *info, char c);
 void			pf_addnstr(t_info *info, char *str, size_t n);
-void			pf_addnum(t_info *info, t_intmax value);
+void			pf_addnum(t_info *info, intmax_t value);
 void			pf_addtobuff(t_info *info, char *str, size_t len);
-void			pf_addunum(t_info *info, t_uintmax value, int len, int base);
+void			pf_addunum(t_info *info, uintmax_t value, size_t len, int base);
 void			pf_addwchar(t_info *info, t_wchar c);
 void			pf_addwcharstr(t_info *info, t_wchar *str, size_t n);
 void			pf_format(t_info *info);
@@ -155,8 +153,8 @@ void			pf_formatunum(t_info *info);
 void			pf_infosetdefualt(t_info *info);
 void			pf_setcolor(t_info *info, int color);
 void			pf_setcolorbg(t_info *info, int color);
-void			pf_setrgbcolor(t_info *info, int r, int g, int b);
-void			pf_setrgbcolorbg(t_info *info, int r, int g, int b);
+void			pf_setrgbcolor(t_info *info, t_color r, t_color g, t_color b);
+void			pf_setrgbcolorbg(t_info *info, t_color r, t_color g, t_color b);
 void			pf_setvar_base(t_info *info);
 void			pf_setvar_type(t_info *info);
 

@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putintarr.c                                     :+:    :+:            */
+/*   ft_lsttonumarr.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 18:18:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/14 10:14:49 by pholster       #+#    #+#                */
+/*   Updated: 2019/07/20 20:23:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_putintarr(const int *arr, size_t len)
+intmax_t		*ft_lsttonumarr(t_list *lst)
 {
-	size_t	i;
+	intmax_t	*arr;
+	intmax_t	*n;
+	size_t		i;
+	size_t		len;
 
 	i = 0;
+	len = ft_lstlen(lst);
+	if (len == 0)
+		return (NULL);
+	arr = (intmax_t *)ft_memalloc(sizeof(intmax_t) * len);
 	if (arr == NULL)
-		return ;
-	while (i < len)
+		return (NULL);
+	while (lst != NULL)
 	{
-		ft_putnbr(arr[i]);
-		write(1, "\n", 1);
+		n = (intmax_t *)lst->content;
+		arr[i] = *n;
+		lst = lst->next;
 		i++;
 	}
+	return (arr);
 }

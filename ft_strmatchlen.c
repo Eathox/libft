@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 17:23:15 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:14:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ size_t	ft_strmatchlen(const char *str1, const char *str2)
 	unsigned char	temp_b;
 
 	i = 0;
-	while (TRUE)
+	temp_a = str1[i];
+	while (temp_a != '\0')
 	{
-		temp_a = str1[i];
 		temp_b = str2[i];
-		if (temp_a != temp_b || temp_a == '\0')
+		if (temp_a != temp_b)
 			return (i);
 		i++;
 	}

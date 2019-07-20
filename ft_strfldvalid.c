@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 15:28:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:30:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_strfldvalid(const char **arr, size_t x, size_t y, const char *dlm)
+t_bool	ft_strfldvalid(const char **arr, size_t x, size_t y, const char *dlm)
 {
 	long long	bytes[2];
 	size_t		i;

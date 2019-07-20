@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_foreach.c                                       :+:    :+:            */
+/*   ft_putunbr_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
+/*   Updated: 2019/07/20 20:20:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_foreach(const int *arr, int length, void (*f)(int))
+void	ft_putunum_fd(uintmax_t value, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	if (f == NULL || arr == NULL)
-		return ;
-	while (i < (size_t)length)
-	{
-		f(arr[i]);
-		i++;
-	}
+	ft_putunum_cbase_fd(value, 10, TRUE, fd);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putunbr_base.c                                  :+:    :+:            */
+/*   ft_putnbr_base.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 12:52:31 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:19:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_putunbr_base(unsigned long long value, int base)
+void	ft_putnum_base(intmax_t value, int base)
 {
-	ft_putunbr_cbase_fd(value, base, TRUE, 1);
+	ft_putnum_cbase_fd(value, base, TRUE, 1);
 }

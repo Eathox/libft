@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/18 14:35:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:19:15 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void		ft_putdouble_fd(long double value, size_t n, int fd)
 	num = (long long)value;
 	value -= num;
 	setdecimals(value, decimals, n);
-	ft_putnbr_fd(num + (n == 0 && decimals[0] >= '5'), fd);
+	ft_putnum_fd(num + (n == 0 && decimals[0] >= '5'), fd);
 	if (n != 0)
 	{
 		ft_putchar_fd('.', fd);

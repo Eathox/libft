@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 19:53:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_unumlen_base(unsigned long long value, int base)
+size_t		ft_unumlen_base(uintmax_t value, int base)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	if (base < 2 || base > 36)

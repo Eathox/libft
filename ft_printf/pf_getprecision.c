@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:57:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		pf_getprecision(t_info *info, const char *str)
+size_t		pf_getprecision(t_info *info, const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 1;
 	if (str[1] == '*')

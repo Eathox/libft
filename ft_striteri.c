@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:18:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:05:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_striteri(const char *str, void (*f)(unsigned int, char *))
+void	ft_striteri(const char *str, void (*f)(size_t, char *))
 {
 	size_t	i;
 
@@ -21,7 +21,7 @@ void	ft_striteri(const char *str, void (*f)(unsigned int, char *))
 		return ;
 	while (str[i] != '\0')
 	{
-		f((unsigned int)i, (char *)&str[i]);
+		f(i, (char *)&str[i]);
 		i++;
 	}
 }

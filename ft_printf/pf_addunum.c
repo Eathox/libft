@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/12 02:16:09 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/29 17:19:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:40:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	pf_addunum(t_info *info, t_uintmax value, int len, int base)
+void	pf_addunum(t_info *info, uintmax_t value, size_t len, int base)
 {
 	char	c;
 

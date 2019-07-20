@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 00:11:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/14 14:45:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:19:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putpointer(const void *pointer)
 {
 	ft_putstr("0x");
-	ft_putnbr_cbase((size_t)pointer, 16, FALSE);
+	ft_putnum_cbase((size_t)pointer, 16, FALSE);
 }

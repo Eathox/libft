@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/17 20:05:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:24:12 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int		lastline(char **line, t_gnl *lst)
 	return (0);
 }
 
-static int		strmerge(char **str1, char *str2, size_t *len, ssize_t ret)
+static t_bool	strmerge(char **str1, char *str2, size_t *len, ssize_t ret)
 {
 	char	*str;
 

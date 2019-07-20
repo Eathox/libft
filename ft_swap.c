@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:05:45 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_swap(int *a, int *b)
+void	ft_swap(intmax_t *a, intmax_t *b)
 {
-	int	temp_a;
+	intmax_t	temp_a;
 
 	temp_a = *a;
 	*a = *b;

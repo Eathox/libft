@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/16 17:46:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/16 12:22:25 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:12:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		pf_formatnum(t_info *info)
 {
-	t_intmax	num;
+	intmax_t	num;
 
 	num = pf_overflowsigned(info);
 	PF_ISZERO = (num == 0);

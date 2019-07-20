@@ -6,13 +6,14 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:08:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:25:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static t_list	*join(t_list *head, t_list *half, int (*f)(t_list *, t_list *))
+static t_list	*join(t_list *head, t_list *half,
+	t_bool (*f)(t_list *, t_list *))
 {
 	if (head == NULL)
 		return (half);
@@ -27,7 +28,7 @@ static t_list	*join(t_list *head, t_list *half, int (*f)(t_list *, t_list *))
 	return (head);
 }
 
-void			ft_lstsortrev(t_list **head, int (*f)(t_list *, t_list *))
+void			ft_lstsortrev(t_list **head, t_bool (*f)(t_list *, t_list *))
 {
 	t_list	*half;
 	t_list	*temp;

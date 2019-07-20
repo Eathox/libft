@@ -6,16 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 12:42:00 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:18:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-long long	ft_constrain(long long value, long long num1, long long num2)
+intmax_t	ft_constrain(intmax_t value, intmax_t num1, intmax_t num2)
 {
-	long long	min;
-	long long	max;
+	intmax_t	min;
+	intmax_t	max;
 
 	if (num1 < num2)
 	{

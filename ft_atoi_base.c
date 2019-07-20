@@ -6,19 +6,19 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:07:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int				ft_atoi_base(const char *str, int base)
+intmax_t		ft_atoi_base(const char *str, int base)
 {
-	char				*base_str;
-	unsigned long long	result;
-	unsigned long long	lst_val;
-	size_t				i;
-	int					isneg;
+	char		*base_str;
+	uintmax_t	result;
+	uintmax_t	lst_val;
+	int			isneg;
+	size_t		i;
 
 	result = 0;
 	lst_val = result;
@@ -35,7 +35,7 @@ int				ft_atoi_base(const char *str, int base)
 		i++;
 	}
 	if (lst_val > result ||
-		result > (unsigned long long)(9223372036854775807 + (isneg == -1)))
+		result > (uintmax_t)(9223372036854775807 + (isneg == -1)))
 		return (0 - (isneg == 1));
-	return ((int)(result * isneg));
+	return ((intmax_t)(result * isneg));
 }

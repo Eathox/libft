@@ -6,23 +6,23 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 13:51:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 17:17:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/threadpool.h"
 
-static int	freeret(t_pool *pool, t_task *task, char state)
+static t_bool	freeret(t_pool *pool, t_task *task, t_state state)
 {
 	free(task);
 	atomic_store(&(pool->state), state);
 	return (FALSE);
 }
 
-int			ft_poolque(t_pool *pool, void (*f)(), int count, ...)
+t_bool			ft_poolque(t_pool *pool, void (*f)(), size_t count, ...)
 {
 	va_list		params;
-	char		state;
+	t_state		state;
 	t_task		*task;
 
 	if (count > 5 || pool == NULL || pool->terminating || f == NULL)
@@ -30,9 +30,9 @@ int			ft_poolque(t_pool *pool, void (*f)(), int count, ...)
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	if (task == NULL)
 		return (FALSE);
-	state = atomic_exchange(&(pool->state), STATE_LOCKED);
-	while (state == STATE_LOCKED)
-		state = atomic_exchange(&(pool->state), STATE_LOCKED);
+	state = atomic_exchange(&(pool->state), LOCKED);
+	while (state == LOCKED)
+		state = atomic_exchange(&(pool->state), LOCKED);
 	va_start(params, count);
 	ft_tasksetinfo(task, f, count, params);
 	va_end(params);

@@ -6,18 +6,18 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 15:20:51 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:18:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_itoa_cbase(long long value, int base, int up)
+char	*ft_itoa_cbase(intmax_t value, int base, t_bool up)
 {
-	unsigned long long	num;
-	int					len;
-	char				*base_str;
-	char				*str;
+	uintmax_t	num;
+	size_t		len;
+	char		*base_str;
+	char		*str;
 
 	num = (value < 0 && base == 10) ? -value : value;
 	len = ft_numlen_base(value, base);

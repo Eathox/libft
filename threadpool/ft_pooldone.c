@@ -6,22 +6,22 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 22:45:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/26 13:52:23 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 17:16:13 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/threadpool.h"
 
-int		ft_pooldone(t_pool *pool)
+t_bool		ft_pooldone(t_pool *pool)
 {
-	int			i;
+	size_t		i;
 
 	i = 0;
 	if (pool == NULL)
 		return (TRUE);
 	while (i < pool->size)
 	{
-		if ((pool->threads[i])->state == STATE_ACTIVE)
+		if ((pool->threads[i])->state == ACTIVE)
 			return (FALSE);
 		i++;
 	}

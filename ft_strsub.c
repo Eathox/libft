@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 13:11:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 00:36:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 19:39:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_strsub(const char *str, unsigned int start, size_t len)
+char	*ft_strsub(const char *str, size_t start, size_t len)
 {
 	char	*ret;
 

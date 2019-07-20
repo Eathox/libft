@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/05/01 15:52:24 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:54:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	formatstr(t_info *info)
 {
 	char	*str;
-	int		n;
+	ssize_t	n;
 
 	str = va_arg(PF_ARGS, char *);
 	n = PF_PRECISION;
@@ -32,7 +32,7 @@ static void	formatstr(t_info *info)
 static void	formatwchar(t_info *info)
 {
 	t_wchar	*str;
-	int		n;
+	ssize_t	n;
 
 	str = va_arg(PF_ARGS, t_wchar *);
 	n = PF_PRECISION;

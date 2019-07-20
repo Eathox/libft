@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putintlst.c                                     :+:    :+:            */
+/*   ft_numarrsortac.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/14 11:40:55 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/22 23:47:03 by pholster       #+#    #+#                */
+/*   Updated: 2019/07/20 20:21:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void	ft_putintlst(t_list *lst)
+t_bool		ft_numarrsortac(intmax_t current, intmax_t num)
 {
-	int	*n;
-
-	if (lst == NULL)
-		return ;
-	n = (int *)lst->content;
-	ft_putnbr(*n);
-	write(1, "\n", 1);
-	if (lst->next != NULL)
-		ft_putintlst(lst->next);
+	return (current < num && current - num != 0);
 }

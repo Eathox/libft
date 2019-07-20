@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:53:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/30 15:22:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 17:15:41 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	delque(t_pool *pool)
 void		ft_pooldel(t_pool **pool)
 {
 	t_thread	*thread;
-	int			i;
+	size_t		i;
 
 	i = 0;
 	if (pool == NULL || *pool == NULL)

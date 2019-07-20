@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 12:43:05 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:18:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-long long		ft_abs(long long num)
+intmax_t		ft_abs(intmax_t num)
 {
-	unsigned long long temp_num;
+	uintmax_t temp_num;
 
 	temp_num = (num < 0) ? -num : num;
 	return (temp_num);

@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/17 14:59:08 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/14 11:59:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 19:56:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_color		ft_colorrgbatohex(char r, char g, char b, char a)
+t_color		ft_colorrgbatohex(t_color r, t_color g, t_color b, t_color a)
 {
 	t_color	color;
 

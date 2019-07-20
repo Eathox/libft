@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/01 13:28:03 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:12:04 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ static int	checkinfo(t_info *info, const char *str)
 	return (0);
 }
 
-int			pf_getinfo(t_info *info, const char *str)
+size_t		pf_getinfo(t_info *info, const char *str)
 {
-	int	ret;
-	int	i;
+	int		ret;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0' || str[i] != '\n')

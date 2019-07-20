@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 01:47:24 by pholster       #+#    #+#                */
-/*   Updated: 2019/03/29 12:37:34 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:22:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-int		ft_chrinbytes(long long *bytes, char c)
+t_bool		ft_chrinbytes(long long *bytes, char c)
 {
 	if (bytes == NULL)
 		return (FALSE);

@@ -6,25 +6,25 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 12:42:00 by pholster       #+#    #+#                */
-/*   Updated: 2019/02/10 11:42:11 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:06:38 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-double	ft_normalize(long long value, long long *range, long long *outputrange)
+float	ft_normalize(intmax_t value, intmax_t *range, intmax_t *outrange)
 {
-	long long	rangemin;
-	long long	rangemax;
-	long long	outputrangemin;
-	long long	outputrangemax;
-	double		output;
+	intmax_t	rangemin;
+	intmax_t	rangemax;
+	intmax_t	outrangemin;
+	intmax_t	outrangemax;
+	float		out;
 
 	rangemin = range[0];
 	rangemax = range[1];
-	outputrangemin = outputrange[0];
-	outputrangemax = outputrange[1];
-	output = (double)(outputrangemax - outputrangemin) / (rangemax - rangemin);
-	output *= outputrangemin + (value - rangemin);
-	return (output);
+	outrangemin = outrange[0];
+	outrangemax = outrange[1];
+	out = (float)(outrangemax - outrangemin) / (rangemax - rangemin);
+	out *= outrangemin + (value - rangemin);
+	return (out);
 }

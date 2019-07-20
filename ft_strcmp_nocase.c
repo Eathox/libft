@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:14:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ int		ft_strcmp_nocase(const char *str1, const char *str2)
 	unsigned char	temp_b;
 
 	i = 0;
-	while (TRUE)
+	temp_a = ft_tolower(str1[i]);
+	while (temp_a != '\0')
 	{
-		temp_a = ft_tolower(str1[i]);
 		temp_b = ft_tolower(str2[i]);
 		if (temp_a != temp_b)
 			return (temp_a - temp_b);
-		if (temp_a == '\0')
-			return (0);
 		i++;
 	}
 	return (0);

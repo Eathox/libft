@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/18 22:59:50 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/20 20:20:32 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,40 +44,39 @@ NAME = libft.a
 INCLUDES = ./includes/
 HEADERS = $(INCLUDES)libft.h $(INCLUDES)typedefs.h
 
-SRCS = putchar putnbr putstr sqrt strcmp strdup strlen swap isalpha isalnum \
+SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	isascii isprint toupper tolower putendl putchar_fd putstr_fd putendl_fd \
-	putnbr_fd strnew strclr strdel striter striteri strmap strmapi isspace \
+	putnum_fd strnew strclr strdel striter striteri strmap strmapi isspace \
 	itoa pow atoi strncmp strcpy strcat strequ strnequ strncat strlcat strchr \
 	strrchr strstr strnstr strsub strjoin strtrim strsplit memset bzero memcpy \
 	memdel memalloc memccpy memmove memcmp strncpy lstnew lstdelone lstdel \
-	lstadd lstiter lstmap memchr isdigit count_if foreach puterror strtoupper \
-	strtolower putline chrin chrnin intin strin strnin putstrarr putintarr \
+	lstadd lstiter lstmap memchr isdigit count_if puterror strtoupper \
+	strtolower putline chrin chrnin numin strin strnin putstrarr putnumarr \
 	strndup strdlen wrddcount chrtostr lstaddbck lstdelmem lsttostrarr \
 	strarrtolst lstlen strmatch strrev lstdup lstdupone putstrlst putbool \
-	intarrtolst putintlst lsttointarr min max constrain abs memreplace \
+	numarrtolst putnumlst lsttonumarr min max constrain abs memreplace \
 	getnextline termclr strarrnew strarrdel itoa_base atoi_base \
-	isdigitstr strfldnew chrindex putpointer strdsplit putnbr_base strdtrim \
-	putnbr_base_fd putline_fd isupper islower chrdin numlen_base numlen intlen \
-	intlen_base uintlen uintlen_base unumlen unumlen_base strappend memdup \
-	lstunlink getchar putnstr putnstr_fd strnlen strjoin_var strarrlen \
-	getnextdline chrdindex putnbr_cbase_fd putnbr_cbase lstfind_content \
-	lstfind_size memrcpy lstlast strjoin_arr lstfindadd_content lstrev \
-	lstfindadd_size strfldvalid memequ lstnlen strarrnlen strislen putlstsize \
-	strarrrev intarrsort intarrsortrev lstsort lstsortrev strarrsort lstinsert \
-	lstindex termsetcolor termsetcolorbg termresetcolor termresetcolorbg \
-	strnequ_nocase strequ_nocase strncmp_nocase strmatchlen strcmp_nocase \
-	colorcode strarrcpy colorncode colorlcode strmatchlen_nocase colorstr \
-	termcommand termsetrgbcolorbg termsetrgbcolor pututf8 utf8len utf8strlen \
-	utf8strnlen putnutf8str pututf8str putunbr_base putunbr_cbase putunbr_fd \
-	putunbr_base_fd putunbr_cbase_fd putunbr strarrnsortrev strarrnsort \
-	strarrsortrev intarrsortac strarrsortac lstsortstrac strarrcpy_var \
-	strarrdup itoa_cbase putbytes chrsetbytes chrinbytes putdouble isblank \
-	putdouble_fd putnutf8str_fd pututf8_fd pututf8str termcommand_fd \
-	termclr_fd termresetcolorbg_fd termresetcolor_fd termsetrgbcolorbg_fd \
-	termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd putbool_fd readfile \
-	print_memory putnchar putnchar_fd pututf8str_fd memrchr strarrdup_var \
-	strarrtolower strarrtoupper strindex strnindex normalize inrange \
-	nearestnum strreplace colorrgbatohex colorhextorgba memindex
+	isdigitstr strfldnew chrindex putpointer strdsplit putnum_base strdtrim \
+	putnum_base_fd putline_fd isupper islower chrdin numlen_base numlen \
+	unumlen unumlen_base strappend memdup lstunlink getchar putnstr putnstr_fd \
+	strnlen strjoin_var strarrlen getnextdline chrdindex putnum_cbase_fd \
+	putnum_cbase lstfind_content lstfind_size memrcpy lstlast strjoin_arr \
+	lstfindadd_content lstrev lstfindadd_size strfldvalid memequ lstnlen \
+	strarrnlen strislen putlstsize strarrrev numarrsort numarrsortrev lstsort \
+	lstsortrev strarrsort lstinsert lstindex termsetcolor termsetcolorbg \
+	termresetcolor termresetcolorbg strnequ_nocase strequ_nocase colorcode \
+	strncmp_nocase strmatchlen strcmp_nocase strarrcpy colorncode colorlcode \
+	strmatchlen_nocase colorstr termcommand termsetrgbcolorbg termsetrgbcolor \
+	pututf8 utf8len utf8strlen utf8strnlen putnutf8str pututf8str putunum_base \
+	putunum_cbase putunum_fd putunum_base_fd putunum_cbase_fd putunum memindex \
+	strarrnsortrev strarrnsort strarrsortrev numarrsortac strarrsortac inrange \
+	lstsortstrac strarrcpy_var strarrdup itoa_cbase putbytes chrsetbytes \
+	chrinbytes putdouble isblank putdouble_fd putnutf8str_fd pututf8_fd \
+	pututf8str termcommand_fd termclr_fd termresetcolorbg_fd termresetcolor_fd \
+	termsetrgbcolorbg_fd termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd \
+	putbool_fd readfile print_memory putnchar putnchar_fd pututf8str_fd \
+	memrchr strarrdup_var strarrtolower strarrtoupper strindex strnindex \
+	normalize nearestnum strreplace colorrgbatohex colorhextorgba
 SRCS := $(SRCS:%=ft_%.c)
 
 SRCS := $(sort $(SRCS))

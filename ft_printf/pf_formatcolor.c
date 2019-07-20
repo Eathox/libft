@@ -6,17 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 14:24:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/29 15:47:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 18:12:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	getrgb(const char *str, int *rgb)
+static size_t	getrgb(const char *str, t_color *rgb)
 {
-	int		i;
-	int		totallen;
-	int		len;
+	size_t	i;
+	size_t	totallen;
+	size_t	len;
 
 	i = 0;
 	totallen = 0;
@@ -35,17 +35,15 @@ static int	getrgb(const char *str, int *rgb)
 	return (2 + totallen);
 }
 
-static int	setcolorrgb(t_info *info, int bck, int len, int *rgb)
+static size_t	setcolorrgb(t_info *info, t_bool bck, size_t len, t_color *rgb)
 {
-	int		r;
-	int		g;
-	int		b;
+	t_color	r;
+	t_color	g;
+	t_color	b;
 
 	r = rgb[0];
 	g = rgb[1];
 	b = rgb[2];
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-		return (0);
 	if (bck)
 		pf_setrgbcolorbg(info, r, g, b);
 	else
@@ -53,24 +51,22 @@ static int	setcolorrgb(t_info *info, int bck, int len, int *rgb)
 	return (2 + len + bck);
 }
 
-static int	setcolor(t_info *info, int bck, int len, int color)
+static size_t	setcolor(t_info *info, t_bool bck, size_t len, t_color color)
 {
-	if (color < 0 || color > 255)
-		return (0);
 	if (bck)
-		pf_setcolor(info, color);
+		pf_setcolorbg(info, color);
 	else
 		pf_setcolor(info, color);
 	return (2 + len + bck);
 }
 
-int			pf_formatcolor(t_info *info, const char *str)
+size_t			pf_formatcolor(t_info *info, const char *str)
 {
-	int		rgb[3];
+	t_color	rgb[3];
 	char	*colorstr;
 	int		color;
-	int		len;
-	int		bck;
+	size_t	len;
+	t_bool	bck;
 
 	bck = (*str == '!');
 	color = ft_colorlcode(&str[bck]);
@@ -86,7 +82,7 @@ int			pf_formatcolor(t_info *info, const char *str)
 	len = (colorstr != NULL) ? ft_strlen(colorstr) : 0;
 	ft_strdel(&colorstr);
 	if (color != -1 && str[bck + len] == '}')
-		return (setcolor(info, bck, len, color));
+		return (setcolor(info, bck, len, (t_color)color));
 	len = getrgb(&str[bck], rgb);
 	if (len != 0 && str[bck + len] == '}')
 		return (setcolorrgb(info, bck, len, rgb));

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/03 18:30:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/17 16:46:25 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:29:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static char		*lsttostr(t_list *lst, size_t totallen)
 	return (str);
 }
 
-static int		addtolst(t_list **lst, t_list **prv, char *str, size_t len)
+static t_bool	addtolst(t_list **lst, t_list **prv, char *str, size_t len)
 {
 	t_list	*new;
 

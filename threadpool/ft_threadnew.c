@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/25 13:42:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/06/30 15:25:56 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 17:20:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,19 @@ static void	*runfnc(void *param)
 	return (NULL);
 }
 
-int			ft_threadnew(pthread_t *thread, void (*f)(), int count, ...)
+t_bool		ft_threadnew(pthread_t *thread, void (*f)(), size_t count, ...)
 {
-	int		ret;
 	va_list	args;
 	t_task	*task;
 
 	if (count > 5 || thread == NULL || f == NULL)
-		return (1);
+		return (TRUE);
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	va_start(args, count);
 	ft_tasksetinfo(task, f, count, args);
 	va_end(args);
-	ret = pthread_create(thread, NULL, &runfnc, (void *)task);
-	if (ret == 0)
-		return (0);
+	if (pthread_create(thread, NULL, &runfnc, (void *)task) == 0)
+		return (FALSE);
 	free(task);
-	return (ret);
+	return (TRUE);
 }

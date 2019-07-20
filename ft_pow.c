@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 17:13:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/11 21:41:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 19:47:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-long long	ft_pow(long long num, long long pow)
+intmax_t	ft_pow(intmax_t num, intmax_t pow)
 {
-	long long	ret;
+	intmax_t	ret;
 
 	ret = num;
 	if (pow == 0)

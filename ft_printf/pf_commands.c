@@ -6,15 +6,15 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 15:47:54 by pholster       #+#    #+#                */
-/*   Updated: 2019/04/28 02:10:22 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 16:43:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		pf_commands(t_info *info, const char *str)
+size_t		pf_commands(t_info *info, const char *str)
 {
-	int	len;
+	size_t	len;
 
 	len = ft_strislen(str, &ft_isdigit);
 	if (*str == ']')
