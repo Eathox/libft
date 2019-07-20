@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 15:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 17:01:42 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/20 20:29:11 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 
 typedef	int				t_wchar;
-typedef	unsigned char	t_color;
+typedef	unsigned int	t_color;
 typedef enum			e_bool
 {
 	FALSE,
