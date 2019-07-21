@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include "typedefs.h"
 
+intmax_t	ft_percentage(intmax_t num, intmax_t centage);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);

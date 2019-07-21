@@ -76,7 +76,7 @@ SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	termsetrgbcolorbg_fd termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd \
 	putbool_fd readfile print_memory putnchar putnchar_fd pututf8str_fd \
 	memrchr strarrdup_var strarrtolower strarrtoupper strindex strnindex \
-	normalize nearestnum strreplace colorrgbatohex colorhextorgba
+	normalize nearestnum strreplace colorrgbatohex colorhextorgba percentage
 SRCS := $(SRCS:%=ft_%.c)
 
 SRCS := $(sort $(SRCS))
