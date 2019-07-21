@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/18 22:20:40 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/21 23:01:00 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ HEADERS = $(INCLUDES)threadpool.h $(INCLUDES)typedefs.h
 
 SRCS = pooldone poolnew pooldel poolque threadmanager pooljoin \
 	threadnew tasksetinfo taskrunfnc
-SRCS := $(SRCS:%=ft_%.c)
+SRCS := $(SRCS:%=src/ft_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
@@ -59,7 +59,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
+	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $<)\n'
 endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 

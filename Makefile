@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/20 21:05:13 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/21 23:01:44 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,15 +30,15 @@ COLOR_BRIGHT_WHITE := $(shell printf "\e[38;5;15m")
 PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
-LIBARY_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:./%/=%\/)/g')
+GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:./%/=%\/src\/)/g')
 
 PRINTFPATH = ./ft_printf/
 PRINTF = $(PRINTFPATH)libftprintf.a
-PRINTF_OBJS = $(call LIBARY_OBJS,$(PRINTF),$(PRINTFPATH))
+PRINTF_OBJS = $(call GET_OBJS,$(PRINTF),$(PRINTFPATH))
 
 THREADPOOLPATH = ./threadpool/
 THREADPOOL = $(THREADPOOLPATH)threadpool.a
-THREADPOOL_OBJS = $(call LIBARY_OBJS,$(THREADPOOL),$(THREADPOOLPATH))
+THREADPOOL_OBJS = $(call GET_OBJS,$(THREADPOOL),$(THREADPOOLPATH))
 
 NAME = libft.a
 INCLUDES = ./includes/
@@ -77,7 +77,7 @@ SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	putbool_fd readfile print_memory putnchar putnchar_fd pututf8str_fd \
 	memrchr strarrdup_var strarrtolower strarrtoupper strindex strnindex \
 	normalize nearestnum strreplace colorrgbatohex colorhextorgba percentage
-SRCS := $(SRCS:%=ft_%.c)
+SRCS := $(SRCS:%=src/ft_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
@@ -94,7 +94,7 @@ $(NAME): $(PRINTF) $(THREADPOOL) $(OBJS)
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
+	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $<)\n'
 endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
