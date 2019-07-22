@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/18 19:53:19 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/21 23:14:32 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,9 +41,10 @@ SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 	formatchar formatcolor addwchar formatstr addwcharstr getprecision \
 	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
 	distribute setrgbcolorbg setrgbcolor commands setcolorbg setcolor addunum
+SRCS := src/ft_strformat.c src/ft_strformat_len.c src/ft_dprintf.c \
+	src/ft_printf.c $(SRCS:%=src/pf_%.c)
 
-SRCS := $(sort ft_strformat.c ft_strformat_len.c ft_dprintf.c ft_printf.c \
-	$(SRCS:%=pf_%.c))
+SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
 CCSILENT = FALSE
@@ -58,7 +59,7 @@ $(NAME): $(OBJS)
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $<\n'
+	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $<)\n'
 endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
