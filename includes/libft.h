@@ -223,7 +223,7 @@ void		ft_strdel(char **as);
 void		ft_striter(const char *str, void (*f)(char *));
 void		ft_striteri(const char *str, void (*f)(size_t, char *));
 void		ft_strrev(char *str);
-void		ft_swap(intmax_t *a, intmax_t *b);
+void		ft_swap(void **a, void **b);
 void		ft_termclr_fd(int fd);
 void		ft_termclr(void);
 void		ft_termcommand_fd(int command, int fd);
