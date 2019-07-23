@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:12:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:22:20 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd)
+t_bool	ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd)
 {
 	char	*base_str;
 
@@ -21,9 +21,12 @@ void	ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd)
 	else
 		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
 	if (base < 2 || base > 36)
-		return ;
+		return (TRUE);
 	if (value > (uintmax_t)(base - 1))
-		ft_putunum_cbase_fd((value / base), base, up, fd);
+	{
+		if (ft_putunum_cbase_fd((value / base), base, up, fd) == FALSE)
+			return (FALSE);
+	}
 	value = base_str[(value % base)];
-	ft_putchar_fd(value, fd);
+	return (ft_putchar_fd(value, fd));
 }

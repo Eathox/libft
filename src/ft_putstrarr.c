@@ -6,22 +6,24 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:12:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:19:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putstrarr(const char **arr)
+t_bool	ft_putstrarr(const char **arr)
 {
 	size_t	i;
 
 	i = 0;
 	if (arr == NULL)
-		return ;
+		return (TRUE);
 	while (arr[i] != 0)
 	{
-		ft_putendl(arr[i]);
+		if (ft_putendl(arr[i]) == FALSE)
+			return (FALSE);
 		i++;
 	}
+	return (TRUE);
 }

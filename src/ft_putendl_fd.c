@@ -6,20 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:10:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:27:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <unistd.h>
 
-void	ft_putendl_fd(const char *str, int fd)
+t_bool	ft_putendl_fd(const char *str, int fd)
 {
 	if (str == NULL)
-	{
-		ft_putendl_fd("(null)", fd);
-		return ;
-	}
-	ft_putstr_fd(str, fd);
-	write(fd, "\n", 1);
+		return (ft_putendl_fd("(null)", fd));
+	if (ft_putstr_fd(str, fd) == FALSE)
+		return (FALSE);
+	return (ft_putchar_fd('\n', fd));
 }

@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:05:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:14:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putnchar(char c, size_t n)
+t_bool	ft_putnchar(char c, size_t n)
 {
-	ft_putnchar_fd(c, n, 1);
+	return (ft_putnchar_fd(c, n, 1));
 }

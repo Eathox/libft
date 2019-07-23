@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 14:52:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:28:29 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 15:39:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t		ft_unumlen_base(uintmax_t value, int base)
 		len++;
 		value = value / base;
 		if (value == 0)
-			break ;
+			return (len);
 	}
 	return (len);
 }

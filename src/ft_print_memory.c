@@ -6,12 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/09 13:03:15 by exam           #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 16:57:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <unistd.h>
 
 static void	putbit(unsigned char c, int size)
 {
@@ -22,7 +21,7 @@ static void	putbit(unsigned char c, int size)
 		return ;
 	if (size > 1)
 		putbit(c / 16, size - 1);
-	write(1, &base_str[c % 16], 1);
+	ft_putchar(base_str[c % 16]);
 }
 
 static void	putcontent(unsigned char *content, size_t size)
@@ -33,12 +32,12 @@ static void	putcontent(unsigned char *content, size_t size)
 	while (i < size)
 	{
 		if (ft_isprint(content[i]) == FALSE)
-			write(1, ".", 1);
+			ft_putchar('.');
 		else
-			write(1, &content[i], 1);
+			ft_putchar(content[i]);
 		i++;
 	}
-	write(1, "\n", 1);
+	ft_putchar('\n');
 }
 
 void		ft_print_memory(const void *addr, size_t size)
@@ -54,14 +53,14 @@ void		ft_print_memory(const void *addr, size_t size)
 		i++;
 		putbit(mem[i - 1], 2);
 		if ((i % 2) == 0)
-			write(1, " ", 1);
+			ft_putchar(' ');
 		if ((i % 16) == 0 || i == size)
 		{
 			printed = (i % 16) + (i % 2);
 			if (printed == 0)
 				printed = 16;
 			if ((i % 2) != 0)
-				write(1, "   ", 3);
+				ft_putnchar(' ', 3);
 			if (printed != 0)
 				ft_putnchar(' ', (8 - (printed / 2)) * 5);
 			putcontent(&mem[i - printed + (i % 2)], printed - (i % 2));

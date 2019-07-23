@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 15:26:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:13:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putline(const char *str)
+t_bool	ft_putline(const char *str)
 {
-	ft_putline_fd(str, 1);
+	return (ft_putline_fd(str, 1));
 }

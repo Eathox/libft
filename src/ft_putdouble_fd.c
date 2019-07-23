@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:11:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	setdecimals(long double value, char *decimals, size_t n)
 	}
 }
 
-void		ft_putdouble_fd(long double value, size_t n, int fd)
+t_bool		ft_putdouble_fd(long double value, size_t n, int fd)
 {
 	char		decimals[MAX_DOUBLE_PRECISION + 1];
 	long long	num;
@@ -57,10 +57,11 @@ void		ft_putdouble_fd(long double value, size_t n, int fd)
 	num = (long long)value;
 	value -= num;
 	setdecimals(value, decimals, n);
-	ft_putnum_fd(num + (n == 0 && decimals[0] >= '5'), fd);
-	if (n != 0)
-	{
-		ft_putchar_fd('.', fd);
-		ft_putnstr_fd(decimals, n, fd);
-	}
+	if (ft_putnum_fd(num + (n == 0 && decimals[0] >= '5'), fd) == FALSE)
+		return (FALSE);
+	if (n == 0)
+		return (TRUE);
+	if (ft_putchar_fd('.', fd) == FALSE)
+		return (FALSE);
+	return (ft_putnstr_fd(decimals, n, fd));
 }

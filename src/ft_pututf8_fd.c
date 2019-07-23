@@ -6,18 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:26:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <unistd.h>
 
-void	ft_pututf8_fd(t_wchar c, int fd)
+t_bool	ft_pututf8_fd(t_wchar c, int fd)
 {
 	t_wchar	bit;
 	size_t	i;
-	size_t	shift;
 	size_t	len;
 
 	i = 1;
@@ -28,14 +26,16 @@ void	ft_pututf8_fd(t_wchar c, int fd)
 		bit = (0xe0 | (c >> 6)) & 0xdf;
 	else if (len == 3)
 		bit = (0xf0 | (c >> 12)) & 0xef;
-	else if (len == 4)
+	else
 		bit = (0xf8 | (c >> 18)) & 0xf7;
-	write(fd, &bit, 1);
+	if (ft_putchar_fd(bit, fd) == FALSE)
+		return (FALSE);
 	while (i < len)
 	{
 		i++;
-		shift = 6 * (len - i);
-		bit = (0xc0 | (c >> shift)) & 0xbf;
-		write(fd, &bit, 1);
+		bit = (0xc0 | (c >> (6 * (len - i)))) & 0xbf;
+		if (ft_putchar_fd(bit, fd) == FALSE)
+			return (FALSE);
 	}
+	return (TRUE);
 }

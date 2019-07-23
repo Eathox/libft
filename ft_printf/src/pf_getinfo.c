@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:59:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 15:35:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ size_t		pf_getinfo(t_info *info, const char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] != '\0' || str[i] != '\n')
+	ret = 1;
+	while ((str[i] != '\0' || str[i] != '\n') && ret > 0)
 	{
 		ret = checkinfo(info, &str[i]);
-		if (ret == 0 || ret == -1)
-			break ;
-		i += ret;
+		if (ret > 0)
+			i += ret;
 	}
 	pf_setvar_type(info);
 	if (info->type == 'f' && info->precision == -1)

@@ -6,17 +6,19 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 11:40:55 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:19:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putstrlst(t_list *lst)
+t_bool	ft_putstrlst(t_list *lst)
 {
 	if (lst == NULL)
-		return ;
-	ft_putendl((char *)lst->content);
+		return (TRUE);
+	if (ft_putendl((char *)lst->content) == FALSE)
+		return (FALSE);
 	if (lst->next != NULL)
-		ft_putstrlst(lst->next);
+		return (ft_putstrlst(lst->next));
+	return (FALSE);
 }

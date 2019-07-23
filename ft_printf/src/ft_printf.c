@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:59:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 15:43:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static ssize_t	freeret(t_info *info)
 	ssize_t		ret;
 
 	ret = (ssize_t)info->added;
-	write(info->fd, info->buff, info->buff_len);
+	if (write(info->fd, info->buff, info->buff_len) == -1)
+		ret = -1;
 	if (info != NULL)
 	{
 		free(info->buff);

@@ -6,24 +6,26 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:18:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:17:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <unistd.h>
 
-void	ft_putnumarr(const intmax_t *arr, size_t len)
+t_bool	ft_putnumarr(const intmax_t *arr, size_t len)
 {
 	size_t	i;
 
 	i = 0;
 	if (arr == NULL)
-		return ;
+		return (TRUE);
 	while (i < len)
 	{
-		ft_putnum(arr[i]);
-		write(1, "\n", 1);
+		if (ft_putnum(arr[i]) == FALSE)
+			return (FALSE);
+		if (ft_putchar('\n') == FALSE)
+			return (FALSE);
 		i++;
 	}
+	return (TRUE);
 }

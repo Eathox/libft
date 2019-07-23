@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:18:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-void	ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd)
+t_bool	ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd)
 {
 	size_t	i;
 	size_t	bytes;
@@ -21,17 +21,16 @@ void	ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd)
 	i = 0;
 	len = 0;
 	if (str == NULL)
-	{
-		ft_putnstr_fd("(null)", n, fd);
-		return ;
-	}
+		return (ft_putnstr_fd("(null)", n, fd));
 	while (str[i] != '\0')
 	{
 		bytes = ft_utf8len(str[i]);
 		if ((len + bytes) > n)
-			return ;
+			return (TRUE);
 		len += bytes;
-		ft_pututf8_fd(str[i], fd);
+		if (ft_pututf8_fd(str[i], fd) == FALSE)
+			return (FALSE);
 		i++;
 	}
+	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:35:09 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:06:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,47 +171,47 @@ void		ft_lstsort(t_list **head, t_bool (*f)(t_list *, t_list *));
 void		ft_lstsortrev(t_list **head, t_bool (*f)(t_list *, t_list *));
 void		ft_memdel(void **ap);
 void		ft_print_memory(const void *addr, size_t size);
-void		ft_putbool_fd(t_bool boolean, int fd);
-void		ft_putbool(t_bool boolean);
-void		ft_putbytes(void *bytes, size_t n);
-void		ft_putchar_fd(char c, int fd);
-void		ft_putchar(char c);
-void		ft_putdouble_fd(long double value, size_t n, int fd);
-void		ft_putdouble(long double value, size_t n);
-void		ft_putendl_fd(const char *str, int fd);
-void		ft_putendl(const char *str);
-void		ft_putnumarr(const intmax_t *arr, size_t len);
-void		ft_putnumlst(t_list *lst);
-void		ft_putline_fd(const char *str, int fd);
-void		ft_putline(const char *str);
-void		ft_putlstsize(t_list *lst);
-void		ft_putnum_base_fd(intmax_t value, int base, int fd);
-void		ft_putnum_base(intmax_t value, int base);
-void		ft_putnum_cbase_fd(intmax_t value, int base, t_bool up, int fd);
-void		ft_putnum_cbase(intmax_t value, int base, t_bool up);
-void		ft_putnum_fd(intmax_t value, int fd);
-void		ft_putnum(intmax_t value);
-void		ft_putnchar_fd(char c, size_t n, int fd);
-void		ft_putnchar(char c, size_t n);
-void		ft_putnstr_fd(const char *str, size_t n, int fd);
-void		ft_putnstr(const char *str, size_t n);
-void		ft_putnutf8str (const t_wchar *str, size_t n);
-void		ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd);
-void		ft_putpointer(const void *pointer);
-void		ft_putstr_fd(const char *str, int fd);
-void		ft_putstr(const char *str);
-void		ft_putstrarr(const char **arr);
-void		ft_putstrlst(t_list *lst);
-void		ft_putunum_base_fd(uintmax_t value, int base, int fd);
-void		ft_putunum_base(uintmax_t value, int base);
-void		ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd);
-void		ft_putunum_cbase(uintmax_t value, int base, t_bool up);
-void		ft_putunum_fd(uintmax_t value, int fd);
-void		ft_putunum(uintmax_t value);
-void		ft_pututf8_fd(t_wchar c, int fd);
-void		ft_pututf8(t_wchar c);
-void		ft_pututf8str_fd(const t_wchar *str, int fd);
-void		ft_pututf8strconst (t_wchar *str);
+t_bool		ft_putbool_fd(t_bool boolean, int fd);
+t_bool		ft_putbool(t_bool boolean);
+t_bool		ft_putbytes(void *bytes, size_t n);
+t_bool		ft_putchar_fd(char c, int fd);
+t_bool		ft_putchar(char c);
+t_bool		ft_putdouble_fd(long double value, size_t n, int fd);
+t_bool		ft_putdouble(long double value, size_t n);
+t_bool		ft_putendl_fd(const char *str, int fd);
+t_bool		ft_putendl(const char *str);
+t_bool		ft_putnumarr(const intmax_t *arr, size_t len);
+t_bool		ft_putnumlst(t_list *lst);
+t_bool		ft_putline_fd(const char *str, int fd);
+t_bool		ft_putline(const char *str);
+t_bool		ft_putlstsize(t_list *lst);
+t_bool		ft_putnum_base_fd(intmax_t value, int base, int fd);
+t_bool		ft_putnum_base(intmax_t value, int base);
+t_bool		ft_putnum_cbase_fd(intmax_t value, int base, t_bool up, int fd);
+t_bool		ft_putnum_cbase(intmax_t value, int base, t_bool up);
+t_bool		ft_putnum_fd(intmax_t value, int fd);
+t_bool		ft_putnum(intmax_t value);
+t_bool		ft_putnchar_fd(char c, size_t n, int fd);
+t_bool		ft_putnchar(char c, size_t n);
+t_bool		ft_putnstr_fd(const char *str, size_t n, int fd);
+t_bool		ft_putnstr(const char *str, size_t n);
+t_bool		ft_putnutf8str (const t_wchar *str, size_t n);
+t_bool		ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd);
+t_bool		ft_putpointer(const void *pointer);
+t_bool		ft_putstr_fd(const char *str, int fd);
+t_bool		ft_putstr(const char *str);
+t_bool		ft_putstrarr(const char **arr);
+t_bool		ft_putstrlst(t_list *lst);
+t_bool		ft_putunum_base_fd(uintmax_t value, int base, int fd);
+t_bool		ft_putunum_base(uintmax_t value, int base);
+t_bool		ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd);
+t_bool		ft_putunum_cbase(uintmax_t value, int base, t_bool up);
+t_bool		ft_putunum_fd(uintmax_t value, int fd);
+t_bool		ft_putunum(uintmax_t value);
+t_bool		ft_pututf8_fd(t_wchar c, int fd);
+t_bool		ft_pututf8(t_wchar c);
+t_bool		ft_pututf8str_fd(const t_wchar *str, int fd);
+t_bool		ft_pututf8strconst (t_wchar *str);
 void		ft_strappend(char **dst, const char *src);
 void		ft_strarrdel(char ***arr);
 void		ft_strarrrev(char **arr);

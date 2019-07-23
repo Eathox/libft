@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:35:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 16:58:45 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 t_bool		ft_puterror(const char *str)
 {
 	if (str == NULL)
-		write(2, "(null)", 6);
-	else
-		write(2, str, ft_strlen(str));
-	return (0);
+		return (write(2, "(null)", 6) != -1);
+	return (write(2, str, ft_strlen(str)) != -1);
 }

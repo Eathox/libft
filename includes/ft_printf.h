@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 22:20:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 17:14:38 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ uintmax_t		pf_overflowunsigned(t_info *info);
 void			pf_addchar(t_info *info, char c);
 void			pf_addnstr(t_info *info, char *str, size_t n);
 void			pf_addnum(t_info *info, intmax_t value);
-void			pf_addtobuff(t_info *info, char *str, size_t len);
+t_bool			pf_addtobuff(t_info *info, char *str, size_t len);
 void			pf_addunum(t_info *info, uintmax_t value, size_t len, int base);
 void			pf_addwchar(t_info *info, t_wchar c);
 void			pf_addwcharstr(t_info *info, t_wchar *str, size_t n);

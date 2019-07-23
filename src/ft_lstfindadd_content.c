@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/21 20:16:41 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 15:39:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ t_list	*ft_lstfindadd_content(t_list *lst, void *content, size_t size)
 {
 	t_list	*newlst;
 
-	while (lst != NULL)
+	while (lst != NULL && lst->next != NULL)
 	{
 		if (ft_memequ(lst->content, content, size))
 			return (lst);
-		if (lst->next == NULL)
-			break ;
 		lst = lst->next;
 	}
+	if (ft_memequ(lst->content, content, size))
+		return (lst);
 	newlst = ft_lstnew(content, size);
 	if (newlst == NULL)
 		return (NULL);
