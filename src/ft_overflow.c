@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstunlink.c                                     :+:    :+:            */
+/*   ft_overflow.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/18 17:41:05 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:17:05 by pholster      ########   odam.nl         */
+/*   Created: 2019/07/23 14:12:31 by pholster       #+#    #+#                */
+/*   Updated: 2019/07/23 14:45:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/typedefs.h"
 
-t_list	*ft_lstunlink(t_list *head, t_list *lst)
+intmax_t	ft_overflow(intmax_t num, intmax_t min, intmax_t max)
 {
-	t_list	*current;
-
-	current = head;
-	if (head == NULL || lst == NULL || head == lst)
-		return (NULL);
-	while (current != NULL && current->next != lst)
-		current = current->next;
-	if (current == NULL)
-		return (NULL);
-	current->next = lst->next;
-	return (lst);
+	if (num < min)
+		return (ft_overflow(max + (num - min), min, max));
+	if (num >= max)
+		return (ft_overflow((num + min) - max, min, max));
+	return (num);
 }

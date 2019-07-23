@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 22:26:21 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 14:35:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include "typedefs.h"
 
+intmax_t	ft_overflow(intmax_t num, intmax_t min, intmax_t max);
 intmax_t	ft_percentage(intmax_t num, intmax_t centage);
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);
@@ -69,7 +70,7 @@ int			ft_toupper(int c);
 intmax_t	ft_abs(intmax_t num);
 intmax_t	ft_atoi_base(const char *str, int base);
 intmax_t	ft_atoi(const char *str);
-intmax_t	ft_constrain(intmax_t value, intmax_t num1, intmax_t num2);
+intmax_t	ft_constrain(intmax_t value, intmax_t min, intmax_t max);
 intmax_t	ft_max(intmax_t num1, intmax_t num2);
 intmax_t	ft_min(intmax_t num1, intmax_t num2);
 intmax_t	ft_nearestnum(intmax_t value, intmax_t num1, intmax_t num2);
@@ -107,7 +108,7 @@ t_bool		ft_chrdin(const char *str, const char *dlm);
 t_bool		ft_chrin(const char *str, int c);
 t_bool		ft_chrinbytes(long long *bytes, char c);
 t_bool		ft_chrnin(const char *str, int c, size_t n);
-t_bool		ft_inrange(intmax_t value, intmax_t num1, intmax_t num2);
+t_bool		ft_inrange(intmax_t value, intmax_t min, intmax_t max);
 t_bool		ft_numarrsortac(intmax_t current, intmax_t num);
 t_bool		ft_numin(const intmax_t *arr, intmax_t num, size_t len);
 t_bool		ft_isalnum(int c);

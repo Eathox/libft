@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/21 23:01:44 by pholster      ########   odam.nl          #
+#    Updated: 2019/07/23 14:35:17 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,8 @@ SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	termsetrgbcolorbg_fd termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd \
 	putbool_fd readfile print_memory putnchar putnchar_fd pututf8str_fd \
 	memrchr strarrdup_var strarrtolower strarrtoupper strindex strnindex \
-	normalize nearestnum strreplace colorrgbatohex colorhextorgba percentage
+	normalize nearestnum strreplace colorrgbatohex colorhextorgba percentage \
+	overflow
 SRCS := $(SRCS:%=src/ft_%.c)
 
 SRCS := $(sort $(SRCS))
