@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 18:06:10 by pholster      ########   odam.nl         */
+/*   Updated: 2019/07/23 18:43:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_gnl	*getlst(const int fd, t_gnl *lst)
 			return (lst);
 		lst = lst->next;
 	}
-	if (lst->fd == fd)
+	if (lst != NULL && lst->fd == fd)
 		return (lst);
 	newlst = (t_gnl *)ft_memalloc(sizeof(t_gnl));
 	if (newlst == NULL)
