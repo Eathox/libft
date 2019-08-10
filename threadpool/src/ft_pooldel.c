@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:53:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 23:00:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 11:23:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,21 @@ static void	delque(t_pool *pool)
 void		ft_pooldel(t_pool **pool)
 {
 	t_thread	*thread;
-	size_t		i;
+	size_t		current;
 
-	i = 0;
 	if (pool == NULL || *pool == NULL)
 		return ;
+	current = (*pool)->size;
 	(*pool)->terminating = TRUE;
-	while (i < (*pool)->size && (*pool)->threads[i] != NULL)
+	while (current > 0)
 	{
-		thread = (*pool)->threads[i];
-		pthread_join(thread->thread, NULL);
-		free(thread);
-		i++;
+		current--;
+		thread = (*pool)->threads[current];
+		if (thread != NULL)
+		{
+			pthread_join(thread->thread, NULL);
+			free(thread);
+		}
 	}
 	ft_memdel((void **)&((*pool)->threads));
 	delque(*pool);

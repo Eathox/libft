@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 23:00:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 11:25:20 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ static t_thread	*threadnew(t_pool *pool)
 
 t_pool			*ft_poolnew(size_t size)
 {
-	size_t		i;
+	size_t		current;
 	t_pool		*pool;
 
-	i = 0;
 	if (size <= 0)
 		return (NULL);
 	pool = (t_pool *)ft_memalloc(sizeof(t_pool));
@@ -53,12 +52,13 @@ t_pool			*ft_poolnew(size_t size)
 	pool->size = size;
 	pool->state = ACTIVE;
 	pool->suspended = TRUE;
-	while (i < pool->size)
+	current = size;
+	while (current > 0)
 	{
-		pool->threads[i] = threadnew(pool);
-		if (pool->threads[i] == NULL)
+		current--;
+		pool->threads[current] = threadnew(pool);
+		if (pool->threads[current] == NULL)
 			freeret(&pool);
-		i++;
 	}
 	pool->suspended = FALSE;
 	return (pool);

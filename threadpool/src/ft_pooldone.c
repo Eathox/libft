@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 22:45:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 23:00:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 11:27:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 t_bool		ft_pooldone(t_pool *pool)
 {
-	size_t		i;
+	t_thread	*thread;
+	size_t		current;
 
-	i = 0;
 	if (pool == NULL)
 		return (TRUE);
-	while (i < pool->size)
+	current = pool->size;
+	while (current > 0)
 	{
-		if ((pool->threads[i])->state == ACTIVE)
-			return (FALSE);
-		i++;
+		current--;
+		thread = pool->threads[current];
+		if (thread != NULL)
+		{
+			if (thread->state == ACTIVE)
+				return (FALSE);
+		}
 	}
 	return (pool->que == NULL);
 }
