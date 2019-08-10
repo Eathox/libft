@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 16:13:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:50:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ssize_t		ft_colorlcode(const char *str)
 	size_t	i;
 
 	i = 16;
-	colors = ft_strarrdup_var(16, "black", "red", "green", "yellow", \
+	colors = ft_strarrdup_var(i, "black", "red", "green", "yellow", \
 		"blue", "magenta", "cyan", "white", "bright black", "bright red", \
 		"bright green", "bright yellow", "bright blue", "bright magenta", \
 		"bright cyan", "bright white");
