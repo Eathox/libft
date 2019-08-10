@@ -6,18 +6,16 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 16:13:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 11:04:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_colorncode(const char *str, size_t n)
+ssize_t		ft_colorncode(const char *str, size_t n)
 {
 	char	**colors;
-	size_t	i;
 
-	i = 0;
 	if (n > 16)
 		n = 16;
 	colors = ft_strarrdup_var(16, "black", "red", "green", "yellow", \
@@ -26,14 +24,14 @@ int		ft_colorncode(const char *str, size_t n)
 		"bright cyan", "bright white");
 	if (colors == NULL)
 		return (-1);
-	while (i < n)
+	while (n > 0)
 	{
-		if (ft_strequ_nocase(str, colors[i]))
+		n--;
+		if (ft_strequ_nocase(str, colors[n]))
 		{
 			ft_strarrdel(&colors);
-			return ((int)i);
+			return (n);
 		}
-		i++;
 	}
 	ft_strarrdel(&colors);
 	return (-1);
