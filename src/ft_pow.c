@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 17:13:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:18:59 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/typedefs.h"
+#include "typedefs.h"
 
 intmax_t	ft_pow(intmax_t num, intmax_t pow)
 {

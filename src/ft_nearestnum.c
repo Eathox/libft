@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 12:56:32 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 intmax_t	ft_nearestnum(intmax_t value, intmax_t num1, intmax_t num2)
 {

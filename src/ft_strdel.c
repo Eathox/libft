@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 10:56:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:24:27 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/typedefs.h"
+#include "typedefs.h"
 
 void	ft_strdel(char **as)
 {

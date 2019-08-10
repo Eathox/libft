@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/17 22:43:41 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:45:17 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 void	*ft_memdup(const void *src, size_t len)
 {

@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/21 23:01:00 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/10 16:23:48 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,9 @@ PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 
 NAME = threadpool.a
-INCLUDES = ../includes/
-HEADERS = $(INCLUDES)threadpool.h $(INCLUDES)typedefs.h
+INCLUDES = ../includes
+HEADERS = threadpool.h typedefs.h
+HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
 SRCS = pooldone poolnew pooldel poolque threadmanager pooljoin \
 	threadnew tasksetinfo taskrunfnc

@@ -6,12 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:59:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
-#include "../../includes/libft.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 static char		*joinlst(t_info *info)
 {

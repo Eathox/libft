@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/24 13:15:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:15:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/typedefs.h"
+#include "typedefs.h"
 
 void	ft_lstrev(t_list **head)
 {

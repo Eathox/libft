@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 01:47:24 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 14:13:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/typedefs.h"
+#include "typedefs.h"
 
 t_bool		ft_chrinbytes(long long *bytes, char c)
 {

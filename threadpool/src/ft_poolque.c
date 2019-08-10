@@ -6,12 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 23:00:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:24:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/threadpool.h"
-#include "../../includes/libft.h"
+#include "threadpool.h"
+#include "libft.h"
 
 static t_bool	freeret(t_pool *pool, t_task *task, t_state state)
 {

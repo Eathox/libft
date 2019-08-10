@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/23 14:35:17 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/10 16:23:18 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,19 +30,20 @@ COLOR_BRIGHT_WHITE := $(shell printf "\e[38;5;15m")
 PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
-GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:./%/=%\/src\/)/g')
+GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:%=%\/src\/)/g')
 
-PRINTFPATH = ./ft_printf/
-PRINTF = $(PRINTFPATH)libftprintf.a
+PRINTFPATH = ft_printf
+PRINTF = $(PRINTFPATH)/libftprintf.a
 PRINTF_OBJS = $(call GET_OBJS,$(PRINTF),$(PRINTFPATH))
 
-THREADPOOLPATH = ./threadpool/
-THREADPOOL = $(THREADPOOLPATH)threadpool.a
+THREADPOOLPATH = threadpool
+THREADPOOL = $(THREADPOOLPATH)/threadpool.a
 THREADPOOL_OBJS = $(call GET_OBJS,$(THREADPOOL),$(THREADPOOLPATH))
 
 NAME = libft.a
-INCLUDES = ./includes/
-HEADERS = $(INCLUDES)libft.h $(INCLUDES)typedefs.h
+INCLUDES = includes
+HEADERS = libft.h typedefs.h
+HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
 SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	isascii isprint toupper tolower putendl putchar_fd putstr_fd putendl_fd \

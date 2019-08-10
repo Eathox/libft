@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/07/21 23:14:32 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/10 16:23:56 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,9 @@ PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 
 NAME = libftprintf.a
-INCLUDES = ../includes/
-HEADERS = $(INCLUDES)ft_printf.h $(INCLUDES)typedefs.h
+INCLUDES = ../includes
+HEADERS = ft_printf.h typedefs.h
+HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
 SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 	isunsignint issignint setvar_type setvar_base infonew format formatnum \

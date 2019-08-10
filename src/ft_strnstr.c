@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 12:35:18 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 11:17:33 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/typedefs.h"
+#include "typedefs.h"
 
 char	*ft_strnstr(const char *str, const char *needle, size_t len)
 {
