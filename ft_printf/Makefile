@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/11 11:20:40 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/11 11:41:06 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,9 @@ SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
-CCOPTIMISE =
 CCSILENT = FALSE
+
+CCOPTIMISE =
 CCSTRICT = -Wall -Werror -Wextra
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
 
