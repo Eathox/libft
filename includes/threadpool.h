@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/20 22:20:24 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/11 11:07:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ typedef struct	s_pool
 
 t_bool			ft_pooldone(t_pool *pool);
 t_bool			ft_poolque(t_pool *pool, void (*f)(), size_t count, ...);
-t_bool			ft_taskrunfnc(t_task *task);
 t_bool			ft_threadnew(pthread_t *thread, void (*f)(), size_t count, ...);
+t_bool			tp_taskrunfnc(t_task *task);
 t_pool			*ft_poolnew(size_t size);
-void			*ft_threadmanager(void *param);
+void			*tp_threadmanager(void *param);
 void			ft_pooldel(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);
-t_task			*ft_tasksetinfo(t_task *task, void (*f)(), size_t count,
+t_task			*tp_tasksetinfo(t_task *task, void (*f)(), size_t count,
 					va_list params);
 
 #endif

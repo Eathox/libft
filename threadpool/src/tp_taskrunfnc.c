@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_taskrunfnc.c                                    :+:    :+:            */
+/*   tp_taskrunfnc.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/25 14:58:08 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:24:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/11 11:12:31 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "threadpool.h"
 
-t_bool		ft_taskrunfnc(t_task *task)
+t_bool		tp_taskrunfnc(t_task *task)
 {
 	void	**params;
 

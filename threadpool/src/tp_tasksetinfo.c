@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tasksetinfo.c                                   :+:    :+:            */
+/*   tp_tasksetinfo.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/25 14:54:57 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:24:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/11 11:12:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "threadpool.h"
 #include "libft.h"
 
-t_task	*ft_tasksetinfo(t_task *task, void (*f)(), size_t count, va_list params)
+t_task	*tp_tasksetinfo(t_task *task, void (*f)(), size_t count, va_list params)
 {
 	size_t		i;
 

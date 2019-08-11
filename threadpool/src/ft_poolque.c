@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:24:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/11 11:06:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_bool			ft_poolque(t_pool *pool, void (*f)(), size_t count, ...)
 	while (state == LOCKED)
 		state = atomic_exchange(&(pool->state), LOCKED);
 	va_start(params, count);
-	ft_tasksetinfo(task, f, count, params);
+	tp_tasksetinfo(task, f, count, params);
 	va_end(params);
 	if (pool->terminating)
 		return (freeret(pool, task, state));

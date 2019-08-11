@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/10 16:23:56 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/11 11:20:40 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,21 +36,23 @@ INCLUDES = ../includes
 HEADERS = ft_printf.h typedefs.h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
+PREFIX = pf
+FT_SRCS = strformat strformat_len dprintf printf
 SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
 	isunsignint issignint setvar_type setvar_base infonew format formatnum \
 	formatunum overflowsigned overflowunsigned addnstr addtobuff addnum \
 	formatchar formatcolor addwchar formatstr addwcharstr getprecision \
 	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
 	distribute setrgbcolorbg setrgbcolor commands setcolorbg setcolor addunum
-SRCS := src/ft_strformat.c src/ft_strformat_len.c src/ft_dprintf.c \
-	src/ft_printf.c $(SRCS:%=src/pf_%.c)
+SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
+CCOPTIMISE =
 CCSILENT = FALSE
 CCSTRICT = -Wall -Werror -Wextra
-CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES)
+CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
 
 all: $(NAME)
 

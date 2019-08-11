@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_threadmanager.c                                 :+:    :+:            */
+/*   tp_threadmanager.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:24:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/11 11:06:08 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static t_bool	gettask(t_pool *pool, t_thread *self, t_task **task)
 	return (*task != NULL);
 }
 
-void			*ft_threadmanager(void *param)
+void			*tp_threadmanager(void *param)
 {
 	t_task		*task;
 	t_pool		*pool;
@@ -46,7 +46,7 @@ void			*ft_threadmanager(void *param)
 	{
 		if (gettask(pool, self, &task) != FALSE)
 		{
-			ft_taskrunfnc(task);
+			tp_taskrunfnc(task);
 			free(task);
 			self->state = IDLE;
 		}

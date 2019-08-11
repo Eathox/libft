@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:24:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/11 11:12:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_thread	*threadnew(t_pool *pool)
 		return (NULL);
 	thread->state = IDLE;
 	thread->pool = pool;
-	if (pthread_create(&(thread->thread), NULL, &ft_threadmanager, thread) != 0)
+	if (pthread_create(&(thread->thread), NULL, &tp_threadmanager, thread) != 0)
 	{
 		free(thread);
 		return (NULL);

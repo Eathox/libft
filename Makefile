@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/10 16:23:18 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/11 11:23:02 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ INCLUDES = includes
 HEADERS = libft.h typedefs.h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
-SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
+PREFIX = lf
+FT_SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	isascii isprint toupper tolower putendl putchar_fd putstr_fd putendl_fd \
 	putnum_fd strnew strclr strdel striter striteri strmap strmapi isspace \
 	itoa pow atoi strncmp strcpy strcat strequ strnequ strncat strlcat strchr \
@@ -79,14 +80,16 @@ SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	memrchr strarrdup_var strarrtolower strarrtoupper strindex strnindex \
 	normalize nearestnum strreplace colorrgbatohex colorhextorgba percentage \
 	overflow
-SRCS := $(SRCS:%=src/ft_%.c)
+SRCS =
+SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
+CCOPTIMISE =
 CCSILENT = FALSE
 CCSTRICT = -Wall -Werror -Wextra
-CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES)
+CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
 
 all: $(NAME)
 
@@ -101,10 +104,10 @@ endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
 $(PRINTF): FORCE
-	@$(MAKE) -s -C $(PRINTFPATH)
+	@$(MAKE) -s -C $(PRINTFPATH) CCOPTIMISE=$(CCOPTIMISE)
 
 $(THREADPOOL): FORCE
-	@$(MAKE) -s -C $(THREADPOOLPATH)
+	@$(MAKE) -s -C $(THREADPOOLPATH) CCOPTIMISE=$(CCOPTIMISE)
 
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)

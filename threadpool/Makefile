@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/10 16:23:48 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/11 11:20:43 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,16 +36,18 @@ INCLUDES = ../includes
 HEADERS = threadpool.h typedefs.h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
-SRCS = pooldone poolnew pooldel poolque threadmanager pooljoin \
-	threadnew tasksetinfo taskrunfnc
-SRCS := $(SRCS:%=src/ft_%.c)
+PREFIX = tp
+FT_SRCS = pooldone poolnew pooldel poolque pooljoin threadnew
+SRCS = threadmanager tasksetinfo taskrunfnc
+SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
+CCOPTIMISE =
 CCSILENT = FALSE
 CCSTRICT = -Wall -Werror -Wextra
-CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES)
+CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
 
 # This checks if your on linux and then compiles with pthread
 ifeq ($(shell uname -s), Linux)
