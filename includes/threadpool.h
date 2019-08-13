@@ -52,13 +52,14 @@ typedef struct	s_pool
 }				t_pool;
 
 t_bool			ft_pooldone(t_pool *pool);
-t_bool			ft_poolque(t_pool *pool, void (*f)(), size_t count, ...);
 t_bool			ft_threadnew(pthread_t *thread, void (*f)(), size_t count, ...);
 t_bool			tp_taskrunfnc(t_task *task);
 t_pool			*ft_poolnew(size_t size);
 void			*tp_threadmanager(void *param);
 void			ft_pooldel(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);
+t_bool			ft_poolque(t_pool *pool, t_bool important, void (*f)(),
+					size_t count, ...);
 t_task			*tp_tasksetinfo(t_task *task, void (*f)(), size_t count,
 					va_list params);
 

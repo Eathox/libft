@@ -20,7 +20,25 @@ static t_bool	freeret(t_pool *pool, t_task *task, t_state state)
 	return (FALSE);
 }
 
-t_bool			ft_poolque(t_pool *pool, void (*f)(), size_t count, ...)
+static void		addtoque(t_pool *pool, t_bool important, t_task *task)
+{
+	if (priority == FALSE)
+	{
+		if (pool->last == NULL)
+			pool->que = task;
+		else
+			pool->last->next = task;
+		pool->last = task;
+		return ;
+	}
+	task->next = pool->que;
+	pool->que = task;
+	if (pool->last == NULL)
+		pool->last = task;
+}
+
+t_bool			ft_poolque(t_pool *pool, t_bool important, void (*f)(),
+	size_t count, ...)
 {
 	va_list		params;
 	t_state		state;
@@ -39,11 +57,7 @@ t_bool			ft_poolque(t_pool *pool, void (*f)(), size_t count, ...)
 	va_end(params);
 	if (pool->terminating)
 		return (freeret(pool, task, state));
-	if (pool->last == NULL)
-		pool->que = task;
-	else
-		pool->last->next = task;
-	pool->last = task;
+	addtoque(pool, important, task);
 	atomic_store(&(pool->state), state);
 	return (TRUE);
 }
