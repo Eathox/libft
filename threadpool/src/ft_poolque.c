@@ -22,7 +22,7 @@ static t_bool	freeret(t_pool *pool, t_task *task, t_state state)
 
 static void		addtoque(t_pool *pool, t_bool important, t_task *task)
 {
-	if (priority == FALSE)
+	if (important == FALSE)
 	{
 		if (pool->last == NULL)
 			pool->que = task;
