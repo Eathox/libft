@@ -27,9 +27,7 @@ t_bool		tp_taskrunfnc(t_task *task)
 		task->fnc(params[0], params[1]);
 	else if (task->param_count == 3)
 		task->fnc(params[0], params[1], params[2]);
-	else if (task->param_count == 4)
-		task->fnc(params[0], params[1], params[2], params[3]);
 	else
-		task->fnc(params[0], params[1], params[2], params[3], params[4]);
+		task->fnc(params[0], params[1], params[2], params[3]);
 	return (TRUE);
 }

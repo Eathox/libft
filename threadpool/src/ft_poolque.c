@@ -44,7 +44,7 @@ t_bool			ft_poolque(t_pool *pool, t_bool important, void (*f)(),
 	t_state		state;
 	t_task		*task;
 
-	if (count > 5 || pool == NULL || pool->terminating || f == NULL)
+	if (count > 4 || pool == NULL || pool->terminating || f == NULL)
 		return (FALSE);
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	if (task == NULL)

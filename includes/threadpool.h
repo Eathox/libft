@@ -29,7 +29,7 @@ typedef struct	s_task
 {
 	void			(*fnc)();
 	char			param_count;
-	void			*params[5];
+	void			*params[4];
 	struct s_task	*next;
 }				t_task;
 
