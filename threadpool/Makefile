@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/11 11:41:14 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/14 15:47:59 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ HEADERS = threadpool.h typedefs.h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
 PREFIX = tp
-FT_SRCS = pooldone poolnew pooldel poolque pooljoin threadnew
-SRCS = threadmanager tasksetinfo taskrunfnc
+FT_SRCS = pooldone poolnew pooldel pooljoin threadnew poolqueback poolquefront
+SRCS = threadmanager tasksetinfo taskrunfnc addtoque
 SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 
 SRCS := $(sort $(SRCS))

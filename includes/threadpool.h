@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/11 11:07:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/14 15:48:16 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ t_pool			*ft_poolnew(size_t size);
 void			*tp_threadmanager(void *param);
 void			ft_pooldel(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);
-t_bool			ft_poolque(t_pool *pool, t_bool important, void (*f)(),
-					size_t count, ...);
+t_bool			ft_poolqueback(t_pool *pool, void (*f)(), size_t count, ...);
+t_bool			ft_poolquefront(t_pool *pool, void (*f)(), size_t count, ...);
+t_bool			tp_addtoque(t_pool *pool, t_bool priority, t_task *task);
 t_task			*tp_tasksetinfo(t_task *task, void (*f)(), size_t count,
 					va_list params);
 
