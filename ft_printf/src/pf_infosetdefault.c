@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/07 12:16:41 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/15 14:15:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_infosetdefualt(t_info *info)
+void	pf_infosetdefault(t_info *info)
 {
 	info->length = -1;
 	info->precision = -1;

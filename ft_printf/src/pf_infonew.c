@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 14:28:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/15 14:14:59 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_info			*pf_infonew(void)
 	info->buff = ft_strnew(PF_BUFF_SIZE);
 	if (info->buff == NULL)
 		return (freeret(&info));
-	pf_infosetdefualt(info);
+	pf_infosetdefault(info);
 	info->added = 0;
 	info->fd = 1;
 	info->buff_len = 0;

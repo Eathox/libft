@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/23 17:14:38 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/15 14:15:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void			pf_formatnum(t_info *info);
 void			pf_formatpad(t_info *info);
 void			pf_formatstr(t_info *info);
 void			pf_formatunum(t_info *info);
-void			pf_infosetdefualt(t_info *info);
+void			pf_infosetdefault(t_info *info);
 void			pf_setcolor(t_info *info, int color);
 void			pf_setcolorbg(t_info *info, int color);
 void			pf_setrgbcolor(t_info *info, t_color r, t_color g, t_color b);

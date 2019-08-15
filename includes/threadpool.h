@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:26:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/14 15:48:16 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/14 16:17:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_task
 
 typedef struct	s_thread
 {
+	size_t			number;
 	pthread_t		thread;
 	struct s_pool	*pool;
 	t_state			state;
@@ -46,6 +47,7 @@ typedef struct	s_pool
 	t_task			*que;
 	t_task			*last;
 	atomic_char		state;
+	t_bool			tracktime;
 	t_bool			terminating;
 	t_bool			suspended;
 	size_t			size;
@@ -54,7 +56,7 @@ typedef struct	s_pool
 t_bool			ft_pooldone(t_pool *pool);
 t_bool			ft_threadnew(pthread_t *thread, void (*f)(), size_t count, ...);
 t_bool			tp_taskrunfnc(t_task *task);
-t_pool			*ft_poolnew(size_t size);
+t_pool			*ft_poolnew(size_t size, t_bool tracktime);
 void			*tp_threadmanager(void *param);
 void			ft_pooldel(t_pool **pool);
 void			ft_pooljoin(t_pool *pool);

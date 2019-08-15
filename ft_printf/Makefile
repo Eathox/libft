@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/11 11:41:06 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/15 14:15:51 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 
 PREFIX = pf
 FT_SRCS = strformat strformat_len dprintf printf
-SRCS = getinfo infosetdefualt formatpad formatbackpad addchar iszeropad addstr \
+SRCS = getinfo infosetdefault formatpad formatbackpad addchar iszeropad addstr \
 	isunsignint issignint setvar_type setvar_base infonew format formatnum \
 	formatunum overflowsigned overflowunsigned addnstr addtobuff addnum \
 	formatchar formatcolor addwchar formatstr addwcharstr getprecision \

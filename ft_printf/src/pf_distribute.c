@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/01 13:25:57 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/15 14:15:23 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t		pf_distribute(t_info *info, const char *start)
 		ret = pf_commands(info, &start[1]);
 	else
 	{
-		pf_infosetdefualt(info);
+		pf_infosetdefault(info);
 		ret = pf_getinfo(info, start);
 		pf_format(info);
 	}

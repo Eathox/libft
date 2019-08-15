@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/15 22:58:40 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/15 13:56:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_bool			pf_addtobuff(t_info *info, char *str, size_t len)
 	t_bool	ret;
 	size_t	fit;
 
-	if (len + info->buff_len > PF_BUFF_SIZE)
+	if ((len + info->buff_len) > PF_BUFF_SIZE)
 	{
 		fit = PF_BUFF_SIZE - info->buff_len;
 		ft_memcpy(&info->buff[info->buff_len], str, fit);
