@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/15 16:17:41 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/15 16:19:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,8 @@ static void		runtask(t_pool *pool, t_thread *self, t_task *task,
 		timecolor = "\e[38;5;1m";
 		if (runtime > *waittime)
 			timecolor = "\e[38;5;2m";
-		ft_printf("%spool->thread[%zu]%{} - Adress %p = %sWaittime: %.4f : \
-			Runtime %.4f%{}\n", color, self->number, f, timecolor, runtime,
-			*waittime);
+		ft_printf("%spool->thread[%zu]%{} - Function %p = %sWaittime: %.4f : \
+Runtime %.4f%{}\n", color, self->number, f, timecolor, runtime, *waittime);
 		ft_strdel(&color);
 		*waittime = 0;
 	}
