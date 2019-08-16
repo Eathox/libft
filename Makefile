@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/11 11:40:51 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/16 11:37:48 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ PRINTF_OBJS = $(call GET_OBJS,$(PRINTF),$(PRINTFPATH))
 THREADPOOLPATH = threadpool
 THREADPOOL = $(THREADPOOLPATH)/threadpool.a
 THREADPOOL_OBJS = $(call GET_OBJS,$(THREADPOOL),$(THREADPOOLPATH))
+
+TESTPATH = tests
+TEST = $(TESTPATH)/libtest
 
 NAME = libft.a
 INCLUDES = includes
@@ -114,6 +117,10 @@ $(PRINTF): FORCE
 $(THREADPOOL): FORCE
 	@$(MAKE) -s -e -C $(THREADPOOLPATH)
 
+test:
+	@$(MAKE) -s -C $(TESTPATH)
+	@./$(TEST)
+
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) $(NAME:%.a=%): cleaning\n'
@@ -121,6 +128,7 @@ ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 	@$(MAKE) -s -C $(THREADPOOLPATH) clean
+	@$(MAKE) -s -C $(TESTPATH) clean
 
 fclean: clean
 ifneq ($(wildcard $(NAME)),)
@@ -129,9 +137,10 @@ ifneq ($(wildcard $(NAME)),)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) fclean
 	@$(MAKE) -s -C $(THREADPOOLPATH) fclean
+	@$(MAKE) -s -C $(TESTPATH) fclean
 
 re: fclean $(NAME)
 
 FORCE: ;
 
-.PHONY: clean fclean re
+.PHONY: test clean fclean re
