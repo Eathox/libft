@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -n "$TRAVIS"]; then
+if [ -n "$TRAVIS" ]; then
 	echo "Error: Not running travis"
 elif [ $TRAVIS_OS_NAME == "Linux" ]; then
 	sudo add-apt-repository ppa:snaipewastaken/ppa
