@@ -1,0 +1,11 @@
+language: c
+
+branches:
+  only:
+ 	- dev
+
+script:
+	- bash ./tests/travis.bash
+
+notifications:
+	email: false
