@@ -3,9 +3,9 @@
 if [ -z "$TRAVIS" ] || [ $TRAVIS != true ]; then
 	echo "Error: Not running travis"
 elif [ $TRAVIS_OS_NAME == "linux" ]; then
-	sudo add-apt-repository ppa:snaipewastaken/ppa
-	sudo apt-get update
-	sudo apt-get install criterion-dev
+	add-apt-repository ppa:snaipewastaken/ppa
+	apt-get update
+	apt-get install criterion-dev
 	make test
 elif [ $TRAVIS_OS_NAME == "osx" ]; then
 	export HOMEBREW_NO_AUTO_UPDATE=1
