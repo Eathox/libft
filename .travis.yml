@@ -5,8 +5,8 @@ notifications:
   email: false
 
 branches:
-	only:
-		- master
+  only:
+    - master
 
 script:
-	- bash ./tests/travis.bash
+  - bash ./tests/travis.bash
