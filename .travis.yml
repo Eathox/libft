@@ -6,7 +6,7 @@ os:
 
 branches:
   only:
- 	- master
+  	- master
 
 script:
 	- bash ./tests/travis.bash
