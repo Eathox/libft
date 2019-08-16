@@ -1,12 +1,12 @@
 language: c
 
 os:
-  - linux
-  - osx
+	- linux
+	- osx
 
 branches:
-  only:
-  	- master
+	only:
+		- master
 
 script:
 	- bash ./tests/travis.bash
