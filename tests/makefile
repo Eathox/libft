@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/16 14:44:01 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/16 14:44:54 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,9 +60,9 @@ CCFLAGS = -g -I$(INCLUDES)
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
+	@echo $(shell dpkg -L criterion)
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
 	@gcc $(CCFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(CRITERIONLIB)
-	@echo $(shell dpkg -L criterion)
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
