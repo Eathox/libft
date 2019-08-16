@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/16 11:39:49 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/16 14:25:07 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,12 +31,13 @@ PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:%=%\/src\/)/g')
+BREW := $(shell brew --cellar)/..
 
 LIBFTPATH = ../
 LIBFT = $(LIBFTPATH)/libft.a
 
-CRITERIONINCLUDES = $(HOME)/.brew/include
-CRITERIONLIB = -L$(HOME)/.brew/lib -lcriterion
+CRITERIONINCLUDES = $(BREW)/include
+CRITERIONLIB = -L$(BREW)/lib -lcriterion
 
 NAME = libtest
 INCLUDES = includes
