@@ -1,5 +1,7 @@
 language: c
-os: osx
+os:
+  - osx
+  - linux
 
 notifications:
   email: false
