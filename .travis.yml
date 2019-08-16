@@ -11,4 +11,4 @@ branches:
     - master
 
 script:
-  - bash ./tests/travis.bash
+  - bash travis.bash
