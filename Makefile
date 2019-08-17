@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/17 14:58:00 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/17 15:04:41 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ GCDAS = $(OBJS:.o=.gcda)
 GCNOS = $(OBJS:.o=.gcno)
 
 SYNCOPTIMISE = TRUE
-GCOVSILENT = FALSE
+GCOVSILENT = TRUE
 CCSILENT = FALSE
 GCOV = FALSE
 
