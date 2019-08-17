@@ -6,9 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/17 14:25:23 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/17 15:27:22 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
+
+CCSILENT = FALSE
+GCOV = FALSE
 
 COLOR_DEFUALT := $(shell printf "\e[39m")
 COLOR_BLACK := $(shell printf "\e[38;5;0m")
@@ -51,9 +54,6 @@ OBJS = $(SRCS:.c=.o)
 GCOVS = $(OBJS:.o=.c.gcov)
 GCDAS = $(OBJS:.o=.gcda)
 GCNOS = $(OBJS:.o=.gcno)
-
-CCSILENT = FALSE
-GCOV = FALSE
 
 CCOPTIMISE =
 CCSTRICT = -Wall -Werror -Wextra
