@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/17 15:26:50 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/17 20:14:22 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ SYNCOPTIMISE = TRUE
 GCOVSILENT = TRUE
 CCSILENT = FALSE
 GCOV = FALSE
+
+GCOVFLAGS = -f -b -c
 
 COLOR_DEFUALT := $(shell printf "\e[39m")
 COLOR_BLACK := $(shell printf "\e[38;5;0m")
@@ -102,8 +104,6 @@ OBJS = $(SRCS:.c=.o)
 GCOVS = $(OBJS:.o=.c.gcov)
 GCDAS = $(OBJS:.o=.gcda)
 GCNOS = $(OBJS:.o=.gcno)
-
-GCOVFLAGS = -f -b -c
 
 CCOPTIMISE =
 CCSTRICT = -Wall -Werror -Wextra
