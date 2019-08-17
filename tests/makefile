@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/16 14:50:56 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/17 14:31:22 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,33 +44,30 @@ CRITERIONINCLUDES = $(BREW)/include
 CRITERIONLIB = -L$(BREW)/lib -lcriterion
 
 NAME = libtest
-INCLUDES = includes
-HEADERS = $(NAME).h
+INCLUDES = ../includes
+HEADERS = #$(NAME).h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
 
-SRCS =
-SRCS := $(SRCS:%=src/ft_%.c)
+SRCS = abs
+SRCS := $(SRCS:%=test_ft_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
 CCSILENT = FALSE
-CCFLAGS = -g -I$(INCLUDES)
+CCFLAGS = -g -I$(INCLUDES) -I$(CRITERIONINCLUDES)
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(OBJS)
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
-	@gcc $(CCFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(CRITERIONLIB)
+	@gcc -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(CRITERIONLIB)
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
 	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $<)\n'
 endif
 	@gcc $(CCFLAGS) -o $@ -c $<
-
-$(LIBFT): FORCE
-	@$(MAKE) -s -e -C $(LIBFTPATH)
 
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)

@@ -1,0 +1,6 @@
+codecov:
+  notify: false
+
+coverage:
+  round: down
+  precision: 2

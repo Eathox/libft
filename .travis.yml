@@ -1,4 +1,9 @@
 language: c
+
+env:
+  global:
+    - CODECOV_TOKEN="39b53be3-59f2-4893-9aaa-c8f5f96b520b"
+
 os:
   - osx
   - linux
@@ -12,3 +17,6 @@ branches:
 
 script:
   - bash travis.bash
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -X gcov

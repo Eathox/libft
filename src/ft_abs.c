@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/19 12:43:05 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:05 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/16 15:50:03 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 intmax_t		ft_abs(intmax_t num)
 {
-	uintmax_t temp_num;
-
-	temp_num = (num < 0) ? -num : num;
-	return (temp_num);
+	if (num < 0)
+		return (-num);
+	return (num);
 }

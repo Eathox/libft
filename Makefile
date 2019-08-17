@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/16 11:37:48 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/17 14:58:00 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,14 +31,20 @@ PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:%=%\/src\/)/g')
+GET_GCOV = (cd $(1)/src && gcov $(GCOVFLAGS) $(shell basename $(2)) && cd -)
+ifeq ($(GCOVSILENT), TRUE)
+GET_GCOV += &>/dev/null
+endif
 
 PRINTFPATH = ft_printf
 PRINTF = $(PRINTFPATH)/libftprintf.a
 PRINTF_OBJS = $(call GET_OBJS,$(PRINTF),$(PRINTFPATH))
+PRINTF_SRCS = $(PRINTF_OBJS:%.o=%.c)
 
 THREADPOOLPATH = threadpool
 THREADPOOL = $(THREADPOOLPATH)/threadpool.a
 THREADPOOL_OBJS = $(call GET_OBJS,$(THREADPOOL),$(THREADPOOLPATH))
+THREADPOOL_SRCS = $(THREADPOOL_OBJS:%.o=%.c)
 
 TESTPATH = tests
 TEST = $(TESTPATH)/libtest
@@ -88,13 +94,28 @@ SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
+GCOVS = $(OBJS:.o=.c.gcov)
+GCDAS = $(OBJS:.o=.gcda)
+GCNOS = $(OBJS:.o=.gcno)
 
 SYNCOPTIMISE = TRUE
+GCOVSILENT = FALSE
 CCSILENT = FALSE
+GCOV = FALSE
+
+GCOVFLAGS = -f -b -c
 
 CCOPTIMISE =
 CCSTRICT = -Wall -Werror -Wextra
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
+
+export GCOV
+export CCSILENT
+export CCSTRICT
+ifeq ($(GCOV), TRUE)
+CCFLAGS += -coverage
+endif
+
 ifeq ($(SYNCOPTIMISE), TRUE)
 export CCOPTIMISE
 endif
@@ -117,14 +138,19 @@ $(PRINTF): FORCE
 $(THREADPOOL): FORCE
 	@$(MAKE) -s -e -C $(THREADPOOLPATH)
 
-test:
-	@$(MAKE) -s -C $(TESTPATH)
+test: $(NAME) FORCE
+	@$(MAKE) -s -e -C $(TESTPATH)
 	@./$(TEST)
+ifeq ($(GCOV), TRUE)
+	@$(call GET_GCOV,$(PRINTFPATH),$(PRINTF_SRCS))
+	@$(call GET_GCOV,$(THREADPOOLPATH),$(THREADPOOL_SRCS))
+	@$(call GET_GCOV,.,$(SRCS))
+endif
 
 clean:
-ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
+ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~) $(GCOVS) $(GCDAS) $(GCNOS)),)
 	@printf '$(PRINT_MIN) $(NAME:%.a=%): cleaning\n'
-	@rm -f $(OBJS) $(SRCS:.c=.c~)
+	@rm -f $(OBJS) $(SRCS:.c=.c~) $(GCOVS) $(GCDAS) $(GCNOS)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 	@$(MAKE) -s -C $(THREADPOOLPATH) clean

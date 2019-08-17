@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/14 15:47:59 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/17 14:25:21 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,12 +43,19 @@ SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
+GCOVS = $(OBJS:.o=.c.gcov)
+GCDAS = $(OBJS:.o=.gcda)
+GCNOS = $(OBJS:.o=.gcno)
 
 CCSILENT = FALSE
+GCOV = FALSE
 
 CCOPTIMISE =
 CCSTRICT = -Wall -Werror -Wextra
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
+ifeq ($(GCOV), TRUE)
+CCFLAGS += -coverage
+endif
 
 # This checks if your on linux and then compiles with pthread
 ifeq ($(shell uname -s), Linux)
@@ -68,9 +75,9 @@ endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
 clean:
-ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
+ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~) $(GCOVS) $(GCDAS) $(GCNOS)),)
 	@printf '$(PRINT_MIN) $(NAME:%.a=%): cleaning\n'
-	@rm -f $(OBJS) $(SRCS:.c=.c~)
+	@rm -f $(OBJS) $(SRCS:.c=.c~) $(GCOVS) $(GCDAS) $(GCNOS)
 endif
 
 fclean: clean
