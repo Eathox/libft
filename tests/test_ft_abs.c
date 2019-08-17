@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/16 15:12:17 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/16 15:52:25 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/17 19:26:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,26 @@ Test(abs, int_min_plus) {
     cr_assert(ft_abs(INT_MIN + 1) == INT_MAX);
 }
 
-Test(abs, intmax_min) {
-    cr_assert(ft_abs((int)INTMAX_MIN) == abs((int)INTMAX_MIN));
+Test(abs, long_max) {
+    cr_assert(ft_abs(INTMAX_MAX) == INTMAX_MAX);
 }
 
-Test(abs, intmax_max) {
-    cr_assert(ft_abs((int)INTMAX_MAX) == abs((int)INTMAX_MAX));
+Test(abs, long_max_min_plus) {
+    cr_assert(ft_abs(INTMAX_MIN + 1) == INTMAX_MAX);
+}
+
+Test(abs, long_max_min_minus) {
+    cr_assert(ft_abs(INTMAX_MIN - 1) == INTMAX_MAX);
+}
+
+Test(abs, long_min) {
+    cr_assert(ft_abs(INTMAX_MIN) == INTMAX_MIN);
+}
+
+Test(abs, long_min_minus) {
+    cr_assert(ft_abs(INTMAX_MIN - 1) == INTMAX_MAX);
+}
+
+Test(abs, long_min_plus) {
+    cr_assert(ft_abs(INTMAX_MIN + 1) == INTMAX_MAX);
 }

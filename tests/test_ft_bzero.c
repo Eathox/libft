@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/17 15:59:22 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/17 17:28:29 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/17 20:01:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Test(bzero, str_term) {
 	char	str[] = "foo\0 bar";
 
 	bzero(str, 5);
-	while (i < 9)
+	while (i < sizeof(str))
 	{
 		cr_assert(str[i] == tar[i]);
 		i++;
@@ -45,4 +45,17 @@ Test(bzero, num_half) {
 	num = 0xFFFFFFFF;
 	ft_bzero(&num, 2);
 	cr_assert(num == 0xFFFF0000);
+}
+
+Test(bzero, arr_big) {
+	size_t	i = 0;
+	long	arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0,
+	1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+
+	ft_bzero(&arr, sizeof(arr));
+	while (i < sizeof(arr) / sizeof(long))
+	{
+		cr_assert(arr[i] == 0);
+		i++;
+	}
 }

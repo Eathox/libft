@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:30:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/17 20:04:20 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,22 @@ intmax_t		ft_atoi_base(const char *str, int base)
 {
 	char		*base_str;
 	uintmax_t	result;
-	uintmax_t	lst_val;
-	int			isneg;
+	int			sign;
 	size_t		i;
 
 	result = 0;
-	lst_val = result;
 	base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	if (base < 2 || base > 36)
 		return (0);
 	i = ft_strislen(str, &ft_isspace);
-	isneg = (str[i] == '-' && base == 10) ? -1 : 1;
+	sign = (str[i] == '-' && base == 10) ? -1 : 1;
 	i += (str[i] == '-' || str[i] == '+');
-	while (ft_chrnin(base_str, str[i], base) && lst_val <= result)
+	while (ft_chrnin(base_str, str[i], base))
 	{
-		lst_val = result;
 		result = (result * base) + ft_chrindex(base_str, str[i]);
+		if (result > (uintmax_t)(9223372036854775807 + (sign == -1)))
+			return (9223372036854775807 + (sign == -1));
 		i++;
 	}
-	if (lst_val > result ||
-		result > (uintmax_t)(9223372036854775807 + (isneg == -1)))
-		return (0 - (isneg == 1));
-	return ((intmax_t)(result * isneg));
+	return ((intmax_t)(result * sign));
 }
