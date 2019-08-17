@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/17 14:31:22 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/17 16:44:58 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,11 +45,11 @@ CRITERIONLIB = -L$(BREW)/lib -lcriterion
 
 NAME = libtest
 INCLUDES = ../includes
-HEADERS = #$(NAME).h
+HEADERS = $(NAME).h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
 
-SRCS = abs
-SRCS := $(SRCS:%=test_ft_%.c)
+SRCS = abs atoi_base bzero
+SRCS := $(SRCS:%=test_ft_%.c) #wr_malloc.c
 
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
@@ -62,6 +62,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
 	@gcc -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(CRITERIONLIB)
+	# @-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
