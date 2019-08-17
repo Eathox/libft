@@ -29,8 +29,8 @@ intmax_t		ft_atoi_base(const char *str, int base)
 	while (ft_chrnin(base_str, str[i], base))
 	{
 		result = (result * base) + ft_chrindex(base_str, str[i]);
-		if (result > (uintmax_t)(9223372036854775807 + (sign == -1)))
-			return (9223372036854775807 + (sign == -1));
+		if (result > (uintmax_t)(INTMAX_MAX + (sign == -1)))
+			return (INTMAX_MAX + (sign == -1));
 		i++;
 	}
 	return ((intmax_t)(result * sign));

@@ -12,7 +12,6 @@
 
 #include "libft.h"
 #include <stdlib.h>
-#include "unistd.h"
 #include <criterion/criterion.h>
 
 Test(bzero, str_null, .signal = SIGSEGV) {

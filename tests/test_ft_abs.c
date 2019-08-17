@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <criterion/criterion.h>
 #include <limits.h>
+#include <criterion/criterion.h>
 
 Test(abs, zero) {
     cr_assert(ft_abs(0) == 0);

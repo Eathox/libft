@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 #include <criterion/criterion.h>
 
 Test(atoi_base, str_null, .signal = SIGSEGV) {
@@ -106,33 +107,33 @@ Test(atoi_base, space_plus_start_base_10) {
 }
 
 Test(atoi_base, int_max_base_10) {
-	cr_assert(ft_atoi_base("2147483647", 10) == 2147483647);
+	cr_assert(ft_atoi_base("2147483647", 10) == INT_MAX);
 }
 
 Test(atoi_base, int_max_plus_base_10) {
-	cr_assert(ft_atoi_base("2147483648", 10) == 2147483648);
+	cr_assert(ft_atoi_base("2147483648", 10) == INT_MAX + 1);
 }
 
 Test(atoi_base, long_max_base_10) {
-	cr_assert(ft_atoi_base("9223372036854775807", 10) == 9223372036854775807LL);
+	cr_assert(ft_atoi_base("9223372036854775807", 10) == INTMAX_MAX);
 }
 
 Test(atoi_base, long_max_plus_base_10) {
-	cr_assert(ft_atoi_base("9223372036854775808", 10) == 9223372036854775807LL);
+	cr_assert(ft_atoi_base("9223372036854775808", 10) == INTMAX_MAX);
 }
 
 Test(atoi_base, int_min_base_10) {
-	cr_assert(ft_atoi_base("-2147483648", 10) == -2147483648);
+	cr_assert(ft_atoi_base("-2147483648", 10) == INT_MIN);
 }
 
-Test(atoi_base, int_min_plus_base_10) {
-	cr_assert(ft_atoi_base("-2147483649", 10) == -2147483649);
+Test(atoi_base, int_min_minus_base_10) {
+	cr_assert(ft_atoi_base("-2147483649", 10) == INT_MIN - 1);
 }
 
 Test(atoi_base, long_min_base_10) {
-	cr_assert(ft_atoi_base("-9223372036854775808", 10) == -9223372036854775808LL);
+	cr_assert(ft_atoi_base("-9223372036854775808", 10) == INTMAX_MIN);
 }
 
-Test(atoi_base, long_min_plus_base_10) {
-	cr_assert(ft_atoi_base("-9223372036854775809", 10) == -9223372036854775808LL);
+Test(atoi_base, long_min_mins_base_10) {
+	cr_assert(ft_atoi_base("-9223372036854775809", 10) == INTMAX_MIN);
 }
