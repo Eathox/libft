@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/17 15:59:22 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/18 13:57:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/18 14:28:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,11 @@ Test(bzero, str_zero) {
 }
 
 Test(bzero, str_term) {
-	size_t	i = 0;
 	char	tar[] = "\0\0\0\0\0bar";
 	char	str[] = "foo\0 bar";
 
 	bzero(str, 5);
-	while (i < sizeof(str))
-	{
-		cr_assert(str[i] == tar[i]);
-		i++;
-	}
+	cr_assert_arr_eq(str, tar, sizeof(tar));
 }
 
 Test(bzero, num_half) {
@@ -48,14 +43,12 @@ Test(bzero, num_half) {
 }
 
 Test(bzero, arr_big) {
-	size_t	i = 0;
+	long	tar[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
 	long	arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0,
 	1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 
 	ft_bzero(&arr, sizeof(arr));
-	while (i < sizeof(arr) / sizeof(long))
-	{
-		cr_assert(arr[i] == 0);
-		i++;
-	}
+	cr_assert_arr_eq(arr, tar, sizeof(tar));
 }
