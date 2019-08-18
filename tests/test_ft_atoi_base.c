@@ -6,12 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/17 15:59:22 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/17 20:05:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/18 13:58:01 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
+#include <signal.h>
 #include <criterion/criterion.h>
 
 Test(atoi_base, str_null, .signal = SIGSEGV) {
@@ -111,7 +112,7 @@ Test(atoi_base, int_max_base_10) {
 }
 
 Test(atoi_base, int_max_plus_base_10) {
-	cr_assert(ft_atoi_base("2147483648", 10) == INT_MAX + 1);
+	cr_assert(ft_atoi_base("2147483648", 10) == (intmax_t)INT_MAX + 1);
 }
 
 Test(atoi_base, long_max_base_10) {
@@ -127,7 +128,7 @@ Test(atoi_base, int_min_base_10) {
 }
 
 Test(atoi_base, int_min_minus_base_10) {
-	cr_assert(ft_atoi_base("-2147483649", 10) == INT_MIN - 1);
+	cr_assert(ft_atoi_base("-2147483649", 10) == (intmax_t)INT_MIN - 1);
 }
 
 Test(atoi_base, long_min_base_10) {

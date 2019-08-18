@@ -6,12 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/17 15:59:22 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/17 20:01:28 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/18 13:57:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <signal.h>
 #include <criterion/criterion.h>
 
 Test(bzero, str_null, .signal = SIGSEGV) {
