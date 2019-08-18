@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/18 19:27:11 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 19:28:55 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(OBJS)
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
 	@gcc -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(CRITERIONLIB)
-	# @-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
+	@ #-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
@@ -74,7 +74,7 @@ endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
 $(LIBFT):
-	make -s -C $(LIBFTPATH)
+	@make -s -C $(LIBFTPATH)
 
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
