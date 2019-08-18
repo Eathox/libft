@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/17 16:44:58 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 14:10:32 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,9 @@ OBJS = $(SRCS:.c=.o)
 
 CCSILENT = FALSE
 CCFLAGS = -g -I$(INCLUDES) -I$(CRITERIONINCLUDES)
+ifeq ($(shell uname -s), Linux)
+CCFLAGS += -w
+endif
 
 all: $(NAME)
 
