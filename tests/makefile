@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/18 19:26:36 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 19:27:11 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ ifeq ($(CCSILENT), FALSE)
 endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
-$(LIBFT)
+$(LIBFT):
 	make -s -C $(LIBFTPATH)
 
 clean:
