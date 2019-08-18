@@ -6,13 +6,17 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/17 15:27:22 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 17:59:40 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+GCOVSILENT = TRUE
 CCSILENT = FALSE
 GCOV = FALSE
 
+GCOVFLAGS = -f -b -c
+
+SILENCE = &>/dev/null
 COLOR_DEFUALT := $(shell printf "\e[39m")
 COLOR_BLACK := $(shell printf "\e[38;5;0m")
 COLOR_RED := $(shell printf "\e[38;5;1m")
@@ -33,6 +37,10 @@ COLOR_BRIGHT_WHITE := $(shell printf "\e[38;5;15m")
 PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
+GET_GCOV = (gcov $(GCOVFLAGS) $(1) && mv $(shell basename $(1:%=%.gcov)) src)
+ifeq ($(GCOVSILENT), TRUE)
+GET_GCOV += $(SILENCE)
+endif
 
 NAME = libftprintf.a
 INCLUDES = ../includes
@@ -64,15 +72,23 @@ endif
 
 all: $(NAME)
 
+ifeq ($(GCOV), TRUE)
+$(NAME): $(OBJS) $(GCNOS)
+else
 $(NAME): $(OBJS)
+endif
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
 	@ar rcs $(NAME) $(OBJS)
 
-%.o: %.c $(HEADERS)
+%.o %.gcno: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $<)\n'
+	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $@)\n'
 endif
-	@gcc $(CCFLAGS) -o $@ -c $<
+	@rm -f $(<:.c=.o)
+	@gcc $(CCFLAGS) -o $(<:.c=.o) -c $<
+
+getgcov: FORCE
+	@$(call GET_GCOV,$(SRCS))
 
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~) $(GCOVS) $(GCDAS) $(GCNOS)),)
@@ -88,4 +104,6 @@ endif
 
 re: fclean $(NAME)
 
-.PHONY: clean fclean re
+FORCE: ;
+
+.PHONY: test clean fclean re

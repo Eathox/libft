@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/18 14:38:24 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 17:59:14 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ GCOV = FALSE
 
 GCOVFLAGS = -f -b -c
 
+SILENCE = &>/dev/null
 COLOR_DEFUALT := $(shell printf "\e[39m")
 COLOR_BLACK := $(shell printf "\e[38;5;0m")
 COLOR_RED := $(shell printf "\e[38;5;1m")
@@ -38,9 +39,9 @@ PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:%=%\/src\/)/g')
-GET_GCOV = (cd $(1)/src && gcov $(GCOVFLAGS) $(shell basename $(2)) && cd -)
+GET_GCOV = (gcov $(GCOVFLAGS) $(1) && mv $(shell basename $(1:%=%.gcov)) src)
 ifeq ($(GCOVSILENT), TRUE)
-GET_GCOV += &>/dev/null
+GET_GCOV += $(SILENCE)
 endif
 
 PRINTFPATH = ft_printf
@@ -108,13 +109,13 @@ GCNOS = $(OBJS:.o=.gcno)
 CCOPTIMISE =
 CCSTRICT = -Wall -Werror -Wextra
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
+ifeq ($(GCOV), TRUE)
+CCFLAGS += -coverage
+endif
 
 export GCOV
 export CCSILENT
 export CCSTRICT
-ifeq ($(GCOV), TRUE)
-CCFLAGS += -coverage
-endif
 
 ifeq ($(SYNCOPTIMISE), TRUE)
 export CCOPTIMISE
@@ -122,15 +123,20 @@ endif
 
 all: $(NAME)
 
+ifeq ($(GCOV), TRUE)
+$(NAME): $(PRINTF) $(THREADPOOL) $(OBJS) $(GCNOS)
+else
 $(NAME): $(PRINTF) $(THREADPOOL) $(OBJS)
+endif
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
 	@ar rcs $(NAME) $(OBJS) $(PRINTF_OBJS) $(THREADPOOL_OBJS)
 
-%.o: %.c $(HEADERS)
+%.o %.gcno: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $<)\n'
+	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $@)\n'
 endif
-	@gcc $(CCFLAGS) -o $@ -c $<
+	@rm -f $(<:.c=.o)
+	@gcc $(CCFLAGS) -o $(<:.c=.o) -c $<
 
 $(PRINTF): FORCE
 	@$(MAKE) -s -e -C $(PRINTFPATH)
@@ -143,9 +149,9 @@ ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -e -C $(TESTPATH)
 	@./$(TEST)
 ifeq ($(GCOV), TRUE)
-	@$(call GET_GCOV,$(PRINTFPATH),$(PRINTF_SRCS))
-	@$(call GET_GCOV,$(THREADPOOLPATH),$(THREADPOOL_SRCS))
-	@$(call GET_GCOV,.,$(SRCS))
+	@$(call GET_GCOV,$(SRCS))
+	@$(MAKE) -s -e -C $(PRINTFPATH) getgcov
+	@$(MAKE) -s -e -C $(THREADPOOLPATH) getgcov
 endif
 else
 	@echo "Error: $(TESTPATH) not present"
