@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/17 20:14:22 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 14:15:50 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,12 +139,16 @@ $(THREADPOOL): FORCE
 	@$(MAKE) -s -e -C $(THREADPOOLPATH)
 
 test: $(NAME) FORCE
+ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -e -C $(TESTPATH)
 	@./$(TEST)
 ifeq ($(GCOV), TRUE)
 	@$(call GET_GCOV,$(PRINTFPATH),$(PRINTF_SRCS))
 	@$(call GET_GCOV,$(THREADPOOLPATH),$(THREADPOOL_SRCS))
 	@$(call GET_GCOV,.,$(SRCS))
+endif
+else
+	@echo "Error: $(TESTPATH) not present"
 endif
 
 clean:
