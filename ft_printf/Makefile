@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/18 17:59:40 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 20:23:12 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,26 +17,6 @@ GCOV = FALSE
 GCOVFLAGS = -f -b -c
 
 SILENCE = &>/dev/null
-COLOR_DEFUALT := $(shell printf "\e[39m")
-COLOR_BLACK := $(shell printf "\e[38;5;0m")
-COLOR_RED := $(shell printf "\e[38;5;1m")
-COLOR_GREEN := $(shell printf "\e[38;5;2m")
-COLOR_YELLOW := $(shell printf "\e[38;5;3m")
-COLOR_BLUE := $(shell printf "\e[38;5;4m")
-COLOR_MAGENTA := $(shell printf "\e[38;5;5m")
-COLOR_CYAN := $(shell printf "\e[38;5;6m")
-COLOR_WHITE := $(shell printf "\e[38;5;7m")
-COLOR_BRIGHT_BLACK := $(shell printf "\e[38;5;8m")
-COLOR_BRIGHT_RED := $(shell printf "\e[38;5;9m")
-COLOR_BRIGHT_GREEN := $(shell printf "\e[38;5;10m")
-COLOR_BRIGHT_YELLOW := $(shell printf "\e[38;5;11m")
-COLOR_BRIGHT_BLUE := $(shell printf "\e[38;5;12m")
-COLOR_BRIGHT_MAGENTA := $(shell printf "\e[38;5;13m")
-COLOR_BRIGHT_CYAN := $(shell printf "\e[38;5;14m")
-COLOR_BRIGHT_WHITE := $(shell printf "\e[38;5;15m")
-PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
-PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
-PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 GET_GCOV = (gcov $(GCOVFLAGS) $(1) && mv $(shell basename $(1:%=%.gcov)) src)
 ifeq ($(GCOVSILENT), TRUE)
 GET_GCOV += $(SILENCE)
@@ -46,6 +26,8 @@ NAME = libftprintf.a
 INCLUDES = ../includes
 HEADERS = ft_printf.h typedefs.h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
+
+include $(INCLUDES)/Makefile.color
 
 PREFIX = pf
 FT_SRCS = strformat strformat_len dprintf printf
