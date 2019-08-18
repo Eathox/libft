@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/18 14:15:50 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/18 14:38:24 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -158,7 +158,9 @@ ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~) $(GCOVS) $(GCDAS) $(GCNOS)),)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) clean
 	@$(MAKE) -s -C $(THREADPOOLPATH) clean
-	@$(MAKE) -s -C $(TESTPATH) clean
+ifneq ($(wildcard $(TESTPATH)),)
+	@$(MAKE) -s -C $(TESTPATH) fclean
+endif
 
 fclean: clean
 ifneq ($(wildcard $(NAME)),)
@@ -167,7 +169,9 @@ ifneq ($(wildcard $(NAME)),)
 endif
 	@$(MAKE) -s -C $(PRINTFPATH) fclean
 	@$(MAKE) -s -C $(THREADPOOLPATH) fclean
+ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -C $(TESTPATH) fclean
+endif
 
 re: fclean $(NAME)
 
