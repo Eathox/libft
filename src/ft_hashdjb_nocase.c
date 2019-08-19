@@ -21,10 +21,7 @@ size_t	ft_hashdjb_nocase(char *str)
 	hash = 5381;
 	while (str[i] != '\0')
 	{
-		if ((i % 2) == 0)
-			hash = ft_toupper(str[i]) + ((hash << 5) + hash);
-		else
-			hash = ft_tolower(str[i]) + ((hash << 5) + hash);
+		hash = ft_tolower(str[i]) + ((hash << 5) + hash);
 		i++;
 	}
 	return (hash);

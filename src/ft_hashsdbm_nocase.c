@@ -21,10 +21,7 @@ size_t	ft_hashsdbm(char *str)
 	hash = 0;
 	while (str[i] != '\0')
 	{
-		if ((i % 2) == 0)
-			hash = ft_toupper(str[i]) + (hash << 6) + (hash << 16) - hash;
-		else
-			hash = ft_tolower(str[i]) + (hash << 6) + (hash << 16) - hash;
+		hash = ft_tolower(str[i]) + (hash << 6) + (hash << 16) - hash;
 		i++;
 	}
 	return (hash);
