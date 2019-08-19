@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:20:57 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 20:08:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ Test(hashmapnew, f_invalid) {
 	t_hashmap	*tab;
 
 	tab = ft_hashmapnew(4, &invalidf);
-	cr_assert(tab == NULL);
+	cr_assert(tab != NULL);
+	cr_assert(tab->f == invalidf);
 }
 
 Test(hashmapnew, four) {
