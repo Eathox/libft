@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include "typedefs.h"
 
+size_t		ft_hashsdbm_nocase(char *str);
+size_t		ft_hashdjb_nocase(char *str);
 size_t		ft_hashsdbm(char *str);
 size_t		ft_hashdjb(char *str);
 t_bool		ft_hashmapadd(t_hashmap *hashmap, char *key);

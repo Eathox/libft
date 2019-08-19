@@ -19,7 +19,7 @@ void	ft_strarrnsortrev(char **arr, t_bool (*f)(char *, char *), size_t n)
 	char	*current;
 
 	i = 1;
-	while (i < n && arr[i] != 0)
+	while (i < n && arr[i] != NULL)
 	{
 		j = i;
 		current = arr[i];

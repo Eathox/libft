@@ -19,7 +19,7 @@ void	ft_strarrsort(char **arr, t_bool (*f)(char *, char *))
 	char	*current;
 
 	i = 1;
-	while (arr[i] != 0)
+	while (arr[i] != NULL)
 	{
 		j = i;
 		current = arr[i];

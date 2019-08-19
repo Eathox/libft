@@ -78,7 +78,8 @@ FT_SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	putbool_fd readfile print_memory putnchar putnchar_fd pututf8str_fd \
 	memrchr strarrdup_var strarrtolower strarrtoupper strindex strnindex \
 	normalize nearestnum strreplace colorrgbatohex colorhextorgba percentage \
-	overflow hashmapnew hashsdbm hashdjb hashmapadd
+	overflow hashmapnew hashsdbm hashdjb hashmapadd hashsdbm_nocase \
+	hashdjb_nocase
 SRCS =
 SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 

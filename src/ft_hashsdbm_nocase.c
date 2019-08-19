@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strarrnsort.c                                   :+:    :+:            */
+/*   ft_hashsdbm.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/15 15:07:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:45:35 by pholster      ########   odam.nl         */
+/*   Created: 2019/08/19 18:05:09 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/19 18:13:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "typedefs.h"
+#include "libft.h"
 
-void	ft_strarrnsort(char **arr, t_bool (*f)(char *, char *), size_t n)
+size_t	ft_hashsdbm(char *str)
 {
+	size_t	hash;
 	size_t	i;
-	size_t	j;
-	char	*current;
 
-	i = 1;
-	while (i < n && arr[i] != NULL)
+	i = 0;
+	hash = 0;
+	while (str[i] != '\0')
 	{
-		j = i;
-		current = arr[i];
-		while (j > 0 && f(current, arr[j - 1]))
-		{
-			arr[j] = arr[j - 1];
-			j--;
-		}
-		arr[j] = current;
+		if ((i % 2) == 0)
+			hash = ft_toupper(str[i]) + (hash << 6) + (hash << 16) - hash;
+		else
+			hash = ft_tolower(str[i]) + (hash << 6) + (hash << 16) - hash;
 		i++;
 	}
+	return (hash);
 }
