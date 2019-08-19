@@ -42,8 +42,6 @@ t_pool			*ft_poolnew(size_t size, t_bool tracktime)
 	size_t		current;
 	t_pool		*pool;
 
-	if (size == 0)
-		return (NULL);
 	pool = (t_pool *)ft_memalloc(sizeof(t_pool));
 	if (pool == NULL)
 		return (NULL);

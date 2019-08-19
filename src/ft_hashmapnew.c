@@ -16,8 +16,6 @@ t_hashmap		*ft_hashmapnew(size_t size, size_t (*f)(char *))
 {
 	t_hashmap	*new;
 
-	if (size == 0)
-		return (NULL);
 	new = (t_hashmap *)ft_memalloc(sizeof(t_hashmap));
 	if (new == NULL)
 		return (NULL);

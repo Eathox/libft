@@ -18,8 +18,6 @@ char		**ft_strfldnew(size_t x, size_t y, char c)
 	size_t	i;
 
 	i = 0;
-	if (x == 0 || y == 0)
-		return (NULL);
 	arr = ft_strarrnew(y);
 	if (arr == NULL)
 		return (NULL);

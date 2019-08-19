@@ -31,7 +31,7 @@ Test(hashmapnew, size_0) {
 	t_hashmap	*tab;
 
 	tab = ft_hashmapnew(0, &ft_hashsdbm);
-	cr_assert(tab == NULL);
+	cr_assert(tab != NULL);
 }
 
 Test(hashmapnew, f_invalid) {

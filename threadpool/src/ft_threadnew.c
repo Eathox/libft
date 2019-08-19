@@ -29,7 +29,7 @@ t_bool		ft_threadnew(pthread_t *thread, void (*f)(), size_t count, ...)
 	t_task	*task;
 
 	if (count > 4)
-		return (TRUE);
+		return (FALSE);
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	va_start(args, count);
 	tp_tasksetinfo(task, f, count, args);
