@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/18 20:23:12 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/19 13:51:53 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ endif
 	@rm -f $(<:.c=.o)
 	@gcc $(CCFLAGS) -o $(<:.c=.o) -c $<
 
-getgcov: FORCE
+getgcov: $(NAME) FORCE
 	@$(call GET_GCOV,$(SRCS))
 
 clean:

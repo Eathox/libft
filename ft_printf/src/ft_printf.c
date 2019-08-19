@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 11:25:53 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 #include <unistd.h>
 
 static ssize_t	freeret(t_info *info)
@@ -22,7 +23,7 @@ static ssize_t	freeret(t_info *info)
 		ret = -1;
 	if (info != NULL)
 	{
-		free(info->buff);
+		ft_strdel(&info->buff);
 		free(info);
 	}
 	return (ret);
