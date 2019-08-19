@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 15:28:18 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:31:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_lstaddbck(t_list **head, t_list *new)
 {
 	t_list	*lst;
 
-	if (head == NULL || new == NULL)
-		return ;
 	if (*head == NULL)
 	{
 		*head = new;

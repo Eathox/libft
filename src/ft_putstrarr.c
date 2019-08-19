@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:12:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:43:20 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ t_bool	ft_putstrarr(const char **arr)
 
 	i = 0;
 	if (arr == NULL)
-		return (TRUE);
-	while (arr[i] != 0)
+		return (ft_putstr(NULL));
+	while (arr[i] != NULL)
 	{
 		if (ft_putendl(arr[i]) == FALSE)
 			return (FALSE);

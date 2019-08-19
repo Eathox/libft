@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tp_addtoque.c                                      :+:    :+:            */
+/*   ft_hashdjb.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:54:40 by pholster      ########   odam.nl         */
+/*   Created: 2019/08/19 18:05:09 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/19 18:13:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "threadpool.h"
+#include "typedefs.h"
 
-t_bool		tp_addtoque(t_pool *pool, t_bool priority, t_task *task)
+size_t	ft_hashdjb(char *str)
 {
-	if (pool->terminating)
-		return (FALSE);
-	if (priority == FALSE)
+	size_t	hash;
+	size_t	i;
+
+	i = 0;
+	hash = 5381;
+	while (str[i] != '\0')
 	{
-		if (pool->last == NULL)
-			pool->que = task;
-		else
-			pool->last->next = task;
-		pool->last = task;
-		return (TRUE);
+		hash = ((hash << 5) + hash) + str[i];
+		i++;
 	}
-	task->next = pool->que;
-	pool->que = task;
-	if (pool->last == NULL)
-		pool->last = task;
-	return (TRUE);
+	return (hash);
 }

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/15 14:31:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:28:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ char			*ft_strformat(const char *format, ...)
 	t_info	*info;
 
 	i = 0;
-	if (format == NULL)
-		return (NULL);
 	info = pf_infonew();
 	if (info == NULL)
 		return (NULL);

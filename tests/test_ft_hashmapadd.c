@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tp_addtoque.c                                      :+:    :+:            */
+/*   test_ft_hashmapadd.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:54:40 by pholster      ########   odam.nl         */
+/*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/19 19:21:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "threadpool.h"
+#include "libft.h"
+#include <signal.h>
+#include <criterion/criterion.h>
 
-t_bool		tp_addtoque(t_pool *pool, t_bool priority, t_task *task)
-{
-	if (pool->terminating)
-		return (FALSE);
-	if (priority == FALSE)
-	{
-		if (pool->last == NULL)
-			pool->que = task;
-		else
-			pool->last->next = task;
-		pool->last = task;
-		return (TRUE);
-	}
-	task->next = pool->que;
-	pool->que = task;
-	if (pool->last == NULL)
-		pool->last = task;
-	return (TRUE);
+Test(hashmapadd, hashmap_null, .signal = SIGSEGV) {
+	cr_assert(ft_hashmapadd(NULL, "hashmap_null") == FALSE);
+}
+
+Test(hashmapadd, key_null, .signal = SIGSEGV) {
+	t_hashmap	*tab;
+
+	tab = ft_hashmapnew(5, &ft_hashsdbm);
+	cr_assert(ft_hashmapadd(tab, NULL) == FALSE);
 }

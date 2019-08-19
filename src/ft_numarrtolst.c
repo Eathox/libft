@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/14 10:14:45 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:41:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ t_list			*ft_numarrtolst(const intmax_t *arr, size_t len)
 	size_t		i;
 
 	i = 0;
-	if (arr == NULL)
-		return (NULL);
 	num = arr[i];
 	returnlst = ft_lstnew(&num, (sizeof(intmax_t) * ft_numlen(num)));
 	if (returnlst == NULL)

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:22:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:48:33 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char		**ft_strdsplit(const char *str, const char *dlm)
 	i = 0;
 	word = 0;
 	arr = ft_strarrnew(ft_wrddcount(str, dlm));
-	if (arr == NULL || str == NULL || dlm == NULL)
+	if (arr == NULL)
 		return (freeret(&arr));
 	ft_chrsetbytes(bytes, (char *)dlm);
 	while (str[i] != '\0')

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 11:25:53 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:27:59 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ssize_t			ft_printf(const char *format, ...)
 
 	i = 0;
 	if (format == NULL)
-		return (-1);
+		return (ft_putstr(NULL));
 	info = pf_infonew();
 	if (info == NULL)
 		return (-1);

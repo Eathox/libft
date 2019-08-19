@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/25 13:42:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/11 11:12:59 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:54:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_bool		ft_threadnew(pthread_t *thread, void (*f)(), size_t count, ...)
 	va_list	args;
 	t_task	*task;
 
-	if (count > 4 || thread == NULL || f == NULL)
+	if (count > 4)
 		return (TRUE);
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	va_start(args, count);

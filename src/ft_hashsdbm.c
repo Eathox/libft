@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tp_addtoque.c                                      :+:    :+:            */
+/*   ft_hashsdbm.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:54:40 by pholster      ########   odam.nl         */
+/*   Created: 2019/08/19 18:05:09 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/19 18:13:39 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "threadpool.h"
+#include "typedefs.h"
 
-t_bool		tp_addtoque(t_pool *pool, t_bool priority, t_task *task)
+size_t	ft_hashsdbm(char *str)
 {
-	if (pool->terminating)
-		return (FALSE);
-	if (priority == FALSE)
+	size_t	hash;
+	size_t	i;
+
+	i = 0;
+	hash = 0;
+	while (str[i] != '\0')
 	{
-		if (pool->last == NULL)
-			pool->que = task;
-		else
-			pool->last->next = task;
-		pool->last = task;
-		return (TRUE);
+		hash = str[i] + (hash << 6) + (hash << 16) - hash;
+		i++;
 	}
-	task->next = pool->que;
-	pool->que = task;
-	if (pool->last == NULL)
-		pool->last = task;
-	return (TRUE);
+	return (hash);
 }

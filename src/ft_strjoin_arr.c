@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:50:51 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ char			*ft_strjoin_arr(const char **arr)
 {
 	char	*str;
 
-	if (arr == NULL)
-		return (NULL);
 	str = ft_strnew(totallen(arr));
 	if (str == NULL)
 		return (NULL);

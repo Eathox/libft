@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 11:25:50 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:27:49 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ ssize_t			ft_dprintf(int fd, const char *format, ...)
 	t_info	*info;
 
 	i = 0;
-	if (format == NULL || fd < 0)
-		return (-1);
+	if (format == NULL)
+		return (ft_putstr_fd(NULL, fd));
 	info = pf_infonew();
-	if (info == NULL)
+	if (info == NULL || fd < 0)
 		return (-1);
 	info->fd = fd;
 	va_start(info->args, format);

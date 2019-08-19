@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/26 16:13:31 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:59:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_bool		ft_putbytes(void *bytes, size_t n)
 	int		ret;
 	char	*byts;
 
+	if (bytes == NULL)
+		return (ft_putstr(NULL));
 	byts = (char *)bytes;
 	while (n > 0)
 	{

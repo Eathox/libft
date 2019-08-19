@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 20:44:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/18 17:57:19 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:51:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 t_bool	ft_strmatch(const char *str, const char *needle)
 {
-	if (str == NULL || needle == NULL)
-		return (FALSE);
 	if (needle[0] == '\0' && str[0] == '\0')
 		return (TRUE);
 	if (needle[0] != str[0] && needle[0] != '*')

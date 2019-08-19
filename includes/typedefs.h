@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 15:30:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/07/21 22:42:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 18:16:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ typedef struct			s_gnl
 	size_t			len;
 	struct s_gnl	*next;
 }						t_gnl;
+
+typedef struct			s_hashmap
+{
+	size_t			size;
+	void			**arr;
+	size_t			(*f)(char *);
+}						t_hashmap;
 
 # define MAX_DOUBLE_PRECISION 24
 # define BUFF_SIZE	42

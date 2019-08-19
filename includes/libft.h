@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 11:18:55 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:21:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stdarg.h>
 # include "typedefs.h"
 
+size_t		ft_hashsdbm(char *str);
+size_t		ft_hashdjb(char *str);
+t_bool		ft_hashmapadd(t_hashmap *hashmap, char *key);
+t_hashmap	*ft_hashmapnew(size_t size, size_t (*f)(char *));
 char		**ft_lsttostrarr(t_list *lst);
 char		**ft_strarrcpy_var(char **dst, size_t count, ...);
 char		**ft_strarrcpy(char **dst, const char **src);

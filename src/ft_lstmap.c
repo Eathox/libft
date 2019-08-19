@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:35:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:34:06 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*prvlst;
 	t_list	*duplst;
 
-	if (lst == NULL || f == NULL)
-		return (NULL);
 	retlst = list_set(f(lst));
 	if (retlst == NULL)
 		return (NULL);

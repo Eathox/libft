@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:45:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,5 @@ char	**ft_strarrnew(size_t size)
 	char	**arr;
 
 	arr = (char **)ft_memalloc(sizeof(char *) * (size + 1));
-	if (arr == NULL)
-		return (NULL);
 	return (arr);
 }

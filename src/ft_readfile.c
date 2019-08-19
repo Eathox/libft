@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/03 18:30:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:44:54 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ ssize_t			ft_readfile(int fd, char **str)
 	ssize_t	totallen;
 	char	buff[BUFF_SIZE + 1];
 
-	if (fd < 0 || str == NULL || BUFF_SIZE <= 0)
+	if (fd < 0 || BUFF_SIZE <= 0)
 		return (-1);
 	lst = NULL;
 	ret = read(fd, buff, BUFF_SIZE);

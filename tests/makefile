@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/18 20:22:39 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/19 18:08:35 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
 
 include $(INCLUDES)/Makefile.color
 
-SRCS = abs atoi_base bzero
+SRCS = abs atoi_base bzero hashmapnew hashsdbm hashdjb
 SRCS := $(SRCS:%=test_ft_%.c) #wr_malloc.c
 
 SRCS := $(sort $(SRCS))

@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tp_addtoque.c                                      :+:    :+:            */
+/*   test_ft_hashdjb.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:54:40 by pholster      ########   odam.nl         */
+/*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/19 19:13:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "threadpool.h"
+#include "libft.h"
+#include <signal.h>
+#include <criterion/criterion.h>
 
-t_bool		tp_addtoque(t_pool *pool, t_bool priority, t_task *task)
-{
-	if (pool->terminating)
-		return (FALSE);
-	if (priority == FALSE)
-	{
-		if (pool->last == NULL)
-			pool->que = task;
-		else
-			pool->last->next = task;
-		pool->last = task;
-		return (TRUE);
-	}
-	task->next = pool->que;
-	pool->que = task;
-	if (pool->last == NULL)
-		pool->last = task;
-	return (TRUE);
+Test(hashdjb, str_null, .signal = SIGSEGV) {
+	size_t	dex;
+
+	dex = ft_hashdjb(NULL);
+}
+
+Test(hashdjb, str_1) {
+	size_t	dex;
+
+	dex = ft_hashdjb("1");
+	cr_assert(dex == 177622);
+}
+
+Test(hashdjb, str_22) {
+	size_t	dex;
+
+	dex = ft_hashdjb("22");
+	cr_assert(dex == 5861609);
 }

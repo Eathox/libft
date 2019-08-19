@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/27 17:15:03 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 20:01:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ t_bool		ft_putdouble_fd(long double value, size_t n, int fd)
 		n = MAX_DOUBLE_PRECISION;
 	if (value < 0)
 	{
-		ft_putchar_fd('-', fd);
+		if (ft_putchar_fd('-', fd) == FALSE)
+			return (FALSE);
 		value *= -1;
 	}
 	num = (long long)value;

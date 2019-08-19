@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 15:07:28 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:46:45 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	ft_strarrsort(char **arr, t_bool (*f)(char *, char *))
 	char	*current;
 
 	i = 1;
-	if (arr == NULL)
-		return ;
 	while (arr[i] != 0)
 	{
 		j = i;

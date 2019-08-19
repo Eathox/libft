@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/15 17:08:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:39:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			ft_lstsortrev(t_list **head, t_bool (*f)(t_list *, t_list *))
 	t_list	*half;
 	t_list	*temp;
 
-	if (f == NULL || head == NULL || *head == NULL || (*head)->next == NULL)
+	if ((*head)->next == NULL)
 		return ;
 	temp = ft_lstindex(*head, (ft_lstlen(*head) - 1) / 2);
 	half = temp->next;

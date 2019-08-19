@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:52:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ size_t	ft_utf8strnlen(const t_wchar *str, size_t n)
 
 	i = 0;
 	len = 0;
-	if (str == NULL)
-		return (0);
 	while (str[i] != '\0')
 	{
 		bytes = ft_utf8len(str[i]);

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/14 15:49:00 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:54:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_bool			ft_poolqueback(t_pool *pool, void (*f)(), size_t count, ...)
 	t_state		state;
 	t_task		*task;
 
-	if (count > 4 || pool == NULL || pool->terminating || f == NULL)
+	if (count > 4 || pool->terminating)
 		return (FALSE);
 	task = (t_task *)ft_memalloc(sizeof(t_task));
 	if (task == NULL)

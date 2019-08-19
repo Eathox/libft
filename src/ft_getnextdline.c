@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:32:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,12 +109,12 @@ static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm)
 
 ssize_t			ft_getnextdline(const int fd, char **line, char dlm)
 {
-	static t_gnl	*head;
+	static t_gnl	*head = NULL;
 	t_gnl			*lst;
 	char			buff[BUFF_SIZE + 1];
 	int				ret;
 
-	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
+	if (fd < 0 || BUFF_SIZE <= 0)
 		return (-1);
 	lst = getlst(fd, head);
 	if (lst == NULL)

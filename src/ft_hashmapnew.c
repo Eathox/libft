@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tp_addtoque.c                                      :+:    :+:            */
+/*   ft_hashmapnew.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:54:40 by pholster      ########   odam.nl         */
+/*   Created: 2019/08/19 18:05:11 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/19 19:20:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "threadpool.h"
+#include "libft.h"
 
-t_bool		tp_addtoque(t_pool *pool, t_bool priority, t_task *task)
+t_hashmap		*ft_hashmapnew(size_t size, size_t (*f)(char *))
 {
-	if (pool->terminating)
-		return (FALSE);
-	if (priority == FALSE)
+	t_hashmap	*new;
+
+	if (size == 0)
+		return (NULL);
+	new = (t_hashmap *)ft_memalloc(sizeof(t_hashmap));
+	if (new == NULL)
+		return (NULL);
+	new->arr = (void **)ft_memalloc(sizeof(void *) * size);
+	if (new->arr == NULL)
 	{
-		if (pool->last == NULL)
-			pool->que = task;
-		else
-			pool->last->next = task;
-		pool->last = task;
-		return (TRUE);
+		free(new);
+		return (NULL);
 	}
-	task->next = pool->que;
-	pool->que = task;
-	if (pool->last == NULL)
-		pool->last = task;
-	return (TRUE);
+	new->f = f;
+	new->size = size;
+	return (new);
 }

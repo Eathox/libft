@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/13 14:48:15 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:46:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ t_list			*ft_strarrtolst(const char **arr)
 	t_list	*returnlst;
 
 	i = 0;
-	if (arr == NULL)
-		return (NULL);
 	returnlst = ft_lstnew(arr[i], ft_strlen(arr[i]) + 1);
 	if (returnlst == NULL)
 		return (NULL);

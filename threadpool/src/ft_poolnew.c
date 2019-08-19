@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/17 20:31:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/14 16:16:47 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:53:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_pool			*ft_poolnew(size_t size, t_bool tracktime)
 	size_t		current;
 	t_pool		*pool;
 
-	if (size <= 0)
+	if (size == 0)
 		return (NULL);
 	pool = (t_pool *)ft_memalloc(sizeof(t_pool));
 	if (pool == NULL)
