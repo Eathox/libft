@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/19 19:21:26 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/20 18:06:08 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ GCOVFLAGS = -f -b -c
 
 SILENCE = &>/dev/null
 GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:%=%\/src\/)/g')
-GET_GCOV = (gcov $(GCOVFLAGS) $(1) && mv $(shell basename $(1:%=%.gcov)) src)
+GET_GCOV = (gcov $(GCOVFLAGS) $(1) && mv -f $(shell basename $(1:%=%.gcov)) src)
 ifeq ($(GCOVSILENT), TRUE)
 GET_GCOV += $(SILENCE)
 endif
