@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/20 18:06:08 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/20 18:57:06 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ GCOV = FALSE
 
 GCOVFLAGS = -f -b -c
 
-SILENCE = &>/dev/null
-GET_GCOV = (gcov $(GCOVFLAGS) $(1) && mv -f $(shell basename $(1:%=%.gcov)) src)
+SILENCE = 2>/dev/null 1>/dev/null
+GET_GCOV = (gcov $(GCOVFLAGS) $(1) && mv -f $(1:src/%=%.gcov) src)
 ifeq ($(GCOVSILENT), TRUE)
 GET_GCOV += $(SILENCE)
 endif

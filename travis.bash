@@ -6,7 +6,7 @@ elif [ $TRAVIS_OS_NAME == "linux" ]; then
 	sudo add-apt-repository -y ppa:snaipewastaken/ppa
 	sudo apt-get update
 	sudo apt-get install -y criterion-dev
-	make test # GCOV=TRUE
+	make test GCOV=TRUE
 elif [ $TRAVIS_OS_NAME == "osx" ]; then
 	export HOMEBREW_NO_AUTO_UPDATE=1
 	brew install snaipe/soft/criterion
