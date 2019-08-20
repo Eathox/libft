@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/16 16:25:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:32:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
-static t_gnl	*getlst(const int fd, t_gnl *lst)
+static t_gnl	*getlst(int fd, t_gnl *lst)
 {
 	t_gnl	*newlst;
 
@@ -107,7 +107,7 @@ static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm)
 	return (newl + 1);
 }
 
-ssize_t			ft_getnextdline(const int fd, char **line, char dlm)
+ssize_t			ft_getnextdline(int fd, char **line, char dlm)
 {
 	static t_gnl	*head = NULL;
 	t_gnl			*lst;

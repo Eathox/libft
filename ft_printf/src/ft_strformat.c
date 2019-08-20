@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:28:40 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char		*freeret(t_info *info)
 	return (str);
 }
 
-char			*ft_strformat(const char *format, ...)
+char			*ft_strformat(char *format, ...)
 {
 	size_t	i;
 	t_info	*info;

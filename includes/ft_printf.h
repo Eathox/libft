@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/15 14:15:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:53:52 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 ** a = hexdouble (base 16, lowercase)
 ** A = hexdouble (base 16, uppercase)
 ** c = unsigned int (If an l modifier is present, wint_t (wide char))
-** s = const char * (If an l modifier is present, const T_WCHAR *)
+** s = char * (If an l modifier is present, T_WCHAR *)
 ** p = void *
 */
 
@@ -97,17 +97,17 @@ typedef	struct	s_info
 ** "Face" Functions
 */
 
-ssize_t			ft_printf(const char *format, ...);
-ssize_t			ft_dprintf(int fd, const char *format, ...);
-char			*ft_strformat(const char *format, ...);
-char			*ft_strformat_len(size_t *len, const char *format, ...);
+ssize_t			ft_printf(char *format, ...);
+ssize_t			ft_dprintf(int fd, char *format, ...);
+char			*ft_strformat(char *format, ...);
+char			*ft_strformat_len(size_t *len, char *format, ...);
 
 /*
 ** Distribute Functions
 */
 
-size_t			pf_commands(t_info *info, const char *str);
-size_t			pf_distribute(t_info *info, const char *start);
+size_t			pf_commands(t_info *info, char *str);
+size_t			pf_distribute(t_info *info, char *start);
 void			pf_formatdistribute(t_info *info);
 
 /*
@@ -116,12 +116,12 @@ void			pf_formatdistribute(t_info *info);
 
 t_info			*pf_infonew(void);
 void			pf_infosetdefault(t_info *info);
-size_t			pf_getinfo(t_info *info, const char *str);
-size_t			pf_getflag(t_info *info, const char *str);
-size_t			pf_getprecision(t_info *info, const char *str);
-size_t			pf_getwidth(t_info *info, const char *str);
-int				pf_getlength(t_info *info, const char *str);
-int				pf_gettype(t_info *info, const char *str);
+size_t			pf_getinfo(t_info *info, char *str);
+size_t			pf_getflag(t_info *info, char *str);
+size_t			pf_getprecision(t_info *info, char *str);
+size_t			pf_getwidth(t_info *info, char *str);
+int				pf_getlength(t_info *info, char *str);
+int				pf_gettype(t_info *info, char *str);
 void			pf_setvar_base(t_info *info);
 void			pf_setvar_type(t_info *info);
 
@@ -136,7 +136,7 @@ void			pf_formatnum(t_info *info);
 void			pf_formatpad(t_info *info);
 void			pf_formatstr(t_info *info);
 void			pf_formatunum(t_info *info);
-size_t			pf_formatcolor(t_info *info, const char *start);
+size_t			pf_formatcolor(t_info *info, char *start);
 
 /*
 ** Buffer Management Functions

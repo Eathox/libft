@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:18:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:42:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_putnumarr(const intmax_t *arr, size_t len)
+t_bool	ft_putnumarr(intmax_t *arr, size_t len)
 {
 	size_t	i;
 

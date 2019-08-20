@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 18:07:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_list	*freeret(t_list *lst)
 	return (NULL);
 }
 
-t_list			*ft_lstnew(const void *content, size_t content_size)
+t_list			*ft_lstnew(void *content, size_t content_size)
 {
 	t_list	*lst;
 

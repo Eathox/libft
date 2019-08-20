@@ -6,17 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 17:53:02 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:50:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "typedefs.h"
 
-int		ft_memcmp(const void *str1, const void *str2, size_t len)
+int		ft_memcmp(void *str1, void *str2, size_t len)
 {
-	size_t				i;
-	unsigned const char	*temp_str1;
-	unsigned const char	*temp_str2;
+	size_t			i;
+	unsigned char	*temp_str1;
+	unsigned char	*temp_str2;
 
 	i = 0;
 	temp_str1 = str1;

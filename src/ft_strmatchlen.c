@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/18 17:23:15 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "typedefs.h"
 
-size_t	ft_strmatchlen(const char *str1, const char *str2)
+size_t	ft_strmatchlen(char *str1, char *str2)
 {
 	size_t			i;
 	unsigned char	temp_a;

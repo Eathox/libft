@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/12 16:04:27 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 ** a = hexdouble (base 16, lowercase)
 ** A = hexdouble (base 16, uppercase)
 ** c = unsigned int (If an l modifier is present, wint_t (wide char))
-** s = const char * (If an l modifier is present, const T_WCHAR *)
+** s = char * (If an l modifier is present, T_WCHAR *)
 ** p = void *
 */
 

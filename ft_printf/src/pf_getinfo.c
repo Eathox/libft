@@ -6,14 +6,14 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 17:50:26 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-static int	checkinfo(t_info *info, const char *str)
+static int	checkinfo(t_info *info, char *str)
 {
 	if (ft_chrin(PF_A_FLAG, *str) || ft_chrin(PF_A_SPACER, *str))
 		return (pf_getflag(info, str));
@@ -29,7 +29,7 @@ static int	checkinfo(t_info *info, const char *str)
 	return (0);
 }
 
-size_t		pf_getinfo(t_info *info, const char *str)
+size_t		pf_getinfo(t_info *info, char *str)
 {
 	int		ret;
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:05:09 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 18:13:32 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:00:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_hashdjb(char *str)
 	hash = 5381;
 	while (str[i] != '\0')
 	{
-		hash = ((hash << 5) + hash) + str[i];
+		hash = str[i] + ((hash << 5) + hash);
 		i++;
 	}
 	return (hash);

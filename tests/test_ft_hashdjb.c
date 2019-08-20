@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:13:47 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:05:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ Test(hashdjb, str_22) {
 Test(hashdjb, str_str) {
 	size_t	dex;
 
-	dex = hashdjb("str");
-	cr_assert(dex == 0);
+	dex = ft_hashdjb("Str");
+	cr_assert(dex == 193471326);
 }

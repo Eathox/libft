@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 13:16:43 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:51:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *str1, const char *str2)
+char	*ft_strjoin(char *str1, char *str2)
 {
 	size_t			str1len;
 	size_t			str2len;

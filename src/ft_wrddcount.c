@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:26:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:53:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_wrddcount(const char *str, const char *dlm)
+size_t		ft_wrddcount(char *str, char *dlm)
 {
 	long long	bytes[2];
 	size_t		count;

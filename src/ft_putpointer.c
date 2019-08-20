@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/04 00:11:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:58:00 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_putpointer(const void *pointer)
+t_bool	ft_putpointer(void *pointer)
 {
 	if (ft_putstr("0x") == FALSE)
 		return (FALSE);

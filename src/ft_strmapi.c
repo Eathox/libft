@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:28:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:51:20 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(const char *str, char (*f)(size_t, char))
+char	*ft_strmapi(char *str, char (*f)(size_t, char))
 {
 	size_t	i;
 	size_t	len;

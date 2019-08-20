@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print_memory.c                                  :+:    :+:            */
+/*   ft_putmemory.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/09 13:03:15 by exam           #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:55:27 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static t_bool	putbit(unsigned char c, int size)
 
 	base_str = "0123456789abcdef";
 	if (size <= 0)
-		return ;
+		return (TRUE);
 	if (size > 1)
 	{
-		if (putbit(c / 16, size - 1) == FALSE);
+		if (putbit(c / 16, size - 1) == FALSE)
 			return (FALSE);
 	}
 	return (ft_putchar(base_str[c % 16]));
@@ -49,8 +49,10 @@ static t_bool	putcontent(unsigned char *content, size_t size)
 	return (ft_putchar('\n'));
 }
 
-static t_bool	putreport(unsigned char *mem, size_t i, size_t printed)
+static t_bool	putreport(unsigned char *mem, size_t i)
 {
+	size_t		printed;
+
 	printed = (i % 16) + (i % 2);
 	if (printed == 0)
 		printed = 16;
@@ -67,10 +69,9 @@ static t_bool	putreport(unsigned char *mem, size_t i, size_t printed)
 	return (putcontent(&mem[i - printed + (i % 2)], printed - (i % 2)));
 }
 
-t_bool			ft_putmemory(const void *addr, size_t size)
+t_bool			ft_putmemory(void *addr, size_t size)
 {
 	unsigned char	*mem;
-	size_t			printed;
 	size_t			i;
 
 	i = 0;
@@ -89,7 +90,7 @@ t_bool			ft_putmemory(const void *addr, size_t size)
 		}
 		if ((i % 16) == 0 || i == size)
 		{
-			if (putreport(mem, i, printed) == FALSE)
+			if (putreport(mem, i) == FALSE)
 				return (FALSE);
 		}
 	}

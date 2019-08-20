@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 18:07:07 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:50:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ssize_t		ft_strindex(const char **arr, const char *str)
+ssize_t		ft_strindex(char **arr, char *str)
 {
 	size_t	i;
 

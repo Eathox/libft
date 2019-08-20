@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_hashsdbm.c                                      :+:    :+:            */
+/*   ft_hashsdbm_nocase.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:05:09 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 18:13:39 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:01:07 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_hashsdbm(char *str)
+size_t	ft_hashsdbm_nocase(char *str)
 {
 	size_t	hash;
 	size_t	i;

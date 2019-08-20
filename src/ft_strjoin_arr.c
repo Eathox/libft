@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:50:51 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	totallen(const char **arr)
+static size_t	totallen(char **arr)
 {
 	size_t	len;
 	size_t	i;
@@ -27,7 +27,7 @@ static size_t	totallen(const char **arr)
 	return (len + 1);
 }
 
-static char		*joinstrs(char *str, const char **arr)
+static char		*joinstrs(char *str, char **arr)
 {
 	size_t	i;
 	size_t	j;
@@ -46,7 +46,7 @@ static char		*joinstrs(char *str, const char **arr)
 	return (str);
 }
 
-char			*ft_strjoin_arr(const char **arr)
+char			*ft_strjoin_arr(char **arr)
 {
 	char	*str;
 

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/03 18:30:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:44:54 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_bool	addtolst(t_list **lst, t_list **prv, char *str, size_t len)
 {
 	t_list	*new;
 
-	new = ft_lstnew((const void *)str, len);
+	new = ft_lstnew((void *)str, len);
 	if (new == NULL)
 		return (FALSE);
 	if (*lst == NULL)

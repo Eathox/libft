@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/01 13:25:57 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/15 14:15:23 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t		pf_distribute(t_info *info, const char *start)
+size_t		pf_distribute(t_info *info, char *start)
 {
 	size_t	ret;
 

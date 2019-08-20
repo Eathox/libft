@@ -6,17 +6,17 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 16:56:29 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:50:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "typedefs.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t len)
+void	*ft_memcpy(void *dst, void *src, size_t len)
 {
-	size_t				i;
-	unsigned char		*temp_dst;
-	unsigned const char	*temp_src;
+	size_t			i;
+	unsigned char	*temp_dst;
+	unsigned char	*temp_src;
 
 	i = 0;
 	temp_dst = dst;

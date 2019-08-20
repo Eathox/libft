@@ -6,13 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 20:44:25 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:51:26 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "typedefs.h"
 
-t_bool	ft_strmatch(const char *str, const char *needle)
+t_bool	ft_strmatch(char *str, char *needle)
 {
 	if (needle[0] == '\0' && str[0] == '\0')
 		return (TRUE);

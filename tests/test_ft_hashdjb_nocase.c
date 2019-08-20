@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_hashdjb.c                                  :+:    :+:            */
+/*   test_ft_hashdjb_nocase.c                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:13:47 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:05:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ Test(hashdjb_nocase, str_22) {
 Test(hashdjb_nocase, str_str) {
 	size_t	dex;
 
-	dex = ft_hashdjb_nocase("str");
-	cr_assert(dex == 0);
+	dex = ft_hashdjb_nocase("Str");
+	cr_assert(dex == 193506174);
 }

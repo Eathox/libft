@@ -6,14 +6,14 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/09 12:06:48 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/10 16:25:08 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-t_bool	ft_putnstr_fd(const char *str, size_t n, int fd)
+t_bool	ft_putnstr_fd(char *str, size_t n, int fd)
 {
 	if (str == NULL)
 		return (write(fd, "(null)", n) != -1);
