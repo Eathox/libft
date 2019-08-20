@@ -43,7 +43,7 @@ Test(hashmapnew, f_invalid) {
 }
 
 Test(hashmapnew, four) {
-	void		*tar[] = {0, 0, 0, 0};
+	t_list		*tar[] = {0, 0, 0, 0};
 	t_hashmap	*tab;
 
 	tab = ft_hashmapnew(4, &ft_hashsdbm);
@@ -55,7 +55,7 @@ Test(hashmapnew, four) {
 }
 
 Test(hashmapnew, fifty_eight) {
-	void		*tar[] = {0, 0, 0, 0};
+	t_list		*tar[] = {0, 0, 0, 0};
 	t_hashmap	*tab;
 
 	tab = ft_hashmapnew(58, &ft_hashdjb);

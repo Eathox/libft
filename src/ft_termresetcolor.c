@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_termresetcolor(void)
+t_bool	ft_termresetcolor(void)
 {
-	ft_termresetcolor_fd(1);
+	return (ft_termresetcolor_fd(1));
 }

@@ -19,7 +19,7 @@ t_hashmap		*ft_hashmapnew(size_t size, size_t (*f)(char *))
 	new = (t_hashmap *)ft_memalloc(sizeof(t_hashmap));
 	if (new == NULL)
 		return (NULL);
-	new->arr = (void **)ft_memalloc(sizeof(void *) * size);
+	new->arr = (t_list **)ft_memalloc(sizeof(t_list *) * size);
 	if (new->arr == NULL)
 	{
 		free(new);

@@ -12,9 +12,11 @@
 
 #include "libft.h"
 
-void	ft_termcommand_fd(int command, int fd)
+t_bool	ft_termcommand_fd(int command, int fd)
 {
-	ft_putstr_fd("\e[", fd);
-	ft_putnum_fd(command, fd);
-	ft_putchar_fd('m', fd);
+	if (ft_putstr_fd("\e[", fd) == FALSE)
+		return (FALSE);
+	if (ft_putnum_fd(command, fd) == FALSE)
+		return (FALSE);
+	return (ft_putchar_fd('m', fd));
 }

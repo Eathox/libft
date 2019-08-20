@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_hashsdbm.c                                 :+:    :+:            */
+/*   test_ft_hashdjb.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:12:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/19 19:13:47 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 #include <signal.h>
 #include <criterion/criterion.h>
 
-Test(hashsdbm, str_null, .signal = SIGSEGV) {
+Test(hashdjb_nocase, str_null, .signal = SIGSEGV) {
 	size_t	dex;
 
-	dex = ft_hashsdbm(NULL);
+	dex = ft_hashdjb_nocase(NULL);
 }
 
-Test(hashsdbm, str_1) {
+Test(hashdjb_nocase, str_1) {
 	size_t	dex;
 
-	dex = ft_hashsdbm("1");
-	cr_assert(dex == 49);
+	dex = ft_hashdjb_nocase("1");
+	cr_assert(dex == 177622);
 }
 
-Test(hashsdbm, str_22) {
+Test(hashdjb_nocase, str_22) {
 	size_t	dex;
 
-	dex = ft_hashsdbm("22");
-	cr_assert(dex == 3280000);
+	dex = ft_hashdjb_nocase("22");
+	cr_assert(dex == 5861609);
 }
 
-Test(hashsdbm, str_str) {
+Test(hashdjb_nocase, str_str) {
 	size_t	dex;
 
-	dex = hashsdbm("str");
+	dex = ft_hashdjb_nocase("str");
 	cr_assert(dex == 0);
 }

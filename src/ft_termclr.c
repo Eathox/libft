@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_termclr(void)
+t_bool	ft_termclr(void)
 {
-	ft_termclr_fd(1);
+	return (ft_termclr_fd(1));
 }

@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_count_if.c                                      :+:    :+:            */
+/*   pf_addcolorbg.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/08 15:28:35 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:30:26 by pholster      ########   odam.nl         */
+/*   Created: 2019/04/29 15:32:33 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "typedefs.h"
+#include "ft_printf.h"
 
-size_t	ft_count_if(const char **str, t_bool (*f)(char *))
+void	pf_addcolorbg(t_info *info, int color)
 {
-	size_t	i;
-	size_t	count;
-
-	i = 0;
-	count = 0;
-	while (str[i] != NULL)
+	if (color < 0 || color > 255)
 	{
-		count += (f((char *)str[i]) == 1);
-		i++;
+		pf_addtobuff(info, "\e[49m\e[K", 8);
+		return ;
 	}
-	return (count);
+	pf_addtobuff(info, "\e[48;5;", 7);
+	pf_addnum(info, color);
+	pf_addtobuff(info, "m", 1);
 }

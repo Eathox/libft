@@ -12,13 +12,19 @@
 
 #include "libft.h"
 
-void	ft_termsetrgbcolor_fd(t_color r, t_color g, t_color b, int fd)
+t_bool	ft_termsetrgbcolor_fd(t_color r, t_color g, t_color b, int fd)
 {
-	ft_putstr_fd("\e[38;2;", fd);
-	ft_putnum_fd(r, fd);
-	ft_putchar_fd(';', fd);
-	ft_putnum_fd(g, fd);
-	ft_putchar_fd(';', fd);
-	ft_putnum_fd(b, fd);
-	ft_putchar_fd('m', fd);
+	if (ft_putstr_fd("\e[38;2;", fd) == FALSE)
+		return (FALSE);
+	if (ft_putnum_fd(r, fd) == FALSE)
+		return (FALSE);
+	if (ft_putchar_fd(';', fd) == FALSE)
+		return (FALSE);
+	if (ft_putnum_fd(g, fd) == FALSE)
+		return (FALSE);
+	if (ft_putchar_fd(';', fd) == FALSE)
+		return (FALSE);
+	if (ft_putnum_fd(b, fd) == FALSE)
+		return (FALSE);
+	return (ft_putchar_fd('m', fd));
 }

@@ -24,7 +24,7 @@ size_t		pf_distribute(t_info *info, const char *start)
 	{
 		pf_infosetdefault(info);
 		ret = pf_getinfo(info, start);
-		pf_format(info);
+		pf_formatdistribute(info);
 	}
 	return (ret);
 }

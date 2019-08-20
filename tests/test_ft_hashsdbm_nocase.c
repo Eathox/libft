@@ -14,29 +14,29 @@
 #include <signal.h>
 #include <criterion/criterion.h>
 
-Test(hashsdbm, str_null, .signal = SIGSEGV) {
+Test(hashsdbm_nocase, str_null, .signal = SIGSEGV) {
 	size_t	dex;
 
-	dex = ft_hashsdbm(NULL);
+	dex = ft_hashsdbm_nocase(NULL);
 }
 
-Test(hashsdbm, str_1) {
+Test(hashsdbm_nocase, str_1) {
 	size_t	dex;
 
-	dex = ft_hashsdbm("1");
+	dex = ft_hashsdbm_nocase("1");
 	cr_assert(dex == 49);
 }
 
-Test(hashsdbm, str_22) {
+Test(hashsdbm_nocase, str_22) {
 	size_t	dex;
 
-	dex = ft_hashsdbm("22");
+	dex = ft_hashsdbm_nocase("22");
 	cr_assert(dex == 3280000);
 }
 
-Test(hashsdbm, str_str) {
+Test(hashsdbm_nocase, str_str) {
 	size_t	dex;
 
-	dex = hashsdbm("str");
+	dex = hashsdbm_nocase("str");
 	cr_assert(dex == 0);
 }

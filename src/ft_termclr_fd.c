@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_termclr_fd(int fd)
+t_bool	ft_termclr_fd(int fd)
 {
-	ft_putstr_fd("\e[1;1H\e[2J\n", fd);
+	return (ft_putstr_fd("\e[1;1H\e[2J\n", fd));
 }

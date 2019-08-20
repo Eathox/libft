@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_termresetcolorbg(void)
+t_bool	ft_termresetcolorbg(void)
 {
-	ft_termresetcolorbg_fd(1);
+	return (ft_termresetcolorbg_fd(1));
 }

@@ -33,3 +33,10 @@ Test(hashdjb, str_22) {
 	dex = ft_hashdjb("22");
 	cr_assert(dex == 5861609);
 }
+
+Test(hashdjb, str_str) {
+	size_t	dex;
+
+	dex = hashdjb("str");
+	cr_assert(dex == 0);
+}

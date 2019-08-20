@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_format.c                                        :+:    :+:            */
+/*   pf_addrgbcolorbg.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
+/*   Created: 2019/04/29 15:32:33 by pholster       #+#    #+#                */
 /*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_format(t_info *info)
+void	pf_addrgbcolorbg(t_info *info, t_color r, t_color g, t_color b)
 {
-	if (pf_issignint(info))
-		pf_formatnum(info);
-	else if (pf_isunsignint(info))
-		pf_formatunum(info);
-	else if (info->var_type == CHAR || info->var_type == T_WCHAR)
-		pf_formatchar(info);
-	else if (pf_isstr(info))
-		pf_formatstr(info);
-	else if (info->var_type == DOUBLE || info->var_type == LONG_DOUBLE)
-		pf_formatdouble(info);
-	pf_formatbackpad(info);
+	pf_addtobuff(info, "\e[48;2;", 7);
+	pf_addnum(info, r);
+	pf_addtobuff(info, ";", 1);
+	pf_addnum(info, g);
+	pf_addtobuff(info, ";", 1);
+	pf_addnum(info, b);
+	pf_addtobuff(info, "m", 1);
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_termcommand(int command)
+t_bool	ft_termcommand(int command)
 {
-	ft_termcommand_fd(command, 1);
+	return (ft_termcommand_fd(command, 1));
 }

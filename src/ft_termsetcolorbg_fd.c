@@ -12,9 +12,11 @@
 
 #include "libft.h"
 
-void	ft_termsetcolorbg_fd(t_color color, int fd)
+t_bool	ft_termsetcolorbg_fd(t_color color, int fd)
 {
-	ft_putstr_fd("\e[48;5;", fd);
-	ft_putnum_fd(color, fd);
-	ft_putchar_fd('m', fd);
+	if (ft_putstr_fd("\e[48;5;", fd) == FALSE)
+		return (FALSE);
+	if (ft_putnum_fd(color, fd) == FALSE)
+		return (FALSE);
+	return (ft_putchar_fd('m', fd));
 }

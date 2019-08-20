@@ -43,7 +43,7 @@ typedef struct			s_gnl
 typedef struct			s_hashmap
 {
 	size_t			size;
-	void			**arr;
+	t_list			**arr;
 	size_t			(*f)(char *);
 }						t_hashmap;
 

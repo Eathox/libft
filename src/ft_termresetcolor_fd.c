@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_termresetcolor_fd(int fd)
+t_bool	ft_termresetcolor_fd(int fd)
 {
-	ft_putstr_fd("\e[39m\e[K", fd);
+	return (ft_putstr_fd("\e[39m\e[K", fd));
 }

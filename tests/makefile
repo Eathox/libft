@@ -30,7 +30,8 @@ HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
 
 include $(INCLUDES)/Makefile.color
 
-SRCS = abs atoi_base bzero hashmapnew hashsdbm hashdjb
+SRCS = abs atoi_base bzero hashmapnew hashsdbm hashdjb hashsdbm_nocase \
+	hashdjb_nocase
 SRCS := $(SRCS:%=test_ft_%.c) #wr_malloc.c
 
 SRCS := $(sort $(SRCS))

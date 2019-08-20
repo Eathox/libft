@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_setrgbcolorbg.c                                 :+:    :+:            */
+/*   pf_formatdistribute.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/29 15:32:33 by pholster       #+#    #+#                */
+/*   Created: 2019/02/19 14:30:25 by pholster       #+#    #+#                */
 /*   Updated: 2019/08/10 16:25:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_setrgbcolorbg(t_info *info, t_color r, t_color g, t_color b)
+void	pf_formatdistribute(t_info *info)
 {
-	pf_addtobuff(info, "\e[48;2;", 7);
-	pf_addnum(info, r);
-	pf_addtobuff(info, ";", 1);
-	pf_addnum(info, g);
-	pf_addtobuff(info, ";", 1);
-	pf_addnum(info, b);
-	pf_addtobuff(info, "m", 1);
+	if (pf_issignint(info))
+		pf_formatnum(info);
+	else if (pf_isunsignint(info))
+		pf_formatunum(info);
+	else if (info->var_type == CHAR || info->var_type == T_WCHAR)
+		pf_formatchar(info);
+	else if (pf_isstr(info))
+		pf_formatstr(info);
+	else if (info->var_type == DOUBLE || info->var_type == LONG_DOUBLE)
+		pf_formatdouble(info);
+	pf_formatbackpad(info);
 }

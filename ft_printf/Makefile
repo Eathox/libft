@@ -32,11 +32,12 @@ include $(INCLUDES)/Makefile.color
 PREFIX = pf
 FT_SRCS = strformat strformat_len dprintf printf
 SRCS = getinfo infosetdefault formatpad formatbackpad addchar iszeropad addstr \
-	isunsignint issignint setvar_type setvar_base infonew format formatnum \
-	formatunum overflowsigned overflowunsigned addnstr addtobuff addnum \
+	isunsignint issignint setvar_type setvar_base infonew addnstr formatnum \
+	formatunum overflowsigned overflowunsigned addtobuff addnum addunum \
 	formatchar formatcolor addwchar formatstr addwcharstr getprecision \
 	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
-	distribute setrgbcolorbg setrgbcolor commands setcolorbg setcolor addunum
+	distribute addrgbcolorbg addrgbcolor commands addcolorbg addcolor \
+	formatdistribute
 SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 
 SRCS := $(sort $(SRCS))

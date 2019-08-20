@@ -51,7 +51,7 @@ FT_SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	itoa pow atoi strncmp strcpy strcat strequ strnequ strncat strlcat strchr \
 	strrchr strstr strnstr strsub strjoin strtrim strsplit memset bzero memcpy \
 	memdel memalloc memccpy memmove memcmp strncpy lstnew lstdelone lstdel \
-	lstadd lstiter lstmap memchr isdigit count_if puterror strtoupper \
+	lstadd lstiter lstmap memchr isdigit puterror strtoupper hashdjb_nocase \
 	strtolower putline chrin chrnin numin strin strnin putstrarr putnumarr \
 	strndup strdlen wrddcount chrtostr lstaddbck lstdelmem lsttostrarr \
 	strarrtolst lstlen strmatch strrev lstdup lstdupone putstrlst putbool \
@@ -75,11 +75,11 @@ FT_SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	chrinbytes putdouble isblank putdouble_fd putnutf8str_fd pututf8_fd \
 	pututf8str termcommand_fd termclr_fd termresetcolorbg_fd termresetcolor_fd \
 	termsetrgbcolorbg_fd termsetrgbcolor_fd termsetcolorbg_fd termsetcolor_fd \
-	putbool_fd readfile print_memory putnchar putnchar_fd pututf8str_fd \
+	putbool_fd readfile putmemory putnchar putnchar_fd pututf8str_fd \
 	memrchr strarrdup_var strarrtolower strarrtoupper strindex strnindex \
 	normalize nearestnum strreplace colorrgbatohex colorhextorgba percentage \
-	overflow hashmapnew hashsdbm hashdjb hashmapadd hashsdbm_nocase \
-	hashdjb_nocase
+	overflow hashmapnew hashsdbm hashdjb hashmapadd hashsdbm_nocase
+
 SRCS =
 SRCS := $(FT_SRCS:%=src/ft_%.c) $(SRCS:%=src/$(PREFIX)_%.c)
 

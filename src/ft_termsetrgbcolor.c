@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_termsetrgbcolor(t_color r, t_color g, t_color b)
+t_bool	ft_termsetrgbcolor(t_color r, t_color g, t_color b)
 {
-	ft_termsetrgbcolor_fd(r, g, b, 1);
+	return (ft_termsetrgbcolor_fd(r, g, b, 1));
 }

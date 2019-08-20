@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pf_setcolor.c                                      :+:    :+:            */
+/*   pf_addrgbcolor.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,14 +12,13 @@
 
 #include "ft_printf.h"
 
-void	pf_setcolor(t_info *info, int color)
+void	pf_addrgbcolor(t_info *info, t_color r, t_color g, t_color b)
 {
-	if (color < 0 || color > 255)
-	{
-		pf_addtobuff(info, "\e[39m\e[K", 8);
-		return ;
-	}
-	pf_addtobuff(info, "\e[38;5;", 7);
-	pf_addnum(info, color);
+	pf_addtobuff(info, "\e[38;2;", 7);
+	pf_addnum(info, r);
+	pf_addtobuff(info, ";", 1);
+	pf_addnum(info, g);
+	pf_addtobuff(info, ";", 1);
+	pf_addnum(info, b);
 	pf_addtobuff(info, "m", 1);
 }
