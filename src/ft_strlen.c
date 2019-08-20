@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:15:46 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ size_t			ft_strlen(char *str)
 	size_t		len;
 
 	len = 0;
+	if (str == NULL)
+		return (0);
 	while ((((size_t)&str[len]) & 7) != 0)
 	{
 		if (str[len] == '\0')

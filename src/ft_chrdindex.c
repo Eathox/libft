@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/03 22:38:37 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:20:45 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ssize_t		ft_chrdindex(char *str, char *dlm)
 	long long	bytes[2];
 
 	i = 0;
-	ft_chrsetbytes(bytes, (char *)dlm);
+	ft_chrsetbytes(bytes, dlm);
 	while (str[i] != '\0')
 	{
 		if (ft_chrinbytes(bytes, str[i]))

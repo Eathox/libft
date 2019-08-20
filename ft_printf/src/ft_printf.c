@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:23 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:19:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ssize_t			ft_printf(char *format, ...)
 		if (format[i] == '%')
 			i += pf_distribute(info, &format[i + 1]);
 		else
-			i += pf_addstr(info, (char *)&format[i]);
+			i += pf_addstr(info, &format[i]);
 		i++;
 	}
 	va_end(info->args);

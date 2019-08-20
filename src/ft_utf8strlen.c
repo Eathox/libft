@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/20 12:01:12 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:15:40 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_utf8strlen(t_wchar *str)
 
 	i = 0;
 	len = 0;
+	if (str == NULL)
+		return (0);
 	while (str[i] != '\0')
 	{
 		len += ft_utf8len(str[i]);

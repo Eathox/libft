@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 12:35:14 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 13:49:30 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/20 14:22:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strstr(char *str, char *needle)
 	i = 0;
 	j = 0;
 	if (needle[j] == '\0')
-		return ((char *)str);
+		return (str);
 	while (str[i] != '\0' && needle[j] != '\0')
 	{
 		if (j > 0 && str[i - j] != needle[0])
@@ -34,6 +34,6 @@ char	*ft_strstr(char *str, char *needle)
 	if (str[i - 1] == needle[j])
 		j++;
 	if (needle[j] == '\0')
-		return ((char *)&str[i - j]);
+		return (&str[i - j]);
 	return (NULL);
 }
