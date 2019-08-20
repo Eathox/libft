@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/20 18:56:54 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/20 23:44:16 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -128,7 +128,9 @@ $(THREADPOOL): FORCE
 	@$(MAKE) -s -e -C $(THREADPOOLPATH)
 
 test: $(NAME) FORCE
-ifneq ($(wildcard $(TESTPATH)),)
+ifeq ($(wildcard $(TESTPATH)),)
+	@echo "Error: $(TESTPATH) not present"
+else
 	@$(MAKE) -s -e -C $(TESTPATH)
 	@./$(TEST)
 ifeq ($(GCOV), TRUE)
@@ -136,8 +138,6 @@ ifeq ($(GCOV), TRUE)
 	@$(MAKE) -s -e -C $(PRINTFPATH) getgcov
 	@$(MAKE) -s -e -C $(THREADPOOLPATH) getgcov
 endif
-else
-	@echo "Error: $(TESTPATH) not present"
 endif
 
 clean:
