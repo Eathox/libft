@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/20 14:00:23 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 01:42:51 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,17 @@ CRITERIONLIB = -L$(BREW)/lib -lcriterion
 
 NAME = libtest
 INCLUDES = ../includes
+MAKEINCLUDES = $(INCLUDES)
 HEADERS = $(NAME).h
 HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
 
-include $(INCLUDES)/Makefile.color
+include $(MAKEINCLUDES)/Makefile.color
 
-SRCS = abs atoi_base bzero hashmapnew hashsdbm hashdjb hashsdbm_nocase hashdjb_nocase
-SRCS := $(SRCS:%=test_ft_%.c) #wr_malloc.c
+SRC = abs atoi_base bzero hashmapnew hashsdbm hashdjb hashsdbm_nocase hashdjb_nocase
+SRC := $(SRC:%=test_ft_%.c) #wr_malloc.c
 
-SRCS := $(sort $(SRCS))
-OBJS = $(SRCS:.c=.o)
+SRC := $(sort $(SRC))
+OBJS = $(SRC:.c=.o)
 
 CCSILENT = FALSE
 CCFLAGS = -g -I$(INCLUDES) -I$(CRITERIONINCLUDES)
@@ -59,9 +60,9 @@ $(LIBFT):
 	@make -s -C $(LIBFTPATH)
 
 clean:
-ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
+ifneq ($(wildcard $(OBJS) $(SRC:.c=.c~)),)
 	@printf '$(PRINT_MIN) $(NAME:%.a=%): cleaning\n'
-	@rm -f $(OBJS) $(SRCS:.c=.c~)
+	@rm -f $(OBJS) $(SRC:.c=.c~)
 endif
 
 fclean: clean

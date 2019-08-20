@@ -7,7 +7,6 @@
 *.o
 *.xcodeproj
 a.out
-libft
 main.c
 objects
 test
