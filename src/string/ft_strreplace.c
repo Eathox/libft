@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/06/05 17:48:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:22:09 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 20:43:11 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 static size_t	strtotallen(char *str, char *find, char *replace, size_t len)
 {

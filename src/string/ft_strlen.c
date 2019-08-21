@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/07 16:33:10 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:15:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:36:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "typedefs.h"
+#include "ft_string.h"
 
 static size_t	castmagic(long long *str)
 {

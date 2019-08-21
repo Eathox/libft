@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 14:53:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:21:10 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:34:00 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_character.h"
 
 char	*ft_strdtrim(char *str, char *dlm)
 {

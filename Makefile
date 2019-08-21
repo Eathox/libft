@@ -6,12 +6,13 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 16:59:57 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 21:21:47 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #Sublib folder names of libft
-SUBLIBS = string ft_printf
+SUBLIBS = printf threadpool unsignednumber number numberarray float character \
+	string stringarray utf8 memory list hash color terminal bool
 
 #Libft name
 NAME = libft.a

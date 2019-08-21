@@ -6,11 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:21:14 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:34:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_character.h"
+#include "ft_stringarray.h"
 
 t_bool	ft_strfldvalid(char **arr, size_t x, size_t y, char *dlm)
 {

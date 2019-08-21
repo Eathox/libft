@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 16:39:43 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 19:22:01 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,10 @@ SRCS := $(sort $(SRCS))
 #Compile dependencys
 OBJS = $(SRCS:.c=.o)
 GCNOS = $(OBJS:.o=.gcno)
+COMPILE_FILES = $(OBJS)
+ifeq ($(GCOV), TRUE)
+COMPILE_FILES += $(GCNOS)
+endif
 
 #Trash files
 TEMPS = $(SRCS:.c=.c~)
@@ -69,11 +73,7 @@ endif
 all: $(SUBLIBNAME)
 
 #Create SUBLIBNAME
-ifeq ($(GCOV), TRUE)
-$(SUBLIBNAME): $(OBJS) $(GCNOS)
-else
-$(SUBLIBNAME): $(OBJS)
-endif
+$(SUBLIBNAME): $(COMPILE_FILES)
 	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(SUBLIBNAME))
 	@ar rcs $(SUBLIBNAME) $(OBJS)
 

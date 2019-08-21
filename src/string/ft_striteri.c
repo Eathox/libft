@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 11:18:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:21:25 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:35:17 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "typedefs.h"
+#include "ft_string.h"
 
 void	ft_striteri(char *str, void (*f)(size_t, char *))
 {

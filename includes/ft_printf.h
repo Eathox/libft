@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   printf.h                                           :+:    :+:            */
+/*   ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 16:59:47 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:23:57 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "ft_bool.h"
+# include "ft_list.h"
+# include "ft_color.h"
+# include "ft_utf8.h"
+# include <stdlib.h>
+# include <string.h>
+# include <stdint.h>
 # include <stdarg.h>
-# include "typedefs.h"
 
 /*
 ** TYPES: (% followed by:)

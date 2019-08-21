@@ -6,11 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/31 18:29:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:50:12 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:34:43 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_stringarray.h"
+#include "ft_memory.h"
 
 char		**ft_strfldnew(size_t x, size_t y, char c)
 {

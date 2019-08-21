@@ -1,0 +1,19 @@
+#$(NAME) = Name of outputfile
+
+#Headers libary is dependent on (relative to includes)
+HEADERS = ft_$(NAME).h
+
+#Additions to the compile flags (-Wall -Wextra -Werror allready included)
+CCFLAGS +=
+
+#Source file prefix
+PREFIX =
+
+#All ft_ source files for the sublib (relative to src/$(SRCFOLDER)/)
+FT_SRCS = putstrarr strarrcpy strarrcpy_var strarrdel strarrdup strarrdup_var \
+	strarrlen strarrnew strarrnlen strarrnsort strarrnsortrev strarrrev \
+	strarrsort strarrsortac strarrsortrev strarrtolower strarrtolst \
+	strarrtoupper
+
+#All source files for the sublib (relative to src/$(SRCFOLDER)/)
+SRCS =

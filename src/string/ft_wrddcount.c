@@ -6,11 +6,12 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:26:33 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:22:29 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:39:28 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_character.h"
 
 size_t		ft_wrddcount(char *str, char *dlm)
 {

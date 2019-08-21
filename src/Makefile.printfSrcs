@@ -1,0 +1,22 @@
+#$(NAME) = Name of outputfile
+
+#Headers libary is dependent on (relative to includes)
+HEADERS = ft_$(NAME).h
+
+#Additions to the compile flags (-Wall -Wextra -Werror allready included)
+CCFLAGS +=
+
+#Source file prefix
+PREFIX = pf
+
+#All ft_ source files for the sublib (relative to src/$(SRCFOLDER)/)
+FT_SRCS = strformat strformat_len dprintf printf
+
+#All SRCSPREFIX source files for the sublib (relative to src/$(SRCFOLDER)/)
+SRCS = getinfo infosetdefault formatpad formatbackpad addchar iszeropad addstr \
+	isunsignint issignint setvar_type setvar_base infonew addnstr formatnum \
+	formatunum overflowsigned overflowunsigned addtobuff addnum addunum \
+	formatchar formatcolor addwchar formatstr addwcharstr getprecision \
+	getwidth getflag getlength gettype ispositiveint isstr formatdouble \
+	distribute addrgbcolorbg addrgbcolor commands addcolorbg addcolor \
+	formatdistribute

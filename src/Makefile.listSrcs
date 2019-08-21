@@ -1,0 +1,20 @@
+#$(NAME) = Name of outputfile
+
+#Headers libary is dependent on (relative to includes)
+HEADERS = ft_$(NAME).h
+
+#Additions to the compile flags (-Wall -Wextra -Werror allready included)
+CCFLAGS +=
+
+#Source file prefix
+PREFIX =
+
+#All ft_ source files for the sublib (relative to src/$(SRCFOLDER)/)
+FT_SRCS = lstadd lstaddbck lstdel lstdelmem lstdelone lstdup lstdupone \
+	lstfind_content lstfind_size lstfindadd_content lstfindadd_size lstindex \
+	lstinsert lstiter lstlast lstlen lstmap lstnew lstnlen lstrev lstsort \
+	lstsortrev lstsortstrac lsttonumarr lsttostrarr lstunlink putlstsize \
+	putnumlst putstrlst
+
+#All source files for the sublib (relative to src/$(SRCFOLDER)/)
+SRCS =

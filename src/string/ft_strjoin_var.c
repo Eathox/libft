@@ -6,11 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/19 17:00:01 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 13:51:02 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:35:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_stringarray.h"
+#include "ft_memory.h"
 
 char			*ft_strjoin_var(size_t count, ...)
 {

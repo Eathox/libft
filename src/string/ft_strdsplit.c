@@ -6,11 +6,13 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 15:22:38 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:21:04 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 21:33:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
+#include "ft_character.h"
+#include "ft_stringarray.h"
 
 static char	**freeret(char ***arr)
 {

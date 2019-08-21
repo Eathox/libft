@@ -1,0 +1,19 @@
+#$(NAME) = Name of outputfile
+
+#Headers libary is dependent on (relative to includes)
+HEADERS = ft_$(NAME).h
+
+#Additions to the compile flags (-Wall -Wextra -Werror allready included)
+CCFLAGS +=
+ifeq ($(shell uname -s), Linux)
+CCFLAGS += -pthread
+endif
+
+#Source file prefix
+PREFIX = tp
+
+#All ft_ source files for the sublib (relative to src/$(SRCFOLDER)/)
+FT_SRCS = pooldone poolnew pooldel pooljoin threadnew poolqueback poolquefront
+
+#All SRCSPREFIX source files for the sublib (relative to src/$(SRCFOLDER)/)
+SRCS = threadmanager tasksetinfo taskrunfnc addtoque

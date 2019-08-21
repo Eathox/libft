@@ -6,11 +6,11 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 10:18:13 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 19:52:33 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 20:43:11 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 void	ft_strrev(char *str)
 {
