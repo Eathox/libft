@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/08/17 15:33:39 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/17 16:15:34 by pholster      ########   odam.nl         */
+/*   Created: 2019/08/21 14:22:47 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/21 14:22:58 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_LIBTEST_H
 
 # include <stdarg.h>
-# include "typedefs.h"
+# include "../includes/typedefs.h"
 
 void	ft_realfree(void *ptr);
 void	*ft_realmalloc(size_t size);
