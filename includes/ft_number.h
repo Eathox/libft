@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 20:58:49 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 23:47:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_NUMBER_H
 
 # include "ft_bool.h"
-# include <stdlib.h>
+# include <stdint.h>
 # include <string.h>
 
 char		*ft_itoa_base(intmax_t value, int base);

@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/02 14:13:30 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 21:23:57 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 23:47:37 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "ft_utf8.h"
 # include <stdlib.h>
 # include <string.h>
-# include <stdint.h>
 # include <stdarg.h>
 
 /*

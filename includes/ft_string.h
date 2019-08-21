@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 21:36:13 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 23:47:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ft_bool.h"
 # include <string.h>
-# include <stdint.h>
+# include <stdlib.h>
 # include <stdarg.h>
 
 # define BUFF_SIZE	42

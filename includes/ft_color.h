@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 20:57:37 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/21 23:46:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ft_bool.h"
 # include <string.h>
-# include <stdint.h>
+# include <stdlib.h>
 
 typedef	unsigned int	t_color;
 
