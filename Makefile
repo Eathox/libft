@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 21:21:47 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 01:11:04 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SUBLIBS = printf threadpool unsignednumber number numberarray float character \
 
 #Libft name
 NAME = libft.a
+BASENAME = $(NAME:%.a=%)
 
 #Compile settings
 CCSILENT = FALSE
@@ -36,23 +37,24 @@ TESTPATH = tests
 TEST = $(TESTPATH)/libtest
 
 #Sublib info
+SUBLIBSPATH = .sublibs
 SUBLIBS := $(sort $(SUBLIBS))
-SUBLIBS := $(SUBLIBS:%=src/%.a)
-SUBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(NAME:%.a=%)
+SUBLIBS := $(SUBLIBS:%=src/$(SUBLIBSPATH)/%.a)
+SUBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(BASENAME) FOLDER=$(SUBLIBSPATH)
 
 #Fclean target files
-FCLEAN_FILES := $(wildcard $(NAME) $(SUBLIBS))
+FCLEAN := $(wildcard $(NAME) $(SUBLIBS))
 
 #Function - Get all objects of sublibs
-GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:src/%.a=src\/%\/)/g')
-SUBLIBS_OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
+GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:src/$(SUBLIBSPATH)/%.a=src\/%\/)/g')
+OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
 
 #Function - Clean all sublib .a
-CLEAN_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/%.a=%) clean &&
+CLEAN_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%.a=%) clean &&
 SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(call CLEAN_SUBLIB,$(DIR))) :
 
 #Function - Clean all sublib .a
-GCOV_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/%.a=%) gcovreport &&
+GCOV_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%.a=%) gcovreport &&
 SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(call GCOV_SUBLIB,$(DIR))) :
 
 #Export vars to sublib makefile
@@ -67,8 +69,8 @@ all: $(NAME)
 
 #Create NAME
 $(NAME): $(SUBLIBS)
-	@$(call FNC_PRINT_EQUAL,$(NAME:%.a=%),$(NAME))
-	@ar rcs $(NAME) $(SUBLIBS_OBJS)
+	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(NAME))
+	@ar rcs $(NAME) $(OBJS)
 
 #Run test and gcov if GCOV==TRUE
 test: $(NAME) FORCE
@@ -83,8 +85,8 @@ endif
 endif
 
 #Compile SUBLIBS
-src/%.a: FORCE
-	@$(SUBLIBMAKE) NAME=$(@:src/%.a=%)
+src/$(SUBLIBSPATH)/%.a: FORCE
+	@$(SUBLIBMAKE) NAME=$(@:src/$(SUBLIBSPATH)/%.a=%)
 
 #Clean all non .a files
 clean:
@@ -98,8 +100,8 @@ fclean: clean
 ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -C $(TESTPATH) fclean
 endif
-ifneq ($(FCLEAN_FILES),)
-	@$(call FNC_PRINT_MIN,$(NAME:%.a=%),deleting $(FCLEAN_FILES:src/%=%))
+ifneq ($(FCLEAN),)
+	@$(call FNC_PRINT_DEL,$(BASENAME),fclean $(FCLEAN:src/$(SUBLIBSPATH)/%=%))
 	@rm -f $(NAME) $(SUBLIBS)
 endif
 
