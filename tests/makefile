@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 14:12:47 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 15:02:31 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,4 +92,4 @@ re: fclean $(NAME)
 
 FORCE: ;
 
-.PHONY: clean fclean re
+.PHONY: all clean fclean re

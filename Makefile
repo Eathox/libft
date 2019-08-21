@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 14:37:26 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 15:02:54 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ GCOVSILENT = TRUE
 GCOVFLAGS = -f -b -c
 
 #Mafile includes
-MAKEINCLUDES = includes/$(INCLUDES)
+MAKEINCLUDES = includes/
 include $(MAKEINCLUDES)/Makefile.color
 
 #Tests info
@@ -36,7 +36,7 @@ TEST = $(TESTPATH)/libtest
 
 #Sublib info
 SUBLIBS := $(SUBLIBS:%=src/%.a)
-SIBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(NAME:%.a=%)
+SUBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(NAME:%.a=%)
 
 #Fclean target files
 FCLEAN_FILES := $(wildcard $(NAME) $(SUBLIBS))
@@ -46,11 +46,11 @@ GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:src/%.a=src\/%\/)/g')
 SUBLIBS_OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
 
 #Function - Clean all sublib .a
-CLEAN_SUBLIB := $(SIBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) clean
+CLEAN_SUBLIB := $(SUBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) clean
 SUBLIBS_CLEAN := $(foreach DIR,$(SUBLIBS),$(CLEAN_SUBLIB))
 
 #Function - Clean all sublib .a
-GCOV_SUBLIB := $(SIBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) gcovreport
+GCOV_SUBLIB := $(SUBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) gcovreport
 SUBLIBS_GCOV := $(foreach DIR,$(SUBLIBS),$(GCOV_SUBLIB))
 
 #Export vars to sublib makefile
@@ -82,7 +82,7 @@ endif
 
 #Compile SUBLIBS
 src/%.a: FORCE
-	@$(SIBLIBMAKE) NAME=$(@:src/%.a=%)
+	@$(SUBLIBMAKE) NAME=$(@:src/%.a=%)
 
 #Clean all non .a files
 clean:
@@ -106,4 +106,4 @@ re: fclean $(NAME)
 
 FORCE: ;
 
-.PHONY: test clean fclean re
+.PHONY: all test clean fclean re

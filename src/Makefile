@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 14:34:38 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 15:02:06 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,4 +101,4 @@ re: clean all
 
 FORCE: ;
 
-.PHONY: clean re
+.PHONY: all clean re
