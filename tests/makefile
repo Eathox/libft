@@ -6,74 +6,88 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 12:02:55 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 14:12:47 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-#Input values (From parrent makefile)
-LIBNAME =
+#Compile settings
+CCSILENT = FALSE
 
-GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:%=%\/src\/)/g')
-ifeq ($(shell uname -s), Linux)
-BREW := /usr
-else
-BREW := $(shell brew --cellar)/..
-endif
-
-LIBFTPATH = ../
-LIBFT = $(LIBFTPATH)/libft.a
-
-CRITERIONINCLUDES = $(BREW)/include
-CRITERIONLIB = -L$(BREW)/lib -lcriterion
-
+#Test name
 NAME = libtest
+
+#Includes
 INCLUDES = ../includes
 MAKEINCLUDES = $(INCLUDES)
-HEADERS = $(NAME).h
-HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
-
 include $(MAKEINCLUDES)/Makefile.color
 
-SRC = abs atoi_base bzero hashmapnew hashsdbm hashdjb hashsdbm_nocase hashdjb_nocase
-SRC := $(SRC:%=test_ft_%.c) #wr_malloc.c
-
-SRC := $(sort $(SRC))
-OBJS = $(SRC:.c=.o)
-
-CCSILENT = FALSE
+#Compile flags
 CCFLAGS = -g -I$(INCLUDES) -I$(CRITERIONINCLUDES)
 ifeq ($(shell uname -s), Linux)
 CCFLAGS += -w
 endif
 
+#Get source files
+include Makefile.testSrcs
+
+#Lib dependency
+LIBPATH = ../
+LIBNAME = libft
+LIB = $(LIBPATH)/$(LIBNAME).a
+
+#Criterion install path
+ifeq ($(shell uname -s), Linux)
+INSTALLPATH := /usr
+else
+INSTALLPATH := $(shell brew --cellar)/..
+endif
+
+#Criterion dependency
+CRITERIONINCLUDES = $(INSTALLPATH)/include
+CRITERIONLIB = -L$(INSTALLPATH)/lib -lcriterion
+
+#Header dependency
+HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
+
+#Dependency prefix
+SRCS := $(SRCS:%=src/test_ft_%.c)
+SRCS := $(sort $(SRCS))
+OBJS = $(SRCS:.c=.o)
+
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS)
-	@printf '$(PRINT_EQUAL) $(LIBNAME)-$(NAME:%.a=%): $(NAME)\n'
-	@gcc -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(CRITERIONLIB)
-	@ #-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
+#Create NAME
+$(NAME): $(LIB) $(OBJS)
+	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(NAME:%.a=%),$(NAME))
+	@$(CC) -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) $(CRITERIONLIB)
+	#-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
 
+#Compile .o
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(LIBNAME)-$(NAME:%.a=%): $(shell basename $<)\n'
+	@$(call FNC_PRINT_PLUS,$(LIBNAME)-$(NAME:%.a=%),$(shell basename $<))
 endif
-	@gcc $(CCFLAGS) -o $@ -c $<
+	@$(CC) $(CCFLAGS) -o $@ -c $<
 
-$(LIBFT):
-	@make -s -C $(LIBFTPATH)
+#Create LIB
+$(LIB):
+	@make -s -C $(LIBPATH)
 
+#Clean all non NAME files
 clean:
-ifneq ($(wildcard $(OBJS) $(SRC:.c=.c~)),)
+ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
 	@printf '$(PRINT_MIN) $(LIBNAME)-$(NAME:%.a=%): cleaning\n'
-	@rm -f $(OBJS) $(SRC:.c=.c~)
+	@rm -f $(OBJS) $(SRCS:.c=.c~)
 endif
 
+#Clean NAME files
 fclean: clean
 ifneq ($(wildcard $(NAME)),)
-	@printf '$(PRINT_MIN) $(NAME:%.a=%): deleting $(NAME)\n'
+	@$(call FNC_PRINT_MIN,$(LIBNAME)-$(NAME:%.a=%),deleting $(NAME))
 	@rm -f $(NAME)
 endif
 
+#Recompile
 re: fclean $(NAME)
 
 FORCE: ;

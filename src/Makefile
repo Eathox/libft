@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 12:00:16 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 14:04:27 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,19 +36,21 @@ INCLUDES = ../includes
 MAKEINCLUDES = $(INCLUDES)
 include $(MAKEINCLUDES)/Makefile.color
 
-#Get correct srcs variable
-include Makefile.subLibs
-
 #Compile flags
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
 ifeq ($(GCOV), TRUE)
 CCFLAGS += -coverage
 endif
 
-#Sublib dependencys
+#Get correct srcs variable
+include Makefile.subLibs
+
+#Dependency prefix
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
 SRCS := $(SRCS:%=$(SRCFOLDER)/ft_%.c)
 SRCS := $(sort $(SRCS))
+
+#Compile dependencys
 OBJS = $(SRCS:.c=.o)
 GCNOS = $(OBJS:.o=.gcno)
 
@@ -66,30 +68,35 @@ endif
 
 all: $(SUBLIBNAME)
 
+#Create SUBLIBNAME
 ifeq ($(GCOV), TRUE)
 $(SUBLIBNAME): $(OBJS) $(GCNOS)
 else
 $(SUBLIBNAME): $(OBJS)
 endif
-	@printf '$(PRINT_EQUAL) $(LIBNAME)-$(SRCFOLDER): $(SUBLIBNAME)\n'
+	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(SUBLIBNAME))
 	@ar rcs $(SUBLIBNAME) $(OBJS)
 
+#Run gcov
 gcovreport: all
 	$(call GCOVREPORT)
 
+#Compile .o or .gcno if GCOV==TRUE
 %.o %.gcno: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(LIBNAME)-$(SRCFOLDER): $(shell basename $@)\n'
+	@$(call FNC_PRINT_PLUS,$(LIBNAME)-$(SRCFOLDER),$(shell basename $@))
 endif
 	@rm -f $(<:.c=.o)
-	@gcc $(CCFLAGS) -o $(<:.c=.o) -c $<
+	@$(CC) $(CCFLAGS) -o $(<:.c=.o) -c $<
 
+#Clean all non .a files
 clean:
 ifneq ($(wildcard $(OBJS) $(TEMPS) $(GCOVS) $(GCDAS) $(GCNOS)),)
-	@printf '$(PRINT_MIN) $(LIBNAME)-$(SRCFOLDER): cleaning\n'
+	@$(call FNC_PRINT_MIN,$(LIBNAME)-$(SRCFOLDER),cleaning)
 	@rm -f $(OBJS) $(TEMPS) $(GCOVS) $(GCDAS) $(GCNOS)
 endif
 
+#Recompile
 re: clean all
 
 FORCE: ;

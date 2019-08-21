@@ -1,5 +1,12 @@
+# $(NAME) = Name of outputfile
+
+#Headers libary is dependent on (relative to includes)
 HEADERS = libft.h typedefs.h
 
+#Additions to the compile flags (-Wall -Wextra -Werror allready included)
+CCFLAGS +=
+
+#All source files for the sublib (relative to src/$(SRCFOLDER)/)
 SRCS = putchar putnum putstr sqrt strcmp strdup strlen swap isalpha isalnum \
 	isascii isprint toupper tolower putendl putchar_fd putstr_fd putendl_fd \
 	putnum_fd strnew strclr strdel striter striteri strmap strmapi isspace \

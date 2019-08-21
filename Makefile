@@ -6,12 +6,15 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 12:04:55 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 14:13:40 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #Sublib folder names of libft
 SUBLIBS = string
+
+#Libft name
+NAME = libft.a
 
 #Compile settings
 CCSILENT = FALSE
@@ -26,9 +29,6 @@ GCOVFLAGS = -f -b -c
 #Mafile includes
 MAKEINCLUDES = includes/$(INCLUDES)
 include $(MAKEINCLUDES)/Makefile.color
-
-#Libft name
-NAME = libft.a
 
 #Tests info
 TESTPATH = tests
@@ -49,6 +49,10 @@ SUBLIBS_OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
 CLEAN_SUBLIB = $(SIBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) clean
 SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(CLEAN_SUBLIB))
 
+#Function - Clean all sublib .a
+GCOV_SUBLIB = $(SIBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) gcovreport
+SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(GCOV_SUBLIB))
+
 #Export vars to sublib makefile
 export GCOV
 export GCOVSILENT
@@ -59,39 +63,45 @@ export CCOPTIMISE
 
 all: $(NAME)
 
+#Create NAME
 $(NAME): $(SUBLIBS)
-	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
+	@$(call FNC_PRINT_EQUAL,$(NAME:%.a=%),$(NAME))
 	@ar rcs $(NAME) $(SUBLIBS_OBJS)
 
+#Run test and gcov if GCOV==TRUE
 test: $(NAME) FORCE
 ifeq ($(wildcard $(TESTPATH)),)
 	@echo "Error: $(TESTPATH) not present"
 else
-	@$(MAKE) -s -e -C $(TESTPATH) LIBNAME=$(NAME:%.a=%)
+	@$(MAKE) -s -e -C $(TESTPATH)
 	@./$(TEST)
 ifeq ($(GCOV), TRUE)
-
+	@$(SUBLIBS_GCOV)
 endif
 endif
 
+#Compile SUBLIBS
 src/%.a: FORCE
 	@$(SIBLIBMAKE) NAME=$(@:src/%.a=%)
 
+#Clean all non .a files
 clean:
 ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -C $(TESTPATH) LIBNAME=$(NAME:%.a=%) clean
+	@$(MAKE) -s -C $(TESTPATH) clean
 endif
 	@$(SUBLIBS_CLEAN)
 
+#Clean all .a files
 fclean: clean
+ifneq ($(wildcard $(TESTPATH)),)
+	@$(MAKE) -s -C $(TESTPATH) fclean
+endif
 ifneq ($(FCLEAN_FILES),)
-	@printf '$(PRINT_MIN) $(NAME:%.a=%): deleting $(FCLEAN_FILES:src/%=%)\n'
+	@$(call FNC_PRINT_MIN,$(NAME:%.a=%),deleting $(FCLEAN_FILES:src/%=%))
 	@rm -f $(NAME) $(SUBLIBS)
 endif
-ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -C $(TESTPATH) LIBNAME=$(NAME:%.a=%) fclean
-endif
 
+#Recompile
 re: fclean $(NAME)
 
 FORCE: ;

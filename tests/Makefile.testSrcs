@@ -1,0 +1,9 @@
+#Headers libary is dependent on (relative to includes)
+HEADERS = $(NAME).h
+
+#Additions to the compile flags
+CCFLAGS +=
+
+#All source files for test (relative to tests/src/)
+SRCS = abs atoi_base bzero hashmapnew hashsdbm hashdjb hashsdbm_nocase \
+	hashdjb_nocase
