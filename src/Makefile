@@ -27,7 +27,8 @@ GCOVFLAGS =
 
 #Own names
 SRCFOLDER = $(NAME)
-SUBLIBNAME = $(FOLDER)/$(NAME).a
+NAME := $(NAME).a
+SUBLIB = $(FOLDER)/$(NAME)
 
 #Misc setup
 SILENCE = 2>/dev/null 1>/dev/null
@@ -71,18 +72,18 @@ ifeq ($(GCOVSILENT), TRUE)
 GCOVREPORT += $(SILENCE)
 endif
 
-all: $(SUBLIBNAME)
+all: $(SUBLIB)
 
-#Create SUBLIBNAME
-$(SUBLIBNAME): $(COMPILE_FILES)
-	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(SUBLIBNAME:$(FOLDER)/%=%))
-	@ar rcs $(SUBLIBNAME) $(OBJS)
+#Create $(SUBLIB)
+$(SUBLIB): $(COMPILE_FILES)
+	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(NAME))
+	@ar rcs $(SUBLIB) $(OBJS)
 
 #Run gcov
 gcovreport: all
 	$(GCOVREPORT)
 
-#Compile .o or .gcno if GCOV==TRUE
+#Compile .o or .gcno if $(GCOV)==TRUE
 %.o %.gcno: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
 	@$(call FNC_PRINT_PLUS,$(LIBNAME)-$(SRCFOLDER),$(shell basename $@))

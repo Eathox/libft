@@ -67,12 +67,12 @@ export CCOPTIMISE
 
 all: $(NAME)
 
-#Create NAME
+#Create $(NAME)
 $(NAME): $(SUBLIBS)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(NAME))
 	@ar rcs $(NAME) $(OBJS)
 
-#Run test and gcov if GCOV==TRUE
+#Run test and gcov if $(GCOV)==TRUE
 test: $(NAME) FORCE
 ifeq ($(wildcard $(TESTPATH)),)
 	@echo "Error: $(TESTPATH) not present"
@@ -84,7 +84,7 @@ ifeq ($(GCOV), TRUE)
 endif
 endif
 
-#Compile SUBLIBS
+#Compile $(SUBLIBS)
 src/$(SUBLIBSPATH)/%.a: FORCE
 	@$(SUBLIBMAKE) NAME=$(@:src/$(SUBLIBSPATH)/%.a=%)
 

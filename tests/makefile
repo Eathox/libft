@@ -59,7 +59,7 @@ TEMPS = $(SRCS:.c=.c~)
 
 all: $(NAME)
 
-#Create NAME
+#Create $(NAME)
 $(NAME): $(LIB) $(OBJS)
 	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(NAME),$(NAME))
 	@$(CC) -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) $(CRITERIONLIB)
@@ -72,18 +72,18 @@ ifeq ($(CCSILENT), FALSE)
 endif
 	@$(CC) $(CCFLAGS) -o $@ -c $<
 
-#Create LIB
+#Create $(LIB)
 $(LIB):
 	@make -s -C $(LIBPATH)
 
-#Clean all non NAME files
+#Clean all non $(NAME) files
 clean:
 ifneq ($(wildcard $(OBJS) $(TEMPS)),)
 	@$(call FNC_PRINT_MIN,$(LIBNAME)-$(NAME),clean)
 	@rm -f $(OBJS) $(TEMPS)
 endif
 
-#Clean NAME files
+#Clean $(NAME) files
 fclean: clean
 ifneq ($(wildcard $(NAME)),)
 	@$(call FNC_PRINT_DEL,$(LIBNAME)-$(NAME),fclean $(NAME))

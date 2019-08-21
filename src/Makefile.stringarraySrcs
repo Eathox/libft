@@ -1,7 +1,11 @@
 #$(NAME) = Name of outputfile
+#$(SRCFOLDER) = Name of the folder which holds the sources
+#$(INCLUDES) = Path to the includes folder
+#$(MAKEINCLUDES) = Path to the makefile includes folder
+#$(CCFLAGS) = All the flags that will be used to compile
 
-#Headers libary is dependent on (relative to includes)
-HEADERS = ft_$(NAME).h
+#Headers libary is dependent on (relative to $(INCLUDES))
+HEADERS = ft_$(SRCFOLDER).h
 
 #Additions to the compile flags (-Wall -Wextra -Werror allready included)
 CCFLAGS +=
