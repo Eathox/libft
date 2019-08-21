@@ -6,12 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 16:57:23 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 16:59:57 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #Sublib folder names of libft
-SUBLIBS = string printf
+SUBLIBS = string ft_printf
 
 #Libft name
 NAME = libft.a
