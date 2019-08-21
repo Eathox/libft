@@ -1,4 +1,0 @@
-#selects the correct srcs for SRCFOLDER
-ifeq ($(SRCFOLDER), string)
-include Makefile.stringSrcs
-endif
