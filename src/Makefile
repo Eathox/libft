@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 15:02:06 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 16:39:43 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ include Makefile.$(SRCFOLDER)Srcs
 
 #Dependency prefix
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
-SRCS := $(SRCS:%=$(SRCFOLDER)/ft_%.c)
+SRCS := $(FT_SRCS:%=$(SRCFOLDER)/ft_%.c) $(SRCS:%=$(SRCFOLDER)/$(PREFIX)_%.c)
 SRCS := $(sort $(SRCS))
 
 #Compile dependencys
@@ -79,7 +79,7 @@ endif
 
 #Run gcov
 gcovreport: all
-	$(call GCOVREPORT)
+	$(GCOVREPORT)
 
 #Compile .o or .gcno if GCOV==TRUE
 %.o %.gcno: %.c $(HEADERS)
@@ -101,4 +101,4 @@ re: clean all
 
 FORCE: ;
 
-.PHONY: all clean re
+.PHONY: gcovreport all clean re

@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 15:02:31 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 16:19:08 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ $(LIB):
 #Clean all non NAME files
 clean:
 ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
-	@printf '$(PRINT_MIN) $(LIBNAME)-$(NAME:%.a=%): cleaning\n'
+	@$(call FNC_PRINT_MIN,$(LIBNAME)-$(NAME:%.a=%),cleaning)
 	@rm -f $(OBJS) $(SRCS:.c=.c~)
 endif
 

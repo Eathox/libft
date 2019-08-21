@@ -6,12 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 15:02:54 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 16:57:23 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #Sublib folder names of libft
-SUBLIBS = string
+SUBLIBS = string printf
 
 #Libft name
 NAME = libft.a
@@ -35,6 +35,7 @@ TESTPATH = tests
 TEST = $(TESTPATH)/libtest
 
 #Sublib info
+SUBLIBS := $(sort $(SUBLIBS))
 SUBLIBS := $(SUBLIBS:%=src/%.a)
 SUBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(NAME:%.a=%)
 
@@ -46,12 +47,12 @@ GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:src/%.a=src\/%\/)/g')
 SUBLIBS_OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
 
 #Function - Clean all sublib .a
-CLEAN_SUBLIB := $(SUBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) clean
-SUBLIBS_CLEAN := $(foreach DIR,$(SUBLIBS),$(CLEAN_SUBLIB))
+CLEAN_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/%.a=%) clean &&
+SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(call CLEAN_SUBLIB,$(DIR))) :
 
 #Function - Clean all sublib .a
-GCOV_SUBLIB := $(SUBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) gcovreport
-SUBLIBS_GCOV := $(foreach DIR,$(SUBLIBS),$(GCOV_SUBLIB))
+GCOV_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/%.a=%) gcovreport &&
+SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(call GCOV_SUBLIB,$(DIR))) :
 
 #Export vars to sublib makefile
 export GCOV
