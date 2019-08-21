@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 16:19:08 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 16:58:31 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,9 @@ SRCS := $(SRCS:%=src/test_ft_%.c)
 SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 
+#Trash files
+TEMPS = $(SRCS:.c=.c~)
+
 all: $(NAME)
 
 #Create NAME
@@ -75,9 +78,9 @@ $(LIB):
 
 #Clean all non NAME files
 clean:
-ifneq ($(wildcard $(OBJS) $(SRCS:.c=.c~)),)
+ifneq ($(wildcard $(OBJS) $(TEMPS)),)
 	@$(call FNC_PRINT_MIN,$(LIBNAME)-$(NAME:%.a=%),cleaning)
-	@rm -f $(OBJS) $(SRCS:.c=.c~)
+	@rm -f $(OBJS) $(TEMPS)
 endif
 
 #Clean NAME files
