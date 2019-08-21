@@ -12,7 +12,6 @@
 
 #Input values for sublib (From parrent makefile)
 NAME =
-PATH =
 LIBNAME =
 
 #Input values for compile (From parrent makefile)
@@ -27,7 +26,7 @@ GCOVFLAGS =
 
 #Own names
 SRCFOLDER = $(NAME)
-SUBLIBNAME = $(PATH)/$(NAME).a
+SUBLIBNAME = $(NAME).a
 
 #Misc setup
 SILENCE = 2>/dev/null 1>/dev/null
@@ -75,7 +74,7 @@ all: $(SUBLIBNAME)
 
 #Create SUBLIBNAME
 $(SUBLIBNAME): $(COMPILE_FILES)
-	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(SUBLIBNAME:$(PATH)/%=%))
+	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(SUBLIBNAME))
 	@ar rcs $(SUBLIBNAME) $(OBJS)
 
 #Run gcov

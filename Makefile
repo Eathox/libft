@@ -36,24 +36,23 @@ TESTPATH = tests
 TEST = $(TESTPATH)/libtest
 
 #Sublib info
-SUBLIBSPATH = .sublibs
 SUBLIBS := $(sort $(SUBLIBS))
-SUBLIBS := $(SUBLIBS:%=src/$(SUBLIBSPATH)/%.a)
-SUBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(NAME:%.a=%) PATH=$(SUBLIBSPATH)
+SUBLIBS := $(SUBLIBS:%=src/%.a)
+SUBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(NAME:%.a=%)
 
 #Fclean target files
-FCLEAN := $(wildcard $(NAME) $(SUBLIBS))
+FCLEAN_FILES := $(wildcard $(NAME) $(SUBLIBS))
 
 #Function - Get all objects of sublibs
-GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:%.a=%\/)/g')
+GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:src/%.a=src\/%\/)/g')
 SUBLIBS_OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
 
 #Function - Clean all sublib .a
-CLEAN_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%.a=%) clean &&
+CLEAN_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/%.a=%) clean &&
 SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(call CLEAN_SUBLIB,$(DIR))) :
 
 #Function - Clean all sublib .a
-GCOV_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%.a=%) gcovreport &&
+GCOV_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/%.a=%) gcovreport &&
 SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(call GCOV_SUBLIB,$(DIR))) :
 
 #Export vars to sublib makefile
@@ -84,8 +83,8 @@ endif
 endif
 
 #Compile SUBLIBS
-src/$(SUBLIBSPATH)/%.a: FORCE
-	@$(SUBLIBMAKE) NAME=$(@:src/$(SUBLIBSPATH)/%.a=%)
+src/%.a: FORCE
+	@$(SUBLIBMAKE) NAME=$(@:src/%.a=%)
 
 #Clean all non .a files
 clean:
@@ -99,8 +98,8 @@ fclean: clean
 ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -C $(TESTPATH) fclean
 endif
-ifneq ($(FCLEAN),)
-	@$(call FNC_PRINT_MIN,$(NAME:%.a=%),deleting $(FCLEAN:src/$(SUBLIBSPATH)/%=%))
+ifneq ($(FCLEAN_FILES),)
+	@$(call FNC_PRINT_MIN,$(NAME:%.a=%),deleting $(FCLEAN_FILES:src/%=%))
 	@rm -f $(NAME) $(SUBLIBS)
 endif
 
