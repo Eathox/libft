@@ -6,28 +6,50 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 01:53:53 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 12:04:55 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-GCOV = FALSE
+#Sublib folder names of libft
+SUBLIBS = string
+
+#Compile settings
 CCSILENT = FALSE
-GCOVSILENT = TRUE
-
-GCOVFLAGS = -f -b -c
-CCOPTIMISE =
 CCSTRICT = -Wall -Werror -Wextra
+CCOPTIMISE =
 
+#Gcov settings
+GCOV = FALSE
+GCOVSILENT = TRUE
+GCOVFLAGS = -f -b -c
+
+#Mafile includes
 MAKEINCLUDES = includes/$(INCLUDES)
 include $(MAKEINCLUDES)/Makefile.color
 
+#Libft name
 NAME = libft.a
+
+#Tests info
 TESTPATH = tests
 TEST = $(TESTPATH)/libtest
 
-SUBLIBS = string
+#Sublib info
 SUBLIBS := $(SUBLIBS:%=src/%.a)
+SIBLIBMAKE = $(MAKE) -s -e -C src LIBNAME=$(NAME:%.a=%)
 
+#Fclean target files
+FCLEAN_FILES = $(wildcard $(NAME) $(SUBLIBS))
+
+#Function - Get all objects of sublibs
+GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:src/%.a=src\/%\/)/g')
+SUBLIBS_OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
+
+#Function - Clean all sublib .a
+CLEAN_SUBLIB = $(SIBLIBMAKE) NAME=$(SUBLIBS:src/%.a=%) clean
+SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(CLEAN_SUBLIB))
+
+#Export vars to sublib makefile
 export GCOV
 export GCOVSILENT
 export GCOVFLAGS
@@ -39,13 +61,13 @@ all: $(NAME)
 
 $(NAME): $(SUBLIBS)
 	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
-	@ar rcs $(NAME)
+	@ar rcs $(NAME) $(SUBLIBS_OBJS)
 
 test: $(NAME) FORCE
 ifeq ($(wildcard $(TESTPATH)),)
 	@echo "Error: $(TESTPATH) not present"
 else
-	@$(MAKE) -s -e -C $(TESTPATH)
+	@$(MAKE) -s -e -C $(TESTPATH) LIBNAME=$(NAME:%.a=%)
 	@./$(TEST)
 ifeq ($(GCOV), TRUE)
 
@@ -53,20 +75,21 @@ endif
 endif
 
 src/%.a: FORCE
-	@make -s -e -C src NAME=$(@:src/%.a=%)
+	@$(SIBLIBMAKE) NAME=$(@:src/%.a=%)
 
 clean:
 ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -C $(TESTPATH) clean
+	@$(MAKE) -s -C $(TESTPATH) LIBNAME=$(NAME:%.a=%) clean
 endif
+	@$(SUBLIBS_CLEAN)
 
 fclean: clean
-ifneq ($(wildcard $(NAME)),)
-	@printf '$(PRINT_MIN) $(NAME:%.a=%): deleting $(NAME)\n'
-	@rm -f $(NAME)
+ifneq ($(FCLEAN_FILES),)
+	@printf '$(PRINT_MIN) $(NAME:%.a=%): deleting $(FCLEAN_FILES:src/%=%)\n'
+	@rm -f $(NAME) $(SUBLIBS)
 endif
 ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -C $(TESTPATH) fclean
+	@$(MAKE) -s -C $(TESTPATH) LIBNAME=$(NAME:%.a=%) fclean
 endif
 
 re: fclean $(NAME)

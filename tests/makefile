@@ -6,9 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 01:42:51 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 12:02:55 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
+
+#Input values (From parrent makefile)
+LIBNAME =
 
 GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(2:%=%\/src\/)/g')
 ifeq ($(shell uname -s), Linux)
@@ -46,13 +49,13 @@ endif
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	@printf '$(PRINT_EQUAL) $(NAME:%.a=%): $(NAME)\n'
+	@printf '$(PRINT_EQUAL) $(LIBNAME)-$(NAME:%.a=%): $(NAME)\n'
 	@gcc -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(CRITERIONLIB)
 	@ #-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
 
 %.o: %.c $(HEADERS)
 ifeq ($(CCSILENT), FALSE)
-	@printf '$(PRINT_PLUS) $(NAME:%.a=%): $(shell basename $<)\n'
+	@printf '$(PRINT_PLUS) $(LIBNAME)-$(NAME:%.a=%): $(shell basename $<)\n'
 endif
 	@gcc $(CCFLAGS) -o $@ -c $<
 
@@ -61,7 +64,7 @@ $(LIBFT):
 
 clean:
 ifneq ($(wildcard $(OBJS) $(SRC:.c=.c~)),)
-	@printf '$(PRINT_MIN) $(NAME:%.a=%): cleaning\n'
+	@printf '$(PRINT_MIN) $(LIBNAME)-$(NAME:%.a=%): cleaning\n'
 	@rm -f $(OBJS) $(SRC:.c=.c~)
 endif
 
