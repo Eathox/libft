@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/21 14:04:27 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/21 14:27:33 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ GCOVFLAGS =
 
 #Own names
 SRCFOLDER = $(NAME)
-SUBLIBNAME := $(NAME).a
+SUBLIBNAME = $(NAME).a
 
 #Misc setup
 SILENCE = 2>/dev/null 1>/dev/null
