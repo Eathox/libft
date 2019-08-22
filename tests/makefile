@@ -26,7 +26,7 @@ include $(MAKEINCLUDES)/Makefile.color
 #Compile flags
 CCFLAGS = -g -coverage -I$(INCLUDES) -I$(CRITERIONINCLUDES)
 ifeq ($(shell uname -s), Linux)
-CCFLAGS += -w
+CCFLAGS += -w -pthread
 endif
 
 #Get source files
