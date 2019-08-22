@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 13:39:01 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 16:14:50 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,13 +61,14 @@ COMPILE_FILES += $(GCNOS)
 endif
 
 #Trash files
-TEMPS = $(SRCS:.c=.c~)
 GCDAS = $(OBJS:.o=.gcda)
+TEMPS = $(SRCS:.c=.c~)
 GCOVS = $(OBJS:.o=.c.gcov)
 
 #Function - Gcov report
 BASE_GCOVS = $(GCOVS:$(SRCFOLDER)/%=%)
-GCOVREPORT = (gcov $(GCOVFLAGS) $(SRCS) && mv -f $(BASE_GCOVS) $(SRCFOLDER))
+MOVE_GCOVS = mv -f $(BASE_GCOVS) $(SRCFOLDER) || TRUE
+GCOVREPORT = (gcov $(GCOVFLAGS) $(SRCS) && $(MOVE_GCOVS))
 ifeq ($(GCOVSILENT), TRUE)
 GCOVREPORT += $(SILENCE)
 endif
