@@ -9,4 +9,6 @@ elif [[ $TRAVIS_OS_NAME != "linux" ]] && [[ $TRAVIS_OS_NAME != "osx" ]]; then
 fi
 
 make test GCOV=TRUE GCOVSILENT=FALSE
-ls src/bool
+gcov --version
+gcc --version
+ls -R -1
