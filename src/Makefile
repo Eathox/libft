@@ -6,12 +6,12 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 12:05:04 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 13:39:01 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 #Input values for sublib (From parrent makefile)
-NAME =
+SUBLIB =
 FOLDER =
 LIBNAME =
 
@@ -26,8 +26,8 @@ GCOVSILENT =
 GCOVFLAGS =
 
 #Own names
-SRCFOLDER = $(NAME:%.a=%)
-SUBLIB = $(FOLDER)/$(NAME)
+SRCFOLDER = $(SUBLIB:%.a=%)
+NAME = $(FOLDER)/$(SUBLIB)
 
 #Misc setup
 SILENCE = 2>/dev/null 1>/dev/null
@@ -72,13 +72,13 @@ ifeq ($(GCOVSILENT), TRUE)
 GCOVREPORT += $(SILENCE)
 endif
 
-all: $(SUBLIB)
+all: $(NAME)
 
-#Create $(SUBLIB)
-$(SUBLIB): $(COMPILE_FILES)
-	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(NAME))
-	@rm -f $(SUBLIB)
-	@ar rcs $(SUBLIB) $(OBJS)
+#Create $(NAME)
+$(NAME): $(COMPILE_FILES)
+	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(SUBLIB))
+	@rm -f $(NAME)
+	@ar rcs $(NAME) $(OBJS)
 
 #Run gcov
 gcovreport: all
@@ -98,6 +98,9 @@ ifneq ($(wildcard $(OBJS) $(TEMPS) $(GCOVS) $(GCDAS) $(GCNOS)),)
 	@$(call FNC_PRINT_MIN,$(LIBNAME)-$(SRCFOLDER),clean)
 	@rm -f $(OBJS) $(TEMPS) $(GCOVS) $(GCDAS) $(GCNOS)
 endif
+
+#Norm fclean
+fclean: clean
 
 #Recompile
 re: clean all

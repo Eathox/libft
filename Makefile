@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 13:09:35 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 13:37:54 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,11 +51,11 @@ GETOBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(call SEDESCAPE,$(1))/g')
 OBJS = $(foreach DIR,$(SUBLIBS),$(call GETOBJS,$(DIR)))
 
 #Function - Clean all sublib .a
-CLEANSUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
+CLEANSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
 SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(call CLEANSUBLIB,$(DIR))) :
 
 #Function - Clean all sublib .a
-GCOVSUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%=%) gcovreport &&
+GCOVSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) gcovreport &&
 SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(call GCOVSUBLIB,$(DIR))) :
 
 #Export vars to sublib makefile
@@ -88,7 +88,7 @@ endif
 
 #Compile $(SUBLIBS)
 src/$(SUBLIBSPATH)/%.a: src/$(SUBLIBSPATH) FORCE
-	@$(SUBLIBMAKE) NAME=$(@:src/$(SUBLIBSPATH)/%=%)
+	@$(SUBLIBMAKE) SUBLIB=$(@:src/$(SUBLIBSPATH)/%=%)
 
 src/$(SUBLIBSPATH):
 	@mkdir src/$(SUBLIBSPATH)
