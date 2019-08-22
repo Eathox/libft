@@ -40,7 +40,7 @@ include $(MAKEINCLUDES)/Makefile.color
 
 #Compile flags
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
-ifeq ($(GCOV)$(LIBFT_DISABLE_GCOV), TRUEFALSE)
+ifeq ($(GCOV)&&$(LIBFT_DISABLE_GCOV), TRUE&&FALSE)
 CCFLAGS += -coverage
 endif
 
@@ -57,7 +57,7 @@ SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 GCNOS = $(OBJS:.o=.gcno)
 COMPILE_FILES = $(OBJS)
-ifeq ($(GCOV)$(LIBFT_DISABLE_GCOV), TRUEFALSE)
+ifeq ($(GCOV)&&$(LIBFT_DISABLE_GCOV), TRUE&&FALSE)
 COMPILE_FILES += $(GCNOS)
 endif
 
