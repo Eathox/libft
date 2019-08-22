@@ -63,7 +63,7 @@ TEMPS = $(SRCS:.c=.c~)
 all: $(NAME)
 
 #Create $(NAME)
-$(NAME): $(TESTOBJS) #$(LIB)
+$(NAME): $(TESTOBJS) $(LIB)
 	@$(call FNC_PRINT_EQUAL,$(PARENTNAME)-$(NAME),$(NAME))
 	@$(CC) $(CCFLAGS) -o $(NAME) $(TESTOBJS) $(OBJS) $(LIB) $(CRITERIONLIB)
 	#-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free

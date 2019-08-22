@@ -78,7 +78,7 @@ export LIBFT_DISABLE_GCOV
 all: $(NAME)
 
 #Create $(NAME)
-$(NAME): $(SUBLIBS) #$(LIB)
+$(NAME): $(SUBLIBS) $(LIB)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(NAME))
 	@rm -f $(NAME)
 	@ar rcs $(NAME) $(OBJS) $(LIB)
