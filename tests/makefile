@@ -6,15 +6,15 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 00:22:36 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 17:33:03 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+#Input values for test
+NAME =
+
 #Compile settings
 CCSILENT = FALSE
-
-#Test name
-NAME = libtest
 
 #Includes
 INCLUDES = ../includes
@@ -31,7 +31,7 @@ endif
 include Makefile.testSrcs
 
 #Lib dependency
-LIBPATH = ../
+LIBPATH = ..
 LIBNAME = libft
 LIB = $(LIBPATH)/$(LIBNAME).a
 

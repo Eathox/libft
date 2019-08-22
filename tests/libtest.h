@@ -6,14 +6,14 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/21 14:22:47 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/22 17:25:46 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/22 17:30:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBTEST_H
 # define FT_LIBTEST_H
 
-# include "../includes/libft.h"
+# include "libft.h"
 
 void	ft_realfree(void *ptr);
 void	*ft_realmalloc(size_t size);

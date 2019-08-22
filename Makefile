@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 13:37:54 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 17:34:04 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ include $(MAKEINCLUDES)/Makefile.color
 
 #Tests info
 TESTPATH = tests
-TEST = $(TESTPATH)/libtest
+TESTNAME = libtest
+TEST = $(TESTPATH)/$(TESTNAME)
 
 #Sublib info
 SUBLIBSPATH = .sublibs
@@ -79,7 +80,7 @@ test: $(NAME) FORCE
 ifeq ($(wildcard $(TESTPATH)),)
 	@echo "Error: $(TESTPATH) not present"
 else
-	@$(MAKE) -s -e -C $(TESTPATH)
+	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME)
 	@./$(TEST)
 ifeq ($(GCOV), TRUE)
 	@$(SUBLIBS_GCOV)
@@ -96,14 +97,14 @@ src/$(SUBLIBSPATH):
 #Clean all non .a files
 clean:
 ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -C $(TESTPATH) clean
+	@$(MAKE) -s -C $(TESTPATH) NAME=$(TESTNAME) clean
 endif
 	@$(SUBLIBS_CLEAN)
 
 #Clean all .a files
 fclean: clean
 ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -C $(TESTPATH) fclean
+	@$(MAKE) -s -C $(TESTPATH) NAME=$(TESTNAME) fclean
 endif
 ifneq ($(FCLEAN),)
 	@$(call FNC_PRINT_DEL,$(BASENAME),fclean $(FCLEAN:src/$(SUBLIBSPATH)/%=%))
