@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 16:34:52 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 17:23:05 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ $(NAME): $(COMPILE_FILES)
 
 #Run gcov
 gcovreport: $(NAME)
-	$(GCOVREPORT)
+	@$(GCOVREPORT)
 
 #Compile .o or .gcno if $(GCOV)==TRUE
 %.o %.gcno: %.c $(HEADERS)
