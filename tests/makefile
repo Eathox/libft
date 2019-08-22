@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 17:33:03 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 17:57:51 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MAKEINCLUDES = $(INCLUDES)
 include $(MAKEINCLUDES)/Makefile.color
 
 #Compile flags
-CCFLAGS = -g -I$(INCLUDES) -I$(CRITERIONINCLUDES)
+CCFLAGS = -g -coverage -I$(INCLUDES) -I$(CRITERIONINCLUDES)
 ifeq ($(shell uname -s), Linux)
 CCFLAGS += -w
 endif
@@ -63,7 +63,7 @@ all: $(NAME)
 #Create $(NAME)
 $(NAME): $(LIB) $(OBJS)
 	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(NAME),$(NAME))
-	@$(CC) -coverage $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) $(CRITERIONLIB)
+	@$(CC) $(CCFLAGS) -o $(NAME) $(OBJS) $(LIB) $(CRITERIONLIB)
 	#-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
 
 #Compile .o
