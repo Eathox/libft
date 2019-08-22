@@ -90,7 +90,7 @@ ifeq ($(wildcard $(TESTPATH)),)
 else
 	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) OBJS="$(OBJS:src/%=../src/%)"
 	@./$(TEST)
-ifeq ($(GCOV)$(LIBFT_DISABLE_GCOV), TRUETRUE)
+ifeq ($(GCOV)$(LIBFT_DISABLE_GCOV), TRUEFALSE)
 	@$(SUBLIBS_GCOV)
 endif
 endif
