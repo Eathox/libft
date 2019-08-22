@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 01:11:04 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 11:58:51 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,8 +85,11 @@ endif
 endif
 
 #Compile $(SUBLIBS)
-src/$(SUBLIBSPATH)/%.a: FORCE
+src/$(SUBLIBSPATH)/%.a: src/$(SUBLIBSPATH) FORCE
 	@$(SUBLIBMAKE) NAME=$(@:src/$(SUBLIBSPATH)/%=%)
+
+src/$(SUBLIBSPATH):
+	@mkdir src/$(SUBLIBSPATH)
 
 #Clean all non .a files
 clean:
