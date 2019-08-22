@@ -15,8 +15,11 @@ branches:
   only:
     - master
 
+install:
+  - bash .travisInstall.bash
+
 script:
-  - bash travis.bash
+  - bash .travisScript.bash
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -X gcov
