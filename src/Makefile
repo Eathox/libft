@@ -26,8 +26,7 @@ GCOVSILENT =
 GCOVFLAGS =
 
 #Own names
-SRCFOLDER = $(NAME)
-NAME := $(NAME).a
+SRCFOLDER = $(NAME:%.a=%)
 SUBLIB = $(FOLDER)/$(NAME)
 
 #Misc setup
@@ -49,6 +48,7 @@ include Makefile.$(SRCFOLDER)Srcs
 
 #Dependency prefix
 HEADERS := $(HEADERS:%=$(INCLUDES)/%)
+HEADERS := $(sort $(HEADERS))
 SRCS := $(FT_SRCS:%=$(SRCFOLDER)/ft_%.c) $(SRCS:%=$(SRCFOLDER)/$(PREFIX)_%.c)
 SRCS := $(sort $(SRCS))
 

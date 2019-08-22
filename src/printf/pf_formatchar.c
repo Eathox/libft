@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "ft_utf8.h"
 
 void	pf_formatchar(t_info *info)
 {

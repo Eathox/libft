@@ -5,7 +5,8 @@
 #$(CCFLAGS) = All the flags that will be used to compile
 
 #Headers libary is dependent on (relative to $(INCLUDES))
-HEADERS = ft_$(SRCFOLDER).h
+HEADERS = $(SRCFOLDER) bool character
+HEADERS := $(HEADERS:%=ft_%.h)
 
 #Additions to the compile flags (-Wall -Wextra -Werror allready included)
 CCFLAGS +=
@@ -14,8 +15,10 @@ CCFLAGS +=
 PREFIX =
 
 #All ft_ source files for the sublib (relative to src/$(SRCFOLDER)/)
+#These will be automaticly prefixed with ft_ and sufixed with .c
 FT_SRCS = putunum putunum_base putunum_base_fd putunum_cbase putunum_cbase_fd \
 	putunum_fd unumlen unumlen_base
 
-#All source files for the sublib (relative to src/$(SRCFOLDER)/)
+#All SRCSPREFIX source files for the sublib (relative to src/$(SRCFOLDER)/)
+#These will be automaticly prefixed with $(PREFIX) and sufixed with .c
 SRCS =

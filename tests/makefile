@@ -48,6 +48,7 @@ CRITERIONLIB = -L$(INSTALLPATH)/lib -lcriterion
 
 #Header dependency
 HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
+HEADERS := $(sort $(HEADERS))
 
 #Dependency prefix
 SRCS := $(SRCS:%=src/test_ft_%.c)

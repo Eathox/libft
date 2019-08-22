@@ -50,11 +50,11 @@ GET_OBJS = $(shell ar -t $(1) | grep '\.o' | sed 's/^/$(1:src/$(SUBLIBSPATH)/%.a
 OBJS = $(foreach DIR,$(SUBLIBS),$(call GET_OBJS,$(DIR)))
 
 #Function - Clean all sublib .a
-CLEAN_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%.a=%) clean &&
+CLEAN_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
 SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(call CLEAN_SUBLIB,$(DIR))) :
 
 #Function - Clean all sublib .a
-GCOV_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%.a=%) gcovreport &&
+GCOV_SUBLIB = $(SUBLIBMAKE) NAME=$(1:src/$(SUBLIBSPATH)/%=%) gcovreport &&
 SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(call GCOV_SUBLIB,$(DIR))) :
 
 #Export vars to sublib makefile
@@ -86,7 +86,7 @@ endif
 
 #Compile $(SUBLIBS)
 src/$(SUBLIBSPATH)/%.a: FORCE
-	@$(SUBLIBMAKE) NAME=$(@:src/$(SUBLIBSPATH)/%.a=%)
+	@$(SUBLIBMAKE) NAME=$(@:src/$(SUBLIBSPATH)/%=%)
 
 #Clean all non .a files
 clean:
