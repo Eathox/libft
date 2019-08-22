@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 16:20:25 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 16:34:52 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ GCOVS = $(OBJS:.o=.c.gcov)
 
 #Function - Gcov report
 BASE_GCOVS = $(GCOVS:$(SRCFOLDER)/%=%)
-MOVE_GCOVS = mv -f $(BASE_GCOVS) $(SRCFOLDER) || TRUE
+MOVE_GCOVS = mv -f $(BASE_GCOVS) $(SRCFOLDER) || true
 GCOVREPORT = (gcov $(GCOVFLAGS) $(SRCS) && $(MOVE_GCOVS))
 ifeq ($(GCOVSILENT), TRUE)
 GCOVREPORT += $(SILENCE)
@@ -82,8 +82,8 @@ $(NAME): $(COMPILE_FILES)
 	@ar rcs $(NAME) $(OBJS)
 
 #Run gcov
-gcovreport: all
-	$(call GCOVREPORT)
+gcovreport: $(NAME)
+	$(GCOVREPORT)
 
 #Compile .o or .gcno if $(GCOV)==TRUE
 %.o %.gcno: %.c $(HEADERS)
