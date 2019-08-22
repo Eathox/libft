@@ -1,3 +1,4 @@
+#$(PARENTNAME) = Name of parent folder
 #$(NAME) = Name of outputfile
 #$(INCLUDES) = Path to the includes folder
 #$(MAKEINCLUDES) = Path to the makefile includes folder
