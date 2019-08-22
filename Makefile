@@ -28,6 +28,7 @@ CCOPTIMISE =
 GCOV = FALSE
 GCOVSILENT = TRUE
 GCOVFLAGS = -f -b -c
+LIBFT_DISABLE_GCOV = FALSE
 
 #Libft info
 LIBPATH =
@@ -72,6 +73,7 @@ export CCSILENT
 export CCSTRICT
 export CCOPTIMISE
 export PARENTNAME
+export LIBFT_DISABLE_GCOV
 
 all: $(NAME)
 
@@ -88,7 +90,7 @@ ifeq ($(wildcard $(TESTPATH)),)
 else
 	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) OBJS="$(OBJS:src/%=../src/%)"
 	@./$(TEST)
-ifeq ($(GCOV), TRUE)
+ifeq ($(GCOV)$(LIBFT_DISABLE_GCOV), TRUETRUE)
 	@$(SUBLIBS_GCOV)
 endif
 endif

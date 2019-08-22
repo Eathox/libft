@@ -24,6 +24,7 @@ CCOPTIMISE =
 GCOV =
 GCOVSILENT =
 GCOVFLAGS =
+LIBFT_DISABLE_GCOV =
 
 #Own names
 SRCFOLDER = $(SUBLIB:%.a=%)
@@ -39,7 +40,7 @@ include $(MAKEINCLUDES)/Makefile.color
 
 #Compile flags
 CCFLAGS = -g $(CCSTRICT) -I$(INCLUDES) $(CCOPTIMISE)
-ifeq ($(GCOV), TRUE)
+ifeq ($(GCOV)$(LIBFT_DISABLE_GCOV), TRUETRUE)
 CCFLAGS += -coverage
 endif
 
@@ -56,7 +57,7 @@ SRCS := $(sort $(SRCS))
 OBJS = $(SRCS:.c=.o)
 GCNOS = $(OBJS:.o=.gcno)
 COMPILE_FILES = $(OBJS)
-ifeq ($(GCOV), TRUE)
+ifeq ($(GCOV)$(LIBFT_DISABLE_GCOV), TRUETRUE)
 COMPILE_FILES += $(GCNOS)
 endif
 
