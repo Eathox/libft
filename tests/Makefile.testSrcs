@@ -11,5 +11,5 @@ CCFLAGS +=
 
 #All source files for test (relative to src/)
 #These will be automaticly prefixed with ft_ and sufixed with .c
-SRCS = abs atoi_base bzero hashmapnew hashsdbm hashdjb hashsdbm_nocase \
-	hashdjb_nocase
+SRCS = abs atoi_base bzero hashmapnew hashsdbm hashdjb2 hashsdbm_nocase \
+	hashdjb2_nocase

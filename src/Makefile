@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/22 00:17:05 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/22 12:05:04 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,7 @@ all: $(SUBLIB)
 #Create $(SUBLIB)
 $(SUBLIB): $(COMPILE_FILES)
 	@$(call FNC_PRINT_EQUAL,$(LIBNAME)-$(SRCFOLDER),$(NAME))
+	@rm -f $(SUBLIB)
 	@ar rcs $(SUBLIB) $(OBJS)
 
 #Run gcov

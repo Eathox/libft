@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_hashdjb.c                                  :+:    :+:            */
+/*   test_ft_hashdjb2.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/20 14:05:56 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/22 12:06:35 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 #include <signal.h>
 #include <criterion/criterion.h>
 
-Test(hashdjb, str_null, .signal = SIGSEGV) {
+Test(hashdjb2, str_null, .signal = SIGSEGV) {
 	size_t	dex;
 
-	dex = ft_hashdjb(NULL);
+	dex = ft_hashdjb2(NULL);
 }
 
-Test(hashdjb, str_1) {
+Test(hashdjb2, str_1) {
 	size_t	dex;
 
-	dex = ft_hashdjb("1");
+	dex = ft_hashdjb2("1");
 	cr_assert(dex == 177622);
 }
 
-Test(hashdjb, str_22) {
+Test(hashdjb2, str_22) {
 	size_t	dex;
 
-	dex = ft_hashdjb("22");
+	dex = ft_hashdjb2("22");
 	cr_assert(dex == 5861609);
 }
 
-Test(hashdjb, str_str) {
+Test(hashdjb2, str_str) {
 	size_t	dex;
 
-	dex = ft_hashdjb("Str");
+	dex = ft_hashdjb2("Str");
 	cr_assert(dex == 193471326);
 }

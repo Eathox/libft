@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/19 20:08:18 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/22 12:07:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ Test(hashmapnew, fifty_eight) {
 	t_list		*tar[] = {0, 0, 0, 0};
 	t_hashmap	*tab;
 
-	tab = ft_hashmapnew(58, &ft_hashdjb);
+	tab = ft_hashmapnew(58, &ft_hashdjb2);
 	cr_assert(tab != NULL);
-	cr_assert(tab->f == &ft_hashdjb);
+	cr_assert(tab->f == &ft_hashdjb2);
 	cr_assert(tab->arr != NULL);
 	cr_assert(tab->size == 58);
 	cr_assert_arr_eq(tab->arr, tar, sizeof(tar));
