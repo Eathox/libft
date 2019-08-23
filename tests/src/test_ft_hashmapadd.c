@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/23 16:42:24 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/23 16:52:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,21 @@ Test(hashmapadd, replace_first) {
 	cr_assert_str_eq(tab->arr[0]->key, "Key_0");
 	cr_assert_str_eq(tab->arr[0]->next->value, "Last");
 	cr_assert_str_eq(tab->arr[0]->next->key, "last0");
+}
+
+Test(hashmapadd, replace_last) {
+	t_hashmap	*tab;
+
+	tab = ft_hashmapnew(2, &test_hash);
+	cr_assert(ft_hashmapadd(tab, "fir_0", "first") == TRUE);
+	cr_assert(ft_hashmapadd(tab, "Key_0", "0") == TRUE);
+	cr_assert(ft_hashmapadd(tab, "Key_0", "replaced") == TRUE);
+
+	cr_assert(tab->arr[1] == NULL);
+	cr_assert(tab->arr[0] != NULL);
+	cr_assert(tab->arr[0]->next != NULL);
+	cr_assert_str_eq(tab->arr[0]->value, "first");
+	cr_assert_str_eq(tab->arr[0]->key, "fir_0");
+	cr_assert_str_eq(tab->arr[0]->next->value, "replaced");
+	cr_assert_str_eq(tab->arr[0]->next->key, "Key_0");
 }
