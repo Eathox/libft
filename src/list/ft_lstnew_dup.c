@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstfindadd_content.c                            :+:    :+:            */
+/*   ft_lstnew.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/21 20:16:41 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/23 15:56:57 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/11 18:07:37 by pholster       #+#    #+#                */
+/*   Updated: 2019/08/23 15:55:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 #include "ft_memory.h"
 
-t_list	*ft_lstfindadd_content(t_list *lst, void *content, size_t size)
+static t_list	*freeret(t_list *lst)
 {
-	t_list	*newlst;
+	free(lst);
+	return (NULL);
+}
 
-	while (lst != NULL && lst->next != NULL)
-	{
-		if (ft_memequ(lst->content, content, size))
-			return (lst);
-		lst = lst->next;
-	}
-	if (lst != NULL && ft_memequ(lst->content, content, size))
-		return (lst);
-	newlst = ft_lstnew_dup(content, size);
-	if (newlst == NULL)
+t_list			*ft_lstnew_dup(void *content, size_t content_size)
+{
+	t_list	*lst;
+
+	lst = (t_list *)ft_memalloc(sizeof(t_list));
+	if (lst == NULL)
 		return (NULL);
-	if (lst != NULL)
-		lst->next = newlst;
-	return (newlst);
+	if (content != NULL)
+	{
+		lst->content = ft_memdup(content, content_size);
+		if (lst->content == NULL)
+			return (freeret(lst));
+		lst->content_size = content_size;
+	}
+	return (lst);
 }
