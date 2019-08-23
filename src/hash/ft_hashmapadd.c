@@ -16,12 +16,19 @@
 
 static t_hashlist	*newlst(char *key, void *value)
 {
+	char		*key_dup;
 	t_hashlist	*new;
 
+	key_dup = ft_strdup(key);
+	if (key_dup == NULL)
+		return (NULL);
 	new = (t_hashlist *)ft_memalloc(sizeof(t_hashlist));
 	if (new == NULL)
+	{
+		ft_strdel(&key_dup);
 		return (NULL);
-	new->key = key;
+	}
+	new->key = key_dup;
 	new->value = value;
 	return (new);
 }
