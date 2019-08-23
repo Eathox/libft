@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/22 12:07:22 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/23 16:11:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Test(hashmapnew, f_invalid) {
 }
 
 Test(hashmapnew, four) {
-	t_list		*tar[] = {0, 0, 0, 0};
+	t_hashlist	*tar[] = {0, 0, 0, 0};
 	t_hashmap	*tab;
 
 	tab = ft_hashmapnew(4, &ft_hashsdbm);
@@ -55,7 +55,7 @@ Test(hashmapnew, four) {
 }
 
 Test(hashmapnew, fifty_eight) {
-	t_list		*tar[] = {0, 0, 0, 0};
+	t_hashlist	*tar[] = {0, 0, 0, 0};
 	t_hashmap	*tab;
 
 	tab = ft_hashmapnew(58, &ft_hashdjb2);
