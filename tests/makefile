@@ -6,7 +6,7 @@
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/07 20:00:45 by pholster       #+#    #+#                 #
-#    Updated: 2019/08/23 11:07:00 by pholster      ########   odam.nl          #
+#    Updated: 2019/08/23 11:34:01 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ MAKEINCLUDES = $(INCLUDES)
 include $(MAKEINCLUDES)/Makefile.color
 
 # Compile flags
-CCFLAGS = -g -coverage -I$(INCLUDES) -I$(CRITERIONINCLUDES)
+CCFLAGS = -g -I$(INCLUDES) -I$(CRITERIONINCLUDES)
 ifeq ($(shell uname -s), Linux)
 CCFLAGS += -w -pthread
 endif
@@ -48,6 +48,9 @@ endif
 CRITERIONINCLUDES = $(INSTALLPATH)/include
 CRITERIONLIB = -L$(INSTALLPATH)/lib -lcriterion
 
+# All libs for compilation
+LIBS = $(LIB) $(CRITERIONLIB)
+
 # Header dependency
 HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
 HEADERS := $(sort $(HEADERS))
@@ -65,7 +68,7 @@ all: $(NAME)
 # Create $(NAME)
 $(NAME): $(TESTOBJS) $(LIB)
 	@$(call FNC_PRINT_EQUAL,$(PARENTNAME)-$(NAME),$(NAME))
-	@$(CC) $(CCFLAGS) -o $(NAME) $(TESTOBJS) $(OBJS) $(LIB) $(CRITERIONLIB)
+	@$(CC) -coverage $(CCFLAGS) -o $(NAME) $(TESTOBJS) $(OBJS) $(LIBS)
 	#-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
 
 # Compile .o
