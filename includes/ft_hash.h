@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/08 16:12:36 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/24 12:55:48 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/24 17:17:02 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ size_t			ft_hashdjb2_nocase(char *str);
 size_t			ft_hashdjb2a_nocase(char *str);
 void			*ft_hashmapget(t_hashmap *map, char *key);
 t_bool			ft_hashmapadd(t_hashmap *map, char *key, void *value);
+void			ft_hashmapdel(t_hashmap *map, void (*del)(void *));
+void			ft_lstdelone(t_hashmap *map, char *key, void (*del)(void *));
 
 #endif
