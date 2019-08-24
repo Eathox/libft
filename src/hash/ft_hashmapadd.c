@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 18:05:11 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/23 16:38:58 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/24 17:16:24 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@ static t_hashlist	*newlst(char *key, void *value)
 	return (new);
 }
 
-t_bool				ft_hashmapadd(t_hashmap *hashmap, char *key, void *value)
+t_bool				ft_hashmapadd(t_hashmap *map, char *key, void *value)
 {
 	t_hashlist	*current;
 	size_t		index;
 
-	index = hashmap->f(key) % hashmap->size;
-	current = hashmap->arr[index];
+	index = map->f(key) % map->size;
+	current = map->arr[index];
 	if (current == NULL)
 	{
-		hashmap->arr[index] = newlst(key, value);
-		return (hashmap->arr[index] != NULL);
+		map->arr[index] = newlst(key, value);
+		return (map->arr[index] != NULL);
 	}
 	while (current->next != NULL && ft_strequ(current->key, key) == FALSE)
 		current = current->next;

@@ -37,7 +37,7 @@ size_t			ft_hashdjb2a(char *str);
 size_t			ft_hashsdbm_nocase(char *str);
 size_t			ft_hashdjb2_nocase(char *str);
 size_t			ft_hashdjb2a_nocase(char *str);
-void			*ft_hashmapget(t_hashmap *hashmap, char *key);
-t_bool			ft_hashmapadd(t_hashmap *hashmap, char *key, void *value);
+void			*ft_hashmapget(t_hashmap *map, char *key);
+t_bool			ft_hashmapadd(t_hashmap *map, char *key, void *value);
 
 #endif
