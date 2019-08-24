@@ -3,7 +3,6 @@ language: c
 env:
   global:
     - CODECOV_TOKEN="39b53be3-59f2-4893-9aaa-c8f5f96b520b"
-    - MAKEFLAGS="-j 4"
 
 os:
   - osx
