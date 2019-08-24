@@ -8,4 +8,4 @@ elif [[ $TRAVIS_OS_NAME != "linux" ]] && [[ $TRAVIS_OS_NAME != "osx" ]]; then
 	exit
 fi
 
-make -j4 test GCOV=TRUE
+make test GCOV=TRUE
