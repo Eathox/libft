@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/17 15:59:22 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/18 13:58:01 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/24 12:58:42 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <criterion/criterion.h>
 
 Test(atoi_base, str_null, .signal = SIGSEGV) {
-	cr_assert(ft_atoi_base(NULL, 10) == 0);
+	ft_atoi_base(NULL, 10);
 }
 
 Test(atoi_base, whitespace_base_10) {

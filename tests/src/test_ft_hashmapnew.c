@@ -6,7 +6,7 @@
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/08/19 16:57:19 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/23 16:11:25 by pholster      ########   odam.nl         */
+/*   Updated: 2019/08/24 13:00:26 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,47 +21,47 @@ static size_t	invalidf(char *str)
 }
 
 Test(hashmapnew, f_null) {
-	t_hashmap	*tab;
+	t_hashmap	*map;
 
-	tab = ft_hashmapnew(5, NULL);
-	cr_assert(tab != NULL);
+	map = ft_hashmapnew(5, NULL);
+	cr_assert(map != NULL);
 }
 
 Test(hashmapnew, size_0) {
-	t_hashmap	*tab;
+	t_hashmap	*map;
 
-	tab = ft_hashmapnew(0, &ft_hashsdbm);
-	cr_assert(tab != NULL);
+	map = ft_hashmapnew(0, &ft_hashsdbm);
+	cr_assert(map != NULL);
 }
 
 Test(hashmapnew, f_invalid) {
-	t_hashmap	*tab;
+	t_hashmap	*map;
 
-	tab = ft_hashmapnew(4, &invalidf);
-	cr_assert(tab != NULL);
-	cr_assert(tab->f == invalidf);
+	map = ft_hashmapnew(4, &invalidf);
+	cr_assert(map != NULL);
+	cr_assert(map->f == invalidf);
 }
 
 Test(hashmapnew, four) {
 	t_hashlist	*tar[] = {0, 0, 0, 0};
-	t_hashmap	*tab;
+	t_hashmap	*map;
 
-	tab = ft_hashmapnew(4, &ft_hashsdbm);
-	cr_assert(tab != NULL);
-	cr_assert(tab->f == &ft_hashsdbm);
-	cr_assert(tab->arr != NULL);
-	cr_assert(tab->size == 4);
-	cr_assert_arr_eq(tab->arr, tar, sizeof(tar));
+	map = ft_hashmapnew(4, &ft_hashsdbm);
+	cr_assert(map != NULL);
+	cr_assert(map->f == &ft_hashsdbm);
+	cr_assert(map->arr != NULL);
+	cr_assert(map->size == 4);
+	cr_assert_arr_eq(map->arr, tar, sizeof(tar));
 }
 
 Test(hashmapnew, fifty_eight) {
 	t_hashlist	*tar[] = {0, 0, 0, 0};
-	t_hashmap	*tab;
+	t_hashmap	*map;
 
-	tab = ft_hashmapnew(58, &ft_hashdjb2);
-	cr_assert(tab != NULL);
-	cr_assert(tab->f == &ft_hashdjb2);
-	cr_assert(tab->arr != NULL);
-	cr_assert(tab->size == 58);
-	cr_assert_arr_eq(tab->arr, tar, sizeof(tar));
+	map = ft_hashmapnew(58, &ft_hashdjb2);
+	cr_assert(map != NULL);
+	cr_assert(map->f == &ft_hashdjb2);
+	cr_assert(map->arr != NULL);
+	cr_assert(map->size == 58);
+	cr_assert_arr_eq(map->arr, tar, sizeof(tar));
 }
