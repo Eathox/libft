@@ -13,7 +13,7 @@
 #include "ft_hash.h"
 #include <stdlib.h>
 
-void	ft_hashmapdelone(t_hashmap *map, void *key, size_t keysize,
+void	ft_hashmapdelone(const t_hashmap *map, const void *key, size_t keysize,
 			void (*del)(void *))
 {
 	t_hashlist	*current;

@@ -12,7 +12,7 @@
 
 #include "ft_memory.h"
 
-void	*ft_memdup(void *src, size_t len)
+void	*ft_memdup(const void *src, size_t len)
 {
 	unsigned char	*dup;
 

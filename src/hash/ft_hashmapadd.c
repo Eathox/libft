@@ -13,7 +13,7 @@
 #include "ft_hash.h"
 #include "ft_memory.h"
 
-static t_hashlist	*newlst(char *key, size_t keysize, void *value)
+static t_hashlist	*newlst(const void *key, size_t keysize, void *value)
 {
 	void		*key_dup;
 	t_hashlist	*new;
@@ -33,8 +33,8 @@ static t_hashlist	*newlst(char *key, size_t keysize, void *value)
 	return (new);
 }
 
-t_bool				ft_hashmapadd(t_hashmap *map, void *key, size_t keysize,
-						void *value)
+t_bool				ft_hashmapadd(const t_hashmap *map, const void *key,
+						size_t keysize, void *value)
 {
 	t_hashlist	*current;
 	size_t		index;

@@ -12,13 +12,13 @@
 
 #include "ft_memory.h"
 
-void	*ft_memcpy(void *dst, void *src, size_t len)
+void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
-	size_t			i;
-	unsigned char	*temp_dst;
-	unsigned char	*temp_src;
-	long long		*temp_dst_8;
-	long long		*temp_src_8;
+	size_t						i;
+	unsigned char				*temp_dst;
+	const unsigned char			*temp_src;
+	unsigned long long			*temp_dst_8;
+	const unsigned long long	*temp_src_8;
 
 	i = 0;
 	temp_dst_8 = dst;

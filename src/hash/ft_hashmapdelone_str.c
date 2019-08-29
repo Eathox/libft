@@ -13,7 +13,8 @@
 #include "ft_hash.h"
 #include "ft_string.h"
 
-void	ft_hashmapdelone_str(t_hashmap *map, void *key, void (*del)(void *))
+void	ft_hashmapdelone_str(const t_hashmap *map, const char *key,
+			void (*del)(void *))
 {
 	ft_hashmapdelone(map, key, ft_strlen(key) + 1, del);
 }

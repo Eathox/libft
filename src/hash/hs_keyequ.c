@@ -13,7 +13,7 @@
 #include "ft_hash.h"
 #include "ft_memory.h"
 
-t_bool	hs_keyequ(t_hashlist *entry, void *key, size_t keysize)
+t_bool	hs_keyequ(const t_hashlist *entry, const void *key, size_t keysize)
 {
 	if (entry->keysize != keysize)
 		return (FALSE);

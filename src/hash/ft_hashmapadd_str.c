@@ -13,7 +13,7 @@
 #include "ft_hash.h"
 #include "ft_string.h"
 
-t_bool		ft_hashmapadd_str(t_hashmap *map, char *key, void *value)
+t_bool	ft_hashmapadd_str(const t_hashmap *map, const char *key, void *value)
 {
 	return (ft_hashmapadd(map, key, ft_strlen(key) + 1, value));
 }

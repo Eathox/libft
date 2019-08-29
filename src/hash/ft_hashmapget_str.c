@@ -13,7 +13,7 @@
 #include "ft_hash.h"
 #include "ft_string.h"
 
-void	*ft_hashmapget_str(t_hashmap *map, void *key)
+void	*ft_hashmapget_str(const t_hashmap *map, const char *key)
 {
 	return (ft_hashmapget(map, key, ft_strlen(key) + 1));
 }
