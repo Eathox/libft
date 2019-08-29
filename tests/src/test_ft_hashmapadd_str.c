@@ -14,9 +14,10 @@
 #include <signal.h>
 #include <criterion/criterion.h>
 
-static size_t	test_hash(char *key)
+static size_t	test_hash(const void *key)
 {
-	return (key[4] - '0');
+	const char	*str = key;
+	return (str[4] - '0');
 }
 
 Test(hashmapadd_str, hashmap_null, .signal = SIGSEGV) {
