@@ -16,12 +16,12 @@
 
 t_bool		ft_putbytes(void *bytes, size_t n)
 {
-	int		ret;
-	char	*byts;
+	int				ret;
+	unsigned char	*byts;
 
 	if (bytes == NULL)
 		return (ft_putstr(NULL));
-	byts = (char *)bytes;
+	byts = (unsigned char *)bytes;
 	while (n > 0)
 	{
 		n--;

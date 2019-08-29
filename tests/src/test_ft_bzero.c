@@ -35,7 +35,7 @@ Test(bzero, str_term) {
 }
 
 Test(bzero, num_half) {
-	unsigned int	num;
+	unsigned	num;
 
 	num = 0xFFFFFFFF;
 	ft_bzero(&num, 2);

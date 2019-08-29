@@ -17,7 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 
-typedef	unsigned int	t_color;
+typedef	unsigned	t_color;
 
 char		*ft_colorstr(int color);
 t_color		*ft_colorhextorgba(t_color color);

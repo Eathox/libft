@@ -14,7 +14,7 @@
 
 ssize_t	ft_memindex(void *str, int c, size_t len)
 {
-	char	*ptr;
+	unsigned char	*ptr;
 
 	ptr = ft_memchr(str, c, len);
 	if (ptr == NULL)

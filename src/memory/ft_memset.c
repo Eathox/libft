@@ -12,7 +12,8 @@
 
 #include "ft_memory.h"
 
-static size_t	prepare(char **str, long long *temp_c, int c, size_t len)
+static size_t	prepare(unsigned char **str, long long *temp_c, int c,
+	size_t len)
 {
 	size_t	i;
 
@@ -35,7 +36,7 @@ void			*ft_memset(void *str, int c, size_t len)
 {
 	size_t			i;
 	long long		temp_c;
-	char			*temp_str;
+	unsigned char	*temp_str;
 
 	i = 0;
 	temp_c = 0;
