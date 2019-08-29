@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_ft_hashmapadd.c                               :+:    :+:            */
+/*   test_ft_hashmapadd_str.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -19,34 +19,34 @@ static size_t	test_hash(char *key)
 	return (key[4] - '0');
 }
 
-Test(hashmapadd, hashmap_null, .signal = SIGSEGV) {
-	ft_hashmapadd(NULL, "hashmap_null", "value");
+Test(hashmapadd_str, hashmap_null, .signal = SIGSEGV) {
+	ft_hashmapadd_str(NULL, "hashmap_null", "value");
 }
 
-Test(hashmapadd, key_null, .signal = SIGSEGV) {
+Test(hashmapadd_str, key_null, .signal = SIGSEGV) {
 	t_hashmap	*map;
 
 	map = ft_hashmapnew(5, &ft_hashsdbm);
-	ft_hashmapadd(map, NULL, "value");
+	ft_hashmapadd_str(map, NULL, "value");
 }
 
-Test(hashmapadd, value_null) {
+Test(hashmapadd_str, value_null) {
 	t_hashmap	*map;
 
 	map = ft_hashmapnew(1, &ft_hashsdbm);
-	cr_assert(ft_hashmapadd(map, "value_null", NULL) == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "value_null", NULL) == TRUE);
 
 	cr_assert(map->arr[0]->next == NULL);
 	cr_assert(map->arr[0]->value == NULL);
 	cr_assert_str_eq(map->arr[0]->key, "value_null");
 }
 
-Test(hashmapadd, modhash) {
+Test(hashmapadd_str, modhash) {
 	t_hashmap	*map;
 
 	map = ft_hashmapnew(2, &test_hash);
-	cr_assert(ft_hashmapadd(map, "Key_0", "0") == TRUE);
-	cr_assert(ft_hashmapadd(map, "Key_8", "8") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "0") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_8", "8") == TRUE);
 
 	cr_assert_str_eq(map->arr[0]->value, "0");
 	cr_assert_str_eq(map->arr[0]->key, "Key_0");
@@ -54,13 +54,13 @@ Test(hashmapadd, modhash) {
 	cr_assert_str_eq(map->arr[0]->next->key, "Key_8");
 }
 
-Test(hashmapadd, add3) {
+Test(hashmapadd_str, add3) {
 	t_hashmap	*map;
 
 	map = ft_hashmapnew(3, &test_hash);
-	cr_assert(ft_hashmapadd(map, "Key_0", "0") == TRUE);
-	cr_assert(ft_hashmapadd(map, "Key_1", "1") == TRUE);
-	cr_assert(ft_hashmapadd(map, "Key_2", "2") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "0") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_1", "1") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_2", "2") == TRUE);
 
 	cr_assert(map->arr[0]->next == NULL);
 	cr_assert_str_eq(map->arr[0]->value, "0");
@@ -75,25 +75,25 @@ Test(hashmapadd, add3) {
 	cr_assert_str_eq(map->arr[2]->key, "Key_2");
 }
 
-Test(hashmapadd, replace) {
+Test(hashmapadd_str, replace) {
 	t_hashmap	*map;
 
 	map = ft_hashmapnew(2, &test_hash);
-	cr_assert(ft_hashmapadd(map, "Key_0", "0") == TRUE);
-	cr_assert(ft_hashmapadd(map, "Key_0", "replaced") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "0") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "replaced") == TRUE);
 
 	cr_assert(map->arr[0]->next == NULL);
 	cr_assert_str_eq(map->arr[0]->value, "replaced");
 	cr_assert_str_eq(map->arr[0]->key, "Key_0");
 }
 
-Test(hashmapadd, replace_first) {
+Test(hashmapadd_str, replace_first) {
 	t_hashmap	*map;
 
 	map = ft_hashmapnew(2, &test_hash);
-	cr_assert(ft_hashmapadd(map, "Key_0", "0") == TRUE);
-	cr_assert(ft_hashmapadd(map, "Key_0", "replaced") == TRUE);
-	cr_assert(ft_hashmapadd(map, "last0", "Last") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "0") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "replaced") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "last0", "Last") == TRUE);
 
 	cr_assert(map->arr[0]->next != NULL);
 	cr_assert_str_eq(map->arr[0]->value, "replaced");
@@ -102,13 +102,13 @@ Test(hashmapadd, replace_first) {
 	cr_assert_str_eq(map->arr[0]->next->key, "last0");
 }
 
-Test(hashmapadd, replace_last) {
+Test(hashmapadd_str, replace_last) {
 	t_hashmap	*map;
 
 	map = ft_hashmapnew(2, &test_hash);
-	cr_assert(ft_hashmapadd(map, "fir_0", "first") == TRUE);
-	cr_assert(ft_hashmapadd(map, "Key_0", "0") == TRUE);
-	cr_assert(ft_hashmapadd(map, "Key_0", "replaced") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "fir_0", "first") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "0") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "Key_0", "replaced") == TRUE);
 
 	cr_assert(map->arr[0]->next != NULL);
 	cr_assert_str_eq(map->arr[0]->value, "first");
@@ -117,15 +117,15 @@ Test(hashmapadd, replace_last) {
 	cr_assert_str_eq(map->arr[0]->next->key, "Key_0");
 }
 
-Test(hashmapadd, free_key) {
+Test(hashmapadd_str, free_key) {
 	t_hashmap	*map;
 	char		*key;
 
 	key = (char *)malloc(sizeof(char) * 6);
 	memcpy(key, "free0", 6);
 	map = ft_hashmapnew(2, &test_hash);
-	cr_assert(ft_hashmapadd(map, key, "free") == TRUE);
-	cr_assert(ft_hashmapadd(map, "last0", "0") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, key, "free") == TRUE);
+	cr_assert(ft_hashmapadd_str(map, "last0", "0") == TRUE);
 
 	//Free and reuse that memory
 	free(key);

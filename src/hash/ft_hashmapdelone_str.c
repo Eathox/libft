@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_hashmapdelone.c                                 :+:    :+:            */
+/*   ft_hashmapdelone_str.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -11,29 +11,9 @@
 /* ************************************************************************** */
 
 #include "ft_hash.h"
-#include <stdlib.h>
+#include "ft_string.h"
 
-void	ft_hashmapdelone(t_hashmap *map, void *key, size_t keysize,
-			void (*del)(void *))
+void	ft_hashmapdelone_str(t_hashmap *map, void *key, void (*del)(void *))
 {
-	t_hashlist	*current;
-	t_hashlist	*prv;
-	size_t		index;
-
-	prv = NULL;
-	index = map->f(key) % map->size;
-	current = map->arr[index];
-	while (current != NULL && hs_keyequ(current, key, keysize) == FALSE)
-	{
-		prv = current;
-		current = current->next;
-	}
-	if (current == NULL)
-		return ;
-	if (del != NULL && current->value != NULL)
-		del(current->value);
-	if (prv != NULL)
-		prv->next = current->next;
-	free(current->key);
-	free(current);
+	ft_hashmapdelone(map, key, ft_strlen(key) + 1, del);
 }

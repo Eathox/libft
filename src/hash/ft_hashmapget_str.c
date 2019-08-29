@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_hashmapget.c                                    :+:    :+:            */
+/*   ft_hashmapget_str.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -11,17 +11,9 @@
 /* ************************************************************************** */
 
 #include "ft_hash.h"
+#include "ft_string.h"
 
-void	*ft_hashmapget(t_hashmap *map, void *key, size_t keysize)
+void	*ft_hashmapget_str(t_hashmap *map, void *key)
 {
-	t_hashlist	*current;
-	size_t		index;
-
-	index = map->f(key) % map->size;
-	current = map->arr[index];
-	while (current != NULL && hs_keyequ(current, key, keysize) == FALSE)
-		current = current->next;
-	if (current == NULL)
-		return (NULL);
-	return (current->value);
+	return (ft_hashmapget(map, key, ft_strlen(key) + 1));
 }

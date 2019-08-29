@@ -19,7 +19,8 @@
 typedef struct	s_hashlist
 {
 	void				*value;
-	char				*key;
+	void				*key;
+	size_t				keysize;
 	struct s_hashlist	*next;
 }				t_hashlist;
 
@@ -37,10 +38,16 @@ size_t			ft_hashdjb2a(char *str);
 size_t			ft_hashsdbm_nocase(char *str);
 size_t			ft_hashdjb2_nocase(char *str);
 size_t			ft_hashdjb2a_nocase(char *str);
-void			*ft_hashmapget(t_hashmap *map, char *key);
-t_bool			ft_hashmapadd(t_hashmap *map, char *key, void *value);
 void			ft_hashmapdel(t_hashmap *map, void (*del)(void *));
-void			ft_hashmapdelone(t_hashmap *map, char *key,
+t_bool			hs_keyequ(t_hashlist *entry, void *key, size_t keysize);
+void			*ft_hashmapget_str(t_hashmap *map, void *key);
+t_bool			ft_hashmapadd_str(t_hashmap *map, void *key, void *value);
+void			ft_hashmapdelone_str(t_hashmap *map, void *key,
+					void (*del)(void *));
+void			*ft_hashmapget(t_hashmap *map, void *key, size_t keysize);
+t_bool			ft_hashmapadd(t_hashmap *map, void *key, size_t keysize,
+					void *value);
+void			ft_hashmapdelone(t_hashmap *map, void *key, size_t keysize,
 					void (*del)(void *));
 
 #endif
