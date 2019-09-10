@@ -11,9 +11,33 @@
 /* ************************************************************************** */
 
 #include "ft_character.h"
+#include "ft_string.h"
 
-t_bool	ft_putnchar_fd(char c, size_t n, int fd)
+static size_t	putnchar_8(char c, size_t n, int fd)
 {
+	char	str[8];
+
+	str[0] = c;
+	str[1] = c;
+	str[2] = c;
+	str[3] = c;
+	str[4] = c;
+	str[5] = c;
+	str[6] = c;
+	str[7] = c;
+	while (n > 8)
+	{
+		if (ft_putnstr_fd(str, 8, fd) == FALSE)
+			return (FALSE);
+		n -= 8;
+	}
+	return (n);
+}
+
+t_bool			ft_putnchar_fd(char c, size_t n, int fd)
+{
+	if (n > 8)
+		n = putnchar_8(c, n, fd);
 	while (n > 0)
 	{
 		if (ft_putchar_fd(c, fd) == FALSE)
