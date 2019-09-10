@@ -14,7 +14,7 @@
 #include <signal.h>
 #include <criterion/criterion.h>
 
-static size_t	invalidf(const void *key)
+static size_t	invalidf(const void *key, size_t keysize)
 {
 	(void)key;
 	return (0);

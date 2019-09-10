@@ -17,26 +17,26 @@
 Test(hashdjb2_nocase, str_null, .signal = SIGSEGV) {
 	size_t	dex;
 
-	dex = ft_hashdjb2_nocase(NULL);
+	dex = ft_hashdjb2_nocase(NULL, 4);
 }
 
 Test(hashdjb2_nocase, str_1) {
 	size_t	dex;
 
-	dex = ft_hashdjb2_nocase("1");
+	dex = ft_hashdjb2_nocase("1", 1);
 	cr_assert(dex == 177622);
 }
 
 Test(hashdjb2_nocase, str_22) {
 	size_t	dex;
 
-	dex = ft_hashdjb2_nocase("22");
+	dex = ft_hashdjb2_nocase("22", 2);
 	cr_assert(dex == 5861609);
 }
 
 Test(hashdjb2_nocase, str_str) {
 	size_t	dex;
 
-	dex = ft_hashdjb2_nocase("Str");
+	dex = ft_hashdjb2_nocase("Str", 3);
 	cr_assert(dex == 193506174);
 }

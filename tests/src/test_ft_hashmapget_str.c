@@ -14,7 +14,7 @@
 #include <signal.h>
 #include <criterion/criterion.h>
 
-static size_t	test_hash(const void *key)
+static size_t	test_hash(const void *key, size_t keysize)
 {
 	const char	*str = key;
 	return (str[4] - '0');

@@ -17,26 +17,26 @@
 Test(hashsdbm, str_null, .signal = SIGSEGV) {
 	size_t	dex;
 
-	dex = ft_hashsdbm(NULL);
+	dex = ft_hashsdbm(NULL, 4);
 }
 
 Test(hashsdbm, str_1) {
 	size_t	dex;
 
-	dex = ft_hashsdbm("1");
+	dex = ft_hashsdbm("1", 1);
 	cr_assert(dex == 49);
 }
 
 Test(hashsdbm, str_22) {
 	size_t	dex;
 
-	dex = ft_hashsdbm("22");
+	dex = ft_hashsdbm("22", 2);
 	cr_assert(dex == 3280000);
 }
 
 Test(hashsdbm, str_str) {
 	size_t	dex;
 
-	dex = ft_hashsdbm("Str");
+	dex = ft_hashsdbm("Str", 3);
 	cr_assert(dex == 357175600081);
 }
