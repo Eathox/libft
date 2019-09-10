@@ -1,0 +1,23 @@
+name: C
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  test:
+    name: "Tests"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
+    
+    steps:
+    - uses: actions/tests
+    - name: install
+      run: bash .travisInstall.bash
+    - name: script
+      run: bash .travisScript.bash
+    - name: after_success
+      run: bash <(curl -s https://codecov.io/bash) -X gcov
