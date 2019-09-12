@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "ft_memory.h"
+#include "ft_mem.h"
 
 intmax_t		*ft_lsttonumarr(const t_list *lst)
 {

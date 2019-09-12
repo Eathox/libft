@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_color.h"
-#include "ft_memory.h"
+#include "ft_mem.h"
 
 t_color		*ft_colorhextorgba(t_color color)
 {

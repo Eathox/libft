@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "ft_float.h"
-#include "ft_memory.h"
-#include "ft_character.h"
-#include "ft_string.h"
-#include "ft_number.h"
+#include "ft_mem.h"
+#include "ft_char.h"
+#include "ft_str.h"
+#include "ft_num.h"
 
 static void	setdecimals(long double value, char *decimals, size_t n)
 {

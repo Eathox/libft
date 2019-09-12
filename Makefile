@@ -11,8 +11,8 @@
 # **************************************************************************** #
 
 # Sublib folder names of libft
-SUBLIBS = printf threadpool unsignednumber number numberarray float character \
-	string stringarray utf8 memory list hash color terminal bool
+SUBLIBS = printf threadpool unum num numarr float char str strarr utf8 mem \
+	list hash color term bool
 
 # Libft name
 NAME = libft.a

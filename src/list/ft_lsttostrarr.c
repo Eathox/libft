@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
-#include "ft_string.h"
-#include "ft_stringarray.h"
+#include "ft_str.h"
+#include "ft_strarr.h"
 
 static char	**freeret(char **arr)
 {

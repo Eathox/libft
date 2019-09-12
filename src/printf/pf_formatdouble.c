@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "ft_string.h"
-#include "ft_number.h"
+#include "ft_str.h"
+#include "ft_num.h"
 
 static void	setdecimals(long double value, char *decimals, size_t n)
 {

@@ -12,7 +12,7 @@
 
 #include "ft_threadpool.h"
 #include "ft_printf.h"
-#include "ft_string.h"
+#include "ft_str.h"
 #include <time.h>
 
 static t_bool	gettask(t_pool *pool, t_thread *self, t_task **task)
