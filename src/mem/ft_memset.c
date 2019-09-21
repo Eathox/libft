@@ -12,42 +12,50 @@
 
 #include "ft_mem.h"
 
-static long long	prepare(unsigned char c)
+static unsigned long long	prepare_8(unsigned long long c)
 {
-	long long	temp_c;
+	unsigned long long	temp_c;
 
-	temp_c = 0;
-	temp_c |= ((long long)c << 0);
-	temp_c |= ((long long)c << 8);
-	temp_c |= ((long long)c << 16);
-	temp_c |= ((long long)c << 24);
-	temp_c |= ((long long)c << 32);
-	temp_c |= ((long long)c << 40);
-	temp_c |= ((long long)c << 48);
-	temp_c |= ((long long)c << 56);
+	temp_c = (c << 0);
+	temp_c |= (c << 8);
+	temp_c |= (c << 16);
+	temp_c |= (c << 24);
+	temp_c |= (c << 32);
+	temp_c |= (c << 40);
+	temp_c |= (c << 48);
+	temp_c |= (c << 56);
 	return (temp_c);
 }
+
+static void			set_32(unsigned long long *str_8, unsigned long long c_8,
+						size_t *i, const size_t len)
+{
+	size_t			index_step;
+	const size_t	step = 4;
+	const size_t	len_8 = len / (2 * step);
+
+	index_step = 0;
+	while ((index_step + step) < len_8)
+	{
+		str_8[index_step] = c_8;
+		str_8[index_step + 1] = c_8;
+		str_8[index_step + 2] = c_8;
+		str_8[index_step + 3] = c_8;
+		index_step += step;
+	}
+	*i = index_step * (2 * step);
+}
+
+#include "personal.h"
 
 void				*ft_memset(void *str, int c, size_t len)
 {
 	size_t				i;
 	unsigned char		temp_c;
-	long long			temp_c_8;
 	unsigned char		*temp_str;
-	unsigned long long	*temp_str_8;
 
-	i = 0;
 	temp_c = c;
-	temp_c_8 = prepare(temp_c);
-	temp_str_8 = str;
-	while (len - (i * 8) >= 8)
-	{
-		temp_str_8[i] = temp_c_8;
-		i++;
-	}
-	i *= 8;
-	if (i >= len)
-		return (str);
+	set_32(str, prepare_8(temp_c), &i, len);
 	temp_str = str;
 	while (i < len)
 	{
