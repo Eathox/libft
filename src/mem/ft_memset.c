@@ -46,8 +46,6 @@ static void			set_32(unsigned long long *str_8, unsigned long long c_8,
 	*i = index_step * (2 * step);
 }
 
-#include "personal.h"
-
 void				*ft_memset(void *str, int c, size_t len)
 {
 	size_t				i;
