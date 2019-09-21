@@ -15,7 +15,7 @@
 
 size_t		ft_wrddcount(const char *str, const char *dlm)
 {
-	long long	bytes[2];
+	t_uint64	bytes[2];
 	size_t		count;
 	size_t		i;
 	size_t		j;

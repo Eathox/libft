@@ -16,7 +16,7 @@
 
 t_bool	ft_strfldvalid(const char **arr, size_t x, size_t y, const char *dlm)
 {
-	long long	bytes[2];
+	t_uint64	bytes[2];
 	size_t		i;
 	size_t		j;
 

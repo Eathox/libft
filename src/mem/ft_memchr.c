@@ -11,16 +11,51 @@
 /* ************************************************************************** */
 
 #include "ft_mem.h"
+#include "ft_types.h"
 
-void	*ft_memchr(const void *str, int c, size_t len)
+static void	*chr_32_last_8(const t_uint64 *str_8, t_uint8 temp_c, size_t index)
 {
-	const unsigned char	*temp_str;
-	unsigned char		temp_c;
-	size_t				i;
+	return (ft_memchr(&str_8[index], temp_c, sizeof(t_uint64)));
+}
 
-	i = 0;
+static void	*chr_32(const t_uint64 *str_8, t_uint8 temp_c,
+						size_t *i, size_t len)
+{
+	size_t			index;
+	t_uint64		temp_c_8;
+	const size_t	step = 4;
+	const size_t	len_8 = len / sizeof(t_uint64);
+
+	index = 0;
+	ft_memcpy(&temp_c_8, &temp_c, sizeof(temp_c_8));
+	while ((index + step) < len_8)
+	{
+		if ((str_8[index] & temp_c_8) != 0)
+			return (chr_32_last_8(str_8, temp_c, index));
+		if ((str_8[index + 1] & temp_c_8) != 0)
+			return (chr_32_last_8(str_8, temp_c, index + 1));
+		if ((str_8[index + 2] & temp_c_8) != 0)
+			return (chr_32_last_8(str_8, temp_c, index + 2));
+		if ((str_8[index + 3] & temp_c_8) != 0)
+			return (chr_32_last_8(str_8, temp_c, index + 3));
+		index += step;
+	}
+	*i = index * sizeof(t_uint64);
+	return (NULL);
+}
+
+void		*ft_memchr(const void *str, int c, size_t len)
+{
+	size_t			i;
+	void			*found;
+	const t_uint8	*temp_str;
+	t_uint8			temp_c;
+
 	temp_c = c;
 	temp_str = str;
+	found = chr_32(str, temp_c, &i, len);
+	if (found != NULL)
+		return (found);
 	while (i < len)
 	{
 		if (temp_str[i] == temp_c)

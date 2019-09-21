@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
 #include "ft_char.h"
 #include "ft_str.h"
 
 t_bool		ft_putbytes(const void *bytes, size_t n)
 {
-	int					ret;
-	const unsigned char	*byts;
+	int				ret;
+	const t_uint8	*byts;
 
 	if (bytes == NULL)
 		return (ft_putstr(NULL));

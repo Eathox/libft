@@ -36,6 +36,6 @@ void		*ft_memset(void *str, int c, size_t len);
 void		ft_swap(void **a, void **b);
 t_bool		ft_putmemory(const void *addr, size_t size);
 t_bool		ft_putbytes(const void *bytes, size_t n);
-t_bool		ft_putpointer(const void *pointer);
+t_bool		ft_putpointer(const void *ptr);
 
 #endif

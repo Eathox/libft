@@ -29,7 +29,7 @@ static void	addword(char **arr, char *str, size_t *word)
 char		**ft_strdsplit(const char *str, const char *dlm)
 {
 	char		**arr;
-	long long	bytes[2];
+	t_uint64	bytes[2];
 	size_t		word;
 	size_t		len;
 	size_t		i;

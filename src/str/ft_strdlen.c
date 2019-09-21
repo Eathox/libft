@@ -16,7 +16,7 @@
 size_t		ft_strdlen(const char *str, const char *dlm)
 {
 	size_t		len;
-	long long	bytes[2];
+	t_uint64	bytes[2];
 
 	len = 0;
 	if (str == NULL)

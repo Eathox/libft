@@ -13,7 +13,7 @@
 #include "ft_char.h"
 #include "ft_mem.h"
 
-void	ft_chrsetbytes(long long *bytes, const char *src)
+void	ft_chrsetbytes(t_uint64 *bytes, const char *src)
 {
 	size_t	i;
 

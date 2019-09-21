@@ -15,7 +15,7 @@
 #include "ft_num.h"
 #include "ft_char.h"
 
-t_bool	ft_termsetcolor_fd(t_color color, int fd)
+t_bool	ft_termsetcolor_fd(t_uint8 color, int fd)
 {
 	if (ft_putstr_fd("\e[38;5;", fd) == FALSE)
 		return (FALSE);

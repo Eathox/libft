@@ -16,7 +16,7 @@
 char	*ft_strdtrim(const char *str, const char *dlm)
 {
 	char		*ret;
-	long long	bytes[2];
+	t_uint64	bytes[2];
 	size_t		len;
 	size_t		i;
 

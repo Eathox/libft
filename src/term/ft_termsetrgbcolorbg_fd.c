@@ -15,19 +15,19 @@
 #include "ft_num.h"
 #include "ft_char.h"
 
-t_bool	ft_termsetrgbcolorbg_fd(t_color r, t_color g, t_color b, int fd)
+t_bool	ft_termsetrgbcolorbg_fd(t_color rgb, int fd)
 {
 	if (ft_putstr_fd("\e[48;2;", fd) == FALSE)
 		return (FALSE);
-	if (ft_putnum_fd(r, fd) == FALSE)
+	if (ft_putnum_fd(rgb.r, fd) == FALSE)
 		return (FALSE);
 	if (ft_putchar_fd(';', fd) == FALSE)
 		return (FALSE);
-	if (ft_putnum_fd(g, fd) == FALSE)
+	if (ft_putnum_fd(rgb.g, fd) == FALSE)
 		return (FALSE);
 	if (ft_putchar_fd(';', fd) == FALSE)
 		return (FALSE);
-	if (ft_putnum_fd(b, fd) == FALSE)
+	if (ft_putnum_fd(rgb.b, fd) == FALSE)
 		return (FALSE);
 	return (ft_putchar_fd('m', fd));
 }

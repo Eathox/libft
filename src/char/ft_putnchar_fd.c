@@ -11,20 +11,14 @@
 /* ************************************************************************** */
 
 #include "ft_char.h"
+#include "ft_mem.h"
 #include "ft_str.h"
 
 static size_t	putnchar_8(char c, size_t n, int fd)
 {
 	char	str[8];
 
-	str[0] = c;
-	str[1] = c;
-	str[2] = c;
-	str[3] = c;
-	str[4] = c;
-	str[5] = c;
-	str[6] = c;
-	str[7] = c;
+	ft_memset(&str, c, sizeof(str));
 	while (n > 8)
 	{
 		if (ft_putnstr_fd(str, 8, fd) == FALSE)

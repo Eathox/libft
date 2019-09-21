@@ -12,23 +12,31 @@
 
 #include "ft_mem.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
+static size_t	c_pos(const void *src, void *found)
 {
-	size_t				i;
-	unsigned char		temp_c;
-	const unsigned char	*temp_src;
-	unsigned char		*temp_dst;
+	size_t	found_addr;
+	size_t	src_addr;
 
-	i = 0;
-	temp_c = c;
-	temp_dst = dst;
-	temp_src = src;
-	while (i < len)
+	found_addr = (size_t)found;
+	src_addr = (size_t)src;
+	if (src_addr < found_addr)
+		return (found_addr - src_addr);
+	return (src_addr - found_addr);
+}
+
+void			*ft_memccpy(void *dst, const void *src, int c, size_t len)
+{
+	void	*found;
+	size_t	found_pos;
+
+	found = ft_memchr(src, c, len);
+	if (found == NULL)
+		found_pos = len;
+	else
 	{
-		temp_dst[i] = temp_src[i];
-		if (temp_src[i] == temp_c)
-			return (&temp_dst[i + 1]);
-		i++;
+		found_pos = c_pos(src, found);
+		found++;
 	}
-	return (NULL);
+	ft_memcpy(dst, src, found_pos);
+	return (found);
 }

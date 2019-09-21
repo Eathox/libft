@@ -11,13 +11,20 @@
 /* ************************************************************************** */
 
 #include "ft_mem.h"
+#include "ft_types.h"
 
 ssize_t	ft_memindex(const void *str, int c, size_t len)
 {
-	const unsigned char	*ptr;
+	void	*ptr;
+	size_t	ptr_addr;
+	size_t	str_addr;
 
 	ptr = ft_memchr(str, c, len);
 	if (ptr == NULL)
 		return (-1);
-	return ((size_t)ptr - (size_t)str);
+	ptr_addr = (size_t)ptr;
+	str_addr = (size_t)str;
+	if (str_addr < ptr_addr)
+		return (ptr_addr - str_addr);
+	return (str_addr - ptr_addr);
 }

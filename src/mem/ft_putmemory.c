@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
 #include "ft_char.h"
 #include "ft_str.h"
 
-static t_bool	putbit(unsigned char c, int size)
+static t_bool	putbit(t_uint8 c, int size)
 {
 	char	*base_str;
 
@@ -29,7 +28,7 @@ static t_bool	putbit(unsigned char c, int size)
 	return (ft_putchar(base_str[c % 16]));
 }
 
-static t_bool	putcontent(const unsigned char *content, size_t size)
+static t_bool	putcontent(const t_uint8 *content, size_t size)
 {
 	size_t	i;
 
@@ -51,7 +50,7 @@ static t_bool	putcontent(const unsigned char *content, size_t size)
 	return (ft_putchar('\n'));
 }
 
-static t_bool	putreport(const unsigned char *mem, size_t i)
+static t_bool	putreport(const t_uint8 *mem, size_t i)
 {
 	size_t		printed;
 
@@ -73,8 +72,8 @@ static t_bool	putreport(const unsigned char *mem, size_t i)
 
 t_bool			ft_putmemory(const void *addr, size_t size)
 {
-	const unsigned char	*mem;
-	size_t				i;
+	const t_uint8	*mem;
+	size_t			i;
 
 	i = 0;
 	mem = addr;

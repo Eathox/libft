@@ -16,10 +16,5 @@
 
 ssize_t		ft_chrindex(const char *str, int c)
 {
-	char	*ptr;
-
-	ptr = ft_memchr(str, c, ft_strlen(str));
-	if (ptr == NULL)
-		return (-1);
-	return ((size_t)ptr - (size_t)str);
+	return (ft_memindex(str, c, ft_strlen(str)));
 }

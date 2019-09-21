@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_char.h"
+#include "ft_str.h"
 #include "ft_mem.h"
 
 t_bool		ft_chrnin(const char *str, int c, size_t n)
 {
-	return (ft_memchr(str, c, n) != NULL);
+	size_t	len;
+
+	len = ft_strnlen(str, n);
+	return (ft_memchr(str, c, len + (len != n)) != NULL);
 }

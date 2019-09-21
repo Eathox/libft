@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_termsetcolorbg_fd.c                             :+:    :+:            */
+/*   ft_types.h                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/18 14:42:21 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 21:44:31 by pholster      ########   odam.nl         */
+/*   Created: 2019/09/21 19:32:21 by pholster       #+#    #+#                */
+/*   Updated: 2019/09/21 19:32:21 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_term.h"
-#include "ft_char.h"
-#include "ft_str.h"
-#include "ft_num.h"
+#ifndef FT_TYPES_H
+# define FT_TYPES_H
 
-t_bool	ft_termsetcolorbg_fd(t_uint8 color, int fd)
-{
-	if (ft_putstr_fd("\e[48;5;", fd) == FALSE)
-		return (FALSE);
-	if (ft_putnum_fd(color, fd) == FALSE)
-		return (FALSE);
-	return (ft_putchar_fd('m', fd));
-}
+typedef	char				t_int8;
+typedef	short				t_int16;
+typedef int					t_int32;
+typedef	long int			t_int64;
+typedef	unsigned char		t_uint8;
+typedef	unsigned short		t_uint16;
+typedef unsigned int		t_uint32;
+typedef unsigned long int	t_uint64;
+
+#endif

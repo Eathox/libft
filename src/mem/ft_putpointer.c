@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_mem.h"
 #include "ft_str.h"
 #include "ft_num.h"
 
-t_bool	ft_putpointer(const void *pointer)
+t_bool	ft_putpointer(const void *ptr)
 {
 	if (ft_putstr("0x") == FALSE)
 		return (FALSE);
-	return (ft_putnum_cbase((size_t)pointer, 16, FALSE));
+	return (ft_putnum_cbase((size_t)ptr, 16, FALSE));
 }

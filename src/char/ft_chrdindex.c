@@ -15,7 +15,7 @@
 ssize_t		ft_chrdindex(const char *str, const char *dlm)
 {
 	size_t		i;
-	long long	bytes[2];
+	t_uint64	bytes[2];
 
 	i = 0;
 	ft_chrsetbytes(bytes, dlm);

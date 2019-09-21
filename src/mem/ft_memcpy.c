@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include "ft_mem.h"
+#include "ft_types.h"
 
-static void	cpy_32(unsigned long long *dst_8, const unsigned long long *src_8,
-					size_t *i, const size_t len)
+static void	cpy_32(t_uint64 *dst_8, const t_uint64 *src_8,
+					size_t *i, size_t len)
 {
 	size_t			index_step;
 	const size_t	step = 4;
-	const size_t	len_8 = len / (2 * step);
+	const size_t	len_8 = len / sizeof(t_uint64);
 
 	index_step = 0;
 	while ((index_step + step) < len_8)
@@ -28,14 +29,14 @@ static void	cpy_32(unsigned long long *dst_8, const unsigned long long *src_8,
 		dst_8[index_step + 3] = src_8[index_step + 3];
 		index_step += step;
 	}
-	*i = index_step * (2 * step);
+	*i = index_step * sizeof(t_uint64);
 }
 
 void		*ft_memcpy(void *dst, const void *src, size_t len)
 {
-	size_t				i;
-	unsigned char		*temp_dst;
-	const unsigned char	*temp_src;
+	size_t			i;
+	t_uint8			*temp_dst;
+	const t_uint8	*temp_src;
 
 	cpy_32(dst, src, &i, len);
 	temp_dst = dst;

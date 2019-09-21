@@ -13,9 +13,11 @@
 #ifndef FT_CHAR_H
 # define FT_CHAR_H
 
-# include "ft_bool.h"
 # include <string.h>
 # include <stdlib.h>
+
+# include "ft_bool.h"
+# include "ft_types.h"
 
 char		*ft_chrtostr(char c);
 int			ft_tolower(int c);
@@ -26,8 +28,8 @@ ssize_t		ft_chrindex(const char *str, int c);
 t_bool		ft_chrdin(const char *str, const char *dlm);
 t_bool		ft_chrin(const char *str, int c);
 t_bool		ft_chrnin(const char *str, int c, size_t n);
-void		ft_chrsetbytes(long long *bytes, const char *src);
-t_bool		ft_chrinbytes(const long long *bytes, char c);
+void		ft_chrsetbytes(t_uint64 *bytes, const char *src);
+t_bool		ft_chrinbytes(const t_uint64 *bytes, char c);
 t_bool		ft_isalnum(int c);
 t_bool		ft_isalpha(int c);
 t_bool		ft_isascii(int c);

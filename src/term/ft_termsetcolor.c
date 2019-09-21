@@ -12,7 +12,7 @@
 
 #include "ft_term.h"
 
-t_bool	ft_termsetcolor(t_color color)
+t_bool	ft_termsetcolor(t_uint8 color)
 {
 	return (ft_termsetcolor_fd(color, 1));
 }

@@ -11,8 +11,12 @@
 /* ************************************************************************** */
 
 #include "ft_str.h"
+#include "ft_strarr.h"
 
 t_bool		ft_strnin(const char **arr, const char *str, size_t n)
 {
-	return (ft_strnindex(arr, str, n) != -1);
+	size_t	len;
+
+	len = ft_strarrnlen(arr, n);
+	return (ft_strnindex(arr, str, len + (len != n)) != -1);
 }

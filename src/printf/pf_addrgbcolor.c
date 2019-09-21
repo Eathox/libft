@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	pf_addrgbcolor(t_info *info, t_color r, t_color g, t_color b)
+void	pf_addrgbcolor(t_info *info, t_uint8 r, t_uint8 g, t_uint8 b)
 {
 	pf_addtobuff(info, "\e[38;2;", 7);
 	pf_addnum(info, r);
