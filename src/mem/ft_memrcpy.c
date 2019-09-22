@@ -23,10 +23,10 @@ static void	cpy_32(t_uint64 *dst_8, const t_uint64 *src_8, size_t *len)
 	index = *len / sizeof(t_uint64);
 	while (index >= step)
 	{
+		dst_8[index] = src_8[index];
 		dst_8[index - 1] = src_8[index - 1];
 		dst_8[index - 2] = src_8[index - 2];
 		dst_8[index - 3] = src_8[index - 3];
-		dst_8[index - 4] = src_8[index - 4];
 		index -= step;
 		steps_taken++;
 	}

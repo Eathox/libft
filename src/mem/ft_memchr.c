@@ -27,7 +27,7 @@ static void	*chr_32(const t_uint64 *str_8, t_uint8 temp_c,
 	const size_t	len_8 = len / sizeof(t_uint64);
 
 	index = 0;
-	ft_memcpy(&temp_c_8, &temp_c, sizeof(temp_c_8));
+	ft_memset(&temp_c_8, temp_c, sizeof(temp_c_8));
 	while ((index + step) < len_8)
 	{
 		if ((str_8[index] & temp_c_8) != 0)
