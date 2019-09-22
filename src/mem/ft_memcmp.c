@@ -48,6 +48,7 @@ int			ft_memcmp(const void *str1, const void *str2, size_t len)
 	const t_uint8	*temp_str1;
 	const t_uint8	*temp_str2;
 
+	i = 0;
 	temp_str1 = str1;
 	temp_str2 = str2;
 	found = cmp_8(str1, str2, &i, len);
