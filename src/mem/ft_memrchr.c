@@ -30,14 +30,14 @@ static void	*rchr_32(const t_uint64 *str_8, t_uint8 temp_c, size_t *len)
 	index = *len / sizeof(t_uint64);
 	while (index >= step)
 	{
-		if ((str_8[index] & temp_c_8) != 0)
-			return (rchr_32_last_8(str_8, temp_c, index));
 		if ((str_8[index - 1] & temp_c_8) != 0)
 			return (rchr_32_last_8(str_8, temp_c, index - 1));
 		if ((str_8[index - 2] & temp_c_8) != 0)
 			return (rchr_32_last_8(str_8, temp_c, index - 2));
 		if ((str_8[index - 3] & temp_c_8) != 0)
 			return (rchr_32_last_8(str_8, temp_c, index - 3));
+		if ((str_8[index - 4] & temp_c_8) != 0)
+			return (rchr_32_last_8(str_8, temp_c, index - 4));
 		index -= step;
 		steps_taken++;
 	}
@@ -55,7 +55,7 @@ void		*ft_memrchr(const void *str, int c, size_t len)
 	temp_str = str;
 	if (len >= 32)
 	{
-		found = rchr_32((const t_uint64 *)temp_str + 1, temp_c, &len);
+		found = rchr_32(str, temp_c, &len);
 		if (found != NULL)
 			return (found);
 	}

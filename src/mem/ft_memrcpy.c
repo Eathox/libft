@@ -23,10 +23,10 @@ static void	cpy_32(t_uint64 *dst_8, const t_uint64 *src_8, size_t *len)
 	index = *len / sizeof(t_uint64);
 	while (index >= step)
 	{
-		dst_8[index] = src_8[index];
 		dst_8[index - 1] = src_8[index - 1];
 		dst_8[index - 2] = src_8[index - 2];
 		dst_8[index - 3] = src_8[index - 3];
+		dst_8[index - 4] = src_8[index - 4];
 		index -= step;
 		steps_taken++;
 	}
@@ -41,7 +41,7 @@ void		*ft_memrcpy(void *dst, const void *src, size_t len)
 	temp_dst = dst;
 	temp_src = src;
 	if (len >= 32)
-		cpy_32((t_uint64 *)temp_dst + 1, (t_uint64 *)temp_src + 1, &len);
+		cpy_32(dst, src, &len);
 	while (len > 0)
 	{
 		len--;
