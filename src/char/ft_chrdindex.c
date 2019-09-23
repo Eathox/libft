@@ -14,7 +14,7 @@
 
 ssize_t		ft_chrdindex(const char *str, const char *dlm)
 {
-	size_t		i;
+	ssize_t		i;
 	t_uint64	bytes[2];
 
 	i = 0;

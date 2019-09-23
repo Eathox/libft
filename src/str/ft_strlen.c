@@ -23,7 +23,7 @@ static size_t	castmagic(const long long *str)
 	len = 0;
 	himagic = 0x80808080L | (0x80808080L << 32);
 	lomagic = 0x01010101L | (0x01010101L << 32);
-	while (TRUE == TRUE)
+	while (himagic != 0)
 	{
 		if (((str[len] - lomagic) & (~str[len] & himagic)) != 0)
 		{

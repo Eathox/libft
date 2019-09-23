@@ -15,5 +15,5 @@
 
 t_bool	ft_termresetcolor_fd(int fd)
 {
-	return (ft_putstr_fd("\e[39m\e[K", fd));
+	return (ft_putstr_fd("\033[39m\033[K", fd));
 }

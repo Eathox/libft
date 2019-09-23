@@ -17,7 +17,7 @@
 
 t_bool	ft_termsetrgbcolorbg_fd(t_color rgb, int fd)
 {
-	if (ft_putstr_fd("\e[48;2;", fd) == FALSE)
+	if (ft_putstr_fd("\033[48;2;", fd) == FALSE)
 		return (FALSE);
 	if (ft_putnum_fd(rgb.r, fd) == FALSE)
 		return (FALSE);

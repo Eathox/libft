@@ -26,10 +26,10 @@ static size_t	c_pos(const void *src, void *found)
 
 void			*ft_memccpy(void *dst, const void *src, int c, size_t len)
 {
-	void	*found;
+	char	*found;
 	size_t	found_pos;
 
-	found = ft_memchr(src, c, len);
+	found = (char *)ft_memchr(src, c, len);
 	if (found == NULL)
 		found_pos = len;
 	else

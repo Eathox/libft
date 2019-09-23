@@ -17,7 +17,7 @@
 
 t_bool	ft_termsetcolor_fd(t_uint8 color, int fd)
 {
-	if (ft_putstr_fd("\e[38;5;", fd) == FALSE)
+	if (ft_putstr_fd("\033[38;5;", fd) == FALSE)
 		return (FALSE);
 	if (ft_putnum_fd(color, fd) == FALSE)
 		return (FALSE);

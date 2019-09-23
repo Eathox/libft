@@ -54,10 +54,10 @@ static void		runtask(t_pool *pool, t_thread *self, t_task *task,
 	if (pool->tracktime == TRUE)
 	{
 		runtime = (float)(clock() - start) / CLOCKS_PER_SEC;
-		color = ft_strformat("\e[38;5;%lum", (self->number % 15) + 1);
-		timecolor = "\e[38;5;1m";
+		color = ft_strformat("\033[38;5;%lum", (self->number % 15) + 1);
+		timecolor = "\033[38;5;1m";
 		if (runtime > *waittime)
-			timecolor = "\e[38;5;2m";
+			timecolor = "\033[38;5;2m";
 		ft_printf("%spool->thread[%zu]%{} - Function %p = %sWaittime: %.4f : \
 Runtime %.4f%{}\n", color, self->number, f, timecolor, *waittime, runtime);
 		ft_strdel(&color);
