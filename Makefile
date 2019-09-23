@@ -21,7 +21,7 @@ PARENTNAME = $(BASENAME)
 
 # Compile settings
 CCSILENT = FALSE
-CCSTRICT = -Wall -Werror -Wextra -Wpedantic
+CCSTRICT = -Wall -Werror -Wextra -Wpedantic -Wmissing-prototypes
 CCOPTIMISE =
 
 # Gcov settings

@@ -12,6 +12,8 @@
 
 #include <stdlib.h>
 
+#include "ft_mem.h"
+
 void	ft_memdel(void **ap)
 {
 	if (ap == NULL || *ap == NULL)
