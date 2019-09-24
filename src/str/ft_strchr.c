@@ -13,7 +13,7 @@
 #include "ft_str.h"
 #include "ft_mem.h"
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, char c)
 {
 	return (ft_memchr(str, c, ft_strlen(str) + 1));
 }

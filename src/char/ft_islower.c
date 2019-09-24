@@ -16,7 +16,7 @@
 ** return (((0x60 - c) < 0) && ((c - 0x7B) < 0));
 */
 
-t_bool		ft_islower(int c)
+t_bool		ft_islower(char c)
 {
 	return (c >= 'a' && c <= 'z');
 }

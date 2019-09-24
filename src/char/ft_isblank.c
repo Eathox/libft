@@ -12,7 +12,7 @@
 
 #include "ft_char.h"
 
-t_bool		ft_isblank(int c)
+t_bool		ft_isblank(char c)
 {
 	return (c == ' ' || c == '\t');
 }

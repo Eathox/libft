@@ -45,7 +45,7 @@ static void	*rchr_32(const t_uint64 *str_8, t_uint8 temp_c, size_t *len)
 	return (NULL);
 }
 
-void		*ft_memrchr(const void *str, int c, size_t len)
+void		*ft_memrchr(const void *str, char c, size_t len)
 {
 	void			*found;
 	const t_uint8	*temp_str;

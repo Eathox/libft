@@ -12,7 +12,7 @@
 
 #include "ft_char.h"
 
-t_bool		ft_isalnum(int c)
+t_bool		ft_isalnum(char c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
 }

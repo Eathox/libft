@@ -12,7 +12,7 @@
 
 #include "ft_char.h"
 
-t_bool		ft_isdigit(int c)
+t_bool		ft_isdigit(char c)
 {
 	return (c >= '0' && c <= '9');
 }

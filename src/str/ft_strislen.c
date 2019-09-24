@@ -12,7 +12,7 @@
 
 #include "ft_str.h"
 
-size_t	ft_strislen(const char *str, t_bool (*f)(int))
+size_t	ft_strislen(const char *str, t_bool (*f)(char))
 {
 	size_t	len;
 

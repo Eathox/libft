@@ -13,7 +13,7 @@
 #include "ft_str.h"
 #include "ft_mem.h"
 
-t_bool		ft_chrnin(const char *str, int c, size_t n)
+t_bool		ft_chrnin(const char *str, char c, size_t n)
 {
 	size_t	len;
 

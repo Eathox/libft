@@ -14,7 +14,7 @@
 #include "ft_mem.h"
 #include "ft_str.h"
 
-ssize_t		ft_chrindex(const char *str, int c)
+ssize_t		ft_chrindex(const char *str, char c)
 {
 	return (ft_memindex(str, c, ft_strlen(str)));
 }

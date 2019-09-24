@@ -24,7 +24,7 @@ static size_t	c_pos(const void *src, void *found)
 	return (src_addr - found_addr);
 }
 
-void			*ft_memccpy(void *dst, const void *src, int c, size_t len)
+void			*ft_memccpy(void *dst, const void *src, char c, size_t len)
 {
 	void	*found;
 	size_t	found_pos;

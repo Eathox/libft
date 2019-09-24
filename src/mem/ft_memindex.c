@@ -13,7 +13,7 @@
 #include "ft_mem.h"
 #include "ft_types.h"
 
-ssize_t	ft_memindex(const void *str, int c, size_t len)
+ssize_t	ft_memindex(const void *str, char c, size_t len)
 {
 	void	*ptr;
 	size_t	ptr_addr;

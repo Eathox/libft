@@ -44,7 +44,7 @@ static void	*chr_32(const t_uint64 *str_8, t_uint8 temp_c,
 	return (NULL);
 }
 
-void		*ft_memchr(const void *str, int c, size_t len)
+void		*ft_memchr(const void *str, char c, size_t len)
 {
 	size_t			i;
 	void			*found;
