@@ -12,7 +12,7 @@
 
 #include "ft_char.h"
 
-int		ft_toupper(char c)
+char	ft_toupper(char c)
 {
 	if (c >= 'a' && c <= 'z')
 		c -= 32;

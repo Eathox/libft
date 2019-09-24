@@ -20,9 +20,9 @@
 # include "ft_types.h"
 
 char		*ft_chrtostr(char c);
-int			ft_tolower(char c);
-int			ft_toupper(char c);
-int			ft_getchar(void);
+char		ft_tolower(char c);
+char		ft_toupper(char c);
+char		ft_getchar(void);
 ssize_t		ft_chrdindex(const char *str, const char *dlm);
 ssize_t		ft_chrindex(const char *str, char c);
 t_bool		ft_chrdin(const char *str, const char *dlm);

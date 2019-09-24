@@ -33,7 +33,7 @@
 ** }
 */
 
-int		ft_getchar(void)
+char	ft_getchar(void)
 {
 	char	*str;
 
