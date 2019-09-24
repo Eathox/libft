@@ -45,6 +45,7 @@ static void		runtask(t_pool *pool, t_thread *self, t_task *task,
 	char		*color;
 	void		(*f)();
 
+	start = 0;
 	if (pool->tracktime == TRUE)
 		start = clock();
 	f = task->fnc;
@@ -73,6 +74,7 @@ void			*tp_threadmanager(void *param)
 	t_pool		*pool;
 	t_thread	*self;
 
+	start = 0;
 	task = NULL;
 	self = param;
 	pool = self->pool;

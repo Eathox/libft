@@ -21,6 +21,7 @@ static void	setdecimals(long double value, char *decimals, size_t n)
 	int		num;
 
 	i = 0;
+	num = 0;
 	while (i < (n + 1))
 	{
 		value *= 10;

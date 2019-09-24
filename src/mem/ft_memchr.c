@@ -51,6 +51,7 @@ void		*ft_memchr(const void *str, char c, size_t len)
 	const t_uint8	*temp_str;
 	t_uint8			temp_c;
 
+	i = 0;
 	temp_c = c;
 	temp_str = str;
 	found = chr_32(str, temp_c, &i, len);
