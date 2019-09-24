@@ -31,11 +31,12 @@ void		*ft_memdup(const void *src, size_t len);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memrchr(const void *str, char c, size_t len);
 void		*ft_memrcpy(void *dst, const void *src, size_t len);
-void		*ft_memreplace(void **str1, const void *str2);
 void		*ft_memset(void *str, char c, size_t len);
+void		*ft_memset4(void *str, int c, size_t len);
 void		ft_swap(void **a, void **b);
 t_bool		ft_putmemory(const void *addr, size_t size);
 t_bool		ft_putbytes(const void *bytes, size_t n);
 t_bool		ft_putpointer(const void *ptr);
+void		*ft_pointerreplace(void **ptr1, const void *ptr2);
 
 #endif

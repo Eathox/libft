@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memreplace.c                                    :+:    :+:            */
+/*   ft_pointerreplace.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,9 +12,9 @@
 
 #include "ft_mem.h"
 
-void	*ft_memreplace(void **str1, const void *str2)
+void	*ft_pointerreplace(void **ptr1, const void *ptr2)
 {
-	ft_memdel(str1);
-	*str1 = (void *)str2;
-	return ((void *)str2);
+	ft_memdel(ptr1);
+	*ptr1 = (void *)ptr2;
+	return ((void *)ptr2);
 }

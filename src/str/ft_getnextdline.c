@@ -72,7 +72,7 @@ static t_bool	strmerge(char **str1, char *str2, size_t *len, ssize_t ret)
 			return (FALSE);
 		ft_memcpy(str, *str1, *len);
 		ft_memcpy(&str[*len], str2, ret);
-		ft_memreplace((void **)str1, str);
+		ft_pointerreplace((void **)str1, str);
 	}
 	*len += ret;
 	if (*str1 == NULL)
@@ -102,7 +102,8 @@ static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm)
 		return (-1);
 	ft_memcpy(*line, lst->str, newl);
 	lst->len -= (newl + 1);
-	ft_memreplace((void **)&lst->str, ft_memdup(&lst->str[newl + 1], lst->len));
+	ft_pointerreplace((void **)&lst->str,
+						ft_memdup(&lst->str[newl + 1], lst->len));
 	if (lst->str == NULL)
 		return (-1);
 	return (newl + 1);
