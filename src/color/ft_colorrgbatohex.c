@@ -16,9 +16,9 @@ t_uint32		ft_colorrgbatohex(t_color rgba)
 {
 	t_uint32	hex;
 
-	hex = (rgba.a << 24);
-	hex |= (rgba.r << 16);
-	hex |= (rgba.g << 8);
-	hex |= rgba.b;
+	hex = (t_uint32)(rgba.a << 24);
+	hex |= (t_uint32)(rgba.r << 16);
+	hex |= (t_uint32)(rgba.g << 8);
+	hex |= (t_uint32)rgba.b;
 	return (hex);
 }

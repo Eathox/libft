@@ -19,7 +19,7 @@ PREFIX =
 # These will be automaticly prefixed with ft_ and sufixed with .c
 FT_SRCS = bzero memalloc memccpy memchr memcmp memcpy memdel memdup memequ \
 	memindex memmove memrchr memrcpy memreplace memset putbytes putmemory \
-	putpointer
+	putpointer swap
 
 # All SRCSPREFIX source files for the sublib (relative to src/$(SRCFOLDER)/)
 # These will be automaticly prefixed with $(PREFIX) and sufixed with .c

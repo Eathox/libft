@@ -17,7 +17,7 @@
 
 t_bool	ft_termcommand_fd(int command, int fd)
 {
-	if (ft_putstr_fd("\e[", fd) == FALSE)
+	if (ft_putstr_fd("\033[", fd) == FALSE)
 		return (FALSE);
 	if (ft_putnum_fd(command, fd) == FALSE)
 		return (FALSE);
