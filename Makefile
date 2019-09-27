@@ -57,11 +57,11 @@ FCLEAN := $(wildcard $(NAME) $(SUBLIBS))
 GETOBJS = $(shell cat $(1) | grep '\.o' | sed 's/^/src\//g')
 OBJS = $(foreach DIR,$(SUBLIBS),$(call GETOBJS,$(DIR)))
 
-# Function - Clean all sublib .a
+# Function - Clean all sublib .content
 CLEANSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
 SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(call CLEANSUBLIB,$(DIR))) :
 
-# Function - Clean all sublib .a
+# Function - Clean all sublib .content
 GCOVSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) gcovreport &&
 SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(call GCOVSUBLIB,$(DIR))) :
 
@@ -107,7 +107,7 @@ src/$(SUBLIBSPATH)/%.content: src/$(SUBLIBSPATH) FORCE
 src/$(SUBLIBSPATH):
 	@mkdir src/$(SUBLIBSPATH)
 
-# Clean all non .a files
+# Clean all non .content files
 clean:
 ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) clean
@@ -115,7 +115,7 @@ endif
 	@$(SUBLIBS_CLEAN)
 	#@$(MAKE) -s -e -C $(LIBPATH) clean
 
-# Clean all .a files
+# Clean all .content files
 fclean: clean
 ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) fclean
@@ -126,7 +126,7 @@ ifneq ($(FCLEAN),)
 endif
 	#@$(MAKE) -s -e -C $(LIBPATH) fclean
 
-# \1ecompile
+# Recompile
 re: fclean $(NAME)
 
 FORCE: ;

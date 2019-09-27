@@ -93,7 +93,7 @@ endif
 	@rm -f $(<:.c=.o)
 	@$(CC) $(CCFLAGS) -o $(<:.c=.o) -c $<
 
-# Clean all non .a files
+# Clean all non .content files
 clean:
 ifneq ($(wildcard $(OBJS) $(TEMPS) $(GCOVS) $(GCDAS) $(GCNOS)),)
 	@$(call FNC_PRINT_MIN,$(PARENTNAME)-$(SRCFOLDER),clean)
