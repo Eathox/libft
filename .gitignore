@@ -5,6 +5,7 @@
 *.gcda
 *.gcno
 *.o
+*.content
 *.xcodeproj
 a.out
 main.c
