@@ -51,13 +51,13 @@ CRITERIONLIB = -L$(INSTALLPATH)/lib -lcriterion
 # All libs for compilation
 LIBS = $(LIB) $(CRITERIONLIB)
 
-# Header dependency
-HEADERS := $(HEADERS:%=$(INCLUDES)/%) $(CRITERIONINCLUDES)
-HEADERS := $(sort $(HEADERS))
-
 # Dependency prefix
 SRCS := $(SRCS:%=src/test_ft_%.c)
 SRCS := $(sort $(SRCS))
+HEADERS := $(HEADERS:%=$(INCLUDES)/%.h)
+HEADERS += `bash ../src/get_headers.bash $(INCLUDES) "$(SRCS)"`
+HEADERS := $(shell echo "$(HEADERS)" | sort -u)
+
 TESTOBJS = $(SRCS:.c=.o)
 
 # Trash files
