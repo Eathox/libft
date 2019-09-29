@@ -59,11 +59,11 @@ OBJS = $(foreach DIR,$(SUBLIBS),$(call GETOBJS,$(DIR)))
 
 # Function - Clean all sublib .content
 CLEANSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
-SUBLIBS_CLEAN = $(foreach DIR,$(SUBLIBS),$(call CLEANSUBLIB,$(DIR))) :
+SUBLIBS_CLEAN := $(foreach DIR,$(SUBLIBS),$(call CLEANSUBLIB,$(DIR))) :
 
 # Function - Clean all sublib .content
 GCOVSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) gcovreport &&
-SUBLIBS_GCOV = $(foreach DIR,$(SUBLIBS),$(call GCOVSUBLIB,$(DIR))) :
+SUBLIBS_GCOV := $(foreach DIR,$(SUBLIBS),$(call GCOVSUBLIB,$(DIR))) :
 
 # Export vars to sublib makefile
 export GCOV
