@@ -31,10 +31,6 @@ GCOVSILENT = TRUE
 GCOVFLAGS = -f -b -c
 LIBFT_DISABLE_GCOV = FALSE
 
-# Libft info
-LIBPATH =
-LIB =
-
 # Mafile includes
 MAKEINCLUDES = includes/
 include $(MAKEINCLUDES)/Makefile.color
@@ -55,7 +51,7 @@ FCLEAN := $(wildcard $(NAME) $(SUBLIBS))
 
 # Function - Get all objects of sublibs
 GETOBJS = $(shell cat $(1) | grep '\.o' | sed 's/^/src\//g')
-OBJS = $(foreach DIR,$(SUBLIBS),$(call GETOBJS,$(DIR)))
+OBJS = $(foreach DIR,$(1),$(call GETOBJS,$(DIR)))
 
 # Function - Clean all sublib .content
 CLEANSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
@@ -78,10 +74,10 @@ export LIBFT_DISABLE_GCOV
 all: $(NAME)
 
 # Create $(NAME)
-$(NAME): $(SUBLIBS) $(LIB)
+$(NAME): $(SUBLIBS)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(NAME))
 	@rm -f $(NAME)
-	@ar rcs $(NAME) $(OBJS) $(LIB)
+	@ar rcs $(NAME) $(call OBJS,$?)
 
 # Run test and gcov if $(GCOV)==TRUE
 test: $(NAME) FORCE
@@ -95,17 +91,9 @@ ifeq ($(GCOV)_$(LIBFT_DISABLE_GCOV), TRUE_FALSE)
 endif
 endif
 
-# Compile $(LIB)
-$(LIB): FORCE
-	@$(MAKE) -s -e -C $(LIBPATH)
-
 # Compile $(SUBLIBS)
-src/$(SUBLIBSPATH)/%.content: src/$(SUBLIBSPATH) FORCE
+src/$(SUBLIBSPATH)/%.content: FORCE
 	@$(SUBLIBMAKE) SUBLIB=$(@:src/$(SUBLIBSPATH)/%=%)
-
-# Create $(SUBLIBSPATH) if it doesnt exsist
-src/$(SUBLIBSPATH):
-	@mkdir src/$(SUBLIBSPATH)
 
 # Clean all non .content files
 clean:
@@ -113,7 +101,6 @@ ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) clean
 endif
 	@$(SUBLIBS_CLEAN)
-	#@$(MAKE) -s -e -C $(LIBPATH) clean
 
 # Clean all .content files
 fclean: clean
@@ -124,11 +111,10 @@ ifneq ($(FCLEAN),)
 	@$(call FNC_PRINT_DEL,$(BASENAME),fclean $(FCLEAN:src/$(SUBLIBSPATH)/%=%))
 	@rm -f $(NAME) $(SUBLIBS)
 endif
-	#@$(MAKE) -s -e -C $(LIBPATH) fclean
 
 # Recompile
 re: fclean $(NAME)
 
 FORCE: ;
 
-.PHONY: all test clean fclean re
+.PHONY: all test clean fclean re FORCE

@@ -101,4 +101,4 @@ re: fclean $(NAME)
 
 FORCE: ;
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re FORCE

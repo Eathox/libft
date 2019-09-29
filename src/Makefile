@@ -80,6 +80,7 @@ all: $(NAME)
 # Create $(NAME)
 $(NAME): $(COMPILE_FILES)
 	@$(call FNC_PRINT_EQUAL,$(PARENTNAME)-$(SRCFOLDER),$(SUBLIB))
+	@mkdir -p $(FOLDER)
 	@echo $(OBJS:%=\\n%) > $(NAME)
 
 # Run gcov
@@ -109,4 +110,4 @@ re: clean all
 
 FORCE: ;
 
-.PHONY: gcovreport all clean re
+.PHONY: gcovreport all clean fclean re FORCE
