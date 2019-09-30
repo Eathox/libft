@@ -51,7 +51,7 @@ FCLEAN := $(wildcard $(NAME) $(SUBLIBS))
 
 # Function - Get all objects of sublibs
 GETOBJS = $(shell cat $(1) | grep '\.o' | sed 's,^,src/,g')
-OBJS = $(foreach DIR,$(1),$(call GETOBJS,$(DIR)))
+OBJS = $(foreach DIR,$(SUBLIBS),$(call GETOBJS,$(DIR)))
 
 # Function - Clean all sublib .content
 CLEANSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
@@ -77,7 +77,7 @@ all: $(NAME)
 $(NAME): $(SUBLIBS)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(NAME))
 	@rm -f $(NAME)
-	@ar rcs $(NAME) $(call OBJS,$?)
+	@ar rcs $(NAME) $(OBJS)
 
 # Run test and gcov if $(GCOV)==TRUE
 test: $(NAME) FORCE
