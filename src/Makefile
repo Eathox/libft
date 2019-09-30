@@ -106,7 +106,8 @@ endif
 fclean: clean
 
 # Recompile
-re: clean all
+re: clean
+	$(MAKE)
 
 FORCE: ;
 
