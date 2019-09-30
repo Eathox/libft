@@ -50,7 +50,7 @@ SUBLIBMAKE = $(MAKE) -s -e -C src FOLDER=$(SUBLIBSPATH)
 FCLEAN := $(wildcard $(NAME) $(SUBLIBS))
 
 # Function - Get all objects of sublibs
-GETOBJS = $(shell cat $(1) | grep '\.o' | sed 's/^/src\//g')
+GETOBJS = $(shell cat $(1) | grep '\.o' | sed 's,^,src/,g')
 OBJS = $(foreach DIR,$(1),$(call GETOBJS,$(DIR)))
 
 # Function - Clean all sublib .content

@@ -51,8 +51,7 @@ include Makefile.$(SRCFOLDER)Srcs
 SRCS := $(FT_SRCS:%=$(SRCFOLDER)/ft_%.c) $(SRCS:%=$(SRCFOLDER)/$(PREFIX)%.c)
 SRCS := $(sort $(SRCS))
 HEADERS := $(HEADERS:%=$(INCLUDES)/%.h)
-HEADERS += `bash get_headers.bash $(INCLUDES) "$(SRCS)"`
-HEADERS := $(shell echo "$(HEADERS)" | sort -u)
+HEADERS += $(shell bash get_headers.bash $(INCLUDES) "$(SRCS)")
 
 # Compile dependencys
 OBJS = $(SRCS:.c=.o)
