@@ -55,7 +55,7 @@ LIBS = $(LIB) $(CRITERIONLIB)
 SRCS := $(SRCS:%=src/test_ft_%.c)
 SRCS := $(sort $(SRCS))
 HEADERS := $(HEADERS:%=$(INCLUDES)/%.h)
-HEADERS += $(shell bash ../src/get_headers.bash $(INCLUDES) "$(SRCS)")
+HEADERS += $(shell ./../src/get_headers $(INCLUDES) $(SRCS))
 
 TESTOBJS = $(SRCS:.c=.o)
 
@@ -97,7 +97,7 @@ endif
 
 # Recompile
 re: fclean
-	$(MAKE)
+	@$(MAKE)
 
 FORCE: ;
 
