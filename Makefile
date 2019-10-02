@@ -110,7 +110,7 @@ endif
 	@$(SUBLIBS_CLEAN)
 
 # Clean all .content files
-fclean: $(GET_HEADERS) clean
+fclean: clean
 ifneq ($(wildcard $(TESTPATH)),)
 	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) fclean
 endif
