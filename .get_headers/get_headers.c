@@ -33,12 +33,12 @@ static void	add_header(char *line)
 
 	dup = strdup(&line[10]);
 	if (dup == NULL)
-		exit (1);
+		exit(1);
 	offset = (size_t)(strchr(dup, '\"')) - (size_t)dup;
 	dup[offset] = '\0';
 	header = (t_header *)malloc(sizeof(t_header));
 	if (header == NULL)
-		exit (1);
+		exit(1);
 	header->name = dup;
 	header->next = NULL;
 	if (g_head == NULL)
@@ -55,7 +55,7 @@ static void	get_headers(FILE *file)
 
 	len = 0;
 	line = NULL;
-	len = getline(&line, &len, file);
+	len = getline(&line, (size_t *)&len, file);
 	while (len > 0)
 	{
 		if (strncmp(line, "#include \"", 10) == 0)
@@ -63,7 +63,7 @@ static void	get_headers(FILE *file)
 		len = 0;
 		free(line);
 		line = NULL;
-		len = getline(&line, &len, file);
+		len = getline(&line, (size_t *)&len, file);
 	}
 }
 
@@ -114,7 +114,7 @@ int			main(int argc, char **argv)
 	if (argc == 0)
 		dprintf(2, "Error: provide includes path and c files\n");
 	if (argc == 0 || argc == 1)
-		exit (1);
+		exit(1);
 	includes_path = argv[1];
 	read_files(argc, argv);
 	sort_headers(&g_head);
