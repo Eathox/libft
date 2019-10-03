@@ -14,7 +14,7 @@
 
 #include "get_headers.h"
 
-static size_t	lst_len(const t_header *lst)
+static size_t	len(const t_header *lst)
 {
 	size_t	len;
 
@@ -27,7 +27,7 @@ static size_t	lst_len(const t_header *lst)
 	return (len);
 }
 
-static t_header	*lst_index(t_header *lst, size_t index)
+static t_header	*index(t_header *lst, size_t index)
 {
 	while (lst != NULL && index > 0)
 	{
@@ -59,7 +59,7 @@ void			sort_headers(t_header **head)
 
 	if ((*head)->next == NULL)
 		return ;
-	temp = lst_index(*head, (lst_len(*head) - 1) / 2);
+	temp = index(*head, (len(*head) - 1) / 2);
 	half = temp->next;
 	temp->next = NULL;
 	sort_headers(head);

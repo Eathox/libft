@@ -87,7 +87,7 @@ static void	read_files(int argc, char **argv)
 	}
 }
 
-static void		remove_duplicates(void)
+static void	remove_duplicates(void)
 {
 	t_header	*cur;
 	t_header	*next;
@@ -126,4 +126,3 @@ int			main(int argc, char **argv)
 	}
 	return (0);
 }
-
