@@ -14,8 +14,5 @@
 
 t_bool		ft_ishex(char c)
 {
-	if (ft_isdigit(c))
-		return (TRUE);
-	c = ft_tolower(c);
-	return (c >= 'a' && c <= 'f');
+	return (ft_isdigit(c) || ft_isalpha(c));
 }
