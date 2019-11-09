@@ -1,24 +1,73 @@
-.DS_Store
-*.a
-*.dSYM
-*.c.gcov
-*.gcda
-*.gcno
-*.o
-*.content
-*.xcodeproj
-a.out
-main.c
-objects
-test
-test_lib
-test/
-testmachine.c
-testmachine\ 2.c
-tests/libtest
-TODO
-todo.txt
+# Binary file
 libft
+tests/libtest
+
+# Config files
+*.conf
+
+# Compile paths
+*.content
+
+# Prerequisites
+*.d
+
+# Gcov files
+*.gcno
+*.gcda
+*.c.gcov
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# OSX files
+*.DS_Store
+
+# Other
+main.c
 personal.h
-header_dependencies
-get_headers
