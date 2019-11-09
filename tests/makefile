@@ -54,28 +54,33 @@ LIBS = $(LIB) $(CRITERIONLIB)
 # Dependency prefix
 SRCS := $(SRCS:%=src/test_ft_%.c)
 SRCS := $(sort $(SRCS))
-HEADERS := $(HEADERS:%=$(INCLUDES)/%.h)
-HEADERS += $(shell ./../src/get_headers $(INCLUDES) $(SRCS))
 
 TESTOBJS = $(SRCS:.c=.o)
+TESTDEPS = $(OBJS:.o=.d)
+
+TESTCOMPILE_FILES = $(TESTOBJS) $(TESTDEPS)
 
 # Trash files
 TEMPS = $(SRCS:.c=.c~)
+TESTCLEAN_FILES = $(TESTOBJS) $(DEPS) $(TEMPS)
 
 all: $(NAME)
 
 # Create $(NAME)
-$(NAME): $(TESTOBJS) $(LIB)
+$(NAME): $(TESTCOMPILE_FILES) $(LIB)
 	@$(call FNC_PRINT_EQUAL,$(PARENTNAME)-$(NAME),$(NAME))
 	@$(CC) -coverage $(CCFLAGS) -o $(NAME) $(TESTOBJS) $(OBJS) $(LIBS)
 	#-Wl,-alias,_wrap_malloc,_malloc -Wl,-alias,_wrap_free,_free
 
+# Include all existing header dependencies files
+include $(wildcard $(DEPS))
+
 # Compile .o
-%.o: %.c $(HEADERS)
+%.o %.d: %.c
 ifeq ($(CCSILENT), FALSE)
 	@$(call FNC_PRINT_PLUS,$(PARENTNAME)-$(NAME),$(@:src/%=%))
 endif
-	@$(CC) $(CCFLAGS) -o $@ -c $<
+	@$(CC) -MMD $(CCFLAGS) -o $@ -c $<
 
 # Create $(LIB)
 $(LIB):
@@ -83,9 +88,9 @@ $(LIB):
 
 # Clean all non $(NAME) files
 clean:
-ifneq ($(wildcard $(TESTOBJS) $(TEMPS)),)
+ifneq ($(wildcard $(TESTCLEAN_FILES)),)
 	@$(call FNC_PRINT_MIN,$(PARENTNAME)-$(NAME),clean)
-	@rm -f $(TESTOBJS) $(TEMPS)
+	@rm -f $(TESTCLEAN_FILES)
 endif
 
 # Clean $(NAME) files
