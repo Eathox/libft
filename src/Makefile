@@ -90,7 +90,7 @@ gcovreport: $(NAME)
 # Include all existing header dependencies files
 include $(wildcard $(DEPS))
 
-# Compile .o or .gcno if $(GCOV)==TRUE
+# Compile .o, .d or .gcno if $(GCOV)==TRUE
 %.o %.d %.gcno: %.c
 ifeq ($(CCSILENT), FALSE)
 	@$(call FNC_PRINT_PLUS,$(PARENTNAME)-$(SRCFOLDER),$(@:$(SRCFOLDER)/%=%))

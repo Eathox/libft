@@ -75,7 +75,7 @@ $(NAME): $(TESTCOMPILE_FILES) $(LIB)
 # Include all existing header dependencies files
 include $(wildcard $(DEPS))
 
-# Compile .o
+# Compile .o or .d
 %.o %.d: %.c
 ifeq ($(CCSILENT), FALSE)
 	@$(call FNC_PRINT_PLUS,$(PARENTNAME)-$(NAME),$(@:src/%=%))
