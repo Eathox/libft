@@ -17,5 +17,9 @@
 		"deque": "c",
 		"iterator": "c",
 		"string_view": "c"
+	},
+	"files.exclude": {
+		"**/*.o": true,
+		"**/*.d": true,
 	}
 }
