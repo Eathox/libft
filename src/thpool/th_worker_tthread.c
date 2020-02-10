@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_pooljoin.c                                      :+:    :+:            */
+/*   th_worker_tthread.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 22:45:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 21:47:03 by pholster      ########   odam.nl         */
+/*   Created: 2020/02/07 16:40:10 by pholster       #+#    #+#                */
+/*   Updated: 2020/02/07 16:40:10 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_threadpool.h"
+#include "ft_thpool.h"
 
-void		ft_pooljoin(const t_pool *pool)
+void	*th_worker_tthread(void *param)
 {
-	if (pool == NULL)
-		return ;
-	while (ft_pooldone(pool) == FALSE)
-		;
+	t_tthread	*thread;
+
+	thread = (t_tthread *)param;
+	while ((thread->pool->flags & TFLAG_POOL_TERMINATE) == 0)
+	{
+		th_get_ttask(thread);
+		if (thread->task== NULL)
+			continue ;
+		th_run_ttask(thread->task);
+		th_complete_ttask(thread->task);
+		thread->task = NULL;
+		thread->running_task = FALSE;
+	}
+	return (NULL);
 }
+

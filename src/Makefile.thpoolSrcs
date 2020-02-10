@@ -16,12 +16,32 @@ CCFLAGS += -pthread
 endif
 
 # Source file prefix
-PREFIX = tp_
+PREFIX = th_
 
 # All ft_ source files for the sublib (relative to src/$(SRCFOLDER)/)
 # These will be automaticly prefixed with ft_ and sufixed with .c
-FT_SRCS = pooldone poolnew pooldel pooljoin threadnew poolqueback poolquefront
+FT_SRCS = \
+	new_tpool \
+	new_ttask \
+	del_tpool \
+	del_ttask \
+	join_tpool \
+	join_ttask \
+	join_ttasks \
+	add_tpool_ttask \
+	get_core_count \
+	run_thread \
 
 # All SRCSPREFIX source files for the sublib (relative to src/$(SRCFOLDER)/)
 # These will be automaticly prefixed with $(PREFIX) and sufixed with .c
-SRCS = threadmanager tasksetinfo taskrunfnc addtoque
+SRCS = \
+	new_tthread \
+	new_tqueue \
+	alloc_tpool_tthreads \
+	del_tthread \
+	del_tqueue \
+	run_ttask \
+	get_ttask \
+	complete_ttask \
+	add_tqueue_ttask \
+	worker_tthread \

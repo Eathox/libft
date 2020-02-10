@@ -11,8 +11,24 @@
 # **************************************************************************** #
 
 # Sublib folder names of libft
-SUBLIBS = printf threadpool unum num numarr float char str strarr utf8 mem \
-	list hash color term bool
+SUBLIBS = \
+	printf \
+	thpool \
+	unum \
+	num \
+	numarr \
+	float \
+	char \
+	str \
+	strarr \
+	utf8 \
+	mem \
+	list \
+	hash \
+	color \
+	term \
+	bool \
+
 
 # Libft name
 NAME = libft.a

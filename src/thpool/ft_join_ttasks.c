@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tp_tasksetinfo.c                                   :+:    :+:            */
+/*   ft_join_ttasks.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/25 14:54:57 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 21:48:58 by pholster      ########   odam.nl         */
+/*   Created: 2020/02/07 16:39:56 by pholster       #+#    #+#                */
+/*   Updated: 2020/02/07 16:39:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_threadpool.h"
-#include "ft_mem.h"
+#include "ft_thpool.h"
 
-t_task	*tp_tasksetinfo(t_task *task, void (*f)(), size_t count, va_list params)
+void	ft_join_ttasks(t_ttask **tasks, size_t len)
 {
-	size_t		i;
+	size_t	i;
 
 	i = 0;
-	task->fnc = f;
-	task->param_count = count;
-	task->next = NULL;
-	ft_bzero(task->params, sizeof(task->params));
-	while (i < count)
+	if (tasks == NULL)
+		return ;
+	while (i < len)
 	{
-		task->params[i] = va_arg(params, void *);
+		ft_join_ttask(tasks[i]);
 		i++;
 	}
-	return (task);
 }

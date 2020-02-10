@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   tp_addtoque.c                                      :+:    :+:            */
+/*   ft_join_ttask.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 21:13:06 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 21:47:03 by pholster      ########   odam.nl         */
+/*   Created: 2020/02/07 16:39:56 by pholster       #+#    #+#                */
+/*   Updated: 2020/02/07 16:39:56 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_threadpool.h"
+#include <pthread.h>
 
-t_bool		tp_addtoque(t_pool *pool, t_bool priority, t_task *task)
+#include "ft_thpool.h"
+
+void	ft_join_ttask(t_ttask *task)
 {
-	if (pool->terminating)
-		return (FALSE);
-	if (priority == FALSE)
-	{
-		if (pool->last == NULL)
-			pool->que = task;
-		else
-			pool->last->next = task;
-		pool->last = task;
-		return (TRUE);
-	}
-	task->next = pool->que;
-	pool->que = task;
-	if (pool->last == NULL)
-		pool->last = task;
-	return (TRUE);
+	if (task == NULL)
+		return ;
+	pthread_mutex_lock(&task->lock);
+	while (task->completed == FALSE)
+		pthread_cond_wait(&task->cond_completed, &task->lock);
+	pthread_mutex_unlock(&task->lock);
 }

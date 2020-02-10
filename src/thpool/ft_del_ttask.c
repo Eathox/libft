@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_pooldone.c                                      :+:    :+:            */
+/*   ft_del_ttask.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 22:45:56 by pholster       #+#    #+#                */
-/*   Updated: 2019/08/21 21:47:03 by pholster      ########   odam.nl         */
+/*   Created: 2020/02/07 16:57:18 by pholster       #+#    #+#                */
+/*   Updated: 2020/02/07 16:57:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_threadpool.h"
+#include "ft_mem.h"
 
-t_bool		ft_pooldone(const t_pool *pool)
+#include "ft_thpool.h"
+
+void	*ft_del_ttask(t_ttask **task)
 {
-	t_thread	*thread;
-	size_t		current;
-
-	current = pool->size;
-	while (current > 0)
-	{
-		current--;
-		thread = pool->threads[current];
-		if (thread != NULL)
-		{
-			if (thread->state == ACTIVE)
-				return (FALSE);
-		}
-	}
-	return (pool->que == NULL);
+	if (task == NULL || *task == NULL)
+		return (NULL);
+	pthread_mutex_destroy(&(*task)->lock);
+	pthread_cond_destroy(&(*task)->cond_completed);
+	ft_memdel((void**)task);
+	return (NULL);
 }
