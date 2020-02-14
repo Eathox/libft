@@ -3,6 +3,7 @@
 		"**/*.o": true,
 		"**/*.d": true,
 		"**/*.gcno": true,
+		"**/*.gcda": true,
 		"**/*.gcov": true,
 	},
 	"files.associations": {
