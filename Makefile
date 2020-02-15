@@ -58,7 +58,7 @@ all: $(NAME)
 PHONY += all
 
 $(NAME): $(all-objects) $(all-makefiles)
-	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
+	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(notdir $@))
 	@ar rcs $@ $(filter-out $(all-makefiles),$^)
 
 define COMPILE_TEMPLATE
