@@ -10,23 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += putstrarr
-objects += strarrcpy
-objects += strarrcpy_var
-objects += strarrdel
-objects += strarrdup
-objects += strarrdup_var
-objects += strarrlen
-objects += strarrnew
-objects += strarrnlen
-objects += strarrnsort
-objects += strarrnsortrev
-objects += strarrrev
-objects += strarrsortac
-objects += strarrsort
-objects += strarrsortrev
-objects += strarrtolower
-objects += strarrtolst
-objects += strarrtoupper
-
-objects := $(objects:%=ft_%.o)
+objects += ft_putstrarr.o
+objects += ft_strarrcpy.o
+objects += ft_strarrcpy_var.o
+objects += ft_strarrdel.o
+objects += ft_strarrdup.o
+objects += ft_strarrdup_var.o
+objects += ft_strarrlen.o
+objects += ft_strarrnew.o
+objects += ft_strarrnlen.o
+objects += ft_strarrnsort.o
+objects += ft_strarrnsortrev.o
+objects += ft_strarrrev.o
+objects += ft_strarrsortac.o
+objects += ft_strarrsort.o
+objects += ft_strarrsortrev.o
+objects += ft_strarrtolower.o
+objects += ft_strarrtolst.o
+objects += ft_strarrtoupper.o

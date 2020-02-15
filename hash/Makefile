@@ -10,20 +10,20 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += hashdjb2a
-objects += hashdjb2a_nocase
-objects += hashdjb2
-objects += hashdjb2_nocase
-objects += hashmapadd
-objects += hashmapadd_str
-objects += hashmapdel
-objects += hashmapdelone
-objects += hashmapdelone_str
-objects += hashmapget
-objects += hashmapget_str
-objects += hashmapnew
-objects += hashsdbm
-objects += hashsdbm_nocase
+objects += ft_hashdjb2a.o
+objects += ft_hashdjb2a_nocase.o
+objects += ft_hashdjb2.o
+objects += ft_hashdjb2_nocase.o
+objects += ft_hashmapadd.o
+objects += ft_hashmapadd_str.o
+objects += ft_hashmapdel.o
+objects += ft_hashmapdelone.o
+objects += ft_hashmapdelone_str.o
+objects += ft_hashmapget.o
+objects += ft_hashmapget_str.o
+objects += ft_hashmapnew.o
+objects += ft_hashsdbm.o
+objects += ft_hashsdbm_nocase.o
 
-objects := $(objects:%=ft_%.o)
-objects += hs_keyequ.o
+private-headers += priv.h
+objects += ft_keyequ.o

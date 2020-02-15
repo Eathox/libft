@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft/printf.h"
+#include "priv.h"
 #include "ft/str.h"
 #include <unistd.h>
 
@@ -37,16 +38,16 @@ ssize_t			ft_printf(const char *format, ...)
 	i = 0;
 	if (format == NULL)
 		return (ft_putstr(NULL));
-	info = pf_infonew();
+	info = ft_infonew();
 	if (info == NULL)
 		return (-1);
 	va_start(info->args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			i += pf_distribute(info, &format[i + 1]);
+			i += ft_distribute(info, &format[i + 1]);
 		else
-			i += pf_addstr(info, &format[i]);
+			i += ft_addstr(info, &format[i]);
 		i++;
 	}
 	va_end(info->args);

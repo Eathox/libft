@@ -10,13 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += putunum_base
-objects += putunum_base_fd
-objects += putunum
-objects += putunum_cbase
-objects += putunum_cbase_fd
-objects += putunum_fd
-objects += unumlen_base
-objects += unumlen
-
-objects := $(objects:%=ft_%.o)
+objects += ft_putunum_base.o
+objects += ft_putunum_base_fd.o
+objects += ft_putunum.o
+objects += ft_putunum_cbase.o
+objects += ft_putunum_cbase_fd.o
+objects += ft_putunum_fd.o
+objects += ft_unumlen_base.o
+objects += ft_unumlen.o

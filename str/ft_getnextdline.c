@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft/str.h"
+#include "priv.h"
 #include "ft/mem.h"
 #include <sys/types.h>
 #include <sys/uio.h>

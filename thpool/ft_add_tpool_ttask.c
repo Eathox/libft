@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft/thpool.h"
+#include "priv.h"
 
 t_ttask		*ft_add_tpool_ttask(t_tpool *pool, t_ttask *task)
 {
@@ -18,8 +19,8 @@ t_ttask		*ft_add_tpool_ttask(t_tpool *pool, t_ttask *task)
 		return (NULL);
 	if (pool->alloced == FALSE && (pool->flags & TFLAG_POOL_ALLOC_ON_EXEC) != 0)
 	{
-		if (th_alloc_tpool_tthreads(&pool) == FALSE)
+		if (ft_alloc_tpool_tthreads(&pool) == FALSE)
 			return (NULL);
 	}
-	return (th_add_tqueue_ttask(pool->tasks, task));
+	return (ft_add_tqueue_ttask(pool->tasks, task));
 }

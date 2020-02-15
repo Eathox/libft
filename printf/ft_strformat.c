@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft/printf.h"
+#include "priv.h"
 #include "ft/str.h"
 #include "ft/mem.h"
 
@@ -65,7 +66,7 @@ char			*ft_strformat(const char *format, ...)
 	t_info	*info;
 
 	i = 0;
-	info = pf_infonew();
+	info = ft_infonew();
 	if (info == NULL)
 		return (NULL);
 	info->fd = -1;
@@ -73,9 +74,9 @@ char			*ft_strformat(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
-			i += pf_distribute(info, &format[i + 1]);
+			i += ft_distribute(info, &format[i + 1]);
 		else
-			i += pf_addstr(info, &format[i]);
+			i += ft_addstr(info, &format[i]);
 		i++;
 	}
 	va_end(info->args);

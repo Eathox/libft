@@ -51,7 +51,5 @@ t_bool			ft_hashmapadd(const t_hashmap *map, const void *key,
 					size_t keysize, void *value);
 void			ft_hashmapdelone(const t_hashmap *map, const void *key,
 					size_t keysize, void (*del)(void *));
-t_bool			hs_keyequ(const t_hashlist *entry, const void *key,
-					size_t keysize);
 
 #endif

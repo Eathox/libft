@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    build_objects.mk                                   :+:    :+:             #
 #                                                      +:+                     #
-#    By: Noah Loomans                                 +#+                      #
+#    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: Invalid date        by                #+#    #+#                 #
-#    Updated: 0003/01/01 00:00:00 by               ########   odam.nl          #
+#    Created: 2020/02/15 18:10:33 by pholster       #+#    #+#                 #
+#    Updated: 2020/02/15 18:10:33 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 

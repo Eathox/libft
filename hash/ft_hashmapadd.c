@@ -12,6 +12,7 @@
 
 #include "ft/hash.h"
 #include "ft/mem.h"
+#include "priv.h"
 
 static t_hashlist	*newlst(const void *key, size_t keysize, void *value)
 {
@@ -46,9 +47,9 @@ t_bool				ft_hashmapadd(const t_hashmap *map, const void *key,
 		map->arr[index] = newlst(key, keysize, value);
 		return (map->arr[index] != NULL);
 	}
-	while (current->next != NULL && hs_keyequ(current, key, keysize) == FALSE)
+	while (current->next != NULL && ft_keyequ(current, key, keysize) == FALSE)
 		current = current->next;
-	if (hs_keyequ(current, key, keysize) == TRUE)
+	if (ft_keyequ(current, key, keysize) == TRUE)
 	{
 		current->value = value;
 		return (TRUE);

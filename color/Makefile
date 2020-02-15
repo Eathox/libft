@@ -10,11 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += colorcode
-objects += colorhextorgba
-objects += colorlcode
-objects += colorncode
-objects += colorrgbatohex
-objects += colorstr
-
-objects := $(objects:%=ft_%.o)
+objects += ft_colorcode.o
+objects += ft_colorhextorgba.o
+objects += ft_colorlcode.o
+objects += ft_colorncode.o
+objects += ft_colorrgbatohex.o
+objects += ft_colorstr.o

@@ -10,21 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += termclr
-objects += termclr_fd
-objects += termcommand
-objects += termcommand_fd
-objects += termresetcolorbg
-objects += termresetcolorbg_fd
-objects += termresetcolor
-objects += termresetcolor_fd
-objects += termsetcolorbg
-objects += termsetcolorbg_fd
-objects += termsetcolor
-objects += termsetcolor_fd
-objects += termsetrgbcolorbg
-objects += termsetrgbcolorbg_fd
-objects += termsetrgbcolor
-objects += termsetrgbcolor_fd
-
-objects := $(objects:%=ft_%.o)
+objects += ft_termclr.o
+objects += ft_termclr_fd.o
+objects += ft_termcommand.o
+objects += ft_termcommand_fd.o
+objects += ft_termresetcolorbg.o
+objects += ft_termresetcolorbg_fd.o
+objects += ft_termresetcolor.o
+objects += ft_termresetcolor_fd.o
+objects += ft_termsetcolorbg.o
+objects += ft_termsetcolorbg_fd.o
+objects += ft_termsetcolor.o
+objects += ft_termsetcolor_fd.o
+objects += ft_termsetrgbcolorbg.o
+objects += ft_termsetrgbcolorbg_fd.o
+objects += ft_termsetrgbcolor.o
+objects += ft_termsetrgbcolor_fd.o

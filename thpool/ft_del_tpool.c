@@ -15,6 +15,7 @@
 #include "ft/mem.h"
 
 #include "ft/thpool.h"
+#include "priv.h"
 
 static void	del_threads(t_tpool *pool)
 {
@@ -27,7 +28,7 @@ static void	del_threads(t_tpool *pool)
 	while (i < pool->size)
 	{
 		pthread_join(pool->threads[i]->id, NULL);
-		th_del_tthread(&pool->threads[i]);
+		ft_del_tthread(&pool->threads[i]);
 		i++;
 	}
 	free(pool->threads);
@@ -39,7 +40,7 @@ void		*ft_del_tpool(t_tpool **pool)
 		return (NULL);
 	(*pool)->flags |= TFLAG_POOL_TERMINATE;
 	del_threads(*pool);
-	th_del_tqueue(&(*pool)->tasks);
+	ft_del_tqueue(&(*pool)->tasks);
 	ft_memdel((void**)pool);
 	return (NULL);
 }

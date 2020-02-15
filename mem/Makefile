@@ -10,25 +10,23 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += bzero
-objects += memalloc
-objects += memccpy
-objects += memchr
-objects += memcmp
-objects += memcpy
-objects += memdel
-objects += memdup
-objects += memequ
-objects += memindex
-objects += memmove
-objects += memrchr
-objects += memrcpy
-objects += memset4
-objects += memset
-objects += pointerreplace
-objects += putbytes
-objects += putmemory
-objects += putpointer
-objects += swap
-
-objects := $(objects:%=ft_%.o)
+objects += ft_bzero.o
+objects += ft_memalloc.o
+objects += ft_memccpy.o
+objects += ft_memchr.o
+objects += ft_memcmp.o
+objects += ft_memcpy.o
+objects += ft_memdel.o
+objects += ft_memdup.o
+objects += ft_memequ.o
+objects += ft_memindex.o
+objects += ft_memmove.o
+objects += ft_memrchr.o
+objects += ft_memrcpy.o
+objects += ft_memset4.o
+objects += ft_memset.o
+objects += ft_pointerreplace.o
+objects += ft_putbytes.o
+objects += ft_putmemory.o
+objects += ft_putpointer.o
+objects += ft_swap.o

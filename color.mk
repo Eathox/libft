@@ -1,4 +1,16 @@
-# Define's for easy color use
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    color.mk                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: pholster <pholster@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2020/02/15 18:10:25 by pholster       #+#    #+#                 #
+#    Updated: 2020/02/15 18:10:25 by pholster      ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
+# Defines for easy color use
 COLOR_DEFUALT := $(shell printf "\033[39m")
 COLOR_BLACK := $(shell printf "\033[38;5;0m")
 COLOR_RED := $(shell printf "\033[38;5;1m")

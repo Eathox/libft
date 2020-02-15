@@ -10,7 +10,5 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += putbool_fd
-objects += putbool
-
-objects := $(objects:%=ft_%.o)
+objects += ft_putbool_fd.o
+objects += ft_putbool.o

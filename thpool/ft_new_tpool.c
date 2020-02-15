@@ -13,10 +13,11 @@
 #include "ft/mem.h"
 
 #include "ft/thpool.h"
+#include "priv.h"
 
 static t_bool	alloc_queues(t_tpool *pool)
 {
-	pool->tasks = th_new_tqueue();
+	pool->tasks = ft_new_tqueue();
 	if (pool->tasks == NULL)
 		return (FALSE);
 	return (TRUE);
@@ -35,7 +36,7 @@ t_tpool			*ft_new_tpool(size_t size, t_uint64 flags)
 		return (ft_del_tpool(&pool));
 	if ((pool->flags & TFLAG_POOL_ALLOC_ON_EXEC) == 0)
 	{
-		if (th_alloc_tpool_tthreads(&pool) == FALSE)
+		if (ft_alloc_tpool_tthreads(&pool) == FALSE)
 			return (ft_del_tpool(&pool));
 	}
 	return (pool);

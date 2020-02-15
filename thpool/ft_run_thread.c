@@ -11,14 +11,15 @@
 /* ************************************************************************** */
 
 #include "ft/thpool.h"
+#include "priv.h"
 
 static void	*run_task(void *param)
 {
 	t_ttask *task;
 
 	task = (t_ttask*)param;
-	th_run_ttask(task);
-	th_complete_ttask(task);
+	ft_run_ttask(task);
+	ft_complete_ttask(task);
 	return (NULL);
 }
 

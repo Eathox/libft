@@ -87,18 +87,11 @@ struct				s_tpool
 
 // --- Alloc functions ---
 t_tpool				*ft_new_tpool(size_t size, t_uint64 flags);
-t_tthread			*th_new_tthread(t_tpool *pool, size_t num,
-									void *(*f)(void *));
-t_tqueue			*th_new_tqueue(void);
 t_ttask				*ft_new_ttask(void *(*fnc)(), t_uint64 flags,
 								size_t param_count, ...);
 
-t_bool				th_alloc_tpool_tthreads(t_tpool **pool);
-
 // --- Delete functions ---
 void				*ft_del_tpool(t_tpool **pool);
-void				*th_del_tthread(t_tthread **thread);
-void				*th_del_tqueue(t_tqueue **queue);
 void				*ft_del_ttask(t_ttask **task);
 
 // --- Sync functions ---
@@ -107,14 +100,7 @@ void				ft_join_ttask(t_ttask *task);
 void				ft_join_ttasks(t_ttask **tasks, size_t len);
 
 // --- Task functions ---
-void				th_run_ttask(t_ttask *task);
-void				th_get_ttask(t_tthread *thread);
-void				th_complete_ttask(t_ttask *task);
 t_ttask				*ft_add_tpool_ttask(t_tpool *pool, t_ttask *task);
-t_ttask				*th_add_tqueue_ttask(t_tqueue *queue, t_ttask *task);
-
-// --- Thread logic functions ---
-void				*th_worker_tthread(void *param);
 
 // --- Misc functions ---
 ssize_t				ft_get_core_count(void);

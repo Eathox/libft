@@ -20,14 +20,6 @@
 
 # define BUFF_SIZE	42
 
-typedef struct	s_gnl
-{
-	int				fd;
-	char			*str;
-	size_t			len;
-	struct s_gnl	*next;
-}				t_gnl;
-
 char			**ft_strdsplit(const char *str, const char *dlm);
 char			**ft_strsplit(const char *str, char c);
 char			*ft_strcat(char *str1, const char *str2);
