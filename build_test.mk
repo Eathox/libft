@@ -13,5 +13,5 @@
 $(OUTDIR)/cache/test/$(module)/%_test.o: $(module)/%_test.c \
 		$(all-public-headers) $($(module)-private-headers)
 	@mkdir -p $(dir $@)
-	@$(call FNC_PRINT_PLUS,$(notdir $(NAME)),$(notdir $@))
+	@$(call FNC_PRINT_PLUS,$(BASENAME),$(notdir $@))
 	@$(CC) -c $(CFLAGS) $(INCLUDE) $(shell pkg-config --cflags criterion) -o $@ $<

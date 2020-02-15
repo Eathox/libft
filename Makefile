@@ -15,6 +15,7 @@ CFLAGS += -Wall -Wextra -Wpedantic -Werror -g
 INCLUDE += -I$(OUTDIR)/include
 
 NAME = $(OUTDIR)/libft.a
+BASENAME = libft
 
 MODULES = 	\
 	types \
@@ -57,7 +58,7 @@ all: $(NAME)
 PHONY += all
 
 $(NAME): $(all-objects) $(all-makefiles)
-	@$(call FNC_PRINT_EQUAL,$(notdir $@),$@)
+	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
 	@ar rcs $@ $(filter-out $(all-makefiles),$^)
 
 define COMPILE_TEMPLATE
