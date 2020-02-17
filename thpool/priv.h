@@ -13,7 +13,7 @@
 #ifndef FT_PRIV_H
 # define FT_PRIV_H
 
-#include "ft/thpool.h"
+# include "ft/thpool.h"
 
 t_tthread			*ft_new_tthread(t_tpool *pool, size_t num,
 									void *(*f)(void *));

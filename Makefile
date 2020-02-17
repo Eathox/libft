@@ -80,9 +80,12 @@ endef
 
 $(foreach test,$(all-tests),$(eval $(call TEST_TEMPLATE, $(test))))
 
-$(OUTDIR)/include/ft/%.h: %/pub.h
-	@mkdir -p $(dir $@)
-	@cp $< $@
+define HEADER_TEMPLATE
+module := $(patsubst %.h,%,$(notdir $(1)))
+include header.mk
+endef
+
+$(foreach head,$(all-public-headers),$(eval $(call HEADER_TEMPLATE, $(head))))
 
 test: $(OUTDIR)/test-$(BASENAME)
 	@$(OUTDIR)/test-$(BASENAME)

@@ -43,4 +43,3 @@ void		ft_get_ttask(t_tthread *thread)
 	if (thread->task != NULL)
 		thread->task->next = NULL;
 }
-

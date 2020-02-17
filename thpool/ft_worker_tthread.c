@@ -21,7 +21,7 @@ void	*ft_worker_tthread(void *param)
 	while ((thread->pool->flags & TFLAG_POOL_TERMINATE) == 0)
 	{
 		ft_get_ttask(thread);
-		if (thread->task== NULL)
+		if (thread->task == NULL)
 			continue ;
 		ft_run_ttask(thread->task);
 		ft_complete_ttask(thread->task);
@@ -30,4 +30,3 @@ void	*ft_worker_tthread(void *param)
 	}
 	return (NULL);
 }
-

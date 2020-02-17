@@ -85,24 +85,19 @@ struct				s_tpool
 	t_uint64		flags;
 };
 
-// --- Alloc functions ---
 t_tpool				*ft_new_tpool(size_t size, t_uint64 flags);
 t_ttask				*ft_new_ttask(void *(*fnc)(), t_uint64 flags,
 								size_t param_count, ...);
 
-// --- Delete functions ---
 void				*ft_del_tpool(t_tpool **pool);
 void				*ft_del_ttask(t_ttask **task);
 
-// --- Sync functions ---
 void				ft_join_tpool(t_tpool *pool);
 void				ft_join_ttask(t_ttask *task);
 void				ft_join_ttasks(t_ttask **tasks, size_t len);
 
-// --- Task functions ---
 t_ttask				*ft_add_tpool_ttask(t_tpool *pool, t_ttask *task);
 
-// --- Misc functions ---
 ssize_t				ft_get_core_count(void);
 t_ttask				*ft_run_thread(pthread_t *thread, t_ttask *task);
 
