@@ -10,5 +10,5 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_putdouble.o
-objects += ft_putdouble_fd.o
+objects += ft_putdouble
+objects += ft_putdouble_fd

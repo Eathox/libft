@@ -10,5 +10,5 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_putbool_fd.o
-objects += ft_putbool.o
+objects += ft_putbool_fd
+objects += ft_putbool

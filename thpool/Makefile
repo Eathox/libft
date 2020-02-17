@@ -10,25 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_add_tpool_ttask.o
-objects += ft_del_tpool.o
-objects += ft_del_ttask.o
-objects += ft_get_core_count.o
-objects += ft_join_tpool.o
-objects += ft_join_ttask.o
-objects += ft_join_ttasks.o
-objects += ft_new_tpool.o
-objects += ft_new_ttask.o
-objects += ft_run_thread.o
+objects += ft_add_tpool_ttask
+objects += ft_del_tpool
+objects += ft_del_ttask
+objects += ft_get_core_count
+objects += ft_join_tpool
+objects += ft_join_ttask
+objects += ft_join_ttasks
+objects += ft_new_tpool
+objects += ft_new_ttask
+objects += ft_run_thread
 
 private-headers += priv.h
-objects += ft_add_tqueue_ttask.o
-objects += ft_alloc_tpool_tthreads.o
-objects += ft_complete_ttask.o
-objects += ft_del_tqueue.o
-objects += ft_del_tthread.o
-objects += ft_get_ttask.o
-objects += ft_new_tqueue.o
-objects += ft_new_tthread.o
-objects += ft_run_ttask.o
-objects += ft_worker_tthread.o
+objects += ft_add_tqueue_ttask
+objects += ft_alloc_tpool_tthreads
+objects += ft_complete_ttask
+objects += ft_del_tqueue
+objects += ft_del_tthread
+objects += ft_get_ttask
+objects += ft_new_tqueue
+objects += ft_new_tthread
+objects += ft_run_ttask
+objects += ft_worker_tthread

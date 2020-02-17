@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_colorcode.o
-objects += ft_colorhextorgba.o
-objects += ft_colorlcode.o
-objects += ft_colorncode.o
-objects += ft_colorrgbatohex.o
-objects += ft_colorstr.o
+objects += ft_colorcode
+objects += ft_colorhextorgba
+objects += ft_colorlcode
+objects += ft_colorncode
+objects += ft_colorrgbatohex
+objects += ft_colorstr

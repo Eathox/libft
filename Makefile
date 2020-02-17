@@ -51,8 +51,8 @@ $(foreach module,$(MODULES),$(eval $(call INCLUDE_TEMPLATE, $(module))))
 
 all-makefiles := $(addsuffix /Makefile,$(MODULES))
 all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h,$(MODULES))
-all-objects := $(addprefix $(OUTDIR)/cache/reg/,$(all-objects))
-all-tests := $(addprefix $(OUTDIR)/cache/test/,$(all-tests))
+all-objects := $(patsubst %,$(OUTDIR)/cache/reg/%.o,$(all-objects))
+all-tests := $(patsubst %,$(OUTDIR)/cache/test/%.o,$(all-tests))
 
 all: $(NAME)
 PHONY += all
