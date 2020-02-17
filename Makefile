@@ -69,7 +69,7 @@ endef
 $(foreach obj,$(all-objects),$(eval $(call COMPILE_TEMPLATE, $(obj))))
 
 $(OUTDIR)/test-libft: $(all-objects) $(all-tests) $(all-makefiles)
-	$(CC) $(CFLAGS) $(INCLUDE) $(shell pkg-config --libs criterion) -o $@ $(filter-out $(all-makefiles),$^)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(shell pkg-config --libs criterion) -o $@ $(filter-out $(all-makefiles),$^)
 
 define TEST_TEMPLATE
 module := $(patsubst $(OUTDIR)/cache/test/%/,%,$(dir $(1)))
