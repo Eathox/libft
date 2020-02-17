@@ -50,7 +50,7 @@ endef
 $(foreach module,$(MODULES),$(eval $(call INCLUDE_TEMPLATE, $(module))))
 
 all-makefiles := $(addsuffix /Makefile,$(MODULES))
-all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h,$(MODULES))
+all-public-headers := $(addprefix $(OUTDIR)/include/ft/,$(all-public-headers))
 all-objects := $(addprefix $(OUTDIR)/cache/reg/,$(all-objects))
 all-tests := $(addprefix $(OUTDIR)/cache/test/,$(all-tests))
 
@@ -85,7 +85,7 @@ module := $(patsubst %.h,%,$(notdir $(1)))
 include header.mk
 endef
 
-$(foreach head,$(all-public-headers),$(eval $(call HEADER_TEMPLATE, $(head))))
+$(foreach header,$(all-public-headers),$(eval $(call HEADER_TEMPLATE, $(header))))
 
 test: $(OUTDIR)/test-$(BASENAME)
 	@$(OUTDIR)/test-$(BASENAME)

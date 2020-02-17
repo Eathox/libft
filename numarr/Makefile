@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+public-headers += $(module).h
 objects += ft_numarrsortac.o
 objects += ft_numarrsort.o
 objects += ft_numarrsortrev.o

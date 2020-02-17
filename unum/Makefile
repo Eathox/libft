@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+public-headers += $(module).h
 objects += ft_putunum_base.o
 objects += ft_putunum_base_fd.o
 objects += ft_putunum.o

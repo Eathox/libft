@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+public-headers += $(module).h
 objects += ft_termclr.o
 objects += ft_termclr_fd.o
 objects += ft_termcommand.o

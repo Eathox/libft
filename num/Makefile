@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+public-headers += $(module).h
 objects += ft_abs.o
 objects += ft_atoi_base.o
 objects += ft_atoi.o

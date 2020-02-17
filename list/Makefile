@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+public-headers += $(module).h
 objects += ft_lstaddbck.o
 objects += ft_lstadd.o
 objects += ft_lstdel.o

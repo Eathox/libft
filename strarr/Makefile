@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+public-headers += $(module).h
 objects += ft_putstrarr.o
 objects += ft_strarrcpy.o
 objects += ft_strarrcpy_var.o
