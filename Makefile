@@ -84,8 +84,8 @@ $(OUTDIR)/include/ft/%.h: %/pub.h
 	@mkdir -p $(dir $@)
 	@cp $< $@
 
-test: $(OUTDIR)/test-libft
-	@$(OUTDIR)/test-libft
+test: $(OUTDIR)/test-$(BASENAME)
+	@$(OUTDIR)/test-$(BASENAME)
 PHONY += test
 
 clean:
