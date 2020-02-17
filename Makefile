@@ -58,6 +58,7 @@ all: $(NAME)
 PHONY += all
 
 $(NAME): $(all-objects) $(all-makefiles)
+	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(notdir $@))
 	@ar rcs $@ $(filter-out $(all-makefiles),$^)
 
@@ -68,7 +69,8 @@ endef
 
 $(foreach obj,$(all-objects),$(eval $(call COMPILE_TEMPLATE, $(obj))))
 
-$(OUTDIR)/test-libft: $(all-objects) $(all-tests) $(all-makefiles)
+$(OUTDIR)/test-$(BASENAME): $(all-objects) $(all-tests) $(all-makefiles)
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) $(INCLUDE) $(shell pkg-config --libs criterion) -o $@ $(filter-out $(all-makefiles),$^)
 
 define TEST_TEMPLATE
