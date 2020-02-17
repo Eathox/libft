@@ -38,7 +38,6 @@ MODULES = 	\
 
 include color.mk
 
-all-public-headers :=
 all-objects :=
 all-tests :=
 
