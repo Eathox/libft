@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_putnutf8str
-objects += ft_putnutf8str_fd
-objects += ft_pututf8
-objects += ft_pututf8_fd
-objects += ft_pututf8str
-objects += ft_pututf8str_fd
-objects += ft_utf8len
-objects += ft_utf8strlen
-objects += ft_utf8strnlen
+objects += ft_putnutf8str.o
+objects += ft_putnutf8str_fd.o
+objects += ft_pututf8.o
+objects += ft_pututf8_fd.o
+objects += ft_pututf8str.o
+objects += ft_pututf8str_fd.o
+objects += ft_utf8len.o
+objects += ft_utf8strlen.o
+objects += ft_utf8strnlen.o
