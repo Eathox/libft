@@ -10,6 +10,5 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_putbool_fd.o
 objects += ft_putbool.o

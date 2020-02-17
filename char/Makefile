@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_chrdin.o
 objects += ft_chrdindex.o
 objects += ft_chrin.o

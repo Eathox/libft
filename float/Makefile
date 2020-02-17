@@ -10,6 +10,5 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_putdouble.o
 objects += ft_putdouble_fd.o

@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_bzero.o
 objects += ft_memalloc.o
 objects += ft_memccpy.o

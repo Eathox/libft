@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_putnutf8str.o
 objects += ft_putnutf8str_fd.o
 objects += ft_pututf8.o

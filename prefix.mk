@@ -11,7 +11,5 @@
 # **************************************************************************** #
 
 $(module)-private-headers := $(addprefix $(module)/,$(private-headers))
-all-public-headers += $(public-headers)
-
 all-objects += $(addprefix $(module)/,$(objects))
 all-tests += $(addprefix $(module)/,$(tests))

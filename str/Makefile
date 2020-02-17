@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_getnextdline.o
 objects += ft_getnextline.o
 objects += ft_putendl.o

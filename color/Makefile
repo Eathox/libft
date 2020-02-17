@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_colorcode.o
 objects += ft_colorhextorgba.o
 objects += ft_colorlcode.o

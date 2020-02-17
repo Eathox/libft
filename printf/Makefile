@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_dprintf.o
 objects += ft_printf.o
 objects += ft_strformat.o

@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_hashdjb2a.o
 objects += ft_hashdjb2a_nocase.o
 objects += ft_hashdjb2.o

@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-public-headers += $(module).h
 objects += ft_add_tpool_ttask.o
 objects += ft_del_tpool.o
 objects += ft_del_ttask.o
