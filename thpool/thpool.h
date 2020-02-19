@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   thpool.h                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -22,8 +22,9 @@
 # define MAX_TTASK_PARAMS	4
 
 typedef struct s_ttask		t_ttask;
-typedef	struct s_tthread	t_tthread;
 typedef struct s_tpool		t_tpool;
+typedef	struct s_tthread	t_tthread;
+typedef	struct s_tqueue		t_tqueue;
 
 typedef	enum		e_tflags
 {
@@ -56,25 +57,6 @@ struct				s_ttask
 	t_ttask			*next;
 };
 
-typedef struct		s_tqueue
-{
-	t_ttask			*first;
-	t_ttask			*last;
-	size_t			size;
-	pthread_cond_t	cond_empty;
-	pthread_cond_t	cond_not_empty;
-	pthread_mutex_t	lock;
-}					t_tqueue;
-
-struct				s_tthread
-{
-	pthread_t		id;
-	size_t			num;
-	t_bool			running_task;
-	t_ttask			*task;
-	t_tpool			*pool;
-};
-
 struct				s_tpool
 {
 	size_t			size;
@@ -91,10 +73,12 @@ t_ttask				*ft_new_ttask(void *(*fnc)(), t_uint64 flags,
 
 void				*ft_del_tpool(t_tpool **pool);
 void				*ft_del_ttask(t_ttask **task);
+void				*ft_del_ttask_all(t_ttask **task);
 
 void				ft_join_tpool(t_tpool *pool);
 void				ft_join_ttask(t_ttask *task);
 void				ft_join_ttasks(t_ttask **tasks, size_t len);
+void				ft_join_ttask_all(t_ttask *task);
 
 t_ttask				*ft_add_tpool_ttask(t_tpool *pool, t_ttask *task);
 

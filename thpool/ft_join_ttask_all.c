@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_join_tpool.c                                    :+:    :+:            */
+/*   ft_join_ttask_all.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -11,35 +11,12 @@
 /* ************************************************************************** */
 
 #include "ft/thpool.h"
-#include "priv.h"
 
-static t_bool	threads_done(t_tpool *pool)
+void	ft_join_ttask_all(t_ttask *task)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < pool->size)
+	while (task != NULL)
 	{
-		if (pool->threads[i]->running_task == TRUE)
-			return (FALSE);
-		i++;
+		ft_join_ttask(task);
+		task = task->next;
 	}
-	return (TRUE);
-}
-
-void			ft_join_tpool(t_tpool *pool)
-{
-	t_bool	all_done;
-
-	all_done = FALSE;
-	if (pool == NULL)
-		return ;
-	pthread_mutex_lock(&pool->tasks->lock);
-	while (all_done == FALSE)
-	{
-		while (pool->tasks->size != 0)
-			pthread_cond_wait(&pool->tasks->cond_empty, &pool->tasks->lock);
-		all_done = threads_done(pool);
-	}
-	pthread_mutex_unlock(&pool->tasks->lock);
 }

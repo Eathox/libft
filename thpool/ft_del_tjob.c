@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_join_ttasks.c                                   :+:    :+:            */
+/*   ft_del_tjob.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/07 16:39:56 by pholster       #+#    #+#                */
-/*   Updated: 2020/02/07 16:39:56 by pholster      ########   odam.nl         */
+/*   Created: 2020/02/07 16:41:22 by pholster       #+#    #+#                */
+/*   Updated: 2020/02/07 16:41:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/thpool.h"
+#include "ft/mem.h"
 
-void	ft_join_ttasks(t_ttask **tasks, size_t len)
+#include "priv.h"
+
+void		*ft_del_tjob(t_tjob **job, t_bool delete_task)
 {
-	size_t	i;
-
-	i = 0;
-	if (tasks == NULL)
-		return ;
-	while (i < len)
-	{
-		ft_join_ttask(tasks[i]);
-		i++;
-	}
+	if (job == NULL || *job == NULL)
+		return (NULL);
+	if (delete_task == TRUE)
+		ft_del_ttask(&(*job)->task);
+	ft_memdel((void**)job);
+	return (NULL);
 }

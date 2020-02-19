@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_del_tqueue.c                                    :+:    :+:            */
+/*   ft_del_ttask_all.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/07 16:41:22 by pholster       #+#    #+#                */
-/*   Updated: 2020/02/07 16:41:22 by pholster      ########   odam.nl         */
+/*   Created: 2020/02/07 16:57:18 by pholster       #+#    #+#                */
+/*   Updated: 2020/02/07 16:57:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
-
 #include "ft/thpool.h"
-#include "priv.h"
 
-static void	del_jobs(t_tjob *job)
+static void	del_tasks(t_ttask *task)
 {
-	t_tjob	*next;
+	t_ttask	*next;
 
-	while (job != NULL)
+	while (task != NULL)
 	{
-		next = job->next;
-		ft_del_tjob(&job, TRUE);
-		job = next;
+		next = task->next;
+		ft_del_ttask(&task);
+		task = next;
 	}
 }
 
-void		*ft_del_tqueue(t_tqueue **queue)
+void	*ft_del_ttask_all(t_ttask **task)
 {
-	if (queue == NULL || *queue == NULL)
+	if (task == NULL || *task == NULL)
 		return (NULL);
-	del_jobs((*queue)->first);
-	pthread_mutex_destroy(&(*queue)->lock);
-	pthread_cond_destroy(&(*queue)->cond_empty);
-	pthread_cond_destroy(&(*queue)->cond_not_empty);
-	ft_memdel((void**)queue);
+	del_tasks(*task);
+	*task = NULL;
 	return (NULL);
 }

@@ -15,8 +15,12 @@
 
 static void	exract_task(t_tthread *thread, t_tqueue *tasks)
 {
-	thread->task = tasks->first;
-	tasks->first = tasks->first->next;
+	t_tjob	*job;
+
+	job = tasks->first;
+	thread->task = job->task;
+	tasks->first = job->next;
+	ft_del_tjob(&job, FALSE);
 	if (tasks->first == NULL)
 		tasks->last = NULL;
 	tasks->size--;
@@ -40,6 +44,4 @@ void		ft_get_ttask(t_tthread *thread)
 		exract_task(thread, tasks);
 	}
 	pthread_mutex_unlock(&tasks->lock);
-	if (thread->task != NULL)
-		thread->task->next = NULL;
 }
