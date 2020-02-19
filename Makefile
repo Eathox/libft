@@ -10,8 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Sublib folder names of libft
-SUBLIBS = \
+OUTDIR ?= build
+CFLAGS += -Wall -Wextra -Wpedantic -Werror -g
+INCLUDE += -I$(OUTDIR)/include
+
+NAME = $(OUTDIR)/libft.a
+BASENAME = libft
+
+MODULES = 	\
+	types \
 	printf \
 	thpool \
 	unum \
@@ -29,109 +36,72 @@ SUBLIBS = \
 	term \
 	bool \
 
+include color.mk
 
-# Libft name
-NAME = libft.a
-BASENAME = $(NAME:%.a=%)
-PARENTNAME = $(BASENAME)
+all-objects :=
+all-tests :=
 
-# Compile settings
-CCSILENT = FALSE
-CCSTRICT = -Wall -Werror -Wextra
-CCSTRICT += -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
-CCOPTIMISE =
+define INCLUDE_TEMPLATE
+module := $(1)
+include reset.mk $(module)/Makefile prefix.mk
+endef
 
-# Gcov settings
-GCOV = FALSE
-GCOVSILENT = TRUE
-GCOVFLAGS = -f -b -c
-LIBFT_DISABLE_GCOV = FALSE
+$(foreach module,$(MODULES),$(eval $(call INCLUDE_TEMPLATE, $(module))))
 
-# Mafile includes
-MAKEINCLUDES = includes/
-include $(MAKEINCLUDES)/Makefile.color
-
-# Tests info
-TESTPATH = tests
-TESTNAME = libtest
-TEST = $(TESTPATH)/$(TESTNAME)
-
-# Sublib info
-SUBLIBSPATH = .sublibs
-SUBLIBS := $(sort $(SUBLIBS))
-SUBLIBS := $(SUBLIBS:%=src/$(SUBLIBSPATH)/%.content)
-SUBLIBMAKE = $(MAKE) -s -e -C src FOLDER=$(SUBLIBSPATH)
-
-# Fclean target files
-FCLEAN := $(wildcard $(NAME) $(SUBLIBS))
-
-# Function - Get all objects of sublibs
-GETOBJS = $(shell cat $(1) | grep '\.o' | sed 's,^,src/,g')
-OBJS = $(foreach DIR,$(SUBLIBS),$(call GETOBJS,$(DIR)))
-
-# Function - Clean all sublib .content
-CLEANSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) clean &&
-SUBLIBS_CLEAN := $(foreach DIR,$(SUBLIBS),$(call CLEANSUBLIB,$(DIR))) :
-
-# Function - Clean all sublib .content
-GCOVSUBLIB = $(SUBLIBMAKE) SUBLIB=$(1:src/$(SUBLIBSPATH)/%=%) gcovreport &&
-SUBLIBS_GCOV := $(foreach DIR,$(SUBLIBS),$(call GCOVSUBLIB,$(DIR))) :
-
-# Export vars to sublib makefile
-export GCOV
-export GCOVSILENT
-export GCOVFLAGS
-export CCSILENT
-export CCSTRICT
-export CCOPTIMISE
-export PARENTNAME
-export LIBFT_DISABLE_GCOV
+all-makefiles := $(addsuffix /Makefile,$(MODULES))
+all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h,$(MODULES))
+all-objects := $(addprefix $(OUTDIR)/cache/reg/,$(all-objects))
+all-tests := $(addprefix $(OUTDIR)/cache/test/,$(all-tests))
 
 all: $(NAME)
+PHONY += all
 
-# Create $(NAME)
-$(NAME): $(SUBLIBS)
-	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(NAME))
-	@rm -f $(NAME)
-	@ar rcs $(NAME) $(OBJS)
+$(NAME): $(all-objects) $(all-makefiles)
+	@mkdir -p $(dir $@)
+	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(notdir $@))
+	@ar rcs $@ $(filter-out $(all-makefiles),$^)
 
-# Run test and gcov if $(GCOV)==TRUE
-test: $(NAME) FORCE
-ifeq ($(wildcard $(TESTPATH)),)
-	@echo "Error: $(TESTPATH) not present"
-else
-	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) OBJS="$(OBJS:src/%=../src/%)"
-	@./$(TEST)
-ifeq ($(GCOV)_$(LIBFT_DISABLE_GCOV), TRUE_FALSE)
-	@$(SUBLIBS_GCOV)
-endif
-endif
+define COMPILE_TEMPLATE
+module := $(patsubst $(OUTDIR)/cache/reg/%/,%,$(dir $(1)))
+include build_objects.mk
+endef
 
-# Compile $(SUBLIBS)
-src/$(SUBLIBSPATH)/%.content: FORCE
-	@$(SUBLIBMAKE) SUBLIB=$(@:src/$(SUBLIBSPATH)/%=%)
+$(foreach obj,$(all-objects),$(eval $(call COMPILE_TEMPLATE, $(obj))))
 
-# Clean all non .content files
+$(OUTDIR)/test-$(BASENAME): $(all-objects) $(all-tests) $(all-makefiles)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(shell pkg-config --libs criterion) -o $@ $(filter-out $(all-makefiles),$^)
+
+define TEST_TEMPLATE
+module := $(patsubst $(OUTDIR)/cache/test/%/,%,$(dir $(1)))
+include build_test.mk
+endef
+
+$(foreach test,$(all-tests),$(eval $(call TEST_TEMPLATE, $(test))))
+
+define HEADER_TEMPLATE
+module := $(patsubst %.h,%,$(notdir $(1)))
+include header.mk
+endef
+
+$(foreach header,$(all-public-headers),$(eval $(call HEADER_TEMPLATE, $(header))))
+
+test: $(OUTDIR)/test-$(BASENAME)
+	@$(OUTDIR)/test-$(BASENAME)
+PHONY += test
+
 clean:
-ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) clean
-endif
-	@$(SUBLIBS_CLEAN)
+	@rm -rf $(OUTDIR)/cache
+PHONY += clean
 
-# Clean all .content files
 fclean: clean
-ifneq ($(wildcard $(TESTPATH)),)
-	@$(MAKE) -s -e -C $(TESTPATH) NAME=$(TESTNAME) fclean
-endif
-ifneq ($(FCLEAN),)
-	@$(call FNC_PRINT_DEL,$(BASENAME),fclean $(FCLEAN:src/$(SUBLIBSPATH)/%=%))
-	@rm -f $(NAME) $(SUBLIBS)
-endif
+	@rm -rf $(OUTDIR)
+PHONY += fclean
 
-# Recompile
-re: fclean
-	@$(MAKE)
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
+PHONY += re
 
-FORCE: ;
-
-.PHONY: all test clean fclean re FORCE
+.PHONY: $(PHONY)
+.SECONDARY:
