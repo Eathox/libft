@@ -17,7 +17,7 @@ INCLUDE += -I$(OUTDIR)/include
 NAME = $(OUTDIR)/libft.a
 BASENAME = libft
 
-MODULES = 	\
+MODULES = \
 	types \
 	printf \
 	thpool \
@@ -70,7 +70,7 @@ $(foreach obj,$(all-objects),$(eval $(call COMPILE_TEMPLATE, $(obj))))
 
 $(OUTDIR)/test-$(BASENAME): $(all-objects) $(all-tests) $(all-makefiles)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDE) $(shell pkg-config --libs criterion) -o $@ $(filter-out $(all-makefiles),$^)
+	@$(CC) $(CFLAGS) $(INCLUDE) $(shell pkg-config --libs criterion) -o $@ $(filter-out $(all-makefiles),$^) $(libraries)
 
 define TEST_TEMPLATE
 module := $(patsubst $(OUTDIR)/cache/test/%/,%,$(dir $(1)))
