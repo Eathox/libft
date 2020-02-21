@@ -14,8 +14,8 @@ OUTDIR ?= build
 CFLAGS += -Wall -Wextra -Wpedantic -Werror -g
 INCLUDE += -I$(OUTDIR)/include
 
-NAME = $(OUTDIR)/libft.a
 BASENAME = libft
+NAME = $(OUTDIR)/$(BASENAME).a
 
 MODULES = \
 	types \
