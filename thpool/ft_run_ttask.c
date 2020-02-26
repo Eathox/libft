@@ -31,6 +31,5 @@ void	ft_run_ttask(t_ttask *task)
 		task->ret.v_ptr = task->f(param[0], param[1], param[2]);
 	else if (param_count == 4)
 		task->ret.v_ptr = task->f(param[0], param[1], param[2], param[3]);
-	task->completed = TRUE;
 	pthread_mutex_unlock(&task->lock);
 }
