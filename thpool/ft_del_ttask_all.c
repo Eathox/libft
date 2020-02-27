@@ -24,7 +24,7 @@ static void	del_tasks(t_ttask *task)
 	}
 }
 
-void	*ft_del_ttask_all(t_ttask **task)
+void		*ft_del_ttask_all(t_ttask **task)
 {
 	if (task == NULL || *task == NULL)
 		return (NULL);
