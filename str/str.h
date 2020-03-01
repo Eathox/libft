@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   str.h                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
+typedef struct s_list	t_list;
+
 # define BUFF_SIZE	42
 
 char			**ft_strdsplit(const char *str, const char *dlm);
@@ -27,6 +29,7 @@ char			*ft_strchr(const char *str, char c);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strdtrim(const char *str, const char *dlm);
 char			*ft_strdup(const char *str);
+char			*ft_strjoin_lst(t_list *lst);
 char			*ft_strjoin_arr(const char **arr);
 char			*ft_strjoin_var(size_t count, ...);
 char			*ft_strjoin(const char *str1, const char *str2);
