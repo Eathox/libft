@@ -41,6 +41,7 @@ objects += ft_strfldvalid.o
 objects += ft_strin.o
 objects += ft_strindex.o
 objects += ft_strisdigit.o
+objects += ft_strisfloat.o
 objects += ft_strisempty.o
 objects += ft_strishex.o
 objects += ft_strislen.o
