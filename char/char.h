@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   char.h                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -19,7 +19,6 @@
 # include "ft/bool.h"
 # include "ft/types.h"
 
-char		*ft_chrtostr(char c);
 char		ft_tolower(char c);
 char		ft_toupper(char c);
 char		ft_getchar(void);

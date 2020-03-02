@@ -16,12 +16,10 @@
 char		**ft_strsplit(const char *str, char c)
 {
 	char	**arr;
-	char	*cs;
+	char	cs[2];
 
-	cs = ft_chrtostr(c);
-	if (cs == NULL)
-		return (NULL);
+	cs[0] = c;
+	cs[1] = '\0';
 	arr = ft_strdsplit(str, cs);
-	ft_strdel(&cs);
 	return (arr);
 }

@@ -17,7 +17,6 @@ objects += ft_chrinbytes.o
 objects += ft_chrindex.o
 objects += ft_chrnin.o
 objects += ft_chrsetbytes.o
-objects += ft_chrtostr.o
 objects += ft_getchar.o
 objects += ft_isalnum.o
 objects += ft_isalpha.o
