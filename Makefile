@@ -11,7 +11,8 @@
 # **************************************************************************** #
 
 OUTDIR ?= build
-CFLAGS += -Wall -Wextra -Wpedantic -Werror -g
+CFLAGS += -g -Wall -Wextra -Werror
+CFLAGS +=  -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
 INCLUDE += -I$(OUTDIR)/include
 
 BASENAME = libft
