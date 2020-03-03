@@ -25,6 +25,7 @@ objects += ft_memrchr.o
 objects += ft_memrcpy.o
 objects += ft_memset4.o
 objects += ft_memset.o
+objects += ft_memrev.o
 objects += ft_pointerreplace.o
 objects += ft_putbytes.o
 objects += ft_putmemory.o

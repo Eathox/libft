@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strrev.c                                        :+:    :+:            */
+/*   ft_memrev.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -10,11 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
+#include "ft/types.h"
 
-#include "str.h"
+#include "mem.h"
 
-void	ft_strrev(char *str)
+void	ft_memrev(void *str, size_t size)
 {
-	ft_memrev(str, ft_strlen(str));
+	size_t	i;
+	t_uint8	temp;
+	t_uint8	*stream;
+
+	i = 0;
+	stream = str;
+	while (i < (size / 2))
+	{
+		temp = stream[i];
+		stream[i] = stream[(size - 1) - i];
+		stream[(size - 1) - i] = temp;
+		i++;
+	}
 }

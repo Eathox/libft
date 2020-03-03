@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   mem.h                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -33,6 +33,7 @@ void		*ft_memrchr(const void *str, char c, size_t len);
 void		*ft_memrcpy(void *dst, const void *src, size_t len);
 void		*ft_memset(void *str, char c, size_t len);
 void		*ft_memset4(void *str, int c, size_t len);
+void		ft_memrev(void *str, size_t size);
 void		ft_swap(void **a, void **b);
 t_bool		ft_putmemory(const void *addr, size_t size);
 t_bool		ft_putbytes(const void *bytes, size_t n);
