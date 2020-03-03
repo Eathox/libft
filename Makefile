@@ -36,6 +36,7 @@ MODULES = \
 	color \
 	term \
 	bool \
+	serialize \
 
 include color.mk
 
