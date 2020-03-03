@@ -20,7 +20,9 @@
 
 typedef struct s_list	t_list;
 
-# define BUFF_SIZE	42
+# ifndef BUFF_SIZE
+#  define BUFF_SIZE 42
+# endif
 
 char			**ft_strdsplit(const char *str, const char *dlm);
 char			**ft_strsplit(const char *str, char c);
