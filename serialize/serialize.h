@@ -25,7 +25,6 @@
 # endif
 
 /*
-** TODO: Add lseek function
 ** TODO: Seprate content to seprate struct, and keep content_pos local
 */
 
@@ -88,6 +87,8 @@ void			*ft_del_serialize(t_serialize **serialize);
 t_bool			ft_open_serialize(t_serialize *serialize, char const *file,
 					int flags, mode_t mode);
 t_bool			ft_close_serialize(t_serialize *serialize);
+off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
+					int whence);
 void			ft_clear_serialize(t_serialize *serialize);
 ssize_t			ft_read_serialize(t_serialize *serialize);
 ssize_t			ft_write_serialize(t_serialize *serialize, t_bool clear);

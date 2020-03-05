@@ -18,6 +18,7 @@ objects += ft_del_serialize.o
 
 objects += ft_open_serialize.o
 objects += ft_close_serialize.o
+objects += ft_lseek_serialize.o
 objects += ft_clear_serialize.o
 objects += ft_read_serialize.o
 objects += ft_write_serialize.o
