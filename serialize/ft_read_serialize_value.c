@@ -24,6 +24,8 @@ ssize_t		ft_read_serialize_value(t_serialize *serialize, t_uint8 **result,
 {
 	ssize_t	ret;
 
+	if (size == 0)
+		return (0);
 	*result = (t_uint8*)ft_memalloc(size);
 	if (*result == NULL)
 		return (-1);

@@ -39,6 +39,8 @@ ssize_t			ft_write_serialize_value(t_serialize *serialize,
 	t_uint8		*data;
 	t_bool		reverse;
 
+	if (size == 0)
+		return (0);
 	reverse = ft_check_correct_endian(serialize, size);
 	data = correct_endian(stream, size, reverse);
 	if (data == NULL)
