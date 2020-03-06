@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_read_serialize_uint_ptr.c                       :+:    :+:            */
+/*   ft_read_serialize_uint8_ptr.c                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,11 +13,13 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-t_uint8		*ft_read_serialize_uint8_ptr(t_serialize *serialize, size_t size,
-				ssize_t *ret)
+ssize_t		ft_read_serialize_uint8_ptr(t_serialize *serialize,
+				t_uint8 **uint8_ptr, size_t size)
 {
 	t_convert	convert;
+	ssize_t		ret;
 
-	convert.stream = ft_read_serialize_value(serialize, size, ret);
-	return (convert.uint8_ptr);
+	ret = ft_read_serialize_value(serialize, &convert.stream, size);
+	*uint8_ptr = convert.uint8_ptr;
+	return (ret);
 }

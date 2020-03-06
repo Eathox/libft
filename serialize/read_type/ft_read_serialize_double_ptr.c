@@ -13,11 +13,13 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-double		*ft_read_serialize_double_ptr(t_serialize *serialize, size_t size,
-				ssize_t *ret)
+ssize_t		ft_read_serialize_double_ptr(t_serialize *serialize,
+				double **dbl_ptr, size_t size)
 {
 	t_convert	convert;
+	ssize_t		ret;
 
-	convert.stream = ft_read_serialize_value(serialize, size, ret);
-	return (convert.dbl_ptr);
+	ret = ft_read_serialize_value(serialize, &convert.stream, size);
+	*dbl_ptr = convert.dbl_ptr;
+	return (ret);
 }

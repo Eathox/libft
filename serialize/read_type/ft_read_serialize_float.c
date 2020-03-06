@@ -13,11 +13,13 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-float		ft_read_serialize_float(t_serialize *serialize, ssize_t *ret)
+ssize_t		ft_read_serialize_float(t_serialize *serialize, float *flt)
 {
 	size_t const	size = sizeof(float);
 	t_convert		convert;
+	ssize_t			ret;
 
-	convert.stream = ft_read_serialize_value(serialize, size, ret);
-	return (*convert.flt_ptr);
+	ret = ft_read_serialize_value(serialize, &convert.stream, size);
+	*flt = *convert.flt_ptr;
+	return (ret);
 }

@@ -13,11 +13,13 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-t_int64		ft_read_serialize_int64(t_serialize *serialize, ssize_t *ret)
+ssize_t		ft_read_serialize_int64(t_serialize *serialize, t_int64 *int64)
 {
 	size_t const	size = sizeof(t_int64);
 	t_convert		convert;
+	ssize_t			ret;
 
-	convert.stream = ft_read_serialize_value(serialize, size, ret);
-	return (*convert.int64_ptr);
+	ret = ft_read_serialize_value(serialize, &convert.stream, size);
+	*int64 = *convert.int64_ptr;
+	return (ret);
 }

@@ -95,42 +95,45 @@ ssize_t			ft_write_serialize(t_serialize *serialize, t_bool clear);
 t_bool			ft_valid_endian(t_endian endian);
 t_endian		ft_get_endian(void);
 
-t_int8			ft_read_serialize_int8(t_serialize *serialize, ssize_t *ret);
-t_int8			*ft_read_serialize_int8_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-t_int16			ft_read_serialize_int16(t_serialize *serialize, ssize_t *ret);
-t_int16			*ft_read_serialize_int16_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-t_int32			ft_read_serialize_int32(t_serialize *serialize, ssize_t *ret);
-t_int32			*ft_read_serialize_int32_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-t_int64			ft_read_serialize_int64(t_serialize *serialize, ssize_t *ret);
-t_int64			*ft_read_serialize_int64_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-t_uint8			ft_read_serialize_uint8(t_serialize *serialize, ssize_t *ret);
-t_uint8			*ft_read_serialize_uint8_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-t_uint16		ft_read_serialize_uint16(t_serialize *serialize, ssize_t *ret);
-t_uint16		*ft_read_serialize_uint16_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-t_uint32		ft_read_serialize_uint32(t_serialize *serialize, ssize_t *ret);
-t_uint32		*ft_read_serialize_uint32_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-t_uint64		ft_read_serialize_uint64(t_serialize *serialize, ssize_t *ret);
-t_uint64		*ft_read_serialize_uint64_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-float			ft_read_serialize_float(t_serialize *serialize, ssize_t *ret);
-float			*ft_read_serialize_float_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-double			ft_read_serialize_double(t_serialize *serialize, ssize_t *ret);
-double			*ft_read_serialize_double_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-long double		ft_read_serialize_long_double(t_serialize *serialize,
-					ssize_t *ret);
-long double		*ft_read_serialize_long_double_ptr(t_serialize *serialize,
-					size_t size, ssize_t *ret);
-void			*ft_read_serialize_ptr(t_serialize *serialize, size_t size,
-					ssize_t *ret);
+ssize_t			ft_read_serialize_int8(t_serialize *serialize, t_int8 *int8);
+ssize_t			ft_read_serialize_int8_ptr(t_serialize *serialize,
+					t_int8 **int8_ptr, size_t size);
+ssize_t			ft_read_serialize_int16(t_serialize *serialize, t_int16 *int16);
+ssize_t			ft_read_serialize_int16_ptr(t_serialize *serialize,
+					t_int16 **int16_ptr, size_t size);
+ssize_t			ft_read_serialize_int32(t_serialize *serialize, t_int32 *int32);
+ssize_t			ft_read_serialize_int32_ptr(t_serialize *serialize,
+					t_int32 **int32_ptr, size_t size);
+ssize_t			ft_read_serialize_int64(t_serialize *serialize, t_int64 *int64);
+ssize_t			ft_read_serialize_int64_ptr(t_serialize *serialize,
+					t_int64 **int64_ptr, size_t size);
+ssize_t			ft_read_serialize_uint8(t_serialize *serialize, t_uint8 *uint8);
+ssize_t			ft_read_serialize_uint8_ptr(t_serialize *serialize,
+					t_uint8 **uint8_ptr, size_t size);
+ssize_t			ft_read_serialize_uint16(t_serialize *serialize,
+					t_uint16 *uint16);
+ssize_t			ft_read_serialize_uint16_ptr(t_serialize *serialize,
+					t_uint16 **uint16_ptr, size_t size);
+ssize_t			ft_read_serialize_uint32(t_serialize *serialize,
+					t_uint32 *uint32);
+ssize_t			ft_read_serialize_uint32_ptr(t_serialize *serialize,
+					t_uint32 **uint32_ptr, size_t size);
+ssize_t			ft_read_serialize_uint64(t_serialize *serialize,
+					t_uint64 *uint64);
+ssize_t			ft_read_serialize_uint64_ptr(t_serialize *serialize,
+					t_uint64 **uint64_ptr, size_t size);
+ssize_t			ft_read_serialize_float(t_serialize *serialize, float *flt);
+ssize_t			ft_read_serialize_float_ptr(t_serialize *serialize,
+					float **flt_ptr, size_t size);
+ssize_t			ft_read_serialize_double(t_serialize *serialize, double *dbl);
+ssize_t			ft_read_serialize_double_ptr(t_serialize *serialize,
+					double **dbl_ptr, size_t size);
+ssize_t			ft_read_serialize_long_double(t_serialize *serialize,
+					long double *ldbl);
+ssize_t			ft_read_serialize_long_double_ptr(t_serialize *serialize,
+					long double **ldbl_ptr, size_t size);
+ssize_t			ft_read_serialize_ptr(t_serialize *serialize, void **ptr,
+					size_t size);
 
 ssize_t			ft_write_serialize_int8(t_serialize *serialize, t_int8 int8);
 ssize_t			ft_write_serialize_int8_ptr(t_serialize *serialize,

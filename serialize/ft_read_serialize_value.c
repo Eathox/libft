@@ -19,18 +19,18 @@
 #include "serialize.h"
 #include "priv.h"
 
-t_uint8		*ft_read_serialize_value(t_serialize *serialize, size_t size,
-				ssize_t *ret)
+ssize_t		ft_read_serialize_value(t_serialize *serialize, t_uint8 **result,
+				size_t size)
 {
-	t_uint8		*result;
+	ssize_t	ret;
 
-	result = (t_uint8*)ft_memalloc(size);
-	if (result == NULL)
-		return (NULL);
+	*result = (t_uint8*)ft_memalloc(size);
+	if (*result == NULL)
+		return (-1);
 	if (serialize->use_buffer == TRUE)
-		*ret = ft_get_serialize_value(serialize, result, size);
+		ret = ft_get_serialize_value(serialize, *result, size);
 	else
-		*ret = read(serialize->fd, result, size);
-	ft_correct_endian(serialize, result, size);
-	return (result);
+		ret = read(serialize->fd, *result, size);
+	ft_correct_endian(serialize, *result, size);
+	return (ret);
 }

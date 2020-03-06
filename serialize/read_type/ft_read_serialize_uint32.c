@@ -13,11 +13,14 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-t_uint32	ft_read_serialize_uint32(t_serialize *serialize, ssize_t *ret)
+ssize_t		ft_read_serialize_uint32(t_serialize *serialize, t_uint32 *uint32)
 {
 	size_t const	size = sizeof(t_uint32);
 	t_convert		convert;
+	ssize_t			ret;
 
-	convert.stream = ft_read_serialize_value(serialize, size, ret);
-	return (*convert.uint32_ptr);
+	ret = ft_read_serialize_value(serialize, &convert.stream, size);
+	*uint32 = *convert.uint32_ptr;
+	return (ret);
 }
+
