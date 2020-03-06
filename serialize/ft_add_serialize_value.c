@@ -33,8 +33,8 @@ static t_bool	expand_content(t_serialize *serialize, size_t target_size)
 	return (TRUE);
 }
 
-ssize_t			ft_add_serialize_value(t_serialize *serialize, t_uint8 *stream,
-					size_t size)
+ssize_t			ft_add_serialize_value(t_serialize *serialize,
+					t_uint8 const *stream, size_t size)
 {
 	size_t	target_size;
 

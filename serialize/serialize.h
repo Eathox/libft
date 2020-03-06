@@ -138,42 +138,42 @@ ssize_t			ft_read_serialize_ptr(t_serialize *serialize, void **ptr,
 
 ssize_t			ft_write_serialize_int8(t_serialize *serialize, t_int8 int8);
 ssize_t			ft_write_serialize_int8_ptr(t_serialize *serialize,
-					t_int8 *int8_ptr, size_t size);
+					t_int8 const *int8_ptr, size_t size);
 ssize_t			ft_write_serialize_int16(t_serialize *serialize, t_int16 int16);
 ssize_t			ft_write_serialize_int16_ptr(t_serialize *serialize,
-					t_int16 *int16_ptr, size_t size);
+					t_int16 const *int16_ptr, size_t size);
 ssize_t			ft_write_serialize_int32(t_serialize *serialize, t_int32 int32);
 ssize_t			ft_write_serialize_int32_ptr(t_serialize *serialize,
-					t_int32 *int32_ptr, size_t size);
+					t_int32 const *int32_ptr, size_t size);
 ssize_t			ft_write_serialize_int64(t_serialize *serialize, t_int64 int64);
 ssize_t			ft_write_serialize_int64_ptr(t_serialize *serialize,
-					t_int64 *int64_ptr, size_t size);
+					t_int64 const *int64_ptr, size_t size);
 ssize_t			ft_write_serialize_uint8(t_serialize *serialize, t_uint8 uint8);
 ssize_t			ft_write_serialize_uint8_ptr(t_serialize *serialize,
-					t_uint8 *uint8_ptr, size_t size);
+					t_uint8 const *uint8_ptr, size_t size);
 ssize_t			ft_write_serialize_uint16(t_serialize *serialize,
 					t_uint16 uint16);
 ssize_t			ft_write_serialize_uint16_ptr(t_serialize *serialize,
-					t_uint16 *uint16_ptr, size_t size);
+					t_uint16 const *uint16_ptr, size_t size);
 ssize_t			ft_write_serialize_uint32(t_serialize *serialize,
 					t_uint32 uint32);
 ssize_t			ft_write_serialize_uint32_ptr(t_serialize *serialize,
-					t_uint32 *uint32_ptr, size_t size);
+					t_uint32 const *uint32_ptr, size_t size);
 ssize_t			ft_write_serialize_uint64(t_serialize *serialize,
 					t_uint64 uint64);
 ssize_t			ft_write_serialize_uint64_ptr(t_serialize *serialize,
-					t_uint64 *uint64_ptr, size_t size);
+					t_uint64 const *uint64_ptr, size_t size);
 ssize_t			ft_write_serialize_float(t_serialize *serialize, float flt);
 ssize_t			ft_write_serialize_float_ptr(t_serialize *serialize,
-					float *flt_ptr, size_t size);
+					float const *flt_ptr, size_t size);
 ssize_t			ft_write_serialize_double(t_serialize *serialize, double dbl);
 ssize_t			ft_write_serialize_double_ptr(t_serialize *serialize,
-					double *dbl_ptr, size_t size);
+					double const *dbl_ptr, size_t size);
 ssize_t			ft_write_serialize_long_double(t_serialize *serialize,
 					long double ldbl);
 ssize_t			ft_write_serialize_long_double_ptr(t_serialize *serialize,
-					long double *ldbl_ptr, size_t size);
-ssize_t			ft_write_serialize_ptr(t_serialize *serialize, void *ptr,
+					long double const *ldbl_ptr, size_t size);
+ssize_t			ft_write_serialize_ptr(t_serialize *serialize, void const *ptr,
 					size_t size);
 
 #endif

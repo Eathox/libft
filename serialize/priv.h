@@ -28,7 +28,7 @@ ssize_t		ft_get_serialize_value(t_serialize *serialize, t_uint8 *result,
 
 ssize_t		ft_write_serialize_value(t_serialize *serialize, t_uint8 *stream,
 				size_t size);
-ssize_t		ft_add_serialize_value(t_serialize *serialize, t_uint8 *stream,
-				size_t size);
+ssize_t		ft_add_serialize_value(t_serialize *serialize,
+				t_uint8 const *stream, size_t size);
 
 #endif
