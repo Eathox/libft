@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <string.h>
+# include <unistd.h>
 
 # include "ft/bool.h"
 # include "ft/types.h"
