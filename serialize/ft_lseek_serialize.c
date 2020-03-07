@@ -49,7 +49,7 @@ off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
 		ret = lseek_serialize(serialize, offset, whence);
 	else
 		ret = lseek(serialize->fd, offset, whence);
-	if (ret > 0)
+	if (ret >= 0)
 		serialize->pos = ret;
 	return (ret);
 }
