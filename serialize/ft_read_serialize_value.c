@@ -33,6 +33,10 @@ ssize_t		ft_read_serialize_value(t_serialize *serialize, t_uint8 **result,
 		ret = ft_get_serialize_value(serialize, *result, size);
 	else
 		ret = read(serialize->fd, *result, size);
-	ft_correct_endian(serialize, *result, size);
+	if (ret > 0)
+	{
+		serialize->pos += ret;
+		ft_correct_endian(serialize, *result, ret);
+	}
 	return (ret);
 }

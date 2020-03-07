@@ -29,12 +29,11 @@ ssize_t		ft_get_serialize_value(t_serialize *serialize, t_uint8 *result,
 		if (ft_read_serialize(serialize) < 0)
 			return (-1);
 	}
-	if (serialize->content_pos > serialize->content_size)
+	if (serialize->pos > serialize->content_size)
 		return (0);
-	max_fit = serialize->content_size - serialize->content_pos;
+	max_fit = serialize->content_size - serialize->pos;
 	if (fit > max_fit)
 		fit = max_fit;
-	ft_memcpy(result, &serialize->content[serialize->content_pos], fit);
-	serialize->content_pos += fit;
+	ft_memcpy(result, &serialize->content[serialize->pos], fit);
 	return (fit);
 }

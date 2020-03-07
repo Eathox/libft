@@ -72,7 +72,7 @@ typedef struct	s_serialize
 	t_bool			use_buffer;
 	t_endian		target_endian;
 	t_uint8			*content;
-	size_t			content_pos;
+	size_t			pos;
 	size_t			content_size;
 	size_t			content_allocated_size;
 }				t_serialize;

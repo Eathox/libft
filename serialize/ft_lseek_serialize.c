@@ -23,23 +23,21 @@ static off_t	lseek_serialize(t_serialize *serialize, off_t offset,
 	{
 		if (offset < 0)
 			return (-1);
-		serialize->content_pos = offset;
+		return (offset);
 	}
 	else if (whence == SEEK_CUR)
 	{
-		if (offset < 0 && serialize->content_pos < (size_t)-offset)
+		if (offset < 0 && serialize->pos < (size_t)-offset)
 			return (-1);
-		serialize->content_pos += offset;
+		return (serialize->pos + offset);
 	}
 	else if (whence == SEEK_END)
 	{
 		if (offset < 0 && serialize->content_size < (size_t)-offset)
 			return (-1);
-		serialize->content_pos = serialize->content_size + offset;
+		return (serialize->content_size + offset);
 	}
-	else
-		return (-1);
-	return (serialize->content_pos);
+	return (-1);
 }
 
 off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
@@ -51,5 +49,7 @@ off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
 		ret = lseek_serialize(serialize, offset, whence);
 	else
 		ret = lseek(serialize->fd, offset, whence);
+	if (ret > 0)
+		serialize->pos = ret;
 	return (ret);
 }

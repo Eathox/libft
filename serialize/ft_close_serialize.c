@@ -21,6 +21,7 @@ t_bool		ft_close_serialize(t_serialize *serialize)
 
 	ret = close(serialize->fd);
 	serialize->fd = DEFAULT_FD;
+	serialize->pos = 0;
 	if (ret < 0)
 		return (FALSE);
 	return (TRUE);

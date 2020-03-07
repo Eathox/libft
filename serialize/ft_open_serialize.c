@@ -29,5 +29,6 @@ t_bool	ft_open_serialize(t_serialize *serialize, char const *file, int flags,
 		return (FALSE);
 	}
 	serialize->fd = ret;
+	serialize->pos = 0;
 	return (TRUE);
 }

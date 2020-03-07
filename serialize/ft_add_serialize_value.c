@@ -40,15 +40,14 @@ ssize_t			ft_add_serialize_value(t_serialize *serialize,
 
 	if (serialize->use_buffer == FALSE)
 		return (-1);
-	target_size = serialize->content_pos + size;
+	target_size = serialize->pos + size;
 	if (target_size > serialize->content_allocated_size)
 	{
 		if (expand_content(serialize, target_size) == FALSE)
 			return (-1);
 	}
-	ft_memcpy(&serialize->content[serialize->content_pos], stream, size);
+	ft_memcpy(&serialize->content[serialize->pos], stream, size);
 	if (target_size > serialize->content_size)
 		serialize->content_size = target_size;
-	serialize->content_pos += size;
 	return (size);
 }

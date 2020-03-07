@@ -49,6 +49,8 @@ ssize_t			ft_write_serialize_value(t_serialize *serialize,
 		ret = ft_add_serialize_value(serialize, data, size);
 	else
 		ret = write(serialize->fd, data, size);
+	if (ret > 0)
+		serialize->pos += ret;
 	if (reverse == TRUE)
 		ft_memdel((void**)&data);
 	return (ret);
