@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft/mem.h"
+
 #include "../serialize.h"
 #include "../priv.h"
 
@@ -21,5 +23,6 @@ ssize_t	ft_read_serialize_long_double(t_serialize *serialize, long double *ldbl)
 
 	ret = ft_read_serialize_value(serialize, &convert.stream, size);
 	*ldbl = *convert.ldbl_ptr;
+	ft_memdel((void**)&convert.stream);
 	return (ret);
 }

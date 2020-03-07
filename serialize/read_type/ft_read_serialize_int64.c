@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft/mem.h"
+
 #include "../serialize.h"
 #include "../priv.h"
 
@@ -21,5 +23,6 @@ ssize_t		ft_read_serialize_int64(t_serialize *serialize, t_int64 *int64)
 
 	ret = ft_read_serialize_value(serialize, &convert.stream, size);
 	*int64 = *convert.int64_ptr;
+	ft_memdel((void**)&convert.stream);
 	return (ret);
 }
