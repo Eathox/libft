@@ -14,14 +14,14 @@
 
 #include "serialize.h"
 
-ssize_t		ft_write_serialize(t_serialize *serialize, t_bool clear)
+ssize_t		ft_write_serialize(t_serialize *serialize, t_bool close)
 {
 	ssize_t	ret;
 
 	if (serialize->use_buffer == FALSE)
 		return (-1);
 	ret = write(serialize->fd, serialize->content, serialize->content_size);
-	if (clear == TRUE)
-		ft_clear_serialize(serialize);
+	if (close == TRUE)
+		ft_close_serialize(serialize);
 	return (ret);
 }
