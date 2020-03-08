@@ -87,10 +87,10 @@ void			*ft_del_serialize(t_serialize **serialize);
 
 t_bool			ft_open_serialize(t_serialize *serialize, char const *file,
 					int flags, mode_t mode);
-t_bool			ft_close_serialize(t_serialize *serialize, t_bool free);
+t_bool			ft_close_serialize(t_serialize **serialize, t_bool free);
 off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
 					int whence);
-ssize_t			ft_write_serialize(t_serialize *serialize, t_bool close);
+ssize_t			ft_write_serialize(t_serialize *serialize);
 t_bool			ft_valid_endian(t_endian endian);
 t_endian		ft_get_endian(void);
 
