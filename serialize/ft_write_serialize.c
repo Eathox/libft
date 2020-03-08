@@ -22,6 +22,6 @@ ssize_t		ft_write_serialize(t_serialize *serialize, t_bool close)
 		return (-1);
 	ret = write(serialize->fd, serialize->content, serialize->content_size);
 	if (close == TRUE)
-		ft_close_serialize(serialize);
+		ft_close_serialize(serialize, FALSE);
 	return (ret);
 }

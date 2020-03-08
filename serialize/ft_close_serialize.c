@@ -15,7 +15,7 @@
 #include "serialize.h"
 #include "priv.h"
 
-t_bool		ft_close_serialize(t_serialize *serialize)
+t_bool		ft_close_serialize(t_serialize *serialize, t_bool free)
 {
 	int		ret;
 
@@ -23,6 +23,11 @@ t_bool		ft_close_serialize(t_serialize *serialize)
 	ft_clear_serialize(serialize);
 	serialize->fd = DEFAULT_FD;
 	serialize->pos = 0;
+	if (free == TRUE)
+	{
+		ft_del_serialize(&serialize);
+		return (TRUE);
+	}
 	if (ret < 0)
 		return (FALSE);
 	return (TRUE);
