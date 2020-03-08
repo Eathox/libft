@@ -21,6 +21,9 @@ t_bool		ft_check_correct_endian(t_serialize *serialize, size_t size);
 t_bool		ft_correct_endian(t_serialize *serialize, t_uint8 *stream,
 				size_t size);
 
+void		ft_clear_serialize(t_serialize *serialize);
+ssize_t		ft_read_serialize(t_serialize *serialize);
+
 ssize_t		ft_read_serialize_value(t_serialize *serialize, t_uint8 **result,
 				size_t size);
 ssize_t		ft_get_serialize_value(t_serialize *serialize, t_uint8 *result,

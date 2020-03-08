@@ -14,6 +14,8 @@
 
 #include "serialize.h"
 
+#include "priv.h"
+
 void	ft_clear_serialize(t_serialize *serialize)
 {
 	ft_memdel((void**)&serialize->content);

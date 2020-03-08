@@ -90,8 +90,6 @@ t_bool			ft_open_serialize(t_serialize *serialize, char const *file,
 t_bool			ft_close_serialize(t_serialize *serialize);
 off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
 					int whence);
-void			ft_clear_serialize(t_serialize *serialize);
-ssize_t			ft_read_serialize(t_serialize *serialize);
 ssize_t			ft_write_serialize(t_serialize *serialize, t_bool clear);
 t_bool			ft_valid_endian(t_endian endian);
 t_endian		ft_get_endian(void);

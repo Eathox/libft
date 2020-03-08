@@ -19,8 +19,6 @@ objects += ft_del_serialize.o
 objects += ft_open_serialize.o
 objects += ft_close_serialize.o
 objects += ft_lseek_serialize.o
-objects += ft_clear_serialize.o
-objects += ft_read_serialize.o
 objects += ft_write_serialize.o
 objects += ft_valid_endian.o
 objects += ft_get_endian.o
@@ -77,6 +75,9 @@ private-headers += priv.h
 
 objects += ft_check_correct_endian.o
 objects += ft_correct_endian.o
+
+objects += ft_clear_serialize.o
+objects += ft_read_serialize.o
 
 objects += ft_read_serialize_value.o
 objects += ft_get_serialize_value.o
