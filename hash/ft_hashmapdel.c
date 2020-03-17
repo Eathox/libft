@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
 #include <stdlib.h>
+
+#include "hash.h"
 
 void	ft_hashmapdel(t_hashmap *map, void (*del)(void *))
 {

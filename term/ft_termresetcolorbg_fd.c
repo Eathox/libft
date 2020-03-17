@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/term.h"
 #include "ft/str.h"
+
+#include "term.h"
 
 t_bool	ft_termresetcolorbg_fd(int fd)
 {

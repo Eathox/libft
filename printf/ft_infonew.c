@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/mem.h"
 #include "ft/str.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static t_info	*freeret(t_info **info)
 {

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   num.h                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,9 +13,10 @@
 #ifndef FT_NUM_H
 # define FT_NUM_H
 
-# include "ft/bool.h"
 # include <stdint.h>
 # include <string.h>
+
+# include "ft/bool.h"
 
 char		*ft_itoa_base(intmax_t value, int base);
 char		*ft_itoa_cbase(intmax_t value, int base, t_bool up);

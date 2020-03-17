@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/char.h"
+
+#include "str.h"
 
 t_bool	ft_putendl_fd(const char *str, int fd)
 {

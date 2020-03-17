@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-#include "ft/thpool.h"
+#include "thpool.h"
 
 ssize_t	ft_get_core_count(void)
 {

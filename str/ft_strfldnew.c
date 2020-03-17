@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/strarr.h"
 #include "ft/mem.h"
+
+#include "str.h"
 
 char		**ft_strfldnew(size_t x, size_t y, char c)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/numarr.h"
+#include "numarr.h"
 
 void	ft_numarrsortrev(intmax_t *arr,
 	t_bool (*f)(intmax_t, intmax_t), size_t len)

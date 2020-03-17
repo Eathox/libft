@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/term.h"
 #include "ft/str.h"
 #include "ft/char.h"
 #include "ft/num.h"
+
+#include "term.h"
 
 t_bool	ft_termsetrgbcolor_fd(t_color rgb, int fd)
 {

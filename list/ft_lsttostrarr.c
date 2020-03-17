@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/str.h"
 #include "ft/strarr.h"
+
+#include "list.h"
 
 static char	**freeret(char **arr)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
+#include "num.h"
 
 char	*ft_itoa_base(intmax_t value, int base)
 {

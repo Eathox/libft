@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/mem.h"
+
+#include "str.h"
 
 char	*ft_strncpy(char *dst, const char *src, size_t n)
 {

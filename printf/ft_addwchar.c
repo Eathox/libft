@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
+#include "printf.h"
 #include "priv.h"
 
 void	ft_addwchar(t_info *info, t_wchar c)

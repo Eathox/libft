@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
+#include "char.h"
 #include "ft/mem.h"
 #include "ft/str.h"
 

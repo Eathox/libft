@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/unum.h"
 #include "ft/char.h"
+
+#include "unum.h"
 
 t_bool	ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd)
 {

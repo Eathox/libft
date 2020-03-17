@@ -12,7 +12,7 @@
 
 #include "ft/mem.h"
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 t_tjob	*ft_new_tjob(t_ttask *task)

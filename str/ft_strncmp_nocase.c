@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/char.h"
+
+#include "str.h"
 
 int		ft_strncmp_nocase(const char *str1, const char *str2, size_t n)
 {

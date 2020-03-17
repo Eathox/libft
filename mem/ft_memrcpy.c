@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/types.h"
+
+#include "mem.h"
 
 static void	cpy_32(t_uint64 *dst_8, const t_uint64 *src_8, size_t *len)
 {

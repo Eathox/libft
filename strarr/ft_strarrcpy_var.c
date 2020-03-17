@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
 #include "ft/str.h"
+
+#include "strarr.h"
 
 char	**ft_strarrcpy_var(char **dst, size_t count, ...)
 {

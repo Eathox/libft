@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/color.h"
+#include "color.h"
 
 int		ft_colorcode(const char *str)
 {

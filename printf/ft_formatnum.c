@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/num.h"
+
+#include "printf.h"
+#include "priv.h"
 
 void		ft_formatnum(t_info *info)
 {

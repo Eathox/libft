@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
+#include "num.h"
 
 t_bool	ft_putnum_base_fd(intmax_t value, int base, int fd)
 {

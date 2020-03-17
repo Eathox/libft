@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
+#include "mem.h"
 
 t_bool		ft_memequ(const void *str1, const void *str2, size_t len)
 {

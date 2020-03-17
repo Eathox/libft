@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/mem.h"
+
+#include "list.h"
 
 t_list	*ft_lstfind_content(t_list *lst, const void *content, size_t size)
 {

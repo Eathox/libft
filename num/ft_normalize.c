@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
+#include "num.h"
 
 float	ft_normalize(intmax_t value, const intmax_t *range,
 			const intmax_t *outrange)

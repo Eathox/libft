@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
 #include "ft/str.h"
+
+#include "strarr.h"
 
 void	ft_strarrdel(char ***arr)
 {

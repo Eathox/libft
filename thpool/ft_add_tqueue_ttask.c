@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 static void	add_job_front(t_tqueue *queue, t_tjob *job)

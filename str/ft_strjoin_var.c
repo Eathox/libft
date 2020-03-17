@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/strarr.h"
 #include "ft/mem.h"
+
+#include "str.h"
 
 char			*ft_strjoin_var(size_t count, ...)
 {

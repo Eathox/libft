@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
+#include "num.h"
 
 t_bool	ft_inrange(intmax_t value, intmax_t min, intmax_t max)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
+#include "strarr.h"
 
 char	**ft_strarrdup(const char **arr)
 {

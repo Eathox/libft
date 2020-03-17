@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
 #include <unistd.h>
+
+#include "char.h"
 
 t_bool	ft_putchar_fd(char c, int fd)
 {

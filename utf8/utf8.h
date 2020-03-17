@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   utf8.h                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,8 +13,9 @@
 #ifndef FT_UTF8_H
 # define FT_UTF8_H
 
-# include "ft/bool.h"
 # include <string.h>
+
+# include "ft/bool.h"
 
 typedef	int				t_wchar;
 

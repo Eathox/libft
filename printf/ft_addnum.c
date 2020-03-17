@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/unum.h"
+
+#include "printf.h"
+#include "priv.h"
 
 void	ft_addnum(t_info *info, intmax_t value)
 {

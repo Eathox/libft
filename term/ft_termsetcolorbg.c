@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/term.h"
+#include "term.h"
 
 t_bool	ft_termsetcolorbg(t_uint8 color)
 {

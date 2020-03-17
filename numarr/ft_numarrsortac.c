@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/numarr.h"
+#include "numarr.h"
 
 t_bool		ft_numarrsortac(intmax_t current, intmax_t num)
 {

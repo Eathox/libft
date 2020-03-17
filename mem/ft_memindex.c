@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/types.h"
+
+#include "mem.h"
 
 ssize_t	ft_memindex(const void *str, char c, size_t len)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
+#include "strarr.h"
 
 void	ft_strarrnsortrev(char **arr, t_bool (*f)(const char *, const char *),
 			size_t n)

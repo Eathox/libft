@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/mem.h"
+
+#include "str.h"
 
 char	*ft_strsub(const char *str, size_t start, size_t len)
 {

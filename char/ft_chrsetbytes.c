@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
+#include "char.h"
 #include "ft/mem.h"
 
 void	ft_chrsetbytes(t_uint64 *bytes, const char *src)

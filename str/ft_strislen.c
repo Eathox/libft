@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
+#include "str.h"
 
 size_t	ft_strislen(const char *str, t_bool (*f)(char))
 {

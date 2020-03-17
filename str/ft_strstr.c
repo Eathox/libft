@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
+#include "str.h"
 
 char	*ft_strstr(const char *str, const char *needle)
 {

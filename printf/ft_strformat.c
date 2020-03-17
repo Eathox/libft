@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/str.h"
 #include "ft/mem.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static char		*joinlst(t_info *info)
 {

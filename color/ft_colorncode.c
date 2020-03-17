@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/color.h"
 #include "ft/str.h"
 #include "ft/strarr.h"
+
+#include "color.h"
 
 int		ft_colorncode(const char *str, size_t n)
 {

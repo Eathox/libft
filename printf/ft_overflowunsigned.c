@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
+#include "printf.h"
 #include "priv.h"
 
 uintmax_t	ft_overflowunsigned(t_info *info)

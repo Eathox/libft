@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/str.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static void	formatstr(t_info *info)
 {

@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/numarr.h"
 #include "ft/char.h"
 #include "ft/str.h"
 #include "ft/num.h"
+
+#include "numarr.h"
 
 t_bool	ft_putnumarr(const intmax_t *arr, size_t len)
 {

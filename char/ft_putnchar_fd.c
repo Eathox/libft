@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
 #include "ft/mem.h"
 #include "ft/str.h"
+
+#include "char.h"
 
 static size_t	putnchar_8(char c, size_t n, int fd)
 {

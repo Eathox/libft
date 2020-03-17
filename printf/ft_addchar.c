@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
+#include "printf.h"
 #include "priv.h"
 
 void	ft_addchar(t_info *info, char c)

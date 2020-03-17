@@ -12,7 +12,7 @@
 
 #include "ft/mem.h"
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 t_tqueue	*ft_new_tqueue(void)

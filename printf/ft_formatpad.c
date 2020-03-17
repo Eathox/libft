@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/char.h"
 #include "ft/str.h"
 #include "ft/num.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static size_t	addprefix(t_info *info, char *str, size_t n)
 {

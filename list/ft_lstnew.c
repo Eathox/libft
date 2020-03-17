@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/mem.h"
+
+#include "list.h"
 
 t_list			*ft_lstnew(void *content, size_t content_size)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/utf8.h"
+#include "utf8.h"
 
 size_t	ft_utf8strnlen(const t_wchar *str, size_t n)
 {

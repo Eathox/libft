@@ -12,7 +12,7 @@
 
 #include "ft/mem.h"
 
-#include "ft/thpool.h"
+#include "thpool.h"
 
 void	*ft_del_ttask(t_ttask **task)
 {

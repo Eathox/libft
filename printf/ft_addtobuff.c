@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
-#include "ft/mem.h"
 #include <unistd.h>
+
+#include "ft/mem.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static t_bool	addtolst(t_info *info)
 {

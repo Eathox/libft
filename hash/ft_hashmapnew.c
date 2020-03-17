@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
 #include "ft/mem.h"
+
+#include "hash.h"
 
 t_hashmap		*ft_hashmapnew(size_t size, size_t (*f)(const void *, size_t))
 {

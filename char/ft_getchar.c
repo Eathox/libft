@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
 #include "ft/str.h"
+
+#include "char.h"
 
 /*
 ** int		ft_getchar(void)

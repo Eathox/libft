@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
-#include "ft/str.h"
 #include <unistd.h>
+
+#include "ft/str.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static ssize_t	freeret(t_info *info)
 {

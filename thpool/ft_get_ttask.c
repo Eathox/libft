@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 static void	exract_task(t_tthread *thread, t_tqueue *tasks)

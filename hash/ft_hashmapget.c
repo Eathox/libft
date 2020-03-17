@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
+#include "hash.h"
 #include "priv.h"
 
 void	*ft_hashmapget(const t_hashmap *map, const void *key, size_t keysize)

@@ -12,7 +12,7 @@
 
 #include "ft/mem.h"
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 static void	del_jobs(t_tjob *job)

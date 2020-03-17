@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/color.h"
 #include "ft/str.h"
 #include "ft/strarr.h"
+
+#include "color.h"
 
 char	*ft_colorstr(int color)
 {

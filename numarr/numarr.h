@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   numarr.h                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,10 +13,11 @@
 #ifndef FT_NUMARR_H
 # define FT_NUMARR_H
 
-# include "ft/list.h"
-# include "ft/bool.h"
 # include <string.h>
 # include <stdint.h>
+
+# include "ft/list.h"
+# include "ft/bool.h"
 
 t_bool		ft_putnumarr(const intmax_t *arr, size_t len);
 t_list		*ft_numarrtolst(const intmax_t *arr, size_t len);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
+#include "str.h"
 
 static size_t	strtotallen(const char *str, const char *find, size_t len,
 					size_t seglen)

@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
 #include "ft/mem.h"
+
+#include "hash.h"
 #include "priv.h"
 
 t_bool	ft_keyequ(const t_hashlist *entry, const void *key, size_t keysize)

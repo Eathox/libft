@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/thpool.h"
+#include "thpool.h"
 
 static void	del_tasks(t_ttask *task)
 {

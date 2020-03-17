@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/types.h"
+
+#include "mem.h"
 
 void	*ft_memdup(const void *src, size_t len)
 {

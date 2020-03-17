@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/color.h"
+#include "color.h"
 
 t_uint32		ft_colorrgbatohex(t_color rgba)
 {

@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
 #include "ft/char.h"
 #include "ft/str.h"
+
+#include "num.h"
 
 intmax_t		ft_atoi_base(const char *str, int base)
 {

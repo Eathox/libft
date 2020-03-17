@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/char.h"
 #include "ft/str.h"
+
+#include "mem.h"
 
 static t_bool	putbit(t_uint8 c, int size)
 {

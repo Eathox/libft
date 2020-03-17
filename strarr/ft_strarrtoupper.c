@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
 #include "ft/str.h"
+
+#include "strarr.h"
 
 void	ft_strarrtoupper(char **arr)
 {

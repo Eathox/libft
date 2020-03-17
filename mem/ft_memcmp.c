@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/types.h"
+
+#include "mem.h"
 
 static int	cmp_8(const t_uint8 *str1, const t_uint8 *str2,
 						size_t *index, size_t len)

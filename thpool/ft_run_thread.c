@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 static void	*run_task(void *param)

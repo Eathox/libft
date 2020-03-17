@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/float.h"
+#include "float.h"
 
 t_bool		ft_putdouble(long double value, size_t n)
 {

@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/mem.h"
+
+#include "list.h"
 
 t_bool		ft_lstsortstrac(const t_list *sortlst, const t_list *lst)
 {

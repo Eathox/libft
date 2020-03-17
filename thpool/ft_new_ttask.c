@@ -14,7 +14,7 @@
 
 #include "ft/mem.h"
 
-#include "ft/thpool.h"
+#include "thpool.h"
 
 static t_bool	init_lock_cond(t_ttask *task)
 {

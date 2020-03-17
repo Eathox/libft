@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
+#include "mem.h"
 
 static size_t	c_pos(const void *src, void *found)
 {

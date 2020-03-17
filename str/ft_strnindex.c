@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
+#include "str.h"
 
 ssize_t		ft_strnindex(const char **arr, const char *str, size_t n)
 {

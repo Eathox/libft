@@ -13,10 +13,11 @@
 #ifndef FT_STR_H
 # define FT_STR_H
 
-# include "ft/bool.h"
 # include <string.h>
 # include <stdlib.h>
 # include <stdarg.h>
+
+# include "ft/bool.h"
 
 typedef struct s_list	t_list;
 

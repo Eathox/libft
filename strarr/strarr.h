@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   strarr.h                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,10 +13,11 @@
 #ifndef FT_STRARR_H
 # define FT_STRARR_H
 
-# include "ft/bool.h"
-# include "ft/list.h"
 # include <string.h>
 # include <stdarg.h>
+
+# include "ft/bool.h"
+# include "ft/list.h"
 
 size_t		ft_strarrlen(const char **arr);
 size_t		ft_strarrnlen(const char **arr, size_t n);

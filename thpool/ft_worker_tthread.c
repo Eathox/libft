@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 void	*ft_worker_tthread(void *param)

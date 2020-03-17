@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/strarr.h"
+
+#include "str.h"
 
 t_bool		ft_strnin(const char **arr, const char *str, size_t n)
 {

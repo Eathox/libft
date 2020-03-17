@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/numarr.h"
 #include "ft/num.h"
 #include "ft/list.h"
+
+#include "numarr.h"
 
 static t_list	*freeret(t_list **lst)
 {

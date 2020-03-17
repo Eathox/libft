@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
+#include "printf.h"
 #include "priv.h"
 
 size_t		ft_distribute(t_info *info, const char *start)

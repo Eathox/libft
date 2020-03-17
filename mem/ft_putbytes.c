@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/char.h"
 #include "ft/str.h"
+
+#include "mem.h"
 
 t_bool		ft_putbytes(const void *bytes, size_t n)
 {

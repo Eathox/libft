@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
+#include "char.h"
 
 t_bool	ft_putnchar(char c, size_t n)
 {

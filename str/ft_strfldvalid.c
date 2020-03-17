@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/char.h"
 #include "ft/strarr.h"
+
+#include "str.h"
 
 t_bool	ft_strfldvalid(const char **arr, size_t x, size_t y, const char *dlm)
 {

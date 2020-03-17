@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
 #include "ft/str.h"
+
+#include "strarr.h"
 
 char	**ft_strarrdup_var(size_t count, ...)
 {

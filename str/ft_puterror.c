@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include <unistd.h>
+
+#include "str.h"
 
 t_bool		ft_puterror(const char *str)
 {

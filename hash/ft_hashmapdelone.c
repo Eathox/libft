@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
 #include <stdlib.h>
+
+#include "hash.h"
 #include "priv.h"
 
 void	ft_hashmapdelone(const t_hashmap *map, const void *key, size_t keysize,

@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/str.h"
 #include "ft/num.h"
 #include "ft/char.h"
+
+#include "list.h"
 
 t_bool	ft_putlstsize(const t_list *lst)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
+#include "list.h"
 
 void	ft_lstinsert(t_list *head, t_list *lst)
 {

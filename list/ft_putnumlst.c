@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/str.h"
 #include "ft/num.h"
 #include "ft/char.h"
+
+#include "list.h"
 
 static t_bool	put_content(void *content, size_t size)
 {

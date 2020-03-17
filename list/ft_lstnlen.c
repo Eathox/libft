@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
+#include "list.h"
 
 size_t		ft_lstnlen(const t_list *lst, size_t n)
 {

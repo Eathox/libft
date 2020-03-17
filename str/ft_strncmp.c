@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/mem.h"
+
+#include "str.h"
 
 int		ft_strncmp(const char *str1, const char *str2, size_t n)
 {

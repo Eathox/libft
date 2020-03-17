@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/char.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static void	handleconflicts(t_info *info)
 {

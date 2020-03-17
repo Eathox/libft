@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/utf8.h"
 #include "ft/str.h"
+
+#include "utf8.h"
 
 t_bool	ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd)
 {

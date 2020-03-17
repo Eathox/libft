@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
+#include "printf.h"
 #include "priv.h"
 
 void	ft_addrgbcolor(t_info *info, t_uint8 r, t_uint8 g, t_uint8 b)

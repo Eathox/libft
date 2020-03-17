@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/mem.h"
+
+#include "list.h"
 
 static t_list	*freeret(t_list *lst)
 {

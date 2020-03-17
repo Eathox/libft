@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/str.h"
 #include "ft/num.h"
+
+#include "mem.h"
 
 t_bool	ft_putpointer(const void *ptr)
 {

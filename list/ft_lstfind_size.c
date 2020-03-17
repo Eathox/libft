@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
+#include "list.h"
 
 t_list	*ft_lstfind_size(t_list *lst, size_t size)
 {

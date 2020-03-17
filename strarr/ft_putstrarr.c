@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
 #include "ft/str.h"
+
+#include "strarr.h"
 
 t_bool	ft_putstrarr(const char **arr)
 {

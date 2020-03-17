@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
+#include "str.h"
 
 /*
 ** static void		preparemagic(long long *himagic, long long *lomagic)

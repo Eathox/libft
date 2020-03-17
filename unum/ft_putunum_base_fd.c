@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/unum.h"
+#include "unum.h"
 
 t_bool	ft_putunum_base_fd(uintmax_t value, int base, int fd)
 {

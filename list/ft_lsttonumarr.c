@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/mem.h"
+
+#include "list.h"
 
 intmax_t		*ft_lsttonumarr(t_list *lst)
 {

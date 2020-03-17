@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/char.h"
 #include "ft/str.h"
+
+#include "printf.h"
+#include "priv.h"
 
 size_t		ft_commands(t_info *info, const char *str)
 {

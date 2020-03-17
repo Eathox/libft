@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
+#include "hash.h"
 
 size_t	ft_hashsdbm(const void *key, size_t size)
 {

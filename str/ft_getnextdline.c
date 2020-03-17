@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
-#include "priv.h"
-#include "ft/mem.h"
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+
+#include "ft/mem.h"
+
+#include "str.h"
+#include "priv.h"
 
 static t_gnl	*getlst(int fd, t_gnl *lst)
 {

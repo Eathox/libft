@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/utf8.h"
+#include "utf8.h"
 
 t_bool	ft_pututf8str(const t_wchar *str)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/color.h"
+#include "color.h"
 
 void	ft_colorhextorgba(t_color *color, t_uint32 hex)
 {

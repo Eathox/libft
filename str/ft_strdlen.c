@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/char.h"
+
+#include "str.h"
 
 size_t		ft_strdlen(const char *str, const char *dlm)
 {

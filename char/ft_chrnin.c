@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
 #include "ft/str.h"
 #include "ft/mem.h"
+
+#include "char.h"
 
 t_bool		ft_chrnin(const char *str, char c, size_t n)
 {

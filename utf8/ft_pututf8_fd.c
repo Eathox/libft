@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/utf8.h"
 #include "ft/char.h"
+
+#include "utf8.h"
 
 t_bool	ft_pututf8_fd(t_wchar c, int fd)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 t_ttask		*ft_add_tpool_ttask(t_tpool *pool, t_ttask *task)

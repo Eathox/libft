@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   pub.h                                              :+:    :+:            */
+/*   unum.h                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -13,9 +13,10 @@
 #ifndef FT_UNUM_H
 # define FT_UNUM_H
 
-# include "ft/bool.h"
 # include <string.h>
 # include <stdint.h>
+
+# include "ft/bool.h"
 
 size_t		ft_unumlen_base(uintmax_t value, int base);
 size_t		ft_unumlen(uintmax_t value);

@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
 #include "ft/types.h"
+
+#include "mem.h"
 
 static void	*rchr_32_last_8(const t_uint64 *str_8, t_uint8 temp_c, size_t index)
 {

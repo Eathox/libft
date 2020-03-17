@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include <stdlib.h>
+
+#include "list.h"
 
 void	ft_lstdelone(t_list **head, void (*del)(void *, size_t))
 {

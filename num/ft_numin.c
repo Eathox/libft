@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
+#include "num.h"
 
 t_bool	ft_numin(const intmax_t *arr, intmax_t num, size_t len)
 {

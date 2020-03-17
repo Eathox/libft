@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
 #include "ft/mem.h"
+
+#include "strarr.h"
 
 char	**ft_strarrnew(size_t size)
 {

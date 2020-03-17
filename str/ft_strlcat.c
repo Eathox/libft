@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/mem.h"
+
+#include "str.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

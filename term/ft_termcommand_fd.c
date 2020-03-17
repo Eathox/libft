@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/term.h"
 #include "ft/char.h"
 #include "ft/str.h"
 #include "ft/num.h"
+
+#include "term.h"
 
 t_bool	ft_termcommand_fd(int command, int fd)
 {

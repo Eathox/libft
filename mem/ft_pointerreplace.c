@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/mem.h"
+#include "mem.h"
 
 void	*ft_pointerreplace(void **ptr1, const void *ptr2)
 {

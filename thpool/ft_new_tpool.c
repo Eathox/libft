@@ -12,7 +12,7 @@
 
 #include "ft/mem.h"
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 static t_bool	alloc_queues(t_tpool *pool)

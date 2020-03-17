@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
+#include "strarr.h"
 
 size_t	ft_strarrlen(const char **arr)
 {

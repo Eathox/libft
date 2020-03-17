@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
+#include "char.h"
 
 t_bool		ft_chrdin(const char *str, const char *dlm)
 {

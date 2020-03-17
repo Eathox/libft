@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/str.h"
 #include "ft/num.h"
+
+#include "printf.h"
+#include "priv.h"
 
 static int	setdecimals(long double value, char *decimals, ssize_t n)
 {

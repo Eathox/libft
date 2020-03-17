@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include <unistd.h>
+
+#include "str.h"
 
 t_bool	ft_putnstr_fd(const char *str, size_t n, int fd)
 {

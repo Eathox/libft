@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
+#include "str.h"
 
 size_t	ft_strmatchlen(const char *str1, const char *str2)
 {

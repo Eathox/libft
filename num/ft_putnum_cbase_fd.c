@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
 #include "ft/char.h"
+
+#include "num.h"
 
 t_bool	ft_putnum_cbase_fd(intmax_t value, int base, t_bool up, int fd)
 {

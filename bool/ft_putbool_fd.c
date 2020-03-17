@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/bool.h"
+#include "bool.h"
 #include "ft/str.h"
 
 t_bool	ft_putbool_fd(t_bool boolean, int fd)

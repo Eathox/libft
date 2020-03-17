@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/strarr.h"
 #include "ft/str.h"
 #include "ft/mem.h"
+
+#include "strarr.h"
 
 static t_list	*freeret(t_list **lst)
 {

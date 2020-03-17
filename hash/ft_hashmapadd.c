@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
 #include "ft/mem.h"
+
+#include "hash.h"
 #include "priv.h"
 
 static t_hashlist	*newlst(const void *key, size_t keysize, void *value)

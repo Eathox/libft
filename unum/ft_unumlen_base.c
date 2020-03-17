@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/unum.h"
+#include "unum.h"
 
 size_t		ft_unumlen_base(uintmax_t value, int base)
 {

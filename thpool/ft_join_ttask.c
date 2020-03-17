@@ -12,7 +12,7 @@
 
 #include <pthread.h>
 
-#include "ft/thpool.h"
+#include "thpool.h"
 
 void	ft_join_ttask(t_ttask *task)
 {

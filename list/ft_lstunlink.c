@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
+#include "list.h"
 
 t_list	*ft_lstunlink(t_list **head, t_list *lst)
 {

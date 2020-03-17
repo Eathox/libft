@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/char.h"
+#include "char.h"
 
 ssize_t		ft_chrdindex(const char *str, const char *dlm)
 {

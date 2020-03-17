@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/printf.h"
-#include "priv.h"
 #include "ft/str.h"
+
+#include "printf.h"
+#include "priv.h"
 
 size_t		ft_addstr(t_info *info, const char *str)
 {

@@ -12,7 +12,7 @@
 
 #include "ft/mem.h"
 
-#include "ft/thpool.h"
+#include "thpool.h"
 #include "priv.h"
 
 void	*ft_del_tthread(t_tthread **thread)

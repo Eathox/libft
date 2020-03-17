@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/list.h"
 #include "ft/str.h"
+
+#include "list.h"
 
 t_bool	ft_putstrlst(const t_list *lst)
 {

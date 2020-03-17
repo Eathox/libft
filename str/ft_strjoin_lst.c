@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
 #include "ft/list.h"
 #include "ft/mem.h"
+
+#include "str.h"
 
 static size_t	totallen(t_list *lst)
 {

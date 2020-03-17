@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/str.h"
+#include <unistd.h>
+
 #include "ft/mem.h"
 #include "ft/list.h"
-#include <unistd.h>
+
+#include "str.h"
 
 static ssize_t	freeret(t_list *lst, char **str)
 {

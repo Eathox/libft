@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
 #include "ft/char.h"
+
+#include "hash.h"
 
 size_t	ft_hashdjb2_nocase(const void *key, size_t size)
 {

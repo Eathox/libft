@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/num.h"
 #include "ft/unum.h"
+
+#include "num.h"
 
 size_t		ft_numlen_base(intmax_t value, int base)
 {

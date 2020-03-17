@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/hash.h"
 #include "ft/str.h"
+
+#include "hash.h"
 
 t_bool	ft_hashmapadd_str(const t_hashmap *map, const char *key, void *value)
 {

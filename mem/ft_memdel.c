@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-#include "ft/mem.h"
+#include "mem.h"
 
 void	ft_memdel(void **ap)
 {
