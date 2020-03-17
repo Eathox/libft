@@ -18,6 +18,7 @@ INCLUDE += -I$(OUTDIR)/include
 BASENAME = libft
 NAME = $(OUTDIR)/$(BASENAME).a
 
+SRCDIR = src
 MODULES = \
 	types \
 	printf \
@@ -45,15 +46,15 @@ all-tests :=
 
 define INCLUDE_TEMPLATE
 module := $(1)
-include reset.mk $(module)/Makefile prefix.mk
+include reset.mk $(SRCDIR)/$(module)/Makefile prefix.mk
 endef
 
 $(foreach module,$(MODULES),$(eval $(call INCLUDE_TEMPLATE, $(module))))
 
-all-makefiles := $(addsuffix /Makefile,$(MODULES))
-all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h,$(MODULES))
-all-objects := $(addprefix $(OUTDIR)/cache/reg/,$(all-objects))
-all-tests := $(addprefix $(OUTDIR)/cache/test/,$(all-tests))
+all-makefiles := $(patsubst %,$(SRCDIR)/%/Makefile, $(MODULES))
+all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h, $(MODULES))
+all-objects := $(addprefix $(OUTDIR)/cache/reg/, $(all-objects))
+all-tests := $(addprefix $(OUTDIR)/cache/test/, $(all-tests))
 
 all: $(NAME)
 PHONY += all

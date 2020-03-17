@@ -10,6 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-$(module)-private-headers := $(addprefix $(module)/,$(private-headers))
+$(module)-private-headers := $(addprefix $(SRCDIR)/$(module)/,$(private-headers))
 all-objects += $(addprefix $(module)/,$(objects))
 all-tests += $(addprefix $(module)/,$(tests))

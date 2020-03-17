@@ -10,6 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-$(OUTDIR)/include/ft/%.h: $(module)/%.h
+$(OUTDIR)/include/ft/%.h: $(SRCDIR)/$(module)/%.h
 	@mkdir -p $(dir $@)
 	@cp $< $@

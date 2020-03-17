@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-$(OUTDIR)/cache/reg/$(module)/%.o: $(module)/%.c \
+$(OUTDIR)/cache/reg/$(module)/%.o: $(SRCDIR)/$(module)/%.c \
 		$(all-public-headers) $($(module)-private-headers)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_PLUS,$(BASENAME),$(notdir $@))
