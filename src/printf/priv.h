@@ -5,7 +5,7 @@
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/15 17:51:50 by pholster       #+#    #+#                */
+/*   Created: 2020/02/15 17:51:50 by pholster      #+#    #+#                 */
 /*   Updated: 2020/02/15 17:51:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
@@ -24,19 +24,19 @@
 # include "ft/utf8.h"
 
 /*
-** TYPES: (% followed by:)
-** d or i = int
-** u = unsigned int
-** b = unsigned binary (base 2)
-** o = unsigned octal (base 8)
-** x = unsigned hexadecimal (base 16, lowercase)
-** X = unsigned hexadecimal (base 16, uppercase)
-** f = double
-** a = hexdouble (base 16, lowercase)
-** A = hexdouble (base 16, uppercase)
-** c = unsigned int (If an l modifier is present, wint_t (wide char))
-** s = char * (If an l modifier is present, T_WCHAR *)
-** p = void *
+** * * TYPES: (% followed by:)
+** * d or i = int
+** * u = unsigned int
+** * b = unsigned binary (base 2)
+** * o = unsigned octal (base 8)
+** * x = unsigned hexadecimal (base 16, lowercase)
+** * X = unsigned hexadecimal (base 16, uppercase)
+** * f = double
+** * a = hexdouble (base 16, lowercase)
+** * A = hexdouble (base 16, uppercase)
+** * c = unsigned int (If an l modifier is present, wint_t (wide char))
+** * s = char * (If an l modifier is present, T_WCHAR *)
+** * p = void *
 */
 
 # define PF_A_TYPE		"fdiuboxXcsp%"
