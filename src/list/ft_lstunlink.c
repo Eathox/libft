@@ -19,6 +19,7 @@ t_list	*ft_lstunlink(t_list **head, t_list *lst)
 	if (*head == lst)
 	{
 		*head = lst->next;
+		lst->next = NULL;
 		return (lst);
 	}
 	current = *head;
@@ -27,5 +28,6 @@ t_list	*ft_lstunlink(t_list **head, t_list *lst)
 	if (current == NULL)
 		return (NULL);
 	current->next = lst->next;
+	lst->next = NULL;
 	return (lst);
 }
