@@ -1,0 +1,10 @@
+Try to stick to the following function name syntax:
+(action)_(target)_(addition)
+
+Prefix the function name with ft_ if its a public function
+
+Examples:
+ft_join_ttasks
+ft_join_ttasks_all
+ft_new_serialize
+correct_serialize_endian
