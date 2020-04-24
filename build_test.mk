@@ -10,8 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-$(OUTDIR)/cache/test/$(module)/%_test.o: $(SRCDIR)/$(module)/%_test.c \
-		$(all-public-headers) $($(module)-private-headers)
+ifneq ($(wildcard $(dependency)),)
+include $(dependency)
+endif
+
+$(OUTDIR)/cache/test/$(module)/%.o: $(SRCDIR)/$(module)/%.c
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_PLUS,$(BASENAME),$(notdir $@))
-	@$(CC) -c $(CFLAGS) $(INCLUDE) $(shell pkg-config --cflags criterion) -o $@ $<
+	@$(CC) -c $(CFLAGS) $(INCLUDE) -o $@ $< $(shell pkg-config --cflags criterion)

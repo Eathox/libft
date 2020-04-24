@@ -10,8 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-$(OUTDIR)/cache/reg/$(module)/%.o: $(SRCDIR)/$(module)/%.c \
-		$(all-public-headers) $($(module)-private-headers)
+ifneq ($(wildcard $(dependency)),)
+include $(dependency)
+endif
+
+$(OUTDIR)/cache/reg/$(module)/%.o: $(SRCDIR)/$(module)/%.c
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_PLUS,$(BASENAME),$(notdir $@))
 	@$(CC) -c $(CFLAGS) $(INCLUDE) -o $@ $<

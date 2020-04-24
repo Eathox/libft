@@ -11,8 +11,9 @@
 # **************************************************************************** #
 
 OUTDIR ?= build
-CFLAGS += -g -Wall -Wextra -Werror
-CFLAGS +=  -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
+CFLAGS += -g -MD
+CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
 INCLUDE += -I$(OUTDIR)/include
 
 BASENAME = libft
@@ -59,12 +60,16 @@ all-tests := $(addprefix $(OUTDIR)/cache/test/, $(all-tests))
 all: $(NAME)
 PHONY += all
 
+$(all-tests): $(all-public-headers)
+$(all-objects): $(all-public-headers)
+
 $(NAME): $(all-objects) $(all-makefiles)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(notdir $@))
-	@ar rcs $@ $(filter-out $(all-makefiles),$^)
+	@ar rcs $@ $(all-objects)
 
 define COMPILE_TEMPLATE
+dependency := $(patsubst %.o,%.d,$(1))
 module := $(patsubst $(OUTDIR)/cache/reg/%/,%,$(dir $(1)))
 include build_objects.mk
 endef
@@ -73,9 +78,10 @@ $(foreach obj,$(all-objects),$(eval $(call COMPILE_TEMPLATE, $(obj))))
 
 $(OUTDIR)/test-$(BASENAME): $(all-objects) $(all-tests) $(all-makefiles)
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDE) $(shell pkg-config --libs criterion) -o $@ $(filter-out $(all-makefiles),$^) $(libraries)
+	@$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(all-objects) $(all-tests) $(shell pkg-config --libs criterion) $(libraries)
 
 define TEST_TEMPLATE
+dependency := $(patsubst %.o,%.d,$(1))
 module := $(patsubst $(OUTDIR)/cache/test/%/,%,$(dir $(1)))
 include build_test.mk
 endef
