@@ -1,3 +1,4 @@
+#!/bin/bash
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
@@ -10,9 +11,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-#!/bin/bash
-
-function norm {
+function normPlus {
 	NORM=$(python ~/norminette+/run.py "$1")
 	NORM=$(echo "$NORM" | grep --color=never -E "(Error: [^N])" -B 1)
 
@@ -22,6 +21,8 @@ function norm {
 	fi
 }
 
-norm "$(find . -name "Makefile")"
-norm "$(find src -name "*.c")"
+normPlus "$(find . -name "Makefile")"
+normPlus "$(find src -name "*.c")"
+
+echo "Zero normPlus errors found."
 exit 0
