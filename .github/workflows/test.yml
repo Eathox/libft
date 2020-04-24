@@ -1,0 +1,31 @@
+name: libft CI Test
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: bash ci/install.bash
+
+      - name: Norminette
+        run: bash ci/norm.bash
+
+      - name: Compile and run test
+        run: bash ci/run.bash

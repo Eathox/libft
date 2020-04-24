@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    .travisInstall.bash                                :+:    :+:             #
+#    install.bash                                       :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
@@ -20,17 +20,27 @@ function linuxInstall {
 
 function osxInstall {
 	export HOMEBREW_NO_AUTO_UPDATE=1
+
 	brew install snaipe/soft/criterion
 }
 
-if [ -z "$TRAVIS" ] || [[ $TRAVIS != true ]]; then
-	echo "Error: Not running travis"
-	exit
-elif [[ $TRAVIS_OS_NAME == "linux" ]]; then
+function generalInstall {
+	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
+}
+
+if [ -z "$GITHUB_ACTION" ]; then
+	echo "Error: Not running github actions"
+	exit 1
+fi
+
+OS_NAME=$(uname -s)
+if [[ $OS_NAME == "Linux" ]]; then
 	linuxInstall
-elif [[ $TRAVIS_OS_NAME == "osx" ]]; then
+	generalInstall
+elif [[ $OS_NAME == "Darwin" ]]; then
 	osxInstall
+	generalInstall
 else
 	echo "Error: OS is not supported"
-	exit
+	exit 1
 fi
