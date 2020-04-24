@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
@@ -15,7 +15,6 @@ objects += ft_printf.o
 objects += ft_strformat.o
 objects += ft_strformat_len.o
 
-private-headers += priv.h
 objects += ft_addchar.o
 objects += ft_addcolorbg.o
 objects += ft_addcolor.o

@@ -29,12 +29,12 @@ COLOR_BRIGHT_MAGENTA := $(shell printf "\033[38;5;13m")
 COLOR_BRIGHT_CYAN := $(shell printf "\033[38;5;14m")
 COLOR_BRIGHT_WHITE := $(shell printf "\033[38;5;15m")
 PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_DEFUALT)')
-PRINT_DEL := $(shell printf '$(COLOR_BRIGHT_YELLOW)[ ~ ]$(COLOR_DEFUALT)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_DEFUALT)')
+PRINT_MISC := $(shell printf '$(COLOR_BRIGHT_WHITE)[ ~ ]$(COLOR_DEFUALT)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_DEFUALT)')
 
 # Functions for easy terminal printing
 FNC_PRINT_MIN = printf '$(PRINT_MIN) $(1): $(2)\n'
-FNC_PRINT_DEL = printf '$(PRINT_DEL) $(1): $(2)\n'
 FNC_PRINT_PLUS = printf '$(PRINT_PLUS) $(1): $(2)\n'
+FNC_PRINT_MISC = printf '$(PRINT_MISC) $(1): $(2)\n'
 FNC_PRINT_EQUAL = printf '$(PRINT_EQUAL) $(1): $(2)\n'

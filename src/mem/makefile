@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
@@ -10,28 +10,24 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_abs.o
-objects += ft_atoi_base.o
-objects += ft_atoi.o
-objects += ft_constrain.o
-objects += ft_inrange.o
-objects += ft_itoa_base.o
-objects += ft_itoa.o
-objects += ft_itoa_cbase.o
-objects += ft_max.o
-objects += ft_min.o
-objects += ft_nearestnum.o
-objects += ft_normalize.o
-objects += ft_numin.o
-objects += ft_numlen_base.o
-objects += ft_numlen.o
-objects += ft_overflow.o
-objects += ft_percentage.o
-objects += ft_pow.o
-objects += ft_putnum_base.o
-objects += ft_putnum_base_fd.o
-objects += ft_putnum.o
-objects += ft_putnum_cbase.o
-objects += ft_putnum_cbase_fd.o
-objects += ft_putnum_fd.o
-objects += ft_sqrt.o
+objects += ft_bzero.o
+objects += ft_memalloc.o
+objects += ft_memccpy.o
+objects += ft_memchr.o
+objects += ft_memcmp.o
+objects += ft_memcpy.o
+objects += ft_memdel.o
+objects += ft_memdup.o
+objects += ft_memequ.o
+objects += ft_memindex.o
+objects += ft_memmove.o
+objects += ft_memrchr.o
+objects += ft_memrcpy.o
+objects += ft_memset4.o
+objects += ft_memset.o
+objects += ft_memrev.o
+objects += ft_pointerreplace.o
+objects += ft_putbytes.o
+objects += ft_putmemory.o
+objects += ft_putpointer.o
+objects += ft_swap.o

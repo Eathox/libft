@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
@@ -70,8 +70,6 @@ objects += write_type/ft_write_serialize_double_ptr.o
 objects += write_type/ft_write_serialize_long_double.o
 objects += write_type/ft_write_serialize_long_double_ptr.o
 objects += write_type/ft_write_serialize_ptr.o
-
-private-headers += priv.h
 
 objects += ft_check_correct_endian.o
 objects += ft_correct_endian.o

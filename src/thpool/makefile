@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.oodam.nl>         +#+                      #
 #                                                    +#+                       #
@@ -24,7 +24,6 @@ objects += ft_new_tpool.o
 objects += ft_new_ttask.o
 objects += ft_run_thread.o
 
-private-headers += priv.h
 objects += ft_add_tqueue_ttask.o
 objects += ft_alloc_tpool_tthreads.o
 objects += ft_complete_ttask.o

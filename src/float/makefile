@@ -1,15 +1,14 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    reset.mk                                           :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/02/15 18:10:20 by pholster      #+#    #+#                  #
-#    Updated: 2020/02/15 18:10:20 by pholster      ########   odam.nl          #
+#    Created: 2020/02/15 16:43:36 by pholster      #+#    #+#                  #
+#    Updated: 2020/02/15 16:43:36 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-private-headers :=
-objects :=
-tests :=
+objects += ft_putdouble.o
+objects += ft_putdouble_fd.o

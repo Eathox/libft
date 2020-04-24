@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
@@ -80,5 +80,3 @@ objects += ft_strtolower.o
 objects += ft_strtoupper.o
 objects += ft_strtrim.o
 objects += ft_wrddcount.o
-
-private-headers += priv.h

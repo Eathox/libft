@@ -1,15 +1,18 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    prefix.mk                                          :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/02/15 18:10:11 by pholster      #+#    #+#                  #
-#    Updated: 2020/02/15 18:10:11 by pholster      ########   odam.nl          #
+#    Created: 2020/02/15 16:43:36 by pholster      #+#    #+#                  #
+#    Updated: 2020/02/15 16:43:36 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-$(module)-private-headers := $(addprefix $(SRCDIR)/$(module)/,$(private-headers))
-all-objects += $(addprefix $(module)/,$(objects))
-all-tests += $(addprefix $(module)/,$(tests))
+objects += ft_colorcode.o
+objects += ft_colorhextorgba.o
+objects += ft_colorlcode.o
+objects += ft_colorncode.o
+objects += ft_colorrgbatohex.o
+objects += ft_colorstr.o

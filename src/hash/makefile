@@ -1,7 +1,7 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
+#    makefile                                           :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
@@ -10,27 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_chrdin.o
-objects += ft_chrdindex.o
-objects += ft_chrin.o
-objects += ft_chrinbytes.o
-objects += ft_chrindex.o
-objects += ft_chrnin.o
-objects += ft_chrsetbytes.o
-objects += ft_getchar.o
-objects += ft_isalnum.o
-objects += ft_isalpha.o
-objects += ft_isascii.o
-objects += ft_isblank.o
-objects += ft_isdigit.o
-objects += ft_islower.o
-objects += ft_isprint.o
-objects += ft_isspace.o
-objects += ft_isupper.o
-objects += ft_putchar.o
-objects += ft_putchar_fd.o
-objects += ft_putnchar.o
-objects += ft_putnchar_fd.o
-objects += ft_tolower.o
-objects += ft_toupper.o
-objects += ft_ishex.o
+objects += ft_hashdjb2a.o
+objects += ft_hashdjb2a_nocase.o
+objects += ft_hashdjb2.o
+objects += ft_hashdjb2_nocase.o
+objects += ft_hashmapadd.o
+objects += ft_hashmapadd_str.o
+objects += ft_hashmapdel.o
+objects += ft_hashmapdelone.o
+objects += ft_hashmapdelone_str.o
+objects += ft_hashmapget.o
+objects += ft_hashmapget_str.o
+objects += ft_hashmapnew.o
+objects += ft_hashsdbm.o
+objects += ft_hashsdbm_nocase.o
+
+objects += ft_keyequ.o
