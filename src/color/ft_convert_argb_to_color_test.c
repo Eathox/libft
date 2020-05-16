@@ -14,7 +14,6 @@
 
 #include <criterion/criterion.h>
 
-#include "ft/mem.h"
 #include "color.h"
 
 Test(ft_convert_argb_to_color, min)

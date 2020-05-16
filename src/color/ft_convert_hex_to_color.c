@@ -36,11 +36,13 @@ t_color			ft_convert_hex_to_color(
 	t_color			color;
 	const size_t	len = ft_strlen(hex);
 
-	color.r = convert_channel(&hex[0]);
-	color.g = convert_channel(&hex[2]);
-	color.b = convert_channel(&hex[4]);
-	if (len == 8)
-		color.a = convert_channel(&hex[6]);
+	if (hex[0] != '#')
+		return ((t_color){0, 0, 0, 0});
+	color.r = convert_channel(&hex[1]);
+	color.g = convert_channel(&hex[3]);
+	color.b = convert_channel(&hex[5]);
+	if (len == 9)
+		color.a = convert_channel(&hex[7]);
 	else
 		color.a = UCHAR_MAX;
 	return (color);

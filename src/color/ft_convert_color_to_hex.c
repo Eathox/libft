@@ -33,15 +33,16 @@ char		*ft_convert_color_to_hex(
 	char	*hex;
 
 	if (include_alpha == true)
-		hex = ft_strnew(8);
+		hex = ft_strnew(9);
 	else
-		hex = ft_strnew(6);
+		hex = ft_strnew(7);
 	if (hex == NULL)
 		return (NULL);
-	convert_channel(&hex[0], color.r);
-	convert_channel(&hex[2], color.g);
-	convert_channel(&hex[4], color.b);
+	hex[0] = '#';
+	convert_channel(&hex[1], color.r);
+	convert_channel(&hex[3], color.g);
+	convert_channel(&hex[5], color.b);
 	if (include_alpha == true)
-		convert_channel(&hex[6], color.a);
+		convert_channel(&hex[7], color.a);
 	return (hex);
 }
