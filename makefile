@@ -72,7 +72,7 @@ $(TESTNAME): $(all-public-headers) $(all-objects) $(all-tests)
 
 # Module rule template, defining all the rules for the given module
 define MODULE_RULE_TEMPLATE
-include makefile_mk/module_rules.mk
+include makefile_mk/module.mk
 endef
 
 # Define the rules of every module
