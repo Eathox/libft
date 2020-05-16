@@ -12,17 +12,21 @@
 # **************************************************************************** #
 
 function normPlus {
-	NORM=$(python ~/norminette+/run.py "$1")
-	NORM=$(echo "$NORM" | grep --color=never -E "(Error: [^N])" -B 1)
+	NORM=$(python ~/norminette+/run.py $@ | grep -v 'Warning: Not a valid file')
+	NORM=$(echo "$NORM" | grep -B1 --color=never -E '(Error|Warning:)')
 
-	if [[ $NORM != "" ]]; then
+	if [[ "$NORM" != "" ]]; then
 		echo "$NORM"
-		exit 1
+		ERROR=true
 	fi
 }
 
-normPlus "$(find . -name "Makefile")"
-normPlus "$(find src -name "*.c")"
+ERROR=0
+normPlus "$(find . -not -path './src/*' -type f -name '[Mm]akefile' )"
+normPlus "$(find src -type f \( -name '*.h' -o -name '*.c' \) )"
+
+if [ "$ERROR" != 0 ]; then
+	exit 1
+fi
 
 echo "Zero normPlus errors found."
-exit 0
