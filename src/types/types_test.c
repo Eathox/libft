@@ -14,6 +14,10 @@
 
 #include "types.h"
 
+/*
+** * Signed
+*/
+
 Test(types, t_int8_size)
 {
 	cr_assert_eq(sizeof(t_int8), 1);
@@ -33,6 +37,10 @@ Test(types, t_int64_size)
 {
 	cr_assert_eq(sizeof(t_int64), 8);
 }
+
+/*
+** * Unsigned
+*/
 
 Test(types, t_uint8_size)
 {
