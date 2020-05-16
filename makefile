@@ -23,7 +23,7 @@ NAME = $(OUTDIR)/$(BASENAME).a
 TESTNAME = $(OUTDIR)/test-$(BASENAME)
 
 MODULES += types
-MODULES += printf
+# MODULES += printf
 MODULES += thpool
 MODULES += unum
 MODULES += num

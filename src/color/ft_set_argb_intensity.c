@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_colorhextorgba.c                                :+:    :+:            */
+/*   ft_set_argb_intensity.c                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/06/17 14:59:08 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:05:29 by pholster      ########   odam.nl         */
+/*   Created: 2020/05/16 15:09:22 by pholster      #+#    #+#                 */
+/*   Updated: 2020/05/16 15:09:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
-void	ft_colorhextorgba(t_color *color, t_uint32 hex)
+t_uint32	ft_set_argb_intensity(
+	t_uint32 argb,
+	float intensity
+)
 {
-	color->a = (t_uint8)(hex >> 24);
-	color->r = (t_uint8)(hex >> 16);
-	color->g = (t_uint8)(hex >> 8);
-	color->b = (t_uint8)(hex);
+	t_color	color;
+
+	color = ft_convert_argb_to_color(argb);
+	color.r *= intensity;
+	color.g *= intensity;
+	color.b *= intensity;
+	return (ft_convert_color_to_argb(color));
 }

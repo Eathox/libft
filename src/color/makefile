@@ -10,9 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_colorcode.o
-objects += ft_colorhextorgba.o
-objects += ft_colorlcode.o
-objects += ft_colorncode.o
-objects += ft_colorrgbatohex.o
-objects += ft_colorstr.o
+objects += ft_convert_color_to_argb.o
+objects += ft_convert_argb_to_color.o
+tests += ft_convert_color_to_argb_test.o
+tests += ft_convert_argb_to_color_test.o
+
+objects += ft_convert_color_to_hex.o
+objects += ft_convert_hex_to_color.o
+
+# objects += ft_mix_argb.o
+# objects += ft_set_argb_intensity.o
