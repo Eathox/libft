@@ -13,6 +13,8 @@
 #ifndef FT_TYPES_H
 # define FT_TYPES_H
 
+# include <stdbool.h>
+
 typedef	char				t_int8;
 typedef	short				t_int16;
 typedef int					t_int32;
@@ -50,6 +52,8 @@ typedef union	u_convert
 	double			*dbl_ptr;
 	long double		ldbl;
 	long double		*ldbl_ptr;
+	bool			boolean;
+	bool			*boolean_ptr;
 	void			*ptr;
 	t_uint8			*stream;
 }				t_convert;
