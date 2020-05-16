@@ -23,7 +23,7 @@ size_t		ft_strdlen(const char *str, const char *dlm)
 	if (str == NULL)
 		return (0);
 	ft_chrsetbytes(bytes, dlm);
-	while (str[len] != '\0' && ft_chrinbytes(bytes, str[len]) == FALSE)
+	while (str[len] != '\0' && ft_chrinbytes(bytes, str[len]) == false)
 		len++;
 	return (len);
 }

@@ -12,7 +12,7 @@
 
 #include "char.h"
 
-t_bool	ft_putnchar(char c, size_t n)
+bool	ft_putnchar(char c, size_t n)
 {
 	return (ft_putnchar_fd(c, n, 1));
 }

@@ -14,8 +14,7 @@
 # define FT_HASH_H
 
 # include <string.h>
-
-# include "ft/bool.h"
+# include <stdbool.h>
 
 typedef struct	s_hashlist
 {
@@ -41,13 +40,13 @@ size_t			ft_hashdjb2_nocase(const void *key, size_t size);
 size_t			ft_hashdjb2a_nocase(const void *key, size_t size);
 void			ft_hashmapdel(t_hashmap *map, void (*del)(void *));
 void			*ft_hashmapget_str(const t_hashmap *map, const char *key);
-t_bool			ft_hashmapadd_str(const t_hashmap *map, const char *key,
+bool			ft_hashmapadd_str(const t_hashmap *map, const char *key,
 					void *value);
 void			ft_hashmapdelone_str(const t_hashmap *map, const char *key,
 					void (*del)(void *));
 void			*ft_hashmapget(const t_hashmap *map, const void *key,
 					size_t keysize);
-t_bool			ft_hashmapadd(const t_hashmap *map, const void *key,
+bool			ft_hashmapadd(const t_hashmap *map, const void *key,
 					size_t keysize, void *value);
 void			ft_hashmapdelone(const t_hashmap *map, const void *key,
 					size_t keysize, void (*del)(void *));

@@ -12,7 +12,7 @@
 
 #include "term.h"
 
-t_bool	ft_termclr(void)
+bool	ft_termclr(void)
 {
 	return (ft_termclr_fd(1));
 }

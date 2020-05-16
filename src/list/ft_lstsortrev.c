@@ -13,13 +13,13 @@
 #include "list.h"
 
 static t_list	*join(t_list *head, t_list *half,
-					t_bool (*f)(const t_list *, const t_list *))
+					bool (*f)(const t_list *, const t_list *))
 {
 	if (head == NULL)
 		return (half);
 	if (half == NULL)
 		return (head);
-	if (f(head, half) == FALSE)
+	if (f(head, half) == false)
 	{
 		half->next = join(head, half->next, f);
 		return (half);
@@ -29,7 +29,7 @@ static t_list	*join(t_list *head, t_list *half,
 }
 
 void			ft_lstsortrev(t_list **head,
-					t_bool (*f)(const t_list *, const t_list *))
+					bool (*f)(const t_list *, const t_list *))
 {
 	t_list	*half;
 	t_list	*temp;

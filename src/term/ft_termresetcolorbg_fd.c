@@ -14,7 +14,7 @@
 
 #include "term.h"
 
-t_bool	ft_termresetcolorbg_fd(int fd)
+bool	ft_termresetcolorbg_fd(int fd)
 {
 	return (ft_putstr_fd("\033[49m\033[K", fd));
 }

@@ -22,22 +22,22 @@ static size_t	putnchar_8(char c, size_t n, int fd)
 	ft_memset(&str, c, sizeof(str));
 	while (n > 8)
 	{
-		if (ft_putnstr_fd(str, 8, fd) == FALSE)
-			return (FALSE);
+		if (ft_putnstr_fd(str, 8, fd) == false)
+			return (false);
 		n -= 8;
 	}
 	return (n);
 }
 
-t_bool			ft_putnchar_fd(char c, size_t n, int fd)
+bool			ft_putnchar_fd(char c, size_t n, int fd)
 {
 	if (n > 8)
 		n = putnchar_8(c, n, fd);
 	while (n > 0)
 	{
-		if (ft_putchar_fd(c, fd) == FALSE)
-			return (FALSE);
+		if (ft_putchar_fd(c, fd) == false)
+			return (false);
 		n--;
 	}
-	return (TRUE);
+	return (true);
 }

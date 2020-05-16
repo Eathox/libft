@@ -16,7 +16,6 @@
 # include <string.h>
 # include <stdlib.h>
 
-# include "ft/bool.h"
 # include "ft/types.h"
 
 typedef	struct	s_color

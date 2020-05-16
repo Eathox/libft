@@ -14,7 +14,7 @@
 
 #include "num.h"
 
-char	*ft_itoa_cbase(intmax_t value, int base, t_bool up)
+char	*ft_itoa_cbase(intmax_t value, int base, bool up)
 {
 	uintmax_t	num;
 	size_t		len;
@@ -28,7 +28,7 @@ char	*ft_itoa_cbase(intmax_t value, int base, t_bool up)
 	str = ft_strnew(len);
 	if (str == NULL)
 		return (NULL);
-	if (up == TRUE)
+	if (up == true)
 		base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	else
 		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";

@@ -14,5 +14,5 @@
 
 char	*ft_itoa(intmax_t value)
 {
-	return (ft_itoa_cbase(value, 10, TRUE));
+	return (ft_itoa_cbase(value, 10, true));
 }

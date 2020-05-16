@@ -16,7 +16,7 @@
 
 #include "list.h"
 
-static t_bool	put_content(void *content, size_t size)
+static bool	put_content(void *content, size_t size)
 {
 	if (size == sizeof(char))
 		return (ft_putnum(*((char *)content)));
@@ -28,18 +28,18 @@ static t_bool	put_content(void *content, size_t size)
 		return (ft_putnum(*((long *)content)));
 	else
 		return (ft_putnum(*((intmax_t *)content)));
-	return (FALSE);
+	return (false);
 }
 
-t_bool			ft_putnumlst(const t_list *lst)
+bool			ft_putnumlst(const t_list *lst)
 {
 	if (lst == NULL)
 		return (ft_putstr(NULL));
-	if (put_content(lst->content, lst->content_size) == FALSE)
-		return (FALSE);
-	if (ft_putchar('\n') == FALSE)
-		return (FALSE);
+	if (put_content(lst->content, lst->content_size) == false)
+		return (false);
+	if (ft_putchar('\n') == false)
+		return (false);
 	if (lst->next != NULL)
 		return (ft_putnumlst(lst->next));
-	return (TRUE);
+	return (true);
 }

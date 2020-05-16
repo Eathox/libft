@@ -16,7 +16,7 @@
 ** return (((0x40 - c) < 0) && ((c - 0x5B) < 0));
 */
 
-t_bool		ft_isupper(char c)
+bool		ft_isupper(char c)
 {
 	return (c >= 'A' && c <= 'Z');
 }

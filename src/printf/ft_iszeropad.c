@@ -13,10 +13,10 @@
 #include "printf.h"
 #include "priv.h"
 
-t_bool	ft_iszeropad(const t_info *info)
+bool	ft_iszeropad(const t_info *info)
 {
 	if (info->precision != -1 && info->var_len != 0 &&
 		info->var_len >= info->precision)
-		return (FALSE);
-	return (PF_FLAG_ZERO || (info->precision != -1 && ft_isstr(info) == FALSE));
+		return (false);
+	return (PF_FLAG_ZERO || (info->precision != -1 && ft_isstr(info) == false));
 }

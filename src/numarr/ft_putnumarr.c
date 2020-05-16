@@ -16,7 +16,7 @@
 
 #include "numarr.h"
 
-t_bool	ft_putnumarr(const intmax_t *arr, size_t len)
+bool	ft_putnumarr(const intmax_t *arr, size_t len)
 {
 	size_t	i;
 
@@ -25,11 +25,11 @@ t_bool	ft_putnumarr(const intmax_t *arr, size_t len)
 		return (ft_putstr(NULL));
 	while (i < len)
 	{
-		if (ft_putnum(arr[i]) == FALSE)
-			return (FALSE);
-		if (ft_putchar('\n') == FALSE)
-			return (FALSE);
+		if (ft_putnum(arr[i]) == false)
+			return (false);
+		if (ft_putchar('\n') == false)
+			return (false);
 		i++;
 	}
-	return (TRUE);
+	return (true);
 }

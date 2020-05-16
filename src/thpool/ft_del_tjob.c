@@ -14,11 +14,11 @@
 
 #include "priv.h"
 
-void		*ft_del_tjob(t_tjob **job, t_bool delete_task)
+void		*ft_del_tjob(t_tjob **job, bool delete_task)
 {
 	if (job == NULL || *job == NULL)
 		return (NULL);
-	if (delete_task == TRUE)
+	if (delete_task == true)
 		ft_del_ttask(&(*job)->task);
 	ft_memdel((void**)job);
 	return (NULL);

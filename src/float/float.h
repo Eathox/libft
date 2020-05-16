@@ -14,12 +14,11 @@
 # define FT_FLOAT_H
 
 # include <string.h>
-
-# include "ft/bool.h"
+# include <stdbool.h>
 
 # define MAX_DOUBLE_PRECISION 10
 
-t_bool		ft_putdouble_fd(long double value, size_t n, int fd);
-t_bool		ft_putdouble(long double value, size_t n);
+bool		ft_putdouble_fd(long double value, size_t n, int fd);
+bool		ft_putdouble(long double value, size_t n);
 
 #endif

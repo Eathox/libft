@@ -38,7 +38,6 @@ MODULES += list
 MODULES += hash
 MODULES += color
 MODULES += term
-MODULES += bool
 MODULES += serialize
 
 include makefile_mk/color.mk

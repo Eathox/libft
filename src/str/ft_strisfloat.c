@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool		ft_strisfloat(const char *str)
+bool		ft_strisfloat(const char *str)
 {
 	size_t	len;
 
@@ -23,7 +23,7 @@ t_bool		ft_strisfloat(const char *str)
 		len++;
 	len += ft_strislen(&str[len], &ft_isdigit);
 	if (str[len] != '.')
-		return (FALSE);
+		return (false);
 	len++;
 	len += ft_strislen(&str[len], &ft_isdigit);
 	return (str[len] == '\0');

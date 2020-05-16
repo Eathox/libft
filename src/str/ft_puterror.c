@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool		ft_puterror(const char *str)
+bool		ft_puterror(const char *str)
 {
 	if (str == NULL)
 		return (write(2, "(null)", 6) != -1);

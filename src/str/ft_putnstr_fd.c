@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool	ft_putnstr_fd(const char *str, size_t n, int fd)
+bool	ft_putnstr_fd(const char *str, size_t n, int fd)
 {
 	if (str == NULL)
 		return (write(fd, "(null)", n) != -1);

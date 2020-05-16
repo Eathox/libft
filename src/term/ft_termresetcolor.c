@@ -12,7 +12,7 @@
 
 #include "term.h"
 
-t_bool	ft_termresetcolor(void)
+bool	ft_termresetcolor(void)
 {
 	return (ft_termresetcolor_fd(1));
 }

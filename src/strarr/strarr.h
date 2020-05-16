@@ -15,8 +15,8 @@
 
 # include <string.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
-# include "ft/bool.h"
 # include "ft/list.h"
 
 size_t		ft_strarrlen(const char **arr);
@@ -31,18 +31,18 @@ void		ft_strarrdel(char ***arr);
 void		ft_strarrrev(char **arr);
 void		ft_strarrtolower(char **arr);
 void		ft_strarrtoupper(char **arr);
-t_bool		ft_strarrsortac(const char *current, const char *str);
-t_bool		ft_putstrarr(const char **arr);
+bool		ft_strarrsortac(const char *current, const char *str);
+bool		ft_putstrarr(const char **arr);
 void		ft_strarrsort(char **const arr,
-				t_bool (*f)(const char *, const char *));
+				bool (*f)(const char *, const char *));
 void		ft_strarrsortrev(char **arr,
-				t_bool (*f)(const char *, const char *));
+				bool (*f)(const char *, const char *));
 void		ft_strarrnsort(char **arr,
-				t_bool (*f)(const char *, const char *), size_t n);
+				bool (*f)(const char *, const char *), size_t n);
 void		ft_strarrnsortrev(char **arr,
-				t_bool (*f)(const char *, const char *), size_t n);
+				bool (*f)(const char *, const char *), size_t n);
 char		**ft_strfldnew(size_t x, size_t y, char c);
-t_bool		ft_strfldvalid(const char **arr, size_t x, size_t y,
+bool		ft_strfldvalid(const char **arr, size_t x, size_t y,
 				const char *dlm);
 
 #endif

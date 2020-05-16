@@ -22,7 +22,7 @@ void		ft_formatbackpad(t_info *info)
 
 	i = info->padadded;
 	len = ft_max(0, info->width) - info->var_len;
-	if (PF_FLAG_MIN == FALSE)
+	if (PF_FLAG_MIN == false)
 		return ;
 	while (i < len)
 	{

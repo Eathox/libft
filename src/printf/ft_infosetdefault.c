@@ -23,12 +23,12 @@ void	ft_infosetdefault(t_info *info)
 	info->var_type = -1;
 	info->var_base = -1;
 	info->padadded = 0;
-	PF_FLAG_HASH = FALSE;
-	PF_FLAG_ZERO = FALSE;
-	PF_FLAG_MIN = FALSE;
-	PF_FLAG_PLUS = FALSE;
-	PF_FLAG_SPACE = FALSE;
-	PF_FLAG_APOST = FALSE;
-	info->is_zero = FALSE;
-	info->is_negative = FALSE;
+	PF_FLAG_HASH = false;
+	PF_FLAG_ZERO = false;
+	PF_FLAG_MIN = false;
+	PF_FLAG_PLUS = false;
+	PF_FLAG_SPACE = false;
+	PF_FLAG_APOST = false;
+	info->is_zero = false;
+	info->is_negative = false;
 }

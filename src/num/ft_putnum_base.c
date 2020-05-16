@@ -12,7 +12,7 @@
 
 #include "num.h"
 
-t_bool	ft_putnum_base(intmax_t value, int base)
+bool	ft_putnum_base(intmax_t value, int base)
 {
-	return (ft_putnum_cbase_fd(value, base, TRUE, 1));
+	return (ft_putnum_cbase_fd(value, base, true, 1));
 }

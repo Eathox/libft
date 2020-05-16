@@ -13,10 +13,9 @@
 #ifndef FT_PRIV_H
 # define FT_PRIV_H
 
-# include "ft/bool.h"
-# include "ft/hash.h"
+# include "hash.h"
 
-t_bool			ft_keyequ(const t_hashlist *entry, const void *key,
+bool			ft_keyequ(const t_hashlist *entry, const void *key,
 					size_t keysize);
 
 #endif

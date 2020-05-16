@@ -38,7 +38,7 @@ struct				s_tthread
 {
 	pthread_t		id;
 	size_t			num;
-	t_bool			running_task;
+	bool			running_task;
 	t_ttask			*task;
 	t_tpool			*pool;
 };
@@ -47,9 +47,9 @@ t_tjob				*ft_new_tjob(t_ttask *task);
 t_tthread			*ft_new_tthread(t_tpool *pool, size_t num,
 									void *(*f)(void *));
 t_tqueue			*ft_new_tqueue(void);
-t_bool				ft_alloc_tpool_tthreads(t_tpool **pool);
+bool				ft_alloc_tpool_tthreads(t_tpool **pool);
 
-void				*ft_del_tjob(t_tjob **job, t_bool delete_task);
+void				*ft_del_tjob(t_tjob **job, bool delete_task);
 void				*ft_del_tthread(t_tthread **thread);
 void				*ft_del_tqueue(t_tqueue **queue);
 

@@ -43,7 +43,7 @@ char		**ft_strdsplit(const char *str, const char *dlm)
 	ft_chrsetbytes(bytes, dlm);
 	while (str[i] != '\0')
 	{
-		if (ft_chrinbytes(bytes, str[i]) == FALSE)
+		if (ft_chrinbytes(bytes, str[i]) == false)
 		{
 			len = ft_strdlen(&str[i], dlm);
 			addword(arr, ft_strndup(&str[i], len), &word);

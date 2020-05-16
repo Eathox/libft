@@ -12,7 +12,7 @@
 
 #include "char.h"
 
-t_bool		ft_isalpha(char c)
+bool		ft_isalpha(char c)
 {
 	return (ft_islower(c) || ft_isupper(c));
 }

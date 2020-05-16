@@ -22,7 +22,7 @@ ssize_t		ft_get_serialize_value(t_serialize *serialize, t_uint8 *result,
 	size_t	max_fit;
 
 	fit = size;
-	if (serialize->use_buffer == FALSE)
+	if (serialize->use_buffer == false)
 		return (-1);
 	if (serialize->content == NULL)
 	{

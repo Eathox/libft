@@ -31,7 +31,7 @@
 ** 	size_t	len;
 **
 ** 	len = 0;
-** 	while (TRUE)
+** 	while (true)
 ** 	{
 ** 		if (((str[len] - lomagic) & (~str[len] & himagic)) != 0)
 ** 		{

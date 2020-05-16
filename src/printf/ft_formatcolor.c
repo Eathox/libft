@@ -40,7 +40,7 @@ static size_t	getrgb(const char *str, t_uint8 *rgb)
 	return (2 + totallen);
 }
 
-static size_t	addcolorrgb(t_info *info, t_bool bck, size_t len, t_uint8 *rgb)
+static size_t	addcolorrgb(t_info *info, bool bck, size_t len, t_uint8 *rgb)
 {
 	t_uint8	r;
 	t_uint8	g;
@@ -56,7 +56,7 @@ static size_t	addcolorrgb(t_info *info, t_bool bck, size_t len, t_uint8 *rgb)
 	return (2 + len + bck);
 }
 
-static size_t	addcolor(t_info *info, t_bool bck, size_t len, int color)
+static size_t	addcolor(t_info *info, bool bck, size_t len, int color)
 {
 	if (bck)
 		ft_addcolorbg(info, color);
@@ -71,7 +71,7 @@ size_t			ft_formatcolor(t_info *info, const char *str)
 	char	*colorstr;
 	int		color;
 	size_t	len;
-	t_bool	bck;
+	bool	bck;
 
 	bck = (*str == '!');
 	color = ft_colorlcode(&str[bck]);

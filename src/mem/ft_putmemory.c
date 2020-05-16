@@ -15,44 +15,44 @@
 
 #include "mem.h"
 
-static t_bool	putbit(t_uint8 c, int size)
+static bool	putbit(t_uint8 c, int size)
 {
 	char	*base_str;
 
 	base_str = "0123456789abcdef";
 	if (size <= 0)
-		return (TRUE);
+		return (true);
 	if (size > 1)
 	{
-		if (putbit(c / 16, size - 1) == FALSE)
-			return (FALSE);
+		if (putbit(c / 16, size - 1) == false)
+			return (false);
 	}
 	return (ft_putchar(base_str[c % 16]));
 }
 
-static t_bool	putcontent(const t_uint8 *content, size_t size)
+static bool	putcontent(const t_uint8 *content, size_t size)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < size)
 	{
-		if (ft_isprint(content[i]) == FALSE)
+		if (ft_isprint(content[i]) == false)
 		{
-			if (ft_putchar('.') == FALSE)
-				return (FALSE);
+			if (ft_putchar('.') == false)
+				return (false);
 		}
 		else
 		{
-			if (ft_putchar(content[i]) == FALSE)
-				return (FALSE);
+			if (ft_putchar(content[i]) == false)
+				return (false);
 		}
 		i++;
 	}
 	return (ft_putchar('\n'));
 }
 
-static t_bool	putreport(const t_uint8 *mem, size_t i)
+static bool	putreport(const t_uint8 *mem, size_t i)
 {
 	size_t		printed;
 
@@ -61,18 +61,18 @@ static t_bool	putreport(const t_uint8 *mem, size_t i)
 		printed = 16;
 	if ((i % 2) != 0)
 	{
-		if (ft_putnchar(' ', 3) == FALSE)
-			return (FALSE);
+		if (ft_putnchar(' ', 3) == false)
+			return (false);
 	}
 	if (printed != 0)
 	{
-		if (ft_putnchar(' ', (8 - (printed / 2)) * 5) == FALSE)
-			return (FALSE);
+		if (ft_putnchar(' ', (8 - (printed / 2)) * 5) == false)
+			return (false);
 	}
 	return (putcontent(&mem[i - printed + (i % 2)], printed - (i % 2)));
 }
 
-t_bool			ft_putmemory(const void *addr, size_t size)
+bool			ft_putmemory(const void *addr, size_t size)
 {
 	const t_uint8	*mem;
 	size_t			i;
@@ -84,18 +84,18 @@ t_bool			ft_putmemory(const void *addr, size_t size)
 	while (i < size)
 	{
 		i++;
-		if (putbit(mem[i - 1], 2) == FALSE)
-			return (FALSE);
+		if (putbit(mem[i - 1], 2) == false)
+			return (false);
 		if ((i % 2) == 0)
 		{
-			if (ft_putchar(' ') == FALSE)
-				return (FALSE);
+			if (ft_putchar(' ') == false)
+				return (false);
 		}
 		if ((i % 16) == 0 || i == size)
 		{
-			if (putreport(mem, i) == FALSE)
-				return (FALSE);
+			if (putreport(mem, i) == false)
+				return (false);
 		}
 	}
-	return (TRUE);
+	return (true);
 }

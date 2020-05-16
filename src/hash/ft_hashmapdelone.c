@@ -25,7 +25,7 @@ void	ft_hashmapdelone(const t_hashmap *map, const void *key, size_t keysize,
 	prv = NULL;
 	index = map->f(key, keysize) % map->size;
 	current = map->arr[index];
-	while (current != NULL && ft_keyequ(current, key, keysize) == FALSE)
+	while (current != NULL && ft_keyequ(current, key, keysize) == false)
 	{
 		prv = current;
 		current = current->next;

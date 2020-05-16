@@ -13,7 +13,7 @@
 #include "numarr.h"
 
 void	ft_numarrsort(intmax_t *arr,
-	t_bool (*f)(intmax_t, intmax_t), size_t len)
+	bool (*f)(intmax_t, intmax_t), size_t len)
 {
 	size_t		i;
 	size_t		j;

@@ -14,13 +14,13 @@
 
 #include "list.h"
 
-t_bool	ft_putstrlst(const t_list *lst)
+bool	ft_putstrlst(const t_list *lst)
 {
 	if (lst == NULL)
 		return (ft_putstr(NULL));
-	if (ft_putendl((char *)lst->content) == FALSE)
-		return (FALSE);
+	if (ft_putendl((char *)lst->content) == false)
+		return (false);
 	if (lst->next != NULL)
 		return (ft_putstrlst(lst->next));
-	return (FALSE);
+	return (false);
 }

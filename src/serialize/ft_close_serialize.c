@@ -15,24 +15,24 @@
 #include "serialize.h"
 #include "priv.h"
 
-static t_bool	clear(t_serialize *serialize, int ret)
+static bool	clear(t_serialize *serialize, int ret)
 {
 	ft_clear_serialize(serialize);
 	serialize->fd = DEFAULT_FD;
 	serialize->pos = 0;
 	if (ret < 0)
-		return (FALSE);
-	return (TRUE);
+		return (false);
+	return (true);
 }
 
-t_bool			ft_close_serialize(t_serialize **serialize, t_bool free)
+bool			ft_close_serialize(t_serialize **serialize, bool free)
 {
 	int		ret;
 
 	ret = close((*serialize)->fd);
-	if (free == TRUE)
+	if (free == true)
 		ft_del_serialize(serialize);
 	else
 		return (clear(*serialize, ret));
-	return (TRUE);
+	return (true);
 }

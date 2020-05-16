@@ -15,16 +15,16 @@
 
 # include <string.h>
 # include <stdint.h>
+# include <stdbool.h>
 
 # include "ft/list.h"
-# include "ft/bool.h"
 
-t_bool		ft_putnumarr(const intmax_t *arr, size_t len);
+bool		ft_putnumarr(const intmax_t *arr, size_t len);
 t_list		*ft_numarrtolst(const intmax_t *arr, size_t len);
-t_bool		ft_numarrsortac(intmax_t current, intmax_t num);
+bool		ft_numarrsortac(intmax_t current, intmax_t num);
 void		ft_numarrsort(intmax_t *arr,
-				t_bool (*f)(intmax_t, intmax_t), size_t len);
+				bool (*f)(intmax_t, intmax_t), size_t len);
 void		ft_numarrsortrev(intmax_t *arr,
-				t_bool (*f)(intmax_t, intmax_t), size_t len);
+				bool (*f)(intmax_t, intmax_t), size_t len);
 
 #endif

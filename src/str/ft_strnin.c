@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool		ft_strnin(const char **arr, const char *str, size_t n)
+bool		ft_strnin(const char **arr, const char *str, size_t n)
 {
 	size_t	len;
 

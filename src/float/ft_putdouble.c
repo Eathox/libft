@@ -12,7 +12,7 @@
 
 #include "float.h"
 
-t_bool		ft_putdouble(long double value, size_t n)
+bool		ft_putdouble(long double value, size_t n)
 {
 	return (ft_putdouble_fd(value, n, 1));
 }

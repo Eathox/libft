@@ -17,7 +17,7 @@
 #include "serialize.h"
 #include "priv.h"
 
-t_bool	ft_open_serialize(t_serialize *serialize, char const *file, int flags,
+bool	ft_open_serialize(t_serialize *serialize, char const *file, int flags,
 			mode_t mode)
 {
 	int		ret;
@@ -26,9 +26,9 @@ t_bool	ft_open_serialize(t_serialize *serialize, char const *file, int flags,
 	if (ret < 0)
 	{
 		serialize->fd = DEFAULT_FD;
-		return (FALSE);
+		return (false);
 	}
 	serialize->fd = ret;
 	serialize->pos = 0;
-	return (TRUE);
+	return (true);
 }

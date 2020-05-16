@@ -12,7 +12,7 @@
 
 #include "strarr.h"
 
-void	ft_strarrsortrev(char **arr, t_bool (*f)(const char *, const char *))
+void	ft_strarrsortrev(char **arr, bool (*f)(const char *, const char *))
 {
 	size_t	i;
 	size_t	j;
@@ -24,7 +24,7 @@ void	ft_strarrsortrev(char **arr, t_bool (*f)(const char *, const char *))
 		j = i;
 		current = arr[i];
 		while (j > 0 &&
-			f((const char *)current, (const char *)arr[j - 1]) == FALSE)
+			f((const char *)current, (const char *)arr[j - 1]) == false)
 		{
 			arr[j] = arr[j - 1];
 			j--;

@@ -12,7 +12,7 @@
 
 #include "char.h"
 
-t_bool		ft_isascii(char c)
+bool		ft_isascii(char c)
 {
 	return (c >= 0);
 }

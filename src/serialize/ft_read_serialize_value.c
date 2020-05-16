@@ -29,7 +29,7 @@ ssize_t		ft_read_serialize_value(t_serialize *serialize, t_uint8 **result,
 	*result = (t_uint8*)ft_memalloc(size);
 	if (*result == NULL)
 		return (-1);
-	if (serialize->use_buffer == TRUE)
+	if (serialize->use_buffer == true)
 		ret = ft_get_serialize_value(serialize, *result, size);
 	else
 		ret = read(serialize->fd, *result, size);

@@ -14,7 +14,7 @@
 
 #include "strarr.h"
 
-t_bool	ft_putstrarr(const char **arr)
+bool	ft_putstrarr(const char **arr)
 {
 	size_t	i;
 
@@ -23,9 +23,9 @@ t_bool	ft_putstrarr(const char **arr)
 		return (ft_putstr(NULL));
 	while (arr[i] != NULL)
 	{
-		if (ft_putendl(arr[i]) == FALSE)
-			return (FALSE);
+		if (ft_putendl(arr[i]) == false)
+			return (false);
 		i++;
 	}
-	return (TRUE);
+	return (true);
 }

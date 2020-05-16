@@ -12,7 +12,7 @@
 
 #include "strarr.h"
 
-void	ft_strarrnsort(char **arr, t_bool (*f)(const char *, const char *),
+void	ft_strarrnsort(char **arr, bool (*f)(const char *, const char *),
 			size_t n)
 {
 	size_t	i;

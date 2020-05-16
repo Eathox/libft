@@ -48,19 +48,19 @@ static char		*lsttostr(t_list *lst, size_t totallen)
 	return (str);
 }
 
-static t_bool	addtolst(t_list **lst, t_list **prv, char *str, size_t len)
+static bool	addtolst(t_list **lst, t_list **prv, char *str, size_t len)
 {
 	t_list	*new;
 
 	new = ft_lstnew_dup((void *)str, len);
 	if (new == NULL)
-		return (FALSE);
+		return (false);
 	if (*lst == NULL)
 		*lst = new;
 	else
 		(*prv)->next = new;
 	*prv = new;
-	return (TRUE);
+	return (true);
 }
 
 ssize_t			ft_readfile(int fd, char **str)
@@ -79,7 +79,7 @@ ssize_t			ft_readfile(int fd, char **str)
 	while (ret > 0)
 	{
 		totallen += ret;
-		if (addtolst(&lst, &prv, buff, ret) == FALSE)
+		if (addtolst(&lst, &prv, buff, ret) == false)
 			return (freeret(lst, str));
 		ret = read(fd, buff, BUFF_SIZE);
 	}

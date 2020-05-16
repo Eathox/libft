@@ -15,7 +15,7 @@
 
 #include "mem.h"
 
-t_bool		ft_putbytes(const void *bytes, size_t n)
+bool		ft_putbytes(const void *bytes, size_t n)
 {
 	int				ret;
 	const t_uint8	*byts;
@@ -38,7 +38,7 @@ t_bool		ft_putbytes(const void *bytes, size_t n)
 		if (n != 0)
 			ret += ft_putchar(' ');
 		if (ret != (8 + (n != 0)))
-			return (FALSE);
+			return (false);
 	}
-	return (TRUE);
+	return (true);
 }

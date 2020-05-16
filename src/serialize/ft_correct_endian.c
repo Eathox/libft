@@ -15,11 +15,11 @@
 #include "serialize.h"
 #include "priv.h"
 
-t_bool		ft_correct_endian(t_serialize *serialize, t_uint8 *stream,
+bool		ft_correct_endian(t_serialize *serialize, t_uint8 *stream,
 				size_t size)
 {
-	if (ft_check_correct_endian(serialize, size) == FALSE)
-		return (FALSE);
+	if (ft_check_correct_endian(serialize, size) == false)
+		return (false);
 	ft_memrev(stream, size);
-	return (TRUE);
+	return (true);
 }

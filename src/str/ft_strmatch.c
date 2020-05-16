@@ -12,12 +12,12 @@
 
 #include "str.h"
 
-t_bool	ft_strmatch(const char *str, const char *needle)
+bool	ft_strmatch(const char *str, const char *needle)
 {
 	if (needle[0] == '\0' && str[0] == '\0')
-		return (TRUE);
+		return (true);
 	if (needle[0] != str[0] && needle[0] != '*')
-		return (FALSE);
+		return (false);
 	if (needle[0] == '*' && str[0] != '\0')
 	{
 		return (ft_strmatch(&str[1], &needle[1]) ||

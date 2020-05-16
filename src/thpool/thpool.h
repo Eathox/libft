@@ -15,9 +15,9 @@
 
 # include <unistd.h>
 # include <pthread.h>
+# include <stdbool.h>
 
 # include "ft/types.h"
-# include "ft/bool.h"
 
 # define MAX_TTASK_PARAMS	4
 
@@ -39,7 +39,7 @@ typedef union		u_treturn
 	t_int64			*i_ptr;
 	double			*f_ptr;
 	t_uint64		*u_ptr;
-	t_bool			*b_ptr;
+	bool			*b_ptr;
 	char			*c_ptr;
 	void			*v_ptr;
 }					t_treturn;
@@ -51,7 +51,7 @@ struct				s_ttask
 	size_t			param_count;
 	t_uint64		flags;
 	t_treturn		ret;
-	t_bool			completed;
+	bool			completed;
 	pthread_cond_t	cond_completed;
 	pthread_mutex_t	lock;
 	t_ttask			*next;
@@ -63,7 +63,7 @@ struct				s_tpool
 	t_tthread		*manager;
 	t_tthread		**threads;
 	t_tqueue		*tasks;
-	t_bool			alloced;
+	bool			alloced;
 	t_uint64		flags;
 };
 

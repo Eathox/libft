@@ -45,7 +45,7 @@ off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
 {
 	off_t	ret;
 
-	if (serialize->use_buffer == TRUE)
+	if (serialize->use_buffer == true)
 		ret = lseek_serialize(serialize, offset, whence);
 	else
 		ret = lseek(serialize->fd, offset, whence);

@@ -14,20 +14,20 @@
 
 #include "unum.h"
 
-t_bool	ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd)
+bool	ft_putunum_cbase_fd(uintmax_t value, int base, bool up, int fd)
 {
 	char	*base_str;
 
-	if (up == TRUE)
+	if (up == true)
 		base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	else
 		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
 	if (base < 2 || base > 36)
-		return (TRUE);
+		return (true);
 	if (value > (uintmax_t)(base - 1))
 	{
-		if (ft_putunum_cbase_fd((value / base), base, up, fd) == FALSE)
-			return (FALSE);
+		if (ft_putunum_cbase_fd((value / base), base, up, fd) == false)
+			return (false);
 	}
 	value = base_str[(value % base)];
 	return (ft_putchar_fd(value, fd));

@@ -26,7 +26,7 @@ void	*ft_worker_tthread(void *param)
 		ft_run_ttask(thread->task);
 		ft_complete_ttask(thread->task);
 		thread->task = NULL;
-		thread->running_task = FALSE;
+		thread->running_task = false;
 	}
 	return (NULL);
 }

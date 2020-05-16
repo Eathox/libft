@@ -12,13 +12,13 @@
 
 #include "num.h"
 
-t_bool	ft_numin(const intmax_t *arr, intmax_t num, size_t len)
+bool	ft_numin(const intmax_t *arr, intmax_t num, size_t len)
 {
 	while (len > 0)
 	{
 		len--;
 		if (arr[len] == num)
-			return (TRUE);
+			return (true);
 	}
-	return (FALSE);
+	return (false);
 }

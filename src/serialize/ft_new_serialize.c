@@ -15,7 +15,7 @@
 #include "serialize.h"
 #include "priv.h"
 
-t_serialize		*ft_new_serialize(t_endian target_endian, t_bool use_buffer)
+t_serialize		*ft_new_serialize(t_endian target_endian, bool use_buffer)
 {
 	t_serialize *serialize;
 

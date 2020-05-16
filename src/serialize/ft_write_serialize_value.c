@@ -17,11 +17,11 @@
 #include "serialize.h"
 #include "priv.h"
 
-static t_uint8	*correct_endian(t_uint8 *stream, size_t size, t_bool reverse)
+static t_uint8	*correct_endian(t_uint8 *stream, size_t size, bool reverse)
 {
 	t_uint8	*data;
 
-	if (reverse == TRUE)
+	if (reverse == true)
 	{
 		data = ft_memdup(stream, size);
 		if (data == NULL)
@@ -37,7 +37,7 @@ ssize_t			ft_write_serialize_value(t_serialize *serialize,
 {
 	ssize_t		ret;
 	t_uint8		*data;
-	t_bool		reverse;
+	bool		reverse;
 
 	if (size == 0)
 		return (0);
@@ -45,13 +45,13 @@ ssize_t			ft_write_serialize_value(t_serialize *serialize,
 	data = correct_endian(stream, size, reverse);
 	if (data == NULL)
 		return (-1);
-	if (serialize->use_buffer == TRUE)
+	if (serialize->use_buffer == true)
 		ret = ft_add_serialize_value(serialize, data, size);
 	else
 		ret = write(serialize->fd, data, size);
 	if (ret > 0)
 		serialize->pos += ret;
-	if (reverse == TRUE)
+	if (reverse == true)
 		ft_memdel((void**)&data);
 	return (ret);
 }

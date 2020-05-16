@@ -12,7 +12,7 @@
 
 #include "char.h"
 
-t_bool		ft_isprint(char c)
+bool		ft_isprint(char c)
 {
 	return (c >= 32 && c <= 126);
 }

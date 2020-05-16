@@ -15,9 +15,9 @@
 
 #include "mem.h"
 
-t_bool	ft_putpointer(const void *ptr)
+bool	ft_putpointer(const void *ptr)
 {
-	if (ft_putstr("0x") == FALSE)
-		return (FALSE);
-	return (ft_putnum_cbase((size_t)ptr, 16, FALSE));
+	if (ft_putstr("0x") == false)
+		return (false);
+	return (ft_putnum_cbase((size_t)ptr, 16, false));
 }

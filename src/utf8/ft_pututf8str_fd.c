@@ -14,7 +14,7 @@
 
 #include "utf8.h"
 
-t_bool	ft_pututf8str_fd(const t_wchar *str, int fd)
+bool	ft_pututf8str_fd(const t_wchar *str, int fd)
 {
 	size_t	i;
 
@@ -23,9 +23,9 @@ t_bool	ft_pututf8str_fd(const t_wchar *str, int fd)
 		return (ft_putstr_fd("(null)", fd));
 	while (str[i] != '\0')
 	{
-		if (ft_pututf8_fd(str[i], fd) == FALSE)
-			return (FALSE);
+		if (ft_pututf8_fd(str[i], fd) == false)
+			return (false);
 		i++;
 	}
-	return (TRUE);
+	return (true);
 }

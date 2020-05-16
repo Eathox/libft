@@ -48,7 +48,7 @@ t_ttask		*ft_add_tqueue_ttask(t_tqueue *queue, t_ttask *task)
 
 	if (task == NULL)
 		return (NULL);
-	task->completed = FALSE;
+	task->completed = false;
 	job = ft_new_tjob(task);
 	if (job == NULL)
 		return (NULL);

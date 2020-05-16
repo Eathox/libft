@@ -12,7 +12,7 @@
 
 #include "str.h"
 
-t_bool	ft_strequ_nocase(const char *str1, const char *str2)
+bool	ft_strequ_nocase(const char *str1, const char *str2)
 {
 	return (ft_strcmp_nocase(str1, str2) == 0);
 }

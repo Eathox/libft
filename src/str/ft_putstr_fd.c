@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool	ft_putstr_fd(const char *str, int fd)
+bool	ft_putstr_fd(const char *str, int fd)
 {
 	if (str == NULL)
 		return (write(fd, "(null)", 6) != -1);

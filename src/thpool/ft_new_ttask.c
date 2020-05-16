@@ -16,13 +16,13 @@
 
 #include "thpool.h"
 
-static t_bool	init_lock_cond(t_ttask *task)
+static bool	init_lock_cond(t_ttask *task)
 {
 	if (pthread_mutex_init(&task->lock, NULL) != 0)
-		return (FALSE);
+		return (false);
 	if (pthread_cond_init(&task->cond_completed, NULL) != 0)
-		return (FALSE);
-	return (TRUE);
+		return (false);
+	return (true);
 }
 
 static void		set_params(t_ttask *task, va_list parameters)
@@ -51,7 +51,7 @@ t_ttask			*ft_new_ttask(void *(*fnc)(), t_uint64 flags,
 	task->f = fnc;
 	task->flags = flags;
 	task->param_count = param_count;
-	if (init_lock_cond(task) == FALSE)
+	if (init_lock_cond(task) == false)
 		return (ft_del_ttask(&task));
 	va_start(parameters, param_count);
 	set_params(task, parameters);

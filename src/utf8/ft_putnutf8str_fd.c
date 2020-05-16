@@ -14,7 +14,7 @@
 
 #include "utf8.h"
 
-t_bool	ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd)
+bool	ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd)
 {
 	size_t	i;
 	size_t	bytes;
@@ -28,11 +28,11 @@ t_bool	ft_putnutf8str_fd(const t_wchar *str, size_t n, int fd)
 	{
 		bytes = ft_utf8len(str[i]);
 		if ((len + bytes) > n)
-			return (TRUE);
+			return (true);
 		len += bytes;
-		if (ft_pututf8_fd(str[i], fd) == FALSE)
-			return (FALSE);
+		if (ft_pututf8_fd(str[i], fd) == false)
+			return (false);
 		i++;
 	}
-	return (TRUE);
+	return (true);
 }

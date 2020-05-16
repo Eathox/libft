@@ -16,8 +16,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
-# include "ft/bool.h"
 
 typedef struct s_list	t_list;
 
@@ -49,16 +49,16 @@ char			*ft_strsub(const char *str, size_t start, size_t len);
 char			*ft_strtolower(char *str);
 char			*ft_strtoupper(char *str);
 char			*ft_strtrim(const char *str);
-t_bool			ft_strisdigit(const char *str);
-t_bool			ft_strisfloat(const char *str);
-t_bool			ft_strishex(const char *str);
-t_bool			ft_strisempty(const char *str);
+bool			ft_strisdigit(const char *str);
+bool			ft_strisfloat(const char *str);
+bool			ft_strishex(const char *str);
+bool			ft_strisempty(const char *str);
 int				ft_strcmp_nocase(const char *str1, const char *str2);
 int				ft_strcmp(const char *str1, const char *str2);
 int				ft_strncmp_nocase(const char *str1, const char *str2, size_t n);
 int				ft_strncmp(const char *str1, const char *str2, size_t n);
 size_t			ft_strdlen(const char *str, const char *dlm);
-size_t			ft_strislen(const char *str, t_bool (*f)(char));
+size_t			ft_strislen(const char *str, bool (*f)(char));
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_strmatchlen_nocase(const char *str1, const char *str2);
@@ -72,22 +72,22 @@ void			ft_strdel(char **as);
 void			ft_striter(const char *str, void (*f)(const char *));
 void			ft_striteri(const char *str, void (*f)(size_t, const char *));
 void			ft_strrev(char *str);
-t_bool			ft_strequ_nocase(const char *str1, const char *str2);
-t_bool			ft_strequ(const char *str1, const char *str2);
-t_bool			ft_strin(const char **arr, const char *str);
-t_bool			ft_strmatch(const char *str, const char *needle);
-t_bool			ft_strnequ_nocase(const char *str1, const char *str2, size_t n);
-t_bool			ft_strnequ(const char *str1, const char *str2, size_t n);
-t_bool			ft_strnin(const char **arr, const char *str, size_t n);
-t_bool			ft_putendl_fd(const char *str, int fd);
-t_bool			ft_putendl(const char *str);
-t_bool			ft_puterror(const char *str);
-t_bool			ft_putline_fd(const char *str, int fd);
-t_bool			ft_putline(const char *str);
-t_bool			ft_putnstr_fd(const char *str, size_t n, int fd);
-t_bool			ft_putnstr(const char *str, size_t n);
-t_bool			ft_putstr_fd(const char *str, int fd);
-t_bool			ft_putstr(const char *str);
+bool			ft_strequ_nocase(const char *str1, const char *str2);
+bool			ft_strequ(const char *str1, const char *str2);
+bool			ft_strin(const char **arr, const char *str);
+bool			ft_strmatch(const char *str, const char *needle);
+bool			ft_strnequ_nocase(const char *str1, const char *str2, size_t n);
+bool			ft_strnequ(const char *str1, const char *str2, size_t n);
+bool			ft_strnin(const char **arr, const char *str, size_t n);
+bool			ft_putendl_fd(const char *str, int fd);
+bool			ft_putendl(const char *str);
+bool			ft_puterror(const char *str);
+bool			ft_putline_fd(const char *str, int fd);
+bool			ft_putline(const char *str);
+bool			ft_putnstr_fd(const char *str, size_t n, int fd);
+bool			ft_putnstr(const char *str, size_t n);
+bool			ft_putstr_fd(const char *str, int fd);
+bool			ft_putstr(const char *str);
 size_t			ft_wrddcount(const char *str, const char *dlm);
 ssize_t			ft_getnextdline(int fd, char **line, char dlm);
 ssize_t			ft_getnextline(int fd, char **line);

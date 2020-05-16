@@ -12,10 +12,10 @@
 
 #include "char.h"
 
-t_bool		ft_ishex(char c)
+bool		ft_ishex(char c)
 {
 	if (ft_isdigit(c))
-		return (TRUE);
+		return (true);
 	c = ft_tolower(c);
 	return (c >= 'a' && c <= 'f');
 }

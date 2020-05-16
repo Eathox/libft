@@ -15,16 +15,15 @@
 
 # include <string.h>
 # include <stdint.h>
-
-# include "ft/bool.h"
+# include <stdbool.h>
 
 size_t		ft_unumlen_base(uintmax_t value, int base);
 size_t		ft_unumlen(uintmax_t value);
-t_bool		ft_putunum_base_fd(uintmax_t value, int base, int fd);
-t_bool		ft_putunum_base(uintmax_t value, int base);
-t_bool		ft_putunum_cbase_fd(uintmax_t value, int base, t_bool up, int fd);
-t_bool		ft_putunum_cbase(uintmax_t value, int base, t_bool up);
-t_bool		ft_putunum_fd(uintmax_t value, int fd);
-t_bool		ft_putunum(uintmax_t value);
+bool		ft_putunum_base_fd(uintmax_t value, int base, int fd);
+bool		ft_putunum_base(uintmax_t value, int base);
+bool		ft_putunum_cbase_fd(uintmax_t value, int base, bool up, int fd);
+bool		ft_putunum_cbase(uintmax_t value, int base, bool up);
+bool		ft_putunum_fd(uintmax_t value, int fd);
+bool		ft_putunum(uintmax_t value);
 
 #endif

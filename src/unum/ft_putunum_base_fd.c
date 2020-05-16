@@ -12,7 +12,7 @@
 
 #include "unum.h"
 
-t_bool	ft_putunum_base_fd(uintmax_t value, int base, int fd)
+bool	ft_putunum_base_fd(uintmax_t value, int base, int fd)
 {
-	return (ft_putunum_cbase_fd(value, base, TRUE, fd));
+	return (ft_putunum_cbase_fd(value, base, true, fd));
 }

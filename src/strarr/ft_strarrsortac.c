@@ -14,7 +14,7 @@
 
 #include "strarr.h"
 
-t_bool		ft_strarrsortac(const char *current, const char *str)
+bool		ft_strarrsortac(const char *current, const char *str)
 {
 	int		result;
 

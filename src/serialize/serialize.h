@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdbool.h>
 
-# include "ft/bool.h"
 # include "ft/types.h"
 
 # ifndef SERIALIZE_BUFF_SIZE
@@ -41,7 +41,7 @@ typedef struct	s_serialize
 {
 	int				fd;
 	t_endian		endian;
-	t_bool			use_buffer;
+	bool			use_buffer;
 	t_endian		target_endian;
 	t_uint8			*content;
 	size_t			pos;
@@ -49,21 +49,21 @@ typedef struct	s_serialize
 	size_t			content_allocated_size;
 }				t_serialize;
 
-t_serialize		*ft_new_serialize(t_endian target_endian, t_bool use_buffer);
+t_serialize		*ft_new_serialize(t_endian target_endian, bool use_buffer);
 t_serialize		*ft_new_serialize_read(int fd, t_endian target_endian,
-					t_bool use_buffer);
+					bool use_buffer);
 t_serialize		*ft_new_serialize_write(int fd, t_endian target_endian,
-					t_bool use_buffer);
+					bool use_buffer);
 
 void			*ft_del_serialize(t_serialize **serialize);
 
-t_bool			ft_open_serialize(t_serialize *serialize, char const *file,
+bool			ft_open_serialize(t_serialize *serialize, char const *file,
 					int flags, mode_t mode);
-t_bool			ft_close_serialize(t_serialize **serialize, t_bool free);
+bool			ft_close_serialize(t_serialize **serialize, bool free);
 off_t			ft_lseek_serialize(t_serialize *serialize, off_t offset,
 					int whence);
 ssize_t			ft_write_serialize(t_serialize *serialize);
-t_bool			ft_valid_endian(t_endian endian);
+bool			ft_valid_endian(t_endian endian);
 t_endian		ft_get_endian(void);
 
 ssize_t			ft_read_serialize_int8(t_serialize *serialize, t_int8 *int8);

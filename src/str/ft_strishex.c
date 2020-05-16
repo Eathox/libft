@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool		ft_strishex(const char *str)
+bool		ft_strishex(const char *str)
 {
 	size_t	len;
 

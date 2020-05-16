@@ -13,7 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-t_bool	ft_ispositiveint(const t_info *info)
+bool	ft_ispositiveint(const t_info *info)
 {
-	return (ft_issignint(info) && info->is_negative == FALSE);
+	return (ft_issignint(info) && info->is_negative == false);
 }

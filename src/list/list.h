@@ -15,8 +15,7 @@
 
 # include <string.h>
 # include <stdint.h>
-
-# include "ft/bool.h"
+# include <stdbool.h>
 
 typedef struct	s_list
 {
@@ -51,13 +50,13 @@ void			ft_lstiter(const t_list *lst, void (*f)(const t_list *elem));
 void			ft_lstrev(t_list **head);
 char			**ft_lsttostrarr(t_list *lst);
 intmax_t		*ft_lsttonumarr(t_list *lst);
-t_bool			ft_lstsortstrac(const t_list *sortlst, const t_list *lst);
+bool			ft_lstsortstrac(const t_list *sortlst, const t_list *lst);
 void			ft_lstsort(t_list **head,
-					t_bool (*f)(const t_list *, const t_list *));
+					bool (*f)(const t_list *, const t_list *));
 void			ft_lstsortrev(t_list **head,
-					t_bool (*f)(const t_list *, const t_list *));
-t_bool			ft_putlstsize(const t_list *lst);
-t_bool			ft_putnumlst(const t_list *lst);
-t_bool			ft_putstrlst(const t_list *lst);
+					bool (*f)(const t_list *, const t_list *));
+bool			ft_putlstsize(const t_list *lst);
+bool			ft_putnumlst(const t_list *lst);
+bool			ft_putstrlst(const t_list *lst);
 
 #endif

@@ -46,7 +46,7 @@ static void	setdecimals(long double value, char *decimals, size_t n)
 	}
 }
 
-t_bool		ft_putdouble_fd(long double value, size_t n, int fd)
+bool		ft_putdouble_fd(long double value, size_t n, int fd)
 {
 	char	decimals[MAX_DOUBLE_PRECISION + 1];
 	t_int64	num;
@@ -56,18 +56,18 @@ t_bool		ft_putdouble_fd(long double value, size_t n, int fd)
 		n = MAX_DOUBLE_PRECISION;
 	if (value < 0)
 	{
-		if (ft_putchar_fd('-', fd) == FALSE)
-			return (FALSE);
+		if (ft_putchar_fd('-', fd) == false)
+			return (false);
 		value *= -1;
 	}
 	num = (t_int64)value;
 	value -= num;
 	setdecimals(value, decimals, n);
-	if (ft_putnum_fd(num + (n == 0 && decimals[0] >= '5'), fd) == FALSE)
-		return (FALSE);
+	if (ft_putnum_fd(num + (n == 0 && decimals[0] >= '5'), fd) == false)
+		return (false);
 	if (n == 0)
-		return (TRUE);
-	if (ft_putchar_fd('.', fd) == FALSE)
-		return (FALSE);
+		return (true);
+	if (ft_putchar_fd('.', fd) == false)
+		return (false);
 	return (ft_putnstr_fd(decimals, n, fd));
 }

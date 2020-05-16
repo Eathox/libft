@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool		ft_strisempty(const char *str)
+bool		ft_strisempty(const char *str)
 {
 	size_t	len;
 

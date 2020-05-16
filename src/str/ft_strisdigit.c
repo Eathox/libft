@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool		ft_strisdigit(const char *str)
+bool		ft_strisdigit(const char *str)
 {
 	size_t	len;
 

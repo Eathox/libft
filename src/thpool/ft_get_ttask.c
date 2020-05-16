@@ -20,7 +20,7 @@ static void	exract_task(t_tthread *thread, t_tqueue *tasks)
 	job = tasks->first;
 	thread->task = job->task;
 	tasks->first = job->next;
-	ft_del_tjob(&job, FALSE);
+	ft_del_tjob(&job, false);
 	if (tasks->first == NULL)
 		tasks->last = NULL;
 	tasks->size--;
@@ -40,7 +40,7 @@ void		ft_get_ttask(t_tthread *thread)
 		pthread_cond_wait(&tasks->cond_not_empty, &tasks->lock);
 	if ((pool->flags & TFLAG_POOL_TERMINATE) == 0)
 	{
-		thread->running_task = TRUE;
+		thread->running_task = true;
 		exract_task(thread, tasks);
 	}
 	pthread_mutex_unlock(&tasks->lock);

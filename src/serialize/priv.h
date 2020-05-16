@@ -17,8 +17,8 @@
 
 # define DEFAULT_FD -1
 
-t_bool		ft_check_correct_endian(t_serialize *serialize, size_t size);
-t_bool		ft_correct_endian(t_serialize *serialize, t_uint8 *stream,
+bool		ft_check_correct_endian(t_serialize *serialize, size_t size);
+bool		ft_correct_endian(t_serialize *serialize, t_uint8 *stream,
 				size_t size);
 
 void		ft_clear_serialize(t_serialize *serialize);

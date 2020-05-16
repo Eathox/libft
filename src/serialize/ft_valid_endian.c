@@ -12,9 +12,9 @@
 
 #include "serialize.h"
 
-t_bool		ft_valid_endian(t_endian endian)
+bool		ft_valid_endian(t_endian endian)
 {
 	if (endian <= ENDIAN_INVALID || endian >= ENDIAN_COUNT)
-		return (FALSE);
-	return (TRUE);
+		return (false);
+	return (true);
 }

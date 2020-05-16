@@ -15,7 +15,7 @@
 
 #include "char.h"
 
-t_bool		ft_chrnin(const char *str, char c, size_t n)
+bool		ft_chrnin(const char *str, char c, size_t n)
 {
 	size_t	len;
 

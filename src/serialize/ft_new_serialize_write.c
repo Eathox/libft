@@ -13,7 +13,7 @@
 #include "serialize.h"
 
 t_serialize		*ft_new_serialize_write(int fd, t_endian target_endian,
-					t_bool use_buffer)
+					bool use_buffer)
 {
 	t_serialize *serialize;
 

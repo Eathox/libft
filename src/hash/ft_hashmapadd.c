@@ -35,7 +35,7 @@ static t_hashlist	*newlst(const void *key, size_t keysize, void *value)
 	return (new);
 }
 
-t_bool				ft_hashmapadd(const t_hashmap *map, const void *key,
+bool				ft_hashmapadd(const t_hashmap *map, const void *key,
 						size_t keysize, void *value)
 {
 	t_hashlist	*current;
@@ -48,12 +48,12 @@ t_bool				ft_hashmapadd(const t_hashmap *map, const void *key,
 		map->arr[index] = newlst(key, keysize, value);
 		return (map->arr[index] != NULL);
 	}
-	while (current->next != NULL && ft_keyequ(current, key, keysize) == FALSE)
+	while (current->next != NULL && ft_keyequ(current, key, keysize) == false)
 		current = current->next;
-	if (ft_keyequ(current, key, keysize) == TRUE)
+	if (ft_keyequ(current, key, keysize) == true)
 	{
 		current->value = value;
-		return (TRUE);
+		return (true);
 	}
 	current->next = newlst(key, keysize, value);
 	return (current->next != NULL);

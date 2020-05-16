@@ -14,7 +14,7 @@
 
 #include "str.h"
 
-t_bool	ft_putline_fd(const char *str, int fd)
+bool	ft_putline_fd(const char *str, int fd)
 {
 	int		ret;
 	size_t	len;
@@ -25,7 +25,7 @@ t_bool	ft_putline_fd(const char *str, int fd)
 	else
 		len = 0;
 	if (len > 80)
-		return (TRUE);
+		return (true);
 	half = (80 - len) / 2;
 	ret = ft_putnchar_fd('-', half, fd);
 	ret += ft_putstr_fd(str, fd);

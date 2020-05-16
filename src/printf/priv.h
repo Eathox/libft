@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
-# include "ft/bool.h"
 # include "ft/types.h"
 # include "ft/list.h"
 # include "ft/color.h"
@@ -82,7 +82,7 @@ typedef enum	e_type
 typedef	struct	s_info
 {
 	va_list	args;
-	t_bool	flag[7];
+	bool	flag[7];
 	char	type;
 	char	width;
 	int		length;
@@ -90,8 +90,8 @@ typedef	struct	s_info
 	ssize_t	var_len;
 	t_type	var_type;
 	int		var_base;
-	t_bool	is_zero;
-	t_bool	is_negative;
+	bool	is_zero;
+	bool	is_negative;
 	char	*buff;
 	t_list	*buff_list;
 	size_t	buff_len;
@@ -140,7 +140,7 @@ size_t			ft_formatcolor(t_info *info, const char *start);
 ** -------------------------Buffer Management Functions-------------------------
 */
 
-t_bool			ft_addtobuff(t_info *info, const char *str, size_t len);
+bool			ft_addtobuff(t_info *info, const char *str, size_t len);
 size_t			ft_addstr(t_info *info, const char *str);
 void			ft_addchar(t_info *info, char c);
 void			ft_addnstr(t_info *info, const char *str, size_t n);
@@ -157,11 +157,11 @@ void			ft_addrgbcolorbg(t_info *info, t_uint8 r, t_uint8 g, t_uint8 b);
 ** --------------------------------Is Functions---------------------------------
 */
 
-t_bool			ft_ispositiveint(const t_info *info);
-t_bool			ft_issignint(const t_info *info);
-t_bool			ft_isstr(const t_info *info);
-t_bool			ft_isunsignint(const t_info *info);
-t_bool			ft_iszeropad(const t_info *info);
+bool			ft_ispositiveint(const t_info *info);
+bool			ft_issignint(const t_info *info);
+bool			ft_isstr(const t_info *info);
+bool			ft_isunsignint(const t_info *info);
+bool			ft_iszeropad(const t_info *info);
 
 /*
 ** -----------------------------Overflow Functions------------------------------

@@ -12,7 +12,7 @@
 
 #include "char.h"
 
-t_bool		ft_isspace(char c)
+bool		ft_isspace(char c)
 {
 	return (ft_chrin(" \t\n\v\f\r", c));
 }

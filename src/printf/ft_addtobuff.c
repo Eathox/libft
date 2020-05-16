@@ -17,7 +17,7 @@
 #include "printf.h"
 #include "priv.h"
 
-static t_bool	addtolst(t_info *info)
+static bool	addtolst(t_info *info)
 {
 	static	t_list	*prv;
 	t_list			*new;
@@ -31,9 +31,9 @@ static t_bool	addtolst(t_info *info)
 	return (prv != NULL);
 }
 
-t_bool			ft_addtobuff(t_info *info, const char *str, size_t len)
+bool			ft_addtobuff(t_info *info, const char *str, size_t len)
 {
-	t_bool	ret;
+	bool	ret;
 	size_t	fit;
 
 	if ((len + info->buff_len) > PF_BUFF_SIZE)
@@ -47,12 +47,12 @@ t_bool			ft_addtobuff(t_info *info, const char *str, size_t len)
 		info->added += fit;
 		info->buff_len = 0;
 		ft_bzero(info->buff, PF_BUFF_SIZE);
-		if (ret == FALSE)
-			return (FALSE);
+		if (ret == false)
+			return (false);
 		return (ft_addtobuff(info, &str[fit], len - fit));
 	}
 	ft_memcpy(&info->buff[info->buff_len], str, len);
 	info->buff_len += len;
 	info->added += len;
-	return (TRUE);
+	return (true);
 }

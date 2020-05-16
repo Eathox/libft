@@ -12,11 +12,11 @@
 
 #include "char.h"
 
-t_bool		ft_chrinbytes(const t_uint64 *bytes, char c)
+bool		ft_chrinbytes(const t_uint64 *bytes, char c)
 {
 	if (c >= 64 && bytes[1] & (1LL << (c - 64)))
-		return (TRUE);
+		return (true);
 	if (c < 64 && c >= 0 && bytes[0] & (1LL << c))
-		return (TRUE);
-	return (FALSE);
+		return (true);
+	return (false);
 }
