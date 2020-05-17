@@ -12,22 +12,11 @@
 
 #include <limits.h>
 
-#include "ft/char.h"
 #include "ft/str.h"
 
 #include "color.h"
 
-static t_uint8	convert_channel(
-	char const *channel
-)
-{
-	const char	*base_str = "0123456789ABCDEF";
-	t_uint8		result;
-
-	result = ft_chrindex(base_str, ft_toupper(channel[0]));
-	result = (result * 16) + ft_chrindex(base_str, ft_toupper(channel[1]));
-	return (result);
-}
+#include "priv.h"
 
 t_color			ft_convert_hex_to_color(
 	char const *hex
@@ -38,11 +27,11 @@ t_color			ft_convert_hex_to_color(
 
 	if (hex[0] != '#')
 		return ((t_color){0, 0, 0, UCHAR_MAX});
-	color.r = convert_channel(&hex[1]);
-	color.g = convert_channel(&hex[3]);
-	color.b = convert_channel(&hex[5]);
+	color.r = convert_hex_channel(&hex[1]);
+	color.g = convert_hex_channel(&hex[3]);
+	color.b = convert_hex_channel(&hex[5]);
 	if (len == 9)
-		color.a = convert_channel(&hex[7]);
+		color.a = convert_hex_channel(&hex[7]);
 	else
 		color.a = UCHAR_MAX;
 	return (color);
