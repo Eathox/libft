@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_mix_argb.c                                      :+:    :+:            */
+/*   ft_mix_color.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -14,24 +14,23 @@
 
 #include "color.h"
 
-t_uint32	ft_mix_rgba(
-	t_uint32 rgba_dst,
-	t_uint32 rgba_src
+t_color		ft_mix_color(
+	t_color const *bg,
+	t_color const *fg
 )
 {
-	float			alpha;
-	t_color			color_dst;
-	t_color			color_src;
+	float	alpha;
+	t_color	result;
 
-	//Todo prevent overflow
-	color_dst = ft_convert_rgba_to_color(rgba_dst);
-	color_src = ft_convert_rgba_to_color(rgba_src);
-	alpha = (float)color_src.a / UCHAR_MAX;
+	//Todo looking to rgba mixing algorithms
+	alpha = (float)fg->a / UCHAR_MAX;
 	if (alpha == 0)
-		return (rgba_dst);
-	color_dst.a -= (color_dst.a - color_src.a) * alpha;
-	color_dst.r = color_dst.r * (1 - alpha) + color_src.r * alpha;
-	color_dst.g = color_dst.g * (1 - alpha) + color_src.g * alpha;
-	color_dst.b = color_dst.b * (1 - alpha) + color_src.b * alpha;
-	return (ft_convert_color_to_rgba(color_dst));
+		return (*bg);
+	if (alpha == 1)
+		return (*fg);
+	result.r = bg->r * (1 - alpha) + fg->r * alpha;
+	result.g = bg->g * (1 - alpha) + fg->g * alpha;
+	result.b = bg->b * (1 - alpha) + fg->b * alpha;
+	result.a = bg->a - (bg->a - fg->a) * alpha;
+	return (result);
 }

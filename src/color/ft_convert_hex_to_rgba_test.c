@@ -13,8 +13,6 @@
 #include <stdio.h>
 #include <signal.h>
 #include <limits.h>
-#include <stdlib.h>
-#include <stdbool.h>
 
 #include <criterion/criterion.h>
 

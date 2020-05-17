@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLOR_H
-# define FT_COLOR_H
+#ifndef COLOR_H
+# define COLOR_H
 
 # include <string.h>
 # include <stdlib.h>
 
 # include "ft/types.h"
 
-# define COLOR_ALPHA_MASK 0xFF000000
-# define COLOR_RED_MASK 0x00FF0000
-# define COLOR_GREEN_MASK 0x0000FF00
-# define COLOR_BLUE_MASK 0x000000FF
+# define RGBA_RED_MASK 0x000000FF
+# define RGBA_GREEN_MASK 0x0000FF00
+# define RGBA_BLUE_MASK 0x00FF0000
+# define RGBA_ALPHA_MASK 0xFF000000
 
 typedef	struct	s_color
 {
@@ -36,26 +36,33 @@ typedef	struct	s_color
 ** * Returns NULL if the allocation of the hex string failed
 */
 char			*ft_convert_color_to_hex(
-	t_color const	*color,
+	t_color const *color,
 	bool include_alpha
 );
+
 /*
 ** * Convert color struct to rgba byte data
 */
 t_uint32		ft_convert_color_to_rgba(
-	t_color const	*color
+	t_color const *color
 );
 
-// TODO Add tests more fucntions and documentation
-t_uint32		ft_set_color_intensity(
-	t_uint32 rgba,
-	float intensity
-);
-t_uint32		ft_mix_color(
-	t_uint32 rgba_dst,
-	t_uint32 rgba_src
+/*
+** * Mix 2 color structs together resulting in a new color struct
+*/
+t_color			ft_mix_color(
+	t_color const *bg,
+	t_color const *fg
 );
 
+/*
+** * Scale color struct brightness, doesn't affect alpha channel
+** * Protected againts overflow doesn't perserve color at max and min brightness
+*/
+t_color			ft_scale_color_brightness(
+	t_color const *color,
+	float brightness
+);
 
 /*
 ** * Convert hex string data to color struct
@@ -64,6 +71,7 @@ t_uint32		ft_mix_color(
 t_color			ft_convert_hex_to_color(
 	char const *hex
 );
+
 /*
 ** * Convert hex string data to rgba byte data
 ** * Supports 6 and 8 character long hex strings
@@ -78,6 +86,7 @@ t_uint32		ft_convert_hex_to_rgba(
 t_color			ft_convert_rgba_to_color(
 	t_uint32 rgba
 );
+
 /*
 ** * Convert rgba byte data to hex string data
 ** * Returns NULL if the allocation of the hex string failed

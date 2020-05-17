@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_set_argb_intensity.c                            :+:    :+:            */
+/*   rgba_masks_test.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/16 15:09:22 by pholster      #+#    #+#                 */
-/*   Updated: 2020/05/16 15:09:22 by pholster      ########   odam.nl         */
+/*   Created: 2020/05/17 21:35:32 by pholster      #+#    #+#                 */
+/*   Updated: 2020/05/17 21:35:32 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <criterion/criterion.h>
+
 #include "color.h"
 
-t_uint32	ft_set_rgba_intensity(
-	t_uint32 rgba,
-	float intensity
-)
+Test(rgba_masks_test, order)
 {
-	t_color	color;
+	t_uint32		rgba;
+	t_color const	color = {
+		.r = 0x1,
+		.g = 0x2,
+		.b = 0x3,
+		.a = 0x4
+	};
 
-	//Todo prevent overflow
-	color = ft_convert_rgba_to_color(rgba);
-	color.r *= intensity;
-	color.g *= intensity;
-	color.b *= intensity;
-	return (ft_convert_color_to_rgba(color));
+	rgba = ft_convert_color_to_rgba(&color);
+	cr_assert_eq((rgba & RGBA_RED_MASK), 0x01);
+	cr_assert_eq((rgba & RGBA_GREEN_MASK), (0x02 << 8));
+	cr_assert_eq((rgba & RGBA_BLUE_MASK), (0x03 << 16));
+	cr_assert_eq((rgba & RGBA_ALPHA_MASK), (0x04 << 24));
 }

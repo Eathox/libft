@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_convert_color_to_rgba.c                         :+:    :+:            */
+/*   ft_scale_color_brightness.c                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/16 15:19:27 by pholster      #+#    #+#                 */
-/*   Updated: 2020/05/16 15:19:27 by pholster      ########   odam.nl         */
+/*   Created: 2020/05/16 15:09:22 by pholster      #+#    #+#                 */
+/*   Updated: 2020/05/16 15:09:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
+
+#include "ft/num.h"
+
 #include "color.h"
 
-t_uint32	ft_convert_color_to_rgba(
-	t_color const *color
+t_color	ft_scale_color_brightness(
+	t_color const *color,
+	float brightness
 )
 {
-	t_uint32	rgba;
+	t_color	result;
 
-	rgba = color->r;
-	rgba |= color->g << 8;
-	rgba |= color->b << 16;
-	rgba |= color->a << 24;
-	return (rgba);
+	result.r = ft_constrain((t_uint32)color->r * brightness, 0x0, UCHAR_MAX);
+	result.g = ft_constrain((t_uint32)color->g * brightness, 0x0, UCHAR_MAX);
+	result.b = ft_constrain((t_uint32)color->b * brightness, 0x0, UCHAR_MAX);
+	result.a = color->a;
+	return (result);
 }

@@ -26,7 +26,7 @@ static void	convert_channel(
 }
 
 char		*ft_convert_color_to_hex(
-	t_color const	*color,
+	t_color const *color,
 	bool include_alpha
 )
 {

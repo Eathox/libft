@@ -19,7 +19,7 @@
 Test(ft_convert_color_to_hex, min)
 {
 	t_color const	color = {0x0, 0x0, 0x0, 0x0};
-	char const		*hex;
+	char 			*hex;
 
 	hex = ft_convert_color_to_hex(&color, false);
 	cr_assert_str_eq(hex, "#000000");
@@ -28,7 +28,7 @@ Test(ft_convert_color_to_hex, min)
 Test(ft_convert_color_to_hex, max)
 {
 	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
-	char const		*hex;
+	char 			*hex;
 
 	hex = ft_convert_color_to_hex(&color, false);
 	cr_assert_str_eq(hex, "#FFFFFF");
@@ -37,7 +37,7 @@ Test(ft_convert_color_to_hex, max)
 Test(ft_convert_color_to_hex, 127)
 {
 	t_color const	color = {CHAR_MAX, CHAR_MAX, CHAR_MAX, CHAR_MAX};
-	char const		*hex;
+	char 			*hex;
 
 	hex = ft_convert_color_to_hex(&color, false);
 	cr_assert_str_eq(hex, "#7F7F7F");
@@ -45,8 +45,13 @@ Test(ft_convert_color_to_hex, 127)
 
 Test(ft_convert_color_to_hex, order)
 {
-	t_color const	color = {0x1, 0x2, 0x3, 0x4};
-	char const		*hex;
+	t_color const	color = {
+		.r = 0x1,
+		.g = 0x2,
+		.b = 0x3,
+		.a = 0x4
+	};
+	char 			*hex;
 
 	hex = ft_convert_color_to_hex(&color, true);
 	cr_assert_str_eq(hex, "#01020304");
