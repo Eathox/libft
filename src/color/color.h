@@ -32,34 +32,31 @@ typedef	struct	s_color
 }				t_color;
 
 /*
-** * Convert color struct to rgba byte data
-*/
-t_uint32		ft_convert_color_to_rgba(
-	t_color color
-);
-/*
-** * Convert rgba byte data to color struct
-*/
-t_color			ft_convert_rgba_to_color(
-	t_uint32 rgba
-);
-/*
-** * Convert rgba byte data to hex string data
-** * Returns NULL if the allocation of the hex string failed
-*/
-char			*ft_convert_rgba_to_hex(
-	t_uint32 rgba,
-	bool include_alpha
-);
-
-/*
 ** * Convert color struct to hex string data
 ** * Returns NULL if the allocation of the hex string failed
 */
 char			*ft_convert_color_to_hex(
-	t_color color,
+	t_color const	*color,
 	bool include_alpha
 );
+/*
+** * Convert color struct to rgba byte data
+*/
+t_uint32		ft_convert_color_to_rgba(
+	t_color const	*color
+);
+
+// TODO Add tests more fucntions and documentation
+t_uint32		ft_set_color_intensity(
+	t_uint32 rgba,
+	float intensity
+);
+t_uint32		ft_mix_color(
+	t_uint32 rgba_dst,
+	t_uint32 rgba_src
+);
+
+
 /*
 ** * Convert hex string data to color struct
 ** * Supports 6 and 8 character long hex strings
@@ -75,14 +72,19 @@ t_uint32		ft_convert_hex_to_rgba(
 	char const *hex
 );
 
-// TODO Add tests more fucntions and documentation
-t_uint32		ft_set_rgba_intensity(
-	t_uint32 rgba,
-	float intensity
+/*
+** * Convert rgba byte data to color struct
+*/
+t_color			ft_convert_rgba_to_color(
+	t_uint32 rgba
 );
-t_uint32		ft_mix_rgba(
-	t_uint32 rgba_dst,
-	t_uint32 rgba_src
+/*
+** * Convert rgba byte data to hex string data
+** * Returns NULL if the allocation of the hex string failed
+*/
+char			*ft_convert_rgba_to_hex(
+	t_uint32 rgba,
+	bool include_alpha
 );
 
 #endif

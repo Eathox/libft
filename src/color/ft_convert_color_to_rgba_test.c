@@ -21,7 +21,7 @@ Test(ft_convert_color_to_rgba, min)
 	t_color const	color = {0x0, 0x0, 0x0, 0x0};
 	t_uint32		rgba;
 
-	rgba = ft_convert_color_to_rgba(color);
+	rgba = ft_convert_color_to_rgba(&color);
 	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
@@ -30,7 +30,7 @@ Test(ft_convert_color_to_rgba, max)
 	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
 	t_uint32		rgba;
 
-	rgba = ft_convert_color_to_rgba(color);
+	rgba = ft_convert_color_to_rgba(&color);
 	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
@@ -39,7 +39,7 @@ Test(ft_convert_color_to_rgba, 127)
 	t_color const	color = {CHAR_MAX, CHAR_MAX, CHAR_MAX, CHAR_MAX};
 	t_uint32		rgba;
 
-	rgba = ft_convert_color_to_rgba(color);
+	rgba = ft_convert_color_to_rgba(&color);
 	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
@@ -48,6 +48,6 @@ Test(ft_convert_color_to_rgba, order)
 	t_color const	color = {0x1, 0x2, 0x3, 0x4};
 	t_uint32		rgba;
 
-	rgba = ft_convert_color_to_rgba(color);
+	rgba = ft_convert_color_to_rgba(&color);
 	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }

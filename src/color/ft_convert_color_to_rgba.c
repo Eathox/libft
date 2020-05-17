@@ -13,14 +13,14 @@
 #include "color.h"
 
 t_uint32	ft_convert_color_to_rgba(
-	t_color color
+	t_color const	*color
 )
 {
 	t_uint32	rgba;
 
-	rgba = color.r;
-	rgba |= color.g << 8;
-	rgba |= color.b << 16;
-	rgba |= color.a << 24;
+	rgba = color->r;
+	rgba |= color->g << 8;
+	rgba |= color->b << 16;
+	rgba |= color->a << 24;
 	return (rgba);
 }

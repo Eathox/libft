@@ -26,7 +26,7 @@ static void	convert_channel(
 }
 
 char		*ft_convert_color_to_hex(
-	t_color color,
+	t_color const	*color,
 	bool include_alpha
 )
 {
@@ -39,10 +39,10 @@ char		*ft_convert_color_to_hex(
 	if (hex == NULL)
 		return (NULL);
 	hex[0] = '#';
-	convert_channel(&hex[1], color.r);
-	convert_channel(&hex[3], color.g);
-	convert_channel(&hex[5], color.b);
+	convert_channel(&hex[1], color->r);
+	convert_channel(&hex[3], color->g);
+	convert_channel(&hex[5], color->b);
 	if (include_alpha == true)
-		convert_channel(&hex[7], color.a);
+		convert_channel(&hex[7], color->a);
 	return (hex);
 }
