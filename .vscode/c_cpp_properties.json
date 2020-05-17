@@ -10,6 +10,13 @@
 				"/System/Library/Frameworks",
 				"/Library/Frameworks"
 			],
+			"browse" : {
+				"path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders" : true,
+                "databaseFilename" : ""
+            },
 			"compilerPath": "/usr/bin/clang",
 			"cStandard": "c11",
 			"cppStandard": "c++17",
@@ -18,9 +25,15 @@
 		{
 			"name": "Linux",
 			"includePath": [
-				"${workspaceFolder}/**",
-				"/usr/include/**"
+				"${workspaceFolder}/**"
 			],
+			"browse" : {
+				"path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders" : true,
+                "databaseFilename" : ""
+            },
 			"compilerPath": "/usr/bin/gcc",
 			"cStandard": "c11",
 			"cppStandard": "c++17",
