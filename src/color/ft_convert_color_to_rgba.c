@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_convert_color_to_argb.c                         :+:    :+:            */
+/*   ft_convert_color_to_rgba.c                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,15 +12,15 @@
 
 #include "color.h"
 
-t_uint32	ft_convert_color_to_argb(
+t_uint32	ft_convert_color_to_rgba(
 	t_color color
 )
 {
-	t_uint32	argb;
+	t_uint32	rgba;
 
-	argb = (color.a << 24);
-	argb = (color.r << 16) | argb;
-	argb = (color.g << 8) | argb;
-	argb = color.b | argb;
-	return (argb);
+	rgba = color.r;
+	rgba |= color.g << 8;
+	rgba |= color.b << 16;
+	rgba |= color.a << 24;
+	return (rgba);
 }

@@ -10,15 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_convert_color_to_argb.o
-objects += ft_convert_argb_to_color.o
-tests += ft_convert_color_to_argb_test.o
-tests += ft_convert_argb_to_color_test.o
+objects += ft_convert_color_to_rgba.o
+objects += ft_convert_rgba_to_color.o
+objects += ft_convert_rgba_to_hex.o
 
 objects += ft_convert_color_to_hex.o
 objects += ft_convert_hex_to_color.o
+objects += ft_convert_hex_to_rgba.o
+
+# objects += ft_mix_rgba.o
+# objects += ft_set_rgba_intensity.o
+
+tests += ft_convert_color_to_rgba_test.o
+tests += ft_convert_rgba_to_color_test.o
+tests += ft_convert_rgba_to_hex_test.o
+
 tests += ft_convert_color_to_hex_test.o
 tests += ft_convert_hex_to_color_test.o
-
-# objects += ft_mix_argb.o
-# objects += ft_set_argb_intensity.o
+tests += ft_convert_hex_to_rgba_test.o

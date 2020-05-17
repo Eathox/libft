@@ -25,28 +25,36 @@
 
 typedef	struct	s_color
 {
-	t_uint8	b;
-	t_uint8	g;
 	t_uint8	r;
+	t_uint8	g;
+	t_uint8	b;
 	t_uint8	a;
 }				t_color;
 
 /*
-** * Convert color struct to argb byte data
+** * Convert color struct to rgba byte data
 */
-t_uint32		ft_convert_color_to_argb(
+t_uint32		ft_convert_color_to_rgba(
 	t_color color
 );
 /*
-** * Convert argb byte data to color struct
+** * Convert rgba byte data to color struct
 */
-t_color			ft_convert_argb_to_color(
-	t_uint32 argb
+t_color			ft_convert_rgba_to_color(
+	t_uint32 rgba
+);
+/*
+** * Convert rgba byte data to hex string data
+** * Returns NULL if the allocation of the hex string failed
+*/
+char			*ft_convert_rgba_to_hex(
+	t_uint32 rgba,
+	bool include_alpha
 );
 
 /*
 ** * Convert color struct to hex string data
-** * Returns NULL if allocating of hex string failed
+** * Returns NULL if the allocation of the hex string failed
 */
 char			*ft_convert_color_to_hex(
 	t_color color,
@@ -59,15 +67,22 @@ char			*ft_convert_color_to_hex(
 t_color			ft_convert_hex_to_color(
 	char const *hex
 );
+/*
+** * Convert hex string data to rgba byte data
+** * Supports 6 and 8 character long hex strings
+*/
+t_uint32		ft_convert_hex_to_rgba(
+	char const *hex
+);
 
 // TODO Add tests more fucntions and documentation
-t_uint32		ft_set_argb_intensity(
-	t_uint32 argb,
+t_uint32		ft_set_rgba_intensity(
+	t_uint32 rgba,
 	float intensity
 );
-t_uint32		ft_mix_argb(
-	t_uint32 argb_dst,
-	t_uint32 argb_src
+t_uint32		ft_mix_rgba(
+	t_uint32 rgba_dst,
+	t_uint32 rgba_src
 );
 
 #endif

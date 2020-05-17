@@ -12,16 +12,17 @@
 
 #include "color.h"
 
-t_uint32	ft_set_argb_intensity(
-	t_uint32 argb,
+t_uint32	ft_set_rgba_intensity(
+	t_uint32 rgba,
 	float intensity
 )
 {
 	t_color	color;
 
-	color = ft_convert_argb_to_color(argb);
+	//Todo prevent overflow
+	color = ft_convert_rgba_to_color(rgba);
 	color.r *= intensity;
 	color.g *= intensity;
 	color.b *= intensity;
-	return (ft_convert_color_to_argb(color));
+	return (ft_convert_color_to_rgba(color));
 }

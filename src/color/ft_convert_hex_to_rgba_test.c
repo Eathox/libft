@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_convert_hex_to_color_test.c                     :+:    :+:            */
+/*   ft_convert_hex_to_rgba_test.c                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -21,72 +21,72 @@
 #include "color.h"
 
 static void	compare(
-	t_color	color,
+	t_uint32	rgba,
 	char const	*hex
 )
 {
 	char	result[10];
 
 	sprintf(result, "#%02X%02X%02X%02X",
-		color.r,
-		color.g,
-		color.b,
-		color.a
+		(t_uint8)rgba,
+		(t_uint8)(rgba >> 8),
+		(t_uint8)(rgba >> 16),
+		(t_uint8)(rgba >> 24)
 	);
 	cr_assert_str_eq(result, hex);
 }
 
-Test(ft_convert_hex_to_color, min)
+Test(ft_convert_hex_to_rgba, min)
 {
-	t_color 		color;
+	t_uint32 		rgba;
 	char const		*hex = "#00000000";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+	rgba = ft_convert_hex_to_rgba(hex);
+	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_color, max)
+Test(ft_convert_hex_to_rgba, max)
 {
-	t_color 		color;
+	t_uint32 		rgba;
 	char const		*hex = "#FFFFFFFF";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+	rgba = ft_convert_hex_to_rgba(hex);
+	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_color, 127)
+Test(ft_convert_hex_to_rgba, 127)
 {
-	t_color 		color;
+	t_uint32 		rgba;
 	char const		*hex = "#7F7F7F7F";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+	rgba = ft_convert_hex_to_rgba(hex);
+	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_color, order)
+Test(ft_convert_hex_to_rgba, order)
 {
-	t_color 		color;
+	t_uint32 		rgba;
 	char const		*hex = "#03020104";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+	rgba = ft_convert_hex_to_rgba(hex);
+	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_color, segfault, .signal = SIGSEGV)
+Test(ft_convert_hex_to_rgba, segfault, .signal = SIGSEGV)
 {
-	t_color 		color;
+	t_uint32 		rgba;
 	char const		*hex = NULL;
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+	rgba = ft_convert_hex_to_rgba(hex);
+	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_color, invalid)
+Test(ft_convert_hex_to_rgba, invalid)
 {
-	t_color 		color;
+	t_uint32 		rgba;
 	char const		*hex = "hello world";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, "#000000FF");
+	rgba = ft_convert_hex_to_rgba(hex);
+	compare(rgba, "#000000FF");
 }
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_convert_color_to_argb_test.c                    :+:    :+:            */
+/*   ft_convert_color_to_rgba_test.c                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -16,38 +16,38 @@
 
 #include "color.h"
 
-Test(ft_convert_color_to_argb, min)
+Test(ft_convert_color_to_rgba, min)
 {
 	t_color const	color = {0x0, 0x0, 0x0, 0x0};
-	t_uint32		argb;
+	t_uint32		rgba;
 
-	argb = ft_convert_color_to_argb(color);
-	cr_assert_arr_eq(&argb, &color, sizeof(t_color));
+	rgba = ft_convert_color_to_rgba(color);
+	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
-Test(ft_convert_color_to_argb, max)
+Test(ft_convert_color_to_rgba, max)
 {
 	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
-	t_uint32		argb;
+	t_uint32		rgba;
 
-	argb = ft_convert_color_to_argb(color);
-	cr_assert_arr_eq(&argb, &color, sizeof(t_color));
+	rgba = ft_convert_color_to_rgba(color);
+	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
-Test(ft_convert_color_to_argb, 127)
+Test(ft_convert_color_to_rgba, 127)
 {
 	t_color const	color = {CHAR_MAX, CHAR_MAX, CHAR_MAX, CHAR_MAX};
-	t_uint32		argb;
+	t_uint32		rgba;
 
-	argb = ft_convert_color_to_argb(color);
-	cr_assert_arr_eq(&argb, &color, sizeof(t_color));
+	rgba = ft_convert_color_to_rgba(color);
+	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
-Test(ft_convert_color_to_argb, order)
+Test(ft_convert_color_to_rgba, order)
 {
 	t_color const	color = {0x1, 0x2, 0x3, 0x4};
-	t_uint32		argb;
+	t_uint32		rgba;
 
-	argb = ft_convert_color_to_argb(color);
-	cr_assert_arr_eq(&argb, &color, sizeof(t_color));
+	rgba = ft_convert_color_to_rgba(color);
+	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }

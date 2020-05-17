@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_convert_color_to_hex_test.c                     :+:    :+:            */
+/*   ft_convert_rgba_to_hex_test.c                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -16,38 +16,38 @@
 
 #include "color.h"
 
-Test(ft_convert_color_to_hex, min)
+Test(ft_convert_rgba_to_hex, min)
 {
-	t_color const	color = {0x0, 0x0, 0x0, 0x0};
 	char const		*hex;
+	t_uint32 const	rgba = 0x0;
 
-	hex = ft_convert_color_to_hex(color, false);
+	hex = ft_convert_rgba_to_hex(rgba, false);
 	cr_assert_str_eq(hex, "#000000");
 }
 
-Test(ft_convert_color_to_hex, max)
+Test(ft_convert_rgba_to_hex, max)
 {
-	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
 	char const		*hex;
+	t_uint32 const	rgba = UINT_MAX;
 
-	hex = ft_convert_color_to_hex(color, false);
+	hex = ft_convert_rgba_to_hex(rgba, false);
 	cr_assert_str_eq(hex, "#FFFFFF");
 }
 
-Test(ft_convert_color_to_hex, 127)
+Test(ft_convert_rgba_to_hex, 127)
 {
-	t_color const	color = {CHAR_MAX, CHAR_MAX, CHAR_MAX, CHAR_MAX};
 	char const		*hex;
+	t_uint32 const	rgba = 0x7F7F7F7F;
 
-	hex = ft_convert_color_to_hex(color, false);
+	hex = ft_convert_rgba_to_hex(rgba, false);
 	cr_assert_str_eq(hex, "#7F7F7F");
 }
 
-Test(ft_convert_color_to_hex, order)
+Test(ft_convert_rgba_to_hex, order)
 {
-	t_color const	color = {0x1, 0x2, 0x3, 0x4};
 	char const		*hex;
+	t_uint32 const	rgba = 0x04030201;
 
-	hex = ft_convert_color_to_hex(color, true);
+	hex = ft_convert_rgba_to_hex(rgba, true);
 	cr_assert_str_eq(hex, "#01020304");
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_convert_hex_to_color.c                          :+:    :+:            */
+/*   ft_convert_hex_to_rgba.c                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -29,21 +29,21 @@ static t_uint8	convert_channel(
 	return (result);
 }
 
-t_color			ft_convert_hex_to_color(
+t_uint32		ft_convert_hex_to_rgba(
 	char const *hex
 )
 {
-	t_color			color;
+	t_uint32		rgba;
 	const size_t	len = ft_strlen(hex);
 
 	if (hex[0] != '#')
-		return ((t_color){0, 0, 0, UCHAR_MAX});
-	color.r = convert_channel(&hex[1]);
-	color.g = convert_channel(&hex[3]);
-	color.b = convert_channel(&hex[5]);
+		return (0xFF000000);
+	rgba = convert_channel(&hex[1]);
+	rgba |= convert_channel(&hex[3]) << 8;
+	rgba |= convert_channel(&hex[5]) << 16;
 	if (len == 9)
-		color.a = convert_channel(&hex[7]);
+		rgba |= convert_channel(&hex[7]) << 24;
 	else
-		color.a = UCHAR_MAX;
-	return (color);
+		rgba |= UCHAR_MAX << 24;
+	return (rgba);
 }
