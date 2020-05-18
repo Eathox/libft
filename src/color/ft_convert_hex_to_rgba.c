@@ -18,6 +18,10 @@
 
 #include "priv.h"
 
+/*
+** * Convert hex string data to rgba byte data
+** * Supports 6 and 8 character long hex strings
+*/
 t_uint32		ft_convert_hex_to_rgba(
 	char const *hex
 )

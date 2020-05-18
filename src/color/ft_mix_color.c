@@ -14,6 +14,9 @@
 
 #include "color.h"
 
+/*
+** * Mix 2 color structs together resulting in a new color struct
+*/
 t_color		ft_mix_color(
 	t_color const *bg,
 	t_color const *fg

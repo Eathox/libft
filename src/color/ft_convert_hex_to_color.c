@@ -18,6 +18,10 @@
 
 #include "priv.h"
 
+/*
+** * Convert hex string data to color struct
+** * Supports 6 and 8 character long hex strings
+*/
 t_color			ft_convert_hex_to_color(
 	char const *hex
 )

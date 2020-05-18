@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   convert_hex_channel_test.c                         :+:    :+:            */
+/*   convert_byte_channel_test.c                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -28,30 +28,32 @@ static void	compare(
 	cr_assert_str_eq(result, channel);
 }
 
-Test(convert_hex_channel, min)
+Test(convert_byte_channel, min)
 {
-	t_uint8 	byte_channel;
-	char const	*channel = "00";
+	t_uint8 const	byte_channel = 0x0;
+	char 			channel[3];
 
-	byte_channel = convert_hex_channel(channel);
+	channel[2] = '\0';
+	convert_byte_channel(channel, byte_channel);
 	compare(byte_channel, channel);
 }
 
-Test(convert_hex_channel, max)
+Test(convert_byte_channel, max)
 {
-	t_uint8 	byte_channel;
-	char const	*channel = "FF";
+	t_uint8 const	byte_channel = UCHAR_MAX;
+	char 			channel[3];
 
-	byte_channel = convert_hex_channel(channel);
+	channel[2] = '\0';
+	convert_byte_channel(channel, byte_channel);
 	compare(byte_channel, channel);
 }
 
-Test(convert_hex_channel, 127)
+Test(convert_byte_channel, 127)
 {
-	t_uint8 	byte_channel;
-	char const	*channel = "7F";
+	t_uint8 const	byte_channel = 0x7F;
+	char 			channel[3];
 
-	byte_channel = convert_hex_channel(channel);
+	channel[2] = '\0';
+	convert_byte_channel(channel, byte_channel);
 	compare(byte_channel, channel);
 }
-

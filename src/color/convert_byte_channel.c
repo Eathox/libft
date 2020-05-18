@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_convert_color_to_rgba.c                         :+:    :+:            */
+/*   convert_byte_channel.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/05/16 15:19:27 by pholster      #+#    #+#                 */
-/*   Updated: 2020/05/16 15:19:27 by pholster      ########   odam.nl         */
+/*   Created: 2020/05/17 04:36:22 by pholster      #+#    #+#                 */
+/*   Updated: 2020/05/17 04:36:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "ft/char.h"
+
+#include "priv.h"
 
 /*
-** * Convert color struct to rgba byte data
+** * Convert a byte data channel to dst
 */
-t_uint32	ft_convert_color_to_rgba(
-	t_color const *color
+void	convert_byte_channel(
+	char *dst,
+	t_uint8 channel
 )
 {
-	t_uint32	rgba;
+	const char	*base_str = "0123456789ABCDEF";
 
-	rgba = color->r;
-	rgba |= color->g << 8;
-	rgba |= color->b << 16;
-	rgba |= color->a << 24;
-	return (rgba);
+	dst[0] = base_str[(channel / 16)];
+	dst[1] = base_str[(channel % 16)];
 }
