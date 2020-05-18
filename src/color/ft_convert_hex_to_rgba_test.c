@@ -18,7 +18,8 @@
 
 #include "color.h"
 
-static void	compare(
+static void	compare
+(
 	t_uint32	rgba,
 	char const	*hex
 )

@@ -17,7 +17,8 @@
 
 #include "priv.h"
 
-static void	compare(
+static void	compare
+(
 	t_uint8	byte_channel,
 	char const	*channel
 )

@@ -17,7 +17,8 @@
 /*
 ** * Convert a hex string color channel to t_uint8
 */
-t_uint8		convert_hex_channel(
+t_uint8		convert_hex_channel
+(
 	char const *channel
 )
 {

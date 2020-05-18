@@ -20,7 +20,8 @@
 ** * Convert color struct to hex string data
 ** * Returns NULL if the allocation of the hex string failed
 */
-char		*ft_convert_color_to_hex(
+char		*ft_convert_color_to_hex
+(
 	t_color const *color,
 	bool include_alpha
 )

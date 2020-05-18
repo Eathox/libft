@@ -20,7 +20,8 @@
 ** * Convert rgba byte data to hex string data
 ** * Returns NULL if the allocation of the hex string failed
 */
-char		*ft_convert_rgba_to_hex(
+char		*ft_convert_rgba_to_hex
+(
 	t_uint32 rgba,
 	bool include_alpha
 )

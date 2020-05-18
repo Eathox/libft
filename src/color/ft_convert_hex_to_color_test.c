@@ -18,7 +18,8 @@
 
 #include "color.h"
 
-static void	compare(
+static void	compare
+(
 	t_color	color,
 	char const	*hex
 )

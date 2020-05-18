@@ -36,38 +36,46 @@ typedef	struct	s_color
 	t_uint8	a;
 }				t_color;
 
-char			*ft_convert_color_to_hex(
+char			*ft_convert_color_to_hex
+(
 	t_color const *color,
 	bool include_alpha
 );
 
-t_uint32		ft_convert_color_to_rgba(
+t_uint32		ft_convert_color_to_rgba
+(
 	t_color const *color
 );
 
-t_color			ft_mix_color(
+t_color			ft_mix_color
+(
 	t_color const *bg,
 	t_color const *fg
 );
 
-t_color			ft_scale_color_brightness(
+t_color			ft_scale_color_brightness
+(
 	t_color const *color,
 	float brightness
 );
 
-t_color			ft_convert_hex_to_color(
+t_color			ft_convert_hex_to_color
+(
 	char const *hex
 );
 
-t_uint32		ft_convert_hex_to_rgba(
+t_uint32		ft_convert_hex_to_rgba
+(
 	char const *hex
 );
 
-t_color			ft_convert_rgba_to_color(
+t_color			ft_convert_rgba_to_color
+(
 	t_uint32 rgba
 );
 
-char			*ft_convert_rgba_to_hex(
+char			*ft_convert_rgba_to_hex
+(
 	t_uint32 rgba,
 	bool include_alpha
 );

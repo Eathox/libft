@@ -17,7 +17,8 @@
 /*
 ** * Convert a byte data channel to dst
 */
-void	convert_byte_channel(
+void	convert_byte_channel
+(
 	char *dst,
 	t_uint8 channel
 )
