@@ -16,6 +16,8 @@ These are some extra things aside of [codam's](https://www.codam.nl/en/) normine
 
 ### Functions
 
+Keep struct arguments pointers to avoid copy overhead
+
 #### Function Name Syntax
 
 `<action>_<target>_<addition>`
