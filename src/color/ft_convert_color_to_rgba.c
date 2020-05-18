@@ -21,7 +21,7 @@ t_uint32	ft_convert_color_to_rgba(
 {
 	t_uint32	rgba;
 
-	rgba = 0;
+	rgba = 0x0;
 	rgba |= color->r << RGBA_RED_SHIFT;
 	rgba |= color->g << RGBA_GREEN_SHIFT;
 	rgba |= color->b << RGBA_BLUE_SHIFT;

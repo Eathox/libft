@@ -46,7 +46,7 @@ Test(convert_hex_channel, max)
 	compare(byte_channel, channel);
 }
 
-Test(convert_hex_channel, 127)
+Test(convert_hex_channel, 0x7F)
 {
 	t_uint8 	byte_channel;
 	char const	*channel = "7F";

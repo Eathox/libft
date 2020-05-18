@@ -48,7 +48,7 @@ Test(convert_byte_channel, max)
 	compare(byte_channel, channel);
 }
 
-Test(convert_byte_channel, 127)
+Test(convert_byte_channel, 0x7F)
 {
 	t_uint8 const	byte_channel = 0x7F;
 	char 			channel[3];

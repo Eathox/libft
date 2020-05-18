@@ -34,7 +34,7 @@ Test(ft_convert_rgba_to_color, max)
 	cr_assert_arr_eq(&color, &rgba, sizeof(t_color));
 }
 
-Test(ft_convert_rgba_to_color, 127)
+Test(ft_convert_rgba_to_color, 0x7F)
 {
 	t_color			color;
 	t_uint32 const	rgba = 0x7F7F7F7F;

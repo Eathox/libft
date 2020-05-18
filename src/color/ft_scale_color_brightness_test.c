@@ -38,7 +38,7 @@ Test(ft_scale_color_brightness, max)
 	cr_assert_arr_eq(&result, &expected, sizeof(t_color));
 }
 
-Test(ft_scale_color_brightness, 127)
+Test(ft_scale_color_brightness, 0x7F)
 {
 	t_color 		result;
 	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};

@@ -30,7 +30,7 @@ t_color			ft_convert_hex_to_color(
 	const size_t	len = ft_strlen(hex);
 
 	if (hex[0] != '#')
-		return ((t_color){0, 0, 0, UCHAR_MAX});
+		return ((t_color){0x0, 0x0, 0x0, UCHAR_MAX});
 	color.r = convert_hex_channel(&hex[1]);
 	color.g = convert_hex_channel(&hex[3]);
 	color.b = convert_hex_channel(&hex[5]);

@@ -38,7 +38,7 @@ Test(ft_mix_color, max)
 	cr_assert_arr_eq(&result, &expected, sizeof(t_color));
 }
 
-Test(ft_mix_color, 127)
+Test(ft_mix_color, 0x7F)
 {
 	t_color const	bg = {0x0, 0x0, 0x0, UCHAR_MAX};
 	t_color const	fg = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, 0x7F};

@@ -25,7 +25,7 @@ t_color		ft_mix_color(
 	float	alpha;
 	t_color	result;
 
-	//Todo looking to rgba mixing algorithms
+	//Todo look throught other rgba mixing algorithms
 	alpha = (float)fg->a / UCHAR_MAX;
 	if (alpha == 0)
 		return (*bg);

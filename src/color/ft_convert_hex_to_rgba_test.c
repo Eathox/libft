@@ -26,10 +26,10 @@ static void	compare(
 	char	result[10];
 
 	sprintf(result, "#%02X%02X%02X%02X",
-		(t_uint8)rgba,
-		(t_uint8)(rgba >> 8),
-		(t_uint8)(rgba >> 16),
-		(t_uint8)(rgba >> 24)
+		(t_uint8)(rgba >> RGBA_RED_SHIFT),
+		(t_uint8)(rgba >> RGBA_GREEN_SHIFT),
+		(t_uint8)(rgba >> RGBA_BLUE_SHIFT),
+		(t_uint8)(rgba >> RGBA_ALPHA_SHIFT)
 	);
 	cr_assert_str_eq(result, hex);
 }
@@ -52,7 +52,7 @@ Test(ft_convert_hex_to_rgba, max)
 	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_rgba, 127)
+Test(ft_convert_hex_to_rgba, 0x7F)
 {
 	t_uint32 		rgba;
 	char const		*hex = "#7F7F7F7F";

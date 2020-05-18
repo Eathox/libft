@@ -34,7 +34,7 @@ Test(ft_convert_color_to_hex, max)
 	cr_assert_str_eq(hex, "#FFFFFF");
 }
 
-Test(ft_convert_color_to_hex, 127)
+Test(ft_convert_color_to_hex, 0x7F)
 {
 	t_color const	color = {CHAR_MAX, CHAR_MAX, CHAR_MAX, CHAR_MAX};
 	char 			*hex;

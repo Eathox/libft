@@ -34,7 +34,7 @@ Test(ft_convert_rgba_to_hex, max)
 	cr_assert_str_eq(hex, "#FFFFFF");
 }
 
-Test(ft_convert_rgba_to_hex, 127)
+Test(ft_convert_rgba_to_hex, 0x7F)
 {
 	char 			*hex;
 	t_uint32 const	rgba = 0x7F7F7F7F;

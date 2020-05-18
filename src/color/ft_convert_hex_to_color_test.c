@@ -52,7 +52,7 @@ Test(ft_convert_hex_to_color, max)
 	compare(color, hex);
 }
 
-Test(ft_convert_hex_to_color, 127)
+Test(ft_convert_hex_to_color, 0x7F)
 {
 	t_color 		color;
 	char const		*hex = "#7F7F7F7F";

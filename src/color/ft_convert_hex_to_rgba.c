@@ -30,8 +30,8 @@ t_uint32		ft_convert_hex_to_rgba(
 	const size_t	len = ft_strlen(hex);
 
 	if (hex[0] != '#')
-		return (0xFF000000);
-	rgba = 0;
+		return (RGBA_ALPHA_MASK);
+	rgba = 0x0;
 	rgba |= convert_hex_channel(&hex[1]) << RGBA_RED_SHIFT;
 	rgba |= convert_hex_channel(&hex[3]) << RGBA_GREEN_SHIFT;
 	rgba |= convert_hex_channel(&hex[5]) << RGBA_BLUE_SHIFT;

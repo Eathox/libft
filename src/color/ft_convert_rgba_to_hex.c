@@ -34,10 +34,10 @@ char		*ft_convert_rgba_to_hex(
 	if (hex == NULL)
 		return (NULL);
 	hex[0] = '#';
-	convert_byte_channel(&hex[1], rgba);
-	convert_byte_channel(&hex[3], rgba >> 8);
-	convert_byte_channel(&hex[5], rgba >> 16);
+	convert_byte_channel(&hex[1], rgba >> RGBA_RED_SHIFT);
+	convert_byte_channel(&hex[3], rgba >> RGBA_GREEN_SHIFT);
+	convert_byte_channel(&hex[5], rgba >> RGBA_BLUE_SHIFT);
 	if (include_alpha == true)
-		convert_byte_channel(&hex[7], rgba >> 24);
+		convert_byte_channel(&hex[7], rgba >> RGBA_ALPHA_SHIFT);
 	return (hex);
 }
