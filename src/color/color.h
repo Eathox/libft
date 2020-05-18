@@ -18,6 +18,11 @@
 
 # include "ft/types.h"
 
+# define RGBA_RED_SHIFT 0
+# define RGBA_GREEN_SHIFT 8
+# define RGBA_BLUE_SHIFT 16
+# define RGBA_ALPHA_SHIFT 24
+
 # define RGBA_RED_MASK 0x000000FF
 # define RGBA_GREEN_MASK 0x0000FF00
 # define RGBA_BLUE_MASK 0x00FF0000

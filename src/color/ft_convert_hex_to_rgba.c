@@ -31,12 +31,13 @@ t_uint32		ft_convert_hex_to_rgba(
 
 	if (hex[0] != '#')
 		return (0xFF000000);
-	rgba = convert_hex_channel(&hex[1]);
-	rgba |= convert_hex_channel(&hex[3]) << 8;
-	rgba |= convert_hex_channel(&hex[5]) << 16;
+	rgba = 0;
+	rgba |= convert_hex_channel(&hex[1]) << RGBA_RED_SHIFT;
+	rgba |= convert_hex_channel(&hex[3]) << RGBA_GREEN_SHIFT;
+	rgba |= convert_hex_channel(&hex[5]) << RGBA_BLUE_SHIFT;
 	if (len == 9)
-		rgba |= convert_hex_channel(&hex[7]) << 24;
+		rgba |= convert_hex_channel(&hex[7]) << RGBA_ALPHA_SHIFT;
 	else
-		rgba |= UCHAR_MAX << 24;
+		rgba |= UCHAR_MAX << RGBA_ALPHA_SHIFT;
 	return (rgba);
 }
