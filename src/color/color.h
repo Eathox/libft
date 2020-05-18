@@ -13,9 +13,6 @@
 #ifndef COLOR_H
 # define COLOR_H
 
-# include <string.h>
-# include <stdlib.h>
-
 # include "ft/types.h"
 
 # define RGBA_RED_SHIFT 00
