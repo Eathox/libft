@@ -15,8 +15,7 @@
 /*
 ** * Convert color struct to rgba byte data
 */
-t_uint32	ft_convert_color_to_rgba
-(
+t_uint32	ft_convert_color_to_rgba(
 	t_color const *color
 )
 {

@@ -23,22 +23,24 @@ NAME = $(OUTDIR)/$(BASENAME).a
 TESTNAME = $(OUTDIR)/test-$(BASENAME)
 
 MODULES += types
-# MODULES += printf
-MODULES += thpool
-MODULES += unum
-MODULES += num
-MODULES += numarr
-MODULES += float
-MODULES += char
-MODULES += str
-MODULES += strarr
-MODULES += utf8
+# MODULES += color
+
 MODULES += mem
-MODULES += list
-MODULES += hash
-MODULES += color
-MODULES += term
-MODULES += serialize
+
+# MODULES += printf
+# MODULES += thpool
+# MODULES += unum
+# MODULES += num
+# MODULES += numarr
+# MODULES += float
+# MODULES += char
+# MODULES += str
+# MODULES += strarr
+# MODULES += utf8
+# MODULES += list
+# MODULES += hash
+# MODULES += term
+# MODULES += serialize
 
 include makefile_mk/color.mk
 

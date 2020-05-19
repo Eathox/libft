@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memdel.c                                        :+:    :+:            */
+/*   ft_memdel_test.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -10,20 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <signal.h>
+
+#include <criterion/criterion.h>
+#include <criterion/redirect.h>
+
+#include "ft/types.h"
 
 #include "mem.h"
 
-/*
-** * Frees the memory pointed to by *adr then sets *adr to NULL
-** * If adr or *adr are NULL nothing happens
-*/
-void	ft_memdel(
-	void **adr
-)
+#define SIZE 8
+
+Test(ft_memdel, null_ptr)
 {
-	if (adr == NULL || *adr == NULL)
-		return ;
-	free(*adr);
-	*adr = NULL;
+	ft_memdel(NULL);
+}
+
+Test(ft_memdel, null)
+{
+	void	*mem;
+
+	mem = NULL;
+	ft_memdel(&mem);
+	cr_assert_eq(mem, NULL);
+}
+
+Test(ft_memdel, memory)
+{
+	void	*mem;
+
+	mem = malloc(SIZE);
+	cr_expect_neq(mem, NULL);
+
+	ft_memdel(&mem);
+	cr_assert_eq(mem, NULL);
+}
+
+Test(ft_memdel, stack, .signal = SIGABRT)
+{
+	t_uint8	mem[SIZE];
+
+	cr_redirect_stderr();
+	ft_memdel((void**)&mem);
 }

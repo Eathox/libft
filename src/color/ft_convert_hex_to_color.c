@@ -22,8 +22,7 @@
 ** * Convert hex string data to color struct
 ** * Supports 6 and 8 character long hex strings
 */
-t_color			ft_convert_hex_to_color
-(
+t_color			ft_convert_hex_to_color(
 	char const *hex
 )
 {
@@ -32,11 +31,11 @@ t_color			ft_convert_hex_to_color
 
 	if (hex[0] != '#')
 		return ((t_color){0x0, 0x0, 0x0, UCHAR_MAX});
-	color.r = convert_hex_channel(&hex[1]);
-	color.g = convert_hex_channel(&hex[3]);
-	color.b = convert_hex_channel(&hex[5]);
-	if (len == 9)
-		color.a = convert_hex_channel(&hex[7]);
+	color.r = convert_hex_channel(&hex[HEX_RED_INDEX]);
+	color.g = convert_hex_channel(&hex[HEX_GREEN_INDEX]);
+	color.b = convert_hex_channel(&hex[HEX_BLUE_INDEX]);
+	if (len == (HEX_ALPHA_INDEX + HEX_CHANNEL_SIZE))
+		color.a = convert_hex_channel(&hex[HEX_ALPHA_INDEX]);
 	else
 		color.a = UCHAR_MAX;
 	return (color);

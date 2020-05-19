@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memalloc.c                                      :+:    :+:            */
+/*   ft_calloc.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -10,15 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
+#include <stdlib.h>
+
 #include "mem.h"
 
 /*
-** * Allocates size amount of memory and sets it all to 0x0
-** * Returns NULL if the allocation failed or if size is 0
+** * Allocates (size * count) amount of memory and sets it all to 0x0
+** * Returns NULL if the allocation failed or if the given values would overflow
+** * If size, count or both are 0 it also returns NULL
 */
-void	*ft_memalloc(
+void	*ft_calloc(
+	size_t count,
 	size_t size
 )
 {
-	return (ft_calloc(1, size));
+	void	*mem;
+	size_t	final_size;
+
+	if (count == 0 || size == 0)
+		return (NULL);
+	if (size > (SIZE_MAX / count))
+		return (NULL);
+	final_size = size * count;
+	mem = malloc(final_size);
+	if (mem == NULL)
+		return (NULL);
+	ft_memset(mem, 0x0, final_size);
+	return (mem);
 }

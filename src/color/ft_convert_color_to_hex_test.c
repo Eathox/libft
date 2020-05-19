@@ -13,34 +13,75 @@
 #include <limits.h>
 
 #include <criterion/criterion.h>
+#include <criterion/parameterized.h>
 
 #include "color.h"
 
-Test(ft_convert_color_to_hex, min)
-{
-	t_color const	color = {0x0, 0x0, 0x0, 0x0};
-	char 			*hex;
+#define STEP 8
 
-	hex = ft_convert_color_to_hex(&color, false);
-	cr_assert_str_eq(hex, "#000000");
+static void	compare(
+	char const	*hex,
+	t_color	const *color
+)
+{
+	t_color	result;
+
+	result = ft_convert_hex_to_color(hex);
+	cr_assert_arr_eq(&result, color, sizeof(t_color), "(%hhu %hhu %hhu %hhu)",
+		color->r,
+		color->g,
+		color->b,
+		color->a
+	);
 }
 
-Test(ft_convert_color_to_hex, max)
+static void free_colors(
+	struct criterion_test_params *crp
+)
 {
-	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
-	char 			*hex;
+	t_color	*colors;
 
-	hex = ft_convert_color_to_hex(&color, false);
-	cr_assert_str_eq(hex, "#FFFFFF");
+	colors = crp->params;
+    cr_free(colors);
 }
 
-Test(ft_convert_color_to_hex, 0x7F)
+ParameterizedTestParameters(ft_convert_color_to_hex, general)
 {
-	t_color const	color = {CHAR_MAX, CHAR_MAX, CHAR_MAX, CHAR_MAX};
-	char 			*hex;
+	size_t const	step = STEP;
+	size_t const	count = UCHAR_MAX / step;
+	t_color 		*colors;
+	t_color			color;
+	size_t			i;
 
-	hex = ft_convert_color_to_hex(&color, false);
-	cr_assert_str_eq(hex, "#7F7F7F");
+	colors = cr_calloc(count, sizeof(colors));
+	cr_expect_neq(colors, NULL);
+
+	i = 0;
+	color = (t_color){0x0, 0x0, 0x0, 0x0};
+	while (i < count)
+	{
+		colors[i] = color;
+		color = (t_color){
+			color.r + step,
+			color.g + step,
+			color.b + step,
+			color.a + step
+		};
+		i++;
+	}
+	return cr_make_param_array(t_color, colors, count, free_colors);
+}
+
+ParameterizedTest(t_color *color, ft_convert_color_to_hex, general)
+{
+	char	*hex;
+
+	hex = ft_convert_color_to_hex(color, false);
+	cr_expect_neq(hex, NULL);
+
+	compare(hex, color);
+
+	free(hex);
 }
 
 Test(ft_convert_color_to_hex, order)
@@ -54,5 +95,9 @@ Test(ft_convert_color_to_hex, order)
 	char 			*hex;
 
 	hex = ft_convert_color_to_hex(&color, true);
-	cr_assert_str_eq(hex, "#01020304");
+	cr_expect_neq(hex, NULL);
+
+	cr_assert_str_eq(hex, "#01020304"); //TODO compare
+
+	free(hex);
 }

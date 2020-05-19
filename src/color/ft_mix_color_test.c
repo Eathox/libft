@@ -16,6 +16,8 @@
 
 #include "color.h"
 
+//TODO parameterize tests
+
 Test(ft_mix_color, min)
 {
 	t_color const	bg = {0x0, 0x0, 0x0, 0x0};

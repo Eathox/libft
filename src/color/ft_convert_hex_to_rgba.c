@@ -22,8 +22,7 @@
 ** * Convert hex string data to rgba byte data
 ** * Supports 6 and 8 character long hex strings
 */
-t_uint32		ft_convert_hex_to_rgba
-(
+t_uint32		ft_convert_hex_to_rgba(
 	char const *hex
 )
 {
@@ -33,11 +32,11 @@ t_uint32		ft_convert_hex_to_rgba
 	if (hex[0] != '#')
 		return (RGBA_ALPHA_MASK);
 	rgba = 0x0;
-	rgba |= convert_hex_channel(&hex[1]) << RGBA_RED_SHIFT;
-	rgba |= convert_hex_channel(&hex[3]) << RGBA_GREEN_SHIFT;
-	rgba |= convert_hex_channel(&hex[5]) << RGBA_BLUE_SHIFT;
-	if (len == 9)
-		rgba |= convert_hex_channel(&hex[7]) << RGBA_ALPHA_SHIFT;
+	rgba |= convert_hex_channel(&hex[HEX_RED_INDEX]) << RGBA_RED_SHIFT;
+	rgba |= convert_hex_channel(&hex[HEX_GREEN_INDEX]) << RGBA_GREEN_SHIFT;
+	rgba |= convert_hex_channel(&hex[HEX_BLUE_INDEX]) << RGBA_BLUE_SHIFT;
+	if (len == (HEX_ALPHA_INDEX + HEX_CHANNEL_SIZE))
+		rgba |= convert_hex_channel(&hex[HEX_ALPHA_INDEX]) << RGBA_ALPHA_SHIFT;
 	else
 		rgba |= UCHAR_MAX << RGBA_ALPHA_SHIFT;
 	return (rgba);

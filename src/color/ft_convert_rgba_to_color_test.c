@@ -16,6 +16,8 @@
 
 #include "color.h"
 
+//TODO parameterize tests
+
 Test(ft_convert_rgba_to_color, min)
 {
 	t_color			color;

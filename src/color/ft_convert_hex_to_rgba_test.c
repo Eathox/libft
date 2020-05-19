@@ -18,8 +18,9 @@
 
 #include "color.h"
 
-static void	compare
-(
+//TODO parameterize tests
+
+static void	compare(
 	t_uint32	rgba,
 	char const	*hex
 )

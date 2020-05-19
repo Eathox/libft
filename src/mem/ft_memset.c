@@ -14,52 +14,69 @@
 
 #include "mem.h"
 
-static t_uint64	prepare_8(t_uint64 c)
+static t_uint64	prepare_c_8(
+	t_uint8 c
+)
 {
-	t_uint64	temp_c;
+	t_uint64	c_8;
 
-	temp_c = (c << 0);
-	temp_c |= (c << 8);
-	temp_c |= (c << 16);
-	temp_c |= (c << 24);
-	temp_c |= (c << 32);
-	temp_c |= (c << 40);
-	temp_c |= (c << 48);
-	temp_c |= (c << 56);
-	return (temp_c);
+	c_8 = c;
+	c_8 |= c_8 << 010;
+	c_8 |= c_8 << 020;
+	c_8 |= c_8 << 030;
+	c_8 |= c_8 << 040;
+	c_8 |= c_8 << 050;
+	c_8 |= c_8 << 060;
+	c_8 |= c_8 << 070;
+	return (c_8);
 }
 
-static void		set_32(t_uint64 *str_8, t_uint64 c_8, size_t *i, size_t len)
+static size_t	set_32(
+	t_uint64 *stream_8,
+	t_uint8 c,
+	size_t len
+)
 {
+	t_uint64		c_8;
 	size_t			index_step;
-	const size_t	step = 4;
-	const size_t	len_8 = len / sizeof(t_uint64);
+	size_t const	step = 4;
+	size_t const	len_8 = len / sizeof(c_8);
 
 	index_step = 0;
+	c_8 = prepare_c_8(c);
 	while ((index_step + step) < len_8)
 	{
-		str_8[index_step] = c_8;
-		str_8[index_step + 1] = c_8;
-		str_8[index_step + 2] = c_8;
-		str_8[index_step + 3] = c_8;
+		stream_8[index_step + 0] = c_8;
+		stream_8[index_step + 1] = c_8;
+		stream_8[index_step + 2] = c_8;
+		stream_8[index_step + 3] = c_8;
 		index_step += step;
 	}
-	*i = index_step * sizeof(t_uint64);
+	return (index_step * sizeof(c_8));
 }
 
-void			*ft_memset(void *str, char c, size_t len)
+/*
+** * Sets len amount of bytes to the value of c in the memory mem
+** * Returns mem
+*/
+void			*ft_memset(
+	void *mem,
+	int c,
+	size_t len
+)
 {
 	size_t		i;
-	t_uint8		temp_c;
-	t_uint8		*temp_str;
+	t_uint8		*stream;
 
-	temp_c = c;
-	set_32(str, prepare_8(temp_c), &i, len);
-	temp_str = str;
+	i = 0;
+	stream = mem;
+	c = (t_uint8)c;
+	if (len >= 32)
+		i = set_32(mem, c, len);
 	while (i < len)
 	{
-		temp_str[i] = temp_c;
+		stream[i] = c;
 		i++;
 	}
-	return (str);
+	return (mem);
 }

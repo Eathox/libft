@@ -11,14 +11,17 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <string.h>
 #include <limits.h>
 
 #include <criterion/criterion.h>
+#include <criterion/parameterized.h>
 
 #include "priv.h"
 
-static void	compare
-(
+#define STEP 8
+
+static void	compare(
 	t_uint8	byte_channel,
 	char const	*channel
 )
@@ -29,30 +32,54 @@ static void	compare
 	cr_assert_str_eq(result, channel);
 }
 
-Test(convert_hex_channel, min)
+static void free_channels(
+	struct criterion_test_params *crp
+)
 {
-	t_uint8 	byte_channel;
-	char const	*channel = "00";
+	char	**channels;
+	size_t	i;
 
-	byte_channel = convert_hex_channel(channel);
-	compare(byte_channel, channel);
+	i = 0;
+	channels = crp->params;
+	while (i < crp->length)
+	{
+		cr_free(channels[i]);
+		i++;
+	}
+    cr_free(channels);
 }
 
-Test(convert_hex_channel, max)
+ParameterizedTestParameters(convert_hex_channel, general)
 {
-	t_uint8 	byte_channel;
-	char const	*channel = "FF";
+	size_t const	step = STEP;
+	size_t const	count = UCHAR_MAX / step;
+	char 			**channels;
+	char			*channel;
+	t_uint8			byte_channel;
+	size_t			i;
 
-	byte_channel = convert_hex_channel(channel);
-	compare(byte_channel, channel);
+	channels = cr_calloc(count, sizeof(channel));
+	cr_expect_neq(channels, NULL);
+
+	i = 0;
+	byte_channel = 0x0;
+	while (i < count)
+	{
+		channel = cr_calloc(3, sizeof(char));
+		cr_expect_neq(channel, NULL);
+
+		sprintf(channel, "%02X", byte_channel);
+		channels[i] = channel;
+		byte_channel += step;
+		i++;
+	}
+	return cr_make_param_array(char const *, channels, count, free_channels);
 }
 
-Test(convert_hex_channel, 0x7F)
+ParameterizedTest(char **channel, convert_hex_channel, general)
 {
 	t_uint8 	byte_channel;
-	char const	*channel = "7F";
 
-	byte_channel = convert_hex_channel(channel);
-	compare(byte_channel, channel);
+	byte_channel = convert_hex_channel(*channel);
+	compare(byte_channel, *channel);
 }
-

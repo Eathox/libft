@@ -16,6 +16,8 @@
 
 #include "color.h"
 
+//TODO parameterize tests
+
 Test(ft_convert_color_to_rgba, min)
 {
 	t_color const	color = {0x0, 0x0, 0x0, 0x0};

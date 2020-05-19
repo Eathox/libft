@@ -16,6 +16,8 @@
 
 #include "color.h"
 
+//TODO parameterize tests
+
 Test(ft_scale_color_brightness, min)
 {
 	t_color 		result;
