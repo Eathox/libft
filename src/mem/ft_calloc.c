@@ -36,6 +36,6 @@ void	*ft_calloc(
 	mem = malloc(final_size);
 	if (mem == NULL)
 		return (NULL);
-	ft_memset(mem, 0x0, final_size);
+	ft_bzero(mem, final_size);
 	return (mem);
 }

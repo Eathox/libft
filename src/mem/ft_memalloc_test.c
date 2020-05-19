@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 #include <criterion/criterion.h>
 #include <criterion/parameterized.h>
 
@@ -63,7 +65,7 @@ ParameterizedTest(size_t *size, ft_memalloc, general, .init = fill_memory)
 	result = ft_memalloc(*size);
 	cr_expect_neq(result, NULL);
 
-	memset(expected, 0x0, *size);
+	bzero(expected, *size);
 	cr_assert_arr_eq(result, expected, *size, "%zu", *size);
 
 	free(result);

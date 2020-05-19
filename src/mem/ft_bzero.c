@@ -12,8 +12,11 @@
 
 #include "mem.h"
 
-void	ft_bzero(void *str, size_t len)
+/*
+** * Sets len amount of bytes to the value 0x0 in the memory mem
+*/
+void	ft_bzero(void *mem, size_t len)
 {
 	if (len != 0)
-		ft_memset(str, 0, len);
+		ft_memset(mem, 0x0, len);
 }

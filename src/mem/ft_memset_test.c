@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
 #include <limits.h>
 
 #include <criterion/criterion.h>
@@ -131,19 +130,4 @@ ParameterizedTest(int *c, ft_memset, character)
 	ft_memset(result, *c, len);
 	memset(expected, *c, len);
 	cr_assert_arr_eq(result, expected, size, "%X", *c);
-}
-
-Test(ft_memset, overflow, .signal = SIGSEGV)
-{
-	size_t const	size = OVERFLOW_SIZE;
-	size_t const	len = size * 4;
-	t_uint8			result[size];
-	t_uint8			expected[size];
-
-	memset(result, 0x0, size);
-	memset(expected, 0x0, size);
-
-	ft_memset(result, 0xFF, len);
-	memset(expected, 0xFF, len);
-	cr_assert_arr_eq(result, expected, size);
 }

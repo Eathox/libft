@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include <stdint.h>
 
 #include <criterion/criterion.h>
@@ -74,7 +75,7 @@ ParameterizedTest(t_params *params, ft_calloc, general, .init = fill_memory)
 	result = ft_calloc(count, size);
 	cr_expect_neq(result, NULL);
 
-	memset(expected, 0x0, (size * count));
+	bzero(expected, (size * count));
 	cr_assert_arr_eq(result, expected, sizeof(expected), "%zu, %zu", size, count);
 
 	free(result);

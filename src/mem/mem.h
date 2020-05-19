@@ -16,6 +16,11 @@
 # include <sys/types.h>
 # include <stdbool.h>
 
+void		ft_bzero(
+	void *mem,
+	size_t len
+);
+
 void		*ft_calloc(
 	size_t count,
 	size_t size
@@ -37,7 +42,6 @@ void		*ft_memset(
 
 // Put in
 // void		ft_arraydel(void ***array, void (*del)(void**));
-// void		ft_bzero(void *mem, size_t len);
 // int			ft_memcmp(const void *mem1, const void *mem2, size_t len);
 // bool		ft_memequ(const void *mem1, const void *mem2, size_t len);
 // void		*ft_memccpy(void *dst, const void *src, char c, size_t len);
