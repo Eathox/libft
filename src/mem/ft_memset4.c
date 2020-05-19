@@ -41,8 +41,9 @@ static size_t	set_32(
 
 /*
 ** * Sets len amount of 4 bytes in mem to the value of c
+** * Returns mem
 */
-void			ft_memset4(
+void			*ft_memset4(
 	void *mem,
 	t_uint32 c,
 	size_t len
@@ -60,4 +61,5 @@ void			ft_memset4(
 		stream[i] = c;
 		i++;
 	}
+	return (mem);
 }

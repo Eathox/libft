@@ -36,13 +36,13 @@ void		ft_memdel(
 	void **adr
 );
 
-void		ft_memset(
+void		*ft_memset(
 	void *mem,
 	t_uint8 c,
 	size_t len
 );
 
-void		ft_memset4(
+void		*ft_memset4(
 	void *mem,
 	t_uint32 c,
 	size_t len
