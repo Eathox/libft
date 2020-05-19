@@ -36,13 +36,13 @@ Keep it one public function per file and give the file the same name as the publ
 
 ```txt
 <documentation>
-<return type>    <function name>
-(
+<return type>    <function name>(
     <param>
     <...>
 )
 ```
 
+If there's no param and thus `void`, there is no need the newlines
 Only include `<documentation>` in the source file, not header
 
 **Examples:**
