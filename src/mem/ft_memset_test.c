@@ -99,7 +99,7 @@ static void free_characters(
 ParameterizedTestParameters(ft_memset, character)
 {
 	size_t const	step = CHARACTER_C_STEP;
-	size_t const	count = (UCHAR_MAX + (step * 2)) / step;
+	size_t const	count = UCHAR_MAX / step;
 	int 			*characters;
 	int				c;
 	size_t			i;

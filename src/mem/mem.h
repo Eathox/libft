@@ -16,6 +16,8 @@
 # include <sys/types.h>
 # include <stdbool.h>
 
+# include "ft/types.h"
+
 void		ft_bzero(
 	void *mem,
 	size_t len
@@ -36,7 +38,7 @@ void		ft_memdel(
 
 void		*ft_memset(
 	void *mem,
-	int c,
+	t_uint8 c,
 	size_t len
 );
 

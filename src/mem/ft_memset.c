@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/types.h"
-
 #include "mem.h"
 
 static size_t	set_32(
@@ -47,7 +45,7 @@ static size_t	set_32(
 */
 void			*ft_memset(
 	void *mem,
-	int c,
+	t_uint8 c,
 	size_t len
 )
 {
@@ -56,7 +54,6 @@ void			*ft_memset(
 
 	i = 0;
 	stream = mem;
-	c = (t_uint8)c;
 	if (len >= 32)
 		i = set_32(mem, c, len);
 	while (i < len)
