@@ -20,7 +20,7 @@
 #include "mem.h"
 
 #define MAX 512
-#define STEP 7
+#define STEP 11
 
 static void free_lengths(
 	struct criterion_test_params *crp
@@ -65,7 +65,7 @@ ParameterizedTest(size_t *len, ft_bzero, general)
 
 	ft_bzero(result, *len);
 	bzero(expected, *len);
-	cr_assert_arr_eq(result, expected, size, "%zu, %zu", size, *len);
+	cr_assert_arr_eq(result, expected, size, "%zu", *len);
 
 	free(result);
 	free(expected);

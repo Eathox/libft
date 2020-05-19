@@ -20,12 +20,10 @@
 #include "mem.h"
 
 #define SIZE_LEN_MAX 512
-#define SIZE_LEN_STEP 7
+#define SIZE_LEN_STEP 11
 
 #define CHARACTER_SIZE 1
-#define CHARACTER_C_STEP 8
-
-#define OVERFLOW_SIZE 32
+#define CHARACTER_C_STEP 7
 
 typedef	struct	s_params
 {
