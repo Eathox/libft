@@ -14,23 +14,6 @@
 
 #include "mem.h"
 
-static t_uint64	prepare_c_8(
-	t_uint8 c
-)
-{
-	t_uint64	c_8;
-
-	c_8 = c;
-	c_8 |= c_8 << 010;
-	c_8 |= c_8 << 020;
-	c_8 |= c_8 << 030;
-	c_8 |= c_8 << 040;
-	c_8 |= c_8 << 050;
-	c_8 |= c_8 << 060;
-	c_8 |= c_8 << 070;
-	return (c_8);
-}
-
 static size_t	set_32(
 	t_uint64 *stream_8,
 	t_uint8 c,
@@ -42,8 +25,11 @@ static size_t	set_32(
 	size_t const	step = 4;
 	size_t const	len_8 = len / sizeof(c_8);
 
+	c_8 = c;
 	index_step = 0;
-	c_8 = prepare_c_8(c);
+	c_8 |= c_8 << 010;
+	c_8 |= c_8 << 020;
+	c_8 |= c_8 << 040;
 	while ((index_step + step) < len_8)
 	{
 		stream_8[index_step + 0] = c_8;

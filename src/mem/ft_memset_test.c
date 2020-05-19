@@ -20,10 +20,13 @@
 
 #include "mem.h"
 
-#define OVERFLOW_SIZE 32
+#define SIZE_LEN_MAX 512
+#define SIZE_LEN_STEP 7
 
 #define CHARACTER_SIZE 1
 #define CHARACTER_C_STEP 8
+
+#define OVERFLOW_SIZE 32
 
 typedef	struct	s_params
 {
@@ -32,51 +35,44 @@ typedef	struct	s_params
 	int	c;
 }				t_params;
 
-ParameterizedTestParameters(ft_memset, size_len)
+static void free_size_len(
+	struct criterion_test_params *crp
+)
 {
-	static t_params size_len[] = {
-		{
-			.size = 1,
-			.len = 1,
-			.c = 0xFF,
-		},
-		{
-			.size = 8,
-			.len = 1,
-			.c = 0xFF,
-		},
-		{
-			.size = 16,
-			.len = 8,
-			.c = 0xFF,
-		},
-		{
-			.size = 64,
-			.len = 31,
-			.c = 0xFF,
-		},
-		{
-			.size = 64,
-			.len = 33,
-			.c = 0xFF,
-		},
-		{
-			.size = 64,
-			.len = 64,
-			.c = 0xFF,
-		},
-		{
-			.size = 1024,
-			.len = 1024,
-			.c = 0xFF,
-		},
-	};
+	t_params	*size_len;
 
-	size_t count = sizeof(size_len) / sizeof(t_params);
-	return cr_make_param_array(t_params, size_len, count);
+	size_len = crp->params;
+    cr_free(size_len);
 }
 
-ParameterizedTest(t_params *params, ft_memset, size_len) {
+ParameterizedTestParameters(ft_memset, size_len)
+{
+	size_t const	step = SIZE_LEN_STEP;
+	size_t const	count = SIZE_LEN_MAX / step;
+	t_params 		*size_len;
+	t_params		param;
+	size_t			i;
+
+	size_len = cr_calloc(count, sizeof(param));
+	cr_expect_neq(size_len, NULL);
+
+	i = 0;
+	param = (t_params){0x0, 0x0, 0xFF};
+	while (i < count)
+	{
+		size_len[i] = param;
+		param = (t_params){
+			param.size + step,
+			param.len + step,
+			param.c
+		};
+		i++;
+	}
+	return cr_make_param_array(t_params, size_len, count, free_size_len);
+}
+
+ParameterizedTest(t_params *params, ft_memset, size_len)
+{
 	size_t const	size = params->size;
 	size_t const	len = params->len;
 	t_uint8			*result = calloc(1, size);
@@ -125,7 +121,8 @@ ParameterizedTestParameters(ft_memset, character)
 	return cr_make_param_array(int, characters, count, free_characters);
 }
 
-ParameterizedTest(int *c, ft_memset, character) {
+ParameterizedTest(int *c, ft_memset, character)
+{
 	size_t const	size = CHARACTER_SIZE;
 	size_t const	len = CHARACTER_SIZE;
 	t_uint8 		result[CHARACTER_SIZE];
