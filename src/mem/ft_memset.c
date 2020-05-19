@@ -42,7 +42,7 @@ static size_t	set_32(
 }
 
 /*
-** * Sets len amount of bytes to the value of c in the memory mem
+** * Sets len amount of bytes in mem to the value of c
 ** * Returns mem
 */
 void			*ft_memset(
