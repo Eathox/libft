@@ -12,6 +12,8 @@
 
 #include "mem.h"
 
+#define STEP 4
+
 static size_t	set_32(
 	t_uint64 *stream_8,
 	t_uint8 c,
@@ -19,24 +21,24 @@ static size_t	set_32(
 )
 {
 	t_uint64		c_8;
-	size_t			index_step;
-	size_t const	step = 4;
-	size_t const	len_8 = len / sizeof(c_8);
+	size_t			i;
+	size_t const	c_fit = sizeof(c_8) / sizeof(c);
+	size_t const	len_8 = len / c_fit;
 
 	c_8 = c;
-	index_step = 0;
 	c_8 |= c_8 << 010;
 	c_8 |= c_8 << 020;
 	c_8 |= c_8 << 040;
-	while ((index_step + step) < len_8)
+	i = 0;
+	while ((i + STEP) < len_8)
 	{
-		stream_8[index_step + 0] = c_8;
-		stream_8[index_step + 1] = c_8;
-		stream_8[index_step + 2] = c_8;
-		stream_8[index_step + 3] = c_8;
-		index_step += step;
+		stream_8[i + 0] = c_8;
+		stream_8[i + 1] = c_8;
+		stream_8[i + 2] = c_8;
+		stream_8[i + 3] = c_8;
+		i += STEP;
 	}
-	return (index_step * sizeof(c_8));
+	return (i * c_fit);
 }
 
 /*

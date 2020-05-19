@@ -65,10 +65,10 @@ ParameterizedTestParameters(ft_calloc, general)
 	return cr_make_param_array(t_params, size_count, count);
 }
 
-ParameterizedTest(t_params *params, ft_calloc, general, .init = fill_memory)
+ParameterizedTest(t_params *param, ft_calloc, general, .init = fill_memory)
 {
-	size_t const	size = params->size;
-	size_t const	count = params->count;
+	size_t const	size = param->size;
+	size_t const	count = param->count;
 	t_uint8			*result;
 	t_uint8			expected[size * count];
 
@@ -81,34 +81,26 @@ ParameterizedTest(t_params *params, ft_calloc, general, .init = fill_memory)
 	free(result);
 }
 
-Test(ft_calloc, zero)
+ParameterizedTestParameters(ft_calloc, zero)
 {
-	size_t const	size = 0;
-	size_t const	count = 0;
-	t_uint8			*result;
+	static t_params	size_count[] = {
+		{0, 1},
+		{1, 0},
+		{0, 0},
+	};
 
-	result = ft_calloc(count, size);
-	cr_assert_eq(result, NULL);
+	size_t count = sizeof(size_count) / sizeof(t_params);
+	return cr_make_param_array(t_params, size_count, count);
 }
 
-Test(ft_calloc, zero_count)
+ParameterizedTest(t_params *param, ft_calloc, zero)
 {
-	size_t const	size = 1;
-	size_t const	count = 0;
+	size_t const	size = param->size;
+	size_t const	count = param->count;
 	t_uint8			*result;
 
 	result = ft_calloc(count, size);
-	cr_assert_eq(result, NULL);
-}
-
-Test(ft_calloc, zero_size)
-{
-	size_t const	size = 0;
-	size_t const	count = 1;
-	t_uint8			*result;
-
-	result = ft_calloc(count, size);
-	cr_assert_eq(result, NULL);
+	cr_assert_eq(result, NULL, "%zu, %zu", size, count);
 }
 
 Test(ft_calloc, overflow)

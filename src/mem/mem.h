@@ -42,6 +42,12 @@ void		*ft_memset(
 	size_t len
 );
 
+void		*ft_memset4(
+	void *mem,
+	t_uint32 c,
+	size_t len
+);
+
 // Put in
 // void		ft_arraydel(void ***array, void (*del)(void**));
 // int			ft_memcmp(const void *mem1, const void *mem2, size_t len);
@@ -53,7 +59,6 @@ void		*ft_memset(
 // void		*ft_memmove(void *dst, const void *src, size_t len);
 // void		*ft_memrchr(const void *str, char c, size_t len);
 // void		*ft_memrcpy(void *dst, const void *src, size_t len);
-// void		*ft_memset4(void *mem, int c, size_t len);
 // void		ft_memrev(void *mem, size_t len);
 
 // Choping block (maybe)
