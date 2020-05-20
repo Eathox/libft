@@ -65,7 +65,7 @@ static void free_lengths(
 ParameterizedTestParameters(ft_memrev, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step) + 3;
+	size_t const	count = (MAX / step);
 	size_t 			*lengths;
 	size_t			len;
 	size_t			i;
@@ -75,16 +75,12 @@ ParameterizedTestParameters(ft_memrev, general)
 
 	i = 0;
 	len = 1;
-	while (i < count - 3)
+	while (i < count)
 	{
 		lengths[i] = len;
 		len += step;
 		i++;
 	}
-
-	lengths[i + 0] = 31;
-	lengths[i + 1] = 32;
-	lengths[i + 2] = 33;
 	return cr_make_param_array(size_t, lengths, count, free_lengths);
 }
 
