@@ -123,6 +123,8 @@ ParameterizedTest(size_t *len, ft_memrev, unrolling)
 	t_uint8		result[*len];
 	void		*return_ptr;
 
+	set_mem(result, *len);
+
 	return_ptr = ft_memrev(result, *len);
 	compare(result, *len);
 	cr_assert_eq(return_ptr, result, "Return pointer error");
