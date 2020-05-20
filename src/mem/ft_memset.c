@@ -14,22 +14,31 @@
 
 #define UNROLLED_8_COUNT 4
 
+static t_uint64	prep_c_8(
+	t_uint8 c
+)
+{
+	t_uint64	c_8;
+
+	c_8 = c;
+	c_8 |= c_8 << 010;
+	c_8 |= c_8 << 020;
+	c_8 |= c_8 << 040;
+	return (c_8);
+}
+
 static size_t	set_32(
 	t_uint64 *stream_8,
 	t_uint8 c,
 	size_t len
 )
 {
-	t_uint64		c_8;
 	size_t			i;
+	t_uint64 const	c_8 = prep_c_8(c);
 	size_t const	step = UNROLLED_8_COUNT;
 	size_t const	c_fit = sizeof(c_8) / sizeof(c);
 	size_t const	len_8 = len / c_fit;
 
-	c_8 = c;
-	c_8 |= c_8 << 010;
-	c_8 |= c_8 << 020;
-	c_8 |= c_8 << 040;
 	i = 0;
 	while ((i + step) <= len_8)
 	{
