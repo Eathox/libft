@@ -12,7 +12,7 @@
 
 #include "mem.h"
 
-#define STEP 4
+#define UNROLLED_8_COUNT 4
 
 static size_t	set_32(
 	t_uint64 *stream_8,
@@ -22,6 +22,7 @@ static size_t	set_32(
 {
 	t_uint64		c_8;
 	size_t			i;
+	size_t const	step = UNROLLED_8_COUNT;
 	size_t const	c_fit = sizeof(c_8) / sizeof(c);
 	size_t const	len_8 = len / c_fit;
 
@@ -30,13 +31,13 @@ static size_t	set_32(
 	c_8 |= c_8 << 020;
 	c_8 |= c_8 << 040;
 	i = 0;
-	while ((i + STEP) < len_8)
+	while ((i + step) <= len_8)
 	{
 		stream_8[i + 0] = c_8;
 		stream_8[i + 1] = c_8;
 		stream_8[i + 2] = c_8;
 		stream_8[i + 3] = c_8;
-		i += STEP;
+		i += step;
 	}
 	return (i * c_fit);
 }

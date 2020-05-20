@@ -21,7 +21,6 @@ void	*ft_bzero(
 	size_t len
 )
 {
-	if (len != 0)
-		ft_memset(mem, 0x0, len);
+	ft_memset(mem, 0x0, len);
 	return (mem);
 }
