@@ -49,7 +49,7 @@ static size_t	swap_32(
 )
 {
 	size_t			i;
-	size_t const	step = (UNROLLED_8_COUNT * 8) / 2;
+	size_t const	step = (UNROLLED_2_COUNT * UNROLLED_8_COUNT);
 
 	i = 0;
 	while ((i + step) <= (len / 2))
