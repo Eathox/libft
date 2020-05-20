@@ -62,6 +62,10 @@ static size_t	swap_32(
 	return (i);
 }
 
+/*
+** * Reveseres len amount of bytes in mem
+** * Returns mem
+*/
 void			*ft_memrev(
 	void *mem,
 	size_t len
