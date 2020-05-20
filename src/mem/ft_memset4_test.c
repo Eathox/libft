@@ -22,7 +22,7 @@
 #define MAX 512
 #define STEP 0xB
 
-#define CHARACTER_SIZE (sizeof(t_uint32) * 2)
+#define CHARACTER_SIZE (sizeof(t_uint32) * 1)
 #define CHARACTER_STEP 0x07070707
 
 static void	compare(

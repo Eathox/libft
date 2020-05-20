@@ -19,14 +19,14 @@
 
 #include "mem.h"
 
-#define SIZE 8
+#define LEN 8
 
-Test(ft_memdel, null_ptr)
+Test(ft_memdel, null)
 {
 	ft_memdel(NULL);
 }
 
-Test(ft_memdel, null)
+Test(ft_memdel, null_content)
 {
 	void	*mem;
 
@@ -39,7 +39,7 @@ Test(ft_memdel, memory)
 {
 	void	*mem;
 
-	mem = malloc(SIZE);
+	mem = malloc(LEN);
 	cr_expect_neq(mem, NULL);
 
 	ft_memdel(&mem);
@@ -48,7 +48,7 @@ Test(ft_memdel, memory)
 
 Test(ft_memdel, stack, .signal = SIGABRT)
 {
-	t_uint8	mem[SIZE];
+	t_uint8	mem[LEN];
 
 	cr_redirect_stderr();
 	ft_memdel((void**)&mem);

@@ -22,7 +22,7 @@
 #define MAX 512
 #define STEP 0xB
 
-#define CHARACTER_SIZE (sizeof(t_uint8) * 2)
+#define CHARACTER_SIZE (sizeof(t_uint8) * 1)
 #define CHARACTER_STEP 0x7
 
 static void free_lengths(

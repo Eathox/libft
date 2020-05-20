@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <limits.h>
 
 #include <criterion/criterion.h>
 #include <criterion/parameterized.h>
@@ -33,7 +34,7 @@ static void	fill_memory(void)
 		holder[i] = malloc(FILL_MEMORY_SIZE);
 		cr_expect_neq(holder[i], NULL);
 
-		memset(holder[i], 0xFF, FILL_MEMORY_SIZE);
+		memset(holder[i], UCHAR_MAX, FILL_MEMORY_SIZE);
 		i++;
 	}
 
