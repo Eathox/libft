@@ -90,8 +90,8 @@ ParameterizedTestParameters(ft_memrev, general)
 
 ParameterizedTest(size_t *len, ft_memrev, general)
 {
-	t_uint8			*result = calloc(*len, sizeof(t_uint8));
-	void			*return_ptr;
+	t_uint8		*result = calloc(*len, sizeof(t_uint8));
+	void		*return_ptr;
 
 	cr_expect_neq(result, NULL);
 	set_mem(result, *len);
@@ -101,4 +101,29 @@ ParameterizedTest(size_t *len, ft_memrev, general)
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 
 	free(result);
+}
+
+ParameterizedTestParameters(ft_memrev, unrolling)
+{
+	static size_t	lengths[] = {
+		31,
+		32,
+		33,
+		63,
+		64,
+		65,
+	};
+
+	size_t count = sizeof(lengths) / sizeof(size_t);
+	return cr_make_param_array(size_t, lengths, count);
+}
+
+ParameterizedTest(size_t *len, ft_memrev, unrolling)
+{
+	t_uint8		result[*len];
+	void		*return_ptr;
+
+	return_ptr = ft_memrev(result, *len);
+	compare(result, *len);
+	cr_assert_eq(return_ptr, result, "Return pointer error");
 }

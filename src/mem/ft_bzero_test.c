@@ -56,9 +56,8 @@ ParameterizedTestParameters(ft_bzero, general)
 
 ParameterizedTest(size_t *len, ft_bzero, general)
 {
-	size_t const	size = *len;
-	t_uint8			*result = calloc(size, sizeof(t_uint8));
-	t_uint8			*expected = calloc(size, sizeof(t_uint8));
+	t_uint8			*result = calloc(*len, sizeof(t_uint8));
+	t_uint8			*expected = calloc(*len, sizeof(t_uint8));
 	void			*return_ptr;
 
 	cr_expect_neq(result, NULL);
@@ -66,9 +65,36 @@ ParameterizedTest(size_t *len, ft_bzero, general)
 
 	bzero(expected, *len);
 	return_ptr = ft_bzero(result, *len);
-	cr_assert_arr_eq(result, expected, size, "%zu", *len);
+	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 
 	free(result);
 	free(expected);
+}
+
+ParameterizedTestParameters(ft_bzero, unrolling)
+{
+	static size_t	lengths[] = {
+		31,
+		32,
+		33,
+		63,
+		64,
+		65,
+	};
+
+	size_t count = sizeof(lengths) / sizeof(size_t);
+	return cr_make_param_array(size_t, lengths, count);
+}
+
+ParameterizedTest(size_t *len, ft_bzero, unrolling)
+{
+	t_uint32 		result[*len];
+	t_uint8 		expected[*len];
+	void			*return_ptr;
+
+	bzero(expected, *len);
+	return_ptr = ft_bzero(result, *len);
+	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
+	cr_assert_eq(return_ptr, result, "Return pointer error");
 }

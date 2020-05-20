@@ -19,69 +19,57 @@
 
 #include "mem.h"
 
-#define SIZE_LEN_MAX 512
-#define SIZE_LEN_STEP 0xB
+#define MAX 512
+#define STEP 0xB
 
 #define CHARACTER_SIZE (sizeof(t_uint8) * 2)
 #define CHARACTER_STEP 0x7
 
-typedef	struct	s_params
-{
-	size_t	size;
-	size_t	len;
-	t_uint8	c;
-}				t_params;
-
-static void free_size_len(
+static void free_lengths(
 	struct criterion_test_params *crp
 )
 {
-	t_params	*size_len;
+	size_t	*lengths;
 
-	size_len = crp->params;
-    cr_free(size_len);
+	lengths = crp->params;
+    cr_free(lengths);
 }
 
-ParameterizedTestParameters(ft_memset, size_len)
+ParameterizedTestParameters(ft_memset, general)
 {
-	size_t const	step = SIZE_LEN_STEP;
-	size_t const	count = SIZE_LEN_MAX / step;
-	t_params  		*size_len;
-	t_params		param;
+	size_t const	step = STEP;
+	size_t const	count = MAX / step;
+	size_t  		*lengths;
+	size_t			len;
 	size_t			i;
 
-	size_len = cr_calloc(count, sizeof(param));
-	cr_expect_neq(size_len, NULL);
+	lengths = cr_calloc(count, sizeof(len));
+	cr_expect_neq(lengths, NULL);
 
 	i = 0;
-	param = (t_params){1, 1, UCHAR_MAX};
+	len = 1;
 	while (i < count)
 	{
-		size_len[i] = param;
-		param = (t_params){
-			param.size + step,
-			param.len + step,
-			param.c
-		};
+		lengths[i] = len;
+		len += step;
 		i++;
 	}
-	return cr_make_param_array(t_params, size_len, count, free_size_len);
+	return cr_make_param_array(size_t, lengths, count, free_lengths);
 }
 
-ParameterizedTest(t_params *param, ft_memset, size_len)
+ParameterizedTest(size_t *len, ft_memset, general)
 {
-	size_t const	size = param->size;
-	size_t const	len = param->len;
-	t_uint8			*result = calloc(size, sizeof(param->c));
-	t_uint8			*expected = calloc(size, sizeof(param->c));
+	t_uint8	const	c = UCHAR_MAX;
+	t_uint8			*result = calloc(*len, sizeof(c));
+	t_uint8			*expected = calloc(*len, sizeof(c));
 	void			*return_ptr;
 
 	cr_expect_neq(result, NULL);
 	cr_expect_neq(expected, NULL);
 
-	memset(expected, param->c, len);
-	return_ptr = ft_memset(result, param->c, len);
-	cr_assert_arr_eq(result, expected, size, "%zu, %zu", size, len);
+	memset(expected, c, *len);
+	return_ptr = ft_memset(result, c, *len);
+	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 
 	free(result);
@@ -122,14 +110,41 @@ ParameterizedTestParameters(ft_memset, character)
 
 ParameterizedTest(t_uint8 *c, ft_memset, character)
 {
-	size_t const	size = CHARACTER_SIZE;
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		result[CHARACTER_SIZE];
-	t_uint8 		expected[CHARACTER_SIZE];
+	t_uint8 		result[len];
+	t_uint8 		expected[len];
 	void			*return_ptr;
 
 	memset(expected, *c, len);
 	return_ptr = ft_memset(result, *c, len);
-	cr_assert_arr_eq(result, expected, size, "%X", *c);
+	cr_assert_arr_eq(result, expected, len, "%X", *c);
+	cr_assert_eq(return_ptr, result, "Return pointer error");
+}
+
+ParameterizedTestParameters(ft_memset, unrolling)
+{
+	static size_t	lengths[] = {
+		31,
+		32,
+		33,
+		63,
+		64,
+		65,
+	};
+
+	size_t count = sizeof(lengths) / sizeof(size_t);
+	return cr_make_param_array(size_t, lengths, count);
+}
+
+ParameterizedTest(size_t *len, ft_memset, unrolling)
+{
+	t_uint8 const	c = UCHAR_MAX;
+	t_uint32 		result[*len];
+	t_uint8 		expected[*len];
+	void			*return_ptr;
+
+	memset(expected, c, *len);
+	return_ptr = ft_memset(result, c, *len);
+	cr_assert_arr_eq(result, expected, *len, "%X", c);
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 }
