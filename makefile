@@ -50,7 +50,7 @@ all-tests :=
 
 # Module import template, importing the makefile of the given module
 define MODULE_IMPORT_TEMPLATE
-include makefile_mk/reset.mk $(SRCDIR)/$(module)/makefile makefile_mk/prefix.mk
+include makefile_mk/reset.mk $(SRCDIR)/$(module)/make.mk makefile_mk/prefix.mk
 endef
 
 # Import each modules makefile specifying objects and tests
