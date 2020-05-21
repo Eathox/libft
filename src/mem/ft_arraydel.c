@@ -14,7 +14,7 @@
 
 #include "mem.h"
 
-static void free_members(
+static void	free_members(
 	void **array,
 	void (*del)(void**)
 )
@@ -44,4 +44,3 @@ void		ft_arraydel(
 		free_members(*array, del);
 	ft_memdel((void**)array);
 }
-
