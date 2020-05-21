@@ -12,43 +12,6 @@
 
 #include "mem.h"
 
-#define UNROLLED_8_COUNT 4
-
-static t_uint64	prep_c_8(
-	t_uint32 c
-)
-{
-	t_uint64	c_8;
-
-	c_8 = c;
-	c_8 |= c_8 << 040;
-	return (c_8);
-}
-
-static size_t	set_32(
-	t_uint64 *stream_8,
-	t_uint32 c,
-	size_t len
-)
-{
-	size_t			i;
-	t_uint64 const	c_8 = prep_c_8(c);
-	size_t const	step = UNROLLED_8_COUNT;
-	size_t const	c_fit = sizeof(c_8) / sizeof(c);
-	size_t const	len_8 = len / c_fit;
-
-	i = 0;
-	while ((i + step) <= len_8)
-	{
-		stream_8[i + 0] = c_8;
-		stream_8[i + 1] = c_8;
-		stream_8[i + 2] = c_8;
-		stream_8[i + 3] = c_8;
-		i += step;
-	}
-	return (i * c_fit);
-}
-
 /*
 ** * Sets len amount of 4 bytes in mem to the value of c
 ** * Returns mem
@@ -60,15 +23,13 @@ void			*ft_memset4(
 )
 {
 	size_t		i;
-	t_uint32	*stream;
+	t_uint32	*mem_byte_4;
 
 	i = 0;
-	stream = mem;
-	if (len >= 32)
-		i = set_32(mem, c, len);
+	mem_byte_4 = mem;
 	while (i < len)
 	{
-		stream[i] = c;
+		mem_byte_4[i] = c;
 		i++;
 	}
 	return (mem);

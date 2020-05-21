@@ -12,8 +12,6 @@
 
 #include "mem.h"
 
-#define UNROLLED_8_COUNT 4
-
 static t_uint64	prep_c_8(
 	t_uint8 c
 )
@@ -27,26 +25,22 @@ static t_uint64	prep_c_8(
 	return (c_8);
 }
 
-static size_t	set_32(
-	t_uint64 *stream_8,
+static size_t	set_8(
+	t_uint64 *mem_byte_8,
 	t_uint8 c,
 	size_t len
 )
 {
 	size_t			i;
 	t_uint64 const	c_8 = prep_c_8(c);
-	size_t const	step = UNROLLED_8_COUNT;
 	size_t const	c_fit = sizeof(c_8) / sizeof(c);
 	size_t const	len_8 = len / c_fit;
 
 	i = 0;
-	while ((i + step) <= len_8)
+	while (i < len_8)
 	{
-		stream_8[i + 0] = c_8;
-		stream_8[i + 1] = c_8;
-		stream_8[i + 2] = c_8;
-		stream_8[i + 3] = c_8;
-		i += step;
+		mem_byte_8[i] = c_8;
+		i++;
 	}
 	return (i * c_fit);
 }
@@ -62,15 +56,19 @@ void			*ft_memset(
 )
 {
 	size_t		i;
-	t_uint8		*stream;
+	t_uint8		*mem_byte;
 
 	i = 0;
-	stream = mem;
-	if (len >= 32)
-		i = set_32(mem, c, len);
+	mem_byte = mem;
+	while (i < len && ((size_t)(mem_byte + i) & 7) != 0)
+	{
+		mem_byte[i] = c;
+		i++;
+	}
+	i += set_8((t_uint64*)(mem_byte + i), c, len - i);
 	while (i < len)
 	{
-		stream[i] = c;
+		mem_byte[i] = c;
 		i++;
 	}
 	return (mem);

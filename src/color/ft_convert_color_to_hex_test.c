@@ -49,7 +49,7 @@ static void free_colors(
 ParameterizedTestParameters(ft_convert_color_to_hex, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	t_color 		*colors;
 	t_color			color;
 	size_t			i;

@@ -35,7 +35,7 @@ static void free_lengths(
 ParameterizedTestParameters(ft_bzero, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	size_t	 		*lengths;
 	size_t			len;
 	size_t			i;
@@ -75,6 +75,9 @@ ParameterizedTest(size_t *len, ft_bzero, general)
 ParameterizedTestParameters(ft_bzero, unrolling)
 {
 	static size_t	lengths[] = {
+		7,
+		8,
+		9,
 		31,
 		32,
 		33,

@@ -81,7 +81,7 @@ static void free_lengths(
 ParameterizedTestParameters(ft_arraydel, null_function)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	size_t 			*lengths;
 	size_t			len;
 	size_t			i;
@@ -121,7 +121,7 @@ ParameterizedTest(size_t *len, ft_arraydel, null_function)
 ParameterizedTestParameters(ft_arraydel, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	size_t 			*lengths;
 	size_t			len;
 	size_t			i;

@@ -135,6 +135,9 @@ ParameterizedTest(t_uint32 *c, ft_memset4, character)
 ParameterizedTestParameters(ft_memset4, unrolling)
 {
 	static size_t	lengths[] = {
+		7,
+		8,
+		9,
 		31,
 		32,
 		33,

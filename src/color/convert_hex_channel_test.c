@@ -53,7 +53,7 @@ static void free_channels(
 ParameterizedTestParameters(convert_hex_channel, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	char 			**channels;
 	char			*channel;
 	t_uint8			byte_channel;

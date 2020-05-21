@@ -19,7 +19,7 @@
 
 #include "mem.h"
 
-#define MAX UCHAR_MAX
+#define MAX 512
 #define STEP 0x19
 
 static void	compare(
@@ -65,7 +65,7 @@ static void free_lengths(
 ParameterizedTestParameters(ft_memrev, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	size_t 			*lengths;
 	size_t			len;
 	size_t			i;
@@ -102,6 +102,9 @@ ParameterizedTest(size_t *len, ft_memrev, general)
 ParameterizedTestParameters(ft_memrev, unrolling)
 {
 	static size_t	lengths[] = {
+		7,
+		8,
+		9,
 		31,
 		32,
 		33,

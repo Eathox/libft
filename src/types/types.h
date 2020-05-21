@@ -54,8 +54,8 @@ typedef union	u_convert
 	long double		*ldbl_ptr;
 	bool			boolean;
 	bool			*boolean_ptr;
-	void			*ptr;
-	t_uint8			*stream;
+	void			*mem;
+	t_uint8			*mem_byte;
 }				t_convert;
 
 #endif

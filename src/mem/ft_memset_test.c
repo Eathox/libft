@@ -39,7 +39,7 @@ static void free_lengths(
 ParameterizedTestParameters(ft_memset, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	size_t  		*lengths;
 	size_t			len;
 	size_t			i;
@@ -90,7 +90,7 @@ static void free_characters(
 ParameterizedTestParameters(ft_memset, character)
 {
 	size_t const	step = CHARACTER_STEP;
-	size_t const	count = (CHARACTER_MAX / step);
+	size_t const	count = CHARACTER_MAX / step;
 	t_uint8 		*characters;
 	t_uint8			c;
 	size_t			i;
@@ -125,6 +125,9 @@ ParameterizedTest(t_uint8 *c, ft_memset, character)
 ParameterizedTestParameters(ft_memset, unrolling)
 {
 	static size_t	lengths[] = {
+		7,
+		8,
+		9,
 		31,
 		32,
 		33,

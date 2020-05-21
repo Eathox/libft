@@ -14,54 +14,6 @@
 
 #include "mem.h"
 
-#define UNROLLED_2_COUNT 4
-#define UNROLLED_8_COUNT 4
-
-static void		swap_2(
-	t_uint8 *stream,
-	size_t len,
-	size_t i
-)
-{
-	t_uint8	temp;
-
-	temp = stream[i];
-	stream[i] = stream[(len - 1) - i];
-	stream[(len - 1) - i] = temp;
-}
-
-static size_t	swap_8(
-	t_uint8 *stream,
-	size_t len,
-	size_t i
-)
-{
-	swap_2(stream, len, i + 0);
-	swap_2(stream, len, i + 1);
-	swap_2(stream, len, i + 2);
-	swap_2(stream, len, i + 3);
-	return (UNROLLED_2_COUNT);
-}
-
-static size_t	swap_32(
-	t_uint8 *stream,
-	size_t len
-)
-{
-	size_t			i;
-	size_t const	step = (UNROLLED_2_COUNT * UNROLLED_8_COUNT);
-
-	i = 0;
-	while ((i + step) <= (len / 2))
-	{
-		i += swap_8(stream, len, i);
-		i += swap_8(stream, len, i);
-		i += swap_8(stream, len, i);
-		i += swap_8(stream, len, i);
-	}
-	return (i);
-}
-
 /*
 ** * Reveseres len amount of bytes in mem
 ** * Returns mem
@@ -72,15 +24,16 @@ void			*ft_memrev(
 )
 {
 	size_t	i;
-	t_uint8	*stream;
+	t_uint8	temp;
+	t_uint8	*mem_byte;
 
 	i = 0;
-	stream = mem;
-	if (len >= 32)
-		i = swap_32(mem, len);
+	mem_byte = mem;
 	while (i < (len / 2))
 	{
-		swap_2(stream, len, i);
+		temp = mem_byte[i];
+		mem_byte[i] = mem_byte[(len - 1) - i];
+		mem_byte[(len - 1) - i] = temp;
 		i++;
 	}
 	return (mem);

@@ -45,7 +45,7 @@ static void free_channels(
 ParameterizedTestParameters(convert_byte_channel, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = (MAX / step);
+	size_t const	count = MAX / step;
 	t_uint8 		*channels;
 	t_uint8			byte_channel;
 	size_t			i;
