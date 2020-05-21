@@ -122,7 +122,7 @@ ParameterizedTest(t_uint8 *c, ft_memset, character)
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 }
 
-ParameterizedTestParameters(ft_memset, unrolling)
+ParameterizedTestParameters(ft_memset, allign)
 {
 	static size_t	lengths[] = {
 		7,
@@ -140,7 +140,7 @@ ParameterizedTestParameters(ft_memset, unrolling)
 	return cr_make_param_array(size_t, lengths, count);
 }
 
-ParameterizedTest(size_t *len, ft_memset, unrolling)
+ParameterizedTest(size_t *len, ft_memset, allign)
 {
 	t_uint8 const	c = UCHAR_MAX;
 	t_uint32 		result[*len];

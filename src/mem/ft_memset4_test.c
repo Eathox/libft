@@ -132,35 +132,6 @@ ParameterizedTest(t_uint32 *c, ft_memset4, character)
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 }
 
-ParameterizedTestParameters(ft_memset4, unrolling)
-{
-	static size_t	lengths[] = {
-		7,
-		8,
-		9,
-		31,
-		32,
-		33,
-		63,
-		64,
-		65,
-	};
-
-	size_t count = sizeof(lengths) / sizeof(size_t);
-	return cr_make_param_array(size_t, lengths, count);
-}
-
-ParameterizedTest(size_t *len, ft_memset4, unrolling)
-{
-	t_uint32 const	c = UINT_MAX;
-	t_uint32 		result[*len];
-	void			*return_ptr;
-
-	return_ptr = ft_memset4(result, c, *len);
-	compare(result, c, *len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
-}
-
 Test(ft_memset4, order)
 {
 	size_t const	len = 64;

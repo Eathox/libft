@@ -72,7 +72,7 @@ ParameterizedTest(size_t *len, ft_bzero, general)
 	free(expected);
 }
 
-ParameterizedTestParameters(ft_bzero, unrolling)
+ParameterizedTestParameters(ft_bzero, allign)
 {
 	static size_t	lengths[] = {
 		7,
@@ -90,7 +90,7 @@ ParameterizedTestParameters(ft_bzero, unrolling)
 	return cr_make_param_array(size_t, lengths, count);
 }
 
-ParameterizedTest(size_t *len, ft_bzero, unrolling)
+ParameterizedTest(size_t *len, ft_bzero, allign)
 {
 	t_uint32 		result[*len];
 	t_uint8 		expected[*len];

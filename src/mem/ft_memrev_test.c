@@ -98,33 +98,3 @@ ParameterizedTest(size_t *len, ft_memrev, general)
 
 	free(result);
 }
-
-ParameterizedTestParameters(ft_memrev, unrolling)
-{
-	static size_t	lengths[] = {
-		7,
-		8,
-		9,
-		31,
-		32,
-		33,
-		63,
-		64,
-		65,
-	};
-
-	size_t count = sizeof(lengths) / sizeof(size_t);
-	return cr_make_param_array(size_t, lengths, count);
-}
-
-ParameterizedTest(size_t *len, ft_memrev, unrolling)
-{
-	t_uint8		result[*len];
-	void		*return_ptr;
-
-	set_mem(result, *len);
-
-	return_ptr = ft_memrev(result, *len);
-	compare(result, *len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
-}
