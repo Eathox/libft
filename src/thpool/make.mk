@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    makefile                                           :+:    :+:             #
+#    make.mk                                            :+:    :+:             #
 #                                                      +:+                     #
-#    By: pholster <pholster@student.oodam.nl>         +#+                      #
+#    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/02/15 16:43:36 by pholster      #+#    #+#                  #
-#    Updated: 2020/02/15 16:43:36 by pholster      ########   odam.nl          #
+#    Created: 2020/05/21 11:10:15 by pholster      #+#    #+#                  #
+#    Updated: 2020/05/21 11:10:15 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 

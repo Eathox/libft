@@ -1,14 +1,18 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    makefile                                           :+:    :+:             #
+#    make.mk                                            :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/02/15 16:42:25 by pholster      #+#    #+#                  #
-#    Updated: 2020/02/15 16:42:25 by pholster      ########   odam.nl          #
+#    Created: 2020/05/21 11:15:00 by pholster      #+#    #+#                  #
+#    Updated: 2020/05/21 11:15:00 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_putbool_fd.o
-objects += ft_putbool.o
+objects += ft_colorcode.o
+objects += ft_colorhextorgba.o
+objects += ft_colorlcode.o
+objects += ft_colorncode.o
+objects += ft_colorrgbatohex.o
+objects += ft_colorstr.o

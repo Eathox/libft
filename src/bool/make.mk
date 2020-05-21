@@ -1,14 +1,14 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         ::::::::             #
-#    makefile                                           :+:    :+:             #
+#    make.mk                                            :+:    :+:             #
 #                                                      +:+                     #
 #    By: pholster <pholster@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2020/02/15 16:43:36 by pholster      #+#    #+#                  #
-#    Updated: 2020/02/15 16:43:36 by pholster      ########   odam.nl          #
+#    Created: 2020/05/21 11:15:16 by pholster      #+#    #+#                  #
+#    Updated: 2020/05/21 11:15:16 by pholster      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-objects += ft_putdouble.o
-objects += ft_putdouble_fd.o
+objects += ft_putbool_fd.o
+objects += ft_putbool.o
