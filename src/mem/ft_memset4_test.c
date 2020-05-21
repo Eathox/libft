@@ -20,10 +20,11 @@
 #include "mem.h"
 
 #define MAX 512
-#define STEP 0xB
+#define STEP 0x19
 
 #define CHARACTER_SIZE (sizeof(t_uint32) * 1)
-#define CHARACTER_STEP 0x07070707
+#define CHARACTER_MAX UINT_MAX
+#define CHARACTER_STEP 0x0F0F0F0F
 
 static void	compare(
 	t_uint32 *mem,
@@ -54,7 +55,7 @@ static void free_lengths(
 ParameterizedTestParameters(ft_memset4, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = MAX / step;
+	size_t const	count = (MAX / step);
 	size_t	 		*lengths;
 	size_t			len;
 	size_t			i;
@@ -101,7 +102,7 @@ static void free_characters(
 ParameterizedTestParameters(ft_memset4, character)
 {
 	size_t const	step = CHARACTER_STEP;
-	size_t const	count = UINT_MAX / step;
+	size_t const	count = CHARACTER_MAX / step;
 	t_uint32 		*characters;
 	t_uint32		c;
 	size_t			i;
@@ -154,5 +155,17 @@ ParameterizedTest(size_t *len, ft_memset4, unrolling)
 
 	return_ptr = ft_memset4(result, c, *len);
 	compare(result, c, *len);
+	cr_assert_eq(return_ptr, result, "Return pointer error");
+}
+
+Test(ft_memset4, order)
+{
+	size_t const	len = 64;
+	t_uint32 const	c = 0x01020304;
+	t_uint32 		result[len];
+	void			*return_ptr;
+
+	return_ptr = ft_memset4(result, c, len);
+	compare(result, c, len);
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 }

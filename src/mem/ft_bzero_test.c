@@ -20,7 +20,7 @@
 #include "mem.h"
 
 #define MAX 512
-#define STEP 0xB
+#define STEP 0x19
 
 static void free_lengths(
 	struct criterion_test_params *crp
@@ -35,7 +35,7 @@ static void free_lengths(
 ParameterizedTestParameters(ft_bzero, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = MAX / step;
+	size_t const	count = (MAX / step);
 	size_t	 		*lengths;
 	size_t			len;
 	size_t			i;

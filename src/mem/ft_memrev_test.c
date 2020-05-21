@@ -20,7 +20,7 @@
 #include "mem.h"
 
 #define MAX UCHAR_MAX
-#define STEP 0x9
+#define STEP 0x19
 
 static void	compare(
 	t_uint8	*mem,

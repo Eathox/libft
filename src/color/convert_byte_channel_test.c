@@ -18,7 +18,8 @@
 
 #include "priv.h"
 
-#define STEP 8
+#define MAX UCHAR_MAX
+#define STEP 0x19
 
 static void	compare(
 	t_uint8	byte_channel,
@@ -44,7 +45,7 @@ static void free_channels(
 ParameterizedTestParameters(convert_byte_channel, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = UCHAR_MAX / step;
+	size_t const	count = (MAX / step);
 	t_uint8 		*channels;
 	t_uint8			byte_channel;
 	size_t			i;

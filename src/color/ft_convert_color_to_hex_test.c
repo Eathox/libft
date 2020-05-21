@@ -17,7 +17,8 @@
 
 #include "color.h"
 
-#define STEP 8
+#define MAX UCHAR_MAX
+#define STEP 0x19
 
 static void	compare(
 	char const	*hex,
@@ -48,7 +49,7 @@ static void free_colors(
 ParameterizedTestParameters(ft_convert_color_to_hex, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = UCHAR_MAX / step;
+	size_t const	count = (MAX / step);
 	t_color 		*colors;
 	t_color			color;
 	size_t			i;
