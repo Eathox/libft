@@ -61,7 +61,7 @@ for file in glob.glob("src/**/*.c", recursive=True):
 	try:
 		replaceContent(file, quickInfoRegex, quickInfoReplace)
 	except:
-		print(f"Error replace content of file: '{file}'")
+		print(f"Error replacing content of file: '{file}'")
 
 # Remove all test makefile targets
 for file in glob.glob("src/**/make.mk", recursive=True):
@@ -70,4 +70,4 @@ for file in glob.glob("src/**/make.mk", recursive=True):
 	try:
 		replaceContent(file, testRulesRegex, testRulesReplace)
 	except:
-		print(f"Error replace content of file: '{file}'")
+		print(f"Error replacing content of file: '{file}'")
