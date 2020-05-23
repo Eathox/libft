@@ -36,5 +36,5 @@ jobs:
       - name: Test
         run: bash ci/test.bash
 
-      - name: Upload GCOV
-        run: bash <(curl -s https://codecov.io/bash) -s "build/cache/reg"
+      # - name: Upload GCOV
+      #   run: bash <(curl -s https://codecov.io/bash) -s "build/cache/reg"
