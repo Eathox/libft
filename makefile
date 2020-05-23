@@ -42,11 +42,10 @@ CFLAGS += -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
 INCLUDE += -I$(OUTDIR)/include
 
 GCOV ?= false
-GFLAGS = -b -c -f -l
 
 # Disable optimizations since they can mess up the accuracy of the GCOV reports
 # "The last -O option is the one that is effective."
-ifneq ($(GCOV), false)
+ifeq ($(GCOV), true)
 CFLAGS += --coverage -O0
 endif
 
