@@ -19,13 +19,19 @@ jobs:
         os: [macos-latest, ubuntu-latest]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Install dependencies
         run: bash ci/install.bash
 
+      - name: Create norm directory
+        run: ./tools/normify.py
+
       - name: Norminette
         run: bash ci/norm.bash
 
-      - name: Compile and run test
-        run: bash ci/run.bash
+      - name: Compile
+        run: bash ci/compile.bash
+
+      - name: Test
+        run: bash ci/test.bash

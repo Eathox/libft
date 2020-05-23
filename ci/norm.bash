@@ -11,22 +11,34 @@
 #                                                                              #
 # **************************************************************************** #
 
+NORM_DIR="norm"
+NORMPLUS_DIR="$HOME/norminette+/run.py"
+
+ERROR=false
+
+function authorFile {
+	if [ ! -f $NORM_DIR/author ]; then
+		echo "Error: no author file present"
+		ERROR=true
+	fi
+}
+
 function normPlus {
-	NORM=$(python ~/norminette+/run.py $@ | grep -v 'Warning: Not a valid file')
+	FILES=$(find $NORM_DIR -type f)
+	NORM=$(python "$NORMPLUS_DIR" $FILES | grep -v 'Warning: Not a valid file')
 	NORM=$(echo "$NORM" | grep -B1 --color=never -E '(Error|Warning:)')
 
 	if [[ "$NORM" != "" ]]; then
 		echo "$NORM"
 		ERROR=true
+	else
+		echo "Zero normPlus errors found."
 	fi
 }
 
-ERROR=0
-normPlus "$(find . -not -path './src/*' -type f -name '[Mm]akefile' )"
-normPlus "$(find src -type f \( -name '*.h' -o -name '*.c' \) )"
+authorFile
+normPlus
 
-if [ "$ERROR" != 0 ]; then
+if [ "$ERROR" != false ]; then
 	exit 1
 fi
-
-echo "Zero normPlus errors found."
