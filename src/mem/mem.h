@@ -58,8 +58,15 @@ void		*ft_memrev(
 	size_t len
 );
 
+int			ft_memcmp(
+	void const *mem1,
+	void const *mem2,
+	size_t len
+);
+
 // Put in
-// int			ft_memcmp(const void *mem1, const void *mem2, size_t len);
+// realloc
+//
 // bool		ft_memequ(const void *mem1, const void *mem2, size_t len);
 // void		*ft_memccpy(void *dst, const void *src, char c, size_t len);
 // void		*ft_memchr(const void *mem, char c, size_t len);

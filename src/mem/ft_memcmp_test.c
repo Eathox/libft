@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memset4_test.c                                   :+:    :+:            */
+/*   ft_memcmp_test.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -22,25 +22,9 @@
 #define MAX 512
 #define STEP 0x19
 
-#define CHARACTER_SIZE (sizeof(t_uint32) * 1)
-#define CHARACTER_MAX UINT_MAX
-#define CHARACTER_STEP 0x0F0F0F0F
-
-static void	compare(
-	t_uint32 *mem,
-	t_uint32 c,
-	size_t len
-)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < len)
-	{
-		cr_assert_eq(mem[i], c, "%zu, %08X", len, c);
-		i++;
-	}
-}
+#define CHARACTER_SIZE (sizeof(t_uint8) * 1)
+#define CHARACTER_MAX UCHAR_MAX
+#define CHARACTER_STEP 0xF
 
 static void free_lengths(
 	struct criterion_test_params *crp
@@ -52,11 +36,11 @@ static void free_lengths(
     cr_free(lengths);
 }
 
-ParameterizedTestParameters(ft_memset4, general)
+ParameterizedTestParameters(ft_memcmp, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = MAX / step;
-	size_t	 		*lengths;
+	size_t const	count = (MAX / step);
+	size_t  		*lengths;
 	size_t			len;
 	size_t			i;
 
@@ -74,37 +58,45 @@ ParameterizedTestParameters(ft_memset4, general)
 	return cr_make_param_array(size_t, lengths, count, free_lengths);
 }
 
-ParameterizedTest(size_t *len, ft_memset4, general)
+ParameterizedTest(size_t *len, ft_memcmp, general)
 {
-	t_uint32 const	c = UINT_MAX;
-	t_uint32		*result = calloc(*len, sizeof(c));
-	void			*return_ptr;
+	t_uint8			*mem1_byte = calloc(*len, sizeof(*mem1_byte));
+	t_uint8			*mem2_byte = calloc(*len, sizeof(*mem2_byte));
+	int				expected;
+	int				result;
 
-	cr_expect_neq(result, NULL);
+	cr_expect_neq(mem1_byte, NULL);
+	cr_expect_neq(mem2_byte, NULL);
+	mem1_byte[*len - 1] = UCHAR_MAX;
 
-	return_ptr = ft_memset4(result, c, *len);
-	compare(result, c, *len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
+	expected = memcmp(mem1_byte, mem2_byte, *len);
+	result = ft_memcmp(mem1_byte, mem2_byte, *len);
+	cr_assert_eq(expected, result, "%zu", *len);
 
-	free(result);
+	expected = memcmp(mem2_byte, mem1_byte, *len);
+	result = ft_memcmp(mem2_byte, mem1_byte, *len);
+	cr_assert_eq(expected, result, "%zu", *len);
+
+	free(mem1_byte);
+	free(mem2_byte);
 }
 
 static void free_characters(
 	struct criterion_test_params *crp
 )
 {
-	t_uint32	*characters;
+	t_uint8	*characters;
 
 	characters = crp->params;
     cr_free(characters);
 }
 
-ParameterizedTestParameters(ft_memset4, character)
+ParameterizedTestParameters(ft_memcmp, character)
 {
 	size_t const	step = CHARACTER_STEP;
 	size_t const	count = CHARACTER_MAX / step;
-	t_uint32 		*characters;
-	t_uint32		c;
+	t_uint8 		*characters;
+	t_uint8			c;
 	size_t			i;
 
 	characters = cr_calloc(count, CHARACTER_SIZE);
@@ -118,28 +110,21 @@ ParameterizedTestParameters(ft_memset4, character)
 		c += step;
 		i++;
 	}
-	return cr_make_param_array(t_uint32, characters, count, free_characters);
+	return cr_make_param_array(t_uint8, characters, count, free_characters);
 }
 
-ParameterizedTest(t_uint32 *c, ft_memset4, character)
+ParameterizedTest(t_uint8 *c, ft_memcmp, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint32 		result[len];
-	void			*return_ptr;
+	t_uint8 		mem1_byte[len];
+	t_uint8 		mem2_byte[len];
+	int				expected;
+	int				result;
 
-	return_ptr = ft_memset4(result, *c, len);
-	compare(result, *c, len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
-}
+	mem1_byte[len - 1] = *c;
+	mem2_byte[len - 1] = 0x7F;
 
-Test(ft_memset4, order)
-{
-	size_t const	len = 64;
-	t_uint32 const	c = 0x01020304;
-	t_uint32 		result[len];
-	void			*return_ptr;
-
-	return_ptr = ft_memset4(result, c, len);
-	compare(result, c, len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
+	expected = memcmp(mem2_byte, mem1_byte, len);
+	result = ft_memcmp(mem2_byte, mem1_byte, len);
+	cr_assert_eq(expected, result, "%02X", *c);
 }
