@@ -31,11 +31,6 @@ function general {
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 }
 
-if [ -z "$GITHUB_ACTION" ]; then
-	echo "Error: Not running CI"
-	exit 1
-fi
-
 if [[ $OS_NAME == "Linux" ]]; then
 	linux
 	general

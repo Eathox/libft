@@ -17,11 +17,6 @@ function general {
 	make test GCOV=TRUE
 }
 
-if [ -z "$GITHUB_ACTION" ]; then
-	echo "Error: Not running CI"
-	exit 1
-fi
-
 if [[ $OS_NAME == "Linux" ]]; then
 	general
 elif [[ $OS_NAME == "Darwin" ]]; then
