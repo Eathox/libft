@@ -13,11 +13,6 @@
 SRCDIR = src
 OUTDIR ?= build
 
-CFLAGS += -g -MD
-CFLAGS += -Wall -Wextra -Werror
-CFLAGS += -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
-INCLUDE += -I$(OUTDIR)/include
-
 BASENAME = libft
 NAME = $(OUTDIR)/$(BASENAME).a
 TESTNAME = $(OUTDIR)/test-$(BASENAME)
@@ -41,6 +36,20 @@ MODULES += mem
 # MODULES += hash
 # MODULES += term
 # MODULES += serialize
+
+CFLAGS += -g -MD
+CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
+INCLUDE += -I$(OUTDIR)/include
+
+GCOV ?= false
+GFLAGS = -b -c -f -l
+
+# Disable optimizations since they can mess up the accuracy of the GCOV reports
+# "The last -O option is the one that is effective."
+ifneq ($(GCOV), false)
+CFLAGS += --coverage -O0
+endif
 
 include makefile_mk/color.mk
 

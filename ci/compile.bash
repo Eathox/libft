@@ -11,24 +11,17 @@
 #                                                                              #
 # **************************************************************************** #
 
-function linuxRun {
-	make test GCOV=TRUE
-}
+NORM_DIR="norm"
+OS_NAME=$(uname -s)
 
-function osxRun {
-	make test GCOV=TRUE
+function general {
+	make -C $NORM_DIR OUTDIR=../build
 }
-
-OS_NAME=`uname -s`
-if [ -z "$GITHUB_ACTION" ]; then
-	echo "Error: Not running travis"
-	exit 1
-fi
 
 if [[ $OS_NAME == "Linux" ]]; then
-	linuxRun
+	general
 elif [[ $OS_NAME == "Darwin" ]]; then
-	osxRun
+	general
 else
 	echo "Error: OS is not supported"
 	exit 1
