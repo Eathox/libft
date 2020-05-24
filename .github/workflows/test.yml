@@ -37,4 +37,8 @@ jobs:
         run: bash ci/test.bash
 
       - name: Upload GCOV
-        run: bash <(curl -s https://codecov.io/bash) -s "build/cache/reg"
+        run: |
+          export PATH=$PATH:$HOME/.local/bin
+          bash ci/gcov.bash
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.coverallsRepoToken }}
