@@ -19,7 +19,10 @@ function linux {
 	sudo apt-get install -y criterion-dev
 	sudo apt-get install pkg-config
 
+	sudo apt-get install python3-setuptools
 	pip3 install cpp-coveralls
+
+	pip --version
 }
 
 function osx {
