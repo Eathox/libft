@@ -31,7 +31,10 @@ function osx {
 
 function general {
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
+
 	pip install --upgrade pip setuptools
+	pip3 install pyopenssl
+	pip3 install pyyaml
 	pip install cpp-coveralls
 }
 

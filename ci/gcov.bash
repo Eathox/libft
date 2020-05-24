@@ -14,7 +14,5 @@
 NORM_DIR="norm"
 BUILD_DIR="build"
 
-EXCLUDE=''
-
-cpp-coveralls -b "." --exclude "$NORM_DIR" --exclude "$BUILD_DIR/include" \
-	--exclude "$BUILD_DIR/cache/test"
+cpp-coveralls --gcov-options '\-lp' -b "." --exclude "$NORM_DIR" \
+	--exclude "$BUILD_DIR/include" --exclude "$BUILD_DIR/cache/test"
