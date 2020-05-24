@@ -30,10 +30,8 @@ function osx {
 function general {
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 
-	pip install --upgrade pip setuptools
-	pip install pyopenssl
-	pip install pyyaml
-	pip install --upgrade cpp-coveralls
+	sudo pip install -y --upgrade pip setuptools
+	sudo pip install -y cpp-coveralls
 }
 
 if [[ $OS_NAME == "Linux" ]]; then
