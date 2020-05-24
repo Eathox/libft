@@ -30,8 +30,8 @@ function osx {
 function general {
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 
-	sudo pip install -y --upgrade pip setuptools
-	sudo pip install -y cpp-coveralls
+	pip install --upgrade pip setuptools
+	pip install --user cpp-coveralls
 }
 
 if [[ $OS_NAME == "Linux" ]]; then
