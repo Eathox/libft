@@ -19,10 +19,8 @@ function linux {
 	sudo apt-get install -y criterion-dev
 	sudo apt-get install pkg-config
 
-	sudo apt-get install python3-setuptools
-	pip3 install cpp-coveralls
-
-	pip --version
+	# sudo apt-get install python-setuptools
+	# pip install cpp-coveralls
 }
 
 function osx {
@@ -31,16 +29,18 @@ function osx {
 	brew install snaipe/soft/criterion
 	brew install pkg-config
 
-	brew install pyenv
-	pyenv install 2.7.6
-	pyenv global 2.7.6
-	pyenv rehash
-	pip3 install cpp-coveralls
-	pyenv rehash
+	# brew install pyenv
+	# pyenv install 2.7.6
+	# pyenv global 2.7.6
+	# pyenv rehash
+	# pip install cpp-coveralls
+	# pyenv rehash
 }
 
 function general {
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
+	pip install --upgrade pip setuptools
+	pip install cpp-coveralls
 }
 
 if [[ $OS_NAME == "Linux" ]]; then
