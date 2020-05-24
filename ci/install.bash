@@ -14,13 +14,12 @@
 OS_NAME=$(uname -s)
 
 function linux {
+	export PATH="$PATH:/home/runner/.local/bin"
+
 	sudo add-apt-repository -y ppa:snaipewastaken/ppa
 	sudo apt-get update
 	sudo apt-get install -y criterion-dev
 	sudo apt-get install pkg-config
-
-	# sudo apt-get install python-setuptools
-	# pip install cpp-coveralls
 }
 
 function osx {
@@ -28,13 +27,6 @@ function osx {
 
 	brew install snaipe/soft/criterion
 	brew install pkg-config
-
-	# brew install pyenv
-	# pyenv install 2.7.6
-	# pyenv global 2.7.6
-	# pyenv rehash
-	# pip install cpp-coveralls
-	# pyenv rehash
 }
 
 function general {

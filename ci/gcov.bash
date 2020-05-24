@@ -11,4 +11,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-cpp-coveralls -b "." --exclude "build/cache/test" --exclude "build/include"
+NORM_DIR="norm"
+BUILD_DIR="build"
+
+EXCLUDE=''
+
+cpp-coveralls -b "." --exclude "$NORM_DIR" --exclude "$BUILD_DIR/include" \
+	--exclude "$BUILD_DIR/cache/test"
