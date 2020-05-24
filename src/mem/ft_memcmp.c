@@ -14,6 +14,10 @@
 
 #include "mem.h"
 
+/*
+** * Compares len bytes of mem1 to mem2
+** * Returns diffrance between first not equal byte or 0 if equal
+*/
 int			ft_memcmp(
 	void const *mem1,
 	void const *mem2,
