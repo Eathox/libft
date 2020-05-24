@@ -24,7 +24,7 @@
 
 #define CHARACTER_SIZE (sizeof(t_uint8) * 1)
 #define CHARACTER_MAX UCHAR_MAX
-#define CHARACTER_STEP 0xF
+#define CHARACTER_STEP 0xD
 
 static void free_lengths(
 	struct criterion_test_params *crp
@@ -136,7 +136,7 @@ ParameterizedTestParameters(ft_memset, allign)
 		65,
 	};
 
-	size_t count = sizeof(lengths) / sizeof(size_t);
+	size_t count = sizeof(lengths) / sizeof(*lengths);
 	return cr_make_param_array(size_t, lengths, count);
 }
 

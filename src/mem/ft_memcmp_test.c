@@ -24,7 +24,7 @@
 
 #define CHARACTER_SIZE (sizeof(t_uint8) * 1)
 #define CHARACTER_MAX UCHAR_MAX
-#define CHARACTER_STEP 0xF
+#define CHARACTER_STEP 0xD
 
 static void free_lengths(
 	struct criterion_test_params *crp
@@ -116,13 +116,15 @@ ParameterizedTestParameters(ft_memcmp, character)
 ParameterizedTest(t_uint8 *c, ft_memcmp, character)
 {
 	size_t const	len = CHARACTER_SIZE;
+	size_t const	step = CHARACTER_STEP;
+	size_t const	count = CHARACTER_MAX / step;
 	t_uint8 		mem1_byte[len];
 	t_uint8 		mem2_byte[len];
 	int				expected;
 	int				result;
 
 	mem1_byte[len - 1] = *c;
-	mem2_byte[len - 1] = 0x7F;
+	mem2_byte[len - 1] = step * (count / 2);
 
 	expected = memcmp(mem2_byte, mem1_byte, len);
 	result = ft_memcmp(mem2_byte, mem1_byte, len);

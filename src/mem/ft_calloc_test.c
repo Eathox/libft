@@ -62,7 +62,7 @@ ParameterizedTestParameters(ft_calloc, general)
 		{3, 3},
 	};
 
-	size_t count = sizeof(size_count) / sizeof(t_params);
+	size_t count = sizeof(size_count) / sizeof(*size_count);
 	return cr_make_param_array(t_params, size_count, count);
 }
 
@@ -90,7 +90,7 @@ ParameterizedTestParameters(ft_calloc, zero)
 		{0, 0},
 	};
 
-	size_t count = sizeof(size_count) / sizeof(t_params);
+	size_t count = sizeof(size_count) / sizeof(*size_count);
 	return cr_make_param_array(t_params, size_count, count);
 }
 

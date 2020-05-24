@@ -86,7 +86,7 @@ ParameterizedTestParameters(ft_bzero, allign)
 		65,
 	};
 
-	size_t count = sizeof(lengths) / sizeof(size_t);
+	size_t count = sizeof(lengths) / sizeof(*lengths);
 	return cr_make_param_array(size_t, lengths, count);
 }
 

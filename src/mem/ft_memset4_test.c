@@ -24,7 +24,7 @@
 
 #define CHARACTER_SIZE (sizeof(t_uint32) * 1)
 #define CHARACTER_MAX UINT_MAX
-#define CHARACTER_STEP 0x0F0F0F0F
+#define CHARACTER_STEP 0x0D0D0D0D
 
 static void	compare(
 	t_uint32 *mem,

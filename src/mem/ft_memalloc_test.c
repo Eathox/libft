@@ -54,14 +54,14 @@ ParameterizedTestParameters(ft_memalloc, general)
 		64,
 	};
 
-	size_t count = sizeof(size) / sizeof(size_t);
+	size_t count = sizeof(size) / sizeof(*size);
 	return cr_make_param_array(size_t, size, count);
 }
 
 ParameterizedTest(size_t *size, ft_memalloc, general, .init = fill_memory)
 {
-	t_uint8			*result;
-	t_uint8			expected[*size];
+	t_uint8		*result;
+	t_uint8		expected[*size];
 
 	result = ft_memalloc(*size);
 	cr_expect_neq(result, NULL);
