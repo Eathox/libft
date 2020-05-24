@@ -14,8 +14,6 @@
 OS_NAME=$(uname -s)
 
 function linux {
-	export PATH="$PATH:/home/runner/.local/bin"
-
 	sudo add-apt-repository -y ppa:snaipewastaken/ppa
 	sudo apt-get update
 	sudo apt-get install -y criterion-dev
@@ -33,9 +31,9 @@ function general {
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 
 	pip install --upgrade pip setuptools
-	pip3 install pyopenssl
-	pip3 install pyyaml
-	pip install cpp-coveralls
+	pip install pyopenssl
+	pip install pyyaml
+	pip install --upgrade cpp-coveralls
 }
 
 if [[ $OS_NAME == "Linux" ]]; then
