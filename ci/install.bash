@@ -28,6 +28,7 @@ function osx {
 }
 
 function general {
+	pip3 install --user cpp-coveralls
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 }
 
