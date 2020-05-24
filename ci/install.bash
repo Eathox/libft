@@ -18,6 +18,8 @@ function linux {
 	sudo apt-get update
 	sudo apt-get install -y criterion-dev
 	sudo apt-get install pkg-config
+
+	pip3 install cpp-coveralls
 }
 
 function osx {
@@ -25,10 +27,16 @@ function osx {
 
 	brew install snaipe/soft/criterion
 	brew install pkg-config
+
+	brew install pyenv
+	pyenv install 2.7.6
+	pyenv global 2.7.6
+	pyenv rehash
+	pip3 install cpp-coveralls
+	pyenv rehash
 }
 
 function general {
-	pip3 install --user cpp-coveralls
 	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 }
 
