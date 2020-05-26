@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcmp_test.c                                   :+:    :+:            */
+/*   ft_memchr_test.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -36,7 +36,7 @@ static void free_lengths(
     cr_free(lengths);
 }
 
-ParameterizedTestParameters(ft_memcmp, general)
+ParameterizedTestParameters(ft_memchr, general)
 {
 	size_t const	step = STEP;
 	size_t const	count = (MAX / step);
@@ -58,27 +58,21 @@ ParameterizedTestParameters(ft_memcmp, general)
 	return cr_make_param_array(size_t, lengths, count, free_lengths);
 }
 
-ParameterizedTest(size_t *len, ft_memcmp, general)
+ParameterizedTest(size_t *len, ft_memchr, general)
 {
-	t_uint8			*mem1_byte = calloc(*len, sizeof(*mem1_byte));
-	t_uint8			*mem2_byte = calloc(*len, sizeof(*mem2_byte));
-	int				expected;
-	int				result;
+	size_t const	size = MAX;
+	t_uint8			*mem1_byte = calloc(size, sizeof(*mem1_byte));
+	t_uint8			*expected;
+	t_uint8			*result;
 
 	cr_expect_neq(mem1_byte, NULL);
-	cr_expect_neq(mem2_byte, NULL);
 	mem1_byte[*len - 1] = UCHAR_MAX;
 
-	expected = memcmp(mem1_byte, mem2_byte, *len);
-	result = ft_memcmp(mem1_byte, mem2_byte, *len);
-	cr_assert_eq(expected, result, "%zu", *len);
-
-	expected = memcmp(mem2_byte, mem1_byte, *len);
-	result = ft_memcmp(mem2_byte, mem1_byte, *len);
+	expected = memchr(mem1_byte, UCHAR_MAX, size);
+	result = ft_memchr(mem1_byte, UCHAR_MAX, size);
 	cr_assert_eq(expected, result, "%zu", *len);
 
 	free(mem1_byte);
-	free(mem2_byte);
 }
 
 static void free_characters(
@@ -91,7 +85,7 @@ static void free_characters(
     cr_free(characters);
 }
 
-ParameterizedTestParameters(ft_memcmp, character)
+ParameterizedTestParameters(ft_memchr, character)
 {
 	size_t const	step = CHARACTER_STEP;
 	size_t const	count = CHARACTER_MAX / step;
@@ -113,20 +107,28 @@ ParameterizedTestParameters(ft_memcmp, character)
 	return cr_make_param_array(t_uint8, characters, count, free_characters);
 }
 
-ParameterizedTest(t_uint8 *c, ft_memcmp, character)
+ParameterizedTest(t_uint8 *c, ft_memchr, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	size_t const	step = CHARACTER_STEP;
-	size_t const	count = CHARACTER_MAX / step;
 	t_uint8 		mem1_byte[len];
-	t_uint8 		mem2_byte[len];
-	int				expected;
-	int				result;
+	t_uint8			*expected;
+	t_uint8			*result;
 
 	mem1_byte[len - 1] = *c;
-	mem2_byte[len - 1] = step * (count / 2);
 
-	expected = memcmp(mem1_byte, mem2_byte, len);
-	result = ft_memcmp(mem1_byte, mem2_byte, len);
+	expected = memchr(mem1_byte, *c, len);
+	result = ft_memchr(mem1_byte, *c, len);
 	cr_assert_eq(expected, result, "%02X", *c);
+}
+
+Test(ft_memchr, not_found)
+{
+	size_t const	len = CHARACTER_SIZE;
+	t_uint8 		mem1_byte[len];
+	t_uint8			*expected;
+	t_uint8			*result;
+
+	expected = memchr(mem1_byte, UCHAR_MAX, len);
+	result = ft_memchr(mem1_byte, UCHAR_MAX, len);
+	cr_assert_eq(expected, result);
 }

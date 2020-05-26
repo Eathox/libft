@@ -14,7 +14,6 @@
 # define FT_MEM_H
 
 # include <sys/types.h>
-# include <stdbool.h>
 
 # include "ft/types.h"
 
@@ -58,26 +57,23 @@ void		*ft_memrev(
 	size_t len
 );
 
+void		*ft_memchr(
+	void const *mem,
+	t_uint8 c,
+	size_t len
+);
+
 int			ft_memcmp(
 	void const *mem1,
 	void const *mem2,
 	size_t len
 );
 
-// Put in
-// realloc
-//
-// bool		ft_memequ(const void *mem1, const void *mem2, size_t len);
 // void		*ft_memccpy(void *dst, const void *src, char c, size_t len);
-// void		*ft_memchr(const void *mem, char c, size_t len);
 // void		*ft_memcpy(void *dst, const void *src, size_t len);
 // void		*ft_memdup(const void *src, size_t len);
 // void		*ft_memmove(void *dst, const void *src, size_t len);
 // void		*ft_memrchr(const void *str, char c, size_t len);
 // void		*ft_memrcpy(void *dst, const void *src, size_t len);
-
-// Choping block (maybe)
-// ssize_t		ft_memindex(const void *mem, char c, size_t len);
-// void		*ft_pointerreplace(void **ptr1, const void *ptr2);
 
 #endif

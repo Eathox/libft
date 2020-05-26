@@ -13,7 +13,6 @@
 #include <limits.h>
 
 #include "ft/num.h"
-
 #include "color.h"
 
 /*
