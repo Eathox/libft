@@ -16,11 +16,10 @@
 #include <criterion/parameterized.h>
 
 #include "ft/types.h"
-
 #include "mem.h"
 
-#define MAX 512
 #define STEP 0x19
+#define MAX (STEP * 20)
 
 #define CHARACTER_SIZE (sizeof(t_uint32) * 1)
 #define CHARACTER_MAX UINT_MAX

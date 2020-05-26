@@ -17,7 +17,6 @@
 #include <criterion/parameterized.h>
 
 #include "ft/types.h"
-
 #include "mem.h"
 
 #define FILL_MEMORY_COUNT 16

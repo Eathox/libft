@@ -16,7 +16,6 @@
 #include <criterion/parameterized.h>
 
 #include "ft/types.h"
-
 #include "mem.h"
 
 #define MAX UCHAR_MAX

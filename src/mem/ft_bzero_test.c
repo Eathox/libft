@@ -16,11 +16,10 @@
 #include <criterion/parameterized.h>
 
 #include "ft/types.h"
-
 #include "mem.h"
 
-#define MAX 512
 #define STEP 0x19
+#define MAX (STEP * 20)
 
 static void free_lengths(
 	struct criterion_test_params *crp

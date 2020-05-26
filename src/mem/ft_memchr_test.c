@@ -16,11 +16,10 @@
 #include <criterion/parameterized.h>
 
 #include "ft/types.h"
-
 #include "mem.h"
 
-#define MAX 512
 #define STEP 0x19
+#define MAX ((STEP * 20) + 1)
 
 #define CHARACTER_SIZE (sizeof(t_uint8) * 1)
 #define CHARACTER_MAX UCHAR_MAX
@@ -66,6 +65,7 @@ ParameterizedTest(size_t *len, ft_memchr, general)
 	t_uint8			*result;
 
 	cr_expect_neq(mem1_byte, NULL);
+	mem1_byte[*len - 0] = UCHAR_MAX;
 	mem1_byte[*len - 1] = UCHAR_MAX;
 
 	expected = memchr(mem1_byte, UCHAR_MAX, size);
@@ -125,10 +125,8 @@ Test(ft_memchr, not_found)
 {
 	size_t const	len = CHARACTER_SIZE;
 	t_uint8 		mem1_byte[len];
-	t_uint8			*expected;
 	t_uint8			*result;
 
-	expected = memchr(mem1_byte, UCHAR_MAX, len);
-	result = ft_memchr(mem1_byte, UCHAR_MAX, len);
-	cr_assert_eq(expected, result);
+	result = ft_memrchr(mem1_byte, UCHAR_MAX, len);
+	cr_assert_eq(result, NULL);
 }

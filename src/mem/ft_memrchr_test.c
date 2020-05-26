@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memset_test.c                                   :+:    :+:            */
+/*   ft_memrchr_test.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <limits.h>
+#include <string.h>
 
 #include <criterion/criterion.h>
 #include <criterion/parameterized.h>
@@ -19,7 +20,7 @@
 #include "mem.h"
 
 #define STEP 0x19
-#define MAX (STEP * 20)
+#define MAX ((STEP * 20) + 1)
 
 #define CHARACTER_SIZE (sizeof(t_uint8) * 1)
 #define CHARACTER_MAX UCHAR_MAX
@@ -35,10 +36,10 @@ static void free_lengths(
     cr_free(lengths);
 }
 
-ParameterizedTestParameters(ft_memset, general)
+ParameterizedTestParameters(ft_memrchr, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = MAX / step;
+	size_t const	count = (MAX / step);
 	size_t  		*lengths;
 	size_t			len;
 	size_t			i;
@@ -57,23 +58,20 @@ ParameterizedTestParameters(ft_memset, general)
 	return cr_make_param_array(size_t, lengths, count, free_lengths);
 }
 
-ParameterizedTest(size_t *len, ft_memset, general)
+ParameterizedTest(size_t *len, ft_memrchr, general)
 {
-	t_uint8	const	c = UCHAR_MAX;
-	t_uint8			*result = calloc(*len, sizeof(c));
-	t_uint8			*expected = calloc(*len, sizeof(c));
-	void			*return_ptr;
+	size_t const	size = MAX;
+	t_uint8			*mem1_byte = calloc(size, sizeof(*mem1_byte));
+	t_uint8			*result;
 
-	cr_expect_neq(result, NULL);
-	cr_expect_neq(expected, NULL);
+	cr_expect_neq(mem1_byte, NULL);
+	mem1_byte[*len - 0] = UCHAR_MAX;
+	mem1_byte[*len - 1] = UCHAR_MAX;
 
-	memset(expected, c, *len);
-	return_ptr = ft_memset(result, c, *len);
-	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
+	result = ft_memrchr(mem1_byte, UCHAR_MAX, size);
+	cr_assert_eq(*len, result - mem1_byte, "%zu", *len);
 
-	free(result);
-	free(expected);
+	free(mem1_byte);
 }
 
 static void free_characters(
@@ -86,7 +84,7 @@ static void free_characters(
     cr_free(characters);
 }
 
-ParameterizedTestParameters(ft_memset, character)
+ParameterizedTestParameters(ft_memrchr, character)
 {
 	size_t const	step = CHARACTER_STEP;
 	size_t const	count = CHARACTER_MAX / step;
@@ -108,46 +106,24 @@ ParameterizedTestParameters(ft_memset, character)
 	return cr_make_param_array(t_uint8, characters, count, free_characters);
 }
 
-ParameterizedTest(t_uint8 *c, ft_memset, character)
+ParameterizedTest(t_uint8 *c, ft_memrchr, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		result[len];
-	t_uint8 		expected[len];
-	void			*return_ptr;
+	t_uint8 		mem1_byte[len];
+	t_uint8			*result;
 
-	memset(expected, *c, len);
-	return_ptr = ft_memset(result, *c, len);
-	cr_assert_arr_eq(result, expected, len, "%X", *c);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
+	mem1_byte[len - 1] = *c;
+
+	result = ft_memrchr(mem1_byte, *c, len);
+	cr_assert_eq(len - 1, result - mem1_byte, "%02X", *c);
 }
 
-ParameterizedTestParameters(ft_memset, allign)
+Test(ft_memrchr, not_found)
 {
-	static size_t	lengths[] = {
-		7,
-		8,
-		9,
-		31,
-		32,
-		33,
-		63,
-		64,
-		65,
-	};
+	size_t const	len = CHARACTER_SIZE;
+	t_uint8 		mem1_byte[len];
+	t_uint8			*result;
 
-	size_t count = sizeof(lengths) / sizeof(*lengths);
-	return cr_make_param_array(size_t, lengths, count);
-}
-
-ParameterizedTest(size_t *len, ft_memset, allign)
-{
-	t_uint8 const	c = UCHAR_MAX;
-	t_uint32 		result[*len];
-	t_uint8 		expected[*len];
-	void			*return_ptr;
-
-	memset(expected, c, *len);
-	return_ptr = ft_memset(result, c, *len);
-	cr_assert_arr_eq(result, expected, *len, "%X", c);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
+	result = ft_memrchr(mem1_byte, UCHAR_MAX, len);
+	cr_assert_eq(result, NULL);
 }
