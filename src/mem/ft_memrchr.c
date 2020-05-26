@@ -16,7 +16,8 @@
 #include "mem.h"
 
 /*
-** * Searchs len amount of bytes in mem for the last instance of c
+** * Searches len amount of bytes in mem for the last instance of c
+** * Returns NULL if no instacne of c was found
 */
 void		*ft_memrchr(
 	void const *mem,

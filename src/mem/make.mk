@@ -23,6 +23,7 @@ objects += ft_memrev.o
 
 objects += ft_memchr.o
 objects += ft_memrchr.o
+objects += ft_memmem.o
 objects += ft_memcmp.o
 
 tests += ft_calloc_test.o
@@ -38,4 +39,5 @@ tests += ft_memrev_test.o
 
 tests += ft_memchr_test.o
 tests += ft_memrchr_test.o
+tests += ft_memmem_test.o
 tests += ft_memcmp_test.o

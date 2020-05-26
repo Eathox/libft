@@ -26,52 +26,52 @@
 #define CHARACTER_MAX UCHAR_MAX
 #define CHARACTER_STEP 0xD
 
-static void free_lengths(
+static void free_indexes(
 	struct criterion_test_params *crp
 )
 {
-	size_t	*lengths;
+	size_t	*indexes;
 
-	lengths = crp->params;
-    cr_free(lengths);
+	indexes = crp->params;
+    cr_free(indexes);
 }
 
 ParameterizedTestParameters(ft_memrchr, general)
 {
 	size_t const	step = STEP;
 	size_t const	count = (MAX / step);
-	size_t  		*lengths;
-	size_t			len;
+	size_t  		*indexes;
+	size_t			index;
 	size_t			i;
 
-	lengths = cr_calloc(count, sizeof(len));
-	cr_expect_neq(lengths, NULL);
+	indexes = cr_calloc(count, sizeof(index));
+	cr_expect_neq(indexes, NULL);
 
 	i = 0;
-	len = 1;
+	index = 1;
 	while (i < count)
 	{
-		lengths[i] = len;
-		len += step;
+		indexes[i] = index;
+		index += step;
 		i++;
 	}
-	return cr_make_param_array(size_t, lengths, count, free_lengths);
+	return cr_make_param_array(size_t, indexes, count, free_indexes);
 }
 
-ParameterizedTest(size_t *len, ft_memrchr, general)
+ParameterizedTest(size_t *index, ft_memrchr, general)
 {
 	size_t const	size = MAX;
-	t_uint8			*mem1_byte = calloc(size, sizeof(*mem1_byte));
+	t_uint8			*mem_byte = calloc(size, sizeof(*mem_byte));
 	t_uint8			*result;
 
-	cr_expect_neq(mem1_byte, NULL);
-	mem1_byte[*len - 0] = UCHAR_MAX;
-	mem1_byte[*len - 1] = UCHAR_MAX;
+	cr_expect_neq(mem_byte, NULL);
+	mem_byte[*index - 0] = UCHAR_MAX;
+	mem_byte[*index - 1] = UCHAR_MAX;
 
-	result = ft_memrchr(mem1_byte, UCHAR_MAX, size);
-	cr_assert_eq(*len, result - mem1_byte, "%zu", *len);
+	result = ft_memrchr(mem_byte, UCHAR_MAX, size);
+	cr_assert_eq(*index, result - mem_byte, "%zu", *index);
 
-	free(mem1_byte);
+	free(mem_byte);
 }
 
 static void free_characters(
@@ -109,21 +109,21 @@ ParameterizedTestParameters(ft_memrchr, character)
 ParameterizedTest(t_uint8 *c, ft_memrchr, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		mem1_byte[len];
+	t_uint8 		mem_byte[len];
 	t_uint8			*result;
 
-	mem1_byte[len - 1] = *c;
+	mem_byte[len - 1] = *c;
 
-	result = ft_memrchr(mem1_byte, *c, len);
-	cr_assert_eq(len - 1, result - mem1_byte, "%02X", *c);
+	result = ft_memrchr(mem_byte, *c, len);
+	cr_assert_eq(len - 1, result - mem_byte, "%02X", *c);
 }
 
 Test(ft_memrchr, not_found)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		mem1_byte[len];
+	t_uint8 		mem_byte[len];
 	t_uint8			*result;
 
-	result = ft_memrchr(mem1_byte, UCHAR_MAX, len);
+	result = ft_memrchr(mem_byte, UCHAR_MAX, len);
 	cr_assert_eq(result, NULL);
 }

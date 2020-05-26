@@ -75,6 +75,13 @@ int			ft_memcmp(
 	size_t len
 );
 
+void		*ft_memmem(
+	void const *mem,
+	size_t mem_len,
+	void const *needle,
+	size_t needle_len
+);
+
 // memmem
 // void		*ft_memccpy(void *dst, const void *src, char c, size_t len);
 // void		*ft_memcpy(void *dst, const void *src, size_t len);
