@@ -12,11 +12,19 @@
 
 #include "mem.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+/*
+** * Copy len amount bytes from src to dst memory area overlap is handled
+** * Returns dst
+*/
+void	*ft_memmove(
+	void *dst,
+	void const *src,
+	size_t len
+)
 {
-	if ((size_t)dst - (size_t)src >= len)
-		ft_memcpy(dst, src, len);
-	else
+	if ((size_t)src < (size_t)dst)
 		ft_memrcpy(dst, src, len);
+	else
+		ft_memcpy(dst, src, len);
 	return (dst);
 }

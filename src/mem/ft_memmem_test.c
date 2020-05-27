@@ -77,7 +77,7 @@ Test(ft_memmem, not_found)
 	t_uint8 		needle_byte[len];
 	t_uint8			*result;
 
-	memset(mem_byte, 0x0, len);
+	bzero(mem_byte, len);
 	memset(needle_byte, UCHAR_MAX, len);
 
 	result = ft_memmem(mem_byte, len, needle_byte, len);
@@ -90,7 +90,7 @@ Test(ft_memmem, needle_to_long)
 	t_uint8 		mem_byte[len];
 	t_uint8			*result;
 
-	memset(mem_byte, 0x0, len);
+	bzero(mem_byte, len);
 
 	result = ft_memmem(mem_byte, len, mem_byte, len * 2);
 	cr_assert_eq(result, NULL);

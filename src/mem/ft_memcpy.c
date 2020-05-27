@@ -11,40 +11,29 @@
 /* ************************************************************************** */
 
 #include "ft/types.h"
-
 #include "mem.h"
 
-static void	cpy_32(t_uint64 *dst_8, const t_uint64 *src_8,
-					size_t *i, size_t len)
-{
-	size_t			index_step;
-	const size_t	step = 4;
-	const size_t	len_8 = len / sizeof(t_uint64);
-
-	index_step = 0;
-	while ((index_step + step) < len_8)
-	{
-		dst_8[index_step] = src_8[index_step];
-		dst_8[index_step + 1] = src_8[index_step + 1];
-		dst_8[index_step + 2] = src_8[index_step + 2];
-		dst_8[index_step + 3] = src_8[index_step + 3];
-		index_step += step;
-	}
-	*i = index_step * sizeof(t_uint64);
-}
-
-void		*ft_memcpy(void *dst, const void *src, size_t len)
+/*
+** * Copy len amount bytes in order of front to back from src to dst
+** * This function does not handle memory area overlap use ft_memmove instead
+** * Returns dst
+*/
+void		*ft_memcpy(
+	void *dst,
+	const void *src,
+	size_t len
+)
 {
 	size_t			i;
-	t_uint8			*temp_dst;
-	const t_uint8	*temp_src;
+	t_uint8			*dst_byte;
+	t_uint8	const	*src_byte;
 
-	cpy_32(dst, src, &i, len);
-	temp_dst = dst;
-	temp_src = src;
+	i = 0;
+	dst_byte = dst;
+	src_byte = src;
 	while (i < len)
 	{
-		temp_dst[i] = temp_src[i];
+		dst_byte[i] = src_byte[i];
 		i++;
 	}
 	return (dst);

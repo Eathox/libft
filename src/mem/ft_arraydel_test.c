@@ -64,7 +64,7 @@ static void	empty_member(
 	void **member
 )
 {
-	memset(*member, 0x0, MEMBER_SIZE);
+	bzero(*member, MEMBER_SIZE);
 }
 
 static void free_lengths(

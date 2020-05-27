@@ -69,12 +69,6 @@ void		*ft_memrchr(
 	size_t len
 );
 
-int			ft_memcmp(
-	void const *mem1,
-	void const *mem2,
-	size_t len
-);
-
 void		*ft_memmem(
 	void const *mem,
 	size_t mem_len,
@@ -82,11 +76,32 @@ void		*ft_memmem(
 	size_t needle_len
 );
 
+int			ft_memcmp(
+	void const *mem1,
+	void const *mem2,
+	size_t len
+);
+
+void		*ft_memcpy(
+	void *dst,
+	void const *src,
+	size_t len
+);
+
+void		*ft_memrcpy(
+	void *dst,
+	void const *src,
+	size_t len
+);
+
+void		*ft_memmove(
+	void *dst,
+	void const *src,
+	size_t len
+);
+
 // memmem
 // void		*ft_memccpy(void *dst, const void *src, char c, size_t len);
-// void		*ft_memcpy(void *dst, const void *src, size_t len);
 // void		*ft_memdup(const void *src, size_t len);
-// void		*ft_memmove(void *dst, const void *src, size_t len);
-// void		*ft_memrcpy(void *dst, const void *src, size_t len);
 
 #endif
