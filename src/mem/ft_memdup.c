@@ -10,17 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft/types.h"
+#include <stdlib.h>
 
+#include "ft/types.h"
 #include "mem.h"
 
-void	*ft_memdup(const void *src, size_t len)
+/*
+** * Duplicates len amount of bytes from mem
+** * Returns NULL if the allocation of the duplicate failed or if len is 0
+*/
+void		*ft_memdup(
+	void const *mem,
+	size_t len
+)
 {
 	void	*dup;
 
-	dup = ft_memalloc(len);
+	if (len == 0)
+		return (NULL);
+	dup = malloc(len);
 	if (dup == NULL)
 		return (NULL);
-	ft_memcpy(dup, src, len);
+	ft_memcpy(dup, mem, len);
 	return (dup);
 }

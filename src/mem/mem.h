@@ -100,8 +100,11 @@ void		*ft_memmove(
 	size_t len
 );
 
-// memmem
+void		*ft_memdup(
+	void const *mem,
+	size_t len
+);
+
 // void		*ft_memccpy(void *dst, const void *src, char c, size_t len);
-// void		*ft_memdup(const void *src, size_t len);
 
 #endif
