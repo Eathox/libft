@@ -18,9 +18,10 @@ NAME = $(OUTDIR)/$(BASENAME).a
 TESTNAME = $(OUTDIR)/test-$(BASENAME)
 
 MODULES += types
-# MODULES += color
-
 MODULES += mem
+MODULES += char
+
+# MODULES += color
 
 # MODULES += printf
 # MODULES += thpool
@@ -28,7 +29,6 @@ MODULES += mem
 # MODULES += num
 # MODULES += numarr
 # MODULES += float
-# MODULES += char
 # MODULES += str
 # MODULES += strarr
 # MODULES += utf8
