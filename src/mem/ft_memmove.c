@@ -13,7 +13,7 @@
 #include "mem.h"
 
 /*
-** * Copy len amount bytes from src to dst memory area overlap is handled
+** * Copy len amount of bytes from src to dst memory area overlap is handled
 ** * Returns dst
 */
 void	*ft_memmove(

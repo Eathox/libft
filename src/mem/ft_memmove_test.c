@@ -94,7 +94,7 @@ ParameterizedTest(size_t *len, ft_memmove, allign)
 {
 	t_uint8 	result[*len];
 	t_uint8 	expected[*len];
-	t_int8		*return_ptr;
+	void		*return_ptr;
 
 	bzero(result, *len);
 	memset(expected, UCHAR_MAX, *len);
@@ -109,7 +109,7 @@ Test(ft_memmove, overlap)
 	size_t	const	len = 3;
 	t_uint8 		result[] = {UCHAR_MAX, 0x0, UCHAR_MAX};
 	t_uint8 		expected[] = {0x0, UCHAR_MAX, UCHAR_MAX};
-	t_int8			*return_ptr;
+	void			*return_ptr;
 
 	return_ptr = ft_memmove(&result, &result[1], 2);
 	cr_assert_arr_eq(result, expected, len);

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memrcpy.c                                       :+:    :+:            */
+/*   ft_memccpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -10,17 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 #include "ft/types.h"
 #include "mem.h"
 
 /*
-** * Copy len amount of bytes in order of back to front from src to dst
-** * This function does not handle memory area overlap use ft_memmove instead
-** * Returns dst
+** * Copy at most len amount of bytes in order of front to back from src to dst
+** * Stoping when c is found in src
+** * This function does not handle memory area overlap
+** * Returns a pointer to the next byte in dst after c or NULL if c wasent found
 */
-void		*ft_memrcpy(
+void		*ft_memccpy(
 	void *dst,
 	void const *src,
+	t_uint8 c,
 	size_t len
 )
 {
@@ -28,13 +32,15 @@ void		*ft_memrcpy(
 	t_uint8			*dst_byte;
 	t_uint8	const	*src_byte;
 
-	i = len;
+	i = 0;
 	dst_byte = dst;
 	src_byte = src;
-	while (i > 0)
+	while (i < len)
 	{
-		i--;
 		dst_byte[i] = src_byte[i];
+		if (src_byte[i] == c)
+			return (&dst_byte[i + 1]);
+		i++;
 	}
-	return (dst);
+	return (NULL);
 }

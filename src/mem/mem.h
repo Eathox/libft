@@ -88,6 +88,13 @@ void		*ft_memcpy(
 	size_t len
 );
 
+void		*ft_memccpy(
+	void *dst,
+	void const *src,
+	t_uint8 c,
+	size_t len
+);
+
 void		*ft_memrcpy(
 	void *dst,
 	void const *src,
@@ -104,7 +111,5 @@ void		*ft_memdup(
 	void const *mem,
 	size_t len
 );
-
-// void		*ft_memccpy(void *dst, const void *src, char c, size_t len);
 
 #endif
