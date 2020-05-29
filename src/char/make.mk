@@ -45,4 +45,3 @@ tests += ft_isupper_test.o
 
 tests += ft_tolower_test.o
 tests += ft_toupper_test.o
-
