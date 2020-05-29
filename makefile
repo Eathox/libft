@@ -28,7 +28,6 @@ MODULES += char
 # MODULES += unum
 # MODULES += num
 # MODULES += numarr
-# MODULES += float
 # MODULES += str
 # MODULES += strarr
 # MODULES += utf8
@@ -36,6 +35,8 @@ MODULES += char
 # MODULES += hash
 # MODULES += term
 # MODULES += serialize
+
+# Add float/double module?
 
 CFLAGS += -g -MD
 CFLAGS += -Wall -Wextra -Werror
