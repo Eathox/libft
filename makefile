@@ -20,13 +20,12 @@ TESTNAME = $(OUTDIR)/test-$(BASENAME)
 MODULES += types
 MODULES += mem
 MODULES += char
+MODULES += num
 
 # MODULES += color
 
 # MODULES += printf
 # MODULES += thpool
-# MODULES += unum
-# MODULES += num
 # MODULES += numarr
 # MODULES += str
 # MODULES += strarr
