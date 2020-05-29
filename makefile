@@ -50,7 +50,7 @@ ifeq ($(GCOV), true)
 CFLAGS += --coverage -O0
 endif
 
-include makefile_mk/color.mk
+include makefile_mk/term.mk
 
 all-libraries :=
 all-objects :=
@@ -71,11 +71,12 @@ PHONY += all
 
 $(NAME): $(all-public-headers) $(all-objects)
 	@mkdir -p $(dir $@)
-	@$(call FNC_PRINT_EQUAL,$(BASENAME),$(notdir $@))
+	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
 	@ar rcs $@ $(all-objects)
 
 $(TESTNAME): $(all-public-headers) $(all-objects) $(all-tests)
 	@mkdir -p $(dir $@)
+	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
 	@$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(all-objects) $(all-tests) \
 		$(shell pkg-config --libs criterion) $(all-libraries)
 
