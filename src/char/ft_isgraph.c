@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrin.c                                         :+:    :+:            */
+/*   ft_isgraph.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 17:42:01 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 11:43:50 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:04:25 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_chrin(const char *str, char c)
+/*
+** * Checks if c is a printable character excluding space
+*/
+bool		ft_isgraph(
+	char c
+)
 {
-	return (ft_chrindex(str, c) != -1);
+	return (c >= '!' && c <= '~');
 }

@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrdindex.c                                     :+:    :+:            */
+/*   ft_isoctal.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/03 22:38:37 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/10/04 15:01:34 by pholster      #+#    #+#                 */
+/*   Updated: 2019/10/04 15:01:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-ssize_t		ft_chrdindex(const char *str, const char *dlm)
+/*
+** * Checks if c is a base 8 number character
+*/
+bool		ft_isoctal(
+	char c
+)
 {
-	ssize_t		i;
-	t_uint64	bytes[2];
-
-	i = 0;
-	ft_chrsetbytes(bytes, dlm);
-	while (str[i] != '\0')
-	{
-		if (ft_chrinbytes(bytes, str[i]))
-			return (i);
-		i++;
-	}
-	return (-1);
+	return (c >= '0' && c <= '7');
 }

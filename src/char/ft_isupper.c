@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isprint.c                                       :+:    :+:            */
+/*   ft_isupper.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 11:43:50 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:04:25 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/06 16:57:45 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:04:36 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_isprint(char c)
+/*
+** * Checks if c is a uppercase letter
+*/
+bool		ft_isupper(
+	char c
+)
 {
-	return (c >= 32 && c <= 126);
+	return (c >= 'A' && c <= 'Z');
 }

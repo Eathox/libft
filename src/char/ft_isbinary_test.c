@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tolower_test.c                                  :+:    :+:            */
+/*   ft_isbinary_test.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
 #include <limits.h>
 
 #include <criterion/criterion.h>
@@ -20,6 +19,13 @@
 
 #define MAX CHAR_MAX
 #define STEP 1
+
+static bool isbinary(
+	char c
+)
+{
+	return (c == '0' || c == '1');
+}
 
 static void free_characters(
 	struct criterion_test_params *crp
@@ -31,7 +37,7 @@ static void free_characters(
     cr_free(characters);
 }
 
-ParameterizedTestParameters(ft_tolower, general)
+ParameterizedTestParameters(ft_isbinary, general)
 {
 	size_t const	step = STEP;
 	size_t const	count = MAX / step;
@@ -53,7 +59,7 @@ ParameterizedTestParameters(ft_tolower, general)
 	return cr_make_param_array(char, characters, count, free_characters);
 }
 
-ParameterizedTest(char *c, ft_tolower, general)
+ParameterizedTest(char *c, ft_isbinary, general)
 {
-	cr_assert_eq(tolower(*c), ft_tolower(*c), "%d", *c);
+	cr_assert_eq(isbinary(*c), ft_isbinary(*c), "%d", *c);
 }

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isupper.c                                       :+:    :+:            */
+/*   ft_iscntrl.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/06 16:57:45 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:04:36 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 11:42:00 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:04:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
 /*
-** return (((0x40 - c) < 0) && ((c - 0x5B) < 0));
+** * Checks if c is a control character
 */
-
-bool		ft_isupper(char c)
+bool		ft_iscntrl(
+	char c
+)
 {
-	return (c >= 'A' && c <= 'Z');
+	return (c <= 31 || c  == 127);
 }

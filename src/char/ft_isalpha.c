@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isascii.c                                       :+:    :+:            */
+/*   ft_isalpha.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 11:42:00 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:04:09 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 11:25:43 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_isascii(char c)
+/*
+** * Checks if c is a upper or lower case letter
+*/
+bool		ft_isalpha(
+	char c
+)
 {
-	return (c >= 0);
+	return (ft_islower(c) || ft_isupper(c));
 }

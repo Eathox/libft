@@ -19,7 +19,7 @@
 #include "char.h"
 
 #define MAX CHAR_MAX
-#define STEP 0x05
+#define STEP 1
 
 static void free_characters(
 	struct criterion_test_params *crp
@@ -55,5 +55,5 @@ ParameterizedTestParameters(ft_toupper, general)
 
 ParameterizedTest(char *c, ft_toupper, general)
 {
-	cr_assert_eq(toupper(*c), ft_toupper(*c), "%02X", *c);
+	cr_assert_eq(toupper(*c), ft_toupper(*c), "%d", *c);
 }

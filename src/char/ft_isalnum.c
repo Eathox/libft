@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_ishex.c                                         :+:    :+:            */
+/*   ft_isalnum.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/10/04 15:01:34 by pholster      #+#    #+#                 */
-/*   Updated: 2019/10/04 15:01:34 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 11:37:46 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_ishex(char c)
+/*
+** * Checks if c is either a lower/upper case letter or a number
+*/
+bool		ft_isalnum(
+	char c
+)
 {
-	if (ft_isdigit(c))
-		return (true);
-	c = ft_tolower(c);
-	return (c >= 'a' && c <= 'f');
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

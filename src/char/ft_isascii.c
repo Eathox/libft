@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_islower.c                                       :+:    :+:            */
+/*   ft_isascii.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/02/06 16:57:43 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:04:19 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 11:42:00 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:04:09 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
 /*
-** return (((0x60 - c) < 0) && ((c - 0x7B) < 0));
+** * Checks if c fits inside the ascii character set
 */
-
-bool		ft_islower(char c)
+bool		ft_isascii(
+	char c
+)
 {
-	return (c >= 'a' && c <= 'z');
+	return (c >= '\0');
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tolower_test.c                                  :+:    :+:            */
+/*   ft_isascii_test.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -19,6 +19,8 @@
 #include "char.h"
 
 #define MAX CHAR_MAX
+#define MIN CHAR_MIN
+#define SIZE (abs(MIN) + abs(MAX))
 #define STEP 1
 
 static void free_characters(
@@ -31,10 +33,10 @@ static void free_characters(
     cr_free(characters);
 }
 
-ParameterizedTestParameters(ft_tolower, general)
+ParameterizedTestParameters(ft_isascii, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = MAX / step;
+	size_t const	count = SIZE / step;
 	char 			*characters;
 	char			c;
 	size_t			i;
@@ -43,7 +45,7 @@ ParameterizedTestParameters(ft_tolower, general)
 	cr_expect_neq(characters, NULL);
 
 	i = 0;
-	c = 0x0;
+	c = MIN;
 	while (i < count)
 	{
 		characters[i] = c;
@@ -53,7 +55,12 @@ ParameterizedTestParameters(ft_tolower, general)
 	return cr_make_param_array(char, characters, count, free_characters);
 }
 
-ParameterizedTest(char *c, ft_tolower, general)
+ParameterizedTest(char *c, ft_isascii, general)
 {
-	cr_assert_eq(tolower(*c), ft_tolower(*c), "%d", *c);
+	int		expected;
+
+	expected = isascii(*c);
+	if (expected != 0)
+		expected = true;
+	cr_assert_eq(expected, ft_isascii(*c), "%d", *c);
 }

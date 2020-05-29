@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_chrdin.c                                        :+:    :+:            */
+/*   ft_islower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 17:42:01 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/02/06 16:57:43 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:04:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_chrdin(const char *str, const char *dlm)
+/*
+** * Checks if c is a lowercase letter
+*/
+bool		ft_islower(
+	char c
+)
 {
-	return (ft_chrdindex(str, dlm) != -1);
+	return (c >= 'a' && c <= 'z');
 }

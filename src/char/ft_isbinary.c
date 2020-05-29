@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   ft_isbinary.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 11:25:43 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/10/04 15:01:34 by pholster      #+#    #+#                 */
+/*   Updated: 2019/10/04 15:01:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_isalpha(char c)
+/*
+** * Checks if c is a base 2 number character
+*/
+bool		ft_isbinary(
+	char c
+)
 {
-	return (ft_islower(c) || ft_isupper(c));
+	return (c == '0' || c == '1');
 }

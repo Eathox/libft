@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tolower_test.c                                  :+:    :+:            */
+/*   ft_iscntrl_test.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -31,7 +31,7 @@ static void free_characters(
     cr_free(characters);
 }
 
-ParameterizedTestParameters(ft_tolower, general)
+ParameterizedTestParameters(ft_iscntrl, general)
 {
 	size_t const	step = STEP;
 	size_t const	count = MAX / step;
@@ -53,7 +53,12 @@ ParameterizedTestParameters(ft_tolower, general)
 	return cr_make_param_array(char, characters, count, free_characters);
 }
 
-ParameterizedTest(char *c, ft_tolower, general)
+ParameterizedTest(char *c, ft_iscntrl, general)
 {
-	cr_assert_eq(tolower(*c), ft_tolower(*c), "%d", *c);
+	int		expected;
+
+	expected = iscntrl(*c);
+	if (expected != 0)
+		expected = true;
+	cr_assert_eq(expected, ft_iscntrl(*c), "%d", *c);
 }

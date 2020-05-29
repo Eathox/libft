@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalnum.c                                       :+:    :+:            */
+/*   ft_isdigit.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 11:37:46 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/09 11:35:45 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:04:14 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_isalnum(char c)
+/*
+** * Checks if c is a number
+*/
+bool		ft_isdigit(
+	char c
+)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	return (c >= '0' && c <= '9');
 }

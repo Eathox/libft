@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isspace.c                                       :+:    :+:            */
+/*   ft_isblank.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 11:36:37 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
+/*   Created: 2019/03/30 00:14:15 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:04:12 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_isspace(char c)
+/*
+** * Checks if c is a space or tab
+*/
+bool		ft_isblank(
+	char c
+)
 {
-	return (ft_chrin(" \t\n\v\f\r", c));
+	return (c == ' ' || c == '\t');
 }

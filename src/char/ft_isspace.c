@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_isspace.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 11:35:45 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:04:14 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/10 11:36:37 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 20:40:44 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "char.h"
 
-bool		ft_isdigit(char c)
+/*
+** * Checks if c is any of the following: ' ', '\t', '\n', '\v', '\f' or '\r'
+*/
+bool		ft_isspace(
+	char c
+)
 {
-	return (c >= '0' && c <= '9');
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
 }
