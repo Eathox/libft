@@ -69,7 +69,7 @@ ParameterizedTest(size_t *index, ft_memrchr, general)
 	mem_byte[*index - 1] = UCHAR_MAX;
 
 	result = ft_memrchr(mem_byte, UCHAR_MAX, size);
-	cr_assert_eq(*index, result - mem_byte, "%zu", *index);
+	cr_assert_eq((size_t)(*index), (size_t)(result - mem_byte), "%zu", *index);
 
 	free(mem_byte);
 }
@@ -109,19 +109,19 @@ ParameterizedTestParameters(ft_memrchr, character)
 ParameterizedTest(t_uint8 *c, ft_memrchr, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		mem_byte[len];
+	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*result;
 
 	mem_byte[len - 1] = *c;
 
 	result = ft_memrchr(mem_byte, *c, len);
-	cr_assert_eq(len - 1, result - mem_byte, "%02X", *c);
+	cr_assert_eq((size_t)(len - 1), (size_t)(result - mem_byte), "%02X", *c);
 }
 
 Test(ft_memrchr, not_found)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		mem_byte[len];
+	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*result;
 
 	result = ft_memrchr(mem_byte, UCHAR_MAX, len);

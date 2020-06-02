@@ -110,7 +110,7 @@ ParameterizedTestParameters(ft_memchr, character)
 ParameterizedTest(t_uint8 *c, ft_memchr, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		mem_byte[len];
+	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*expected;
 	t_uint8			*result;
 
@@ -124,7 +124,7 @@ ParameterizedTest(t_uint8 *c, ft_memchr, character)
 Test(ft_memchr, not_found)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		mem_byte[len];
+	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*result;
 
 	result = ft_memrchr(mem_byte, UCHAR_MAX, len);

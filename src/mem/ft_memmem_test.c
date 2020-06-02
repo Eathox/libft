@@ -64,7 +64,7 @@ ParameterizedTest(t_param *param, ft_memmem, general)
 		memcpy(mem_byte + param->needle_pos, needle_byte, needle_len);
 
 	result = ft_memmem(mem_byte, size, needle_byte, needle_len);
-	cr_assert_eq(param->needle_pos, result - mem_byte, "%08X %08X %zu",
+	cr_assert_eq(param->needle_pos, (size_t)(result - mem_byte), "%08X %08X %zu",
 		param->mem, param->needle, param->needle_pos);
 
 	free(mem_byte);
@@ -73,8 +73,8 @@ ParameterizedTest(t_param *param, ft_memmem, general)
 Test(ft_memmem, not_found)
 {
 	size_t const	len = SINGLE_SIZE;
-	t_uint8 		mem_byte[len];
-	t_uint8 		needle_byte[len];
+	t_uint8 		mem_byte[SINGLE_SIZE];
+	t_uint8 		needle_byte[SINGLE_SIZE];
 	t_uint8			*result;
 
 	bzero(mem_byte, len);
@@ -87,7 +87,7 @@ Test(ft_memmem, not_found)
 Test(ft_memmem, needle_to_long)
 {
 	size_t const	len = SINGLE_SIZE;
-	t_uint8 		mem_byte[len];
+	t_uint8 		mem_byte[SINGLE_SIZE];
 	t_uint8			*result;
 
 	bzero(mem_byte, len);
@@ -99,7 +99,7 @@ Test(ft_memmem, needle_to_long)
 Test(ft_memmem, zero_length)
 {
 	size_t const	len = SINGLE_SIZE;
-	t_uint8 		mem_byte[len];
+	t_uint8 		mem_byte[SINGLE_SIZE];
 	t_uint8			*result;
 
 	result = ft_memmem(mem_byte, len, NULL, 0);

@@ -97,8 +97,8 @@ ParameterizedTest(size_t *index, ft_memccpy, allign)
 {
 	t_uint8 const	c = 0x7F;
 	size_t const	size = MAX;
-	t_uint8 		result[size];
-	t_uint8 		expected[size];
+	t_uint8 		result[MAX];
+	t_uint8 		expected[MAX];
 	void			*return_ptr;
 
 	bzero(result, size);

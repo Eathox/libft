@@ -117,8 +117,8 @@ ParameterizedTest(t_uint8 *c, ft_memcmp, character)
 	size_t const	len = CHARACTER_SIZE;
 	size_t const	step = CHARACTER_STEP;
 	size_t const	count = CHARACTER_MAX / step;
-	t_uint8 		mem1_byte[len];
-	t_uint8 		mem2_byte[len];
+	t_uint8 		mem1_byte[CHARACTER_SIZE];
+	t_uint8 		mem2_byte[CHARACTER_SIZE];
 	int				expected;
 	int				result;
 

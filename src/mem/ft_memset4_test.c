@@ -123,7 +123,7 @@ ParameterizedTestParameters(ft_memset4, character)
 ParameterizedTest(t_uint32 *c, ft_memset4, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint32 		result[len];
+	t_uint32 		result[CHARACTER_SIZE];
 	void			*return_ptr;
 
 	return_ptr = ft_memset4(result, *c, len);
@@ -135,7 +135,7 @@ Test(ft_memset4, order)
 {
 	size_t const	len = 64;
 	t_uint32 const	c = 0x01020304;
-	t_uint32 		result[len];
+	t_uint32 		result[64];
 	void			*return_ptr;
 
 	return_ptr = ft_memset4(result, c, len);

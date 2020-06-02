@@ -111,8 +111,8 @@ ParameterizedTestParameters(ft_memset, character)
 ParameterizedTest(t_uint8 *c, ft_memset, character)
 {
 	size_t const	len = CHARACTER_SIZE;
-	t_uint8 		result[len];
-	t_uint8 		expected[len];
+	t_uint8 		result[CHARACTER_SIZE];
+	t_uint8 		expected[CHARACTER_SIZE];
 	void			*return_ptr;
 
 	memset(expected, *c, len);
@@ -142,12 +142,18 @@ ParameterizedTestParameters(ft_memset, allign)
 ParameterizedTest(size_t *len, ft_memset, allign)
 {
 	t_uint8 const	c = UCHAR_MAX;
-	t_uint8 		result[*len];
-	t_uint8 		expected[*len];
+	t_uint8			*result = calloc(*len, sizeof(c));
+	t_uint8			*expected = calloc(*len, sizeof(c));
 	void			*return_ptr;
+
+	cr_expect_neq(result, NULL);
+	cr_expect_neq(expected, NULL);
 
 	memset(expected, c, *len);
 	return_ptr = ft_memset(result, c, *len);
 	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
 	cr_assert_eq(return_ptr, result, "Return pointer error");
+
+	free(result);
+	free(expected);
 }
