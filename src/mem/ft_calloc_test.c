@@ -25,24 +25,18 @@
 
 static void	fill_memory(void)
 {
-	size_t		i;
 	t_uint8		*holder[FILL_MEMORY_COUNT];
 
-	i = 0;
-	while (i < FILL_MEMORY_COUNT)
+	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++)
 	{
 		holder[i] = malloc(FILL_MEMORY_SIZE);
 		cr_expect_neq(holder[i], NULL);
 
 		memset(holder[i], UCHAR_MAX, FILL_MEMORY_SIZE);
-		i++;
 	}
 
-	while (i > 0)
-	{
-		i--;
+	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++)
 		free(holder[i]);
-	}
 }
 
 typedef	struct	s_params

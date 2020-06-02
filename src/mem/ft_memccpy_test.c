@@ -18,62 +18,10 @@
 #include "ft/types.h"
 #include "mem.h"
 
-#define STEP 0x19
-#define MAX (STEP * 20)
+#define STEP 0x1
+#define MAX CHAR_MAX
 
-static void free_indexes(
-	struct criterion_test_params *crp
-)
-{
-	size_t	*indexes;
-
-	indexes = crp->params;
-    cr_free(indexes);
-}
-
-ParameterizedTestParameters(ft_memccpy, general)
-{
-	size_t const	step = STEP;
-	size_t const	count = MAX / step;
-	size_t  		*indexes;
-	size_t			index;
-	size_t			i;
-
-	indexes = cr_calloc(count, sizeof(index));
-	cr_expect_neq(indexes, NULL);
-
-	i = 0;
-	index = 1;
-	while (i < count)
-	{
-		indexes[i] = index;
-		index += step;
-		i++;
-	}
-	return cr_make_param_array(size_t, indexes, count, free_indexes);
-}
-
-ParameterizedTest(size_t *index, ft_memccpy, general)
-{
-	t_uint8 const	c = 0x7F;
-	size_t const	size = MAX;
-	t_uint8			*result = calloc(size, sizeof(*result));
-	t_uint8			*expected = calloc(size, sizeof(*expected));
-	void			*return_ptr;
-
-	cr_expect_neq(result, NULL);
-	cr_expect_neq(expected, NULL);
-
-	expected[*index - 1] = c;
-	memset(expected, UCHAR_MAX, *index - 1);
-
-	return_ptr = ft_memccpy(result, expected, c, size);
-	cr_assert_arr_eq(result, expected, size, "%zu", *index);
-	cr_assert_eq(return_ptr, &result[*index], "Return pointer error");
-
-	free(result);
-	free(expected);
-}
+#define ALIGN_SIZE 128
 
 ParameterizedTestParameters(ft_memccpy, allign)
 {
@@ -96,9 +44,9 @@ ParameterizedTestParameters(ft_memccpy, allign)
 ParameterizedTest(size_t *index, ft_memccpy, allign)
 {
 	t_uint8 const	c = 0x7F;
-	size_t const	size = MAX;
-	t_uint8 		result[MAX];
-	t_uint8 		expected[MAX];
+	size_t const	size = ALIGN_SIZE;
+	t_uint8 		result[ALIGN_SIZE];
+	t_uint8 		expected[ALIGN_SIZE];
 	void			*return_ptr;
 
 	bzero(result, size);
@@ -110,4 +58,33 @@ ParameterizedTest(size_t *index, ft_memccpy, allign)
 	return_ptr = ft_memccpy(result, expected, c, size);
 	cr_assert_arr_eq(result, expected, size, "%zu", *index);
 	cr_assert_eq(return_ptr, &result[*index], "Return pointer error");
+}
+
+Test(ft_memccpy, general)
+{
+	t_uint8 const	c = 0x7F;
+	size_t const	step = STEP;
+	size_t const	size = MAX;
+	t_uint8			*result = calloc(size, sizeof(*result));
+	t_uint8			*expected = calloc(size, sizeof(*expected));
+	void			*return_ptr;
+
+	cr_expect_neq(result, NULL);
+	cr_expect_neq(expected, NULL);
+
+	for (size_t index = 1; index < size; index += step)
+	{
+		expected[index - 1] = c;
+		memset(expected, UCHAR_MAX, index - 1);
+
+		return_ptr = ft_memccpy(result, expected, c, size);
+		cr_assert_arr_eq(result, expected, size, "%zu", index);
+		cr_assert_eq(return_ptr, &result[index], "Return pointer error");
+
+		bzero(expected, size);
+		bzero(result, size);
+	}
+
+	free(result);
+	free(expected);
 }

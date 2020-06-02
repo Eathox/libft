@@ -18,56 +18,8 @@
 #include "ft/types.h"
 #include "mem.h"
 
-#define STEP 0x19
-#define MAX (STEP * 20)
-
-static void free_lengths(
-	struct criterion_test_params *crp
-)
-{
-	size_t	*lengths;
-
-	lengths = crp->params;
-    cr_free(lengths);
-}
-
-ParameterizedTestParameters(ft_memdup, general)
-{
-	size_t const	step = STEP;
-	size_t const	count = MAX / step;
-	size_t  		*lengths;
-	size_t			len;
-	size_t			i;
-
-	lengths = cr_calloc(count, sizeof(len));
-	cr_expect_neq(lengths, NULL);
-
-	i = 0;
-	len = 1;
-	while (i < count)
-	{
-		lengths[i] = len;
-		len += step;
-		i++;
-	}
-	return cr_make_param_array(size_t, lengths, count, free_lengths);
-}
-
-ParameterizedTest(size_t *len, ft_memdup, general)
-{
-	t_uint8		*result;
-	t_uint8		*expected = calloc(*len, sizeof(*expected));
-
-	cr_expect_neq(expected, NULL);
-
-	memset(expected, UCHAR_MAX, *len);
-
-	result = ft_memdup(expected, *len);
-	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
-
-	free(result);
-	free(expected);
-}
+#define STEP 0x1
+#define MAX CHAR_MAX
 
 ParameterizedTestParameters(ft_memdup, allign)
 {
@@ -98,6 +50,27 @@ ParameterizedTest(size_t *len, ft_memdup, allign)
 	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
 
 	free(result);
+}
+
+Test(ft_memdup, general)
+{
+	size_t const	step = STEP;
+	t_uint8			*result;
+	t_uint8			*expected;
+
+	for (size_t len = 1; len < MAX; len += step)
+	{
+		expected = calloc(len, sizeof(*expected));
+		cr_expect_neq(expected, NULL);
+
+		memset(expected, UCHAR_MAX, len);
+
+		result = ft_memdup(expected, len);
+		cr_assert_arr_eq(result, expected, len, "%zu", len);
+
+		free(result);
+		free(expected);
+	}
 }
 
 Test(ft_memdup, zero)

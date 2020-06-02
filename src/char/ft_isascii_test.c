@@ -14,7 +14,6 @@
 #include <limits.h>
 
 #include <criterion/criterion.h>
-#include <criterion/parameterized.h>
 
 #include "char.h"
 
@@ -23,44 +22,16 @@
 #define SIZE (abs(MIN) + abs(MAX))
 #define STEP 1
 
-static void free_characters(
-	struct criterion_test_params *crp
-)
-{
-	char	*characters;
-
-	characters = crp->params;
-    cr_free(characters);
-}
-
-ParameterizedTestParameters(ft_isascii, general)
+Test(ft_isascii, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = SIZE / step;
-	char 			*characters;
-	char			c;
-	size_t			i;
+	char			expected;
 
-	characters = cr_calloc(count, sizeof(*characters));
-	cr_expect_neq(characters, NULL);
-
-	i = 0;
-	c = MIN;
-	while (i < count)
+	for (char c = MIN; c < MAX; c += step)
 	{
-		characters[i] = c;
-		c += step;
-		i++;
+		expected = ft_isascii(c);
+		if (expected != 0)
+			expected = true;
+		cr_assert_eq(expected, ft_isascii(c), "%d", c);
 	}
-	return cr_make_param_array(char, characters, count, free_characters);
-}
-
-ParameterizedTest(char *c, ft_isascii, general)
-{
-	int		expected;
-
-	expected = isascii(*c);
-	if (expected != 0)
-		expected = true;
-	cr_assert_eq(expected, ft_isascii(*c), "%d", *c);
 }

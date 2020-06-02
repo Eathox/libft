@@ -19,8 +19,10 @@
 #include "ft/types.h"
 #include "mem.h"
 
-#define STEP 0x19
-#define MAX (STEP * 20)
+#define STEP 0x1
+#define MAX CHAR_MAX
+
+#define ALIGN_SIZE 512
 
 #define SINGLE_SIZE (sizeof(t_uint8) * 1)
 
@@ -37,10 +39,10 @@ ParameterizedTestParameters(ft_memmem, general)
 	static t_param 	params[] = {
 		{0x0, 0x0, 0, false},
 		{0xFFFFFFFF, 0xFFFFFFFF, 0, false},
-		{0xFF0000FF, 0x0000FFFF, 3, false},
 		{0xFF00FF00, 0x00FF00FF, 1, false},
+		{0xFF0000FF, 0x0000FFFF, 3, false},
 		{0xFF0000FF, 0xFF00FF00, 246, true},
-		{0xFFFFFFFF, 0xF0F0F0F0, MAX - sizeof(t_uint32), true},
+		{0xFFFFFFFF, 0xF0F0F0F0, ALIGN_SIZE - sizeof(t_uint32), true},
 	};
 
 	size_t const	count = sizeof(params) / sizeof(*params);
@@ -49,7 +51,7 @@ ParameterizedTestParameters(ft_memmem, general)
 
 ParameterizedTest(t_param *param, ft_memmem, general)
 {
-	size_t const	size = MAX;
+	size_t const	size = ALIGN_SIZE;
 	size_t const	needle_len = sizeof(param->needle);
 	t_uint8			*mem_byte = calloc(size, sizeof(*mem_byte));
 	t_uint8			*needle_byte = calloc(needle_len, sizeof(*needle_byte));

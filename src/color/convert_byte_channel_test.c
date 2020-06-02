@@ -14,12 +14,11 @@
 #include <limits.h>
 
 #include <criterion/criterion.h>
-#include <criterion/parameterized.h>
 
 #include "priv.h"
 
 #define MAX UCHAR_MAX
-#define STEP 0x19
+#define STEP 0x1
 
 static void	compare(
 	t_uint8	byte_channel,
@@ -32,42 +31,13 @@ static void	compare(
 	cr_assert_str_eq(result, channel);
 }
 
-static void free_channels(
-	struct criterion_test_params *crp
-)
-{
-	t_uint8	*channels;
-
-	channels = crp->params;
-    cr_free(channels);
-}
-
-ParameterizedTestParameters(convert_byte_channel, general)
-{
-	size_t const	step = STEP;
-	size_t const	count = MAX / step;
-	t_uint8 		*channels;
-	t_uint8			byte_channel;
-	size_t			i;
-
-	channels = cr_calloc(count, sizeof(byte_channel));
-	cr_expect_neq(channels, NULL);
-
-	i = 0;
-	byte_channel = 0x0;
-	while (i < count)
-	{
-		channels[i] = byte_channel;
-		byte_channel += step;
-		i++;
-	}
-	return cr_make_param_array(t_uint8, channels, count, free_channels);
-}
-
-ParameterizedTest(t_uint8 *byte_channel, convert_byte_channel, general)
+Test(convert_byte_channel, general)
 {
 	char 	channel[3] = {0x0, 0x0, 0x0};
 
-	convert_byte_channel(channel, *byte_channel);
-	compare(*byte_channel, channel);
+	for (t_uint8 byte_channel = 0x0; byte_channel < MAX; byte_channel += step)
+	{
+		convert_byte_channel(channel, byte_channel);
+		compare(byte_channel, channel);
+	}
 }

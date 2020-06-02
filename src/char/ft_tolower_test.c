@@ -14,46 +14,20 @@
 #include <limits.h>
 
 #include <criterion/criterion.h>
-#include <criterion/parameterized.h>
 
 #include "char.h"
 
 #define MAX CHAR_MAX
 #define STEP 1
 
-static void free_characters(
-	struct criterion_test_params *crp
-)
-{
-	char	*characters;
-
-	characters = crp->params;
-    cr_free(characters);
-}
-
-ParameterizedTestParameters(ft_tolower, general)
+Test(ft_tolower, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = MAX / step;
-	char 			*characters;
-	char			c;
-	size_t			i;
+	char			expected;
 
-	characters = cr_calloc(count, sizeof(*characters));
-	cr_expect_neq(characters, NULL);
-
-	i = 0;
-	c = 0x0;
-	while (i < count)
+	for (char c = 0x0; c < MAX; c += step)
 	{
-		characters[i] = c;
-		c += step;
-		i++;
+		expected = tolower(c);
+		cr_assert_eq(expected, ft_tolower(c), "%d", c);
 	}
-	return cr_make_param_array(char, characters, count, free_characters);
-}
-
-ParameterizedTest(char *c, ft_tolower, general)
-{
-	cr_assert_eq(tolower(*c), ft_tolower(*c), "%d", *c);
 }

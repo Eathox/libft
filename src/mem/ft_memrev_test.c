@@ -13,27 +13,20 @@
 #include <limits.h>
 
 #include <criterion/criterion.h>
-#include <criterion/parameterized.h>
 
 #include "ft/types.h"
 #include "mem.h"
 
-#define STEP 0x19
-#define MAX (STEP * 20)
+#define STEP 0x1
+#define MAX CHAR_MAX
 
 static void	compare(
 	t_uint8	*mem,
 	size_t len
 )
 {
-	size_t	i;
-
-	i = 0;
-	while (i < len)
-	{
+	for (size_t i = 0; i < len; i++)
 		cr_assert_eq(mem[i], (t_uint8)((len - 1) - i), "%zu", len);
-		i++;
-	}
 }
 
 static void	set_mem(
@@ -41,59 +34,27 @@ static void	set_mem(
 	size_t len
 )
 {
-	size_t	i;
-
-	i = 0;
-	while (i < len)
-	{
+	for (size_t i = 0; i < len; i++)
 		mem[i] = i;
-		i++;
-	}
 }
 
-static void free_lengths(
-	struct criterion_test_params *crp
-)
-{
-	size_t	*lengths;
-
-	lengths = crp->params;
-    cr_free(lengths);
-}
-
-ParameterizedTestParameters(ft_memrev, general)
+Test(ft_memrev, general)
 {
 	size_t const	step = STEP;
-	size_t const	count = MAX / step;
-	size_t 			*lengths;
-	size_t			len;
-	size_t			i;
+	t_uint8			*result;
+	void			*return_ptr;
 
-	lengths = cr_calloc(count, sizeof(len));
-	cr_expect_neq(lengths, NULL);
-
-	i = 0;
-	len = 1;
-	while (i < count)
+	for (size_t len = 1; len < MAX; len += step)
 	{
-		lengths[i] = len;
-		len += step;
-		i++;
+		result = calloc(len, sizeof(t_uint8));
+		cr_expect_neq(result, NULL);
+
+		set_mem(result, len);
+
+		return_ptr = ft_memrev(result, len);
+		compare(result, len);
+		cr_assert_eq(return_ptr, result, "Return pointer error");
+
+		free(result);
 	}
-	return cr_make_param_array(size_t, lengths, count, free_lengths);
-}
-
-ParameterizedTest(size_t *len, ft_memrev, general)
-{
-	t_uint8		*result = calloc(*len, sizeof(t_uint8));
-	void		*return_ptr;
-
-	cr_expect_neq(result, NULL);
-	set_mem(result, *len);
-
-	return_ptr = ft_memrev(result, *len);
-	compare(result, *len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
-
-	free(result);
 }

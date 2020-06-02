@@ -18,59 +18,8 @@
 #include "ft/types.h"
 #include "mem.h"
 
-#define STEP 0x19
-#define MAX (STEP * 20)
-
-static void free_lengths(
-	struct criterion_test_params *crp
-)
-{
-	size_t	*lengths;
-
-	lengths = crp->params;
-    cr_free(lengths);
-}
-
-ParameterizedTestParameters(ft_memmove, general)
-{
-	size_t const	step = STEP;
-	size_t const	count = MAX / step;
-	size_t  		*lengths;
-	size_t			len;
-	size_t			i;
-
-	lengths = cr_calloc(count, sizeof(len));
-	cr_expect_neq(lengths, NULL);
-
-	i = 0;
-	len = 1;
-	while (i < count)
-	{
-		lengths[i] = len;
-		len += step;
-		i++;
-	}
-	return cr_make_param_array(size_t, lengths, count, free_lengths);
-}
-
-ParameterizedTest(size_t *len, ft_memmove, general)
-{
-	t_uint8		*result = calloc(*len, sizeof(*result));
-	t_uint8		*expected = calloc(*len, sizeof(*expected));
-	void		*return_ptr;
-
-	cr_expect_neq(result, NULL);
-	cr_expect_neq(expected, NULL);
-
-	memset(expected, UCHAR_MAX, *len);
-
-	return_ptr = ft_memmove(result, expected, *len);
-	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
-	cr_assert_eq(return_ptr, result, "Return pointer error");
-
-	free(result);
-	free(expected);
-}
+#define STEP 0x1
+#define MAX CHAR_MAX
 
 ParameterizedTestParameters(ft_memmove, allign)
 {
@@ -102,6 +51,32 @@ ParameterizedTest(size_t *len, ft_memmove, allign)
 	return_ptr = ft_memmove(result, expected, *len);
 	cr_assert_arr_eq(result, expected, *len, "%zu", *len);
 	cr_assert_eq(return_ptr, result, "Return pointer error");
+}
+
+Test(ft_memmove, general)
+{
+	size_t const	step = STEP;
+	t_uint8			*result;
+	t_uint8			*expected;
+	void			*return_ptr;
+
+	for (size_t len = 1; len < MAX; len += step)
+	{
+		result = calloc(len, sizeof(*result));
+		expected = calloc(len, sizeof(*expected));
+
+		cr_expect_neq(result, NULL);
+		cr_expect_neq(expected, NULL);
+
+		memset(expected, UCHAR_MAX, len);
+
+		return_ptr = ft_memmove(result, expected, len);
+		cr_assert_arr_eq(result, expected, len, "%zu", len);
+		cr_assert_eq(return_ptr, result, "Return pointer error");
+
+		free(result);
+		free(expected);
+	}
 }
 
 Test(ft_memmove, overlap)
