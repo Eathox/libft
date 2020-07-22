@@ -10,3 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
+libraries += -lm
+
+objects += ft_overflow.o
+objects += ft_normalize.o
+objects += ft_nearestnum.o
+objects += ft_clamp.o
+objects += ft_max.o
+objects += ft_min.o

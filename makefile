@@ -17,23 +17,24 @@ BASENAME = libft
 NAME = $(OUTDIR)/$(BASENAME).a
 TESTNAME = $(OUTDIR)/test-$(BASENAME)
 
-MODULES += types
-MODULES += mem
-MODULES += char
-MODULES += num
+modules += types
+modules += mem
+modules += char
+# modules += math
+# modules += num
 
-# MODULES += color
+# modules += color
 
-# MODULES += printf
-# MODULES += thpool
-# MODULES += numarr
-# MODULES += str
-# MODULES += strarr
-# MODULES += utf8
-# MODULES += list
-# MODULES += hash
-# MODULES += term
-# MODULES += serialize
+# modules += printf
+# modules += thpool
+# modules += numarr
+# modules += str
+# modules += strarr
+# modules += utf8
+# modules += list
+# modules += hash
+# modules += term
+# modules += serialize
 
 # Add float/double module?
 
@@ -62,9 +63,9 @@ include makefile_mk/reset.mk $(SRCDIR)/$(module)/make.mk makefile_mk/prefix.mk
 endef
 
 # Import each modules makefile specifying objects and tests
-$(foreach module,$(MODULES),$(eval $(call MODULE_IMPORT_TEMPLATE, $(module))))
+$(foreach module,$(modules),$(eval $(call MODULE_IMPORT_TEMPLATE, $(module))))
 
-all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h, $(MODULES))
+all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h, $(modules))
 
 all: $(NAME)
 PHONY += all
@@ -86,7 +87,7 @@ include makefile_mk/module.mk
 endef
 
 # Define the rules of every module
-$(foreach module,$(MODULES),$(eval $(call MODULE_RULE_TEMPLATE, $(module))))
+$(foreach module,$(modules),$(eval $(call MODULE_RULE_TEMPLATE, $(module))))
 
 test: $(TESTNAME)
 	@$(TESTNAME)
