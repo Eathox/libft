@@ -57,6 +57,7 @@ Test(ft_memchr, character)
 	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*expected;
 	t_uint8			*result;
+
 	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step)
 	{
 		mem_byte[len - 1] = c;

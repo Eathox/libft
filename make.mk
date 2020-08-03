@@ -13,7 +13,7 @@
 modules += types
 modules += mem
 modules += char
-# modules += math
+modules += math
 # modules += num
 
 # modules += color
