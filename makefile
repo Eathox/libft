@@ -17,26 +17,8 @@ BASENAME = libft
 NAME = $(OUTDIR)/$(BASENAME).a
 TESTNAME = $(OUTDIR)/test-$(BASENAME)
 
-modules += types
-modules += mem
-modules += char
-# modules += math
-# modules += num
-
-# modules += color
-
-# modules += printf
-# modules += thpool
-# modules += numarr
-# modules += str
-# modules += strarr
-# modules += utf8
-# modules += list
-# modules += hash
-# modules += term
-# modules += serialize
-
-# Add float/double module?
+# Include target modules
+include make.mk
 
 CFLAGS += -g -MD
 CFLAGS += -Wall -Wextra -Werror
