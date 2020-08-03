@@ -34,8 +34,7 @@ typedef struct	s_param
 	bool		insert_needle;
 }				t_param;
 
-ParameterizedTestParameters(ft_memmem, general)
-{
+ParameterizedTestParameters(ft_memmem, general) {
 	static t_param 	params[] = {
 		{0x0, 0x0, 0, false},
 		{0xFFFFFFFF, 0xFFFFFFFF, 0, false},
@@ -49,8 +48,7 @@ ParameterizedTestParameters(ft_memmem, general)
 	return cr_make_param_array(t_param, params, count);
 }
 
-ParameterizedTest(t_param *param, ft_memmem, general)
-{
+ParameterizedTest(t_param *param, ft_memmem, general) {
 	size_t const	size = ALIGN_SIZE;
 	size_t const	needle_len = sizeof(param->needle);
 	t_uint8			*mem_byte = calloc(size, sizeof(*mem_byte));
@@ -72,8 +70,7 @@ ParameterizedTest(t_param *param, ft_memmem, general)
 	free(mem_byte);
 }
 
-Test(ft_memmem, not_found)
-{
+Test(ft_memmem, not_found) {
 	size_t const	len = SINGLE_SIZE;
 	t_uint8 		mem_byte[SINGLE_SIZE];
 	t_uint8 		needle_byte[SINGLE_SIZE];
@@ -86,8 +83,7 @@ Test(ft_memmem, not_found)
 	cr_assert_eq(result, NULL);
 }
 
-Test(ft_memmem, needle_to_long)
-{
+Test(ft_memmem, needle_to_long) {
 	size_t const	len = SINGLE_SIZE;
 	t_uint8 		mem_byte[SINGLE_SIZE];
 	t_uint8			*result;
@@ -98,8 +94,7 @@ Test(ft_memmem, needle_to_long)
 	cr_assert_eq(result, NULL);
 }
 
-Test(ft_memmem, zero_length)
-{
+Test(ft_memmem, zero_length) {
 	size_t const	len = SINGLE_SIZE;
 	t_uint8 		mem_byte[SINGLE_SIZE];
 	t_uint8			*result;

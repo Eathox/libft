@@ -17,16 +17,14 @@
 #include "printf.h"
 #include "priv.h"
 
-static size_t	getrgb(const char *str, t_uint8 *rgb)
-{
+static size_t	getrgb(const char *str, t_uint8 *rgb) {
 	size_t	i;
 	size_t	totallen;
 	size_t	len;
 
 	i = 0;
 	totallen = 0;
-	while (i < 3)
-	{
+	while (i < 3) {
 		len = ft_strislen(str, &ft_isdigit);
 		if (len == 0)
 			return (0);
@@ -40,8 +38,7 @@ static size_t	getrgb(const char *str, t_uint8 *rgb)
 	return (2 + totallen);
 }
 
-static size_t	addcolorrgb(t_info *info, bool bck, size_t len, t_uint8 *rgb)
-{
+static size_t	addcolorrgb(t_info *info, bool bck, size_t len, t_uint8 *rgb) {
 	t_uint8	r;
 	t_uint8	g;
 	t_uint8	b;
@@ -56,8 +53,7 @@ static size_t	addcolorrgb(t_info *info, bool bck, size_t len, t_uint8 *rgb)
 	return (2 + len + bck);
 }
 
-static size_t	addcolor(t_info *info, bool bck, size_t len, int color)
-{
+static size_t	addcolor(t_info *info, bool bck, size_t len, int color) {
 	if (bck)
 		ft_addcolorbg(info, color);
 	else
@@ -65,8 +61,7 @@ static size_t	addcolor(t_info *info, bool bck, size_t len, int color)
 	return (2 + len + bck);
 }
 
-size_t			ft_formatcolor(t_info *info, const char *str)
-{
+size_t			ft_formatcolor(t_info *info, const char *str) {
 	t_uint8	rgb[3];
 	char	*colorstr;
 	int		color;
@@ -76,8 +71,7 @@ size_t			ft_formatcolor(t_info *info, const char *str)
 	bck = (*str == '!');
 	color = ft_colorlcode(&str[bck]);
 	len = ft_strislen(&str[bck], &ft_isdigit);
-	if (str[bck] == '}')
-	{
+	if (str[bck] == '}') {
 		(bck) ? ft_addcolorbg(info, -1) : ft_addcolor(info, -1);
 		return (2 + bck);
 	}

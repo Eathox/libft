@@ -14,8 +14,7 @@
 
 #include "strarr.h"
 
-bool		ft_strarrsortac(const char *current, const char *str)
-{
+bool		ft_strarrsortac(const char *current, const char *str) {
 	int		result;
 
 	result = ft_strcmp(current, str);

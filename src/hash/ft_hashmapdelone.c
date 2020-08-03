@@ -16,8 +16,7 @@
 #include "priv.h"
 
 void	ft_hashmapdelone(const t_hashmap *map, const void *key, size_t keysize,
-			void (*del)(void *))
-{
+			void (*del)(void *)) {
 	t_hashlist	*current;
 	t_hashlist	*prv;
 	size_t		index;
@@ -25,8 +24,7 @@ void	ft_hashmapdelone(const t_hashmap *map, const void *key, size_t keysize,
 	prv = NULL;
 	index = map->f(key, keysize) % map->size;
 	current = map->arr[index];
-	while (current != NULL && ft_keyequ(current, key, keysize) == false)
-	{
+	while (current != NULL && ft_keyequ(current, key, keysize) == false) {
 		prv = current;
 		current = current->next;
 	}

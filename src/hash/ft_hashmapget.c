@@ -13,8 +13,7 @@
 #include "hash.h"
 #include "priv.h"
 
-void	*ft_hashmapget(const t_hashmap *map, const void *key, size_t keysize)
-{
+void	*ft_hashmapget(const t_hashmap *map, const void *key, size_t keysize) {
 	t_hashlist	*current;
 	size_t		index;
 

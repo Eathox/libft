@@ -25,15 +25,13 @@
 #define CHARACTER_MAX UCHAR_MAX
 #define CHARACTER_STEP 0x1
 
-Test(ft_memrchr, general)
-{
+Test(ft_memrchr, general) {
 	size_t const	step = STEP;
 	size_t const	size = MAX;
 	t_uint8			*mem_byte = calloc(size, sizeof(*mem_byte));
 	t_uint8			*result;
 
-	for (size_t index = 1; index < size; index += step)
-	{
+	for (size_t index = 1; index < size; index += step) {
 		cr_expect_neq(mem_byte, NULL);
 
 		mem_byte[index - 0] = UCHAR_MAX;
@@ -47,15 +45,13 @@ Test(ft_memrchr, general)
 	free(mem_byte);
 }
 
-Test(ft_memrchr, character)
-{
+Test(ft_memrchr, character) {
 	size_t const	step = CHARACTER_STEP;
 	size_t const	len = CHARACTER_SIZE;
 	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*result;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step)
-	{
+	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
 		mem_byte[len - 1] = c;
 
 		result = ft_memrchr(mem_byte, c, len);
@@ -63,8 +59,7 @@ Test(ft_memrchr, character)
 	}
 }
 
-Test(ft_memrchr, not_found)
-{
+Test(ft_memrchr, not_found) {
 	size_t const	len = CHARACTER_SIZE;
 	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*result;

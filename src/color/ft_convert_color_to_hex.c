@@ -22,8 +22,7 @@
 char		*ft_convert_color_to_hex(
 	t_color const *color,
 	bool include_alpha
-)
-{
+) {
 	char	*hex;
 
 	if (include_alpha == true)

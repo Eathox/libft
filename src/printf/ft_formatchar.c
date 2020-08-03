@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-void	ft_formatchar(t_info *info)
-{
+void	ft_formatchar(t_info *info) {
 	t_wchar	c;
 
 	if (info->var_type == T_WCHAR || info->type == 'c')

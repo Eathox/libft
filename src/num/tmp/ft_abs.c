@@ -12,8 +12,7 @@
 
 #include "num.h"
 
-intmax_t		ft_abs(intmax_t num)
-{
+intmax_t		ft_abs(intmax_t num) {
 	if (num < 0)
 		return (-num);
 	return (num);

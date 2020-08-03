@@ -15,8 +15,7 @@
 #include "serialize.h"
 #include "priv.h"
 
-static bool	expand_content(t_serialize *serialize, size_t target_size)
-{
+static bool	expand_content(t_serialize *serialize, size_t target_size) {
 	t_uint8	*new_content;
 	size_t	new_size;
 
@@ -34,15 +33,13 @@ static bool	expand_content(t_serialize *serialize, size_t target_size)
 }
 
 ssize_t			ft_add_serialize_value(t_serialize *serialize,
-					t_uint8 const *stream, size_t size)
-{
+					t_uint8 const *stream, size_t size) {
 	size_t	target_size;
 
 	if (serialize->use_buffer == false)
 		return (-1);
 	target_size = serialize->pos + size;
-	if (target_size > serialize->content_allocated_size)
-	{
+	if (target_size > serialize->content_allocated_size) {
 		if (expand_content(serialize, target_size) == false)
 			return (-1);
 	}

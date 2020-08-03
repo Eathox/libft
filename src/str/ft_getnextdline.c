@@ -19,12 +19,10 @@
 #include "str.h"
 #include "priv.h"
 
-static t_gnl	*getlst(int fd, t_gnl *lst)
-{
+static t_gnl	*getlst(int fd, t_gnl *lst) {
 	t_gnl	*newlst;
 
-	while (lst != NULL && lst->next != NULL)
-	{
+	while (lst != NULL && lst->next != NULL) {
 		if (lst->fd == fd)
 			return (lst);
 		lst = lst->next;
@@ -40,12 +38,10 @@ static t_gnl	*getlst(int fd, t_gnl *lst)
 	return (newlst);
 }
 
-static int		lastline(char **line, t_gnl *lst)
-{
+static int		lastline(char **line, t_gnl *lst) {
 	size_t	len;
 
-	if (lst->str != NULL)
-	{
+	if (lst->str != NULL) {
 		len = lst->len;
 		*line = ft_memalloc(len + 1);
 		if (*line == NULL)
@@ -62,8 +58,7 @@ static int		lastline(char **line, t_gnl *lst)
 	return (0);
 }
 
-static bool	strmerge(char **str1, char *str2, size_t *len, ssize_t ret)
-{
+static bool	strmerge(char **str1, char *str2, size_t *len, ssize_t ret) {
 	char	*str;
 
 	if (*str1 == NULL)
@@ -83,14 +78,12 @@ static bool	strmerge(char **str1, char *str2, size_t *len, ssize_t ret)
 	return (true);
 }
 
-static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm)
-{
+static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm) {
 	ssize_t	ret;
 	ssize_t	newl;
 
 	newl = ft_memindex(lst->str, dlm, lst->len);
-	while (newl == -1)
-	{
+	while (newl == -1) {
 		ret = read(lst->fd, buff, BUFF_SIZE);
 		if (ret == 0)
 			break ;
@@ -112,8 +105,7 @@ static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm)
 	return (newl + 1);
 }
 
-ssize_t			ft_getnextdline(int fd, char **line, char dlm)
-{
+ssize_t			ft_getnextdline(int fd, char **line, char dlm) {
 	static t_gnl	*head = NULL;
 	t_gnl			*lst;
 	char			buff[BUFF_SIZE + 1];

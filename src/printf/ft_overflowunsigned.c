@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-uintmax_t	ft_overflowunsigned(t_info *info)
-{
+uintmax_t	ft_overflowunsigned(t_info *info) {
 	if (info->var_type == U_LONG || info->var_type == VOID)
 		return (va_arg(info->args, unsigned long));
 	if (info->var_type == U_LONG_LONG)

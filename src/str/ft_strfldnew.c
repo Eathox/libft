@@ -15,8 +15,7 @@
 
 #include "str.h"
 
-char		**ft_strfldnew(size_t x, size_t y, char c)
-{
+char		**ft_strfldnew(size_t x, size_t y, char c) {
 	char	**arr;
 	size_t	i;
 
@@ -24,11 +23,9 @@ char		**ft_strfldnew(size_t x, size_t y, char c)
 	arr = ft_strarrnew(y);
 	if (arr == NULL)
 		return (NULL);
-	while (i < y)
-	{
+	while (i < y) {
 		arr[i] = ft_strnew(x);
-		if (arr[i] == NULL)
-		{
+		if (arr[i] == NULL) {
 			ft_strarrdel(&arr);
 			return (NULL);
 		}

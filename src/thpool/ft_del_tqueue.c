@@ -15,20 +15,17 @@
 #include "thpool.h"
 #include "priv.h"
 
-static void	del_jobs(t_tjob *job)
-{
+static void	del_jobs(t_tjob *job) {
 	t_tjob	*next;
 
-	while (job != NULL)
-	{
+	while (job != NULL) {
 		next = job->next;
 		ft_del_tjob(&job, true);
 		job = next;
 	}
 }
 
-void		*ft_del_tqueue(t_tqueue **queue)
-{
+void		*ft_del_tqueue(t_tqueue **queue) {
 	if (queue == NULL || *queue == NULL)
 		return (NULL);
 	del_jobs((*queue)->first);

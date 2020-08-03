@@ -14,8 +14,7 @@
 #include "../priv.h"
 
 ssize_t		ft_read_serialize_int64_ptr(t_serialize *serialize,
-				t_int64 **int64_ptr, size_t size)
-{
+				t_int64 **int64_ptr, size_t size) {
 	t_convert	convert;
 	ssize_t		ret;
 

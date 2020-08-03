@@ -12,12 +12,10 @@
 
 #include "list.h"
 
-void	ft_lstaddbck(t_list **head, t_list *new)
-{
+void	ft_lstaddbck(t_list **head, t_list *new) {
 	t_list	*lst;
 
-	if (*head == NULL)
-	{
+	if (*head == NULL) {
 		*head = new;
 		return ;
 	}

@@ -12,14 +12,12 @@
 
 #include "list.h"
 
-static t_list	*freeret(t_list **lst)
-{
+static t_list	*freeret(t_list **lst) {
 	ft_lstdel(lst, &ft_lstdelmem);
 	return (NULL);
 }
 
-static t_list	*list_set(t_list *elem)
-{
+static t_list	*list_set(t_list *elem) {
 	t_list *new;
 
 	new = ft_lstnew_dup(elem->content, elem->content_size);
@@ -28,8 +26,7 @@ static t_list	*list_set(t_list *elem)
 	return (new);
 }
 
-t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(const t_list *elem))
-{
+t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(const t_list *elem)) {
 	t_list	*current;
 	t_list	*retlst;
 	t_list	*prvlst;
@@ -40,8 +37,7 @@ t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(const t_list *elem))
 		return (NULL);
 	current = lst->next;
 	prvlst = retlst;
-	while (current != NULL)
-	{
+	while (current != NULL) {
 		duplst = list_set(f(current));
 		if (duplst == NULL)
 			return (freeret(&retlst));

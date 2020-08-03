@@ -14,8 +14,7 @@
 
 #include "list.h"
 
-bool		ft_lstsortstrac(const t_list *sortlst, const t_list *lst)
-{
+bool		ft_lstsortstrac(const t_list *sortlst, const t_list *lst) {
 	int		result;
 	size_t	n;
 

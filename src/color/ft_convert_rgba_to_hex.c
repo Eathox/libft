@@ -22,8 +22,7 @@
 char		*ft_convert_rgba_to_hex(
 	t_uint32 rgba,
 	bool include_alpha
-)
-{
+) {
 	char	*hex;
 
 	if (include_alpha == true)

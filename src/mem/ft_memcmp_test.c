@@ -24,16 +24,14 @@
 #define CHARACTER_MAX UCHAR_MAX
 #define CHARACTER_STEP 0x1
 
-Test(ft_memcmp, general)
-{
+Test(ft_memcmp, general) {
 	size_t const	step = STEP;
 	t_uint8			*mem1_byte;
 	t_uint8			*mem2_byte;
 	int				expected;
 	int				result;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		mem1_byte = calloc(len, sizeof(*mem1_byte));
 		mem2_byte = calloc(len, sizeof(*mem2_byte));
 
@@ -54,8 +52,7 @@ Test(ft_memcmp, general)
 	}
 }
 
-Test(ft_memcmp, character)
-{
+Test(ft_memcmp, character) {
 	size_t const	len = CHARACTER_SIZE;
 	size_t const	step = CHARACTER_STEP;
 	size_t const	count = CHARACTER_MAX / step;
@@ -64,8 +61,7 @@ Test(ft_memcmp, character)
 	int				expected;
 	int				result;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step)
-	{
+	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
 		mem1_byte[len - 1] = c;
 		mem2_byte[len - 1] = step * (count / 2);
 

@@ -18,8 +18,7 @@
 
 //TODO parameterize tests
 
-Test(ft_convert_rgba_to_hex, min)
-{
+Test(ft_convert_rgba_to_hex, min) {
 	char 			*hex;
 	t_uint32 const	rgba = 0x0;
 
@@ -31,8 +30,7 @@ Test(ft_convert_rgba_to_hex, min)
 	free(hex);
 }
 
-Test(ft_convert_rgba_to_hex, max)
-{
+Test(ft_convert_rgba_to_hex, max) {
 	char 			*hex;
 	t_uint32 const	rgba = UINT_MAX;
 
@@ -44,8 +42,7 @@ Test(ft_convert_rgba_to_hex, max)
 	free(hex);
 }
 
-Test(ft_convert_rgba_to_hex, 0x7F)
-{
+Test(ft_convert_rgba_to_hex, 0x7F) {
 	char 			*hex;
 	t_uint32 const	rgba = 0x7F7F7F7F;
 
@@ -57,8 +54,7 @@ Test(ft_convert_rgba_to_hex, 0x7F)
 	free(hex);
 }
 
-Test(ft_convert_rgba_to_hex, order)
-{
+Test(ft_convert_rgba_to_hex, order) {
 	char 			*hex;
 	t_uint32 const	rgba = 0x04030201;
 

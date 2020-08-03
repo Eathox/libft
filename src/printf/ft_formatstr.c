@@ -15,8 +15,7 @@
 #include "printf.h"
 #include "priv.h"
 
-static void	formatstr(t_info *info)
-{
+static void	formatstr(t_info *info) {
 	char	*str;
 	ssize_t	n;
 
@@ -32,8 +31,7 @@ static void	formatstr(t_info *info)
 	ft_addnstr(info, str, info->var_len);
 }
 
-static void	formatwchar(t_info *info)
-{
+static void	formatwchar(t_info *info) {
 	t_wchar	*str;
 	ssize_t	n;
 
@@ -49,8 +47,7 @@ static void	formatwchar(t_info *info)
 	ft_addwcharstr(info, str, info->var_len);
 }
 
-void		ft_formatstr(t_info *info)
-{
+void		ft_formatstr(t_info *info) {
 	if (info->var_type == STR)
 		formatstr(info);
 	else

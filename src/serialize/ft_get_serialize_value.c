@@ -16,16 +16,14 @@
 #include "priv.h"
 
 ssize_t		ft_get_serialize_value(t_serialize *serialize, t_uint8 *result,
-				size_t size)
-{
+				size_t size) {
 	size_t	fit;
 	size_t	max_fit;
 
 	fit = size;
 	if (serialize->use_buffer == false)
 		return (-1);
-	if (serialize->content == NULL)
-	{
+	if (serialize->content == NULL) {
 		if (ft_read_serialize(serialize) < 0)
 			return (-1);
 	}

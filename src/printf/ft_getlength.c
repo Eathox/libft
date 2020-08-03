@@ -15,8 +15,7 @@
 #include "printf.h"
 #include "priv.h"
 
-static int	length(int c)
-{
+static int	length(int c) {
 	if (c == PF_DOUBLE_H)
 		return (0);
 	if (c == 'h')
@@ -28,8 +27,7 @@ static int	length(int c)
 	return (-1);
 }
 
-int			ft_getlength(t_info *info, const char *str)
-{
+int			ft_getlength(t_info *info, const char *str) {
 	if (ft_chrin(PF_A_LENGTH_D, info->length) && *str == info->length)
 		info->length += *str;
 	else if (length(*str) > length(info->length))

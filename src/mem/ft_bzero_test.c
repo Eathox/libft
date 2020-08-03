@@ -22,8 +22,7 @@
 #define STEP 0x1
 #define MAX CHAR_MAX
 
-ParameterizedTestParameters(ft_bzero, allign)
-{
+ParameterizedTestParameters(ft_bzero, allign) {
 	static size_t	lengths[] = {
 		7,
 		8,
@@ -40,8 +39,7 @@ ParameterizedTestParameters(ft_bzero, allign)
 	return cr_make_param_array(size_t, lengths, count);
 }
 
-ParameterizedTest(size_t *len, ft_bzero, allign)
-{
+ParameterizedTest(size_t *len, ft_bzero, allign) {
 	t_uint32 		result[*len];
 	t_uint8 		expected[*len];
 	void			*return_ptr;
@@ -52,15 +50,13 @@ ParameterizedTest(size_t *len, ft_bzero, allign)
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 }
 
-Test(ft_bzero, general)
-{
+Test(ft_bzero, general) {
 	size_t const	step = STEP;
 	t_uint8			*result;
 	t_uint8			*expected;
 	void			*return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		result = calloc(len, sizeof(t_uint8));
 		expected = calloc(len, sizeof(t_uint8));
 

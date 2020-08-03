@@ -20,13 +20,11 @@
 #define MAX CHAR_MAX
 #define STEP 1
 
-Test(ft_isspace, general)
-{
+Test(ft_isspace, general) {
 	size_t const	step = STEP;
 	char			expected;
 
-	for (char c = 0x0; c < MAX; c += step)
-	{
+	for (char c = 0x0; c < MAX; c += step) {
 		expected = isspace(c);
 		if (expected != 0)
 			expected = true;

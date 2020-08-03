@@ -21,8 +21,7 @@
 #define STEP 0x1
 #define MAX CHAR_MAX
 
-ParameterizedTestParameters(ft_memcpy, allign)
-{
+ParameterizedTestParameters(ft_memcpy, allign) {
 	static size_t	lengths[] = {
 		7,
 		8,
@@ -39,8 +38,7 @@ ParameterizedTestParameters(ft_memcpy, allign)
 	return cr_make_param_array(size_t, lengths, count);
 }
 
-ParameterizedTest(size_t *len, ft_memcpy, allign)
-{
+ParameterizedTest(size_t *len, ft_memcpy, allign) {
 	t_uint8 	result[*len];
 	t_uint8 	expected[*len];
 	void		*return_ptr;
@@ -53,15 +51,13 @@ ParameterizedTest(size_t *len, ft_memcpy, allign)
 	cr_assert_eq(return_ptr, result, "Return pointer error");
 }
 
-Test(ft_memcpy, general)
-{
+Test(ft_memcpy, general) {
 	size_t const	step = STEP;
 	t_uint8			*result;
 	t_uint8			*expected;
 	void			*return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		result = calloc(len, sizeof(*result));
 		expected = calloc(len, sizeof(*expected));
 
@@ -79,8 +75,7 @@ Test(ft_memcpy, general)
 	}
 }
 
-Test(ft_memcpy, overlap)
-{
+Test(ft_memcpy, overlap) {
 	size_t	const	len = 3;
 	t_uint8 		result[] = {UCHAR_MAX, 0x0, UCHAR_MAX};
 	t_uint8 		expected[] = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};

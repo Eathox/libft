@@ -12,8 +12,7 @@
 
 #include "num.h"
 
-bool	ft_inrange(intmax_t value, intmax_t min, intmax_t max)
-{
+bool	ft_inrange(intmax_t value, intmax_t min, intmax_t max) {
 	if (value < min || value > max)
 		return (false);
 	return (true);

@@ -23,8 +23,7 @@
 
 #define ALIGN_SIZE 128
 
-ParameterizedTestParameters(ft_memccpy, allign)
-{
+ParameterizedTestParameters(ft_memccpy, allign) {
 	static size_t	indexes[] = {
 		7,
 		8,
@@ -41,8 +40,7 @@ ParameterizedTestParameters(ft_memccpy, allign)
 	return cr_make_param_array(size_t, indexes, count);
 }
 
-ParameterizedTest(size_t *index, ft_memccpy, allign)
-{
+ParameterizedTest(size_t *index, ft_memccpy, allign) {
 	t_uint8 const	c = 0x7F;
 	size_t const	size = ALIGN_SIZE;
 	t_uint8 		result[ALIGN_SIZE];
@@ -60,8 +58,7 @@ ParameterizedTest(size_t *index, ft_memccpy, allign)
 	cr_assert_eq(return_ptr, &result[*index], "Return pointer error");
 }
 
-Test(ft_memccpy, general)
-{
+Test(ft_memccpy, general) {
 	t_uint8 const	c = 0x7F;
 	size_t const	step = STEP;
 	size_t const	size = MAX;
@@ -72,8 +69,7 @@ Test(ft_memccpy, general)
 	cr_expect_neq(result, NULL);
 	cr_expect_neq(expected, NULL);
 
-	for (size_t index = 1; index < size; index += step)
-	{
+	for (size_t index = 1; index < size; index += step) {
 		expected[index - 1] = c;
 		memset(expected, UCHAR_MAX, index - 1);
 

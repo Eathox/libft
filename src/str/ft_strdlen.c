@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-size_t		ft_strdlen(const char *str, const char *dlm)
-{
+size_t		ft_strdlen(const char *str, const char *dlm) {
 	size_t		len;
 	t_uint64	bytes[2];
 

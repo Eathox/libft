@@ -22,8 +22,7 @@
 void		*ft_memdup(
 	void const *mem,
 	size_t len
-)
-{
+) {
 	void	*dup;
 
 	if (len == 0)

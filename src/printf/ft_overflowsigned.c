@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-intmax_t	ft_overflowsigned(t_info *info)
-{
+intmax_t	ft_overflowsigned(t_info *info) {
 	if (info->var_type == LONG)
 		return (va_arg(info->args, long));
 	if (info->var_type == LONG_LONG)

@@ -18,8 +18,7 @@
 
 //TODO parameterize tests
 
-Test(ft_scale_color_brightness, min)
-{
+Test(ft_scale_color_brightness, min) {
 	t_color 		result;
 	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
 	t_color const	expected = {0x0, 0x0, 0x0, UCHAR_MAX};
@@ -29,8 +28,7 @@ Test(ft_scale_color_brightness, min)
 	cr_assert_arr_eq(&result, &expected, sizeof(t_color));
 }
 
-Test(ft_scale_color_brightness, max)
-{
+Test(ft_scale_color_brightness, max) {
 	t_color 		result;
 	t_color const	color = {0x1, 0x1, 0x1, UCHAR_MAX};
 	t_color const	expected = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
@@ -40,8 +38,7 @@ Test(ft_scale_color_brightness, max)
 	cr_assert_arr_eq(&result, &expected, sizeof(t_color));
 }
 
-Test(ft_scale_color_brightness, 0x7F)
-{
+Test(ft_scale_color_brightness, 0x7F) {
 	t_color 		result;
 	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
 	t_color const	expected = {0x7F, 0x7F, 0x7F, UCHAR_MAX};
@@ -51,8 +48,7 @@ Test(ft_scale_color_brightness, 0x7F)
 	cr_assert_arr_eq(&result, &expected, sizeof(t_color));
 }
 
-Test(ft_scale_color_brightness, order)
-{
+Test(ft_scale_color_brightness, order) {
 	t_color 		result;
 	t_color const	color = {0x1, 0x2, 0x3, 0x4};
 	t_color const	expected = color;
@@ -62,8 +58,7 @@ Test(ft_scale_color_brightness, order)
 	cr_assert_arr_eq(&result, &expected, sizeof(t_color));
 }
 
-Test(ft_scale_color_brightness, ratio)
-{
+Test(ft_scale_color_brightness, ratio) {
 	t_color 		result;
 	t_color const	color = {0x0, 0x40, 0x10, UCHAR_MAX};
 	t_color const	expected = {0x0, 0x80, 0x20, UCHAR_MAX};

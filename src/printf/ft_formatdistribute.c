@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-void	ft_formatdistribute(t_info *info)
-{
+void	ft_formatdistribute(t_info *info) {
 	if (ft_issignint(info))
 		ft_formatnum(info);
 	else if (ft_isunsignint(info))

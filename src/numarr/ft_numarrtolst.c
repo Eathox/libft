@@ -15,14 +15,12 @@
 
 #include "numarr.h"
 
-static t_list	*freeret(t_list **lst)
-{
+static t_list	*freeret(t_list **lst) {
 	ft_lstdel(lst, &ft_lstdelmem);
 	return (NULL);
 }
 
-t_list			*ft_numarrtolst(const intmax_t *arr, size_t len)
-{
+t_list			*ft_numarrtolst(const intmax_t *arr, size_t len) {
 	t_list		*returnlst;
 	t_list		*prvlst;
 	t_list		*newlst;
@@ -35,8 +33,7 @@ t_list			*ft_numarrtolst(const intmax_t *arr, size_t len)
 	if (returnlst == NULL)
 		return (NULL);
 	prvlst = returnlst;
-	while (i < len)
-	{
+	while (i < len) {
 		i++;
 		num = arr[i];
 		newlst = ft_lstnew_dup(&num, sizeof(intmax_t));

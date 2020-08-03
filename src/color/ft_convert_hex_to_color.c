@@ -23,8 +23,7 @@
 */
 t_color			ft_convert_hex_to_color(
 	char const *hex
-)
-{
+) {
 	t_color			color;
 	const size_t	len = ft_strlen(hex);
 

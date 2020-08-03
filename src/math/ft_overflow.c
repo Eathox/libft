@@ -16,8 +16,7 @@ long double	ft_overflow(
 	long double value,
 	long double max,
 	long double min
-)
-{
+) {
 	if (value < min)
 		return (ft_overflow(max + (value - min), min, max));
 	if (value >= max)

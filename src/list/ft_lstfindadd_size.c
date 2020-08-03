@@ -12,12 +12,10 @@
 
 #include "list.h"
 
-t_list	*ft_lstfindadd_size(t_list *lst, size_t size)
-{
+t_list	*ft_lstfindadd_size(t_list *lst, size_t size) {
 	t_list	*newlst;
 
-	while (lst != NULL && lst->next != NULL)
-	{
+	while (lst != NULL && lst->next != NULL) {
 		if (lst->content_size == size)
 			return (lst);
 		lst = lst->next;

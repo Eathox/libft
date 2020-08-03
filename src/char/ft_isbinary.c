@@ -17,7 +17,6 @@
 */
 bool		ft_isbinary(
 	char c
-)
-{
+) {
 	return (c == '0' || c == '1');
 }

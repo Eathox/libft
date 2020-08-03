@@ -20,13 +20,11 @@
 #define MAX CHAR_MAX
 #define STEP 1
 
-Test(ft_isblank, general)
-{
+Test(ft_isblank, general) {
 	size_t const	step = STEP;
 	char			expected;
 
-	for (char c = 0x0; c < MAX; c += step)
-	{
+	for (char c = 0x0; c < MAX; c += step) {
 		expected = isblank(c);
 		if (expected != 0)
 			expected = true;

@@ -17,8 +17,7 @@
 */
 t_uint32	ft_convert_color_to_rgba(
 	t_color const *color
-)
-{
+) {
 	t_uint32	rgba;
 
 	rgba = 0x0;

@@ -19,8 +19,7 @@
 */
 t_uint8		convert_hex_channel(
 	char const *channel
-)
-{
+) {
 	const char	*base_str = "0123456789ABCDEF";
 	t_uint8		result;
 

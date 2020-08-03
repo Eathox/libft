@@ -17,13 +17,11 @@
 static void	free_members(
 	void **array,
 	void (*del)(void**)
-)
-{
+) {
 	size_t	i;
 
 	i = 0;
-	while (array[i] != NULL)
-	{
+	while (array[i] != NULL) {
 		del(&array[i]);
 		i++;
 	}
@@ -36,8 +34,7 @@ static void	free_members(
 void		ft_arraydel(
 	void ***array,
 	void (*del)(void**)
-)
-{
+) {
 	if (array == NULL || *array == NULL)
 		return ;
 	if (del != NULL)

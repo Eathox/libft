@@ -12,8 +12,7 @@
 
 #include "num.h"
 
-intmax_t	ft_constrain(intmax_t value, intmax_t min, intmax_t max)
-{
+intmax_t	ft_constrain(intmax_t value, intmax_t min, intmax_t max) {
 	if (value < min)
 		return (min);
 	if (value > max)

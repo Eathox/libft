@@ -14,8 +14,7 @@
 #include "../priv.h"
 
 ssize_t		ft_read_serialize_double_ptr(t_serialize *serialize,
-				double **dbl_ptr, size_t size)
-{
+				double **dbl_ptr, size_t size) {
 	t_convert	convert;
 	ssize_t		ret;
 

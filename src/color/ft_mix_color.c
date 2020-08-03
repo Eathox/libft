@@ -20,8 +20,7 @@
 t_color		ft_mix_color(
 	t_color const *bg,
 	t_color const *fg
-)
-{
+) {
 	float	alpha;
 	t_color	result;
 

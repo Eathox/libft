@@ -71,8 +71,7 @@
 ** }
 */
 
-size_t			ft_strnlen(const char *str, size_t n)
-{
+size_t			ft_strnlen(const char *str, size_t n) {
 	size_t	len;
 
 	len = 0;

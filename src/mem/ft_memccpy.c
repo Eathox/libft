@@ -26,8 +26,7 @@ void		*ft_memccpy(
 	void const *src,
 	t_uint8 c,
 	size_t len
-)
-{
+) {
 	size_t			i;
 	t_uint8			*dst_byte;
 	t_uint8	const	*src_byte;
@@ -35,8 +34,7 @@ void		*ft_memccpy(
 	i = 0;
 	dst_byte = dst;
 	src_byte = src;
-	while (i < len)
-	{
+	while (i < len) {
 		dst_byte[i] = src_byte[i];
 		if (src_byte[i] == c)
 			return (&dst_byte[i + 1]);

@@ -14,8 +14,7 @@
 
 #include "list.h"
 
-intmax_t		*ft_lsttonumarr(t_list *lst)
-{
+intmax_t		*ft_lsttonumarr(t_list *lst) {
 	t_list		*current;
 	intmax_t	*arr;
 	intmax_t	*n;
@@ -30,8 +29,7 @@ intmax_t		*ft_lsttonumarr(t_list *lst)
 	if (arr == NULL)
 		return (NULL);
 	current = lst;
-	while (current != NULL)
-	{
+	while (current != NULL) {
 		n = (intmax_t *)current->content;
 		arr[i] = *n;
 		current = current->next;

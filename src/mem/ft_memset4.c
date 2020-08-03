@@ -20,15 +20,13 @@ void			*ft_memset4(
 	void *mem,
 	t_uint32 c,
 	size_t len
-)
-{
+) {
 	size_t		i;
 	t_uint32	*mem_byte_4;
 
 	i = 0;
 	mem_byte_4 = mem;
-	while (i < len)
-	{
+	while (i < len) {
 		mem_byte_4[i] = c;
 		i++;
 	}

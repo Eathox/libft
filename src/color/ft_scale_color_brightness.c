@@ -22,8 +22,7 @@
 t_color	ft_scale_color_brightness(
 	t_color const *color,
 	float brightness
-)
-{
+) {
 	t_color	result;
 
 	result.r = ft_constrain((t_uint32)(color->r * brightness), 0x0, UCHAR_MAX);

@@ -15,14 +15,12 @@
 
 #include "list.h"
 
-static char	**freeret(char **arr)
-{
+static char	**freeret(char **arr) {
 	free(arr);
 	return (NULL);
 }
 
-char		**ft_lsttostrarr(t_list *lst)
-{
+char		**ft_lsttostrarr(t_list *lst) {
 	t_list	*current;
 	char	**arr;
 	char	*str;
@@ -37,8 +35,7 @@ char		**ft_lsttostrarr(t_list *lst)
 	if (arr == NULL)
 		return (NULL);
 	current = lst;
-	while (current != NULL)
-	{
+	while (current != NULL) {
 		str = ft_strdup((char *)current->content);
 		if (str == NULL)
 			return (freeret(arr));

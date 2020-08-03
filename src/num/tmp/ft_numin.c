@@ -12,10 +12,8 @@
 
 #include "num.h"
 
-bool	ft_numin(const intmax_t *arr, intmax_t num, size_t len)
-{
-	while (len > 0)
-	{
+bool	ft_numin(const intmax_t *arr, intmax_t num, size_t len) {
+	while (len > 0) {
 		len--;
 		if (arr[len] == num)
 			return (true);

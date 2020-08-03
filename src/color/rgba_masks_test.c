@@ -14,8 +14,7 @@
 
 #include "color.h"
 
-Test(rgba_masks_test, order)
-{
+Test(rgba_masks_test, order) {
 	t_uint32		rgba;
 	t_color const	color = {
 		.r = 0x1,

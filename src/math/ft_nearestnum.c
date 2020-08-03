@@ -18,8 +18,7 @@ long double	ft_nearestnum(
 	long double value,
 	long double num1,
 	long double num2
-)
-{
+) {
 	long double const num1_distance = fabsl(num1 - value);
 	long double const num2_distance = fabsl(num2 - value);
 

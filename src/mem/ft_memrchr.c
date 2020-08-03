@@ -23,15 +23,13 @@ void		*ft_memrchr(
 	void const *mem,
 	t_uint8 c,
 	size_t len
-)
-{
+) {
 	size_t			i;
 	t_uint8 const	*mem_byte;
 
 	i = len;
 	mem_byte = mem;
-	while (i > 0)
-	{
+	while (i > 0) {
 		i--;
 		if (mem_byte[i] == c)
 			return ((void *)(mem_byte + i));

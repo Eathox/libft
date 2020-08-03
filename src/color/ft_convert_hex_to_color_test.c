@@ -23,8 +23,7 @@
 static void	compare(
 	t_color	color,
 	char const	*hex
-)
-{
+) {
 	char	result[10];
 
 	sprintf(result, "#%02X%02X%02X%02X",
@@ -36,8 +35,7 @@ static void	compare(
 	cr_assert_str_eq(result, hex);
 }
 
-Test(ft_convert_hex_to_color, min)
-{
+Test(ft_convert_hex_to_color, min) {
 	t_color 		color;
 	char const		*hex = "#00000000";
 
@@ -45,8 +43,7 @@ Test(ft_convert_hex_to_color, min)
 	compare(color, hex);
 }
 
-Test(ft_convert_hex_to_color, max)
-{
+Test(ft_convert_hex_to_color, max) {
 	t_color 		color;
 	char const		*hex = "#FFFFFFFF";
 
@@ -54,8 +51,7 @@ Test(ft_convert_hex_to_color, max)
 	compare(color, hex);
 }
 
-Test(ft_convert_hex_to_color, 0x7F)
-{
+Test(ft_convert_hex_to_color, 0x7F) {
 	t_color 		color;
 	char const		*hex = "#7F7F7F7F";
 
@@ -63,8 +59,7 @@ Test(ft_convert_hex_to_color, 0x7F)
 	compare(color, hex);
 }
 
-Test(ft_convert_hex_to_color, order)
-{
+Test(ft_convert_hex_to_color, order) {
 	t_color 		color;
 	char const		*hex = "#03020104";
 
@@ -72,8 +67,7 @@ Test(ft_convert_hex_to_color, order)
 	compare(color, hex);
 }
 
-Test(ft_convert_hex_to_color, segfault, .signal = SIGSEGV)
-{
+Test(ft_convert_hex_to_color, segfault, .signal = SIGSEGV) {
 	t_color 		color;
 	char const		*hex = NULL;
 
@@ -81,8 +75,7 @@ Test(ft_convert_hex_to_color, segfault, .signal = SIGSEGV)
 	compare(color, hex);
 }
 
-Test(ft_convert_hex_to_color, invalid)
-{
+Test(ft_convert_hex_to_color, invalid) {
 	t_color 		color;
 	char const		*hex = "hello world";
 

@@ -20,13 +20,11 @@
 
 #define LEN 8
 
-Test(ft_memdel, null)
-{
+Test(ft_memdel, null) {
 	ft_memdel(NULL);
 }
 
-Test(ft_memdel, null_content)
-{
+Test(ft_memdel, null_content) {
 	void	*mem;
 
 	mem = NULL;
@@ -34,8 +32,7 @@ Test(ft_memdel, null_content)
 	cr_assert_eq(mem, NULL);
 }
 
-Test(ft_memdel, memory)
-{
+Test(ft_memdel, memory) {
 	void	*mem;
 
 	mem = malloc(LEN);
@@ -45,8 +42,7 @@ Test(ft_memdel, memory)
 	cr_assert_eq(mem, NULL);
 }
 
-Test(ft_memdel, stack, .signal = SIGABRT)
-{
+Test(ft_memdel, stack, .signal = SIGABRT) {
 	t_uint8	mem[LEN];
 
 	cr_redirect_stderr();

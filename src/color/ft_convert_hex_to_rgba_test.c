@@ -23,8 +23,7 @@
 static void	compare(
 	t_uint32	rgba,
 	char const	*hex
-)
-{
+) {
 	char	result[10];
 
 	sprintf(result, "#%02X%02X%02X%02X",
@@ -36,8 +35,7 @@ static void	compare(
 	cr_assert_str_eq(result, hex);
 }
 
-Test(ft_convert_hex_to_rgba, min)
-{
+Test(ft_convert_hex_to_rgba, min) {
 	t_uint32 		rgba;
 	char const		*hex = "#00000000";
 
@@ -45,8 +43,7 @@ Test(ft_convert_hex_to_rgba, min)
 	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_rgba, max)
-{
+Test(ft_convert_hex_to_rgba, max) {
 	t_uint32 		rgba;
 	char const		*hex = "#FFFFFFFF";
 
@@ -54,8 +51,7 @@ Test(ft_convert_hex_to_rgba, max)
 	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_rgba, 0x7F)
-{
+Test(ft_convert_hex_to_rgba, 0x7F) {
 	t_uint32 		rgba;
 	char const		*hex = "#7F7F7F7F";
 
@@ -63,8 +59,7 @@ Test(ft_convert_hex_to_rgba, 0x7F)
 	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_rgba, order)
-{
+Test(ft_convert_hex_to_rgba, order) {
 	t_uint32 		rgba;
 	char const		*hex = "#03020104";
 
@@ -72,8 +67,7 @@ Test(ft_convert_hex_to_rgba, order)
 	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_rgba, segfault, .signal = SIGSEGV)
-{
+Test(ft_convert_hex_to_rgba, segfault, .signal = SIGSEGV) {
 	t_uint32 		rgba;
 	char const		*hex = NULL;
 
@@ -81,8 +75,7 @@ Test(ft_convert_hex_to_rgba, segfault, .signal = SIGSEGV)
 	compare(rgba, hex);
 }
 
-Test(ft_convert_hex_to_rgba, invalid)
-{
+Test(ft_convert_hex_to_rgba, invalid) {
 	t_uint32 		rgba;
 	char const		*hex = "hello world";
 

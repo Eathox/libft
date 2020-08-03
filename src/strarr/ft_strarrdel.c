@@ -14,15 +14,13 @@
 
 #include "strarr.h"
 
-void	ft_strarrdel(char ***arr)
-{
+void	ft_strarrdel(char ***arr) {
 	size_t	i;
 
 	i = 0;
 	if (arr == NULL || *arr == NULL)
 		return ;
-	while ((*arr)[i] != NULL)
-	{
+	while ((*arr)[i] != NULL) {
 		ft_strdel(&(*arr)[i]);
 		i++;
 	}

@@ -14,8 +14,7 @@
 
 #include "list.h"
 
-bool	ft_putstrlst(const t_list *lst)
-{
+bool	ft_putstrlst(const t_list *lst) {
 	if (lst == NULL)
 		return (ft_putstr(NULL));
 	if (ft_putendl((char *)lst->content) == false)

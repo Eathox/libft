@@ -14,8 +14,7 @@
 
 #include "thpool.h"
 
-void	*ft_del_ttask(t_ttask **task)
-{
+void	*ft_del_ttask(t_ttask **task) {
 	if (task == NULL || *task == NULL)
 		return (NULL);
 	pthread_mutex_destroy(&(*task)->lock);

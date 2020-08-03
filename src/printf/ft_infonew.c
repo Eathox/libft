@@ -16,14 +16,12 @@
 #include "printf.h"
 #include "priv.h"
 
-static t_info	*freeret(t_info **info)
-{
+static t_info	*freeret(t_info **info) {
 	ft_memdel((void **)info);
 	return (NULL);
 }
 
-t_info			*ft_infonew(void)
-{
+t_info			*ft_infonew(void) {
 	t_info	*info;
 
 	info = (t_info *)ft_memalloc(sizeof(t_info));

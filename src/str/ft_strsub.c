@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-char	*ft_strsub(const char *str, size_t start, size_t len)
-{
+char	*ft_strsub(const char *str, size_t start, size_t len) {
 	char	*ret;
 
 	ret = ft_strnew(len);

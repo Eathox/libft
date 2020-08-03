@@ -15,16 +15,14 @@
 #include "printf.h"
 #include "priv.h"
 
-void		ft_formatunum(t_info *info)
-{
+void		ft_formatunum(t_info *info) {
 	uintmax_t	num;
 
 	num = ft_overflowunsigned(info);
 	info->is_zero = (num == 0);
 	info->var_len = ft_unumlen_base(num, info->var_base);
 	ft_formatpad(info);
-	if (info->precision >= 0 && info->is_zero)
-	{
+	if (info->precision >= 0 && info->is_zero) {
 		if (info->precision > 0 ||
 			(info->type == 'o' && PF_FLAG_HASH))
 			ft_addnstr(info, "0", 1);

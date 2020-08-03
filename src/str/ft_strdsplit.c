@@ -15,20 +15,17 @@
 
 #include "str.h"
 
-static char	**freeret(char ***arr)
-{
+static char	**freeret(char ***arr) {
 	ft_strarrdel(arr);
 	return (NULL);
 }
 
-static void	addword(char **arr, char *str, size_t *word)
-{
+static void	addword(char **arr, char *str, size_t *word) {
 	arr[*word] = str;
 	*word += 1;
 }
 
-char		**ft_strdsplit(const char *str, const char *dlm)
-{
+char		**ft_strdsplit(const char *str, const char *dlm) {
 	char		**arr;
 	t_uint64	bytes[2];
 	size_t		word;
@@ -41,10 +38,8 @@ char		**ft_strdsplit(const char *str, const char *dlm)
 	if (arr == NULL)
 		return (freeret(&arr));
 	ft_chrsetbytes(bytes, dlm);
-	while (str[i] != '\0')
-	{
-		if (ft_chrinbytes(bytes, str[i]) == false)
-		{
+	while (str[i] != '\0') {
+		if (ft_chrinbytes(bytes, str[i]) == false) {
 			len = ft_strdlen(&str[i], dlm);
 			addword(arr, ft_strndup(&str[i], len), &word);
 			if (arr[word - 1] == NULL)

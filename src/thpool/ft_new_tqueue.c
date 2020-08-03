@@ -15,8 +15,7 @@
 #include "thpool.h"
 #include "priv.h"
 
-t_tqueue	*ft_new_tqueue(void)
-{
+t_tqueue	*ft_new_tqueue(void) {
 	t_tqueue	*queue;
 
 	queue = ft_memalloc(sizeof(t_tqueue));

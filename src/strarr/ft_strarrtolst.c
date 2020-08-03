@@ -15,14 +15,12 @@
 
 #include "strarr.h"
 
-static t_list	*freeret(t_list **lst)
-{
+static t_list	*freeret(t_list **lst) {
 	ft_lstdel(lst, &ft_lstdelmem);
 	return (NULL);
 }
 
-t_list			*ft_strarrtolst(const char **arr)
-{
+t_list			*ft_strarrtolst(const char **arr) {
 	size_t	i;
 	t_list	*newlst;
 	t_list	*prvlst;
@@ -34,8 +32,7 @@ t_list			*ft_strarrtolst(const char **arr)
 		return (NULL);
 	prvlst = returnlst;
 	i++;
-	while (arr[i] != NULL)
-	{
+	while (arr[i] != NULL) {
 		newlst = ft_lstnew_dup(arr[i], ft_strlen(arr[i]) + 1);
 		if (newlst == NULL)
 			return (freeret(&returnlst));

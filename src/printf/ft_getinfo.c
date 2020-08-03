@@ -15,8 +15,7 @@
 #include "printf.h"
 #include "priv.h"
 
-static int	checkinfo(t_info *info, const char *str)
-{
+static int	checkinfo(t_info *info, const char *str) {
 	if (ft_chrin(PF_A_FLAG, *str) || ft_chrin(PF_A_SPACER, *str))
 		return (ft_getflag(info, str));
 	else if (ft_isdigit(*str) || *str == '*')
@@ -31,15 +30,13 @@ static int	checkinfo(t_info *info, const char *str)
 	return (0);
 }
 
-size_t		ft_getinfo(t_info *info, const char *str)
-{
+size_t		ft_getinfo(t_info *info, const char *str) {
 	int		ret;
 	size_t	i;
 
 	i = 0;
 	ret = 1;
-	while ((str[i] != '\0' || str[i] != '\n') && ret > 0)
-	{
+	while ((str[i] != '\0' || str[i] != '\n') && ret > 0) {
 		ret = checkinfo(info, &str[i]);
 		if (ret > 0)
 			i += ret;

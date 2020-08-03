@@ -31,8 +31,7 @@
 ** p = void *
 */
 
-static void	int_type(t_info *info)
-{
+static void	int_type(t_info *info) {
 	if (info->length == PF_DOUBLE_H)
 		info->var_type = CHAR_I;
 	else if (info->length == 'h')
@@ -47,8 +46,7 @@ static void	int_type(t_info *info)
 		info->var_type = INT;
 }
 
-static void	uint_type(t_info *info)
-{
+static void	uint_type(t_info *info) {
 	if (info->length == PF_DOUBLE_H)
 		info->var_type = U_CHAR_I;
 	else if (info->length == 'h')
@@ -65,16 +63,14 @@ static void	uint_type(t_info *info)
 		info->var_type = U_INT;
 }
 
-static void	double_type(t_info *info)
-{
+static void	double_type(t_info *info) {
 	if (info->length == 'L')
 		info->var_type = LONG_DOUBLE;
 	else
 		info->var_type = DOUBLE;
 }
 
-void		ft_setvar_type(t_info *info)
-{
+void		ft_setvar_type(t_info *info) {
 	if (ft_chrin("di", info->type))
 		int_type(info);
 	else if (ft_chrin("uboxX", info->type))

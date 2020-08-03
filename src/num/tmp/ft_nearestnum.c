@@ -12,8 +12,7 @@
 
 #include "num.h"
 
-intmax_t	ft_nearestnum(intmax_t value, intmax_t num1, intmax_t num2)
-{
+intmax_t	ft_nearestnum(intmax_t value, intmax_t num1, intmax_t num2) {
 	intmax_t num1distance;
 	intmax_t num2distance;
 

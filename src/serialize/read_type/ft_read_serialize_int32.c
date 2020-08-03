@@ -15,8 +15,7 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-ssize_t		ft_read_serialize_int32(t_serialize *serialize, t_int32 *int32)
-{
+ssize_t		ft_read_serialize_int32(t_serialize *serialize, t_int32 *int32) {
 	size_t const	size = sizeof(t_int32);
 	t_convert		convert;
 	ssize_t			ret;

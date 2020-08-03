@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-char		**ft_strsplit(const char *str, char c)
-{
+char		**ft_strsplit(const char *str, char c) {
 	char	**arr;
 	char	cs[2];
 

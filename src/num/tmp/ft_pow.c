@@ -12,8 +12,7 @@
 
 #include "num.h"
 
-intmax_t	ft_pow(intmax_t num, intmax_t pow)
-{
+intmax_t	ft_pow(intmax_t num, intmax_t pow) {
 	intmax_t	ret;
 
 	ret = num;
@@ -27,8 +26,7 @@ intmax_t	ft_pow(intmax_t num, intmax_t pow)
 		num = -num;
 	if (ret < 0)
 		ret = -ret;
-	while (pow > 1)
-	{
+	while (pow > 1) {
 		pow--;
 		ret *= num;
 	}

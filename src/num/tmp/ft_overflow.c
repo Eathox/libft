@@ -12,8 +12,7 @@
 
 #include "num.h"
 
-intmax_t	ft_overflow(intmax_t num, intmax_t min, intmax_t max)
-{
+intmax_t	ft_overflow(intmax_t num, intmax_t min, intmax_t max) {
 	if (num < min)
 		return (ft_overflow(max + (num - min), min, max));
 	if (num >= max)

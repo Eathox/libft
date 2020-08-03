@@ -15,8 +15,7 @@
 #include "thpool.h"
 #include "priv.h"
 
-t_tthread		*ft_new_tthread(t_tpool *pool, size_t num, void *(*f)(void *))
-{
+t_tthread		*ft_new_tthread(t_tpool *pool, size_t num, void *(*f)(void *)) {
 	t_tthread		*thread;
 
 	thread = ft_memalloc(sizeof(t_tthread));

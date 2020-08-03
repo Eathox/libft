@@ -23,8 +23,7 @@
 */
 t_uint32		ft_convert_hex_to_rgba(
 	char const *hex
-)
-{
+) {
 	t_uint32		rgba;
 	const size_t	len = ft_strlen(hex);
 

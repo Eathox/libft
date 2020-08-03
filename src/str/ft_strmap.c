@@ -12,8 +12,7 @@
 
 #include "str.h"
 
-char	*ft_strmap(const char *str, char (*f)(char))
-{
+char	*ft_strmap(const char *str, char (*f)(char)) {
 	size_t	i;
 	size_t	len;
 	char	*ret;
@@ -23,8 +22,7 @@ char	*ft_strmap(const char *str, char (*f)(char))
 	ret = ft_strnew(len);
 	if (ret == NULL)
 		return (NULL);
-	while (i < len)
-	{
+	while (i < len) {
 		ret[i] = f(str[i]);
 		i++;
 	}

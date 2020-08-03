@@ -17,12 +17,10 @@
 #include "serialize.h"
 #include "priv.h"
 
-static t_uint8	*correct_endian(t_uint8 *stream, size_t size, bool reverse)
-{
+static t_uint8	*correct_endian(t_uint8 *stream, size_t size, bool reverse) {
 	t_uint8	*data;
 
-	if (reverse == true)
-	{
+	if (reverse == true) {
 		data = ft_memdup(stream, size);
 		if (data == NULL)
 			return (NULL);
@@ -33,8 +31,7 @@ static t_uint8	*correct_endian(t_uint8 *stream, size_t size, bool reverse)
 }
 
 ssize_t			ft_write_serialize_value(t_serialize *serialize,
-					t_uint8 *stream, size_t size)
-{
+					t_uint8 *stream, size_t size) {
 	ssize_t		ret;
 	t_uint8		*data;
 	bool		reverse;

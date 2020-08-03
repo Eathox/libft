@@ -13,8 +13,7 @@
 #include "thpool.h"
 #include "priv.h"
 
-void	ft_run_ttask(t_ttask *task)
-{
+void	ft_run_ttask(t_ttask *task) {
 	void	**param;
 	size_t	param_count;
 

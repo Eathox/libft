@@ -16,8 +16,7 @@
 
 #include "priv.h"
 
-ssize_t		ft_read_serialize(t_serialize *serialize)
-{
+ssize_t		ft_read_serialize(t_serialize *serialize) {
 	ssize_t	ret;
 
 	if (serialize->use_buffer == false)

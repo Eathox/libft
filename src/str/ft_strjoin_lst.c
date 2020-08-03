@@ -15,8 +15,7 @@
 
 #include "str.h"
 
-static size_t	totallen(t_list *lst)
-{
+static size_t	totallen(t_list *lst) {
 	size_t	len;
 
 	len = 0;
@@ -25,15 +24,13 @@ static size_t	totallen(t_list *lst)
 	return (len);
 }
 
-static char		*joinstrs(char *str, t_list *lst)
-{
+static char		*joinstrs(char *str, t_list *lst) {
 	size_t	i;
 	size_t	len;
 
 	i = 0;
 	len = 0;
-	while (lst != NULL)
-	{
+	while (lst != NULL) {
 		len = ft_strlen(lst->content);
 		ft_memcpy(&str[i], lst->content, len);
 		i += len;
@@ -42,8 +39,7 @@ static char		*joinstrs(char *str, t_list *lst)
 	return (str);
 }
 
-char			*ft_strjoin_lst(t_list *lst)
-{
+char			*ft_strjoin_lst(t_list *lst) {
 	char	*str;
 
 	str = ft_strnew(totallen(lst));

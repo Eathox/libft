@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-bool	ft_isunsignint(const t_info *info)
-{
+bool	ft_isunsignint(const t_info *info) {
 	if (info->var_type == U_INT || info->var_type == U_SHORT)
 		return (true);
 	if (info->var_type == MAX_U_INT || info->var_type == SIZE_T)

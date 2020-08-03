@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-bool	ft_putline_fd(const char *str, int fd)
-{
+bool	ft_putline_fd(const char *str, int fd) {
 	int		ret;
 	size_t	len;
 	size_t	half;

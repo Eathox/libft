@@ -22,8 +22,7 @@ void		*ft_memrcpy(
 	void *dst,
 	void const *src,
 	size_t len
-)
-{
+) {
 	size_t			i;
 	t_uint8			*dst_byte;
 	t_uint8	const	*src_byte;
@@ -31,8 +30,7 @@ void		*ft_memrcpy(
 	i = len;
 	dst_byte = dst;
 	src_byte = src;
-	while (i > 0)
-	{
+	while (i > 0) {
 		i--;
 		dst_byte[i] = src_byte[i];
 	}

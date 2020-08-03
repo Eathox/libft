@@ -21,15 +21,16 @@ normDir = "norm"
 sourceDir = "src"
 targetDirectories = (
 	"makefile_mk",
-	sourceDir
+	sourceDir,
 )
 targetFiles = (
 	"author",
-	"makefile"
+	"make.mk",
+	"makefile",
 )
 
 # --- Create the normDir and copy over important files
-targetPath = os.path.dirname(sys.path[0]) # Removes /tools from the end
+targetPath = os.path.dirname(sys.path[0]) # Removes '/tools' from the end
 os.chdir(targetPath)
 
 shutil.rmtree(normDir, ignore_errors=True)
@@ -47,7 +48,7 @@ for file in targetFiles:
 	except:
 		print(f"Error: Copying file '{file}'")
 
-# --- Replace file content function
+# --- Def replace file content function
 def replaceContent(file, findRegex, replaceRegex):
 	with open(file, "r") as fd:
 		content = fd.read()
@@ -55,7 +56,15 @@ def replaceContent(file, findRegex, replaceRegex):
 	with open(file, "w") as fd:
 		fd.write(content)
 
-# --- Clean up the normDir and its files
+# --- Def replace file content function
+def replaceContentGlob(globPattern, findRegex, replaceRegex):
+	for file in glob.glob(globPattern, recursive=True):
+		try:
+			replaceContent(file, findRegex, replaceRegex)
+		except:
+			print(f"Error: Replacing content of file '{file}'")
+
+# --- Remove test files
 normPath = os.path.join(targetPath, normDir)
 os.chdir(normPath)
 
@@ -66,22 +75,21 @@ for file in glob.glob(globPattern, recursive=True):
 	except:
 		print(f"Error: Removing file '{file}'")
 
-# Add newline between function prototype and quick info
-quickInfoRegex = r"(\/\*\n(\*{2}.*\n)*\*\/)(\n\s{0}\S+\s.*?\n?\()"
-quickInfoReplace = r"\1\n\3"
+# --- Add newline between function prototype and quick info
+findRegex = r"(\/\*\n(\*{2}.*\n)*\*\/)(\n\s{0}\S+\s.*?\n?\()"
+replaceRegex = r"\1\n\3"
 globPattern = os.path.join(sourceDir, "**/*.c")
-for file in glob.glob(globPattern, recursive=True):
-	try:
-		replaceContent(file, quickInfoRegex, quickInfoReplace)
-	except:
-		print(f"Error: Replacing content of file '{file}'")
+replaceContentGlob(globPattern, findRegex, replaceRegex)
 
-# Remove all test makefile targets
-testRulesRegex = r"\n*tests\s?\+=.*"
-testRulesReplace = r""
+# --- Remove all test makefile targets
+findRegex = r"\n*tests\s?\+=.*"
+replaceRegex = r""
 globPattern = os.path.join(sourceDir, "**/make.mk")
-for file in glob.glob(globPattern, recursive=True):
-	try:
-		replaceContent(file, testRulesRegex, testRulesReplace)
-	except:
-		print(f"Error: Replacing content of file '{file}'")
+replaceContentGlob(globPattern, findRegex, replaceRegex)
+
+# --- Add a new line between ) {
+findRegex = r"([ \t]*)(.*)\) {"
+replaceRegex = r"\1\2)\n\1{"
+globPattern = os.path.join(sourceDir, "**/*.c")
+replaceContentGlob(globPattern, findRegex, replaceRegex)
+

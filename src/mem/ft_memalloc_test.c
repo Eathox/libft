@@ -22,12 +22,10 @@
 #define FILL_MEMORY_COUNT 16
 #define FILL_MEMORY_SIZE 24
 
-static void	fill_memory(void)
-{
+static void	fill_memory(void) {
 	t_uint8		*holder[FILL_MEMORY_COUNT];
 
-	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++)
-	{
+	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++) {
 		holder[i] = malloc(FILL_MEMORY_SIZE);
 		cr_expect_neq(holder[i], NULL);
 
@@ -38,8 +36,7 @@ static void	fill_memory(void)
 		free(holder[i]);
 }
 
-ParameterizedTestParameters(ft_memalloc, general)
-{
+ParameterizedTestParameters(ft_memalloc, general) {
 	static size_t	size[] = {
 		1,
 		8,
@@ -51,8 +48,7 @@ ParameterizedTestParameters(ft_memalloc, general)
 	return cr_make_param_array(size_t, size, count);
 }
 
-ParameterizedTest(size_t *size, ft_memalloc, general, .init = fill_memory)
-{
+ParameterizedTest(size_t *size, ft_memalloc, general, .init = fill_memory) {
 	t_uint8		*result;
 	t_uint8		expected[*size];
 
@@ -65,8 +61,7 @@ ParameterizedTest(size_t *size, ft_memalloc, general, .init = fill_memory)
 	free(result);
 }
 
-Test(ft_memalloc, zero)
-{
+Test(ft_memalloc, zero) {
 	size_t const	size = 0;
 	t_uint8			*result;
 

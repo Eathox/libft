@@ -13,8 +13,7 @@
 #include "thpool.h"
 #include "priv.h"
 
-static void	exract_task(t_tthread *thread, t_tqueue *tasks)
-{
+static void	exract_task(t_tthread *thread, t_tqueue *tasks) {
 	t_tjob	*job;
 
 	job = tasks->first;
@@ -28,8 +27,7 @@ static void	exract_task(t_tthread *thread, t_tqueue *tasks)
 		pthread_cond_broadcast(&tasks->cond_empty);
 }
 
-void		ft_get_ttask(t_tthread *thread)
-{
+void		ft_get_ttask(t_tthread *thread) {
 	t_tpool		*pool;
 	t_tqueue	*tasks;
 
@@ -38,8 +36,7 @@ void		ft_get_ttask(t_tthread *thread)
 	pthread_mutex_lock(&tasks->lock);
 	while ((pool->flags & TFLAG_POOL_TERMINATE) == 0 && tasks->size == 0)
 		pthread_cond_wait(&tasks->cond_not_empty, &tasks->lock);
-	if ((pool->flags & TFLAG_POOL_TERMINATE) == 0)
-	{
+	if ((pool->flags & TFLAG_POOL_TERMINATE) == 0) {
 		thread->running_task = true;
 		exract_task(thread, tasks);
 	}

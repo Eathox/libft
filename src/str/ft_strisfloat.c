@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-bool		ft_strisfloat(const char *str)
-{
+bool		ft_strisfloat(const char *str) {
 	size_t	len;
 
 	len = 0;

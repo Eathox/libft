@@ -16,8 +16,7 @@ long double	ft_clamp(
 	long double value,
 	long double max,
 	long double min
-)
-{
+) {
 	if (value < min)
 		return (min);
 	if (value > max)

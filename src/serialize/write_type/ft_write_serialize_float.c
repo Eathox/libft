@@ -13,8 +13,7 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-ssize_t		ft_write_serialize_float(t_serialize *serialize, float flt)
-{
+ssize_t		ft_write_serialize_float(t_serialize *serialize, float flt) {
 	size_t const	size = sizeof(float);
 	t_convert		convert;
 

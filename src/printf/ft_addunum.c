@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-void	ft_addunum(t_info *info, uintmax_t value, size_t len, int base)
-{
+void	ft_addunum(t_info *info, uintmax_t value, size_t len, int base) {
 	char	c;
 
 	if (len == 0)

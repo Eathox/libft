@@ -15,8 +15,7 @@
 #include "printf.h"
 #include "priv.h"
 
-void		ft_formatbackpad(t_info *info)
-{
+void		ft_formatbackpad(t_info *info) {
 	intmax_t	len;
 	intmax_t	i;
 
@@ -24,8 +23,7 @@ void		ft_formatbackpad(t_info *info)
 	len = ft_max(0, info->width) - info->var_len;
 	if (PF_FLAG_MIN == false)
 		return ;
-	while (i < len)
-	{
+	while (i < len) {
 		ft_addtobuff(info, " ", 1);
 		i++;
 	}

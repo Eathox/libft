@@ -16,15 +16,13 @@
 #include "printf.h"
 #include "priv.h"
 
-static int	setdecimals(long double value, char *decimals, ssize_t n)
-{
+static int	setdecimals(long double value, char *decimals, ssize_t n) {
 	ssize_t	i;
 	int		num;
 
 	i = 0;
 	num = 0;
-	while (i < (n + 1))
-	{
+	while (i < (n + 1)) {
 		value *= 10;
 		num = (int)value;
 		decimals[i] = num + '0';
@@ -35,8 +33,7 @@ static int	setdecimals(long double value, char *decimals, ssize_t n)
 	if (decimals[i] < '5')
 		return (0);
 	decimals[i] += 1;
-	while (i >= 0 && decimals[i] == ('9' + 1))
-	{
+	while (i >= 0 && decimals[i] == ('9' + 1)) {
 		decimals[i] = '0';
 		i--;
 		if (i != -1)
@@ -45,8 +42,7 @@ static int	setdecimals(long double value, char *decimals, ssize_t n)
 	return (i == -1);
 }
 
-static void	adddouble(t_info *info, long double value, ssize_t n)
-{
+static void	adddouble(t_info *info, long double value, ssize_t n) {
 	char		*decimals;
 	intmax_t	num;
 
@@ -61,16 +57,14 @@ static void	adddouble(t_info *info, long double value, ssize_t n)
 	if (n == 0 && decimals[0] >= '5')
 		num++;
 	ft_addnum(info, num);
-	if (n != 0)
-	{
+	if (n != 0) {
 		ft_addnstr(info, ".", 1);
 		ft_addnstr(info, decimals, n);
 	}
 	ft_strdel(&decimals);
 }
 
-static void	formatdouble(t_info *info)
-{
+static void	formatdouble(t_info *info) {
 	double	value;
 
 	value = va_arg(info->args, double);
@@ -81,8 +75,7 @@ static void	formatdouble(t_info *info)
 	adddouble(info, value, info->precision);
 }
 
-static void	formatldouble(t_info *info)
-{
+static void	formatldouble(t_info *info) {
 	long double	value;
 
 	value = va_arg(info->args, long double);
@@ -93,8 +86,7 @@ static void	formatldouble(t_info *info)
 	adddouble(info, value, info->precision);
 }
 
-void		ft_formatdouble(t_info *info)
-{
+void		ft_formatdouble(t_info *info) {
 	if (info->var_type == DOUBLE)
 		formatdouble(info);
 	else

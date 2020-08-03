@@ -16,9 +16,11 @@ import os
 import sys
 import glob
 
+# WIP Add argparser and make more robust
+
 sourceDir = "src"
 
-targetPath = os.path.dirname(sys.path[0]) # Removes /tools from the end
+targetPath = os.path.dirname(sys.path[0]) # Removes '/tools' from the end
 os.chdir(targetPath)
 
 noQuickInfoRegex = r"^\n(?!static)\s{0}\S+\s.*?\n?\((.|\n)*\)\n"

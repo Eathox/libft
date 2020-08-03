@@ -14,8 +14,7 @@
 
 #include "thpool.h"
 
-void	ft_join_ttask(t_ttask *task)
-{
+void	ft_join_ttask(t_ttask *task) {
 	if (task == NULL)
 		return ;
 	pthread_mutex_lock(&task->lock);

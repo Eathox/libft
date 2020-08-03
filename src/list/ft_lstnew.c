@@ -14,8 +14,7 @@
 
 #include "list.h"
 
-t_list			*ft_lstnew(void *content, size_t content_size)
-{
+t_list			*ft_lstnew(void *content, size_t content_size) {
 	t_list	*lst;
 
 	lst = (t_list *)ft_memalloc(sizeof(t_list));

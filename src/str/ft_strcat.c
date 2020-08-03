@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-char	*ft_strcat(char *str1, const char *str2)
-{
+char	*ft_strcat(char *str1, const char *str2) {
 	size_t	str1len;
 	size_t	str2len;
 

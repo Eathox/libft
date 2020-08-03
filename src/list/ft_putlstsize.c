@@ -16,8 +16,7 @@
 
 #include "list.h"
 
-bool	ft_putlstsize(const t_list *lst)
-{
+bool	ft_putlstsize(const t_list *lst) {
 	if (lst == NULL)
 		return (ft_putstr(NULL));
 	if (ft_putnum(lst->content_size) == false)

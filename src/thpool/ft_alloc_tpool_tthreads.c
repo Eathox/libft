@@ -15,16 +15,14 @@
 #include "thpool.h"
 #include "priv.h"
 
-static bool	alloc_threads(t_tpool *pool)
-{
+static bool	alloc_threads(t_tpool *pool) {
 	size_t	num;
 
 	num = 0;
 	pool->threads = ft_memalloc(sizeof(t_tthread *) * pool->size);
 	if (pool->threads == NULL)
 		return (false);
-	while (num < pool->size)
-	{
+	while (num < pool->size) {
 		pool->threads[num] = ft_new_tthread(pool, num, &ft_worker_tthread);
 		if (pool->threads[num] == NULL)
 			return (false);
@@ -33,12 +31,10 @@ static bool	alloc_threads(t_tpool *pool)
 	return (true);
 }
 
-bool			ft_alloc_tpool_tthreads(t_tpool **pool)
-{
+bool			ft_alloc_tpool_tthreads(t_tpool **pool) {
 	if ((*pool)->alloced == true)
 		return (true);
-	if (alloc_threads(*pool) == false)
-	{
+	if (alloc_threads(*pool) == false) {
 		ft_del_tpool(pool);
 		return (false);
 	}

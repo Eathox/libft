@@ -14,8 +14,7 @@
 
 #include "num.h"
 
-size_t		ft_numlen_base(intmax_t value, int base)
-{
+size_t		ft_numlen_base(intmax_t value, int base) {
 	uintmax_t	num;
 
 	num = (value < 0 && base == 10) ? -value : value;

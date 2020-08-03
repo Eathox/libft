@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-char	*ft_strdtrim(const char *str, const char *dlm)
-{
+char	*ft_strdtrim(const char *str, const char *dlm) {
 	char		*ret;
 	t_uint64	bytes[2];
 	size_t		len;

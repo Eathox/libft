@@ -17,8 +17,7 @@
 #include "printf.h"
 #include "priv.h"
 
-static size_t	addprefix(t_info *info, char *str, size_t n)
-{
+static size_t	addprefix(t_info *info, char *str, size_t n) {
 	if (n == 0)
 		return (0);
 	ft_addnstr(info, str, n);
@@ -29,20 +28,17 @@ static size_t	addprefix(t_info *info, char *str, size_t n)
 	return (n);
 }
 
-static void		addpad(t_info *info, intmax_t len, char c)
-{
+static void		addpad(t_info *info, intmax_t len, char c) {
 	intmax_t	i;
 
 	i = 0;
-	while (i < len)
-	{
+	while (i < len) {
 		ft_addtobuff(info, &c, 1);
 		i++;
 	}
 }
 
-static void		addzero(t_info *info, intmax_t len, intmax_t space, char *prfx)
-{
+static void		addzero(t_info *info, intmax_t len, intmax_t space, char *prfx) {
 	size_t	prelen;
 	char	c;
 
@@ -57,8 +53,7 @@ static void		addzero(t_info *info, intmax_t len, intmax_t space, char *prfx)
 		addpad(info, len, c);
 }
 
-static char		*getprefix(t_info *info)
-{
+static char		*getprefix(t_info *info) {
 	if (info->is_negative)
 		return ("-");
 	if (PF_FLAG_PLUS && ft_ispositiveint(info))
@@ -74,8 +69,7 @@ static char		*getprefix(t_info *info)
 	return ("");
 }
 
-void			ft_formatpad(t_info *info)
-{
+void			ft_formatpad(t_info *info) {
 	char		*prfx;
 	size_t		prelen;
 	intmax_t	len;

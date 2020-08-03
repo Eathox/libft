@@ -14,8 +14,7 @@
 
 #include "str.h"
 
-char	*ft_strcpy(char *dst, const char *src)
-{
+char	*ft_strcpy(char *dst, const char *src) {
 	size_t	len;
 
 	len = ft_strlen(src);

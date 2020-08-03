@@ -16,8 +16,7 @@
 
 #include "list.h"
 
-static bool	put_content(void *content, size_t size)
-{
+static bool	put_content(void *content, size_t size) {
 	if (size == sizeof(char))
 		return (ft_putnum(*((char *)content)));
 	else if (size == sizeof(short))
@@ -31,8 +30,7 @@ static bool	put_content(void *content, size_t size)
 	return (false);
 }
 
-bool			ft_putnumlst(const t_list *lst)
-{
+bool			ft_putnumlst(const t_list *lst) {
 	if (lst == NULL)
 		return (ft_putstr(NULL));
 	if (put_content(lst->content, lst->content_size) == false)

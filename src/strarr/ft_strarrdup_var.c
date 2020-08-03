@@ -14,8 +14,7 @@
 
 #include "strarr.h"
 
-char	**ft_strarrdup_var(size_t count, ...)
-{
+char	**ft_strarrdup_var(size_t count, ...) {
 	size_t	i;
 	va_list	args;
 	char	**dup;
@@ -25,11 +24,9 @@ char	**ft_strarrdup_var(size_t count, ...)
 	if (dup == NULL)
 		return (NULL);
 	va_start(args, count);
-	while (i < count)
-	{
+	while (i < count) {
 		dup[i] = ft_strdup(va_arg(args, char *));
-		if (dup[i] == NULL)
-		{
+		if (dup[i] == NULL) {
 			va_end(args);
 			ft_strarrdel(&dup);
 			return (NULL);

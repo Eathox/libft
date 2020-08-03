@@ -21,20 +21,17 @@
 
 static bool isoctal(
 	char c
-)
-{
+) {
 	if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5')
 		return (true);
 	return (c == '6' || c == '7');
 }
 
-Test(ft_isoctal, general)
-{
+Test(ft_isoctal, general) {
 	size_t const	step = STEP;
 	bool			expected;
 
-	for (char c = 0x0; c < MAX; c += step)
-	{
+	for (char c = 0x0; c < MAX; c += step) {
 		expected = isoctal(c);
 		if (expected != 0)
 			expected = true;

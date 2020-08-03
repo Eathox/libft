@@ -13,8 +13,7 @@
 #include "../serialize.h"
 #include "../priv.h"
 
-ssize_t		ft_write_serialize_int8(t_serialize *serialize, t_int8 int8)
-{
+ssize_t		ft_write_serialize_int8(t_serialize *serialize, t_int8 int8) {
 	size_t const	size = sizeof(t_int8);
 	t_convert		convert;
 

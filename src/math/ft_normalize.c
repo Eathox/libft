@@ -16,8 +16,7 @@ long double	ft_normalize(
 	long double value,
 	long double const *range,
 	long double const *outrange
-)
-{
+) {
 	long double const	range_min = range[0];
 	long double const	range_max = range[1];
 	long double const	outrange_min = outrange[0];

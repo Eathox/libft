@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-void	ft_infosetdefault(t_info *info)
-{
+void	ft_infosetdefault(t_info *info) {
 	info->length = -1;
 	info->precision = -1;
 	info->type = -1;

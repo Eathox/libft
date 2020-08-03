@@ -15,8 +15,7 @@
 long double	ft_max(
 	long double num1,
 	long double num2
-)
-{
+) {
 	if (num1 > num2)
 		return (num1);
 	return (num2);

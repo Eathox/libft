@@ -13,8 +13,7 @@
 #include "printf.h"
 #include "priv.h"
 
-size_t		ft_distribute(t_info *info, const char *start)
-{
+size_t		ft_distribute(t_info *info, const char *start) {
 	size_t	ret;
 
 	if (*start == '{')

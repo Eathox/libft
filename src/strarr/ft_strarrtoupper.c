@@ -14,13 +14,11 @@
 
 #include "strarr.h"
 
-void	ft_strarrtoupper(char **arr)
-{
+void	ft_strarrtoupper(char **arr) {
 	size_t	i;
 
 	i = 0;
-	while (arr[i] != NULL)
-	{
+	while (arr[i] != NULL) {
 		ft_strtoupper(arr[i]);
 		i++;
 	}

@@ -18,8 +18,7 @@
 
 //TODO parameterize tests
 
-Test(ft_convert_color_to_rgba, min)
-{
+Test(ft_convert_color_to_rgba, min) {
 	t_color const	color = {0x0, 0x0, 0x0, 0x0};
 	t_uint32		rgba;
 
@@ -27,8 +26,7 @@ Test(ft_convert_color_to_rgba, min)
 	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
-Test(ft_convert_color_to_rgba, max)
-{
+Test(ft_convert_color_to_rgba, max) {
 	t_color const	color = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
 	t_uint32		rgba;
 
@@ -36,8 +34,7 @@ Test(ft_convert_color_to_rgba, max)
 	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
-Test(ft_convert_color_to_rgba, 0x7F)
-{
+Test(ft_convert_color_to_rgba, 0x7F) {
 	t_color const	color = {CHAR_MAX, CHAR_MAX, CHAR_MAX, CHAR_MAX};
 	t_uint32		rgba;
 
@@ -45,8 +42,7 @@ Test(ft_convert_color_to_rgba, 0x7F)
 	cr_assert_arr_eq(&rgba, &color, sizeof(t_color));
 }
 
-Test(ft_convert_color_to_rgba, order)
-{
+Test(ft_convert_color_to_rgba, order) {
 	t_color const	color = {
 		.r = 0x1,
 		.g = 0x2,

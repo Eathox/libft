@@ -12,8 +12,7 @@
 
 #include "strarr.h"
 
-void	ft_strarrrev(char **arr)
-{
+void	ft_strarrrev(char **arr) {
 	size_t	i;
 	size_t	len;
 	size_t	half;
@@ -22,8 +21,7 @@ void	ft_strarrrev(char **arr)
 	i = 0;
 	len = ft_strarrlen((const char **)arr);
 	half = (len / 2);
-	while (i < half)
-	{
+	while (i < half) {
 		temp = arr[i];
 		arr[i] = arr[(len - 1) - i];
 		arr[(len - 1) - i] = temp;

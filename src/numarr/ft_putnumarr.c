@@ -16,15 +16,13 @@
 
 #include "numarr.h"
 
-bool	ft_putnumarr(const intmax_t *arr, size_t len)
-{
+bool	ft_putnumarr(const intmax_t *arr, size_t len) {
 	size_t	i;
 
 	i = 0;
 	if (arr == NULL)
 		return (ft_putstr(NULL));
-	while (i < len)
-	{
+	while (i < len) {
 		if (ft_putnum(arr[i]) == false)
 			return (false);
 		if (ft_putchar('\n') == false)

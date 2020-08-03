@@ -17,8 +17,7 @@
 */
 t_color		ft_convert_rgba_to_color(
 	t_uint32 rgba
-)
-{
+) {
 	t_color	color;
 
 	color.r = (t_uint8)(rgba >> RGBA_RED_SHIFT);

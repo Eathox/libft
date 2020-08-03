@@ -17,7 +17,6 @@
 */
 bool		ft_isgraph(
 	char c
-)
-{
+) {
 	return (c >= '!' && c <= '~');
 }

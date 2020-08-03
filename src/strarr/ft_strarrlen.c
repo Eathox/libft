@@ -12,8 +12,7 @@
 
 #include "strarr.h"
 
-size_t	ft_strarrlen(const char **arr)
-{
+size_t	ft_strarrlen(const char **arr) {
 	size_t	len;
 
 	len = 0;

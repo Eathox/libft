@@ -22,8 +22,7 @@ void		*ft_memcpy(
 	void *dst,
 	const void *src,
 	size_t len
-)
-{
+) {
 	size_t			i;
 	t_uint8			*dst_byte;
 	t_uint8	const	*src_byte;
@@ -31,8 +30,7 @@ void		*ft_memcpy(
 	i = 0;
 	dst_byte = dst;
 	src_byte = src;
-	while (i < len)
-	{
+	while (i < len) {
 		dst_byte[i] = src_byte[i];
 		i++;
 	}
