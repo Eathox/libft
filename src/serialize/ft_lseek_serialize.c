@@ -18,17 +18,20 @@
 
 static off_t	lseek_serialize(t_serialize *serialize, off_t offset,
 					int whence) {
-	if (whence == SEEK_SET) {
+	if (whence == SEEK_SET)
+	{
 		if (offset < 0)
 			return (-1);
 		return (offset);
 	}
-	else if (whence == SEEK_CUR) {
+	else if (whence == SEEK_CUR)
+	{
 		if (offset < 0 && serialize->pos < (size_t)-offset)
 			return (-1);
 		return (serialize->pos + offset);
 	}
-	else if (whence == SEEK_END) {
+	else if (whence == SEEK_END)
+	{
 		if (offset < 0 && serialize->content_size < (size_t)-offset)
 			return (-1);
 		return (serialize->content_size + offset);

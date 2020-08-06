@@ -38,8 +38,10 @@ char		**ft_strdsplit(const char *str, const char *dlm) {
 	if (arr == NULL)
 		return (freeret(&arr));
 	ft_chrsetbytes(bytes, dlm);
-	while (str[i] != '\0') {
-		if (ft_chrinbytes(bytes, str[i]) == false) {
+	while (str[i] != '\0')
+	{
+		if (ft_chrinbytes(bytes, str[i]) == false)
+		{
 			len = ft_strdlen(&str[i], dlm);
 			addword(arr, ft_strndup(&str[i], len), &word);
 			if (arr[word - 1] == NULL)

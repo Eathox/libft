@@ -24,7 +24,8 @@ Test(ft_isalpha, general) {
 	size_t const	step = STEP;
 	char			expected;
 
-	for (char c = 0x0; c < MAX; c += step) {
+	for (char c = 0x0; c < MAX; c += step)
+	{
 		expected = isalpha(c);
 		if (expected != 0)
 			expected = true;

@@ -69,7 +69,8 @@ Test(ft_memccpy, general) {
 	cr_expect_neq(result, NULL);
 	cr_expect_neq(expected, NULL);
 
-	for (size_t index = 1; index < size; index += step) {
+	for (size_t index = 1; index < size; index += step)
+	{
 		expected[index - 1] = c;
 		memset(expected, UCHAR_MAX, index - 1);
 

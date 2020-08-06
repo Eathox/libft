@@ -32,7 +32,8 @@ t_list			*ft_strarrtolst(const char **arr) {
 		return (NULL);
 	prvlst = returnlst;
 	i++;
-	while (arr[i] != NULL) {
+	while (arr[i] != NULL)
+	{
 		newlst = ft_lstnew_dup(arr[i], ft_strlen(arr[i]) + 1);
 		if (newlst == NULL)
 			return (freeret(&returnlst));

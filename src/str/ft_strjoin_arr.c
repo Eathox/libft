@@ -20,7 +20,8 @@ static size_t	totallen(const char **arr) {
 
 	i = 0;
 	len = 0;
-	while (arr[i] != NULL) {
+	while (arr[i] != NULL)
+	{
 		len += ft_strlen(arr[i]);
 		i++;
 	}
@@ -35,7 +36,8 @@ static char		*joinstrs(char *str, const char **arr) {
 	i = 0;
 	j = 0;
 	len = 0;
-	while (arr[j] != NULL) {
+	while (arr[j] != NULL)
+	{
 		len = ft_strlen(arr[j]);
 		ft_memcpy(&str[i], arr[j], len);
 		i += len;

@@ -31,7 +31,8 @@ bool	ft_pututf8_fd(t_wchar c, int fd) {
 		bit = (0xf8 | (c >> 18)) & 0xf7;
 	if (ft_putchar_fd(bit, fd) == false)
 		return (false);
-	while (i < len) {
+	while (i < len)
+	{
 		i++;
 		bit = (0xc0 | (c >> (6 * (len - i)))) & 0xbf;
 		if (ft_putchar_fd(bit, fd) == false)

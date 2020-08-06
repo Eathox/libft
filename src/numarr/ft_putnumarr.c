@@ -22,7 +22,8 @@ bool	ft_putnumarr(const intmax_t *arr, size_t len) {
 	i = 0;
 	if (arr == NULL)
 		return (ft_putstr(NULL));
-	while (i < len) {
+	while (i < len)
+	{
 		if (ft_putnum(arr[i]) == false)
 			return (false);
 		if (ft_putchar('\n') == false)

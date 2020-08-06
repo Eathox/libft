@@ -21,7 +21,8 @@ static void	free_members(
 	size_t	i;
 
 	i = 0;
-	while (array[i] != NULL) {
+	while (array[i] != NULL)
+	{
 		del(&array[i]);
 		i++;
 	}

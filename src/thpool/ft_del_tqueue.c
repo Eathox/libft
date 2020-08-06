@@ -18,7 +18,8 @@
 static void	del_jobs(t_tjob *job) {
 	t_tjob	*next;
 
-	while (job != NULL) {
+	while (job != NULL)
+	{
 		next = job->next;
 		ft_del_tjob(&job, true);
 		job = next;

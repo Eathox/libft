@@ -31,7 +31,8 @@ char	*ft_itoa_cbase(intmax_t value, int base, bool up) {
 		base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	else
 		base_str = "0123456789abcdefghijklmnopqrstuvwxyz";
-	while ((len - (value < 0 && base == 10)) != 0) {
+	while ((len - (value < 0 && base == 10)) != 0)
+	{
 		str[len - 1] = base_str[(num % base)];
 		num = num / base;
 		len--;

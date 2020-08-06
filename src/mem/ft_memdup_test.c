@@ -55,7 +55,8 @@ Test(ft_memdup, general) {
 	t_uint8			*result;
 	t_uint8			*expected;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		expected = calloc(len, sizeof(*expected));
 		cr_expect_neq(expected, NULL);
 

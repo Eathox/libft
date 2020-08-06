@@ -20,7 +20,8 @@ size_t	ft_utf8strlen(const t_wchar *str) {
 	len = 0;
 	if (str == NULL)
 		return (0);
-	while (str[i] != '\0') {
+	while (str[i] != '\0')
+	{
 		len += ft_utf8len(str[i]);
 		i++;
 	}

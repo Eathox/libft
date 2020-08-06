@@ -29,7 +29,8 @@ int			ft_memcmp(
 	i = 0;
 	mem1_byte = mem1;
 	mem2_byte = mem2;
-	while (i < len) {
+	while (i < len)
+	{
 		if (mem1_byte[i] != mem2_byte[i])
 			return (mem1_byte[i] - mem2_byte[i]);
 		i++;

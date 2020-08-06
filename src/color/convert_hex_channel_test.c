@@ -39,7 +39,8 @@ Test(convert_hex_channel, general) {
 
 	cr_expect_neq(channel, NULL);
 
-	for (t_uint8 byte_channel = 0x0; byte_channel < MAX; byte_channel += step) {
+	for (t_uint8 byte_channel = 0x0; byte_channel < MAX; byte_channel += step)
+	{
 		sprintf(channel, "%02X", byte_channel);
 
 		result = convert_hex_channel(channel);

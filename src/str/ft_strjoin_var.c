@@ -26,7 +26,8 @@ char			*ft_strjoin_var(size_t count, ...) {
 	if (arr == NULL)
 		return (NULL);
 	va_start(args, count);
-	while (i < count) {
+	while (i < count)
+	{
 		arr[i] = va_arg(args, char *);
 		i++;
 	}

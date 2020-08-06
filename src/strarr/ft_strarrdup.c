@@ -18,7 +18,8 @@ char	**ft_strarrdup(const char **arr) {
 	dup = ft_strarrnew(ft_strarrlen(arr));
 	if (dup == NULL)
 		return (NULL);
-	if (ft_strarrcpy(dup, arr) == NULL) {
+	if (ft_strarrcpy(dup, arr) == NULL)
+	{
 		ft_strarrdel(&dup);
 		return (NULL);
 	}

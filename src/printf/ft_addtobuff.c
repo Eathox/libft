@@ -34,7 +34,8 @@ bool			ft_addtobuff(t_info *info, const char *str, size_t len) {
 	bool	ret;
 	size_t	fit;
 
-	if ((len + info->buff_len) > PF_BUFF_SIZE) {
+	if ((len + info->buff_len) > PF_BUFF_SIZE)
+	{
 		fit = PF_BUFF_SIZE - info->buff_len;
 		ft_memcpy(&info->buff[info->buff_len], str, fit);
 		if (info->fd == -1)

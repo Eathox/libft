@@ -22,7 +22,8 @@ static int	setdecimals(long double value, char *decimals, ssize_t n) {
 
 	i = 0;
 	num = 0;
-	while (i < (n + 1)) {
+	while (i < (n + 1))
+	{
 		value *= 10;
 		num = (int)value;
 		decimals[i] = num + '0';
@@ -33,7 +34,8 @@ static int	setdecimals(long double value, char *decimals, ssize_t n) {
 	if (decimals[i] < '5')
 		return (0);
 	decimals[i] += 1;
-	while (i >= 0 && decimals[i] == ('9' + 1)) {
+	while (i >= 0 && decimals[i] == ('9' + 1))
+	{
 		decimals[i] = '0';
 		i--;
 		if (i != -1)
@@ -57,7 +59,8 @@ static void	adddouble(t_info *info, long double value, ssize_t n) {
 	if (n == 0 && decimals[0] >= '5')
 		num++;
 	ft_addnum(info, num);
-	if (n != 0) {
+	if (n != 0)
+	{
 		ft_addnstr(info, ".", 1);
 		ft_addnstr(info, decimals, n);
 	}

@@ -31,7 +31,8 @@ Test(ft_memcmp, general) {
 	int				expected;
 	int				result;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		mem1_byte = calloc(len, sizeof(*mem1_byte));
 		mem2_byte = calloc(len, sizeof(*mem2_byte));
 
@@ -61,7 +62,8 @@ Test(ft_memcmp, character) {
 	int				expected;
 	int				result;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step)
+	{
 		mem1_byte[len - 1] = c;
 		mem2_byte[len - 1] = step * (count / 2);
 

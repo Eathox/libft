@@ -30,7 +30,8 @@ void		*ft_memcpy(
 	i = 0;
 	dst_byte = dst;
 	src_byte = src;
-	while (i < len) {
+	while (i < len)
+	{
 		dst_byte[i] = src_byte[i];
 		i++;
 	}

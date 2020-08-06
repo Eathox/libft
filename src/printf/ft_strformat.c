@@ -26,7 +26,8 @@ static char		*joinlst(t_info *info) {
 	str = ft_strnew(info->added);
 	if (str == NULL)
 		return (NULL);
-	while (lst != NULL) {
+	while (lst != NULL)
+	{
 		if (lst->content != NULL)
 			ft_memcpy(&str[i], lst->content, lst->content_size);
 		i += lst->content_size;
@@ -40,7 +41,8 @@ static char		*joinlst(t_info *info) {
 static char		*freeret(t_info *info) {
 	char	*str;
 
-	if (info->buff_len == info->added) {
+	if (info->buff_len == info->added)
+	{
 		str = ft_strnew(info->added);
 		if (str == NULL)
 			return (NULL);
@@ -49,7 +51,8 @@ static char		*freeret(t_info *info) {
 	else
 		str = joinlst(info);
 	ft_lstdel(&info->buff_list, &ft_lstdelmem);
-	if (info != NULL) {
+	if (info != NULL)
+	{
 		ft_strdel(&info->buff);
 		free(info);
 	}
@@ -66,7 +69,8 @@ char			*ft_strformat(const char *format, ...) {
 		return (NULL);
 	info->fd = -1;
 	va_start(info->args, format);
-	while (format[i] != '\0') {
+	while (format[i] != '\0')
+	{
 		if (format[i] == '%')
 			i += ft_distribute(info, &format[i + 1]);
 		else

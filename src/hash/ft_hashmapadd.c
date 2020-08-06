@@ -23,7 +23,8 @@ static t_hashlist	*newlst(const void *key, size_t keysize, void *value) {
 	if (key_dup == NULL)
 		return (NULL);
 	new = (t_hashlist *)ft_memalloc(sizeof(t_hashlist));
-	if (new == NULL) {
+	if (new == NULL)
+	{
 		ft_memdel(&key_dup);
 		return (NULL);
 	}
@@ -40,13 +41,15 @@ bool				ft_hashmapadd(const t_hashmap *map, const void *key,
 
 	index = map->f(key, keysize) % map->size;
 	current = map->arr[index];
-	if (current == NULL) {
+	if (current == NULL)
+	{
 		map->arr[index] = newlst(key, keysize, value);
 		return (map->arr[index] != NULL);
 	}
 	while (current->next != NULL && ft_keyequ(current, key, keysize) == false)
 		current = current->next;
-	if (ft_keyequ(current, key, keysize) == true) {
+	if (ft_keyequ(current, key, keysize) == true)
+	{
 		current->value = value;
 		return (true);
 	}

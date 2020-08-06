@@ -22,11 +22,13 @@ void	ft_addwcharstr(t_info *info, const t_wchar *str, size_t n) {
 	len = 0;
 	if (n == 0)
 		return ;
-	if (str == NULL) {
+	if (str == NULL)
+	{
 		ft_addnstr(info, "(null)", n);
 		return ;
 	}
-	while (str[i] != '\0') {
+	while (str[i] != '\0')
+	{
 		bytes = ft_utf8len(str[i]);
 		if ((len + bytes) > n)
 			return ;

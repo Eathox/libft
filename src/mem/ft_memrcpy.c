@@ -30,7 +30,8 @@ void		*ft_memrcpy(
 	i = len;
 	dst_byte = dst;
 	src_byte = src;
-	while (i > 0) {
+	while (i > 0)
+	{
 		i--;
 		dst_byte[i] = src_byte[i];
 	}

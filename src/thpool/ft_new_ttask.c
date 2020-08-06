@@ -28,7 +28,8 @@ static void		set_params(t_ttask *task, va_list parameters) {
 	size_t			i;
 
 	i = 0;
-	while (i < task->param_count) {
+	while (i < task->param_count)
+	{
 		task->params[i] = va_arg(parameters, void *);
 		i++;
 	}

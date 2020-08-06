@@ -22,7 +22,8 @@ char	*ft_strmapi(const char *str, char (*f)(size_t, char)) {
 	ret = ft_strnew(len);
 	if (ret == NULL)
 		return (NULL);
-	while (i < len) {
+	while (i < len)
+	{
 		ret[i] = f(i, str[i]);
 		i++;
 	}

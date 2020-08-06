@@ -21,7 +21,8 @@ t_hashmap		*ft_hashmapnew(size_t size, size_t (*f)(const void *, size_t)) {
 	if (new == NULL)
 		return (NULL);
 	new->arr = (t_hashlist **)ft_memalloc(sizeof(t_hashlist *) * size);
-	if (new->arr == NULL) {
+	if (new->arr == NULL)
+	{
 		free(new);
 		return (NULL);
 	}

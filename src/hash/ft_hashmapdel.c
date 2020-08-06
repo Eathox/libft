@@ -22,10 +22,12 @@ void	ft_hashmapdel(t_hashmap *map, void (*del)(void *)) {
 	if (map == NULL)
 		return ;
 	i = map->size;
-	while (i > 0) {
+	while (i > 0)
+	{
 		i--;
 		current = map->arr[i];
-		while (current != NULL) {
+		while (current != NULL)
+		{
 			next = current->next;
 			if (del != NULL && current->value != NULL)
 				del(current->value);

@@ -19,7 +19,8 @@ static size_t	strtotallen(const char *str, const char *find, size_t len,
 
 	found = 0;
 	ptr = ft_strstr(str, find);
-	while (ptr != NULL) {
+	while (ptr != NULL)
+	{
 		ptr = ft_strstr(ptr + 1, find);
 		found++;
 	}
@@ -27,7 +28,8 @@ static size_t	strtotallen(const char *str, const char *find, size_t len,
 }
 
 static char		*strset(const char *str, const char *find, const char *replace,
-					const size_t *lentable) {
+					const size_t *lentable)
+					{
 	size_t	i;
 	size_t	len;
 	char	*new;
@@ -38,7 +40,8 @@ static char		*strset(const char *str, const char *find, const char *replace,
 	if (new == NULL)
 		return (NULL);
 	ptr = ft_strstr(str, find);
-	while (ptr != NULL) {
+	while (ptr != NULL)
+	{
 		len = (size_t)ptr - (size_t)str;
 		ft_strncpy(&new[i], str, len);
 		ft_strcpy(&new[i + len], replace);

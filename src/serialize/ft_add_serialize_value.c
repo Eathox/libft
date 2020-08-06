@@ -39,7 +39,8 @@ ssize_t			ft_add_serialize_value(t_serialize *serialize,
 	if (serialize->use_buffer == false)
 		return (-1);
 	target_size = serialize->pos + size;
-	if (target_size > serialize->content_allocated_size) {
+	if (target_size > serialize->content_allocated_size)
+	{
 		if (expand_content(serialize, target_size) == false)
 			return (-1);
 	}

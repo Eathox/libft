@@ -24,11 +24,13 @@ bool	ft_strfldvalid(const char **arr, size_t x, size_t y, const char *dlm) {
 	if (ft_strarrnlen(arr, y + 1) != y)
 		return (false);
 	ft_chrsetbytes(bytes, dlm);
-	while (i < y) {
+	while (i < y)
+	{
 		j = 0;
 		if (ft_strnlen(arr[i], x + 1) != x)
 			return (false);
-		while (j < x) {
+		while (j < x)
+		{
 			if (ft_chrinbytes(bytes, arr[i][j]) == false)
 				return (false);
 			j++;

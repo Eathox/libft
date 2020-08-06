@@ -39,7 +39,8 @@ static void	fill_array(
 	size_t len
 ) {
 	array[len - 1] = NULL;
-	for (size_t i = 0; i < (len - 1); i++) {
+	for (size_t i = 0; i < (len - 1); i++)
+	{
 		array[i] = malloc(MEMBER_SIZE);
 		cr_expect_neq(array[i], NULL);
 
@@ -58,7 +59,8 @@ Test(ft_arraydel, null_function) {
 	t_uint8 		**array;
 	t_uint8 		**cpy;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		array = calloc(len, sizeof(t_uint8*));
 		cpy = calloc(len, sizeof(t_uint8*));
 
@@ -81,7 +83,8 @@ Test(ft_arraydel, general) {
 	t_uint8 		**array;
 	t_uint8 		**cpy;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		array = calloc(len, sizeof(t_uint8*));
 		cpy = calloc(len, sizeof(t_uint8*));
 

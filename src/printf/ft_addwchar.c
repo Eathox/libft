@@ -28,7 +28,8 @@ void	ft_addwchar(t_info *info, t_wchar c) {
 	else if (len == 4)
 		bit = (0xf8 | (c >> 18)) & 0xf7;
 	ft_addtobuff(info, (char *)&bit, 1);
-	while (i < len) {
+	while (i < len)
+	{
 		i++;
 		bit = (0xc0 | (c >> (6 * (len - i)))) & 0xbf;
 		ft_addtobuff(info, (char *)&bit, 1);

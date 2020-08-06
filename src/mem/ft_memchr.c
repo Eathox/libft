@@ -29,7 +29,8 @@ void		*ft_memchr(
 
 	i = 0;
 	mem_byte = mem;
-	while (i < len) {
+	while (i < len)
+	{
 		if (mem_byte[i] == c)
 			return ((void *)(mem_byte + i));
 		i++;

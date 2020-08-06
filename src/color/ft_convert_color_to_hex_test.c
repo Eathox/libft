@@ -41,7 +41,8 @@ Test(ft_convert_color_to_hex, general) {
 	char			*hex;
 
 	color = (t_color){0x0, 0x0, 0x0, 0x0};
-	for (size_t i = 0; i < count; i++) {
+	for (size_t i = 0; i < count; i++)
+	{
 		hex = ft_convert_color_to_hex(&color, false);
 		cr_expect_neq(hex, NULL);
 

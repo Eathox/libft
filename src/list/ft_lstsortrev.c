@@ -18,7 +18,8 @@ static t_list	*join(t_list *head, t_list *half,
 		return (half);
 	if (half == NULL)
 		return (head);
-	if (f(head, half) == false) {
+	if (f(head, half) == false)
+	{
 		half->next = join(head, half->next, f);
 		return (half);
 	}

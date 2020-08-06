@@ -30,7 +30,8 @@ static char		*joinstrs(char *str, t_list *lst) {
 
 	i = 0;
 	len = 0;
-	while (lst != NULL) {
+	while (lst != NULL)
+	{
 		len = ft_strlen(lst->content);
 		ft_memcpy(&str[i], lst->content, len);
 		i += len;

@@ -39,7 +39,8 @@ Test(ft_memset4, general) {
 	t_uint32		*result;
 	void			*return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		result = calloc(len, sizeof(c));
 		cr_expect_neq(result, NULL);
 
@@ -57,7 +58,8 @@ Test(ft_memset4, character) {
 	t_uint32 		result[CHARACTER_SIZE];
 	void			*return_ptr;
 
-	for (t_uint32 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (t_uint32 c = 0x0; c < CHARACTER_MAX; c += step)
+	{
 		return_ptr = ft_memset4(result, c, len);
 		compare(result, c, len);
 		cr_assert_eq(return_ptr, result, "Return pointer error");

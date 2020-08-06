@@ -34,7 +34,8 @@ void		*ft_memccpy(
 	i = 0;
 	dst_byte = dst;
 	src_byte = src;
-	while (i < len) {
+	while (i < len)
+	{
 		dst_byte[i] = src_byte[i];
 		if (src_byte[i] == c)
 			return (&dst_byte[i + 1]);

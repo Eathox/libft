@@ -35,7 +35,8 @@ static size_t	set_8(
 	size_t const	len_8 = len / c_fit;
 
 	i = 0;
-	while (i < len_8) {
+	while (i < len_8)
+	{
 		mem_byte_8[i] = c_8;
 		i++;
 	}
@@ -56,12 +57,14 @@ void			*ft_memset(
 
 	i = 0;
 	mem_byte = mem;
-	while (i < len && ((size_t)(mem_byte + i) & 7) != 0) {
+	while (i < len && ((size_t)(mem_byte + i) & 7) != 0)
+	{
 		mem_byte[i] = c;
 		i++;
 	}
 	i += set_8((t_uint64*)(mem_byte + i), c, len - i);
-	while (i < len) {
+	while (i < len)
+	{
 		mem_byte[i] = c;
 		i++;
 	}

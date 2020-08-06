@@ -25,7 +25,8 @@ t_list			*ft_lstnew_dup(const void *content, size_t content_size) {
 	lst = (t_list *)ft_memalloc(sizeof(t_list));
 	if (lst == NULL)
 		return (NULL);
-	if (content != NULL) {
+	if (content != NULL)
+	{
 		lst->content = ft_memdup(content, content_size);
 		if (lst->content == NULL)
 			return (freeret(lst));

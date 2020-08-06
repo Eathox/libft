@@ -19,7 +19,8 @@ void	ft_lstrev(t_list **head) {
 
 	lst = *head;
 	prvlst = NULL;
-	while (lst != NULL) {
+	while (lst != NULL)
+	{
 		nxtlst = lst->next;
 		lst->next = prvlst;
 		prvlst = lst;

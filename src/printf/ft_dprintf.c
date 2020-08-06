@@ -23,7 +23,8 @@ static ssize_t	freeret(t_info *info) {
 	ret = (ssize_t)info->added;
 	if (write(info->fd, info->buff, info->buff_len) == -1)
 		ret = -1;
-	if (info != NULL) {
+	if (info != NULL)
+	{
 		ft_strdel(&info->buff);
 		free(info);
 	}
@@ -42,7 +43,8 @@ ssize_t			ft_dprintf(int fd, const char *format, ...) {
 		return (-1);
 	info->fd = fd;
 	va_start(info->args, format);
-	while (format[i] != '\0') {
+	while (format[i] != '\0')
+	{
 		if (format[i] == '%')
 			i += ft_distribute(info, &format[i + 1]);
 		else

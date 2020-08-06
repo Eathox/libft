@@ -15,7 +15,8 @@
 static void	del_tasks(t_ttask *task) {
 	t_ttask	*next;
 
-	while (task != NULL) {
+	while (task != NULL)
+	{
 		next = task->next;
 		ft_del_ttask(&task);
 		task = next;

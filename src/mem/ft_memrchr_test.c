@@ -31,7 +31,8 @@ Test(ft_memrchr, general) {
 	t_uint8			*mem_byte = calloc(size, sizeof(*mem_byte));
 	t_uint8			*result;
 
-	for (size_t index = 1; index < size; index += step) {
+	for (size_t index = 1; index < size; index += step)
+	{
 		cr_expect_neq(mem_byte, NULL);
 
 		mem_byte[index - 0] = UCHAR_MAX;
@@ -51,7 +52,8 @@ Test(ft_memrchr, character) {
 	t_uint8 		mem_byte[CHARACTER_SIZE];
 	t_uint8			*result;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step)
+	{
 		mem_byte[len - 1] = c;
 
 		result = ft_memrchr(mem_byte, c, len);

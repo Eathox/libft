@@ -20,7 +20,8 @@
 static t_uint8	*correct_endian(t_uint8 *stream, size_t size, bool reverse) {
 	t_uint8	*data;
 
-	if (reverse == true) {
+	if (reverse == true)
+	{
 		data = ft_memdup(stream, size);
 		if (data == NULL)
 			return (NULL);

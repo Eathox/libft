@@ -18,7 +18,8 @@
 size_t		ft_addstr(t_info *info, const char *str) {
 	size_t	len;
 
-	if (str != NULL) {
+	if (str != NULL)
+	{
 		len = ft_strdlen(str, "%");
 		ft_addnstr(info, str, len);
 	}

@@ -24,7 +24,8 @@ static size_t	getrgb(const char *str, t_uint8 *rgb) {
 
 	i = 0;
 	totallen = 0;
-	while (i < 3) {
+	while (i < 3)
+	{
 		len = ft_strislen(str, &ft_isdigit);
 		if (len == 0)
 			return (0);
@@ -71,7 +72,8 @@ size_t			ft_formatcolor(t_info *info, const char *str) {
 	bck = (*str == '!');
 	color = ft_colorlcode(&str[bck]);
 	len = ft_strislen(&str[bck], &ft_isdigit);
-	if (str[bck] == '}') {
+	if (str[bck] == '}')
+	{
 		(bck) ? ft_addcolorbg(info, -1) : ft_addcolor(info, -1);
 		return (2 + bck);
 	}

@@ -26,7 +26,8 @@ static void	del_threads(t_tpool *pool) {
 	pthread_mutex_lock(&pool->tasks->lock);
 	pthread_cond_broadcast(&pool->tasks->cond_not_empty);
 	pthread_mutex_unlock(&pool->tasks->lock);
-	while (i < pool->size) {
+	while (i < pool->size)
+	{
 		pthread_join(pool->threads[i]->id, NULL);
 		ft_del_tthread(&pool->threads[i]);
 		i++;

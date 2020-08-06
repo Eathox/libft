@@ -36,7 +36,8 @@ size_t		ft_getinfo(t_info *info, const char *str) {
 
 	i = 0;
 	ret = 1;
-	while ((str[i] != '\0' || str[i] != '\n') && ret > 0) {
+	while ((str[i] != '\0' || str[i] != '\n') && ret > 0)
+	{
 		ret = checkinfo(info, &str[i]);
 		if (ret > 0)
 			i += ret;

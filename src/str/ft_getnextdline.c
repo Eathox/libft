@@ -22,7 +22,8 @@
 static t_gnl	*getlst(int fd, t_gnl *lst) {
 	t_gnl	*newlst;
 
-	while (lst != NULL && lst->next != NULL) {
+	while (lst != NULL && lst->next != NULL)
+	{
 		if (lst->fd == fd)
 			return (lst);
 		lst = lst->next;
@@ -41,7 +42,8 @@ static t_gnl	*getlst(int fd, t_gnl *lst) {
 static int		lastline(char **line, t_gnl *lst) {
 	size_t	len;
 
-	if (lst->str != NULL) {
+	if (lst->str != NULL)
+	{
 		len = lst->len;
 		*line = ft_memalloc(len + 1);
 		if (*line == NULL)
@@ -83,7 +85,8 @@ static ssize_t	readfile(char **line, char *buff, t_gnl *lst, char dlm) {
 	ssize_t	newl;
 
 	newl = ft_memindex(lst->str, dlm, lst->len);
-	while (newl == -1) {
+	while (newl == -1)
+	{
 		ret = read(lst->fd, buff, BUFF_SIZE);
 		if (ret == 0)
 			break ;

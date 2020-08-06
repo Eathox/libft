@@ -25,7 +25,8 @@
 static void	fill_memory(void) {
 	t_uint8		*holder[FILL_MEMORY_COUNT];
 
-	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++) {
+	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++)
+	{
 		holder[i] = malloc(FILL_MEMORY_SIZE);
 		cr_expect_neq(holder[i], NULL);
 

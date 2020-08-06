@@ -20,7 +20,8 @@ int		ft_strncmp_nocase(const char *str1, const char *str2, size_t n) {
 	unsigned char	temp_b;
 
 	i = 0;
-	while (i < n) {
+	while (i < n)
+	{
 		temp_a = ft_tolower(str1[i]);
 		temp_b = ft_tolower(str2[i]);
 		if (temp_a != temp_b)

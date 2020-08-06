@@ -24,7 +24,8 @@ Test(ft_islower, general) {
 	size_t const	step = STEP;
 	char			expected;
 
-	for (char c = 0x0; c < MAX; c += step) {
+	for (char c = 0x0; c < MAX; c += step)
+	{
 		expected = ft_islower(c);
 		if (expected != 0)
 			expected = true;

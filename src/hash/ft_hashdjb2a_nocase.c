@@ -22,7 +22,8 @@ size_t	ft_hashdjb2a_nocase(const void *key, size_t size) {
 	i = 0;
 	hash = 5381;
 	str = key;
-	while (i < size) {
+	while (i < size)
+	{
 		hash = ft_tolower(str[i]) ^ (hash * 33);
 		i++;
 	}

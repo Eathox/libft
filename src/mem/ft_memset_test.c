@@ -67,7 +67,8 @@ Test(ft_memset, general) {
 	t_uint8			*expected;
 	void			*return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		result = calloc(len, sizeof(c));
 		expected = calloc(len, sizeof(c));
 
@@ -91,7 +92,8 @@ Test(ft_memset, character) {
 	t_uint8 		expected[CHARACTER_SIZE];
 	void			*return_ptr;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step)
+	{
 		memset(expected, c, len);
 		return_ptr = ft_memset(result, c, len);
 		cr_assert_arr_eq(result, expected, len, "%X", c);

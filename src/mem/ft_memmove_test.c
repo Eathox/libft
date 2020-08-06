@@ -57,7 +57,8 @@ Test(ft_memmove, general) {
 	t_uint8			*expected;
 	void			*return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		result = calloc(len, sizeof(*result));
 		expected = calloc(len, sizeof(*expected));
 

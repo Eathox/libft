@@ -34,7 +34,8 @@ static char		*lsttostr(t_list *lst, size_t totallen) {
 	str = ft_strnew(totallen);
 	if (str == NULL)
 		return (NULL);
-	while (lst != NULL) {
+	while (lst != NULL)
+	{
 		if (lst->content != NULL)
 			ft_memcpy(&str[i], lst->content, lst->content_size);
 		i += lst->content_size;
@@ -71,7 +72,8 @@ ssize_t			ft_readfile(int fd, char **str) {
 	lst = NULL;
 	ret = read(fd, buff, BUFF_SIZE);
 	totallen = 0;
-	while (ret > 0) {
+	while (ret > 0)
+	{
 		totallen += ret;
 		if (addtolst(&lst, &prv, buff, ret) == false)
 			return (freeret(lst, str));

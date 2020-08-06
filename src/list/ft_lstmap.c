@@ -37,7 +37,8 @@ t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(const t_list *elem)) {
 		return (NULL);
 	current = lst->next;
 	prvlst = retlst;
-	while (current != NULL) {
+	while (current != NULL)
+	{
 		duplst = list_set(f(current));
 		if (duplst == NULL)
 			return (freeret(&retlst));

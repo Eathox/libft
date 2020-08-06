@@ -35,7 +35,8 @@ char		**ft_lsttostrarr(t_list *lst) {
 	if (arr == NULL)
 		return (NULL);
 	current = lst;
-	while (current != NULL) {
+	while (current != NULL)
+	{
 		str = ft_strdup((char *)current->content);
 		if (str == NULL)
 			return (freeret(arr));

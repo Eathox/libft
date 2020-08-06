@@ -21,7 +21,8 @@ int		ft_strcmp_nocase(const char *str1, const char *str2) {
 
 	i = 0;
 	temp_a = ft_tolower(str1[i]);
-	while (temp_a != '\0') {
+	while (temp_a != '\0')
+	{
 		temp_b = ft_tolower(str2[i]);
 		if (temp_a != temp_b)
 			return (temp_a - temp_b);

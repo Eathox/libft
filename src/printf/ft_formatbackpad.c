@@ -23,7 +23,8 @@ void		ft_formatbackpad(t_info *info) {
 	len = ft_max(0, info->width) - info->var_len;
 	if (PF_FLAG_MIN == false)
 		return ;
-	while (i < len) {
+	while (i < len)
+	{
 		ft_addtobuff(info, " ", 1);
 		i++;
 	}

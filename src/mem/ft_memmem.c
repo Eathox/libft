@@ -31,10 +31,12 @@ void		*ft_memmem(
 	i = 0;
 	if (needle_len == 0)
 		return ((void *)mem_byte);
-	while (i < mem_len) {
+	while (i < mem_len)
+	{
 		if ((mem_len - i) < needle_len)
 			return (NULL);
-		if (mem_byte[i] == needle_byte[0]) {
+		if (mem_byte[i] == needle_byte[0])
+		{
 			if (ft_memcmp(mem_byte + i, needle_byte, needle_len) == 0)
 				return ((void *)(mem_byte + i));
 		}

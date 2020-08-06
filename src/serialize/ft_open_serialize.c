@@ -22,7 +22,8 @@ bool	ft_open_serialize(t_serialize *serialize, char const *file, int flags,
 	int		ret;
 
 	ret = open(file, flags, mode);
-	if (ret < 0) {
+	if (ret < 0)
+	{
 		serialize->fd = DEFAULT_FD;
 		return (false);
 	}

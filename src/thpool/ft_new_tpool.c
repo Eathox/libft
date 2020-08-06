@@ -32,7 +32,8 @@ t_tpool			*ft_new_tpool(size_t size, t_uint64 flags) {
 	pool->flags = flags;
 	if (alloc_queues(pool) == false)
 		return (ft_del_tpool(&pool));
-	if ((pool->flags & TFLAG_POOL_ALLOC_ON_EXEC) == 0) {
+	if ((pool->flags & TFLAG_POOL_ALLOC_ON_EXEC) == 0)
+	{
 		if (ft_alloc_tpool_tthreads(&pool) == false)
 			return (ft_del_tpool(&pool));
 	}

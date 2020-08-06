@@ -33,7 +33,8 @@ Test(ft_memchr, general) {
 
 	cr_expect_neq(mem_byte, NULL);
 
-	for (size_t index = 1; index < size; index += step) {
+	for (size_t index = 1; index < size; index += step)
+	{
 		mem_byte[index - 0] = UCHAR_MAX;
 		mem_byte[index - 1] = UCHAR_MAX;
 
@@ -55,7 +56,8 @@ Test(ft_memchr, character) {
 	t_uint8			*expected;
 	t_uint8			*result;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step)
+	{
 		mem_byte[len - 1] = c;
 
 		expected = memchr(mem_byte, c, len);

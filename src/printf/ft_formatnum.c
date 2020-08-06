@@ -23,7 +23,8 @@ void		ft_formatnum(t_info *info) {
 	info->is_negative = (num < 0);
 	info->var_len = ft_numlen(num) - info->is_negative;
 	ft_formatpad(info);
-	if (info->precision == 0 && num == 0) {
+	if (info->precision == 0 && num == 0)
+	{
 		if (info->width != -1)
 			ft_addnstr(info, " ", 1);
 		return ;

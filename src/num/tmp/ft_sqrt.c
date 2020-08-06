@@ -16,7 +16,8 @@ intmax_t	ft_sqrt(intmax_t nb) {
 	intmax_t	n;
 
 	n = 0;
-	while (n < nb) {
+	while (n < nb)
+	{
 		n++;
 		if (n * n == nb)
 			return (n);

@@ -15,7 +15,8 @@
 t_list	*ft_lstunlink(t_list **head, t_list *lst) {
 	t_list	*current;
 
-	if (*head == lst) {
+	if (*head == lst)
+	{
 		*head = lst->next;
 		lst->next = NULL;
 		return (lst);

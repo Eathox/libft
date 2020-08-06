@@ -36,7 +36,8 @@ void		ft_get_ttask(t_tthread *thread) {
 	pthread_mutex_lock(&tasks->lock);
 	while ((pool->flags & TFLAG_POOL_TERMINATE) == 0 && tasks->size == 0)
 		pthread_cond_wait(&tasks->cond_not_empty, &tasks->lock);
-	if ((pool->flags & TFLAG_POOL_TERMINATE) == 0) {
+	if ((pool->flags & TFLAG_POOL_TERMINATE) == 0)
+	{
 		thread->running_task = true;
 		exract_task(thread, tasks);
 	}

@@ -14,7 +14,8 @@
 #include "priv.h"
 
 void	ft_addcolorbg(t_info *info, int color) {
-	if (color < 0 || color > 255) {
+	if (color < 0 || color > 255)
+	{
 		ft_addtobuff(info, "\033[49m\033[K", 8);
 		return ;
 	}

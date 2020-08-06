@@ -26,7 +26,8 @@ void			*ft_memset4(
 
 	i = 0;
 	mem_byte_4 = mem;
-	while (i < len) {
+	while (i < len)
+	{
 		mem_byte_4[i] = c;
 		i++;
 	}

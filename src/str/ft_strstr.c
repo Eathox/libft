@@ -20,7 +20,8 @@ char	*ft_strstr(const char *str, const char *needle) {
 	j = 0;
 	if (needle[j] == '\0')
 		return ((char *)str);
-	while (str[i] != '\0' && needle[j] != '\0') {
+	while (str[i] != '\0' && needle[j] != '\0')
+	{
 		if (j > 0 && str[i - j] != needle[0])
 			j--;
 		if (j > 0 && str[i] != needle[j])

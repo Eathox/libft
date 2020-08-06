@@ -27,7 +27,8 @@ void			*ft_memrev(
 
 	i = 0;
 	mem_byte = mem;
-	while (i < (len / 2)) {
+	while (i < (len / 2))
+	{
 		temp = mem_byte[i];
 		mem_byte[i] = mem_byte[(len - 1) - i];
 		mem_byte[(len - 1) - i] = temp;

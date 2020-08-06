@@ -32,7 +32,8 @@ static void		addpad(t_info *info, intmax_t len, char c) {
 	intmax_t	i;
 
 	i = 0;
-	while (i < len) {
+	while (i < len)
+	{
 		ft_addtobuff(info, &c, 1);
 		i++;
 	}

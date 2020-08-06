@@ -41,7 +41,8 @@ Test(ft_memrev, general) {
 	t_uint8			*result;
 	void			*return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step) {
+	for (size_t len = 1; len < MAX; len += step)
+	{
 		result = calloc(len, sizeof(t_uint8));
 		cr_expect_neq(result, NULL);
 
