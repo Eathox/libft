@@ -33,16 +33,20 @@ os.chdir(targetPath)
 
 # --- Search for missing quick info
 noQuickInfoRegex = r"^(?!\/\*\n(\*{2}.*?\n)*\*\/)\n(?!\bstatic\b)(\b.*?\n?\()"
-globPattern = os.path.join(sourceDir, "**/*[!_test].c")
+globPattern = os.path.join(sourceDir, "**/*.c")
 for file in glob.glob(globPattern, recursive=True):
+	if file.endswith("_test.c"): # Exclude test files
+		continue
+
 	try:
 		with open(file, "r") as fd:
 			content = fd.read()
-		regexMataches = re.search(noQuickInfoRegex, content, flags=re.MULTILINE)
+		regexMataches = re.findall(noQuickInfoRegex, content, flags=re.MULTILINE)
 		if regexMataches == None:
 			continue
-		functionName = regexMataches.group(0).split()[-1] # Select function name
-		functionName = functionName[functionName.count("*"):-1] # Trim off '*' and '('
-		print(f"Warning: Function '{functionName}' missing quick info in '{file}'")
+		for match in regexMataches:
+			functionName = match[1].split()[-1] # Select function name
+			functionName = functionName[functionName.count("*"):-1] # Trim off '*' and '('
+			print(f"Warning: Function '{functionName}' missing quick info in '{file}'")
 	except:
 		print(f"Error: Checking quickInfo of file '{file}'")
