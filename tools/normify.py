@@ -63,7 +63,7 @@ if (args.delete == True):
     exit(0)
 
 # --- Create the normDir and copy over important files
-print (f"Coying: {prettyTargets}")
+print (f"Copying: {prettyTargets}")
 
 shutil.rmtree(normDir, ignore_errors=True)
 os.mkdir(normDir)
@@ -108,7 +108,7 @@ normPath = os.path.join(targetPath, normDir)
 os.chdir(normPath)
 
 # --- Remove src/guidelines.md
-print ("Removing: 'src/guidelines.md'")
+print ("Removing: src/guidelines.md")
 
 file = os.path.join(sourceDir, "guidelines.md")
 deleteFile(file)
