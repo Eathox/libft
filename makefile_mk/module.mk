@@ -18,9 +18,15 @@ include $(EXISTING-DEPENDENCIES)
 endif
 
 # Rule used to copy module header
-$(INCLUDE_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
+$(INCLUDE_PATH)/$(module)/%.h $(REAL_INCLUDE_PATH)/%.h: $(SRCDIR)/$(module)/%.h
 	@mkdir -p $(dir $@)
-	@cp $< $@
+	cp $< $@
+	@echo $< $@
+	@mkdir -p $(dir $(REAL_INCLUDE_PATH)/$*)
+	ln -s $@ $(REAL_INCLUDE_PATH)/$*.h
+	# @ls -lR $(REAL_INCLUDE_PATH)
+.PRECIOUS: $(REAL_INCLUDE_PATH)/types.h $(REAL_INCLUDE_PATH)/char.h $(REAL_INCLUDE_PATH)/math.h $(REAL_INCLUDE_PATH)/mem.h $(REAL_INCLUDE_PATH)/float/float.h
+
 
 # Rule used for regular objects
 $(REG_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c

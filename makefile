@@ -35,7 +35,8 @@ endif
 
 include makefile_mk/term.mk
 
-INCLUDE_PATH := $(OUTDIR)/include/ft
+INCLUDE_PATH := $(OUTDIR)/include/ft/_
+REAL_INCLUDE_PATH := $(OUTDIR)/include/ft
 REG_CACHE_PATH := $(OUTDIR)/cache/reg
 TEST_CACHE_PATH := $(OUTDIR)/cache/test
 
