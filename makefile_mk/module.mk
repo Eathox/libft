@@ -17,19 +17,20 @@ ifneq ($(EXISTING-DEPENDENCIES),)
 include $(EXISTING-DEPENDENCIES)
 endif
 
-# Rule used to copy module header
+# Rule used to copy over headers and correct include path's for the new location
 $(INCLUDE_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
 	@mkdir -p $(dir $@)
-	@cp $< $@
+	@$(call FNC_PRINT_MISC,$(BASENAME),$(subst $(INCLUDE_PATH)/,,$@))
+	@sed -E "s/\"\.\.\/(.*?)(\w*?)\/\2\.h\"/\"\1\2.h\"/g" $< > $@
 
 # Rule used for regular objects
-$(REG_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c
+$(REG_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c $($(module)-headers)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_PLUS,$(BASENAME),$(subst $(REG_CACHE_PATH)/,,$@))
 	@$(CC) -c $(CFLAGS) $(INCLUDE) -o $@ $<
 
 # Rule used for test objects
-$(TEST_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c
+$(TEST_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c $($(module)-headers)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_MISC,$(BASENAME),$(subst $(TEST_CACHE_PATH)/,,$@))
 	@$(CC) -c $(CFLAGS) $(INCLUDE) -o $@ $< \

@@ -15,7 +15,7 @@
 
 # include <sys/types.h>
 
-# include "ft/types.h"
+# include "../types/types.h"
 
 void		*ft_calloc(
 	size_t count,

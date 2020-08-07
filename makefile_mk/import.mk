@@ -19,11 +19,11 @@ tests :=
 include $(SRCDIR)/$(module)/make.mk
 
 # Affix included variables
-$(module)-headers += $(patsubst %,$(OUTDIR)/include/ft/%.h, $(module))
+$(module)-headers += $(patsubst %,$(INCLUDE_PATH)/%.h, $(module))
 $(module)-objects += $(patsubst %,$(REG_CACHE_PATH)/$(module)/%.o, $(objects))
 $(module)-tests += $(patsubst %,$(TEST_CACHE_PATH)/$(module)/%.o, $(tests))
 
-all-public-headers += $($(module)-headers)
 all-libraries += $(libraries)
+all-headers += $($(module)-headers)
 all-objects += $($(module)-objects)
 all-tests += $($(module)-tests)

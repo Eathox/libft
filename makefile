@@ -39,8 +39,8 @@ INCLUDE_PATH := $(OUTDIR)/include/ft
 REG_CACHE_PATH := $(OUTDIR)/cache/reg
 TEST_CACHE_PATH := $(OUTDIR)/cache/test
 
-all-public-headers :=
 all-libraries :=
+all-headers :=
 all-objects :=
 all-tests :=
 
@@ -55,12 +55,12 @@ $(foreach module,$(modules),$(eval $(call MODULE_IMPORT_TEMPLATE, $(module))))
 all: $(NAME)
 PHONY += all
 
-$(NAME): $(all-public-headers) $(all-objects)
+$(NAME): $(all-headers) $(all-objects)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
 	@ar rcs $@ $(all-objects)
 
-$(TESTNAME): $(all-public-headers) $(all-objects) $(all-tests)
+$(TESTNAME): $(all-headers) $(all-objects) $(all-tests)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
 	@$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(all-objects) $(all-tests) \
