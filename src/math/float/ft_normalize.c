@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math.h"
+#include "float.h"
 
 long double	ft_normalize(
 	long double value,

@@ -35,19 +35,22 @@ endif
 
 include makefile_mk/term.mk
 
+INCLUDE_PATH := $(OUTDIR)/include/ft
+REG_CACHE_PATH := $(OUTDIR)/cache/reg
+TEST_CACHE_PATH := $(OUTDIR)/cache/test
+
+all-public-headers :=
 all-libraries :=
 all-objects :=
 all-tests :=
 
 # Module import template, importing the makefile of the given module
 define MODULE_IMPORT_TEMPLATE
-include makefile_mk/reset.mk $(SRCDIR)/$(module)/make.mk makefile_mk/prefix.mk
+include makefile_mk/import.mk
 endef
 
 # Import each modules makefile specifying objects and tests
 $(foreach module,$(modules),$(eval $(call MODULE_IMPORT_TEMPLATE, $(module))))
-
-all-public-headers := $(patsubst %,$(OUTDIR)/include/ft/%.h, $(modules))
 
 all: $(NAME)
 PHONY += all

@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_min.c                                           :+:    :+:            */
+/*   int.h                                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/19 12:40:13 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:15:30 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/08 16:12:36 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 23:47:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math.h"
+#ifndef FT_INT_H
+# define FT_INT_H
 
-long double	ft_min(
-	long double num1,
-	long double num2
-) {
-	if (num1 < num2)
-		return (num1);
-	return (num2);
-}
+#endif

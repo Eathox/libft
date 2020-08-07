@@ -42,7 +42,7 @@ f"  * Copy: {prettyTargets}",
 "  * Remove: src/guidelines.md",
 "  * Remove: test function source files",
 "  * Remove: test targets from all make.mk files",
-"  * Add: newline between function prototype and quickinfo",
+"  * Add: newline between function definition and quickinfo",
 "  * Add: newline between ') {'",
 ))
 argParser = argparse.ArgumentParser(description=description, formatter_class=argparse.RawDescriptionHelpFormatter)

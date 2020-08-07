@@ -1,25 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_clamp.c                                         :+:    :+:            */
+/*   float.h                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/06/02 13:40:29 by pholster      #+#    #+#                 */
-/*   Updated: 2020/06/02 13:40:29 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/08 16:12:36 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 23:47:18 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math.h"
+#ifndef FT_FLOAT_H
+# define FT_FLOAT_H
+
+long double	ft_max(
+	long double num1,
+	long double num2
+);
+
+long double	ft_min(
+	long double num1,
+	long double num2
+);
 
 long double	ft_clamp(
 	long double value,
 	long double max,
 	long double min
-) {
-	if (value < min)
-		return (min);
-	if (value > max)
-		return (max);
-	return (value);
-}
+);
+
+long double	ft_overflow(
+	long double value,
+	long double max,
+	long double min
+);
+
+long double	ft_normalize(
+	long double value,
+	long double const *range,
+	long double const *outrange
+);
+
+long double	ft_nearestnum(
+	long double value,
+	long double num1,
+	long double num2
+);
+
+#endif

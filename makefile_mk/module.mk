@@ -10,19 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-INCLUDE_PATH := $(OUTDIR)/include/ft
-REG_CACHE_PATH := $(OUTDIR)/cache/reg
-TEST_CACHE_PATH := $(OUTDIR)/cache/test
-
 # Include header dependencies for all compiled files
-DEPENDENCIES := $(patsubst %.o,%.d, $($(module)-objects) $($(module)-tests))
+DEPENDENCIES := $(patsubst %.o,%.d,$($(module)-objects) $($(module)-tests))
 EXISTING-DEPENDENCIES := $(wildcard $(DEPENDENCIES))
 ifneq ($(EXISTING-DEPENDENCIES),)
 include $(EXISTING-DEPENDENCIES)
 endif
 
 # Rule used to copy module header
-$(INCLUDE_PATH)/%.h: $(SRCDIR)/$(module)/%.h
+$(INCLUDE_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
 	@mkdir -p $(dir $@)
 	@cp $< $@
 

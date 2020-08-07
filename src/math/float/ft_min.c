@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_overflow.c                                      :+:    :+:            */
+/*   ft_min.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/07/23 14:12:31 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:17:15 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/19 12:40:13 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:15:30 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "math.h"
+#include "float.h"
 
-long double	ft_overflow(
-	long double value,
-	long double max,
-	long double min
+long double	ft_min(
+	long double num1,
+	long double num2
 ) {
-	if (value < min)
-		return (ft_overflow(max + (value - min), min, max));
-	if (value >= max)
-		return (ft_overflow((value + min) - max, min, max));
-	return (value);
+	if (num1 < num2)
+		return (num1);
+	return (num2);
 }

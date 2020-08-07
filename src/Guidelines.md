@@ -1,6 +1,6 @@
 # Guidelines
 
-These are some extra things aside of [codam's](https://www.codam.nl/en/) norminette that im noting down as a reminder for myself for consistency's sake
+These are some extra things aside of [codam's](https://www.codam.nl/en/) Norminette that im noting down as a reminder for myself for consistency's sake
 
 ### Include Ordering
 
@@ -32,7 +32,7 @@ Keep it one public function per file and give the file the same name as the publ
 `ft_new_serialize`
 `correct_serialize_endian`
 
-#### Function Prototype Syntax
+#### Function Definition/Prototype Syntax
 
 ```txt
 <documentation>
@@ -57,6 +57,12 @@ char    *ft_convert_rgba_to_hex(
     bool include_alpha
 )
 ```
+
+For scalar types stick to their t_ type:
+`char` would be `t_int8`
+`int` would be `t_int32`
+`float` would be `t_float32`
+etc.
 
 #### Function Error Handling
 
