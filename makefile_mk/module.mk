@@ -32,6 +32,6 @@ $(REG_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c $($(module)-headers)
 # Rule used for test objects
 $(TEST_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c $($(module)-headers)
 	@mkdir -p $(dir $@)
-	@$(call FNC_PRINT_MISC,$(BASENAME),$(subst $(TEST_CACHE_PATH)/,,$@))
+	@$(call FNC_PRINT_PLUS,$(BASENAME),$(subst $(TEST_CACHE_PATH)/,,$@))
 	@$(CC) -c $(CFLAGS) $(INCLUDE) -o $@ $< \
 		$(shell pkg-config --cflags criterion)
