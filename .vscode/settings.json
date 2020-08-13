@@ -10,6 +10,5 @@
 		"*.h": "c",
 		"Makefile.*": "makefile",
 		"Makefile*": "makefile",
-	},
-	"search.usePCRE2": true
+	}
 }
