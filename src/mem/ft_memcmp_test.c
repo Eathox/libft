@@ -24,6 +24,15 @@
 #define CHARACTER_MAX UCHAR_MAX
 #define CHARACTER_STEP 0x1
 
+static int	get_sing(int num)
+{
+	if (num > 0)
+		return (1);
+	else if (num < 0)
+		return (-1);
+	return (0);
+}
+
 Test(ft_memcmp, general) {
 	size_t const	step = STEP;
 	t_uint8			*mem1_byte;
@@ -42,11 +51,11 @@ Test(ft_memcmp, general) {
 
 		expected = memcmp(mem1_byte, mem2_byte, len);
 		result = ft_memcmp(mem1_byte, mem2_byte, len);
-		cr_assert_eq(expected, result, "%zu", len);
+		cr_assert_eq(get_sing(expected), get_sing(result), "%zu", len);
 
 		expected = memcmp(mem2_byte, mem1_byte, len);
 		result = ft_memcmp(mem2_byte, mem1_byte, len);
-		cr_assert_eq(expected, result, "%zu", len);
+		cr_assert_eq(get_sing(expected), get_sing(result), "%zu", len);
 
 		free(mem1_byte);
 		free(mem2_byte);
@@ -69,6 +78,6 @@ Test(ft_memcmp, character) {
 
 		expected = memcmp(mem1_byte, mem2_byte, len);
 		result = ft_memcmp(mem1_byte, mem2_byte, len);
-		cr_assert_eq(expected, result, "%02X", c);
+		cr_assert_eq(get_sing(expected), get_sing(result), "%02X", c);
 	}
 }

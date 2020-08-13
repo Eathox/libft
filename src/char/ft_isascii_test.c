@@ -28,7 +28,7 @@ Test(ft_isascii, general) {
 
 	for (char c = MIN; c < MAX; c += step)
 	{
-		expected = ft_isascii(c);
+		expected = isascii(c);
 		if (expected != 0)
 			expected = true;
 		cr_assert_eq(expected, ft_isascii(c), "%d", c);

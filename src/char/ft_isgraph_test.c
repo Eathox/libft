@@ -22,7 +22,7 @@
 
 Test(ft_isgraph, general) {
 	size_t const	step = STEP;
-	char			expected;
+	int				expected;
 
 	for (char c = 0x0; c < MAX; c += step)
 	{
