@@ -21,7 +21,7 @@ endif
 $(INCLUDE_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_MISC,$(BASENAME),$(subst $(INCLUDE_PATH)/,,$@))
-	@sed -E "s/([\"<])\.\.\/(.*?)(\w*?)\/\3\.h([\">])/\1\2\3\.h\4/g" $< > $@
+	@sed -E 's,(["<])\.\.\/(.*\/)?(\w*)\/\3\.h\1,\1\2\3\.h\1,g' $< > $@
 
 # Rule used for regular objects
 $(REG_CACHE_PATH)/$(module)/%.o: $(SRCDIR)/$(module)/%.c $($(module)-headers)
