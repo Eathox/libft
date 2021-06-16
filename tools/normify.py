@@ -108,9 +108,9 @@ normPath = os.path.join(targetPath, normDir)
 os.chdir(normPath)
 
 # --- Remove src/guidelines.md
-print ("Removing: src/guidelines.md")
+print ("Removing: src/Guidelines.md")
 
-file = os.path.join(sourceDir, "guidelines.md")
+file = os.path.join(sourceDir, "Guidelines.md")
 deleteFile(file)
 
 # --- Remove test files
