@@ -42,7 +42,7 @@ struct				s_ttask
 	bool			completed;
 	pthread_cond_t	cond_completed;
 	pthread_mutex_t	lock;
-	t_ttask			*next;
+	t_ttask			*next; //TODO: Is this really needed?
 };
 
 struct				s_tpool

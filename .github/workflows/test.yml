@@ -32,6 +32,7 @@ jobs:
 
       - name: Upload GCOV
         run: |
+          export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/2.7/bin
           export PATH=$PATH:$HOME/.local/bin
           bash ci/gcov.bash
         env:
