@@ -31,6 +31,11 @@ sourceDir = args.directory
 targetPath = os.path.dirname(sys.path[0]) # Removes '/tools' from the end
 os.chdir(targetPath)
 
+# --- Check if sourceDir exists
+if not os.path.exists(sourceDir):
+	print(f"Error: The directory '{sourceDir}' doesn't exist")
+	exit(1)
+
 # --- Search for missing quick info
 noQuickInfoRegex = r"^(?!\/\*\n(\*{2}.*?\n)*\*\/)\n(?!\bstatic\b)(\b.*?\n?\()"
 globPattern = os.path.join(sourceDir, "**/*.c")
