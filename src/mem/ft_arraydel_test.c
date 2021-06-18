@@ -14,7 +14,7 @@
 
 #include <criterion/criterion.h>
 
-#include "ft/types.h"
+#include "../types/types.h"
 #include "mem.h"
 
 #define MAX UCHAR_MAX

@@ -15,7 +15,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-#include "ft/types.h"
+#include "../types/types.h"
 #include "mem.h"
 
 #define LEN 8

@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-#include "ft/types.h"
+#include "../types/types.h"
 #include "mem.h"
 
 /*

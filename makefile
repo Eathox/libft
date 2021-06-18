@@ -23,7 +23,6 @@ include make.mk
 CFLAGS += -g -MD
 CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
-INCLUDE += -I$(OUTDIR)/include
 
 GCOV ?= false
 
@@ -63,7 +62,7 @@ $(NAME): $(all-headers) $(all-objects)
 $(TESTNAME): $(all-headers) $(all-objects) $(all-tests)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
-	@$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(all-objects) $(all-tests) \
+	@$(CC) $(CFLAGS) -o $@ $(all-objects) $(all-tests) \
 		$(shell pkg-config --libs criterion) $(all-libraries)
 
 # Module rule template, defining all the rules for the given module
