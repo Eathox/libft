@@ -78,15 +78,11 @@ test: $(TESTNAME)
 PHONY += test
 
 clean:
-	@rm -rf $(OUTDIR)/cache
+	@rm -rf $(OUTDIR)
 PHONY += clean
 
-fclean: clean
-	@rm -rf $(OUTDIR)
-PHONY += fclean
-
 re:
-	@$(MAKE) fclean
+	@$(MAKE) clean
 	@$(MAKE) all
 PHONY += re
 
