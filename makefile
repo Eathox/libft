@@ -32,7 +32,7 @@ ifeq ($(GCOV), true)
 CFLAGS += --coverage -O0
 endif
 
-include makefile_mk/term.mk
+include makefile-mk/term.mk
 
 INCLUDE_PATH := $(OUTDIR)/include/ft
 REG_CACHE_PATH := $(OUTDIR)/cache/reg
@@ -45,7 +45,7 @@ all-tests :=
 
 # Module import template, importing the makefile of the given module
 define MODULE_IMPORT_TEMPLATE
-include makefile_mk/import.mk
+include makefile-mk/import.mk
 endef
 
 # Import each modules makefile specifying objects and tests
@@ -67,7 +67,7 @@ $(TESTNAME): $(all-headers) $(all-objects) $(all-tests)
 
 # Module rule template, defining all the rules for the given module
 define MODULE_RULE_TEMPLATE
-include makefile_mk/module.mk
+include makefile-mk/module.mk
 endef
 
 # Define the rules of every module
