@@ -19,7 +19,7 @@ tests :=
 include $(SRCDIR)/$(module)/make.mk
 
 # Affix included variables
-$(module)-headers += $(patsubst %,$(INCLUDE_PATH)/%.h, $(module))
+$(module)-headers += $(patsubst %,$(HEADER_PATH)/%.h, $(module))
 $(module)-objects += $(patsubst %,$(REG_CACHE_PATH)/$(module)/%.o, $(objects))
 $(module)-tests += $(patsubst %,$(TEST_CACHE_PATH)/$(module)/%.o, $(tests))
 

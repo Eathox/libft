@@ -18,7 +18,7 @@ include $(EXISTING-DEPENDENCIES)
 endif
 
 # Rule used to copy over headers and correct include path's for the new location
-$(INCLUDE_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
+$(HEADER_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_MISC,$(BASENAME),$(subst $(HEADER_PATH)/,,$@))
 ifeq ($(OS_NAME), Darwin)
