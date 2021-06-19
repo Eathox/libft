@@ -10,19 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCDIR = src
-OUTDIR ?= build
+SRCDIR := src
 
-BASENAME = libft
+BASENAME := libft
 NAME = $(OUTDIR)/$(BASENAME).a
-TESTNAME = $(OUTDIR)/test-$(BASENAME)
+TEST_NAME = $(OUTDIR)/test-$(BASENAME)
+
+OS_NAME := $(shell uname -s)
 
 # Include target modules
 include make.mk
 
-CFLAGS += -g -MD
-CFLAGS += -Wall -Wextra -Werror
-CFLAGS += -Wpedantic -Wmissing-prototypes -Wmissing-noreturn
+CFLAGS ?= -Wall -Wextra -Werror -Wpedantic -Wmissing-prototypes \
+	-Wmissing-noreturn -MD
 
 GCOV ?= false
 
@@ -34,6 +34,7 @@ endif
 
 include makefile-mk/term.mk
 
+OUTDIR ?= build
 INCLUDE_PATH := $(OUTDIR)/include/ft
 REG_CACHE_PATH := $(OUTDIR)/cache/reg
 TEST_CACHE_PATH := $(OUTDIR)/cache/test
@@ -59,7 +60,7 @@ $(NAME): $(all-headers) $(all-objects)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
 	@ar rcs $@ $(all-objects)
 
-$(TESTNAME): $(all-headers) $(all-objects) $(all-tests)
+$(TEST_NAME): $(all-headers) $(all-objects) $(all-tests)
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_EQUAL,$(BASENAME),$@)
 	@$(CC) $(CFLAGS) -o $@ $(all-objects) $(all-tests) \
@@ -73,8 +74,8 @@ endef
 # Define the rules of every module
 $(foreach module,$(modules),$(eval $(call MODULE_RULE_TEMPLATE, $(module))))
 
-test: $(TESTNAME)
-	@$(TESTNAME)
+test: $(TEST_NAME)
+	@$(TEST_NAME)
 PHONY += test
 
 clean:
@@ -90,4 +91,3 @@ FORCE:
 PHONY += FORCE
 
 .PHONY: $(PHONY)
-.SECONDARY:
