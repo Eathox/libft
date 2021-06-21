@@ -18,9 +18,6 @@ TEST_NAME = $(OUTDIR)/test-$(BASENAME)
 
 OS_NAME := $(shell uname -s)
 
-# Include target modules
-include make.mk
-
 CFLAGS ?= -Wall -Wextra -Werror -Wpedantic -Wmissing-prototypes \
 	-Wmissing-noreturn -MD
 
@@ -39,6 +36,10 @@ HEADER_PATH := $(OUTDIR)/include/ft
 REG_CACHE_PATH := $(OUTDIR)/cache/reg
 TEST_CACHE_PATH := $(OUTDIR)/cache/test
 
+# Include target modules
+include make.mk
+all-modules := $(modules)
+
 all-libraries :=
 all-headers :=
 all-objects :=
@@ -49,8 +50,8 @@ define MODULE_IMPORT_TEMPLATE
 include makefile-mk/import.mk
 endef
 
-# Import each modules makefile specifying objects and tests
-$(foreach module,$(modules),$(eval $(call MODULE_IMPORT_TEMPLATE, $(module))))
+# Import each module's makefile specifying objects and tests
+$(foreach module,$(all-modules),$(eval $(call MODULE_IMPORT_TEMPLATE, $(module))))
 
 all: $(NAME)
 PHONY += all
@@ -72,7 +73,7 @@ include makefile-mk/module.mk
 endef
 
 # Define the rules of every module
-$(foreach module,$(modules),$(eval $(call MODULE_RULE_TEMPLATE, $(module))))
+$(foreach module,$(all-modules),$(eval $(call MODULE_RULE_TEMPLATE, $(module))))
 
 test: $(TEST_NAME)
 	@$(TEST_NAME)

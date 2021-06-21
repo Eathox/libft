@@ -15,7 +15,6 @@ modules += mem
 modules += char
 
 modules += math
-modules += math/float
 
 # modules += num
 
