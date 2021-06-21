@@ -21,6 +21,10 @@ endif
 $(HEADER_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
 	@mkdir -p $(dir $@)
 	@$(call FNC_PRINT_MISC,$(BASENAME),$(subst $(HEADER_PATH)/,,$@))
+# The header files are in the same directory as the source files. But as a
+# result the include paths are relative to how the src directory is structured
+# Once the header files get moved to the OUTDIR these paths are no longer valid
+# here for this regex replaces include statements formatted like "../name/name.h" to "name.h"
 ifeq ($(OS_NAME), Darwin)
 	@echo "Darwin regex not implemented"
 else
