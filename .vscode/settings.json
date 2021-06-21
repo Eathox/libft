@@ -1,14 +1,6 @@
 {
-	"files.exclude": {
-		// "**/*.o": true,
-		// "**/*.d": true,
-		// "**/*.gcno": true,
-		// "**/*.gcda": true,
-		// "**/*.gcov": true,
-	},
 	"files.associations": {
 		"*.h": "c",
-		"Makefile.*": "makefile",
 		"Makefile*": "makefile",
 	}
 }
