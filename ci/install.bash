@@ -28,8 +28,6 @@ function osx {
 }
 
 function general {
-	git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
-
 	pip install --upgrade pip setuptools
 	pip install cpp-coveralls
 }

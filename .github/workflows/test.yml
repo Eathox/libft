@@ -24,17 +24,11 @@ jobs:
       - name: Install dependencies
         run: bash ci/install.bash
 
-      - name: Create norm directory
-        run: ./tools/normify.py
-
-      - name: Norminette
-        run: bash ci/norm.bash
-
       - name: Compile
-        run: bash ci/compile.bash
+        run: make
 
       - name: Test
-        run: bash ci/test.bash
+        run: make test GCOV=true
 
       - name: Upload GCOV
         run: |

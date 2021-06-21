@@ -11,6 +11,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+# Deprecated: norm is no longer required
+
 import re
 import os
 import sys
