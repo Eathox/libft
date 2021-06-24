@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_overflow.c                                      :+:    :+:            */
+/*   ft_abs_float.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/07/23 14:12:31 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:17:15 by pholster      ########   odam.nl         */
+/*   Created: 2021/06/24 22:07:19 by pholster      #+#    #+#                 */
+/*   Updated: 2021/06/24 22:07:19 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "float.h"
 
-float128_t ft_overflow(
-	float128_t value,
-	float128_t min,
-	float128_t max
+float128_t ft_abs_float(
+	float128_t num
 ) {
-	if (value < min)
-		return (ft_overflow(max + (value - min), min, max));
-	if (value >= max)
-		return (ft_overflow((value + min) - max, min, max));
-	return (value);
+	return (fabsl(num));
 }

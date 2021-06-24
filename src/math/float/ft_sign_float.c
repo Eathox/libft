@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_clamp.c                                         :+:    :+:            */
+/*   ft_sign_float.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/06/02 13:40:29 by pholster      #+#    #+#                 */
-/*   Updated: 2020/06/02 13:40:29 by pholster      ########   odam.nl         */
+/*   Created: 2020/08/13 17:26:34 by pholster      #+#    #+#                 */
+/*   Updated: 2020/08/13 17:26:34 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+
 #include "float.h"
 
-float128_t ft_clamp(
-	float128_t value,
-	float128_t min,
-	float128_t max
+float128_t ft_sign_float(
+	float128_t num
 ) {
-	if (value < min)
-		return (min);
-	if (value > max)
-		return (max);
-	return (value);
+	if (num == INFINITY)
+		return (INFINITY);
+	else if (num > 0.0)
+		return (1.0);
+	else if (num < 0.0)
+		return (-1.0);
+	return (num);
 }

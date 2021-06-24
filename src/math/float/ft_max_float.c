@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_sign.c                                          :+:    :+:            */
+/*   ft_max_float.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/13 17:26:34 by pholster      #+#    #+#                 */
-/*   Updated: 2020/08/13 17:26:34 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/19 12:40:13 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 21:15:22 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-
 #include "float.h"
 
-float128_t ft_sign(
-	float128_t num
+float128_t ft_max_float(
+	float128_t num1,
+	float128_t num2
 ) {
-	if (num == INFINITY)
-		return (INFINITY);
-	else if (num > 0.0)
-		return (1.0);
-	else if (num < 0.0)
-		return (-1.0);
-	return (num);
+	if (num1 > num2)
+		return (num1);
+	return (num2);
 }
