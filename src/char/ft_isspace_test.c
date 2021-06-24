@@ -21,11 +21,10 @@
 #define STEP 1
 
 Test(ft_isspace, general) {
-	size_t const	step = STEP;
-	int				expected;
+	size_t const step = STEP;
+	int expected;
 
-	for (char c = 0x0; c < MAX; c += step)
-	{
+	for (char c = 0x0; c < MAX; c += step) {
 		expected = isspace(c);
 		if (expected != 0)
 			expected = true;

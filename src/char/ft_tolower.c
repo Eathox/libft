@@ -15,7 +15,7 @@
 /*
 ** * If c is an uppercase letter return its lowercase equivalent
 */
-char		ft_tolower(
+char ft_tolower(
 	char c
 ) {
 	if (c >= 'A' && c <= 'Z')

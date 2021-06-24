@@ -25,7 +25,7 @@ Test(ft_memdel, null) {
 }
 
 Test(ft_memdel, null_content) {
-	void	*mem;
+	void *mem;
 
 	mem = NULL;
 	ft_memdel(&mem);
@@ -33,7 +33,7 @@ Test(ft_memdel, null_content) {
 }
 
 Test(ft_memdel, memory) {
-	void	*mem;
+	void *mem;
 
 	mem = malloc(LEN);
 	cr_expect_neq(mem, NULL);
@@ -43,7 +43,7 @@ Test(ft_memdel, memory) {
 }
 
 Test(ft_memdel, stack, .signal = SIGABRT) {
-	t_uint8	mem[LEN];
+	t_uint8 mem[LEN];
 
 	cr_redirect_stderr();
 	ft_memdel((void**)&mem);

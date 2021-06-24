@@ -21,21 +21,17 @@
 ** * This function does not handle memory area overlap
 ** * Returns a pointer to the next byte in dst after c or NULL if c wasent found
 */
-void		*ft_memccpy(
+void *ft_memccpy(
 	void *dst,
 	void const *src,
 	t_uint8 c,
 	size_t len
 ) {
-	size_t			i;
-	t_uint8			*dst_byte;
-	t_uint8	const	*src_byte;
+	t_uint8 const *src_byte = src;
+	t_uint8 *dst_byte = dst;
 
-	i = 0;
-	dst_byte = dst;
-	src_byte = src;
-	while (i < len)
-	{
+	size_t i = 0;
+	while (i < len) {
 		dst_byte[i] = src_byte[i];
 		if (src_byte[i] == c)
 			return (&dst_byte[i + 1]);

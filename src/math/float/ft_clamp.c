@@ -12,10 +12,10 @@
 
 #include "float.h"
 
-long double	ft_clamp(
-	long double value,
-	long double max,
-	long double min
+t_float128 ft_clamp(
+	t_float128 value,
+	t_float128 min,
+	t_float128 max
 ) {
 	if (value < min)
 		return (min);

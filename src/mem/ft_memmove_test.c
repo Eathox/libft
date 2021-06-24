@@ -22,7 +22,7 @@
 #define MAX CHAR_MAX
 
 ParameterizedTestParameters(ft_memmove, allign) {
-	static size_t	lengths[] = {
+	static size_t lengths[] = {
 		7,
 		8,
 		9,
@@ -39,9 +39,9 @@ ParameterizedTestParameters(ft_memmove, allign) {
 }
 
 ParameterizedTest(size_t *len, ft_memmove, allign) {
-	t_uint8 	result[*len];
-	t_uint8 	expected[*len];
-	void		*return_ptr;
+	t_uint8 result[*len];
+	t_uint8 expected[*len];
+	void *return_ptr;
 
 	bzero(result, *len);
 	memset(expected, UCHAR_MAX, *len);
@@ -52,13 +52,12 @@ ParameterizedTest(size_t *len, ft_memmove, allign) {
 }
 
 Test(ft_memmove, general) {
-	size_t const	step = STEP;
-	t_uint8			*result;
-	t_uint8			*expected;
-	void			*return_ptr;
+	size_t const step = STEP;
+	t_uint8 *result;
+	t_uint8 *expected;
+	void *return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		result = calloc(len, sizeof(*result));
 		expected = calloc(len, sizeof(*expected));
 
@@ -77,10 +76,10 @@ Test(ft_memmove, general) {
 }
 
 Test(ft_memmove, overlap) {
-	size_t	const	len = 3;
-	t_uint8 		result[] = {UCHAR_MAX, 0x0, UCHAR_MAX};
-	t_uint8 		expected[] = {0x0, UCHAR_MAX, UCHAR_MAX};
-	void			*return_ptr;
+	size_t const len = 3;
+	t_uint8 result[] = {UCHAR_MAX, 0x0, UCHAR_MAX};
+	t_uint8 expected[] = {0x0, UCHAR_MAX, UCHAR_MAX};
+	void *return_ptr;
 
 	return_ptr = ft_memmove(&result, &result[1], 2);
 	cr_assert_arr_eq(result, expected, len);

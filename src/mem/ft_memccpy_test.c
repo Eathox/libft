@@ -24,7 +24,7 @@
 #define ALIGN_SIZE 128
 
 ParameterizedTestParameters(ft_memccpy, allign) {
-	static size_t	indexes[] = {
+	static size_t indexes[] = {
 		7,
 		8,
 		9,
@@ -41,11 +41,11 @@ ParameterizedTestParameters(ft_memccpy, allign) {
 }
 
 ParameterizedTest(size_t *index, ft_memccpy, allign) {
-	t_uint8 const	c = 0x7F;
-	size_t const	size = ALIGN_SIZE;
-	t_uint8 		result[ALIGN_SIZE];
-	t_uint8 		expected[ALIGN_SIZE];
-	void			*return_ptr;
+	t_uint8 const c = 0x7F;
+	size_t const size = ALIGN_SIZE;
+	t_uint8 result[ALIGN_SIZE];
+	t_uint8 expected[ALIGN_SIZE];
+	void *return_ptr;
 
 	bzero(result, size);
 	bzero(expected, size);
@@ -59,18 +59,17 @@ ParameterizedTest(size_t *index, ft_memccpy, allign) {
 }
 
 Test(ft_memccpy, general) {
-	t_uint8 const	c = 0x7F;
-	size_t const	step = STEP;
-	size_t const	size = MAX;
-	t_uint8			*result = calloc(size, sizeof(*result));
-	t_uint8			*expected = calloc(size, sizeof(*expected));
-	void			*return_ptr;
+	t_uint8 const c = 0x7F;
+	size_t const step = STEP;
+	size_t const size = MAX;
+	t_uint8 *result = calloc(size, sizeof(*result));
+	t_uint8 *expected = calloc(size, sizeof(*expected));
+	void *return_ptr;
 
 	cr_expect_neq(result, NULL);
 	cr_expect_neq(expected, NULL);
 
-	for (size_t index = 1; index < size; index += step)
-	{
+	for (size_t index = 1; index < size; index += step) {
 		expected[index - 1] = c;
 		memset(expected, UCHAR_MAX, index - 1);
 

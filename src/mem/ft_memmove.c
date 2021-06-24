@@ -16,7 +16,7 @@
 ** * Copy len amount of bytes from src to dst memory area overlap is handled
 ** * Returns dst
 */
-void	*ft_memmove(
+void *ft_memmove(
 	void *dst,
 	void const *src,
 	size_t len

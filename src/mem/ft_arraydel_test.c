@@ -27,20 +27,19 @@ static void compare(
 	size_t len,
 	t_uint8 c
 ) {
-	t_uint8	expected[MEMBER_SIZE];
+	t_uint8 expected[MEMBER_SIZE];
 
 	memset(expected, c, MEMBER_SIZE);
 	for (size_t i = 0; i < (len - 1); i++)
 		cr_assert_arr_eq(array[i], expected, MEMBER_SIZE, "%02X", c);
 }
 
-static void	fill_array(
+static void fill_array(
 	t_uint8 **array,
 	size_t len
 ) {
 	array[len - 1] = NULL;
-	for (size_t i = 0; i < (len - 1); i++)
-	{
+	for (size_t i = 0; i < (len - 1); i++) {
 		array[i] = malloc(MEMBER_SIZE);
 		cr_expect_neq(array[i], NULL);
 
@@ -48,19 +47,18 @@ static void	fill_array(
 	}
 }
 
-static void	empty_member(
+static void empty_member(
 	void **member
 ) {
 	bzero(*member, MEMBER_SIZE);
 }
 
 Test(ft_arraydel, null_function) {
-	size_t const	step = STEP;
-	t_uint8 		**array;
-	t_uint8 		**cpy;
+	size_t const step = STEP;
+	t_uint8 **array;
+	t_uint8 **cpy;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		array = calloc(len, sizeof(t_uint8*));
 		cpy = calloc(len, sizeof(t_uint8*));
 
@@ -79,12 +77,11 @@ Test(ft_arraydel, null_function) {
 }
 
 Test(ft_arraydel, general) {
-	size_t const	step = STEP;
-	t_uint8 		**array;
-	t_uint8 		**cpy;
+	size_t const step = STEP;
+	t_uint8 **array;
+	t_uint8 **cpy;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		array = calloc(len, sizeof(t_uint8*));
 		cpy = calloc(len, sizeof(t_uint8*));
 
@@ -107,7 +104,7 @@ Test(ft_arraydel, null) {
 }
 
 Test(ft_arraydel, null_content) {
-	void	**array;
+	void **array;
 
 	array = NULL;
 	ft_arraydel(&array, &ft_memdel);

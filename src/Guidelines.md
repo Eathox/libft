@@ -20,6 +20,8 @@ Keep struct arguments pointers to avoid copy overhead
 
 #### Function Name Syntax
 
+Function names should be a verb/action
+
 `<action>_<target>_<addition>`
 
 Prefix the function name with `ft_` if its a public function
@@ -27,10 +29,8 @@ Keep it one public function per file and give the file the same name as the publ
 
 **Examples:**
 
-`ft_join_ttasks`
-`ft_join_ttasks_all`
-`ft_new_serialize`
-`correct_serialize_endian`
+`ft_join_pool_tasks`
+`ft_new_serializer`
 
 #### Function Definition/Prototype Syntax
 

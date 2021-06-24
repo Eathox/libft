@@ -10,106 +10,103 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MEM_H
-# define FT_MEM_H
+#pragma once
 
-# include <sys/types.h>
+#include <sys/types.h>
 
-# include "../types/types.h"
+#include "../types/types.h"
 
-void		*ft_calloc(
+void *ft_calloc(
 	size_t count,
 	size_t size
 );
 
-void		*ft_memalloc(
+void *ft_memalloc(
 	size_t size
 );
 
-void		ft_arraydel(
+void ft_arraydel(
 	void ***array,
 	void (*del)(void**)
 );
 
-void		ft_memdel(
+void ft_memdel(
 	void **adr
 );
 
-void		*ft_bzero(
+void *ft_bzero(
 	void *mem,
 	size_t len
 );
 
-void		*ft_memset(
+void *ft_memset(
 	void *mem,
 	t_uint8 c,
 	size_t len
 );
 
-void		*ft_memset4(
+void *ft_memset4(
 	void *mem,
 	t_uint32 c,
 	size_t len
 );
 
-void		*ft_memrev(
+void *ft_memrev(
 	void *mem,
 	size_t len
 );
 
-void		*ft_memchr(
+void *ft_memchr(
 	void const *mem,
 	t_uint8 c,
 	size_t len
 );
 
-void		*ft_memrchr(
+void *ft_memrchr(
 	void const *mem,
 	t_uint8 c,
 	size_t len
 );
 
-void		*ft_memmem(
+void *ft_memmem(
 	void const *mem,
 	size_t mem_len,
 	void const *needle,
 	size_t needle_len
 );
 
-int			ft_memcmp(
+int ft_memcmp(
 	void const *mem1,
 	void const *mem2,
 	size_t len
 );
 
-void		*ft_memcpy(
+void *ft_memcpy(
 	void *dst,
 	void const *src,
 	size_t len
 );
 
-void		*ft_memccpy(
+void *ft_memccpy(
 	void *dst,
 	void const *src,
 	t_uint8 c,
 	size_t len
 );
 
-void		*ft_memrcpy(
+void *ft_memrcpy(
 	void *dst,
 	void const *src,
 	size_t len
 );
 
-void		*ft_memmove(
+void *ft_memmove(
 	void *dst,
 	void const *src,
 	size_t len
 );
 
-void		*ft_memdup(
+void *ft_memdup(
 	void const *mem,
 	size_t len
 );
-
-#endif

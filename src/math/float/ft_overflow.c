@@ -12,10 +12,10 @@
 
 #include "float.h"
 
-long double	ft_overflow(
-	long double value,
-	long double max,
-	long double min
+t_float128 ft_overflow(
+	t_float128 value,
+	t_float128 min,
+	t_float128 max
 ) {
 	if (value < min)
 		return (ft_overflow(max + (value - min), min, max));

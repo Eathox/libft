@@ -10,74 +10,71 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CHAR_H
-# define FT_CHAR_H
+#pragma once
 
-# include <stdlib.h>
-# include <stdbool.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-bool		ft_isalnum(
+bool ft_isalnum(
 	char c
 );
 
-bool		ft_isalpha(
+bool ft_isalpha(
 	char c
 );
 
-bool		ft_isascii(
+bool ft_isascii(
 	char c
 );
 
-bool		ft_isbinary(
+bool ft_isbinary(
 	char c
 );
 
-bool		ft_isblank(
+bool ft_isblank(
 	char c
 );
 
-bool		ft_iscntrl(
+bool ft_iscntrl(
 	char c
 );
 
-bool		ft_isdigit(
+bool ft_isdigit(
 	char c
 );
 
-bool		ft_isgraph(
+bool ft_isgraph(
 	char c
 );
 
-bool		ft_ishex(
+bool ft_ishex(
 	char c
 );
 
-bool		ft_islower(
+bool ft_islower(
 	char c
 );
 
-bool		ft_isoctal(
+bool ft_isoctal(
 	char c
 );
 
-bool		ft_isprint(
+bool ft_isprint(
 	char c
 );
 
-bool		ft_isspace(
+bool ft_isspace(
 	char c
 );
 
-bool		ft_isupper(
+bool ft_isupper(
 	char c
 );
 
-char		ft_tolower(
+char ft_tolower(
 	char c
 );
 
-char		ft_toupper(
+char ft_toupper(
 	char c
 );
-
-#endif

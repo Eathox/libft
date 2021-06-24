@@ -15,7 +15,7 @@
 /*
 ** * Checks if c is a printable character excluding space
 */
-bool		ft_isgraph(
+bool ft_isgraph(
 	char c
 ) {
 	return (c >= '!' && c <= '~');

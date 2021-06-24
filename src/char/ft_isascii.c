@@ -15,7 +15,7 @@
 /*
 ** * Checks if c fits inside the ascii character set
 */
-bool		ft_isascii(
+bool ft_isascii(
 	char c
 ) {
 	return (c >= '\0');

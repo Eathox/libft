@@ -18,20 +18,16 @@
 ** * This function does not handle memory area overlap use ft_memmove instead
 ** * Returns dst
 */
-void		*ft_memrcpy(
+void *ft_memrcpy(
 	void *dst,
 	void const *src,
 	size_t len
 ) {
-	size_t			i;
-	t_uint8			*dst_byte;
-	t_uint8	const	*src_byte;
+	t_uint8 const *src_byte = src;
+	t_uint8 *dst_byte = dst;
 
-	i = len;
-	dst_byte = dst;
-	src_byte = src;
-	while (i > 0)
-	{
+	size_t i = len;
+	while (i > 0) {
 		i--;
 		dst_byte[i] = src_byte[i];
 	}

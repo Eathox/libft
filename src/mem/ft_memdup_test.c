@@ -22,7 +22,7 @@
 #define MAX CHAR_MAX
 
 ParameterizedTestParameters(ft_memdup, allign) {
-	static size_t	lengths[] = {
+	static size_t lengths[] = {
 		7,
 		8,
 		9,
@@ -39,8 +39,8 @@ ParameterizedTestParameters(ft_memdup, allign) {
 }
 
 ParameterizedTest(size_t *len, ft_memdup, allign) {
-	t_uint8 	*result;
-	t_uint8 	expected[*len];
+	t_uint8 *result;
+	t_uint8 expected[*len];
 
 	memset(expected, UCHAR_MAX, *len);
 
@@ -51,12 +51,11 @@ ParameterizedTest(size_t *len, ft_memdup, allign) {
 }
 
 Test(ft_memdup, general) {
-	size_t const	step = STEP;
-	t_uint8			*result;
-	t_uint8			*expected;
+	size_t const step = STEP;
+	t_uint8 *result;
+	t_uint8 *expected;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		expected = calloc(len, sizeof(*expected));
 		cr_expect_neq(expected, NULL);
 
@@ -71,8 +70,8 @@ Test(ft_memdup, general) {
 }
 
 Test(ft_memdup, zero) {
-	size_t const	len = 0;
-	t_uint8			*result;
+	size_t const len = 0;
+	t_uint8 *result;
 
 	result = ft_memdup(NULL, len);
 	cr_assert_eq(result, NULL);

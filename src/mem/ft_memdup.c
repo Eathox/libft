@@ -19,15 +19,14 @@
 ** * Duplicates len amount of bytes from mem
 ** * Returns NULL if the allocation of the duplicate failed or if len is 0
 */
-void		*ft_memdup(
+void *ft_memdup(
 	void const *mem,
 	size_t len
 ) {
-	void	*dup;
-
 	if (len == 0)
 		return (NULL);
-	dup = malloc(len);
+
+	void *dup = malloc(len);
 	if (dup == NULL)
 		return (NULL);
 	ft_memcpy(dup, mem, len);

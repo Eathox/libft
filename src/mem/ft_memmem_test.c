@@ -26,16 +26,16 @@
 
 #define SINGLE_SIZE (sizeof(t_uint8) * 1)
 
-typedef struct	s_param
+typedef struct s_param
 {
-	t_uint32	mem;
-	t_uint32	needle;
-	size_t		needle_pos;
-	bool		insert_needle;
-}				t_param;
+	t_uint32 mem;
+	t_uint32 needle;
+	size_t needle_pos;
+	bool insert_needle;
+} t_param;
 
 ParameterizedTestParameters(ft_memmem, general) {
-	static t_param 	params[] = {
+	static t_param params[] = {
 		{0x0, 0x0, 0, false},
 		{0xFFFFFFFF, 0xFFFFFFFF, 0, false},
 		{0xFF00FF00, 0x00FF00FF, 1, false},
@@ -44,16 +44,16 @@ ParameterizedTestParameters(ft_memmem, general) {
 		{0xFFFFFFFF, 0xF0F0F0F0, ALIGN_SIZE - sizeof(t_uint32), true},
 	};
 
-	size_t const	count = sizeof(params) / sizeof(*params);
+	size_t const count = sizeof(params) / sizeof(*params);
 	return cr_make_param_array(t_param, params, count);
 }
 
 ParameterizedTest(t_param *param, ft_memmem, general) {
-	size_t const	size = ALIGN_SIZE;
-	size_t const	needle_len = sizeof(param->needle);
-	t_uint8			*mem_byte = calloc(size, sizeof(*mem_byte));
-	t_uint8			*needle_byte = calloc(needle_len, sizeof(*needle_byte));
-	t_uint8			*result;
+	size_t const size = ALIGN_SIZE;
+	size_t const needle_len = sizeof(param->needle);
+	t_uint8 *mem_byte = calloc(size, sizeof(*mem_byte));
+	t_uint8 *needle_byte = calloc(needle_len, sizeof(*needle_byte));
+	t_uint8 *result;
 
 	cr_expect_neq(mem_byte, NULL);
 	cr_expect_neq(needle_byte, NULL);
@@ -71,10 +71,10 @@ ParameterizedTest(t_param *param, ft_memmem, general) {
 }
 
 Test(ft_memmem, not_found) {
-	size_t const	len = SINGLE_SIZE;
-	t_uint8 		mem_byte[SINGLE_SIZE];
-	t_uint8 		needle_byte[SINGLE_SIZE];
-	t_uint8			*result;
+	size_t const len = SINGLE_SIZE;
+	t_uint8 mem_byte[SINGLE_SIZE];
+	t_uint8 needle_byte[SINGLE_SIZE];
+	t_uint8 *result;
 
 	bzero(mem_byte, len);
 	memset(needle_byte, UCHAR_MAX, len);
@@ -84,9 +84,9 @@ Test(ft_memmem, not_found) {
 }
 
 Test(ft_memmem, needle_to_long) {
-	size_t const	len = SINGLE_SIZE;
-	t_uint8 		mem_byte[SINGLE_SIZE];
-	t_uint8			*result;
+	size_t const len = SINGLE_SIZE;
+	t_uint8 mem_byte[SINGLE_SIZE];
+	t_uint8 *result;
 
 	bzero(mem_byte, len);
 
@@ -95,9 +95,9 @@ Test(ft_memmem, needle_to_long) {
 }
 
 Test(ft_memmem, zero_length) {
-	size_t const	len = SINGLE_SIZE;
-	t_uint8 		mem_byte[SINGLE_SIZE];
-	t_uint8			*result;
+	size_t const len = SINGLE_SIZE;
+	t_uint8 mem_byte[SINGLE_SIZE];
+	t_uint8 *result;
 
 	result = ft_memmem(mem_byte, len, NULL, 0);
 	cr_assert_eq(result, mem_byte);

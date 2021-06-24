@@ -15,7 +15,7 @@
 /*
 ** * If c is an lowercase letter return its uppercase equivalent
 */
-char		ft_toupper(
+char ft_toupper(
 	char c
 ) {
 	if (c >= 'a' && c <= 'z')

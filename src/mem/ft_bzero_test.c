@@ -23,7 +23,7 @@
 #define MAX CHAR_MAX
 
 ParameterizedTestParameters(ft_bzero, allign) {
-	static size_t	lengths[] = {
+	static size_t lengths[] = {
 		7,
 		8,
 		9,
@@ -40,9 +40,9 @@ ParameterizedTestParameters(ft_bzero, allign) {
 }
 
 ParameterizedTest(size_t *len, ft_bzero, allign) {
-	t_uint32 		result[*len];
-	t_uint8 		expected[*len];
-	void			*return_ptr;
+	t_uint32 result[*len];
+	t_uint8 expected[*len];
+	void *return_ptr;
 
 	bzero(expected, *len);
 	return_ptr = ft_bzero(result, *len);
@@ -51,13 +51,12 @@ ParameterizedTest(size_t *len, ft_bzero, allign) {
 }
 
 Test(ft_bzero, general) {
-	size_t const	step = STEP;
-	t_uint8			*result;
-	t_uint8			*expected;
-	void			*return_ptr;
+	size_t const step = STEP;
+	t_uint8 *result;
+	t_uint8 *expected;
+	void *return_ptr;
 
-	for (size_t len = 1; len < MAX; len += step)
-	{
+	for (size_t len = 1; len < MAX; len += step) {
 		result = calloc(len, sizeof(t_uint8));
 		expected = calloc(len, sizeof(t_uint8));
 

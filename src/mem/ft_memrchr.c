@@ -19,18 +19,15 @@
 ** * Searches len amount of bytes in mem for the last instance of c
 ** * Returns NULL if no instacne of c was found
 */
-void		*ft_memrchr(
+void *ft_memrchr(
 	void const *mem,
 	t_uint8 c,
 	size_t len
 ) {
-	size_t			i;
-	t_uint8 const	*mem_byte;
+	t_uint8 const *mem_byte = mem;
 
-	i = len;
-	mem_byte = mem;
-	while (i > 0)
-	{
+	size_t i = len;
+	while (i > 0) {
 		i--;
 		if (mem_byte[i] == c)
 			return ((void *)(mem_byte + i));

@@ -17,7 +17,6 @@
 /*
 ** * Signed
 */
-
 Test(types, t_int8_size) {
 	cr_assert_eq(sizeof(t_int8), 1);
 }
@@ -37,7 +36,6 @@ Test(types, t_int64_size) {
 /*
 ** * Unsigned
 */
-
 Test(types, t_uint8_size) {
 	cr_assert_eq(sizeof(t_uint8), 1);
 }
@@ -57,7 +55,6 @@ Test(types, t_uint64_size) {
 /*
 ** * Float
 */
-
 Test(types, t_float32_size) {
 	cr_assert_eq(sizeof(t_float32), 4);
 }

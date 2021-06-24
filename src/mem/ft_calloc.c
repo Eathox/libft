@@ -20,19 +20,17 @@
 ** * Returns NULL if the allocation failed or if the given values would overflow
 ** * If size, count or both are 0 it also returns NULL
 */
-void	*ft_calloc(
+void *ft_calloc(
 	size_t count,
 	size_t size
 ) {
-	void	*mem;
-	size_t	final_size;
-
 	if (count == 0 || size == 0)
 		return (NULL);
 	if (size > (SIZE_MAX / count))
 		return (NULL);
-	final_size = size * count;
-	mem = malloc(final_size);
+
+	size_t final_size = size * count;
+	void *mem = malloc(final_size);
 	if (mem == NULL)
 		return (NULL);
 	ft_bzero(mem, final_size);

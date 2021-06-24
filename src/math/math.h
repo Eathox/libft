@@ -10,10 +10,4 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_NUM_H
-# define FT_NUM_H
-
-# include "math/float.h"
-# include "math/int.h"
-
-#endif
+#pragma once

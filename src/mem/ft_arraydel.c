@@ -14,15 +14,12 @@
 
 #include "mem.h"
 
-static void	free_members(
+static void free_members(
 	void **array,
 	void (*del)(void**)
 ) {
-	size_t	i;
-
-	i = 0;
-	while (array[i] != NULL)
-	{
+	size_t i = 0;
+	while (array[i] != NULL) {
 		del(&array[i]);
 		i++;
 	}
@@ -32,12 +29,13 @@ static void	free_members(
 ** * Frees NULL terminated array and all its members using the function del
 ** * If the function del is NULL only the array is deleted
 */
-void		ft_arraydel(
+void ft_arraydel(
 	void ***array,
 	void (*del)(void**)
 ) {
 	if (array == NULL || *array == NULL)
 		return ;
+
 	if (del != NULL)
 		free_members(*array, del);
 	ft_memdel((void**)array);

@@ -10,41 +10,44 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FLOAT_H
-# define FT_FLOAT_H
+#pragma once
 
-long double	ft_max(
-	long double num1,
-	long double num2
+#include "../../types/types.h"
+
+t_float128 ft_max(
+	t_float128 num1,
+	t_float128 num2
 );
 
-long double	ft_min(
-	long double num1,
-	long double num2
+t_float128 ft_min(
+	t_float128 num1,
+	t_float128 num2
 );
 
-long double	ft_clamp(
-	long double value,
-	long double max,
-	long double min
+t_float128 ft_clamp(
+	t_float128 value,
+	t_float128 min,
+	t_float128 max
 );
 
-long double	ft_overflow(
-	long double value,
-	long double max,
-	long double min
+t_float128 ft_overflow(
+	t_float128 value,
+	t_float128 min,
+	t_float128 max
 );
 
-long double	ft_normalize(
-	long double value,
-	long double const *range,
-	long double const *outrange
+t_float128 ft_normalize(
+	t_float128 value,
+	t_float128 const *range,
+	t_float128 const *outrange
 );
 
-long double	ft_nearestnum(
-	long double value,
-	long double num1,
-	long double num2
+t_float128 ft_nearestnum(
+	t_float128 value,
+	t_float128 num1,
+	t_float128 num2
 );
 
-#endif
+t_float128 ft_sign(
+	t_float128 num
+);
