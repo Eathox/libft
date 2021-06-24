@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_inrange.c                                       :+:    :+:            */
+/*   ft_itoa.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/19 12:42:00 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:14:55 by pholster      ########   odam.nl         */
+/*   Created: 2019/01/10 13:42:13 by pholster      #+#    #+#                 */
+/*   Updated: 2019/08/21 20:41:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "num.h"
 
-bool	ft_inrange(intmax_t value, intmax_t min, intmax_t max) {
-	if (value < min || value > max)
-		return (false);
-	return (true);
+char	*ft_itoa(intmax_t value) {
+	return (ft_itoa_base(value, 10));
 }

@@ -1,17 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
+/*   ft_itoa_base.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pholster <pholster@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 13:42:13 by pholster      #+#    #+#                 */
+/*   Created: 2019/02/03 14:52:39 by pholster      #+#    #+#                 */
 /*   Updated: 2019/08/21 20:41:50 by pholster      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft/str.h"
+
 #include "num.h"
 
-char	*ft_itoa(intmax_t value) {
-	return (ft_itoa_cbase(value, 10, true));
+char	*ft_itoa_base(intmax_t value, int base) {
+	uintmax_t	num;
+	size_t		len;
+	char		*base_str;
+	char		*str;
+
+	num = (value < 0 && base == 10) ? -value : value;
+	len = ft_numlen_base(value, base);
+	if (base < 2 || base > 36)
+		return (NULL);
+	str = ft_strnew(len);
+	if (str == NULL)
+		return (NULL);
+	base_str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	while ((len - (value < 0 && base == 10)) != 0)
+	{
+		str[len - 1] = base_str[(num % base)];
+		num = num / base;
+		len--;
+	}
+	if (value < 0 && base == 10)
+		str[0] = '-';
+	return (str);
 }
