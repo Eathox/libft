@@ -41,10 +41,10 @@ ParameterizedTestParameters(ft_memccpy, allign) {
 }
 
 ParameterizedTest(size_t *index, ft_memccpy, allign) {
-	t_uint8 const c = 0x7F;
+	uint8_t const c = 0x7F;
 	size_t const size = ALIGN_SIZE;
-	t_uint8 result[ALIGN_SIZE];
-	t_uint8 expected[ALIGN_SIZE];
+	uint8_t result[ALIGN_SIZE];
+	uint8_t expected[ALIGN_SIZE];
 	void *return_ptr;
 
 	bzero(result, size);
@@ -59,11 +59,11 @@ ParameterizedTest(size_t *index, ft_memccpy, allign) {
 }
 
 Test(ft_memccpy, general) {
-	t_uint8 const c = 0x7F;
+	uint8_t const c = 0x7F;
 	size_t const step = STEP;
 	size_t const size = MAX;
-	t_uint8 *result = calloc(size, sizeof(*result));
-	t_uint8 *expected = calloc(size, sizeof(*expected));
+	uint8_t *result = calloc(size, sizeof(*result));
+	uint8_t *expected = calloc(size, sizeof(*expected));
 	void *return_ptr;
 
 	cr_expect_neq(result, NULL);

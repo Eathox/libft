@@ -39,8 +39,8 @@ ParameterizedTestParameters(ft_memcpy, allign) {
 }
 
 ParameterizedTest(size_t *len, ft_memcpy, allign) {
-	t_uint8 result[*len];
-	t_uint8 expected[*len];
+	uint8_t result[*len];
+	uint8_t expected[*len];
 	void *return_ptr;
 
 	bzero(result, *len);
@@ -53,8 +53,8 @@ ParameterizedTest(size_t *len, ft_memcpy, allign) {
 
 Test(ft_memcpy, general) {
 	size_t const step = STEP;
-	t_uint8 *result;
-	t_uint8 *expected;
+	uint8_t *result;
+	uint8_t *expected;
 	void *return_ptr;
 
 	for (size_t len = 1; len < MAX; len += step) {
@@ -77,8 +77,8 @@ Test(ft_memcpy, general) {
 
 Test(ft_memcpy, overlap) {
 	size_t const len = 3;
-	t_uint8 result[] = {UCHAR_MAX, 0x0, UCHAR_MAX};
-	t_uint8 expected[] = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
+	uint8_t result[] = {UCHAR_MAX, 0x0, UCHAR_MAX};
+	uint8_t expected[] = {UCHAR_MAX, UCHAR_MAX, UCHAR_MAX};
 	void *return_ptr;
 
 	return_ptr = ft_memcpy(&result[1], &result, 2);

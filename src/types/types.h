@@ -15,47 +15,39 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef int8_t t_int8;
-typedef int16_t t_int16;
-typedef int32_t t_int32;
-typedef int64_t t_int64;
-typedef uint8_t t_uint8;
-typedef uint16_t t_uint16;
-typedef uint32_t t_uint32;
-typedef uint64_t t_uint64;
-typedef float t_float32;
-typedef double t_float64;
-typedef long double t_float128;
+typedef float float32_t;
+typedef double float64_t;
+typedef long double float128_t;
 
 /*
 ** * Union used to read any type 1 byte at an time using the 'mem_byte' field
 ** * Or treat data as if it was a different type with out type-casting
 */
-typedef union u_convert {
-	t_int8 int8;
-	t_int8 *int8_ptr;
-	t_int16 int16;
-	t_int16 *int16_ptr;
-	t_int32 int32;
-	t_int32 *int32_ptr;
-	t_int64 int64;
-	t_int64 *int64_ptr;
-	t_uint8 uint8;
-	t_uint8 *uint8_ptr;
-	t_uint16 uint16;
-	t_uint16 *uint16_ptr;
-	t_uint32 uint32;
-	t_uint32 *uint32_ptr;
-	t_uint64 uint64;
-	t_uint64 *uint64_ptr;
-	t_float32 float32;
-	t_float32 *float32_ptr;
-	t_float64 float64;
-	t_float64 *float64_ptr;
-	t_float128 float128;
-	t_float128 *float128_ptr;
+typedef union convert_u {
+	int8_t int8;
+	int8_t *int8_ptr;
+	int16_t int16;
+	int16_t *int16_ptr;
+	int32_t int32;
+	int32_t *int32_ptr;
+	int64_t int64;
+	int64_t *int64_ptr;
+	uint8_t uint8;
+	uint8_t *uint8_ptr;
+	uint16_t uint16;
+	uint16_t *uint16_ptr;
+	uint32_t uint32;
+	uint32_t *uint32_ptr;
+	uint64_t uint64;
+	uint64_t *uint64_ptr;
+	float32_t float32;
+	float32_t *float32_ptr;
+	float64_t float64;
+	float64_t *float64_ptr;
+	float128_t float128;
+	float128_t *float128_ptr;
 	bool boolean;
 	bool *boolean_ptr;
 	void *mem;
-	t_uint8 *mem_byte;
-} t_convert;
+	uint8_t *mem_byte;
+} convert_t;

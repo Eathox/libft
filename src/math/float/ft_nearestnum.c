@@ -14,13 +14,13 @@
 
 #include "float.h"
 
-t_float128 ft_nearestnum(
-	t_float128 value,
-	t_float128 num1,
-	t_float128 num2
+float128_t ft_nearestnum(
+	float128_t value,
+	float128_t num1,
+	float128_t num2
 ) {
-	long double const num1_distance = fabsl(num1 - value);
-	long double const num2_distance = fabsl(num2 - value);
+	float128_t const num1_distance = fabsl(num1 - value);
+	float128_t const num2_distance = fabsl(num2 - value);
 
 	if (num2_distance < num1_distance)
 		return (num2);

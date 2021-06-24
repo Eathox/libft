@@ -20,7 +20,7 @@
 #define STEP 0x1
 #define MAX CHAR_MAX
 
-#define CHARACTER_SIZE (sizeof(t_uint8) * 1)
+#define CHARACTER_SIZE (sizeof(uint8_t) * 1)
 #define CHARACTER_MAX UCHAR_MAX
 #define CHARACTER_STEP 0x1
 
@@ -36,8 +36,8 @@ static int get_sing(
 
 Test(ft_memcmp, general) {
 	size_t const step = STEP;
-	t_uint8 *mem1_byte;
-	t_uint8 *mem2_byte;
+	uint8_t *mem1_byte;
+	uint8_t *mem2_byte;
 	int expected;
 	int result;
 
@@ -66,12 +66,12 @@ Test(ft_memcmp, character) {
 	size_t const len = CHARACTER_SIZE;
 	size_t const step = CHARACTER_STEP;
 	size_t const count = CHARACTER_MAX / step;
-	t_uint8 mem1_byte[CHARACTER_SIZE];
-	t_uint8 mem2_byte[CHARACTER_SIZE];
+	uint8_t mem1_byte[CHARACTER_SIZE];
+	uint8_t mem2_byte[CHARACTER_SIZE];
 	int expected;
 	int result;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (uint8_t c = 0x0; c < CHARACTER_MAX; c += step) {
 		mem1_byte[len - 1] = c;
 		mem2_byte[len - 1] = step * (count / 2);
 

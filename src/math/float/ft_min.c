@@ -12,9 +12,9 @@
 
 #include "float.h"
 
-t_float128 ft_min(
-	t_float128 num1,
-	t_float128 num2
+float128_t ft_min(
+	float128_t num1,
+	float128_t num2
 ) {
 	if (num1 < num2)
 		return (num1);

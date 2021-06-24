@@ -53,15 +53,15 @@ Only include documentation in the source file, not header
 ** * Returns NULL if the allocation of the hex string failed
 */
 char    *ft_convert_rgba_to_hex(
-    t_uint32 rgba,
+    uint32_t rgba,
     bool include_alpha
 )
 ```
 
-For scalar types stick to their t_ type:
-`char` would be `t_int8`
-`int` would be `t_int32`
-`float` would be `t_float32`
+For scalar types stick to their _t type:
+`char` would be `int8_t`
+`int` would be `int32_t`
+`float` would be `float32_t`
 etc.
 
 #### Function Error Handling

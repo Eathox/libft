@@ -21,8 +21,8 @@ void *ft_memrev(
 	void *mem,
 	size_t len
 ) {
-	t_uint8 *mem_byte = mem;
-	t_uint8 temp;
+	uint8_t *mem_byte = mem;
+	uint8_t temp;
 
 	size_t i = 0;
 	while (i < (len / 2)) {

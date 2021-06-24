@@ -14,40 +14,40 @@
 
 #include "../../types/types.h"
 
-t_float128 ft_max(
-	t_float128 num1,
-	t_float128 num2
+float128_t ft_max(
+	float128_t num1,
+	float128_t num2
 );
 
-t_float128 ft_min(
-	t_float128 num1,
-	t_float128 num2
+float128_t ft_min(
+	float128_t num1,
+	float128_t num2
 );
 
-t_float128 ft_clamp(
-	t_float128 value,
-	t_float128 min,
-	t_float128 max
+float128_t ft_clamp(
+	float128_t value,
+	float128_t min,
+	float128_t max
 );
 
-t_float128 ft_overflow(
-	t_float128 value,
-	t_float128 min,
-	t_float128 max
+float128_t ft_overflow(
+	float128_t value,
+	float128_t min,
+	float128_t max
 );
 
-t_float128 ft_normalize(
-	t_float128 value,
-	t_float128 const *range,
-	t_float128 const *outrange
+float128_t ft_normalize(
+	float128_t value,
+	float128_t const *range,
+	float128_t const *outrange
 );
 
-t_float128 ft_nearestnum(
-	t_float128 value,
-	t_float128 num1,
-	t_float128 num2
+float128_t ft_nearestnum(
+	float128_t value,
+	float128_t num1,
+	float128_t num2
 );
 
-t_float128 ft_sign(
-	t_float128 num
+float128_t ft_sign(
+	float128_t num
 );

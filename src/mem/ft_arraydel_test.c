@@ -20,14 +20,14 @@
 #define MAX UCHAR_MAX
 #define STEP 0x1
 
-#define MEMBER_SIZE (sizeof(t_uint8) * 1)
+#define MEMBER_SIZE (sizeof(uint8_t) * 1)
 
 static void compare(
-	t_uint8 **array,
+	uint8_t **array,
 	size_t len,
-	t_uint8 c
+	uint8_t c
 ) {
-	t_uint8 expected[MEMBER_SIZE];
+	uint8_t expected[MEMBER_SIZE];
 
 	memset(expected, c, MEMBER_SIZE);
 	for (size_t i = 0; i < (len - 1); i++)
@@ -35,7 +35,7 @@ static void compare(
 }
 
 static void fill_array(
-	t_uint8 **array,
+	uint8_t **array,
 	size_t len
 ) {
 	array[len - 1] = NULL;
@@ -55,12 +55,12 @@ static void empty_member(
 
 Test(ft_arraydel, null_function) {
 	size_t const step = STEP;
-	t_uint8 **array;
-	t_uint8 **cpy;
+	uint8_t **array;
+	uint8_t **cpy;
 
 	for (size_t len = 1; len < MAX; len += step) {
-		array = calloc(len, sizeof(t_uint8*));
-		cpy = calloc(len, sizeof(t_uint8*));
+		array = calloc(len, sizeof(uint8_t*));
+		cpy = calloc(len, sizeof(uint8_t*));
 
 		cr_expect_neq(array, NULL);
 		cr_expect_neq(cpy, NULL);
@@ -78,12 +78,12 @@ Test(ft_arraydel, null_function) {
 
 Test(ft_arraydel, general) {
 	size_t const step = STEP;
-	t_uint8 **array;
-	t_uint8 **cpy;
+	uint8_t **array;
+	uint8_t **cpy;
 
 	for (size_t len = 1; len < MAX; len += step) {
-		array = calloc(len, sizeof(t_uint8*));
-		cpy = calloc(len, sizeof(t_uint8*));
+		array = calloc(len, sizeof(uint8_t*));
+		cpy = calloc(len, sizeof(uint8_t*));
 
 		cr_expect_neq(array, NULL);
 		cr_expect_neq(cpy, NULL);

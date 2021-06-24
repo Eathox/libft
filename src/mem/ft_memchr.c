@@ -21,10 +21,10 @@
 */
 void *ft_memchr(
 	void const *mem,
-	t_uint8 c,
+	uint8_t c,
 	size_t len
 ) {
-	t_uint8 const *mem_byte = mem;
+	uint8_t const *mem_byte = mem;
 
 	size_t i = 0;
 	while (i < len) {

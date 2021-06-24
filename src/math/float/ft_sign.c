@@ -14,8 +14,8 @@
 
 #include "float.h"
 
-t_float128 ft_sign(
-	t_float128 num
+float128_t ft_sign(
+	float128_t num
 ) {
 	if (num == INFINITY)
 		return (INFINITY);

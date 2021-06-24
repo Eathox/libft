@@ -24,8 +24,8 @@ void *ft_memmem(
 	void const *needle,
 	size_t needle_len
 ) {
-	t_uint8 const *mem_byte = mem;
-	t_uint8 const *needle_byte = needle;
+	uint8_t const *mem_byte = mem;
+	uint8_t const *needle_byte = needle;
 
 	if (needle_len == 0)
 		return ((void *)mem_byte);

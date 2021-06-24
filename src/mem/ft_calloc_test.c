@@ -24,7 +24,7 @@
 #define FILL_MEMORY_SIZE 24
 
 static void fill_memory(void) {
-	t_uint8 *holder[FILL_MEMORY_COUNT];
+	uint8_t *holder[FILL_MEMORY_COUNT];
 
 	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++) {
 		holder[i] = malloc(FILL_MEMORY_SIZE);
@@ -37,13 +37,13 @@ static void fill_memory(void) {
 		free(holder[i]);
 }
 
-typedef struct s_params {
+typedef struct params_s {
 	size_t size;
 	size_t count;
-} t_params;
+} params_t;
 
 ParameterizedTestParameters(ft_calloc, general) {
-	static t_params size_count[] = {
+	static params_t size_count[] = {
 		{1, 1},
 		{8, 1},
 		{1, 8},
@@ -52,14 +52,14 @@ ParameterizedTestParameters(ft_calloc, general) {
 	};
 
 	size_t count = sizeof(size_count) / sizeof(*size_count);
-	return cr_make_param_array(t_params, size_count, count);
+	return cr_make_param_array(params_t, size_count, count);
 }
 
-ParameterizedTest(t_params *param, ft_calloc, general, .init = fill_memory) {
+ParameterizedTest(params_t *param, ft_calloc, general, .init = fill_memory) {
 	size_t const size = param->size;
 	size_t const count = param->count;
-	t_uint8 *result;
-	t_uint8 expected[size * count];
+	uint8_t *result;
+	uint8_t expected[size * count];
 
 	result = ft_calloc(count, size);
 	cr_expect_neq(result, NULL);
@@ -71,20 +71,20 @@ ParameterizedTest(t_params *param, ft_calloc, general, .init = fill_memory) {
 }
 
 ParameterizedTestParameters(ft_calloc, zero) {
-	static t_params size_count[] = {
+	static params_t size_count[] = {
 		{0, 1},
 		{1, 0},
 		{0, 0},
 	};
 
 	size_t count = sizeof(size_count) / sizeof(*size_count);
-	return cr_make_param_array(t_params, size_count, count);
+	return cr_make_param_array(params_t, size_count, count);
 }
 
-ParameterizedTest(t_params *param, ft_calloc, zero) {
+ParameterizedTest(params_t *param, ft_calloc, zero) {
 	size_t const size = param->size;
 	size_t const count = param->count;
-	t_uint8 *result;
+	uint8_t *result;
 
 	result = ft_calloc(count, size);
 	cr_assert_eq(result, NULL, "%zu, %zu", size, count);
@@ -93,7 +93,7 @@ ParameterizedTest(t_params *param, ft_calloc, zero) {
 Test(ft_calloc, overflow) {
 	size_t const size = SIZE_MAX;
 	size_t const count = 2;
-	t_uint8 *result;
+	uint8_t *result;
 
 	result = ft_calloc(count, size);
 	cr_assert_eq(result, NULL);

@@ -43,7 +43,7 @@ Test(ft_memdel, memory) {
 }
 
 Test(ft_memdel, stack, .signal = SIGABRT) {
-	t_uint8 mem[LEN];
+	uint8_t mem[LEN];
 
 	cr_redirect_stderr();
 	ft_memdel((void**)&mem);

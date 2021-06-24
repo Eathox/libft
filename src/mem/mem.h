@@ -41,13 +41,13 @@ void *ft_bzero(
 
 void *ft_memset(
 	void *mem,
-	t_uint8 c,
+	uint8_t c,
 	size_t len
 );
 
 void *ft_memset4(
 	void *mem,
-	t_uint32 c,
+	uint32_t c,
 	size_t len
 );
 
@@ -58,13 +58,13 @@ void *ft_memrev(
 
 void *ft_memchr(
 	void const *mem,
-	t_uint8 c,
+	uint8_t c,
 	size_t len
 );
 
 void *ft_memrchr(
 	void const *mem,
-	t_uint8 c,
+	uint8_t c,
 	size_t len
 );
 
@@ -90,7 +90,7 @@ void *ft_memcpy(
 void *ft_memccpy(
 	void *dst,
 	void const *src,
-	t_uint8 c,
+	uint8_t c,
 	size_t len
 );
 

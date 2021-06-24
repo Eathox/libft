@@ -20,13 +20,13 @@
 #define STEP 0x1
 #define MAX CHAR_MAX
 
-#define CHARACTER_SIZE (sizeof(t_uint32) * 1)
+#define CHARACTER_SIZE (sizeof(uint32_t) * 1)
 #define CHARACTER_MAX UINT_MAX
 #define CHARACTER_STEP 0x01010101
 
 static void compare(
-	t_uint32 *mem,
-	t_uint32 c,
+	uint32_t *mem,
+	uint32_t c,
 	size_t len
 ) {
 	for (size_t i = 0; i < len; i++)
@@ -35,8 +35,8 @@ static void compare(
 
 Test(ft_memset4, general) {
 	size_t const step = STEP;
-	t_uint32 const c = UINT_MAX;
-	t_uint32 *result;
+	uint32_t const c = UINT_MAX;
+	uint32_t *result;
 	void *return_ptr;
 
 	for (size_t len = 1; len < MAX; len += step) {
@@ -54,10 +54,10 @@ Test(ft_memset4, general) {
 Test(ft_memset4, character) {
 	size_t const step = CHARACTER_STEP;
 	size_t const len = CHARACTER_SIZE;
-	t_uint32 result[CHARACTER_SIZE];
+	uint32_t result[CHARACTER_SIZE];
 	void *return_ptr;
 
-	for (t_uint32 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (uint32_t c = 0x0; c < CHARACTER_MAX; c += step) {
 		return_ptr = ft_memset4(result, c, len);
 		compare(result, c, len);
 		cr_assert_eq(return_ptr, result, "Return pointer error");
@@ -66,8 +66,8 @@ Test(ft_memset4, character) {
 
 Test(ft_memset4, order) {
 	size_t const len = 64;
-	t_uint32 const c = 0x01020304;
-	t_uint32 result[64];
+	uint32_t const c = 0x01020304;
+	uint32_t result[64];
 	void *return_ptr;
 
 	return_ptr = ft_memset4(result, c, len);

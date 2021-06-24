@@ -22,8 +22,8 @@ int ft_memcmp(
 	void const *mem2,
 	size_t len
 ) {
-	t_uint8 const *mem1_byte = mem1;
-	t_uint8 const *mem2_byte = mem2;
+	uint8_t const *mem1_byte = mem1;
+	uint8_t const *mem2_byte = mem2;
 
 	size_t i = 0;
 	while (i < len) {

@@ -24,11 +24,11 @@
 void *ft_memccpy(
 	void *dst,
 	void const *src,
-	t_uint8 c,
+	uint8_t c,
 	size_t len
 ) {
-	t_uint8 const *src_byte = src;
-	t_uint8 *dst_byte = dst;
+	uint8_t const *src_byte = src;
+	uint8_t *dst_byte = dst;
 
 	size_t i = 0;
 	while (i < len) {

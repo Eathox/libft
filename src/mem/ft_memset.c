@@ -12,10 +12,10 @@
 
 #include "mem.h"
 
-static t_uint64 prep_c_8(
-	t_uint8 c
+static uint64_t prep_c_8(
+	uint8_t c
 ) {
-	t_uint64 c_8 = c;
+	uint64_t c_8 = c;
 	c_8 |= c_8 << 010;
 	c_8 |= c_8 << 020;
 	c_8 |= c_8 << 040;
@@ -23,11 +23,11 @@ static t_uint64 prep_c_8(
 }
 
 static size_t set_8(
-	t_uint64 *mem_byte_8,
-	t_uint8 c,
+	uint64_t *mem_byte_8,
+	uint8_t c,
 	size_t len
 ) {
-	t_uint64 const c_8 = prep_c_8(c);
+	uint64_t const c_8 = prep_c_8(c);
 	size_t const c_fit = sizeof(c_8) / sizeof(c);
 	size_t const len_8 = len / c_fit;
 
@@ -45,17 +45,17 @@ static size_t set_8(
 */
 void *ft_memset(
 	void *mem,
-	t_uint8 c,
+	uint8_t c,
 	size_t len
 ) {
-	t_uint8 *mem_byte = mem;
+	uint8_t *mem_byte = mem;
 
 	size_t i = 0;
 	while (i < len && ((size_t)(mem_byte + i) & 7) != 0) {
 		mem_byte[i] = c;
 		i++;
 	}
-	i += set_8((t_uint64*)(mem_byte + i), c, len - i);
+	i += set_8((uint64_t*)(mem_byte + i), c, len - i);
 
 	while (i < len) {
 		mem_byte[i] = c;

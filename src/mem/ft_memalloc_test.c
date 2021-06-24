@@ -23,7 +23,7 @@
 #define FILL_MEMORY_SIZE 24
 
 static void fill_memory(void) {
-	t_uint8 *holder[FILL_MEMORY_COUNT];
+	uint8_t *holder[FILL_MEMORY_COUNT];
 
 	for (size_t i = 0; i < FILL_MEMORY_COUNT; i++) {
 		holder[i] = malloc(FILL_MEMORY_SIZE);
@@ -49,8 +49,8 @@ ParameterizedTestParameters(ft_memalloc, general) {
 }
 
 ParameterizedTest(size_t *size, ft_memalloc, general, .init = fill_memory) {
-	t_uint8 *result;
-	t_uint8 expected[*size];
+	uint8_t *result;
+	uint8_t expected[*size];
 
 	result = ft_memalloc(*size);
 	cr_expect_neq(result, NULL);
@@ -63,7 +63,7 @@ ParameterizedTest(size_t *size, ft_memalloc, general, .init = fill_memory) {
 
 Test(ft_memalloc, zero) {
 	size_t const size = 0;
-	t_uint8 *result;
+	uint8_t *result;
 
 	result = ft_memalloc(size);
 	cr_assert_eq(result, NULL);

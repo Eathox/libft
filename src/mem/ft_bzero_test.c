@@ -40,8 +40,8 @@ ParameterizedTestParameters(ft_bzero, allign) {
 }
 
 ParameterizedTest(size_t *len, ft_bzero, allign) {
-	t_uint32 result[*len];
-	t_uint8 expected[*len];
+	uint32_t result[*len];
+	uint8_t expected[*len];
 	void *return_ptr;
 
 	bzero(expected, *len);
@@ -52,13 +52,13 @@ ParameterizedTest(size_t *len, ft_bzero, allign) {
 
 Test(ft_bzero, general) {
 	size_t const step = STEP;
-	t_uint8 *result;
-	t_uint8 *expected;
+	uint8_t *result;
+	uint8_t *expected;
 	void *return_ptr;
 
 	for (size_t len = 1; len < MAX; len += step) {
-		result = calloc(len, sizeof(t_uint8));
-		expected = calloc(len, sizeof(t_uint8));
+		result = calloc(len, sizeof(uint8_t));
+		expected = calloc(len, sizeof(uint8_t));
 
 		cr_expect_neq(result, NULL);
 		cr_expect_neq(expected, NULL);

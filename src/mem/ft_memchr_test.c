@@ -20,16 +20,16 @@
 #define STEP 0x1
 #define MAX ((STEP * 20) + 1)
 
-#define CHARACTER_SIZE (sizeof(t_uint8) * 1)
+#define CHARACTER_SIZE (sizeof(uint8_t) * 1)
 #define CHARACTER_MAX UCHAR_MAX
 #define CHARACTER_STEP 0x1
 
 Test(ft_memchr, general) {
 	size_t const step = STEP;
 	size_t const size = MAX;
-	t_uint8 *mem_byte = calloc(size, sizeof(*mem_byte));
-	t_uint8 *expected;
-	t_uint8 *result;
+	uint8_t *mem_byte = calloc(size, sizeof(*mem_byte));
+	uint8_t *expected;
+	uint8_t *result;
 
 	cr_expect_neq(mem_byte, NULL);
 
@@ -51,11 +51,11 @@ Test(ft_memchr, general) {
 Test(ft_memchr, character) {
 	size_t const step = CHARACTER_STEP;
 	size_t const len = CHARACTER_SIZE;
-	t_uint8 mem_byte[CHARACTER_SIZE];
-	t_uint8 *expected;
-	t_uint8 *result;
+	uint8_t mem_byte[CHARACTER_SIZE];
+	uint8_t *expected;
+	uint8_t *result;
 
-	for (t_uint8 c = 0x0; c < CHARACTER_MAX; c += step) {
+	for (uint8_t c = 0x0; c < CHARACTER_MAX; c += step) {
 		mem_byte[len - 1] = c;
 
 		expected = memchr(mem_byte, c, len);
@@ -66,8 +66,8 @@ Test(ft_memchr, character) {
 
 Test(ft_memchr, not_found) {
 	size_t const len = CHARACTER_SIZE;
-	t_uint8 mem_byte[CHARACTER_SIZE];
-	t_uint8 *result;
+	uint8_t mem_byte[CHARACTER_SIZE];
+	uint8_t *result;
 
 	result = ft_memrchr(mem_byte, UCHAR_MAX, len);
 	cr_assert_eq(result, NULL);
