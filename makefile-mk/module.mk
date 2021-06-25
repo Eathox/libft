@@ -17,7 +17,7 @@ $(HEADER_PATH)/%.h: $(SRCDIR)/%/$(notdir $(module)).h
 ifeq ($(OS_NAME), Darwin)
 	@echo "Darwin regex not implemented"
 else
-	@sed -E 's,\.\.\/(.*\/)?(\w*)\/\2\.h,\1\2\.h,g' $@ > $@
+	@sed -Ei 's,\.\.\/(.*\/)?(\w*)\/\2\.h,\1\2\.h,g' $@
 endif
 
 # Rule used for regular objects
