@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    term.mk                                            :+:    :+:             #
-#                                                      +:+                     #
-#    By: pholster <pholster@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/02/15 18:10:25 by pholster      #+#    #+#                  #
-#    Updated: 2020/02/15 18:10:25 by pholster      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 ESCAPE_PREFIX := \033[
 ESCAPE_SUFFIX := m
 ESCAPE = $(ESCAPE_PREFIX)$(1)$(ESCAPE_SUFFIX)

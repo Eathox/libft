@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    make.mk                                            :+:    :+:             #
-#                                                      +:+                     #
-#    By: pholster <pholster@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/05/21 11:11:13 by pholster      #+#    #+#                  #
-#    Updated: 2020/05/21 11:11:13 by pholster      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 objects += ft_new_serialize.o
 objects += ft_new_serialize_read.o
 objects += ft_new_serialize_write.o

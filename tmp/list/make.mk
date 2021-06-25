@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    make.mk                                            :+:    :+:             #
-#                                                      +:+                     #
-#    By: pholster <pholster@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/05/21 11:12:58 by pholster      #+#    #+#                  #
-#    Updated: 2020/05/21 11:12:58 by pholster      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 objects += ft_lstaddbck.o
 objects += ft_lstadd.o
 objects += ft_lstdel.o

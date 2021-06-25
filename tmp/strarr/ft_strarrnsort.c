@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strarrnsort.c                                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: pholster <pholster@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2019/03/15 15:07:28 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:40:31 by pholster      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "strarr.h"
 
 void	ft_strarrnsort(char **arr, bool (*f)(const char *, const char *),

@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    make.mk                                            :+:    :+:             #
-#                                                      +:+                     #
-#    By: pholster <pholster@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/05/21 11:13:09 by pholster      #+#    #+#                  #
-#    Updated: 2020/05/21 11:13:09 by pholster      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 objects += ft_hashdjb2a.o
 objects += ft_hashdjb2a_nocase.o
 objects += ft_hashdjb2.o

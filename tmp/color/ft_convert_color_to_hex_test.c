@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_convert_color_to_hex_test.c                     :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: pholster <pholster@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2020/05/16 15:19:30 by pholster      #+#    #+#                 */
-/*   Updated: 2020/05/16 15:19:30 by pholster      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <limits.h>
 
 #include <criterion/criterion.h>

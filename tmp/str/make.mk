@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    make.mk                                            :+:    :+:             #
-#                                                      +:+                     #
-#    By: pholster <pholster@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/05/21 11:11:00 by pholster      #+#    #+#                  #
-#    Updated: 2020/05/21 11:11:00 by pholster      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 objects += ft_getnextdline.o
 objects += ft_getnextline.o
 objects += ft_putendl.o

@@ -1,16 +1,4 @@
 #!/usr/bin/env python3
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    normify.py                                         :+:    :+:             #
-#                                                      +:+                     #
-#    By: pholster <pholster@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/05/25 19:03:41 by pholster      #+#    #+#                  #
-#    Updated: 2020/05/25 19:03:41 by pholster      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 # Deprecated: norm is no longer required
 
 import re

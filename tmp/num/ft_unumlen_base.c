@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_unumlen_base.c                                  :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: pholster <pholster@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2019/02/03 14:52:39 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:50:44 by pholster      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "unum.h"
 
 size_t		ft_unumlen_base(uintmax_t value, int base) {

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strnstr.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: pholster <pholster@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2019/01/11 12:35:18 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 21:38:18 by pholster      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "str.h"
 
 char	*ft_strnstr(const char *str, const char *needle, size_t len) {

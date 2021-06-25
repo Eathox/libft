@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    module.mk                                          :+:    :+:             #
-#                                                      +:+                     #
-#    By: pholster <pholster@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2020/02/15 18:10:33 by pholster      #+#    #+#                  #
-#    Updated: 2020/02/15 18:10:33 by pholster      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
 # Include header dependencies for all compiled files
 DEPENDENCIES := $(patsubst %.o,%.d,$($(module)-objects) $($(module)-tests))
 EXISTING-DEPENDENCIES := $(wildcard $(DEPENDENCIES))

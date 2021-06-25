@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_scale_color_brightness_test.c                   :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: pholster <pholster@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2020/05/16 15:09:22 by pholster      #+#    #+#                 */
-/*   Updated: 2020/05/16 15:09:22 by pholster      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <limits.h>
 
 #include <criterion/criterion.h>

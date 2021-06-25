@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ::::::::            */
-/*   ft_strreplace.c                                    :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: pholster <pholster@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2019/06/05 17:48:33 by pholster      #+#    #+#                 */
-/*   Updated: 2019/08/21 20:43:11 by pholster      ########   odam.nl         */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "str.h"
 
 static size_t	strtotallen(const char *str, const char *find, size_t len,
