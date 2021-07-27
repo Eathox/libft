@@ -1,8 +1,8 @@
-SRCDIR := src
+SRC_DIR := modules
 
 BASENAME := libft
-NAME = $(OUTDIR)/$(BASENAME).a
-TEST_NAME = $(OUTDIR)/test-$(BASENAME)
+NAME = $(OUT_DIR)/$(BASENAME).a
+TEST_NAME = $(OUT_DIR)/test-$(BASENAME)
 
 OS_NAME := $(shell uname -s)
 
@@ -19,10 +19,10 @@ endif
 
 include makefile-mk/term.mk
 
-OUTDIR ?= build
-HEADER_PATH := $(OUTDIR)/include/ft
-REG_CACHE_PATH := $(OUTDIR)/cache/reg
-TEST_CACHE_PATH := $(OUTDIR)/cache/test
+OUT_DIR ?= build
+HEADER_PATH := $(OUT_DIR)/include/ft
+REG_CACHE_PATH := $(OUT_DIR)/cache/reg
+TEST_CACHE_PATH := $(OUT_DIR)/cache/test
 
 # Include target modules
 include make.mk
@@ -40,6 +40,13 @@ endef
 
 # Import each module's makefile specifying objects and tests
 $(foreach module,$(all-modules),$(eval $(call MODULE_IMPORT_TEMPLATE, $(module))))
+
+# Remove duplicates
+all-libraries := $(sort $(all-libraries))
+all-modules := $(sort $(all-modules))
+all-headers := $(sort $(all-headers))
+all-objects := $(sort $(all-objects))
+all-tests := $(sort $(all-tests))
 
 all: $(NAME)
 PHONY += all
@@ -68,7 +75,7 @@ test: $(TEST_NAME)
 PHONY += test
 
 clean:
-	@rm -rf $(OUTDIR)
+	@rm -rf $(OUT_DIR)
 PHONY += clean
 
 re:

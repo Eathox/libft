@@ -1,1 +1,0 @@
-tests += types_test

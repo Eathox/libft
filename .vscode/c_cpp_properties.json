@@ -3,7 +3,7 @@
 		{
 			"name": "Mac",
 			"includePath": [
-				"${workspaceFolder}/src/**",
+				"${workspaceFolder}/modules/**",
 				"/Users/${env:USER}/.brew/Cellar/criterion/2.3.3/include/**"
 			],
 			"macFrameworkPath": [
@@ -25,7 +25,7 @@
 		{
 			"name": "Linux",
 			"includePath": [
-				"${workspaceFolder}/src/**"
+				"${workspaceFolder}/modules/**"
 			],
 			"browse" : {
 				"path": [
