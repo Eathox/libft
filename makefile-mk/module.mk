@@ -16,6 +16,8 @@ $(HEADER_PATH)/$($(module)-parent)%.h: $(SRC_DIR)/$(module)/include/%.h
 # this regex replaces include statements formatted like "name/include/name.h" to "ft/name.h"
 ifeq ($(OS_NAME), Linux)
 	@sed -Ei 's,(\w*)\/include\/\1\.h,ft/\1\.h,g' $@
+else ifeq ($(OS_NAME), Darwin)
+	@sed -Ei '' 's,(types)\/include\/\1,eyo,g' $@
 else
 	$(error $(OS_NAME) regex not implemented (headers not usable))
 endif

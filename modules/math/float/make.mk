@@ -8,3 +8,5 @@ objects += ft_clamp_float
 objects += ft_max_float
 objects += ft_min_float
 objects += ft_sign_float
+
+tests += ft_sign_float_test
