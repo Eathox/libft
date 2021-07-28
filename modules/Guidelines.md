@@ -42,7 +42,7 @@ Keep it one public function per file and give the file the same name as the publ
 )
 ```
 
-If there's no param and thus `void`, there is no need the newlines
+If there's no param and thus `void`, there is no need for the newlines
 Only include documentation in the source file, not header
 
 **Examples:**
