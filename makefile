@@ -9,6 +9,13 @@ OS_NAME := $(shell uname -s)
 CFLAGS ?= -Wall -Wextra -Werror -Wpedantic -Wmissing-prototypes \
 	-Wmissing-noreturn -MD
 
+NDEBUG ?= false
+
+# Define NDEBUG to dissable assert() macro
+ifeq ($(NDEBUG), true)
+CFALGS += -DNDEBUG
+endif
+
 GCOV ?= false
 
 # Disable optimizations since they can mess up the accuracy of the GCOV reports
