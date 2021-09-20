@@ -24,7 +24,7 @@ ifeq ($(GCOV), true)
 CFLAGS += --coverage -O0
 endif
 
-include makefile-mk/term.mk
+include make-utils/term.mk
 
 OUT_DIR ?= build
 HEADER_PATH := $(OUT_DIR)/include/ft
@@ -42,7 +42,7 @@ all-tests :=
 
 # Module import template, importing the makefile of the given module
 define MODULE_IMPORT_TEMPLATE
-include makefile-mk/import.mk
+include make-utils/import.mk
 endef
 
 # Import each module's makefile specifying objects and tests
@@ -71,7 +71,7 @@ $(TEST_NAME): $(all-headers) $(all-objects) $(all-tests)
 
 # Module rule template, defining all the rules for the given module
 define MODULE_RULE_TEMPLATE
-include makefile-mk/module.mk
+include make-utils/module.mk
 endef
 
 # Define the rules of every module
