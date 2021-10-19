@@ -27,7 +27,7 @@ COLOR_BRIGHT_WHITE := $(shell tput setaf 15)
 PRINT_MIN := $(shell printf '$(COLOR_RED)[ - ]$(COLOR_RESET)')
 PRINT_PLUS := $(shell printf '$(COLOR_GREEN)[ + ]$(COLOR_RESET)')
 PRINT_EQUAL := $(shell printf '$(COLOR_BRIGHT_CYAN)[ = ]$(COLOR_RESET)')
-PRINT_RUN := $(shell printf '$(COLOR_BRIGHT_YELLOW)[ > ]$(COLOR_RESET)')
+PRINT_GREATER := $(shell printf '$(COLOR_BRIGHT_YELLOW)[ > ]$(COLOR_RESET)')
 PRINT_MISC := $(shell printf '$(COLOR_BRIGHT_WHITE)[ ~ ]$(COLOR_RESET)')
 
 # Functions for easy terminal printing
@@ -35,5 +35,5 @@ FNC_PRINT = $(1) $(TXT_BOLD)$(2):$(TXT_RESET) $(3)
 FNC_PRINT_MIN = echo '$(call FNC_PRINT,$(PRINT_MIN),$(1),$(2))'
 FNC_PRINT_PLUS = echo '$(call FNC_PRINT,$(PRINT_PLUS),$(1),$(2))'
 FNC_PRINT_EQUAL = echo '$(call FNC_PRINT,$(PRINT_EQUAL),$(1),$(2))'
-FNC_PRINT_RUN = echo '$(call FNC_PRINT,$(PRINT_RUN),$(1),$(2))'
+FNC_PRINT_GREATER = echo '$(call FNC_PRINT,$(PRINT_GREATER),$(1),$(2))'
 FNC_PRINT_MISC = echo '$(call FNC_PRINT,$(PRINT_MISC),$(1),$(2))'
