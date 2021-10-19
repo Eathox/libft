@@ -37,3 +37,17 @@ jobs:
           bash ci/gcov.bash
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.coverallsRepoToken }}
+
+  checks:
+    name: Code Checks
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: docInfo
+        run: ./tools/docInfo.py
