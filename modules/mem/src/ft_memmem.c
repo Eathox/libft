@@ -2,10 +2,6 @@
 
 #include "mem.h"
 
-/*
-** * Searches len amount of bytes in mem for the first instance of needle
-** * Returns mem if needle_len is 0 and NULL if no instance of needle was found
-*/
 void *ft_memmem(
 	void const *mem,
 	size_t mem_len,

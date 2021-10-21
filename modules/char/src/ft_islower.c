@@ -1,8 +1,5 @@
 #include "../include/char.h"
 
-/*
-** * Checks if c is a lowercase letter
-*/
 bool ft_islower(
 	char c
 ) {

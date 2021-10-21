@@ -3,11 +3,6 @@
 
 #include "mem.h"
 
-/*
-** * Allocates (size * count) amount of memory and sets it all to 0x0
-** * Returns NULL if the allocation failed or if the given values would overflow
-** * If size, count or both are 0 it also returns NULL
-*/
 void *ft_calloc(
 	size_t count,
 	size_t size

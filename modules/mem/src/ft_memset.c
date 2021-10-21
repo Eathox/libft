@@ -27,10 +27,6 @@ static size_t set_8(
 	return (i * c_fit);
 }
 
-/*
-** * Sets len amount of bytes in mem to the value of c
-** * Returns mem
-*/
 void *ft_memset(
 	void *mem,
 	uint8_t c,

@@ -1,11 +1,6 @@
 #include "types/include/types.h"
 #include "mem.h"
 
-/*
-** * Copy len amount of bytes in order of back to front from src to dst
-** * This function does not handle memory area overlap use ft_memmove instead
-** * Returns dst
-*/
 void *ft_memrcpy(
 	void *dst,
 	void const *src,

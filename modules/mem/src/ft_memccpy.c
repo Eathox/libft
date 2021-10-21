@@ -3,12 +3,6 @@
 #include "types/include/types.h"
 #include "mem.h"
 
-/*
-** * Copy at most len amount of bytes in order of front to back from src to dst
-** * Stoping when c is found in src
-** * This function does not handle memory area overlap
-** * Returns a pointer to the next byte in dst after c or NULL if c wasent found
-*/
 void *ft_memccpy(
 	void *dst,
 	void const *src,

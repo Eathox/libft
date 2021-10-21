@@ -1,8 +1,5 @@
 #include "../include/char.h"
 
-/*
-** * If c is an lowercase letter return its uppercase equivalent
-*/
 char ft_toupper(
 	char c
 ) {

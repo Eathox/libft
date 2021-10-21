@@ -1,8 +1,5 @@
 #include "../include/char.h"
 
-/*
-** * Checks if c is a number
-*/
 bool ft_isdigit(
 	char c
 ) {

@@ -1,10 +1,6 @@
 #include "types/include/types.h"
 #include "mem.h"
 
-/*
-** * Reveseres len amount of bytes in mem
-** * Returns mem
-*/
 void *ft_memrev(
 	void *mem,
 	size_t len
