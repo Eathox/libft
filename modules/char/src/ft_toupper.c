@@ -1,9 +1,9 @@
 #include "../include/char.h"
 
 char ft_toupper(
-	char c
+    char c
 ) {
-	if (c >= 'a' && c <= 'z')
-		c -= ('a' - 'A');
-	return (c);
+    if (c >= 'a' && c <= 'z')
+        c -= ('a' - 'A');
+    return c;
 }

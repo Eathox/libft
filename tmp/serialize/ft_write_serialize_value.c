@@ -2,42 +2,40 @@
 
 #include "ft/mem.h"
 
-#include "serialize.h"
 #include "priv.h"
+#include "serialize.h"
 
-static t_uint8	*correct_endian(t_uint8 *stream, size_t size, bool reverse) {
-	t_uint8	*data;
+static t_uint8 *correct_endian(t_uint8 *stream, size_t size, bool reverse) {
+    t_uint8 *data;
 
-	if (reverse == true)
-	{
-		data = ft_memdup(stream, size);
-		if (data == NULL)
-			return (NULL);
-		ft_memrev(data, size);
-		return (data);
-	}
-	return (stream);
+    if (reverse == true) {
+        data = ft_memdup(stream, size);
+        if (data == NULL)
+            return NULL;
+        ft_memrev(data, size);
+        return data;
+    }
+    return stream;
 }
 
-ssize_t			ft_write_serialize_value(t_serialize *serialize,
-					t_uint8 *stream, size_t size) {
-	ssize_t		ret;
-	t_uint8		*data;
-	bool		reverse;
+ssize_t ft_write_serialize_value(t_serialize *serialize, t_uint8 *stream, size_t size) {
+    ssize_t ret;
+    t_uint8 *data;
+    bool reverse;
 
-	if (size == 0)
-		return (0);
-	reverse = ft_check_correct_endian(serialize, size);
-	data = correct_endian(stream, size, reverse);
-	if (data == NULL)
-		return (-1);
-	if (serialize->use_buffer == true)
-		ret = ft_add_serialize_value(serialize, data, size);
-	else
-		ret = write(serialize->fd, data, size);
-	if (ret > 0)
-		serialize->pos += ret;
-	if (reverse == true)
-		ft_memdel((void**)&data);
-	return (ret);
+    if (size == 0)
+        return 0;
+    reverse = ft_check_correct_endian(serialize, size);
+    data = correct_endian(stream, size, reverse);
+    if (data == NULL)
+        return -1;
+    if (serialize->use_buffer == true)
+        ret = ft_add_serialize_value(serialize, data, size);
+    else
+        ret = write(serialize->fd, data, size);
+    if (ret > 0)
+        serialize->pos += ret;
+    if (reverse == true)
+        ft_memdel((void **)&data);
+    return ret;
 }

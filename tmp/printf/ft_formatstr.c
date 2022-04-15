@@ -3,41 +3,41 @@
 #include "printf.h"
 #include "priv.h"
 
-static void	formatstr(t_info *info) {
-	char	*str;
-	ssize_t	n;
+static void formatstr(t_info *info) {
+    char *str;
+    ssize_t n;
 
-	str = va_arg(info->args, char *);
-	n = info->precision;
-	if (str == NULL)
-		str = "(null)";
-	if (n == -1)
-		info->var_len = ft_strlen(str);
-	else
-		info->var_len = ft_strnlen(str, n);
-	ft_formatpad(info);
-	ft_addnstr(info, str, info->var_len);
+    str = va_arg(info->args, char *);
+    n = info->precision;
+    if (str == NULL)
+        str = "(null)";
+    if (n == -1)
+        info->var_len = ft_strlen(str);
+    else
+        info->var_len = ft_strnlen(str, n);
+    ft_formatpad(info);
+    ft_addnstr(info, str, info->var_len);
 }
 
-static void	formatwchar(t_info *info) {
-	t_wchar	*str;
-	ssize_t	n;
+static void formatwchar(t_info *info) {
+    t_wchar *str;
+    ssize_t n;
 
-	str = va_arg(info->args, t_wchar *);
-	n = info->precision;
-	if (str == NULL)
-		str = L"(null)";
-	if (n == -1)
-		info->var_len = ft_utf8strlen(str);
-	else
-		info->var_len = ft_utf8strnlen(str, n);
-	ft_formatpad(info);
-	ft_addwcharstr(info, str, info->var_len);
+    str = va_arg(info->args, t_wchar *);
+    n = info->precision;
+    if (str == NULL)
+        str = L"(null)";
+    if (n == -1)
+        info->var_len = ft_utf8strlen(str);
+    else
+        info->var_len = ft_utf8strnlen(str, n);
+    ft_formatpad(info);
+    ft_addwcharstr(info, str, info->var_len);
 }
 
-void		ft_formatstr(t_info *info) {
-	if (info->var_type == STR)
-		formatstr(info);
-	else
-		formatwchar(info);
+void ft_formatstr(t_info *info) {
+    if (info->var_type == STR)
+        formatstr(info);
+    else
+        formatwchar(info);
 }

@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isgraph(
-	char c
+    char c
 ) {
-	return (c >= '!' && c <= '~');
+    return (c >= '!' && c <= '~');
 }

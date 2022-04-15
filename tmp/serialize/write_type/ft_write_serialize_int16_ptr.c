@@ -1,10 +1,9 @@
-#include "../serialize.h"
 #include "../priv.h"
+#include "../serialize.h"
 
-ssize_t		ft_write_serialize_int16_ptr(t_serialize *serialize,
-				t_int16 const *int16_ptr, size_t size) {
-	t_convert	convert;
+ssize_t ft_write_serialize_int16_ptr(t_serialize *serialize, t_int16 const *int16_ptr, size_t size) {
+    t_convert convert;
 
-	convert.int16_ptr = (t_int16*)int16_ptr;
-	return (ft_write_serialize_value(serialize, convert.stream, size));
+    convert.int16_ptr = (t_int16 *)int16_ptr;
+    return ft_write_serialize_value(serialize, convert.stream, size);
 }

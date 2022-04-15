@@ -1,73 +1,67 @@
-#include <stdio.h>
-#include <signal.h>
 #include <limits.h>
+#include <signal.h>
+#include <stdio.h>
 
 #include <criterion/criterion.h>
 
 #include "color.h"
 
-//TODO parameterize tests
+// TODO parameterize tests
 
-static void	compare(
-	t_color	color,
-	char const	*hex
+static void compare(
+    t_color color,
+    char const *hex
 ) {
-	char	result[10];
+    char result[10];
 
-	sprintf(result, "#%02X%02X%02X%02X",
-		color.r,
-		color.g,
-		color.b,
-		color.a
-	);
-	cr_assert_str_eq(result, hex);
+    sprintf(result, "#%02X%02X%02X%02X", color.r, color.g, color.b, color.a);
+    cr_assert_str_eq(result, hex);
 }
 
 Test(ft_convert_hex_to_color, min) {
-	t_color 		color;
-	char const		*hex = "#00000000";
+    t_color color;
+    char const *hex = "#00000000";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+    color = ft_convert_hex_to_color(hex);
+    compare(color, hex);
 }
 
 Test(ft_convert_hex_to_color, max) {
-	t_color 		color;
-	char const		*hex = "#FFFFFFFF";
+    t_color color;
+    char const *hex = "#FFFFFFFF";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+    color = ft_convert_hex_to_color(hex);
+    compare(color, hex);
 }
 
 Test(ft_convert_hex_to_color, 0x7F) {
-	t_color 		color;
-	char const		*hex = "#7F7F7F7F";
+    t_color color;
+    char const *hex = "#7F7F7F7F";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+    color = ft_convert_hex_to_color(hex);
+    compare(color, hex);
 }
 
 Test(ft_convert_hex_to_color, order) {
-	t_color 		color;
-	char const		*hex = "#03020104";
+    t_color color;
+    char const *hex = "#03020104";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+    color = ft_convert_hex_to_color(hex);
+    compare(color, hex);
 }
 
 Test(ft_convert_hex_to_color, segfault, .signal = SIGSEGV) {
-	t_color 		color;
-	char const		*hex = NULL;
+    t_color color;
+    char const *hex = NULL;
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, hex);
+    color = ft_convert_hex_to_color(hex);
+    compare(color, hex);
 }
 
 Test(ft_convert_hex_to_color, invalid) {
-	t_color 		color;
-	char const		*hex = "hello world";
+    t_color color;
+    char const *hex = "hello world";
 
-	color = ft_convert_hex_to_color(hex);
-	compare(color, "#000000FF");
+    color = ft_convert_hex_to_color(hex);
+    compare(color, "#000000FF");
 }
-

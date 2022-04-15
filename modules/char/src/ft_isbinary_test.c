@@ -8,17 +8,17 @@
 #define STEP 1
 
 static bool isbinary(
-	char c
+    char c
 ) {
-	return (c == '0' || c == '1');
+    return (c == '0' || c == '1');
 }
 
 Test(ft_isbinary, general) {
-	size_t const step = STEP;
-	bool expected;
+    size_t const step = STEP;
+    bool expected;
 
-	for (char c = 0x0; c < MAX; c += step) {
-		expected = isbinary(c);
-		cr_assert_eq(expected, ft_isbinary(c), "%d", c);
-	}
+    for (char c = 0x0; c < MAX; c += step) {
+        expected = isbinary(c);
+        cr_assert_eq(expected, ft_isbinary(c), "%d", c);
+    }
 }

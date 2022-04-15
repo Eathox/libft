@@ -2,27 +2,26 @@
 
 #include "list.h"
 
-intmax_t		*ft_lsttonumarr(t_list *lst) {
-	t_list		*current;
-	intmax_t	*arr;
-	intmax_t	*n;
-	size_t		i;
-	size_t		len;
+intmax_t *ft_lsttonumarr(t_list *lst) {
+    t_list *current;
+    intmax_t *arr;
+    intmax_t *n;
+    size_t i;
+    size_t len;
 
-	i = 0;
-	len = ft_lstlen(lst);
-	if (len == 0)
-		return (NULL);
-	arr = (intmax_t *)ft_memalloc(sizeof(intmax_t) * len);
-	if (arr == NULL)
-		return (NULL);
-	current = lst;
-	while (current != NULL)
-	{
-		n = (intmax_t *)current->content;
-		arr[i] = *n;
-		current = current->next;
-		i++;
-	}
-	return (arr);
+    i = 0;
+    len = ft_lstlen(lst);
+    if (len == 0)
+        return NULL;
+    arr = (intmax_t *)ft_memalloc(sizeof(intmax_t) * len);
+    if (arr == NULL)
+        return NULL;
+    current = lst;
+    while (current != NULL) {
+        n = (intmax_t *)current->content;
+        arr[i] = *n;
+        current = current->next;
+        i++;
+    }
+    return arr;
 }

@@ -3,26 +3,24 @@
 #include "hash.h"
 #include "priv.h"
 
-void	ft_hashmapdelone(const t_hashmap *map, const void *key, size_t keysize,
-			void (*del)(void *)) {
-	t_hashlist	*current;
-	t_hashlist	*prv;
-	size_t		index;
+void ft_hashmapdelone(const t_hashmap *map, const void *key, size_t keysize, void (*del)(void *)) {
+    t_hashlist *current;
+    t_hashlist *prv;
+    size_t index;
 
-	prv = NULL;
-	index = map->f(key, keysize) % map->size;
-	current = map->arr[index];
-	while (current != NULL && ft_keyequ(current, key, keysize) == false)
-	{
-		prv = current;
-		current = current->next;
-	}
-	if (current == NULL)
-		return ;
-	if (del != NULL && current->value != NULL)
-		del(current->value);
-	if (prv != NULL)
-		prv->next = current->next;
-	free(current->key);
-	free(current);
+    prv = NULL;
+    index = map->f(key, keysize) % map->size;
+    current = map->arr[index];
+    while (current != NULL && ft_keyequ(current, key, keysize) == false) {
+        prv = current;
+        current = current->next;
+    }
+    if (current == NULL)
+        return;
+    if (del != NULL && current->value != NULL)
+        del(current->value);
+    if (prv != NULL)
+        prv->next = current->next;
+    free(current->key);
+    free(current);
 }

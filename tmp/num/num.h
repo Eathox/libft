@@ -1,5 +1,5 @@
 #ifndef FT_NUM_H
-# define FT_NUM_H
+#define FT_NUM_H
 
 // char		*ft_itoa_base(intmax_t value, int base);
 // char		*ft_itoa(intmax_t value);

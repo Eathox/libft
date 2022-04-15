@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isalnum(
-	char c
+    char c
 ) {
-	return (ft_isalpha(c) || ft_isdigit(c));
+    return (ft_isalpha(c) || ft_isdigit(c));
 }

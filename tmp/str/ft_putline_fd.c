@@ -2,21 +2,21 @@
 
 #include "str.h"
 
-bool	ft_putline_fd(const char *str, int fd) {
-	int		ret;
-	size_t	len;
-	size_t	half;
+bool ft_putline_fd(const char *str, int fd) {
+    int ret;
+    size_t len;
+    size_t half;
 
-	if (str != NULL)
-		len = ft_strnlen(str, 81);
-	else
-		len = 0;
-	if (len > 80)
-		return (true);
-	half = (80 - len) / 2;
-	ret = ft_putnchar_fd('-', half, fd);
-	ret += ft_putstr_fd(str, fd);
-	ret += ft_putnchar_fd('-', half + (len + (half * 2) != 80), fd);
-	ret += ft_putchar_fd('\n', fd);
-	return (ret == 4);
+    if (str != NULL)
+        len = ft_strnlen(str, 81);
+    else
+        len = 0;
+    if (len > 80)
+        return true;
+    half = (80 - len) / 2;
+    ret = ft_putnchar_fd('-', half, fd);
+    ret += ft_putstr_fd(str, fd);
+    ret += ft_putnchar_fd('-', half + (len + (half * 2) != 80), fd);
+    ret += ft_putchar_fd('\n', fd);
+    return (ret == 4);
 }

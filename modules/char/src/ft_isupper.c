@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isupper(
-	char c
+    char c
 ) {
-	return (c >= 'A' && c <= 'Z');
+    return (c >= 'A' && c <= 'Z');
 }

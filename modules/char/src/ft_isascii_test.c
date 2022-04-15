@@ -11,13 +11,13 @@
 #define STEP 1
 
 Test(ft_isascii, general) {
-	size_t const step = STEP;
-	char expected;
+    size_t const step = STEP;
+    char expected;
 
-	for (char c = MIN; c < MAX; c += step) {
-		expected = isascii(c);
-		if (expected != 0)
-			expected = true;
-		cr_assert_eq(expected, ft_isascii(c), "%d", c);
-	}
+    for (char c = MIN; c < MAX; c += step) {
+        expected = isascii(c);
+        if (expected != 0)
+            expected = true;
+        cr_assert_eq(expected, ft_isascii(c), "%d", c);
+    }
 }

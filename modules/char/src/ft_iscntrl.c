@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_iscntrl(
-	char c
+    char c
 ) {
-	return (c <= 31 || c == 127);
+    return (c <= 31 || c == 127);
 }

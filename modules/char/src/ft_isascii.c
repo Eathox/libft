@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isascii(
-	char c
+    char c
 ) {
-	return (c >= '\0');
+    return (c >= '\0');
 }

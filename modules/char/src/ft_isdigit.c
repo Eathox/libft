@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isdigit(
-	char c
+    char c
 ) {
-	return (c >= '0' && c <= '9');
+    return (c >= '0' && c <= '9');
 }

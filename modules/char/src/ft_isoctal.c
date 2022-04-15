@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isoctal(
-	char c
+    char c
 ) {
-	return (c >= '0' && c <= '7');
+    return (c >= '0' && c <= '7');
 }

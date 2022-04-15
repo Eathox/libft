@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isblank(
-	char c
+    char c
 ) {
-	return (c == ' ' || c == '\t');
+    return (c == ' ' || c == '\t');
 }

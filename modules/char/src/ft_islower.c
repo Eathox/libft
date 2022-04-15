@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_islower(
-	char c
+    char c
 ) {
-	return (c >= 'a' && c <= 'z');
+    return (c >= 'a' && c <= 'z');
 }

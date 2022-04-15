@@ -28,7 +28,7 @@
 ** 			while (i < 8)
 ** 			{
 **				if (((len * 8) + i) >= n)
-** 					return (n);
+** 					return n;
 ** 				if (longword[i] == '\0')
 ** 					return ((len * 8) + i);
 ** 				i++;
@@ -36,7 +36,7 @@
 ** 		}
 ** 		len++;
 ** 	}
-** 	return (0);
+** 	return 0;
 ** }
 */
 
@@ -51,7 +51,7 @@
 ** 	while ((((size_t)&str[len]) & 7) != 0)
 ** 	{
 ** 		if (len == n || str[len] == '\0')
-** 			return (len);
+** 			return len;
 ** 		len++;
 ** 	}
 ** 	preparemagic(&himagic, &lomagic);
@@ -59,13 +59,13 @@
 ** }
 */
 
-size_t			ft_strnlen(const char *str, size_t n) {
-	size_t	len;
+size_t ft_strnlen(const char *str, size_t n) {
+    size_t len;
 
-	len = 0;
-	if (str == NULL)
-		return (0);
-	while (len < n && str[len] != '\0')
-		len++;
-	return (len);
+    len = 0;
+    if (str == NULL)
+        return 0;
+    while (len < n && str[len] != '\0')
+        len++;
+    return len;
 }

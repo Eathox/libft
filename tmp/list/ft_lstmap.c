@@ -1,38 +1,37 @@
 #include "list.h"
 
-static t_list	*freeret(t_list **lst) {
-	ft_lstdel(lst, &ft_lstdelmem);
-	return (NULL);
+static t_list *freeret(t_list **lst) {
+    ft_lstdel(lst, &ft_lstdelmem);
+    return NULL;
 }
 
-static t_list	*list_set(t_list *elem) {
-	t_list *new;
+static t_list *list_set(t_list *elem) {
+    t_list *new;
 
-	new = ft_lstnew_dup(elem->content, elem->content_size);
-	if (new == NULL)
-		return (NULL);
-	return (new);
+    new = ft_lstnew_dup(elem->content, elem->content_size);
+    if (new == NULL)
+        return NULL;
+    return new;
 }
 
-t_list			*ft_lstmap(const t_list *lst, t_list *(*f)(const t_list *elem)) {
-	t_list	*current;
-	t_list	*retlst;
-	t_list	*prvlst;
-	t_list	*duplst;
+t_list *ft_lstmap(const t_list *lst, t_list *(*f)(const t_list *elem)) {
+    t_list *current;
+    t_list *retlst;
+    t_list *prvlst;
+    t_list *duplst;
 
-	retlst = list_set(f(lst));
-	if (retlst == NULL)
-		return (NULL);
-	current = lst->next;
-	prvlst = retlst;
-	while (current != NULL)
-	{
-		duplst = list_set(f(current));
-		if (duplst == NULL)
-			return (freeret(&retlst));
-		prvlst->next = duplst;
-		prvlst = duplst;
-		current = current->next;
-	}
-	return (retlst);
+    retlst = list_set(f(lst));
+    if (retlst == NULL)
+        return NULL;
+    current = lst->next;
+    prvlst = retlst;
+    while (current != NULL) {
+        duplst = list_set(f(current));
+        if (duplst == NULL)
+            return freeret(&retlst);
+        prvlst->next = duplst;
+        prvlst = duplst;
+        current = current->next;
+    }
+    return retlst;
 }

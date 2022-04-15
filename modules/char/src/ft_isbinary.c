@@ -1,7 +1,7 @@
 #include "../include/char.h"
 
 bool ft_isbinary(
-	char c
+    char c
 ) {
-	return (c == '0' || c == '1');
+    return (c == '0' || c == '1');
 }

@@ -2,15 +2,15 @@
 
 #include "str.h"
 
-size_t		ft_strdlen(const char *str, const char *dlm) {
-	size_t		len;
-	t_uint64	bytes[2];
+size_t ft_strdlen(const char *str, const char *dlm) {
+    size_t len;
+    t_uint64 bytes[2];
 
-	len = 0;
-	if (str == NULL)
-		return (0);
-	ft_chrsetbytes(bytes, dlm);
-	while (str[len] != '\0' && ft_chrinbytes(bytes, str[len]) == false)
-		len++;
-	return (len);
+    len = 0;
+    if (str == NULL)
+        return 0;
+    ft_chrsetbytes(bytes, dlm);
+    while (str[len] != '\0' && ft_chrinbytes(bytes, str[len]) == false)
+        len++;
+    return len;
 }

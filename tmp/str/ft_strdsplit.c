@@ -3,40 +3,38 @@
 
 #include "str.h"
 
-static char	**freeret(char ***arr) {
-	ft_strarrdel(arr);
-	return (NULL);
+static char **freeret(char ***arr) {
+    ft_strarrdel(arr);
+    return NULL;
 }
 
-static void	addword(char **arr, char *str, size_t *word) {
-	arr[*word] = str;
-	*word += 1;
+static void addword(char **arr, char *str, size_t *word) {
+    arr[*word] = str;
+    *word += 1;
 }
 
-char		**ft_strdsplit(const char *str, const char *dlm) {
-	char		**arr;
-	t_uint64	bytes[2];
-	size_t		word;
-	size_t		len;
-	size_t		i;
+char **ft_strdsplit(const char *str, const char *dlm) {
+    char **arr;
+    t_uint64 bytes[2];
+    size_t word;
+    size_t len;
+    size_t i;
 
-	i = 0;
-	word = 0;
-	arr = ft_strarrnew(ft_wrddcount(str, dlm));
-	if (arr == NULL)
-		return (freeret(&arr));
-	ft_chrsetbytes(bytes, dlm);
-	while (str[i] != '\0')
-	{
-		if (ft_chrinbytes(bytes, str[i]) == false)
-		{
-			len = ft_strdlen(&str[i], dlm);
-			addword(arr, ft_strndup(&str[i], len), &word);
-			if (arr[word - 1] == NULL)
-				return (freeret(&arr));
-			i += (len - 1);
-		}
-		i++;
-	}
-	return (arr);
+    i = 0;
+    word = 0;
+    arr = ft_strarrnew(ft_wrddcount(str, dlm));
+    if (arr == NULL)
+        return freeret(&arr);
+    ft_chrsetbytes(bytes, dlm);
+    while (str[i] != '\0') {
+        if (ft_chrinbytes(bytes, str[i]) == false) {
+            len = ft_strdlen(&str[i], dlm);
+            addword(arr, ft_strndup(&str[i], len), &word);
+            if (arr[word - 1] == NULL)
+                return freeret(&arr);
+            i += (len - 1);
+        }
+        i++;
+    }
+    return arr;
 }

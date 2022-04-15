@@ -1,9 +1,9 @@
 #include "../include/char.h"
 
 char ft_tolower(
-	char c
+    char c
 ) {
-	if (c >= 'A' && c <= 'Z')
-		c += ('a' - 'A');
-	return (c);
+    if (c >= 'A' && c <= 'Z')
+        c += ('a' - 'A');
+    return c;
 }
