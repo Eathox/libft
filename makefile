@@ -13,7 +13,7 @@ NDEBUG ?= false
 
 # Define NDEBUG to disable assert() macro
 ifeq ($(NDEBUG), true)
-CFALGS += -DNDEBUG
+CFLAGS += -DNDEBUG
 endif
 
 GCOV ?= false
