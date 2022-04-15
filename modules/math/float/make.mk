@@ -10,4 +10,5 @@ objects += ft_min_float
 objects += ft_sign_float
 
 tests += ft_min_float_test
+tests += ft_max_float_test
 tests += ft_sign_float_test

@@ -42,28 +42,10 @@ ParameterizedTest(float128_t *num, ft_sign_float, negative) {
     cr_assert_eq(result, expected, "%Lf", *num);
 }
 
-Test(ft_sign_float, infinity) {
-    float128_t expected;
-    float128_t result;
-
-    expected = 1.0;
-    result = ft_sign_float(INFINITY);
-    cr_assert_eq(result, expected);
-
-    expected = -1.0;
-    result = ft_sign_float(-INFINITY);
-    cr_assert_eq(result, expected);
+Test(ft_sign_float, infinity, .signal = SIGABRT) {
+    ft_sign_float(INFINITY);
 }
 
-Test(ft_sign_float, nan) {
-    float128_t expected;
-    float128_t result;
-
-    expected = 1.0;
-    result = ft_sign_float(NAN);
-    cr_assert_eq(result, expected);
-
-    expected = -1.0;
-    result = ft_sign_float(-NAN);
-    cr_assert_eq(result, expected);
+Test(ft_sign_float, nan, .signal = SIGABRT) {
+    ft_sign_float(NAN);
 }

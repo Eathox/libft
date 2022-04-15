@@ -78,7 +78,7 @@ endef
 $(foreach module,$(all-modules),$(eval $(call MODULE_RULE_TEMPLATE, $(module))))
 
 test: $(TEST_NAME)
-	@$(TEST_NAME)
+	@$(TEST_NAME) 2>&1 | grep -e "\[.*\]"
 PHONY += test
 
 clean:
