@@ -51,7 +51,10 @@ ParameterizedTest(params_t *param, ft_memmem, general) {
         memcpy(mem_byte + param->needle_pos, needle_byte, needle_len);
 
     result = ft_memmem(mem_byte, size, needle_byte, needle_len);
-    cr_assert_eq(param->needle_pos, (size_t)(result - mem_byte), "%08X %08X %zu", param->mem, param->needle, param->needle_pos);
+    cr_assert_eq(
+        param->needle_pos, (size_t)(result - mem_byte), "%08X %08X %zu",
+        param->mem, param->needle, param->needle_pos
+    );
 
     free(mem_byte);
 }
