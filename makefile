@@ -11,7 +11,7 @@ CFLAGS ?= -Wall -Wextra -Werror -Wpedantic -Wmissing-prototypes \
 
 NDEBUG ?= false
 
-# Define NDEBUG to dissable assert() macro
+# Define NDEBUG to disable assert() macro
 ifeq ($(NDEBUG), true)
 CFALGS += -DNDEBUG
 endif
