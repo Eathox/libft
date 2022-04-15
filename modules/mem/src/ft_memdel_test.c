@@ -4,7 +4,7 @@
 #include <criterion/redirect.h>
 
 #include "types/include/types.h"
-#include "mem.h"
+#include "../include/mem.h"
 
 #define LEN 8
 

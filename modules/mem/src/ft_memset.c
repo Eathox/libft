@@ -1,4 +1,4 @@
-#include "mem.h"
+#include "../include/mem.h"
 
 static uint64_t prep_c_8(
 	uint8_t c

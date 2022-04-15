@@ -1,5 +1,5 @@
 #include "types/include/types.h"
-#include "mem.h"
+#include "../include/mem.h"
 
 int ft_memcmp(
 	void const *mem1,

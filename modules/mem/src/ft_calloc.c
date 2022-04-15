@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#include "mem.h"
+#include "../include/mem.h"
 
 void *ft_calloc(
 	size_t count,

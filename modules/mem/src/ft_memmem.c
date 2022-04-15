@@ -1,6 +1,6 @@
 #include <string.h>
 
-#include "mem.h"
+#include "../include/mem.h"
 
 void *ft_memmem(
 	void const *mem,

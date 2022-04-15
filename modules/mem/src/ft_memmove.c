@@ -1,4 +1,4 @@
-#include "mem.h"
+#include "../include/mem.h"
 
 void *ft_memmove(
 	void *dst,

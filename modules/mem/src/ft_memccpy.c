@@ -1,7 +1,7 @@
 #include <string.h>
 
 #include "types/include/types.h"
-#include "mem.h"
+#include "../include/mem.h"
 
 void *ft_memccpy(
 	void *dst,

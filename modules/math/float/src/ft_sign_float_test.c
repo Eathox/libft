@@ -4,7 +4,7 @@
 #include <criterion/parameterized.h>
 
 #include "types/include/types.h"
-#include "float.h"
+#include "../include/float.h"
 
 ParameterizedTestParameters(ft_sign_float, positive) {
 	static float128_t numbers[] = {

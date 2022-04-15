@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include "mem.h"
+#include "../include/mem.h"
 
 static void free_members(
 	void **array,

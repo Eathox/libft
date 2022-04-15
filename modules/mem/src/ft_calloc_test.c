@@ -6,7 +6,7 @@
 #include <criterion/parameterized.h>
 
 #include "types/include/types.h"
-#include "mem.h"
+#include "../include/mem.h"
 
 #define FILL_MEMORY_COUNT 16
 #define FILL_MEMORY_SIZE 24

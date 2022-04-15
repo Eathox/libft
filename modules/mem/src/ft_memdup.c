@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 #include "types/include/types.h"
-#include "mem.h"
+#include "../include/mem.h"
 
 void *ft_memdup(
 	void const *mem,

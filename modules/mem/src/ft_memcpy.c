@@ -1,5 +1,5 @@
 #include "types/include/types.h"
-#include "mem.h"
+#include "../include/mem.h"
 
 void *ft_memcpy(
 	void *dst,

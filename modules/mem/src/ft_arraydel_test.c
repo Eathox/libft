@@ -3,7 +3,7 @@
 #include <criterion/criterion.h>
 
 #include "types/include/types.h"
-#include "mem.h"
+#include "../include/mem.h"
 
 #define MAX UCHAR_MAX
 #define STEP 0x1
