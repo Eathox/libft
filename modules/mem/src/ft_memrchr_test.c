@@ -19,9 +19,9 @@ Test(ft_memrchr, general) {
     uint8_t *mem_byte = calloc(size, sizeof(*mem_byte));
     uint8_t *result;
 
-    for (size_t index = 1; index < size; index += step) {
-        cr_expect_neq(mem_byte, NULL);
+    cr_expect_neq(mem_byte, NULL);
 
+    for (size_t index = 1; index < size; index += step) {
         mem_byte[index - 0] = UCHAR_MAX;
         mem_byte[index - 1] = UCHAR_MAX;
 

@@ -29,10 +29,8 @@ Test(ft_memchr, general) {
         result = ft_memchr(mem_byte, UCHAR_MAX, size);
         cr_assert_eq(expected, result, "%zu", index);
 
-        bzero(expected, size);
-        bzero(result, size);
+        bzero(mem_byte, size);
     }
-
     free(mem_byte);
 }
 
