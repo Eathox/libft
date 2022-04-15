@@ -7,5 +7,5 @@
 float128_t ft_sign_float(
 	float128_t num
 ) {
-	return copysignl(1, num);
+	return (copysignl(1, num));
 }
